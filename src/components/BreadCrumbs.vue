@@ -37,7 +37,6 @@
   .bread-crumbs a:visited,
   .bread-crumbs a:active {
     color: var(--breadcrumbs-link-color);
-    text-decoration: none;
 
     &:hover {
       color: var(--breadcrumbs-link-color-hover);

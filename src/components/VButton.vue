@@ -1,6 +1,6 @@
 <template>
-  <a class="button">
-    <slot>button</slot>
+  <a class="button" :href="link">
+    <slot>click here</slot>
   </a>
 </template>
 
@@ -9,6 +9,10 @@
     name: 'VButton',
     props: {
       icon: {
+        type: String,
+        default: null
+      },
+      link: {
         type: String,
         default: null
       }

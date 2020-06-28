@@ -9,7 +9,7 @@ export const StandardButton = () => ({
   components: { VButton },
   template: `
     <div class="sbdocs-large-container">
-      <v-button href="http://www.google.com">Test Button</v-button>
+      <v-button link="http://www.google.com">Test Button</v-button>
     </div>
   `
 })

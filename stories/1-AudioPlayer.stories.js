@@ -31,3 +31,17 @@ export const Livestream = () => ({
     />
   `
 })
+
+export const WithDownloadButton = () => ({
+  components: { AudioPlayer },
+  template: `
+    <audio-player
+      show-download
+      title="The Show"
+      title-link="http://www.google.com"
+      details="Lorem Ipsum Dolor Sit Amet"
+      details-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+})

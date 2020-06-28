@@ -11,6 +11,7 @@
   --color-quaternary: #106d85;
   --color-quinary: #cc4ec8;
   --color-septary: #ff9efc;
+  --color-octonary: #451a43;
 
   // Fonts
   @import url("https://use.typekit.net/mwg2nux.css");
@@ -201,6 +202,15 @@
   --forms-input-border: 1px solid var(--color-gray);
   --forms-input-outline-color: 1px solid var(--color-secondary);
   --forms-inline-button-padding: 0 var(--space-3);
+
+  // Audio Player
+  --player-background: var(--color-septary);
+  --player-text-color: var(--color-octonary);
+  --player-link-color: var(--player-text-color);
+  --player-progress-color: var(--color-primary);
+  --player-buffered-color: var(--color-quinary);
+  --player-seeker-color: var(--color-octonary);
+  --player-input-range-color: var(--player-text-color);
 
   // Breadcrumbs
   --breadcrumbs-text: var(--color-text);

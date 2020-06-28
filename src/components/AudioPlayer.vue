@@ -3,38 +3,35 @@
     <div class="player-controls">
       <a
         v-if="showSkip && !livestream"
-        tabindex="0"
+        class="player-back-15-icon"
+        aria-label="go back 15 seconds"
         @click="goBack15"
-        @keypress.space.enter="goBack15"
-        class="u-display--flex"
       >
         <back15-icon />
       </a>
       <a
-        tabindex="0"
+        class="player-play-pause-icon"
+        :aria-label="playing ? 'pause' : 'play'"
         @click="togglePlay"
-        @keypress.space.enter="togglePlay"
-        class="u-display--flex"
       >
         <play-icon v-if="!playing" />
         <pause-icon v-if="playing" />
       </a>
       <a
         v-if="showSkip && !livestream"
-        tabindex="0"
+        class="player-ahead-15-icon"
+        aria-label="go ahead 15 seconds"
         @click="goAhead15"
-        @keypress.space.enter="goAhead15"
-        class="u-display--flex"
       >
         <ahead15-icon />
       </a>
       <div class="player-track">
         <div class="player-track-title">
-          <a v-if="hasTitle && hasTitleLink" :href="titleLink">{{ title }}</a>
+          <a v-if="hasTitle && hasTitleLink" :href="titleLink"  class="player-track-title-link">{{ title }}</a>
           <span v-if="hasTitle && !hasTitleLink">{{ title }}</span>
           <span v-if="hasTitle && hasDetails"> - </span>
           <span v-if="hasDetails && !hasDetailsLink" class="player-track-title-details">{{ details }}</span>
-          <a v-if="hasDetails && hasDetailsLink" :href="detailsLink" class="player-track-title-details">{{ details
+          <a v-if="hasDetails && hasDetailsLink" :href="detailsLink" class="player-track-title-details-link">{{ details
             }}</a>
         </div>
         <template v-if="livestream">
@@ -62,14 +59,6 @@
           </div>
         </template>
       </div>
-      <a
-        v-if="showDownload"
-        tabindex="0"
-        @click="download"
-        @keypress.space.enter="download"
-      >
-        <download-icon />
-      </a>
       <div
         class="player-volume"
         @mouseover.prevent="showVolume = true"
@@ -93,6 +82,8 @@
         </transition>
         <a
           tabindex="0"
+          class="player-volume-icon"
+          :aria-label="muted ? 'unmute' : 'mute'"
           @click="mute"
           @keypress.space.enter="mute"
         >
@@ -100,6 +91,16 @@
           <volume-muted-icon v-if="muted" />
         </a>
       </div>
+      <a
+        v-if="showDownload && !livestream"
+        tabindex="0"
+        class="player-download-icon"
+        aria-label="download"
+        @click="download"
+        @keypress.space.enter="download"
+      >
+        <download-icon />
+      </a>
     </div>
     <audio
       ref="audioFile"
@@ -295,18 +296,11 @@
 <style lang="scss" scoped>
   @import "src/assets/scss/breakpoints";
 
-  $player-bg: var(--color-septary);
-  $player-text-color: #451a43;
-  $player-progress-color: var(--color-primary);
-  $player-buffered-color: var(--color-quinary);
-  $player-seeker-color: $player-text-color;
-  $player-link-color: $player-text-color;
-
   .player {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: $player-bg;
+    background-color: var(--player-background);
     padding: .25rem 1rem;
     @media all and (min-width: $medium) {
       padding: .5rem 2rem;
@@ -316,7 +310,7 @@
   .player a,
   .player a:visited,
   .player a:active {
-    color: $player-link-color;
+    color: var(--player-link-color);
     text-decoration: none;
 
     &:hover {
@@ -338,7 +332,7 @@
   }
 
   .player-controls .download-icon {
-    margin-right: 1rem;
+    margin-left: 1rem;
   }
 
   .player-livestream {
@@ -378,7 +372,7 @@
 
   .player-track-progress {
     position: absolute;
-    background-color: $player-progress-color;
+    background-color: var(--player-progress-color);
     cursor: pointer;
     min-width: 200px;
     top: -5px;
@@ -393,7 +387,7 @@
   }
 
   .player-track-progress .player-track-seeker {
-    background-color: $player-seeker-color;
+    background-color: var(--player-seeker-color);
     bottom: 0;
     left: 0;
     position: absolute;
@@ -402,7 +396,7 @@
   }
 
   .player-track-progress .player-track-buffered {
-    background-color: $player-buffered-color;
+    background-color: var(--player-buffered-color);
     bottom: 0;
     left: 0;
     position: absolute;
