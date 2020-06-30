@@ -10,7 +10,7 @@
     >
       <img
         :src="icon"
-        alt="alt-text"
+        :alt="altText"
       >
     </a>
   </li>

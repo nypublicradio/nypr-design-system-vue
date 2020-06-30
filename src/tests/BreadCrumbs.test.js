@@ -19,6 +19,8 @@ describe('BreadCrumbs', () => {
         crumbs: crumbsTest
       }
     })
+    // check if prop was passed correctly
+    expect(wrapper.vm.crumbs).toEqual(crumbsTest)
     //check if links and text are rendering correctly
     const link1 = wrapper.findAll('a').at(0)
     expect(link1.text()).toBe('Home')
