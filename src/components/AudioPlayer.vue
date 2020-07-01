@@ -27,12 +27,27 @@
       </a>
       <div class="player-track">
         <div class="player-track-title">
-          <a v-if="hasTitle && hasTitleLink" :href="titleLink"  class="player-track-title-link">{{ title }}</a>
+          <a
+            v-if="hasTitle && hasTitleLink"
+            :href="titleLink"  class="player-track-title-link"
+          >
+            {{ title }}
+          </a>
           <span v-if="hasTitle && !hasTitleLink">{{ title }}</span>
           <span v-if="hasTitle && hasDetails"> - </span>
-          <span v-if="hasDetails && !hasDetailsLink" class="player-track-title-details">{{ details }}</span>
-          <a v-if="hasDetails && hasDetailsLink" :href="detailsLink" class="player-track-title-details-link">{{ details
-            }}</a>
+          <span
+            v-if="hasDetails && !hasDetailsLink"
+            class="player-track-title-details"
+          >
+            {{ details }}
+          </span>
+          <a
+            v-if="hasDetails && hasDetailsLink"
+            :href="detailsLink"
+            class="player-track-title-details-link"
+          >
+            {{ details }}
+          </a>
         </div>
         <template v-if="livestream">
           <div class="player-livestream">Live Now on New Sounds <a href="/livestream" class="player-livestream-link">Previously
@@ -68,7 +83,7 @@
           for="playerVolume"
           class="hide-ally-element"
         >
-          audio player volume slider
+          volume slider
         </label>
         <transition name="slide-left">
           <input
@@ -123,7 +138,15 @@
 
   export default {
     name: 'AudioPlayer',
-    components: { PlayIcon, PauseIcon, Back15Icon, Ahead15Icon, VolumeIcon, VolumeMutedIcon, DownloadIcon },
+    components: {
+      PlayIcon,
+      PauseIcon,
+      Back15Icon,
+      Ahead15Icon,
+      VolumeIcon,
+      VolumeMutedIcon,
+      DownloadIcon
+    },
     filters: {
       convertTimeHHMMSS (val) {
         const hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
@@ -226,9 +249,27 @@
     },
     created () {
       this.innerLoop = this.loop
-      window.addEventListener('keyup', event => {
-        if (event.code === 'Space') {
-          this.togglePlay()
+      // keyboard accessibility
+      window.addEventListener('keydown', event => {
+        switch (event.code) {
+          case 'Space':
+            this.togglePlay()
+            break
+          case 'Enter':
+            this.togglePlay()
+            break
+          case 'ArrowUp':
+            if (this.volume < 100) this.volume++
+            break
+          case 'ArrowDown':
+            if (this.volume > 0) this.volume--
+            break
+          case 'ArrowLeft':
+            this.goBack15()
+            break
+          case 'ArrowRight':
+            this.goAhead15()
+            break
         }
       })
     },
@@ -419,7 +460,7 @@
       content: '';
       height: 22px;
       width: 22px;
-      background-color: #451a43;
+      background-color: var(--player-buffered-color);
       border-radius: 50%;
       opacity: 1;
       display: block;

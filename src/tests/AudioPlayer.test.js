@@ -39,17 +39,16 @@ describe('AudioPlayer', () => {
     expect(wrapper.vm.audio.currentTime).toBe(15)
   })
 
-  test('play/pause button works', () => {
-    const wrapper = mount(AudioPlayer)
-    expect(wrapper.vm.playing).toBe(false)
-    const div = wrapper.get('.player-play-pause-icon')
-    // play the music
-    div.trigger('click')
-    expect(wrapper.vm.playing).toBe(true)
-    // pause the music
-    div.trigger('click')
-    expect(wrapper.vm.playing).toBe(false)
-  })
+  // test('play/pause works when enter is pressed', () => {
+  //   const wrapper = mount(AudioPlayer)
+  //   expect(wrapper.vm.playing).toBe(false)
+  //   // play the music
+  //   wrapper.trigger("keydown", {key: "Enter"})
+  //   expect(wrapper.vm.playing).toBe(true)
+  //   // pause the music
+  //   wrapper.trigger("keydown", {key: "Enter"})
+  //   expect(wrapper.vm.playing).toBe(false)
+  // })
 
   test('title prop works', () => {
     const wrapper = mount(AudioPlayer, {
