@@ -1,5 +1,14 @@
-<svg role="img" viewBox="0 0 16 76" version="1.1" xmlns="http://www.w3.org/2000/svg"
-     xmlns:xlink="http://www.w3.org/1999/xlink" class="nypr-brand-header__square-bracket-open">
-  <title>square bracket open icon</title>
-  <path d="M2,76 L0,76 L0,0 L2,0 L16,-4.4408921e-16 L16,2 L2,2 L2,74 L16,74 L16,76 L2,76 Z"></path>
-</svg>
+<template>
+  <svg
+    role="img"
+    viewBox="0 0 16 76"
+    xmlns="http://www.w3.org/2000/svg"
+    class="square-bracket-close-icon"
+  >
+    <title>square bracket close icon</title>
+    <path
+      d="M2,76 L0,76 L0,0 L2,0 L16,-4.4408921e-16 L16,2 L2,2 L2,74 L16,74 L16,76 L2,76 Z"
+      transform="rotate(-180 8 38)"
+    />
+  </svg>
+</template>
