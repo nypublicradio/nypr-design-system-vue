@@ -3,8 +3,10 @@
     <router-link to="/">
       <!-- eslint-disable -->
       <svg version="1.1" width="825px" height="100px" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+           role="img"
            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="672 118 1400 300" xml:space="preserve"
            class="logo-svg">
+    <title>new sounds logo</title>
     <image style="overflow:visible;" width="1180" height="1179"
            xlink:href="/img/new-sounds-symbol-gradient-for-svg.png"
            transform="matrix(0.24 0 0 0.24 934.6431 120.0175)"></image>

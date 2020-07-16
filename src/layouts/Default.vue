@@ -1,5 +1,7 @@
 <template>
   <div>
+    <the-brand-bar />
+    <v-spacer size="double" />
     <the-header />
     <v-spacer size="triple" />
     <main>
@@ -31,6 +33,7 @@
 
 <script>
   import VSpacer from '../components/VSpacer'
+  import TheBrandBar from '../components/TheBrandBar'
   import TheHeader from '../components/TheHeader'
   import TheAllShowsBar from '../components/TheAllShowsBar'
   import TheAboutBar from '../components/TheAboutBar'
@@ -39,6 +42,6 @@
 
   export default {
     name: 'Default',
-    components: { VSpacer, TheHeader, TheAllShowsBar, TheAboutBar, TheFooter, AudioPlayer }
+    components: { VSpacer, TheBrandBar, TheHeader, TheAllShowsBar, TheAboutBar, TheFooter, AudioPlayer }
   }
 </script>

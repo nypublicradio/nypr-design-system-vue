@@ -1,5 +1,6 @@
 <template>
   <svg
+    role="img"
     width="32px"
     height="32px"
     viewBox="0 0 32 32"
@@ -8,6 +9,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     class="volume-icon"
   >
+    <title>volume icon</title>
     <defs />
     <g
       id="Page-1"

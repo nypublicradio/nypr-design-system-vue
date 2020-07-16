@@ -1,5 +1,6 @@
 <template>
   <svg
+    role="img"
     width="54px"
     height="54px"
     viewBox="0 0 54 54"
@@ -8,6 +9,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     class="pause-icon"
   >
+    <title>pause icon</title>
     <g
       id="Page-1"
       stroke="none"

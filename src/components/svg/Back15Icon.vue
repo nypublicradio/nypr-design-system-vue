@@ -1,5 +1,6 @@
 <template>
   <svg
+    role="img"
     width="29px"
     height="27px"
     viewBox="0 0 29 27"
@@ -8,6 +9,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     class="back-15-icon"
   >
+    <title>go back 15 seconds icon</title>
     <g
       id="Page-1"
       stroke="none"

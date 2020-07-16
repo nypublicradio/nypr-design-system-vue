@@ -1,16 +1,16 @@
 import { shallowMount } from '@vue/test-utils'
-import IconLink from '../components/IconLink'
+import IconLinkItem from '../components/IconLinkItem'
 import { describe, test, expect } from "@jest/globals"
 
 describe('IconLink', () => {
 
   test('component renders', () => {
-    const wrapper = shallowMount(IconLink)
+    const wrapper = shallowMount(IconLinkItem)
     expect(wrapper.exists())
   })
 
   test('link prop works', () => {
-    const wrapper = shallowMount(IconLink, {
+    const wrapper = shallowMount(IconLinkItem, {
       propsData: {
         icon: './assets/spotify.svg',
         link: 'https://www.spotify.com',
@@ -25,7 +25,7 @@ describe('IconLink', () => {
   })
 
   test('icon prop works', () => {
-    const wrapper = shallowMount(IconLink, {
+    const wrapper = shallowMount(IconLinkItem, {
       propsData: {
         icon: './assets/spotify.svg',
         link: 'https://www.spotify.com',
@@ -40,7 +40,7 @@ describe('IconLink', () => {
   })
 
   test('alt-text prop works', () => {
-    const wrapper = shallowMount(IconLink, {
+    const wrapper = shallowMount(IconLinkItem, {
       propsData: {
         icon: './assets/spotify.svg',
         link: 'https://www.spotify.com',

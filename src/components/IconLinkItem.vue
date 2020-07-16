@@ -18,7 +18,7 @@
 
 <script>
   export default {
-    name: 'IconLink',
+    name: 'IconLinkItem',
     props: {
       icon: {
         type: String,
@@ -37,7 +37,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .icon-links .icon-link-item {
+  .icon-link-item {
     display: inline-block;
     margin-right: 1rem;
 
@@ -46,9 +46,9 @@
     }
   }
 
-  .icon-links .icon-link,
-  .icon-links .icon-link:visited,
-  .icon-links .icon-link:active {
+  .icon-link-item .icon-link,
+  .icon-link-item .icon-link:visited,
+  .icon-link-item .icon-link:active {
     height: var(--icon-size);
     width: var(--icon-size);
     display: inline-block;

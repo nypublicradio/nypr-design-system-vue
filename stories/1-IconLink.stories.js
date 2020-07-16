@@ -1,4 +1,4 @@
-import IconLink from '../src/components/IconLink'
+import IconLink from '../src/components/IconLinks'
 
 export default {
   title: 'Icon Link',

@@ -70,7 +70,7 @@
 </template>
 
 <script>
-  import SearchSvg from './svg/SearchSvg'
+  import SearchSvg from './svg/Search'
 
   export default {
     name: 'TheHeaderNav',
