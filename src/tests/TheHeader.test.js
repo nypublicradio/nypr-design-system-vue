@@ -1,9 +1,8 @@
 import { mount } from '@vue/test-utils'
 import TheHeader from '../components/TheHeader'
-import { describe, test, expect } from "@jest/globals"
+import { describe, test, expect } from '@jest/globals'
 
 describe('TheHeader', () => {
-
   test('component renders', () => {
     // need to mock the route since the header component detects the current route
     const $route = {
@@ -46,5 +45,4 @@ describe('TheHeader', () => {
     })
     expect(wrapper.find('.home').exists()).toBe(false)
   })
-
 })

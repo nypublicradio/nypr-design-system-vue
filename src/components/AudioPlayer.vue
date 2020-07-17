@@ -29,7 +29,8 @@
         <div class="player-track-title">
           <a
             v-if="hasTitle && hasTitleLink"
-            :href="titleLink"  class="player-track-title-link"
+            :href="titleLink"
+            class="player-track-title-link"
           >
             {{ title }}
           </a>
@@ -50,8 +51,13 @@
           </a>
         </div>
         <template v-if="livestream">
-          <div class="player-livestream">Live Now on New Sounds <a href="/livestream" class="player-livestream-link">Previously
-            Played</a></div>
+          <div class="player-livestream">
+            Live Now on New Sounds <a
+              href="/livestream"
+              class="player-livestream-link"
+            >Previously
+              Played</a>
+          </div>
         </template>
         <template v-else>
           <div

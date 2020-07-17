@@ -1,17 +1,18 @@
-import ContentCard from '../src/components/ContentCard'
+import ContentBlade from '../src/components/ContentBlade'
 
 export default {
   title: 'Content Card',
-  component: ContentCard
+  component: ContentBlade
 }
 
 export const MediaOnLeft = () => ({
-  components: { ContentCard },
+  components: { ContentBlade },
   template: `
     <div class="sbdocs-large-container">
-      <content-card
-        pretitle="pretitle"
+      <content-blade
+        date="1/11/2020"
         title="Title Lorem Ipsum Dolor"
+        title-link="http://www.google.com"
         link="http://www.google.com"
         image="./assets/Placeholder-Image-4_3.png"
         alt-text="alt text"
@@ -24,21 +25,20 @@ export const MediaOnLeft = () => ({
             ipsum odio
             praesentium quis.
           </p>
-          <p><strong>LOREM IPSUM DOLOR SITE AMET</strong></p>
         </template>
-      </content-card>
+      </content-blade>
     </div>
   `
 })
 
 export const MediaOnRight = () => ({
-  components: { ContentCard },
+  components: { ContentBlade },
   template: `
     <div class="sbdocs-large-container">
-      <content-card
-        pretitle="pretitle"
+      <content-blade
         title="Title Lorem Ipsum Dolor"
-        link="http://www.google.com"
+        title-link="http://www.google.com"
+        link="http://www.bing.com"
         cta="check this out"
         video="https://player.vimeo.com/video/90283590"
         alignment="right"
@@ -52,17 +52,64 @@ export const MediaOnRight = () => ({
             praesentium quis.
           </p>
         </template>
-      </content-card>
+      </content-blade>
     </div>
   `
 })
 
-export const MiddleAlignment = () => ({
-  components: { ContentCard },
+export const FeaturedVideoExample = () => ({
+  components: { ContentBlade },
   template: `
     <div class="sbdocs-large-container">
-      <content-card
-        pretitle="pretitle"
+      <content-blade
+        title="Watch Adia Victoria, In-Studio"
+        title-link="http://www.google.com"
+        link="http://www.google.com"
+        video="https://player.vimeo.com/video/90283590"
+        cta="Watch more New Sounds videos"
+      >
+        <template slot="content">
+          <p>
+            Nashville-based singer-songwriter, guitarist, and poet Adia Victoria crafts Southern Gothic pop deeply
+            rooted in the blues. She performs new songs from her record, “Silences”, in-studio.
+          </p>
+        </template>
+      </content-blade>
+    </div>
+  `
+})
+
+export const FeaturedContentBladeExample = () => ({
+  components: { ContentBlade },
+  template: `
+    <div class="sbdocs-large-container">
+      <content-blade
+        featured
+        date="1/11/2020"
+        title="Weekly Music Roundup: Lisel, Bab L’ Bluz, and Samora Pinderhughes"
+        title-link="http://www.google.com"
+        link="http://www.google.com"
+        image="./assets/Placeholder-Image-1_1.png"
+        cta="Read More"
+        layout="1x4"
+      >
+        <template slot="content">
+          <p>
+            This week, a quiet song of protest from Samora Pinderhughes, a noisy song from quarantine by Lisel, and an
+            ode to the NYC subways from Max Richter. Plus, Moroccan trance by Bab L' Bluz.
+          </p>
+        </template>
+      </content-blade>
+    </div>
+  `
+})
+
+
+export const MiddleAlignment = () => ({
+  components: { ContentBlade },
+  template: `
+    <div class="sbdocs-large-container">
+      <content-blade
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         image="./assets/Placeholder-Image-4_3.png"
@@ -76,16 +123,16 @@ export const MiddleAlignment = () => ({
             molestias natus nobis, placeat, quae quia suscipit ullam vitae voluptatem?
           </p>
         </template>
-      </content-card>
+      </content-blade>
     </div>
   `
 })
 
 export const TwoThirdsLayout = () => ({
-  components: { ContentCard },
+  components: { ContentBlade },
   template: `
     <div class="sbdocs-large-container">
-      <content-card
+      <content-blade
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         cta="check this out"
@@ -102,16 +149,16 @@ export const TwoThirdsLayout = () => ({
             praesentium quis.
           </p>
         </template>
-      </content-card>
+      </content-blade>
     </div>
   `
 })
 
 export const TwoThirdsWithMediaOnRight = () => ({
-  components: { ContentCard },
+  components: { ContentBlade },
   template: `
     <div class="sbdocs-large-container">
-      <content-card
+      <content-blade
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         cta="check this out"
@@ -129,16 +176,16 @@ export const TwoThirdsWithMediaOnRight = () => ({
             praesentium quis.
           </p>
         </template>
-      </content-card>
+      </content-blade>
     </div>
   `
 })
 
 export const OneQuarterLayout = () => ({
-  components: { ContentCard },
+  components: { ContentBlade },
   template: `
     <div class="sbdocs-large-container">
-      <content-card
+      <content-blade
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         cta="check this out"
@@ -155,16 +202,16 @@ export const OneQuarterLayout = () => ({
             praesentium quis.
           </p>
         </template>
-      </content-card>
+      </content-blade>
     </div>
   `
 })
 
 export const OneQuarterWithMediaOnRight = () => ({
-  components: { ContentCard },
+  components: { ContentBlade },
   template: `
     <div class="sbdocs-large-container">
-      <content-card
+      <content-blade
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         cta="check this out"
@@ -179,7 +226,33 @@ export const OneQuarterWithMediaOnRight = () => ({
             ultrices
           </p>
         </template>
-      </content-card>
+      </content-blade>
+    </div>
+  `
+})
+
+export const FixedImageLayout = () => ({
+  components: { ContentBlade },
+  template: `
+    <div class="sbdocs-large-container">
+      <content-blade
+        title="Title Lorem Ipsum Dolor"
+        link="http://www.google.com"
+        cta="check this out"
+        image="./assets/Placeholder-Image-1_1.png"
+        alt-text="alt text"
+        layout="fixed"
+      >
+        <template slot="content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae consectetur corporis
+            dicta magnam,
+            molestias natus nobis, placeat, quae quia suscipit ullam vitae voluptatem? Enim facilis
+            ipsum odio
+            praesentium quis.
+          </p>
+        </template>
+      </content-blade>
     </div>
   `
 })

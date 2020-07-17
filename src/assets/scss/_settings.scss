@@ -4,7 +4,7 @@
   --color-black: #000000;
   --color-dark-gray: #333333;
   --color-gray: #777777;
-  --color-light-gray: #d1d3d4;
+  --color-light-gray: #adadad;
   --color-primary: #f25ced;
   --color-secondary: #189fc4;
   --color-tertiary: #17b77f;
@@ -221,8 +221,7 @@
   --breadcrumbs-seperator-color: var(--color-text);
 
   // Cards
-  --card-background: var(--color-light-gray);
-  --card-header-background: var(--color-gray);
+  --card-background: var(--color-white);
   --card-color-link: var(--color-secondary);
 
   // Icons

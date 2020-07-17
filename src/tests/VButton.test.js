@@ -1,9 +1,8 @@
 import { shallowMount } from '@vue/test-utils'
 import VButton from '../components/VButton'
-import { describe, test, expect } from "@jest/globals"
+import { describe, test, expect } from '@jest/globals'
 
 describe('VButton', () => {
-
   test('component renders', () => {
     const wrapper = shallowMount(VButton)
     expect(wrapper.exists())
@@ -22,5 +21,4 @@ describe('VButton', () => {
     })
     expect(wrapper.props().link).toBe('http://www.foo.com')
   })
-
 })

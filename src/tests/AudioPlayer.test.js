@@ -1,9 +1,8 @@
 import { mount, shallowMount } from '@vue/test-utils'
 import AudioPlayer from '../components/AudioPlayer'
-import { describe, test, expect } from "@jest/globals"
+import { describe, test, expect } from '@jest/globals'
 
 describe('AudioPlayer', () => {
-
   test('component renders', () => {
     const wrapper = shallowMount(AudioPlayer)
     expect(wrapper.exists())
@@ -11,7 +10,7 @@ describe('AudioPlayer', () => {
 
   test('file prop works', () => {
     // test if the file prop works by using a blank base64 wav file
-    const file = 'data:audio/wave;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA==';
+    const file = 'data:audio/wave;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA=='
     const wrapper = mount(AudioPlayer, {
       propsData: {
         file
@@ -113,7 +112,7 @@ describe('AudioPlayer', () => {
     // check that start/current volume is 100
     expect(wrapper.vm.volume).toBe(100)
     // set the slider to 75
-    wrapper.find("input[type=range]").setValue(75)
+    wrapper.find('input[type=range]').setValue(75)
     // check that start/current volume is 75
     expect(wrapper.vm.volume).toBe('75')
   })
@@ -189,5 +188,4 @@ describe('AudioPlayer', () => {
     const div = wrapper.find('.player-track-time')
     expect(div.exists()).toBe(false)
   })
-
 })

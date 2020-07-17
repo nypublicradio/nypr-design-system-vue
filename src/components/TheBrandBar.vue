@@ -1,49 +1,80 @@
 <template>
   <section class="brand-bar">
-    <div class="nypr-network">
+    <div
+      class="nypr-network"
+      @click="showBrandLogos = !showBrandLogos"
+    >
       <a class="nypr-network-link">NYPR Network</a>
-      <caret-right />
+      <caret-right v-if="!showBrandLogos" />
+      <close-icon v-if="showBrandLogos" />
     </div>
     <NyprLogo />
     <SquareBracketOpen />
-    <div class="brand-bar-logos">
+    <div
+      class="brand-bar-logos"
+      :class="{ 'show': showBrandLogos }"
+    >
       <a
         href="https://www.wnyc.org?utm_medium=partnersite&amp;utm_campaign=brandheader&amp;utm_source=newsounds"
-        data-action="Brand Header" data-label="wnyc-logo" target="_blank" class="brand-bar-link gtm__click-tracking">
+        data-action="Brand Header"
+        data-label="wnyc-logo"
+        target="_blank"
+        class="brand-bar-link gtm__click-tracking"
+      >
         <wnyc-logo />
       </a>
       <a
         href="https://www.gothamist.com?utm_medium=partnersite&amp;utm_campaign=brandheader&amp;utm_source=newsounds"
-        data-action="Brand Header" data-label="gothamist-logo" target="_blank"
-        class="brand-bar-link gtm__click-tracking">
+        data-action="Brand Header"
+        data-label="gothamist-logo"
+        target="_blank"
+        class="brand-bar-link gtm__click-tracking"
+      >
         <gothamist-logo />
       </a>
       <a
         href="https://www.wnycstudios.org?utm_medium=partnersite&amp;utm_campaign=brandheader&amp;utm_source=newsounds"
-        data-action="Brand Header" data-label="wnyc-studios-logo" target="_blank"
-        class="brand-bar-link gtm__click-tracking">
+        data-action="Brand Header"
+        data-label="wnyc-studios-logo"
+        target="_blank"
+        class="brand-bar-link gtm__click-tracking"
+      >
         <wnyc-studios-logo />
       </a>
       <a
         href="http://www.njpublicradio.org?utm_medium=partnersite&amp;utm_campaign=brandheader&amp;utm_source=newsounds"
-        data-action="Brand Header" data-label="njpr-logo" target="_blank" class="brand-bar-link gtm__click-tracking">
+        data-action="Brand Header"
+        data-label="njpr-logo"
+        target="_blank"
+        class="brand-bar-link gtm__click-tracking"
+      >
         <njpr-logo />
       </a>
       <a
         href="https://www.wqxr.org?utm_medium=partnersite&amp;utm_campaign=brandheader&amp;utm_source=newsounds"
-        data-action="Brand Header" data-label="wqxr-logo" target="_blank" class="brand-bar-link gtm__click-tracking">
+        data-action="Brand Header"
+        data-label="wqxr-logo"
+        target="_blank"
+        class="brand-bar-link gtm__click-tracking"
+      >
         <wqxr-logo />
       </a>
       <a
         href="https://www.newsounds.org?utm_medium=partnersite&amp;utm_campaign=brandheader&amp;utm_source=newsounds"
-        data-action="Brand Header" data-label="new-sounds-logo" target="_blank"
-        class="brand-bar-link gtm__click-tracking">
+        data-action="Brand Header"
+        data-label="new-sounds-logo"
+        target="_blank"
+        class="brand-bar-link gtm__click-tracking"
+      >
         <new-sounds-logo />
       </a>
       <a
         href="https://www.thegreenespace.org?utm_medium=partnersite&amp;utm_campaign=brandheader&amp;utm_source=newsounds"
-        data-action="Brand Header" data-label="greene-space-logo" target="_blank"
-        class="brand-bar-link gtm__click-tracking">
+        data-action="Brand Header"
+        data-label="greene-space-logo"
+        target="_blank"
+        class="brand-bar-link gtm__click-tracking"
+      >
         <greene-space-logo />
       </a>
     </div>
@@ -53,6 +84,7 @@
 
 <script>
   import CaretRight from './svg/CaretRight'
+  import CloseIcon from './svg/CloseIcon'
   import NyprLogo from './svg/NyprLogo'
   import SquareBracketOpen from './svg/SquareBracketOpen'
   import WnycLogo from './svg/WnycLogo'
@@ -68,6 +100,7 @@
     name: 'BrandBar',
     components: {
       CaretRight,
+      CloseIcon,
       NyprLogo,
       SquareBracketOpen,
       WnycLogo,
@@ -78,6 +111,11 @@
       NewSoundsLogo,
       GreeneSpaceLogo,
       SquareBracketClose
+    },
+    data () {
+      return {
+        showBrandLogos: false
+      }
     }
   }
 </script>
@@ -102,8 +140,8 @@
 
   .brand-bar .nypr-network {
     display: flex;
-    height: 36px;
-    align-items: center;
+    align-items: baseline;
+    margin-top: 6px;
     @media all and (min-width: $large) {
       display: none;
     }
@@ -126,27 +164,60 @@
 
   .brand-bar-logos {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    background: var(--color-dark-gray);
+    min-height: 100vh;
+    height: 100%;
+    width: 200px;
+    position: absolute;
+    right: -200px;
+    top: 36px;
+    bottom: 0;
+    padding: 2rem;
+    z-index: 10;
+    transition: var(--transition);
+    @media all and (min-width: $large) {
+      flex-direction: row;
+      min-height: auto;
+      width: auto;
+      position: relative;
+      top: auto;
+      right: auto;
+      padding: 0;
+    }
+    &.show {
+      right: 0;
+    }
   }
 
   .brand-bar .brand-bar-link {
     display: flex;
     align-items: center;
-    opacity: .6;
-
-    &:hover {
-      opacity: 1;
+    @media all and (min-width: $large) {
+      opacity: .6;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
   .brand-bar svg {
-    display: none;
+    display: block;
+    fill: white;
+    margin: 0 0 2rem;
+    width: 100px;
     @media all and (min-width: $large) {
-      display: block;
-      fill: white;
       height: 34px;
+      width: auto;
       margin: 0 .8rem;
     }
+  }
+
+  .brand-bar .close-icon {
+    width: 12px;
+    height: 12px;
+    margin-left: .5rem;
   }
 
   .brand-bar .nypr-logo {
@@ -155,31 +226,55 @@
 
   .brand-bar .square-bracket-open-icon,
   .brand-bar .square-bracket-close-icon {
-    height: 31px;
     opacity: .5;
+    width: 100px;
+    @media all and (min-width: $large) {
+      height: 31px;
+      width: auto;
+    }
   }
 
   .brand-bar .wnyc-logo {
-    height: 26px;
+    width: 100px;
+    @media all and (min-width: $large) {
+      height: 26px;
+      width: auto;
+    }
   }
 
   .brand-bar .wnyc-studios-logo {
-    height: 30px;
+    width: 100px;
+    @media all and (min-width: $large) {
+      height: 30px;
+      width: auto;
+    }
   }
 
   .brand-bar .wqxr-logo,
   .brand-bar .njpr-logo {
-    height: 20px;
+    width: 100px;
+    @media all and (min-width: $large) {
+      height: 20px;
+      width: auto;
+    }
   }
 
   .brand-bar .gothamist-logo {
-    height: 36px;
+    width: 100px;
+    @media all and (min-width: $large) {
+      height: 36px;
+      width: auto;
+    }
   }
 
   .brand-bar .new-sounds-logo {
-    height: 15px;
-    width: auto;
     fill: white;
+    width: 100px;
+    height: auto;
+    @media all and (min-width: $large) {
+      height: 15px;
+      width: auto;
+    }
   }
 
   .brand-bar .new-sounds-logo .st0 {

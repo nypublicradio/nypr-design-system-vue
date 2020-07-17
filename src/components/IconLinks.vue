@@ -1,6 +1,6 @@
 <template>
   <ul class="icon-links">
-    <slot></slot>
+    <slot />
   </ul>
 </template>
 

@@ -52,11 +52,11 @@
 }
 
 .l-grid--2x3 {
-    grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 2fr;
 }
 
 .l-grid--3x2 {
-    grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr;
 }
 
 .l-grid--1x4 {
@@ -65,6 +65,10 @@
 
 .l-grid--4x1 {
   grid-template-columns: 3fr 1fr;
+}
+
+.l-grid--fixed {
+  grid-template-columns: 100px 1fr;
 }
 
 .l-grid--3up--medium {

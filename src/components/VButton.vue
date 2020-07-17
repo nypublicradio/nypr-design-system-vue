@@ -1,5 +1,8 @@
 <template>
-  <a class="button" :href="link">
+  <a
+    class="button"
+    :href="link"
+  >
     <slot>click here</slot>
   </a>
 </template>

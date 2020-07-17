@@ -1,39 +1,74 @@
 <template>
   <div class="basic-card">
-    <div
-      v-if="hasTitle"
-      class="title u-padding"
-    >
-      {{ title }}
-    </div>
-    <a
-      v-if="hasLink"
-      :href="link"
-      :aria-label="title"
-    />
     <img
       v-if="hasImage"
       :src="image"
       :alt="altText"
+      class="basic-card-image u-space--bottom"
     >
-    <div v-if="hasVideo">
+    <div
+      v-if="hasVideo"
+      class="u-space--bottom"
+    >
       <media-block :url="video" />
     </div>
-    <div class="content u-padding">
-      <div
-        v-if="hasSubtitle"
-        class="subtitle u-space--bottom"
-      >
-        {{ subtitle }}
+    <div class="basic-card-content">
+      <div class="l-grid l-grid--2up">
+        <p
+          v-if="hasShow"
+          class="basic-card-show"
+        >
+          {{ show }}
+        </p>
+        <p
+          v-if="hasShow && hasDate"
+          class="basic-card-date u-align--right u-hide-until--m"
+        >
+          {{ date }}
+        </p>
+        <p
+          v-if="!hasShow && hasDate"
+          class="basic-card-date"
+        >
+          {{ date }}
+        </p>
       </div>
-      <div class="description">
+      <div
+        v-if="hasLink && hasTitle"
+        class="basic-card-title"
+      >
+        <a
+          v-if="hasLink"
+          :href="link"
+          :aria-label="title"
+        >
+          {{ title }}
+        </a>
+      </div>
+      <div
+        v-if="!hasLink && hasTitle"
+        class="basic-card-title"
+      >
+        {{ title }}
+      </div>
+      <div
+        v-if="hasDuration"
+        class="basic-card-duration u-space--bottom"
+      >
+        {{ duration }}
+      </div>
+      <div
+        v-if="hasDescription"
+        class="basic-card-description u-space--top"
+      >
         {{ description }}
       </div>
-      <template v-if="hasTextLink">
-        <div class="cta u-space--top">
-          {{ cta }}
-        </div>
-      </template>
+      <div
+        v-if="hasCta"
+        class="basic-card-cta"
+      >
+        {{ cta }}
+      </div>
     </div>
   </div>
 </template>
@@ -47,23 +82,15 @@
       'media-block': MediaBlock
     },
     props: {
-      title: {
-        type: String,
-        default: null
-      },
-      video: {
-        type: String,
-        default: null
-      },
-      image: {
-        type: String,
-        default: null
-      },
       altText: {
         type: String,
         default: null
       },
-      subtitle: {
+      cta: {
+        type: String,
+        default: 'Read More'
+      },
+      date: {
         type: String,
         default: null
       },
@@ -71,22 +98,52 @@
         type: String,
         default: null
       },
-      cta: {
+      duration: {
         type: String,
-        default: 'Learn More'
+        default: null
+      },
+      hasCta: {
+        type: Boolean,
+        default: false
+      },
+      image: {
+        type: String,
+        default: null
       },
       link: {
         type: String,
         default: null
       },
-      hasTextLink: {
-        type: Boolean,
-        default: false
+      show: {
+        type: String,
+        default: null
+      },
+      showLink: {
+        type: String,
+        default: null
+      },
+      title: {
+        type: String,
+        default: null
+      },
+      titleLink: {
+        type: String,
+        default: null
+      },
+      video: {
+        type: String,
+        default: null
       }
     },
     computed: {
-      hasTitle () {
-        return !!this.$props.title
+      hasDate () {
+        return !!this.$props.date
+      },
+      hasDescription () {
+        return !!this.$props.description
+      },
+      hasDuration () {
+        return !!this.$props.duration
       },
       hasImage () {
         return !!this.$props.image
@@ -94,8 +151,11 @@
       hasLink () {
         return !!this.$props.link
       },
-      hasSubtitle () {
-        return !!this.$props.subtitle
+      hasShow () {
+        return !!this.$props.showLink
+      },
+      hasTitle () {
+        return !!this.$props.title
       },
       hasVideo () {
         return !!this.$props.video
@@ -106,34 +166,29 @@
 
 <style lang="scss" scoped>
   .basic-card {
+    background: var(--card-background);
     width: 100%;
     height: 100%;
-    opacity: 1;
-    background: var(--card-background);
-    transition: var(--transition);
     position: relative;
-
-    &:hover {
-      opacity: var(--opacity-on-hover);
-      cursor: pointer;
-    }
   }
 
-  .basic-card .title {
-    background: var(--card-header-background);
-    font-weight: 700;
+  .basic-card .basic-card-title {
+    font-weight: 500;
   }
 
-  .basic-card img {
+  .basic-card .basic-card-image {
     top: 0;
     left: 0;
   }
 
-  .basic-card .content .subtitle {
-    font-weight: 700;
+  .basic-card .basic-card-show,
+  .basic-card .basic-card-date,
+  .basic-card .basic-card-duration {
+    color: var(--color-light-gray);
   }
 
-  .basic-card .content .subtitle .cta {
+  .basic-card .basic-card-cta {
     color: var(--card-color-link);
+    margin-top: .25rem;
   }
 </style>
