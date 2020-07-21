@@ -10,7 +10,7 @@ export const VerticalLayout = () => ({
   template: `
     <div class="sbdocs-xsmall-container">
       <biography-card
-        image="./assets/Placeholder-Image-1_1.png"
+        image="https://placehold.it/768x768"
         has-text-link
         alt-text="alternative text"
         name="John Doe 1"
@@ -38,7 +38,7 @@ export const HorizontalLayout = () => ({
   template: `
     <div class="sbdocs-large-container">
       <biography-card
-        image="./assets/Placeholder-Image-1_1.png"
+        image="https://placehold.it/768x768"
         alt-text="alternative text"
         name="John Doe 1"
         title="President, Google.com, Seattle"

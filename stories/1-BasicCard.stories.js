@@ -13,7 +13,7 @@ export const WithAnImage = () => ({
         :has-text-link=true
         title="Weekly Music Roundup: Hachalu Hundessa RIP, Monte, and Jorja Smith"
         title-link="http://www.bing.com"
-        image="./assets/Placeholder-Image-1_1.png"
+        image="https://placehold.it/768x768"
         alt-text="alternative text"
         show="Gig Alerts"
         show-link="http://www.google.com"
@@ -65,7 +65,7 @@ export const WithoutADescriptionOrDuration = () => ({
         :has-text-link=true
         title="Weekly Music Roundup: Hachalu Hundessa RIP, Monte, and Jorja Smith"
         title-link="http://www.bing.com"
-        image="./assets/Placeholder-Image-1_1.png"
+        image="https://placehold.it/768x768"w
         alt-text="alternative text"
         show="Gig Alerts"
         show-link="http://www.google.com"

@@ -149,15 +149,15 @@ export const Grid = () => ({
       </div>
       <h3 class="u-space--bottom">Vertical Alignment:</h3>
       <div class="l-grid l-grid--1x4 l-grid--top u-space--bottom">
-        <div><img src="./assets/Placeholder-Image-4_3.png" alt="placeholder image"/></div>
+        <div><img src="https://placehold.it/800x600" alt="placeholder image"/></div>
         <div class="u-background-color--gray--light u-padding--half u-align--center">top</div>
       </div>
       <div class="l-grid l-grid--1x4 l-grid--middle u-space--bottom">
-        <div><img src="./assets/Placeholder-Image-4_3.png" alt="placeholder image"/></div>
+        <div><img src="https://placehold.it/800x600" alt="placeholder image"/></div>
         <div class="u-background-color--gray--light u-padding--half u-align--center">middle</div>
       </div>
       <div class="l-grid l-grid--1x4 l-grid--bottom u-space--bottom">
-        <div><img src="./assets/Placeholder-Image-4_3.png" alt="placeholder image"/></div>
+        <div><img src="https://placehold.it/800x600" alt="placeholder image"/></div>
         <div class="u-background-color--gray--light u-padding--half u-align--center">bottom</div>
       </div>
     </div>

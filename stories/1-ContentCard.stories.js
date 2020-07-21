@@ -14,7 +14,7 @@ export const MediaOnLeft = () => ({
         title="Title Lorem Ipsum Dolor"
         title-link="http://www.google.com"
         link="http://www.google.com"
-        image="./assets/Placeholder-Image-4_3.png"
+        image="https://placehold.it/800x600"
         alt-text="alt text"
       >
         <template slot="content">
@@ -89,7 +89,7 @@ export const FeaturedContentBladeExample = () => ({
         title="Weekly Music Roundup: Lisel, Bab L’ Bluz, and Samora Pinderhughes"
         title-link="http://www.google.com"
         link="http://www.google.com"
-        image="./assets/Placeholder-Image-1_1.png"
+        image="https://placehold.it/768x768"
         cta="Read More"
         layout="1x4"
       >
@@ -112,7 +112,7 @@ export const MiddleAlignment = () => ({
       <content-blade
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
-        image="./assets/Placeholder-Image-4_3.png"
+        image="https://placehold.it/800x600"
         alt-text="alt text"
         verticalAlignment="middle"
       >
@@ -136,7 +136,7 @@ export const TwoThirdsLayout = () => ({
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         cta="check this out"
-        image="./assets/Placeholder-Image-4_3.png"
+        image="https://placehold.it/800x600"
         alt-text="alt text"
         layout="2x3"
       >
@@ -162,7 +162,7 @@ export const TwoThirdsWithMediaOnRight = () => ({
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         cta="check this out"
-        image="./assets/Placeholder-Image-4_3.png"
+        image="https://placehold.it/800x600"
         alt-text="alt text"
         layout="2x3"
         alignment="right"
@@ -189,7 +189,7 @@ export const OneQuarterLayout = () => ({
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         cta="check this out"
-        image="./assets/Placeholder-Image-4_3.png"
+        image="https://placehold.it/800x600"
         alt-text="alt text"
         layout="1x4"
       >
@@ -215,7 +215,7 @@ export const OneQuarterWithMediaOnRight = () => ({
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         cta="check this out"
-        image="./assets/Placeholder-Image-4_3.png"
+        image="https://placehold.it/800x600"
         alt-text="alt text"
         layout="1x4"
         alignment="right"
@@ -239,7 +239,7 @@ export const FixedImageLayout = () => ({
         title="Title Lorem Ipsum Dolor"
         link="http://www.google.com"
         cta="check this out"
-        image="./assets/Placeholder-Image-1_1.png"
+        image="https://placehold.it/768x768"
         alt-text="alt text"
         layout="fixed"
       >

@@ -6,7 +6,7 @@ export default {
   component: IconLinks
 }
 
-export const All = () => ({
+export const Example = () => ({
   components: { IconLinks, IconLinkItem },
   template: `
     <div class="sbdocs-large-container">
