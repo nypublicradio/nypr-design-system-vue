@@ -5,60 +5,23 @@ export default {
   component: BiographyCard
 }
 
-export const VerticalLayout = () => ({
-  components: {BiographyCard},
+export const Example = () => ({
+  components: { BiographyCard },
   template: `
     <div class="sbdocs-xsmall-container">
       <biography-card
         image="https://placehold.it/768x768"
-        has-text-link
         alt-text="alternative text"
         name="John Doe 1"
         title="President, Google.com, Seattle"
         link="http://www.google.com"
-        layout="vertical"
-        cta="Learn More"
       >
         <slot>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae consectetur corporis
-            dicta magnam,
-            molestias natus nobis, placeat, quae quia suscipit ullam vitae voluptatem? Enim facilis
-            ipsum odio
-            praesentium quis.
-          </p>
-        </slot>
-      </biography-card>
-    </div>
-  `
-})
-
-export const HorizontalLayout = () => ({
-  components: {BiographyCard},
-  template: `
-    <div class="sbdocs-large-container">
-      <biography-card
-        image="https://placehold.it/768x768"
-        alt-text="alternative text"
-        name="John Doe 1"
-        title="President, Google.com, Seattle"
-        link="http://www.google.com"
-        layout="horizontal"
-        cta="Learn more about John"
-      >
-        <slot>
-          <p class="u-space--bottom">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat.
-          </p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae consectetur corporis
+          dicta magnam,
+          molestias natus nobis, placeat, quae quia suscipit ullam vitae voluptatem? Enim facilis
+          ipsum odio
+          praesentium quis.
         </slot>
       </biography-card>
     </div>

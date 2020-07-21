@@ -7,55 +7,58 @@
       class="l-grid"
       :class="{'l-grid--1x4 l-grid--1up--small': isHorizontal}"
     >
-      <div v-if="hasImage">
+      <a
+        v-if="hasLink && hasImage"
+        :href="link"
+      >
+        <img
+          :src="image"
+          :alt="altText"
+        >
+      </a>
+      <div
+        v-if="!hasLink && hasImage"
+        class="name"
+      >
         <img
           :src="image"
           :alt="altText"
         >
       </div>
-      <div>
-        <div class="name">
-          <a
-            v-if="hasLink && hasName"
-            :href="link"
-          >{{ name }}</a>
-        </div>
-        <div
-          v-if="!hasLink && hasName"
-          class="name"
-        >
-          {{ name }}
-        </div>
-        <div
-          v-if="hasTitle"
-          class="title"
-        >
-          {{ title }}
-        </div>
-        <div
-          v-if="hasSlot"
-          class="u-space--bottom"
-        />
-        <slot />
-        <div
-          v-if="hasSlot"
-          class="u-space--bottom"
-        />
-        <p
-          v-if="hasCta && hasLink && !hasTextLink"
-          class="u-space--top"
-        >
-          <a
-            :href="link"
-            class="button"
-          >{{ cta }}</a>
-        </p>
-        <p
-          v-if="hasCta && hasLink && hasTextLink"
-          class="u-space--top"
-        >
-          <a :href="link">{{ cta }}</a>
-        </p>
+    </div>
+    <div>
+      <div class="name">
+        <a
+          v-if="hasLink && hasName"
+          :href="link"
+          class="biography-card-name"
+        >{{ name }}</a>
+      </div>
+      <div
+        v-if="!hasLink && hasName"
+        class="name"
+      >
+        {{ name }}
+      </div>
+      <div
+        v-if="hasTitle"
+        class="biography-card-title u-space--bottom"
+      >
+        {{ title }}
+      </div>
+      <div
+        v-if="hasSlot"
+      />
+      <slot />
+      <div
+        v-if="hasSlot"
+        class="biography-card-description u-space--top"
+      />
+      <div
+        v-if="hasCta && hasLink"
+        class="biography-card-cta u-space--top"
+      >
+        <a :href="link">{{ cta }}</a>
       </div>
     </div>
   </div>
@@ -83,15 +86,11 @@
       },
       cta: {
         type: String,
-        default: null
+        default: 'Read More'
       },
       link: {
         type: String,
         default: null
-      },
-      hasTextLink: {
-        type: Boolean,
-        default: false
       },
       layout: {
         type: String,
@@ -125,11 +124,22 @@
 </script>
 
 <style lang="scss" scoped>
-  .biography-card .name {
-    font-weight: 700;
+  .biography-card {
+    font-size: var(--font-size-5);
+    line-height: var(--line-height-5);
   }
 
-  .biography-card .title {
-    font-style: italic;
+  .biography-card .biography-card-name {
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .biography-card .biography-card-title {
+    color: var(--color-text-muted);
   }
 </style>
