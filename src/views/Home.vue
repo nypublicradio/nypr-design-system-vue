@@ -5,10 +5,7 @@
 </template>
 
 <script>
-  import BasicCard from '../components/BasicCard'
-
   export default {
-    name: 'Home',
-    components: { BasicCard }
+    name: 'Home'
   }
 </script>
