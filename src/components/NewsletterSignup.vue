@@ -33,19 +33,19 @@
         Terms Of Use
       </legend>
       <input
-        v-model="newsletterTerms"
         id="checkbox1"
+        v-model="newsletterTerms"
         type="checkbox"
       >
       <label for="checkbox1">
         By submitting your information, you're agreeing to receive communications from New York Public Radio in
         accordance with our <a
-        href="https://www.wnyc.org/terms/"
-        class="newsletter-signup-terms-link"
-        target="_blank"
-      >
-        Terms of Use
-      </a>.
+          href="https://www.wnyc.org/terms/"
+          class="newsletter-signup-terms-link"
+          target="_blank"
+        >
+          Terms of Use
+        </a>.
       </label>
     </fieldset>
   </div>
