@@ -58,6 +58,6 @@
     }
   },
   "gitHooks": {
-    "pre-commit": "jest"
+    "pre-commit": "vue-cli-service lint && jest"
   }
 }

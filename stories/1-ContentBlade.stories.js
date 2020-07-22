@@ -1,7 +1,7 @@
 import ContentBlade from '../src/components/ContentBlade'
 
 export default {
-  title: 'Content Card',
+  title: 'Content Blade',
   component: ContentBlade
 }
 

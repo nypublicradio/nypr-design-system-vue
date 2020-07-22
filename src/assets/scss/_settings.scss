@@ -82,9 +82,9 @@
   }
 
   h3 {
-    @include typeface(header, 8);
+    @include typeface(header, 16);
     @media all and (min-width: $large) {
-      @include typeface(header, 11);
+      @include typeface(header, 16);
     }
   }
 

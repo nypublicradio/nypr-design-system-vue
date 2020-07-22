@@ -21,6 +21,7 @@ select {
 
   &::placeholder {
     @extend .form-element-styles;
+    color: var(--color-light-gray);
   }
 
   &:focus {
@@ -47,13 +48,45 @@ fieldset {
   font-weight: var(--font-weight);
 }
 
+input[type=checkbox] {
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  -o-appearance:none;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  outline: 2px solid #ddd;
+}
+
+input[type=checkbox]:after {
+  content: '';
+  width: 6px;
+  height: 10px;
+  border: solid #222;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+input[type=checkbox]:checked:after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+
 [type=checkbox] + label,
 [type=radio] + label {
   display: inline-block;
   vertical-align: baseline;
-  margin-left: .5rem;
+  margin-left: .25rem;
   margin-right: 1rem;
   margin-bottom: 0;
+  line-height: 16px;
 }
 
 textarea {

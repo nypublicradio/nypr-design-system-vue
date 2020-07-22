@@ -9,7 +9,7 @@ export const Intro = () => ({
   template: `
     <div class="sbdocs-large-container">
       <h1 class="u-space--double--bottom">New Sounds</h1>
-      <h3 class="u-space--double--bottom">Built with Storybook and Vue</h3>
+      <p class="u-space--double--bottom">Built with Storybook and Vue</p>
     </div>
   `
 })

@@ -14,6 +14,15 @@ export const StandardButton = () => ({
   `
 })
 
+export const DisabledButton = () => ({
+  components: { VButton },
+  template: `
+    <div class="sbdocs-large-container">
+      <v-button link="http://www.google.com" disabled>Disabled Button</v-button>
+    </div>
+  `
+})
+
 export const InlineButton = () => ({
   components: { VButton },
   template: `

@@ -1,6 +1,7 @@
 <template>
   <a
     class="button"
+    :class="{'disabled': disabled}"
     :href="link"
   >
     <slot>click here</slot>
@@ -11,6 +12,10 @@
   export default {
     name: 'VButton',
     props: {
+      disabled: {
+        type: Boolean,
+        default: false
+      },
       icon: {
         type: String,
         default: null
@@ -50,6 +55,11 @@
       color: var(--button-text-hover);
       text-decoration: none;
     }
+  }
+
+  .button.disabled {
+    pointer-events: none;
+    opacity: .25;
   }
 
   .inline-button {
