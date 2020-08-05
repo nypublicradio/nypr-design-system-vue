@@ -1,5 +1,5 @@
 <template>
-  <div class="newsletter-signup">
+  <section class="newsletter-signup l-container">
     <h3 class="u-space--bottom">
       Hand-picked music in your inbox.
     </h3>
@@ -48,7 +48,7 @@
         </a>.
       </label>
     </fieldset>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -59,7 +59,7 @@
     components: { VButton },
     data () {
       return {
-        newsletterTerms: false
+        newsletterTerms: true
       }
     },
     computed: {

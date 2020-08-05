@@ -1,15 +1,15 @@
 <template>
   <main class="home l-container">
     <h1>Home page</h1>
-    <newsletter-signup />
+    <v-spacer size="triple" />
   </main>
 </template>
 
 <script>
-  import NewsletterSignup from '../components/NewsletterSignup'
+  import VSpacer from '../components/VSpacer'
 
   export default {
     name: 'Home',
-    components: { NewsletterSignup }
+    components: { VSpacer }
   }
 </script>

@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "@jest/globals": "^26.1.0",
+    "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
+    "@babel/plugin-transform-runtime": "^7.11.0",
     "@jest/environment": "^26.1.0",
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-viewport": "^5.3.19",
@@ -38,7 +40,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
-    "jest": "^26.1.0",
+    "jest": "^26.2.2",
     "node-sass": "^4.12.0",
     "react": "^16.13.1",
     "react-is": "^16.13.1",

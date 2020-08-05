@@ -1,10 +1,22 @@
 <template>
   <div class="basic-card">
+    <a
+      v-if="hasImage && hasLink"
+      :href="link"
+    >
+      <img
+        :src="image"
+        :alt="altText"
+        class="basic-card-image u-space--bottom"
+        loading="lazy"
+      >
+    </a>
     <img
-      v-if="hasImage"
+      v-if="hasImage && !hasLink"
       :src="image"
       :alt="altText"
       class="basic-card-image u-space--bottom"
+      loading="lazy"
     >
     <div
       v-if="hasVideo"
@@ -13,9 +25,24 @@
       <media-block :url="video" />
     </div>
     <div class="basic-card-content">
-      <div class="l-grid l-grid--2up">
+      <div
+        class="l-grid"
+        :class="{'l-grid--2up': hasShow && hasDate}"
+      >
+        <div v-if="hasShow && hasShowLink">
+          <a
+            :href="showLink"
+            class="basic-card-show-link"
+          >
+            <p
+              class="basic-card-show"
+            >
+              {{ show }}
+            </p>
+          </a>
+        </div>
         <p
-          v-if="hasShow"
+          v-if="hasShow && !hasShowLink"
           class="basic-card-show"
         >
           {{ show }}
@@ -60,9 +87,8 @@
       <div
         v-if="hasDescription"
         class="basic-card-description u-space--top"
-      >
-        {{ description }}
-      </div>
+        v-html="description"
+      />
       <div
         v-if="hasCta"
         class="basic-card-cta"
@@ -152,6 +178,9 @@
         return !!this.$props.link
       },
       hasShow () {
+        return !!this.$props.show
+      },
+      hasShowLink () {
         return !!this.$props.showLink
       },
       hasTitle () {
@@ -164,7 +193,10 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style
+  lang="scss"
+  scoped
+>
   .basic-card {
     background: var(--card-background);
     width: 100%;
@@ -181,14 +213,37 @@
     left: 0;
   }
 
-  .basic-card .basic-card-show,
+  .basic-card .basic-card-show {
+    color: var(--color-gray);
+  }
+
   .basic-card .basic-card-date,
   .basic-card .basic-card-duration {
     color: var(--color-light-gray);
   }
 
+  .basic-card .basic-card-show-link,
+  .basic-card .basic-card-show-link p,
   .basic-card .basic-card-cta {
     color: var(--card-color-link);
+  }
+
+  .basic-card.newsounds .basic-card-show-link,
+  .basic-card.newsounds .basic-card-show-link p {
+    color: var(--color-quinary);
+  }
+
+  .basic-card.soundcheck .basic-card-show-link,
+  .basic-card.soundcheck .basic-card-show-link p {
+    color: #17b77f;
+  }
+
+  .basic-card.gig-alerts .basic-card-show-link,
+  .basic-card.gig-alerts .basic-card-show-link p {
+    color: var(--color-gray);
+  }
+
+  .basic-card .basic-card-cta {
     margin-top: .25rem;
   }
 </style>

@@ -30,7 +30,7 @@ export const WithAVideo = () => ({
   template: `
     <div class="sbdocs-xsmall-container">
       <basic-card
-        title="Title"
+        title="Title lorem ipsum dolor sit amet"
         video="https://player.vimeo.com/video/90283590"
         alt-text="alternative text"
         subdescription="subtitle"

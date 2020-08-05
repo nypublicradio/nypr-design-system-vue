@@ -1,4 +1,4 @@
-import NewsletterSignup from '../src/components/NewsletterSignup'
+import NewsletterSignup from '../src/components/TheNewsletterSignup'
 
 export default {
   title: 'Newsletter Signup',
