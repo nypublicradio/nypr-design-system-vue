@@ -60,9 +60,9 @@
       <hr>
       <div class="u-padding--half--top u-padding--half--bottom">
         <v-button
-          @click.native="playLivestream()"
           class="u-display--inline-block gtm__click-tracking"
           data-action="Header: listen live"
+          @click.native="playLivestream()"
         >
           Listen Live
         </v-button>

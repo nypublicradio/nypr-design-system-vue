@@ -9,7 +9,6 @@
       <basic-card
         v-for="(episode, index) in recentEpisodes"
         :key="index"
-        @click.native="playAudio(episode.attributes)"
         :image="episode.attributes['image-main'].url"
         :alt-text="episode.attributes.title"
         :show="episode.attributes['show-title']"
@@ -18,6 +17,7 @@
         :date="episode.attributes.newsdate | formatDate"
         class="u-space--bottom"
         :class="episode.attributes.show"
+        @click.native="playAudio(episode.attributes)"
       />
     </div>
   </section>
