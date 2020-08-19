@@ -20,14 +20,19 @@
     <v-spacer size="double" />
     <the-footer />
     <v-spacer size="sept" />
-    <audio-player
-      livestream
-      title="The Show"
-      title-link="http://www.google.com"
-      details="Lorem Ipsum Dolor Sit Amet this is a really long title so I can test this out!"
-      details-link="http://www.bing.com"
-      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
-    />
+    <keep-alive>
+      <transition name="slide">
+        <audio-player
+          v-if="this.$store.state.nowPlaying"
+          :livestream="this.$store.state.livestream"
+          :title="this.$store.state.nowPlaying['show-title']"
+          :title-link="'shows/'+this.$store.state.nowPlaying.show"
+          :details="this.$store.state.nowPlaying.title"
+          :details-link="'story/'+this.$store.state.nowPlaying.slug"
+          :file="this.$store.state.nowPlaying.audio"
+        />
+      </transition>
+    </keep-alive>
   </div>
 </template>
 
@@ -43,6 +48,15 @@
 
   export default {
     name: 'Default',
-    components: { VSpacer, TheBrandBar, TheHeader, TheNewsletterSignup, TheAllShowsBar, TheAboutBar, TheFooter, AudioPlayer }
+    components: {
+      VSpacer,
+      TheBrandBar,
+      TheHeader,
+      TheNewsletterSignup,
+      TheAllShowsBar,
+      TheAboutBar,
+      TheFooter,
+      AudioPlayer
+    }
   }
 </script>

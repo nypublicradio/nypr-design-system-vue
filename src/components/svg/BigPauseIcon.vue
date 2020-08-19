@@ -5,9 +5,9 @@
     height="54px"
     viewBox="0 0 54 54"
     xmlns="http://www.w3.org/2000/svg"
-    class="icon new-sounds-play-icon icon--play"
+    class="icon new-sounds-pause-icon icon--pause"
   >
-    <title>play icon</title>
+    <title>pause icon</title>
     <g
       id="Page-1"
       stroke="none"
@@ -17,24 +17,24 @@
     >
       <g
         id="newsounds_r5f-spec-assets"
-        transform="translate(-1305.000000, -290.000000)"
+        transform="translate(-1280.000000, -127.000000)"
       >
         <g
           id="Group-402"
-          transform="translate(1055.000000, 291.000000)"
+          transform="translate(1030.000000, 128.000000)"
         >
           <path
-            d="M303.0315,26.3948 C303.0315,40.7178 291.4205,52.3298 277.0975,52.3298 C262.7735,52.3298 251.1625,40.7178 251.1625,26.3948 C251.1625,12.0718 262.7735,0.4608 277.0975,0.4608 C291.4205,0.4608 303.0315,12.0718 303.0315,26.3948 Z"
-            id="Stroke-396"
+            d="M302.869,25.934 C302.869,40.257 291.258,51.869 276.935,51.869 C262.611,51.869 251,40.257 251,25.934 C251,11.611 262.611,0 276.935,0 C291.258,0 302.869,11.611 302.869,25.934 Z"
             stroke="#CC4EC8"
             class="svg-path-circle-icon outer"
-          ></path>
+          />
           <path
-            d="M286.5812,27.9919 L272.5972,36.0649 C271.3682,36.7749 269.8312,35.8879 269.8312,34.4679 L269.8312,18.3209 C269.8312,16.9019 271.3682,16.0139 272.5972,16.7239 L286.5812,24.7979 C287.8102,25.5079 287.8102,27.2819 286.5812,27.9919"
-            id="Fill-398"
+            id="Shape"
+            d="M280.058824,16 L284.529412,16 L284.529412,35 L280.058824,35 L280.058824,16 Z M270,16 L274.470588,16 L274.470588,35 L270,35 L270,16 Z"
             fill="#451A43"
-            class="svg-path-play-icon inner"
-          ></path>
+            fill-rule="nonzero"
+            class="svg-path-pause-icon inner"
+          />
         </g>
       </g>
     </g>

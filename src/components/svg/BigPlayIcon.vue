@@ -4,10 +4,8 @@
     width="54px"
     height="54px"
     viewBox="0 0 54 54"
-    version="1.1"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    class="play-icon"
+    class="icon new-sounds-play-icon icon--play"
   >
     <title>play icon</title>
     <g

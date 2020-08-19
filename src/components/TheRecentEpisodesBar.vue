@@ -9,6 +9,7 @@
       <basic-card
         v-for="(episode, index) in recentEpisodes"
         :key="index"
+        @click.native="playAudio(episode.attributes)"
         :image="episode.attributes['image-main'].url"
         :alt-text="episode.attributes.title"
         :show="episode.attributes['show-title']"
@@ -47,11 +48,19 @@
       } catch (e) {
         console.log(e)
       }
+    },
+    methods: {
+      playAudio (episode) {
+        this.$store.commit('playAudio', episode)
+      }
     }
   }
 </script>
 
 <style lang="scss">
+  .recent-episodes .basic-card {
+    cursor: pointer;
+  }
   .recent-episodes .basic-card-image {
     width: 275px;
     height: 275px;
