@@ -13,7 +13,7 @@ export const WithAnImage = () => ({
         :has-text-link=true
         title="Weekly Music Roundup: Hachalu Hundessa RIP, Monte, and Jorja Smith"
         title-link="http://www.bing.com"
-        image="https://placehold.it/768x768"
+        image="https://media.wnyc.org/i/600/600/l/80/1/ns_showcard-newsounds-radio-1.jpg"
         alt-text="alternative text"
         show="Gig Alerts"
         show-link="http://www.google.com"
@@ -30,7 +30,7 @@ export const WithAVideo = () => ({
   template: `
     <div class="sbdocs-xsmall-container">
       <basic-card
-        title="Title lorem ipsum dolor sit amet"
+        title="Weekly Music Roundup: Hachalu Hundessa RIP, Monte, and Jorja Smith"
         video="https://player.vimeo.com/video/90283590"
         alt-text="alternative text"
         subdescription="subtitle"
@@ -65,7 +65,7 @@ export const WithoutADescriptionOrDuration = () => ({
         :has-text-link=true
         title="Weekly Music Roundup: Hachalu Hundessa RIP, Monte, and Jorja Smith"
         title-link="http://www.bing.com"
-        image="https://placehold.it/768x768"w
+        image="https://media.wnyc.org/i/600/600/l/80/1/ns_showcard-newsounds-radio-1.jpg"
         alt-text="alternative text"
         show="Gig Alerts"
         show-link="http://www.google.com"

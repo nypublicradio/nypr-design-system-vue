@@ -7,6 +7,7 @@
       :href="link"
       target="_blank"
       class="icon-link"
+      rel="noopener"
     >
       <img
         :src="icon"

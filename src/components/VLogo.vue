@@ -1,6 +1,6 @@
 <template>
   <div class="logo">
-    <router-link to="/">
+    <router-link to="/" aria-label="go to the home page">
       <new-sounds-logo />
     </router-link>
   </div>

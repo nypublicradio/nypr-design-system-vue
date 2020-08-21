@@ -18,6 +18,8 @@
         class="u-space--bottom"
         :class="episode.attributes.show"
         @click.native="playAudio(episode.attributes)"
+        @keypress.native.enter.space="playAudio(episode.attributes)"
+        tabindex="0"
       />
     </div>
   </section>

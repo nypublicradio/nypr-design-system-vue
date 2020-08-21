@@ -1,7 +1,7 @@
 import NewsletterSignup from '../src/components/TheNewsletterSignup'
 
 export default {
-  title: 'Newsletter Signup',
+  title: 'The Newsletter Signup',
   component: NewsletterSignup
 }
 

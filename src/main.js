@@ -5,8 +5,8 @@ import router from './router'
 import './assets/scss/main.scss'
 import Default from './layouts/Default'
 
+// vuex stuff
 Vue.use(Vuex)
-
 const store = new Vuex.Store({
   state: {
     livestream: false,
@@ -17,17 +17,9 @@ const store = new Vuex.Store({
       state.livestream = false
       state.nowPlaying = show
     },
-    playLivestream (state) {
+    playLivestream (state, show) {
       state.livestream = true
-      state.nowPlaying =
-        {
-          audio: 'https://www.liberliber.it/mediateca/musica/g/gershwin/rhapsody_in_blue/mp3/gershwin_rhapsody_in_blue_bl_01.mp3',
-          'show-title': 'New Sounds Radio',
-          show: 'newsoundsradio',
-          title: 'episode title',
-          slug: 'http://www.kim.com'
-
-        }
+      state.nowPlaying = show
     }
   }
 })
@@ -35,6 +27,7 @@ const store = new Vuex.Store({
 // layouts
 Vue.component('default-layout', Default)
 
+// turns off the (annoying) production tip you see in the console
 Vue.config.productionTip = false
 
 new Vue({

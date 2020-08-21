@@ -22,6 +22,7 @@
       <v-button
         type="submit"
         class="inline-button"
+        tabindex="0"
         :disabled="!!disabled"
       >
         Subscribe&nbsp;Now
@@ -43,6 +44,7 @@
           href="https://www.wnyc.org/terms/"
           class="newsletter-signup-terms-link"
           target="_blank"
+          rel="noopener"
         >
           Terms of Use
         </a>.

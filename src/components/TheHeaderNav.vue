@@ -51,6 +51,7 @@
             <router-link
               to="/search"
               class="nav-link"
+              aria-label="search"
             >
               <search-svg />
             </router-link>
@@ -61,6 +62,7 @@
               target="_blank"
               class="nav-link gtm__click-title-tracking"
               data-action="Donate"
+              rel="noopener"
             >Donate</a>
           </li>
         </ul>
@@ -99,6 +101,7 @@
   .nav-link:active {
     color: var(--color-black);
     padding: 1rem .1rem;
+    cursor: pointer;
 
     &:hover {
       color: var(--color-quaternary);

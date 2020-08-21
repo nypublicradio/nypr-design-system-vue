@@ -20,6 +20,8 @@
         data-label="wnyc-logo"
         target="_blank"
         class="brand-bar-link gtm__click-tracking"
+        rel="noopener"
+        aria-label="visit the wnyc website"
       >
         <wnyc-logo />
       </a>
@@ -29,6 +31,8 @@
         data-label="gothamist-logo"
         target="_blank"
         class="brand-bar-link gtm__click-tracking"
+        rel="noopener"
+        aria-label="visit the gothamist website"
       >
         <gothamist-logo />
       </a>
@@ -38,6 +42,8 @@
         data-label="wnyc-studios-logo"
         target="_blank"
         class="brand-bar-link gtm__click-tracking"
+        rel="noopener"
+        aria-label="visit the wnyc studios website"
       >
         <wnyc-studios-logo />
       </a>
@@ -47,6 +53,8 @@
         data-label="njpr-logo"
         target="_blank"
         class="brand-bar-link gtm__click-tracking"
+        rel="noopener"
+        aria-label="visit the njpr website"
       >
         <njpr-logo />
       </a>
@@ -56,6 +64,8 @@
         data-label="wqxr-logo"
         target="_blank"
         class="brand-bar-link gtm__click-tracking"
+        rel="noopener"
+        aria-label="visit the wqxr website"
       >
         <wqxr-logo />
       </a>
@@ -65,6 +75,8 @@
         data-label="new-sounds-logo"
         target="_blank"
         class="brand-bar-link gtm__click-tracking"
+        rel="noopener"
+        aria-label="visit the new sounds website"
       >
         <new-sounds-logo />
       </a>
@@ -74,6 +86,8 @@
         data-label="greene-space-logo"
         target="_blank"
         class="brand-bar-link gtm__click-tracking"
+        rel="noopener"
+        aria-label="visit the greene space website"
       >
         <greene-space-logo />
       </a>

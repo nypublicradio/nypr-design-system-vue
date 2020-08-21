@@ -62,7 +62,9 @@
         <v-button
           class="u-display--inline-block gtm__click-tracking"
           data-action="Header: listen live"
+          tabindex="0"
           @click.native="playLivestream()"
+          @keypress.native.enter.space="playLivestream()"
         >
           Listen Live
         </v-button>
@@ -80,24 +82,48 @@
 </template>
 
 <script>
-  import VLogo from './VLogo'
-  import TheHeaderNav from './TheHeaderNav'
-  import IconLinks from './IconLinks'
-  import IconLinkItem from './IconLinkItem'
-  import VButton from './VButton'
+import { getWhatsOn } from '../api'
 
-  export default {
-    name: 'TheHeader',
-    components: { VLogo, TheHeaderNav, IconLinks, IconLinkItem, VButton },
-    computed: {
-      isHomePage () {
-        return this.$route.name === 'Home'
+import VLogo from './VLogo'
+import TheHeaderNav from './TheHeaderNav'
+import IconLinks from './IconLinks'
+import IconLinkItem from './IconLinkItem'
+import VButton from './VButton'
+
+export default {
+  name: 'TheHeader',
+  components: { VLogo, TheHeaderNav, IconLinks, IconLinkItem, VButton },
+  data () {
+    return {
+      whatsOn: []
+    }
+  },
+  computed: {
+    isHomePage () {
+      if (this.$route) return this.$route.name === 'Home'
+      else return 'Storybook'
+    }
+  },
+  async created () {
+    try {
+      const response = await getWhatsOn()
+      this.whatsOn = response.data.q2
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  methods: {
+    playLivestream () {
+      const nowPlaying = {
+        audio: this.whatsOn.current_playlist_item.catalog_entry.audio,
+        'show-title': 'New Sounds Radio',
+        show: 'newsoundsradio',
+        title: this.whatsOn.current_playlist_item.catalog_entry.composer.name + ', ' + this.whatsOn.current_playlist_item.catalog_entry.title,
+        slug: ''
+
       }
-    },
-    methods: {
-      playLivestream () {
-        this.$store.commit('playLivestream')
-      }
+      this.$store.commit('playLivestream', nowPlaying)
     }
   }
+}
 </script>
