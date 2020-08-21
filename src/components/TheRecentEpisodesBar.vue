@@ -17,9 +17,9 @@
         :date="episode.attributes.newsdate | formatDate"
         class="u-space--bottom"
         :class="episode.attributes.show"
+        tabindex="0"
         @click.native="playAudio(episode.attributes)"
         @keypress.native.enter.space="playAudio(episode.attributes)"
-        tabindex="0"
       />
     </div>
   </section>
