@@ -1,0 +1,103 @@
+/*------------------------------------*\
+    $WRAPPERS & CONTAINERS
+\*------------------------------------*/
+
+/**
+ * Wrapping element to keep content contained and centered.
+ */
+.l-wrap {
+  margin: 0 auto;
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+  width: 100%;
+  position: relative;
+}
+
+/**
+ * Layout containers - keep content centered and within a maximum width. Also
+ * adjusts left and right padding as the viewport widens.
+ */
+
+.l-container {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.l-container--xl {
+  max-width: var(--max-width-xl);
+}
+
+.l-container--content {
+  max-width: var(--article-content-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Grid classes
+ */
+.l-container--1col {
+  max-width: calc((var(--max-width) / 16) * 1);
+}
+
+.l-container--2col {
+   max-width: calc((var(--max-width) / 16) * 2);
+}
+
+.l-container--3col {
+   max-width: calc((var(--max-width) / 16) * 3);
+}
+
+.l-container--4col {
+   max-width: calc((var(--max-width) / 16) * 4);
+}
+
+.l-container--5col {
+   max-width: calc((var(--max-width) / 16) * 5);
+}
+
+.l-container--6col {
+   max-width: calc((var(--max-width) / 16) * 6);
+}
+
+.l-container--7col {
+   max-width: calc((var(--max-width) / 16) * 7);
+}
+
+.l-container--8col {
+   max-width: calc((var(--max-width) / 16) * 8);
+}
+
+.l-container--9col {
+   max-width: calc((var(--max-width) / 16) * 9);
+}
+
+.l-container--10col {
+   max-width: calc((var(--max-width) / 16) * 10);
+}
+
+.l-container--11col {
+   max-width: calc((var(--max-width) / 16) * 11);
+}
+
+.l-container--12col {
+   max-width: calc((var(--max-width) / 16) * 12);
+}
+
+.l-container--13col {
+   max-width: calc((var(--max-width) / 16) * 13);
+}
+
+.l-container--14col {
+   max-width: calc((var(--max-width) / 16) * 14);
+}
+
+.l-container--15col {
+   max-width: calc((var(--max-width) / 16) * 15);
+}
+
+.l-container--16col {
+   max-width: calc((var(--max-width) / 16) * 16);
+}

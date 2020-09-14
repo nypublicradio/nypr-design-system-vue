@@ -9,9 +9,10 @@ export const Default = () => ({
   components: { AudioPlayer },
   template: `
     <audio-player
-      title="The Show"
+      title="The Takeaway"
+      station="WNYC 93.9 FM"
       title-link="http://www.google.com"
-      details="Lorem Ipsum Dolor Sit Amet"
+      details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
       details-link="http://www.bing.com"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />
@@ -23,9 +24,10 @@ export const Livestream = () => ({
   template: `
     <audio-player
       livestream
-      title="The Show"
+      station="WNYC 93.9 FM"
+      title="The Takeaway"
       title-link="http://www.google.com"
-      details="Lorem Ipsum Dolor Sit Amet"
+      details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
       details-link="http://www.bing.com"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />

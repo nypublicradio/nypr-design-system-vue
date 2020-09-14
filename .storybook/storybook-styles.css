@@ -1,21 +1,21 @@
 .sbdocs-xsmall-container {
-    margin: 3rem;
     max-width: 400px;
 }
 
 .sbdocs-small-container {
-    margin: 3rem;
     max-width: 768px;
 }
 
 .sbdocs-medium-container {
-    margin: 3rem;
     max-width: 1240px;
 }
 
 .sbdocs-large-container {
-    margin: 3rem;
     max-width: 100%;
+}
+
+.sbdocs-container-margin {
+    margin: 3rem;
 }
 
 .colors > div {
@@ -28,4 +28,53 @@
 .colors > div span {
     padding: 10px;
     background: white;
+}
+
+/* background colors */
+.u-background-color--cool-white {
+    background: RGB(var(--color-cool-white));
+}
+.u-background-color--ceramic-blue {
+    background: RGB(var(--color-ceramic-blue));
+}
+.u-background-color--concrete {
+    background: RGB(var(--color-concrete));
+}
+.u-background-color--ember-red {
+    background: RGB(var(--color-ember-red));
+}
+.u-background-color--cool-blue {
+    background: RGB(var(--color-cool-blue));
+}
+.u-background-color--sky-blue {
+    background: RGB(var(--color-sky-blue));
+}
+.u-background-color--sea-green {
+    background: RGB(var(--color-sea-green));
+}
+.u-background-color--bright-purple {
+    background: RGB(var(--color-bright-purple));
+}
+.u-background-color--gray {
+    background: RGB(var(--color-gray));
+}
+.u-background-color--light-gray {
+    background: RGB(var(--color-light-gray));
+}
+.u-background-color--dark-gray {
+    background: RGB(var(--color-dark-gray));
+}
+
+/* some border styles for border examples */
+.sbdocs.sbdocs-border-subtle {
+    width: 100%;
+    border-bottom: var(--border-subtle);
+}
+.sbdocs.sbdocs-border-standard {
+    width: 100%;
+    border-bottom: var(--border-standard);
+}
+.sbdocs.sbdocs-border-bold {
+    width: 100%;
+    border-bottom: var(--border-bold);
 }

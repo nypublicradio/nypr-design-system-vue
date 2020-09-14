@@ -1,0 +1,40 @@
+/* Deprecated -- avoid using these classes in your components */
+/* stylelint-disable */
+
+/*------------------------------------*\
+    $COLOR MODIFIERS
+\*------------------------------------*/
+
+/**
+ * Text Colors
+ */
+.u-color--black,
+.u-color--black a {
+  color: (var(--color-black));
+}
+
+.u-color--gray,
+.u-color--gray a {
+  color: (var(--color-gray));
+}
+
+.u-color--gray--light,
+.u-color--gray--light a {
+  color: (var(--color-light-gray));
+}
+
+.u-color--meta,
+.u-color--meta a {
+  color: (var(--color-text-metadata));
+}
+
+/**
+ * SVG Fill Colors
+ */
+.u-path-fill--white * { //nyprds gallery overlay
+  fill: (var(--color-white));
+}
+.u-path-fill--quaternary * { //used in gothamist
+  fill: (var(--color-taxicab-yellow));
+}
+/* stylelint-enable */

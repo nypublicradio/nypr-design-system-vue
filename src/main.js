@@ -1,28 +1,13 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 import App from './App.vue'
 import router from './router'
-import './assets/scss/main.scss'
+import './styles/white-label.scss'
 import Default from './layouts/Default'
+import VueRouter from 'vue-router'
+import VueCompositionApi from '@vue/composition-api'
 
-// vuex stuff
-Vue.use(Vuex)
-const store = new Vuex.Store({
-  state: {
-    livestream: false,
-    nowPlaying: null
-  },
-  mutations: {
-    playAudio (state, show) {
-      state.livestream = false
-      state.nowPlaying = show
-    },
-    playLivestream (state, show) {
-      state.livestream = true
-      state.nowPlaying = show
-    }
-  }
-})
+Vue.use(VueRouter)
+Vue.use(VueCompositionApi)
 
 // layouts
 Vue.component('default-layout', Default)
@@ -32,6 +17,5 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-  store,
   render: h => h(App)
 }).$mount('#app')

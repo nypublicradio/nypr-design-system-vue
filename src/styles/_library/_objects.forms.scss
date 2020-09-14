@@ -1,0 +1,385 @@
+/*------------------------------------*\
+    $SPECIFIC FORMS
+\*------------------------------------*/
+
+/**
+ * Validation
+ */
+.has-error {
+  border-color: (var(--color-text-error)) !important;
+}
+
+.is-valid {
+  border-color: (var(--color-text-valid)) !important;
+}
+
+.o-error-message {
+  padding: 2px 0;
+}
+
+.o-error-message p {
+  font-size: var(--font-size-3);
+  font-weight: bold;
+  line-height: 1.3;
+  color: (var(--color-text-error));
+}
+
+.o-form-error .o-button {
+  opacity: 0.5;
+}
+
+div.o-confirm-message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+div.o-confirm-message p {
+  line-height: 1.3;
+}
+
+.o-confirm-hide {
+  visibility: hidden;
+}
+
+/**
+ * Search entry
+ */
+.c-search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-search__button {
+  height: 100%;
+  padding: 10px;
+  margin: 0px;
+  border-radius: 0px;
+}
+
+/* Override reset CSS on Safari */
+.c-search__input {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* Heading search menu*/
+.c-search--top {
+  height: 50px;
+  width: 265px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: $z-index-vanish;
+  overflow: hidden;
+  transition: z-index .1s ease-out .5s;
+  transform: translateY(-50%);
+
+  @include media("<=small") {
+    display: none;
+  }
+}
+
+.c-search--top .c-search__close {
+  position: absolute;
+  left: var(--space-2);
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(-40px, -50%);
+  border-radius: 50%;
+  background-color: (var(--color-high-contrast), 0.048);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .15s ease-out var(--animation-delay-none);
+  z-index: $z-index-search-close;
+}
+
+.c-search--top .c-search__close svg {
+  width: 10px;
+  height: 10px;
+}
+
+.c-search--top .c-search__close path {
+  fill: (var(--color-primary-2));
+}
+
+.c-search--top .c-search__input {
+  width: calc(100% - 50px);
+  font-size: var(--font-size-4);
+  padding-left: 45px;
+  transform: translateX(calc(100% + 50px));
+  transition: transform .15s ease-out var(--animation-delay-short);
+}
+
+.c-search--top .c-search__button {
+  min-width: 50px;
+  max-width: 50px;
+  position: relative;
+  z-index: $z-index-search-button;
+  opacity: 0;
+  transition: var(--animation-duration-fast) var(--animation-easing-outgoing);
+}
+
+.c-search--top .c-search__button:hover {
+  opacity: var(--opacity-hover);
+}
+
+/* Top search entry is open*/
+.top-search-is-active .c-search--top {
+  display: flex;
+  z-index: $z-index-search-top-show;
+  transition: 0s;
+
+  @include media("<=small") {
+    display: none;
+  }
+}
+
+.top-search-is-active .c-search__close {
+  transform: translateY(-50%);
+  transition: var(--animation-easing-outgoing);
+}
+
+.top-search-is-active .c-search__input {
+  transform: translateX(0);
+  transition: var(--animation-easing-outgoing);
+}
+
+.top-search-is-active .c-search__button {
+  opacity: 1;
+  transition: var(--animation-easing-outgoing) var(--animation-duration-fast);
+}
+
+.top-search-is-active .c-search__button path {
+  fill: (var(--color-high-contrast));
+}
+
+/* top search is open*/
+/* for ember compat*/
+.c-search--top.is-open {
+  display: flex;
+  z-index: $z-index-search-top-show;
+  transition: 0s;
+
+  @include media("<=small") {
+    display: none;
+  }
+}
+
+.c-search--top.is-open .c-search__close {
+  transform: translateY(-50%);
+  transition: transform .15s ease-out var(--animation-delay-long);
+}
+
+.c-search--top.is-open .c-search__input {
+  transform: translateX(0);
+  transition: transform .15s ease-out var(--animation-delay-short);
+}
+
+.c-search--top.is-open .c-search__button {
+  opacity: 1;
+  transition: var(--animation-duration-fast) var(--animation-easing-outgoing);
+}
+
+.c-search--top.is-open .c-search__button .search-icon {
+  fill: (var(--color-high-contrast));
+}
+
+/* Side menu search*/
+.c-search--side {
+  height: 60px;
+}
+
+.c-search--side .c-search__input {
+  width: calc(100% - 60px);
+}
+
+.c-search--side .c-search__button {
+  min-width: 60px;
+  max-width: 60px;
+}
+
+.c-search--side .c-search__button path {
+  fill: (var(--color-high-contrast));
+}
+
+/**
+ * Newsletter form
+ */
+.c-newsletter-form {
+  padding-left: var(--space-3);
+  position: relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media(">xlarge") {
+    padding-left: 120px;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.c-newsletter-form__graphic {
+  position: absolute;
+  width: 140px;
+  mix-blend-mode: difference;
+  top: calc(var(--space-3) * -1);
+  left: calc(var(--space-3) * -1);
+
+  @include media(">small") {
+    top: -60px;
+    left: -10px;
+  }
+
+  @include media(">medium") {
+    top: -40px;
+    left: -40px;
+  }
+
+  @include media(">xlarge") {
+    width: 130px;
+    left: 0;
+    top: 50px;
+    mix-blend-mode: normal;
+  }
+}
+
+.c-main-footer .c-main-footer__signup .c-newsletter-form__graphic svg,
+.c-main-footer .c-main-footer__right-component .c-newsletter-form__graphic svg,
+.c-main-footer .c-main-footer__signup .c-newsletter-form__graphic path,
+.c-main-footer .c-main-footer__right-component .c-newsletter-form__graphic path {
+  fill: (var(--color-background-highlight));
+}
+
+.c-newsletter-form__inner {
+  background-color: (var(--color-background-highlight));
+  border: var(--border-standard);
+  padding: var(--space-5) var(--space-4);
+
+  @include media(">xlarge") {
+    position: relative;
+    max-width: 380px;
+  }
+}
+
+.c-newsletter-form__text {
+  @include media("<=xlarge") {
+    padding-left: 80px;
+  }
+}
+
+.c-newsletter-form__text p {
+  font-size: var(--font-size-4);
+  line-height: 1.55;
+  color: (var(--color-text));
+}
+
+.c-newsletter-form__icon {
+  vertical-align: text-top;
+  margin-right: var(--space-2);
+}
+
+.c-newsletter-form__field-group {
+  display: flex;
+  border: var(--border-standard);
+  position: relative;
+}
+
+.c-newsletter-form__input {
+  width: calc(100% - 60px);
+  margin: 0;
+}
+
+.c-newsletter-form__button {
+  width: 60px;
+  height: 60px;
+  padding: 0;
+}
+
+.c-newsletter-form__button[disabled] {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.c-newsletter-form__button:hover:not(:focus)[disabled] .o-icon--newsletter-form {
+  animation: none;
+}
+
+.c-newsletter-form__button:hover:not(:focus) .o-icon--newsletter-form {
+  animation: bounce-horiz 0.8s 0s ease-out infinite;
+}
+
+.c-newsletter-form .c-newsletter-form__button svg {
+  fill: (var(--color-text-inverse));
+}
+
+.c-newsletter-form__submit-icon {
+  width: 24px;
+  fill: (var(--color-text-inverse));
+}
+
+.c-newsletter-form__terms {
+  padding-left: 25px;
+  position: relative;
+}
+
+.c-newsletter-form__terms .o-checkbox {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  border: none;
+}
+
+.c-newsletter-form__terms-checkbox-label {
+  @include typeface(body, 2);
+}
+
+.c-newsletter-form__terms p {
+  line-height: 1.35;
+  font-size: 12px;
+}
+
+.c-newsletter-form__terms a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.c-newsletter-article {
+  max-width: 374px;
+  margin: auto;
+
+  .c-newsletter-article__heading {
+    font-size: 20px;
+  }
+
+  .c-newsletter-form__field-group {
+    border: none;
+
+    input {
+      border: var(--border-standard);
+      height: 40px;
+      font-size: 12px;
+
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .c-newsletter-form__button {
+    height: 40px;
+    width: 40px;
+  }
+}

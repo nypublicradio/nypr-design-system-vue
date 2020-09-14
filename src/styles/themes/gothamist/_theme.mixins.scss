@@ -1,0 +1,87 @@
+/* ------------------------------------*\
+    $MIXINS
+\*------------------------------------ */
+
+/**
+ * Dashed border accent
+ */
+@mixin border-accent($direction: right, $position: right, $color: (var(--color-gray))) {
+  background-image: linear-gradient(to $direction, transparent 50%, $color 50%);
+  background-position: $position bottom;
+  @if $direction == "right" {
+    background-repeat: repeat-x;
+    background-size: 16px 1px;
+  } @else {
+    background-repeat: repeat-y;
+    background-size: 1px 16px;
+  }
+}
+
+/**
+ * Block link hover styles
+ */
+@mixin block-hover {
+  color: (var(--color-reddish-orange));
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+@mixin dot-divider(
+  $font-size: 18px,
+) {
+  content: "•";
+  display: inline-block;
+  margin-right: var(--space-2);
+  margin-left: calc(var(--space-1) * -1);
+  color: (var(--color-gray));
+  font-size: $font-size;
+  transform: translateY(.08em);
+}
+
+
+// Used for line wrapping text links.
+@mixin inline-accent(
+  $text-color: (var(--color-dark-gray)),
+  $underline-color: (var(--color-dark-gray)),
+  $hover-underline-color: (var(--color-reddish-orange)),
+  $hover-bg-color: (var(--color-reddish-orange)),
+  $hover-text-color: (var(--color-white)),
+) {
+  color: $text-color;
+  background-image: linear-gradient(to right, transparent 55%, (var(--color-dark-gray)) 45%);
+  background-position: left bottom .13em;
+  background-repeat: repeat-x;
+  background-size: 4px 2px;
+  padding-bottom: 0;
+  border-bottom: none;
+  line-height: 1.6;
+  display: inline;
+  box-decoration-break: clone;
+
+  &:hover {
+    color: $hover-text-color;
+    background-image: linear-gradient(to right, transparent 55%, (var(--color-reddish-orange)) 45%);
+
+    @if $hover-bg-color {
+      background-color: (var(--color-reddish-orange));
+    } @else {
+      background-color: transparent;
+    }
+  }
+}
+
+// Consistent styles for reversed out text and links.
+@mixin reversed-out-text {
+  color: (var(--color-white));
+
+  p a,
+  a:not(.o-button) {
+    color: (var(--color-white));
+    border-bottom-color: (var(--color-white));
+
+    &:hover {
+      color: (var(--color-white));
+      background-color: (var(--color-reddish-orange));
+    }
+  }
+}
