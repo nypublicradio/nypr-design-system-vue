@@ -16,3 +16,15 @@
     />
   </svg>
 </template>
+
+<script>
+export default {
+  name: 'Audio',
+  props: {
+    title: {
+      type: String,
+      default: 'Audio'
+    }
+  }
+}
+</script>

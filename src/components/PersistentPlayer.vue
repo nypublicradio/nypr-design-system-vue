@@ -1,5 +1,5 @@
 <template>
-  <div class="player">
+  <div class="persistent-player">
     <div class="player-controls">
       <div class="player-track">
         <template v-if="livestream">
@@ -20,7 +20,7 @@
             {{ title }}
           </h2>
         </div>
-        <div v-if="hasDetails">
+        <div v-if="hasDetails" class="player-track-details">
           <div
             v-if="hasDetails && !hasDetailsLink"
             class="player-track-title-details"
@@ -143,7 +143,7 @@ import VolumeMutedIcon from './svg/VolumeMutedIcon'
 import DownloadIcon from './svg/DownloadIcon'
 
 export default {
-  name: 'AudioPlayer',
+  name: 'PersistentPlayer',
   components: {
     PlayIcon,
     PauseIcon,
@@ -354,20 +354,20 @@ $medium: 768px;
 $large: 1240px;
 $xlarge: 1440px;
 
-.player {
+.persistent-player {
   position: fixed;
   bottom: 0;
   width: 100%;
   background-color: RGB(var(--color-cool-white));
-  padding: .25rem 1rem;
+  padding: var(--space-1) var(--space-3);
   @media all and (min-width: $medium) {
-    padding: .5rem 2rem;
+    padding: var(--space-2) var(--space-5);
   }
 }
 
-.player a,
-.player a:visited,
-.player a:active {
+.persistent-player a,
+.persistent-player a:visited,
+.persistent-player a:active {
   color: var(--player-link-color);
   text-decoration: none;
 
@@ -382,23 +382,22 @@ $xlarge: 1440px;
 }
 
 .player-controls .back-15-icon {
-  margin-right: 1rem;
+  margin-right: var(--space-2);
 }
 
 .player-controls .ahead-15-icon {
-  margin-left: 1rem;
+  margin-left: var(--space-2);
 }
 
 .player-controls .download-icon {
-  margin-left: 1rem;
+  margin-left: var(--space-2);
 }
 
 .player-livestream {
   display: flex;
   align-items: center;
-  font-size: .875rem;
+  font-size: var(--font-size-3);
   font-weight: 400;
-  color: rgba(69, 26, 67, .8);
 }
 
 .player-livestream .player-livestream-live-text {
@@ -416,7 +415,7 @@ $xlarge: 1440px;
 
 .player-track {
   flex: auto;
-  padding: 0 2rem 0 0;
+  padding: 0 var(--space-6) 0 0;
   overflow: hidden;
 }
 
@@ -429,11 +428,13 @@ $xlarge: 1440px;
 
 .player-track-title h2 {
   line-height: 1;
-  padding-top: .5rem;
 }
 
-.player-track-title-details {
-  font-weight: 300;
+.player-track-title-details-link {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .player-track-progress {
@@ -505,21 +506,15 @@ $xlarge: 1440px;
 }
 
 .player-track-time .player-track-time-current {
-  opacity: 1;
-  margin-right: .25rem;
-}
-
-.player-track-time .player-track-time-separator {
-  opacity: .6;
+  margin-right: var(--space-1);
 }
 
 .player-track-time .player-track-time-total {
-  opacity: .6;
-  margin-left: .25rem;
+  margin-left: var(--space-1);
 }
 
 .player-volume {
-  padding-left: 1rem;
+  padding-left: var(--space-3);
   display: none;
   @media all and (min-width: $medium) {
     display: flex;

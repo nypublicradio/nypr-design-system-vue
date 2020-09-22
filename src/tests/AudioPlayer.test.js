@@ -1,5 +1,5 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import AudioPlayer from '../components/AudioPlayer'
+import AudioPlayer from '../components/PersistentPlayer'
 import { describe, test, expect } from '@jest/globals'
 
 describe('AudioPlayer', () => {
