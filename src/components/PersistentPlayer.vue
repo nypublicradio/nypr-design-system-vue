@@ -53,9 +53,9 @@
             />
           </div>
           <div class="player-track-time">
-            <span class="player-track-time-current">{{ currentSeconds | convertTimeHHMMSS }}</span>
+            <span class="player-track-time-current">{{ convertTime(currentSeconds) }}</span>
             <span class="player-track-time-separator">/</span>
-            <span class="player-track-time-total">{{ durationSeconds | convertTimeHHMMSS }}</span>
+            <span class="player-track-time-total">{{ convertTime(durationSeconds) }}</span>
           </div>
         </template>
       </div>
@@ -155,12 +155,6 @@ export default {
     VolumeIcon,
     VolumeMutedIcon,
     DownloadIcon
-  },
-  filters: {
-    convertTimeHHMMSS (val) {
-      const hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
-      return hhmmss.indexOf('00:') === 0 ? hhmmss.substr(3) : hhmmss
-    }
   },
   props: {
     autoPlay: {
@@ -299,6 +293,10 @@ export default {
     })
   },
   methods: {
+    convertTime (val) {
+      const hhmmss = new Date(val * 1000).toISOString().substr(11, 8)
+      return hhmmss.indexOf('00:') === 0 ? hhmmss.substr(3) : hhmmss
+    },
     download () {
       this.stop()
       window.open(this.file, 'download')
