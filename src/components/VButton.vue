@@ -4,7 +4,7 @@
     :class="{'disabled': disabled, 'is-icon-only': !label && this.$slots.default}"
     :href="href"
   >
-    <slot></slot>
+    <slot />
     <span
       v-if="label"
       class="button-label"

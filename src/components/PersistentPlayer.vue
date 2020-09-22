@@ -20,7 +20,10 @@
             {{ title }}
           </h2>
         </div>
-        <div v-if="hasDetails" class="player-track-details">
+        <div
+          v-if="hasDetails"
+          class="player-track-details"
+        >
           <div
             v-if="hasDetails && !hasDetailsLink"
             class="player-track-title-details"
