@@ -1,8 +1,8 @@
 <template>
   <header class="c-main-header">
     <div
-      class="c-main-header__inner "
       id="header-inner"
+      class="c-main-header__inner "
     >
       <div class="c-main-header__left _u-truncate--flex">
         <div

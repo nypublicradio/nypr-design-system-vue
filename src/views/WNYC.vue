@@ -27,7 +27,7 @@
     </main>
     <the-footer
       slogan="Listener-supported WNYC is the home for independent journalism and courageous conversation on air and online. Broadcasting live from New York City on 93.9 FM and AM 820 and available online and on the go."
-      :primaryNav="[
+      :primary-nav="[
         {
           url: 'http://www.google.com',
           text: 'Primary Link 1',
@@ -41,7 +41,7 @@
           text: 'Primary Link 3',
         }
       ]"
-      :secondaryNav="[
+      :secondary-nav="[
         {
           url: 'http://www.google.com',
           text: 'Secondary Link 1',
@@ -55,7 +55,7 @@
           text: 'Secondary Link 3',
         }
       ]"
-      :tertiaryNav="[
+      :tertiary-nav="[
         {
           url: 'http://www.google.com',
           text: 'Tertiary Link 1',
@@ -83,10 +83,22 @@
       </template>
       <template v-slot:social>
         <share-tools label="Connect">
-          <share-tools-item service="facebook" username="WNYC" />
-          <share-tools-item service="twitter" username="WNYC" />
-          <share-tools-item service="instagram" username="WNYC" />
-          <share-tools-item service="youtube" username="UCbysmY4hyViQAAYEzOR-uCQ" />
+          <share-tools-item
+            service="facebook"
+            username="WNYC"
+          />
+          <share-tools-item
+            service="twitter"
+            username="WNYC"
+          />
+          <share-tools-item
+            service="instagram"
+            username="WNYC"
+          />
+          <share-tools-item
+            service="youtube"
+            username="UCbysmY4hyViQAAYEzOR-uCQ"
+          />
         </share-tools>
       </template>
     </the-footer>

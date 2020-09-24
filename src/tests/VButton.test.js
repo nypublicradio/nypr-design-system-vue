@@ -4,7 +4,6 @@ import AudioIcon from '../components/icons/AudioIcon'
 import { describe, test, expect } from '@jest/globals'
 
 describe('VButton', () => {
-
   test('label prop works', () => {
     const label = 'new message'
     const wrapper = shallowMount(VButton, {
