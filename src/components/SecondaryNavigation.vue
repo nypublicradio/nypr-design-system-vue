@@ -1,6 +1,9 @@
 <template>
   <div>
-    <ul class="c-secondary-nav__list">
+    <ul
+      class="c-secondary-nav__list"
+      :class="orientation"
+    >
       <li
         v-for="(item, index) in navItems"
         :key="index"
@@ -36,11 +39,25 @@ export default {
     navItems: {
       type: Array,
       default: null
+    },
+    orientation: {
+      type: String,
+      default: 'vertical'
     }
   }
 }
 </script>
 
 <style lang="scss">
+.c-secondary-nav__list .c-secondary-nav__item {
+  margin-bottom: var(--space-2);
+}
 
+.c-secondary-nav__list.horizontal .c-secondary-nav__item {
+  display: inline-block;
+}
+
+.c-secondary-nav__list.horizontal .c-secondary-nav__item:not(:last-child) {
+  margin-right: var(--space-5);
+}
 </style>

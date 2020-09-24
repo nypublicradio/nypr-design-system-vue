@@ -1,7 +1,7 @@
 import VSpacer from '../src/components/VSpacer'
 
 export default {
-  title: 'Foundations'
+  title: 'Foundations/Intro'
 }
 
 export const Intro = () => ({

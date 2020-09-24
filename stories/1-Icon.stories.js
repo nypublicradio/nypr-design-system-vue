@@ -2,7 +2,7 @@ import Jlgreene from '../src/components/icons/wnyc/jlgreene'
 import WnycLogo from '../src/components/icons/wnyc/WnycLogo'
 
 export default {
-  title: 'Icons'
+  title: 'Components/Atoms/Icons'
 }
 
 export const WnycIcons = () => ({

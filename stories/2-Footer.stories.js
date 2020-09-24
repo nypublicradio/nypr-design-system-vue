@@ -4,7 +4,7 @@ import ShareTools from '../src/components/ShareTools'
 import ShareToolsItem from '../src/components/ShareToolsItem'
 
 export default {
-  title: 'The Footer',
+  title: 'Components/Organisms/The Footer',
   component: TheFooter
 }
 

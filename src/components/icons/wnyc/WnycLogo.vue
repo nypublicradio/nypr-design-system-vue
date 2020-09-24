@@ -16,7 +16,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'WNYC'
+      default: 'WNYC Logo'
     }
   }
 }

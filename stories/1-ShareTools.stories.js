@@ -2,7 +2,7 @@ import ShareTools from '../src/components/ShareTools'
 import ShareToolsItem from '../src/components/ShareToolsItem'
 
 export default {
-  title: 'Share Tools',
+  title: 'Components/Molecules/Share Tools',
   component: ShareTools
 }
 

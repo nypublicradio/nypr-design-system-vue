@@ -1,7 +1,7 @@
 import MediaEmbed from '../src/components/MediaEmbed'
 
 export default {
-  title: 'Media Embed'
+  title: 'Components/Atoms/Responsive Media Embed'
 }
 
 export const Example = () => ({

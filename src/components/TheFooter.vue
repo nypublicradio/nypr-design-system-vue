@@ -117,7 +117,7 @@
 </template>
 
 <script>
-import NyprLogo from './icons/NyprLogo'
+import NyprLogo from '../components/icons/NyprLogo'
 import SecondaryNavigation from '../components/SecondaryNavigation'
 
 export default {

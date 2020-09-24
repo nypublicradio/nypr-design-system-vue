@@ -1,7 +1,7 @@
 import AudioPlayer from '../src/components/PersistentPlayer'
 
 export default {
-  title: 'Persistent Player',
+  title: 'Components/Organisms/Persistent Player',
   component: AudioPlayer
 }
 

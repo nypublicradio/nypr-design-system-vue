@@ -4,27 +4,35 @@ import AudioIcon from '../components/icons/AudioIcon'
 import { describe, test, expect } from '@jest/globals'
 
 describe('VButton', () => {
-  test('component renders', () => {
-    const wrapper = shallowMount(VButton)
-    expect(wrapper.exists())
-  })
 
   test('label prop works', () => {
+    const label = 'new message'
     const wrapper = shallowMount(VButton, {
       propsData: {
-        label: 'Button'
+        label: label
       }
     })
-    expect(wrapper.text()).toBe('Button')
+    expect(wrapper.text()).toBe(label)
   })
 
   test('link prop works', () => {
+    const href = 'http://www.foo.com'
     const wrapper = shallowMount(VButton, {
       propsData: {
-        href: 'http://www.foo.com'
+        href: href
       }
     })
-    expect(wrapper.props().href).toBe('http://www.foo.com')
+    expect(wrapper.props().href).toBe(href)
+  })
+
+  test('disabled prop works', () => {
+    const disabled = true
+    const wrapper = shallowMount(VButton, {
+      propsData: {
+        disabled: disabled
+      }
+    })
+    expect(wrapper.props().disabled).toBe(disabled)
   })
 
   test('slot works', () => {
@@ -33,6 +41,6 @@ describe('VButton', () => {
         default: AudioIcon
       }
     })
-    expect(wrapper.find(AudioIcon).isVueInstance()).toBe(true)
+    expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
   })
 })

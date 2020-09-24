@@ -2,7 +2,7 @@ import VButton from '../src/components/VButton'
 import AudioIcon from '../src/components/icons/AudioIcon'
 
 export default {
-  title: 'Buttons'
+  title: 'Components/Atoms/Buttons'
 }
 
 export const Buttons = () => ({
