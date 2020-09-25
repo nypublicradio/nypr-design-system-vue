@@ -1,7 +1,7 @@
 {
   "name": "nypr-design-system",
   "version": "1.0.0",
-  "description": "New York Public Radio Vue design system",
+  "description": "New York Public Radio design system written in Vue",
   "repository": "nypublicradio/nypr-design-system-vue",
   "license": "MIT",
   "author": "",
@@ -71,5 +71,6 @@
   },
   "gitHooks": {
     "pre-commit": "vue-cli-service lint && jest"
-  }
+  },
+  "homepage": "https://nypublicradio.github.io/nypr-design-system-vue"
 }

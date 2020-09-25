@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'Audio',
+  name: 'AudioIcon',
   props: {
     title: {
       type: String,

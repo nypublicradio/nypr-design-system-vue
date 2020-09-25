@@ -14,14 +14,14 @@ describe('VButton', () => {
     expect(wrapper.text()).toBe(label)
   })
 
-  test('link prop works', () => {
+  test('link attribute works', () => {
     const href = 'http://www.foo.com'
     const wrapper = shallowMount(VButton, {
-      propsData: {
+      attrs: {
         href: href
       }
     })
-    expect(wrapper.props().href).toBe(href)
+    expect(wrapper.attributes().href).toBe(href)
   })
 
   test('disabled prop works', () => {

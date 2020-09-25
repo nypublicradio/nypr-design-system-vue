@@ -1,5 +1,5 @@
 <template>
-  <div class="persistent-player">
+  <div class="persistent-player u-color-group-dark">
     <div class="player-controls">
       <div class="player-track">
         <template v-if="livestream">
@@ -65,15 +65,15 @@
         aria-label="go back 15 seconds"
         @click="goBack15"
       >
-        <back15-icon />
+        <back15 />
       </a>
       <a
-        class="player-play-pause-icon"
+        class="play-button"
+        :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded}"
         :aria-label="playing ? 'pause' : 'play'"
         @click="togglePlay"
       >
-        <play-icon v-if="!playing" />
-        <pause-icon v-if="playing" />
+        <play-icon />
       </a>
       <a
         v-if="showSkip && !livestream"
@@ -81,7 +81,7 @@
         aria-label="go ahead 15 seconds"
         @click="goAhead15"
       >
-        <ahead15-icon />
+        <ahead15 />
       </a>
       <div
         class="player-volume"
@@ -112,7 +112,7 @@
           @keypress.space.enter="mute"
         >
           <volume-icon v-if="!muted" />
-          <volume-muted-icon v-if="muted" />
+          <volume-muted v-if="muted" />
         </a>
       </div>
       <a
@@ -137,23 +137,21 @@
 </template>
 
 <script>
-import PlayIcon from './svg/PlayIcon'
-import PauseIcon from './svg/PauseIcon'
-import Back15Icon from './svg/Back15Icon'
-import Ahead15Icon from './svg/Ahead15Icon'
-import VolumeIcon from './svg/VolumeIcon'
-import VolumeMutedIcon from './svg/VolumeMutedIcon'
-import DownloadIcon from './svg/DownloadIcon'
+import PlayIcon from './icons/PlayIcon'
+import Back15 from './icons/Back15'
+import Ahead15 from './icons/Ahead15'
+import VolumeIcon from './icons/VolumeIcon'
+import VolumeMuted from './icons/VolumeMuted'
+import DownloadIcon from './icons/DownloadIcon'
 
 export default {
   name: 'PersistentPlayer',
   components: {
     PlayIcon,
-    PauseIcon,
-    Back15Icon,
-    Ahead15Icon,
+    Back15,
+    Ahead15,
     VolumeIcon,
-    VolumeMutedIcon,
+    VolumeMuted,
     DownloadIcon
   },
   props: {
@@ -359,17 +357,18 @@ $xlarge: 1440px;
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: RGB(var(--color-cool-white));
-  padding: var(--space-1) var(--space-3);
+  color: RGB(var(--color-text));
+  background-color: RGB(var(--color-background));
+  padding: var(--space-1) var(--space-2);
   @media all and (min-width: $medium) {
-    padding: var(--space-2) var(--space-5);
+    padding: var(--space-1) var(--space-3);
   }
 }
 
 .persistent-player a,
 .persistent-player a:visited,
 .persistent-player a:active {
-  color: var(--player-link-color);
+  color: var(--color-text);
   text-decoration: none;
 
   &:hover {
@@ -380,6 +379,14 @@ $xlarge: 1440px;
 .player-controls {
   display: flex;
   align-items: center;
+}
+
+.player-controls svg {
+  fill: RGB(var(--color-text));
+}
+
+.player-controls .play-button {
+  width: 55px;
 }
 
 .player-controls .back-15-icon {
@@ -440,7 +447,7 @@ $xlarge: 1440px;
 
 .player-track-progress {
   position: absolute;
-  background-color: RGB(var(--color-primary-2));
+  background-color: RGB(var(--color-text));
   cursor: pointer;
   min-width: 200px;
   top: -5px;
@@ -455,7 +462,7 @@ $xlarge: 1440px;
 }
 
 .player-track-progress .player-track-seeker {
-  background-color: RGB(var(--color-primary-2));
+  background-color: RGB(var(--color-text));
   bottom: 0;
   left: 0;
   position: absolute;
@@ -464,7 +471,7 @@ $xlarge: 1440px;
 }
 
 .player-track-progress .player-track-buffered {
-  background-color: RGB(var(--color-primary-1));
+  background-color: RGB(var(--color-gray));
   bottom: 0;
   left: 0;
   position: absolute;
@@ -487,7 +494,7 @@ $xlarge: 1440px;
     content: '';
     height: 22px;
     width: 22px;
-    background-color: var(--player-buffered-color);
+    background-color: RGB(var(--color-dark-gray));
     border-radius: 50%;
     opacity: 1;
     display: block;
@@ -521,6 +528,14 @@ $xlarge: 1440px;
     display: flex;
     justify-content: flex-end;
   }
+}
+
+.player-volume-icon {
+  height: 24px;
+}
+
+.player-volume-icon svg path {
+  fill: RGB(var(--color-text));
 }
 
 // transition

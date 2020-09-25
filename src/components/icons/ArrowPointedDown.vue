@@ -16,13 +16,14 @@
     />
   </svg>
 </template>
+
 <script>
 export default {
   name: 'ArrowPointedDown',
   props: {
     title: {
       type: String,
-      default: null
+      default: 'Arrow Pointed Down'
     }
   }
 }

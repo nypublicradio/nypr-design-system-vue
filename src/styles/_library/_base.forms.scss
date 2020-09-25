@@ -165,7 +165,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: RGB(var(--color-black));
+  background: RGB(var(--color-text));
   cursor: pointer;
   margin-top: -6px; /* (thumb height/2 + track height/2) You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
 }
@@ -174,7 +174,7 @@ input[type=range]::-moz-range-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: RGB(var(--color-black));
+  background: RGB(var(--color-text));
   cursor: pointer;
 }
 
@@ -182,7 +182,7 @@ input[type=range]::-ms-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: RGB(var(--color-black));
+  background: RGB(var(--color-text));
   cursor: pointer;
 }
 
@@ -192,18 +192,18 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 3px;
   cursor: pointer;
-  background: RGB(var(--color-black));
+  background: RGB(var(--color-text));
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: RGB(var(--color-black));
+  background: RGB(var(--color-text));
 }
 
 input[type=range]::-moz-range-track {
   width: 100%;
   height: 3px;
   cursor: pointer;
-  background: RGB(var(--color-black));
+  background: RGB(var(--color-text));
 }
 
 input[type=range]::-ms-track {
@@ -217,17 +217,17 @@ input[type=range]::-ms-track {
 }
 
 input[type=range]::-ms-fill-lower {
-  background: RGB(var(--color-black));
+  background: RGB(var(--color-text));
 }
 
 input[type=range]:focus::-ms-fill-lower {
-  background: RGB(var(--color-black));
+  background: RGB(var(--color-text));
 }
 
 input[type=range]::-ms-fill-upper {
-  background: RGB(var(--color-black));
+  background: RGB(var(--color-text));
 }
 
 input[type=range]:focus::-ms-fill-upper {
-  background: RGB(var(--color-black));
+  background: RGB(var(--color-text));
 }

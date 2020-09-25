@@ -42,15 +42,13 @@ export default {
 }
 </script>
 
-<style
-  scoped
-  lang="scss"
->
+<style lang="scss">
 .c-main-header {
   text-align: center;
   position: relative;
   z-index: $z-index-header;
   @include typeface(header, 5);
+  background: RGB(var(--color-background-muted));
 }
 
 .c-main-header svg {

@@ -2,7 +2,6 @@
   <a
     class="button"
     :class="{'disabled': disabled, 'is-icon-only': !label && this.$slots.default}"
-    :href="href"
   >
     <slot />
     <span
@@ -19,10 +18,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    href: {
-      type: String,
-      default: null
     },
     label: {
       type: String,
@@ -63,7 +58,6 @@ export default {
 }
 
 .button {
-  @include typeface(body, 7);
   padding: var(--space-1) var(--space-3);
   border-width: 0px;
   display: inline-flex;
@@ -72,10 +66,12 @@ export default {
   text-align: center;
   justify-content: center;
   cursor: pointer;
-
-  color: RGB(var(--color-button-text));
   border-color: RGB(var(--color-button));
   background-color: RGB(var(--color-button));
+}
+
+a.button {
+  text-decoration: none;
 }
 
 .button:hover {
@@ -96,6 +92,8 @@ export default {
 }
 
 .button-label {
+  @include typeface(body, 7);
+  color: RGB(var(--color-button-text));
   line-height: 32px;
 }
 
@@ -123,6 +121,10 @@ export default {
   color: RGB(var(--color-button));
   border: 1px solid RGB(var(--color-button));
   background-color: transparent;
+}
+
+.button.mod-secondary .button-label {
+  color: RGB(var(--color-button));
 }
 
 .button.mod-secondary:hover {
@@ -163,6 +165,11 @@ export default {
   color: RGB(var(--color-link));
   text-decoration: var(--text-decoration-link);
   transform: none;
+}
+
+.button.mod-flat .button-label {
+  color: RGB(var(--color-button));
+  text-decoration: var(--text-decoration-link);
 }
 
 .button.mod-flat:hover {

@@ -5,7 +5,7 @@ export default {
   title: 'Components/Organisms/The Header'
 }
 
-export const Example = () => ({
+export const MinimalistHeader = () => ({
   components: {
     TheHeader,
     WnycLogo

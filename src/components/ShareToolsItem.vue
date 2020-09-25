@@ -11,13 +11,13 @@
 </template>
 
 <script>
-import Email from '../components/icons/email'
-import Facebook from '../components/icons/facebook'
-import Instagram from '../components/icons/instagram'
-import Reddit from '../components/icons/reddit'
-import Spotify from '../components/icons/spotify'
-import Twitter from '../components/icons/twitter'
-import Youtube from '../components/icons/youtube'
+import Email from './icons/EmailIcon'
+import Facebook from './icons/FacebookIcon'
+import Instagram from './icons/InstagramIcon'
+import Reddit from './icons/RedditIcon'
+import Spotify from './icons/SpotifyIcon'
+import Twitter from './icons/TwitterIcon'
+import Youtube from './icons/YoutubeIcon'
 
 export default {
   name: 'ShareToolsLink',
