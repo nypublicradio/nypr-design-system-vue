@@ -171,7 +171,7 @@ export default {
 >
 .c-main-footer {
   padding: var(--space-5);
-  background-color: RGB(var(--color-cool-white));
+  background-color: RGB(var(--color-background));
   color: RGB(var(--color-text));
 
   @include media(">xlarge") {

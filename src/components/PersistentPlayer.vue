@@ -8,7 +8,7 @@
           </div>
         </template>
         <div class="player-track-title">
-          <h2 v-if="hasTitle && hasTitleLink">
+          <h2 v-if="title && titleLink">
             <a
               :href="titleLink"
               class="player-track-title-link"
@@ -16,22 +16,22 @@
               {{ title }}
             </a>
           </h2>
-          <h2 v-if="hasTitle && !hasTitleLink">
+          <h2 v-if="title && !titleLink">
             {{ title }}
           </h2>
         </div>
         <div
-          v-if="hasDetails"
+          v-if="details"
           class="player-track-details"
         >
           <div
-            v-if="hasDetails && !hasDetailsLink"
+            v-if="details && !detailsLink"
             class="player-track-title-details"
           >
             {{ details }}
           </div>
           <a
-            v-if="hasDetails && hasDetailsLink"
+            v-if="details && detailsLink"
             :href="detailsLink"
             class="player-track-title-details-link"
           >
@@ -219,18 +219,6 @@ export default {
     }
   },
   computed: {
-    hasDetails () {
-      return this.$props.details
-    },
-    hasDetailsLink () {
-      return this.$props.detailsLink
-    },
-    hasTitle () {
-      return this.$props.title
-    },
-    hasTitleLink () {
-      return this.$props.titleLink
-    },
     muted () {
       return this.volume / 100 === 0
     },
@@ -372,7 +360,7 @@ $xlarge: 1440px;
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 
@@ -401,19 +389,19 @@ $xlarge: 1440px;
   margin-left: var(--space-2);
 }
 
-.player-livestream {
+.persistent-player .player-livestream {
   display: flex;
   align-items: center;
   font-size: var(--font-size-3);
   font-weight: 400;
 }
 
-.player-livestream .player-livestream-live-text {
+.persistent-player .player-livestream .player-livestream-live-text {
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.player-livestream .player-livestream-dot {
+.persistent-player .player-livestream .player-livestream-dot {
   background-color: #e74f4f;
   border-radius: 8px;
   height: 8px;
@@ -421,31 +409,36 @@ $xlarge: 1440px;
   margin: 0 8px;
 }
 
-.player-track {
+.persistent-player .player-track {
   flex: auto;
   padding: 0 var(--space-6) 0 0;
   overflow: hidden;
 }
 
-.player-track-title {
+.persistent-player .player-track-title {
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
 }
 
-.player-track-title h2 {
+.persistent-player .player-track-title h2 {
   line-height: 1;
 }
 
-.player-track-title-details-link {
+.persistent-player .player-track-title-details-link {
   display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
-.player-track-progress {
+.persistent-player .player-track-progress {
   position: absolute;
   background-color: RGB(var(--color-text));
   cursor: pointer;
@@ -461,7 +454,7 @@ $xlarge: 1440px;
   }
 }
 
-.player-track-progress .player-track-seeker {
+.persistent-player .player-track-progress .player-track-seeker {
   background-color: RGB(var(--color-text));
   bottom: 0;
   left: 0;
@@ -470,7 +463,7 @@ $xlarge: 1440px;
   z-index: 20;
 }
 
-.player-track-progress .player-track-buffered {
+.persistent-player .player-track-progress .player-track-buffered {
   background-color: RGB(var(--color-gray));
   bottom: 0;
   left: 0;
@@ -479,7 +472,7 @@ $xlarge: 1440px;
   z-index: 10;
 }
 
-.player-track-progress .player-track-playhead {
+.persistent-player .player-track-progress .player-track-playhead {
   position: absolute;
   height: 22px;
   width: 22px;
@@ -504,7 +497,7 @@ $xlarge: 1440px;
   }
 }
 
-.player-track-time {
+.persistent-player .player-track-time {
   display: flex;
   font-size: var(--font-size-2);
   font-weight: 500;
@@ -513,15 +506,15 @@ $xlarge: 1440px;
   }
 }
 
-.player-track-time .player-track-time-current {
+.persistent-player .player-track-time .player-track-time-current {
   margin-right: var(--space-1);
 }
 
-.player-track-time .player-track-time-total {
+.persistent-player .player-track-time .player-track-time-total {
   margin-left: var(--space-1);
 }
 
-.player-volume {
+.persistent-player .player-volume {
   padding-left: var(--space-3);
   display: none;
   @media all and (min-width: $medium) {
@@ -530,35 +523,11 @@ $xlarge: 1440px;
   }
 }
 
-.player-volume-icon {
+.persistent-player .player-volume-icon {
   height: 24px;
 }
 
-.player-volume-icon svg path {
+.persistent-player .player-volume-icon svg path {
   fill: RGB(var(--color-text));
 }
-
-// transition
-.slide-left-enter-active,
-.slide-left-leave-active,
-.slide-right-enter-active,
-.slide-right-leave-active {
-  transition-duration: var(--animation-duration);
-  transition-property: height, opacity, transform;
-  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
-  overflow: hidden;
-}
-
-.slide-left-enter,
-.slide-right-leave-active {
-  opacity: 0;
-  transform: translate(2em, 0);
-}
-
-.slide-left-leave-active,
-.slide-right-enter {
-  opacity: 0;
-  transform: translate(-2em, 0);
-}
-
 </style>

@@ -60,4 +60,8 @@ export default {
 .c-secondary-nav__list.horizontal .c-secondary-nav__item:not(:last-child) {
   margin-right: var(--space-5);
 }
+
+.c-secondary-nav__list .c-secondary-nav__subheader-spacer {
+  height: var(--space-5);;
+}
 </style>

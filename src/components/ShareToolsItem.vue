@@ -47,6 +47,7 @@ export default {
   computed: {
     link () {
       switch (this.service) {
+        case 'email': return 'mailto:' + this.username
         case 'facebook': return 'https://www.facebook.com/' + this.username
         case 'instagram': return 'https://www.instagram.com/' + this.username
         case 'spotify': return 'https://open.spotify.com/playlist/' + this.username

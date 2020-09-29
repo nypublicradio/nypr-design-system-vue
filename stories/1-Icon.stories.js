@@ -50,7 +50,7 @@ import PauseIcon from '../src/components/icons/wqxr/PauseIcon'
 import WqxrLogo from '../src/components/icons/wqxr/WqxrLogo'
 
 // wync
-import Jlgreene from '../src/components/icons/wnyc/jlgreene'
+import Jlgreene from '../src/components/icons/wnyc/JlgreeneLogo'
 import WnycLogo from '../src/components/icons/wnyc/WnycLogo'
 
 export default {

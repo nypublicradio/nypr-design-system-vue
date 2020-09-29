@@ -1,14 +1,14 @@
-import AudioPlayer from '../src/components/PersistentPlayer'
+import PersistentPlayer from '../src/components/PersistentPlayer'
 
 export default {
   title: 'Components/Organisms/Persistent Player',
-  component: AudioPlayer
+  component: PersistentPlayer
 }
 
 export const Default = () => ({
-  components: { AudioPlayer },
+  components: { PersistentPlayer },
   template: `
-    <audio-player
+    <persistent-player
       title="The Takeaway"
       station="WNYC 93.9 FM"
       title-link="http://www.google.com"
@@ -20,9 +20,9 @@ export const Default = () => ({
 })
 
 export const Livestream = () => ({
-  components: { AudioPlayer },
+  components: { PersistentPlayer },
   template: `
-    <audio-player
+    <persistent-player
       livestream
       station="WNYC 93.9 FM"
       title="The Takeaway"
@@ -35,9 +35,9 @@ export const Livestream = () => ({
 })
 
 export const LivestreamWithoutTitle = () => ({
-  components: { AudioPlayer },
+  components: { PersistentPlayer },
   template: `
-    <audio-player
+    <persistent-player
       livestream
       station="WNYC 93.9 FM"
       details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
@@ -48,9 +48,9 @@ export const LivestreamWithoutTitle = () => ({
 })
 
 export const LivestreamWithoutDetails = () => ({
-  components: { AudioPlayer },
+  components: { PersistentPlayer },
   template: `
-    <audio-player
+    <persistent-player
       livestream
       station="WNYC 93.9 FM"
       title="The Takeaway"
@@ -61,9 +61,9 @@ export const LivestreamWithoutDetails = () => ({
 })
 
 export const LivestreamWithoutStation = () => ({
-  components: { AudioPlayer },
+  components: { PersistentPlayer },
   template: `
-    <audio-player
+    <persistent-player
       livestream
       title="The Takeaway"
       title-link="http://www.google.com"
@@ -75,9 +75,9 @@ export const LivestreamWithoutStation = () => ({
 })
 
 export const LivestreamWithoutTitleLink = () => ({
-  components: { AudioPlayer },
+  components: { PersistentPlayer },
   template: `
-    <audio-player
+    <persistent-player
       livestream
       station="WNYC 93.9 FM"
       title="The Takeaway"
@@ -89,9 +89,9 @@ export const LivestreamWithoutTitleLink = () => ({
 })
 
 export const LivestreamWithoutDetailsLink = () => ({
-  components: { AudioPlayer },
+  components: { PersistentPlayer },
   template: `
-    <audio-player
+    <persistent-player
       livestream
       station="WNYC 93.9 FM"
       title="The Takeaway"

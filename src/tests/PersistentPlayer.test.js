@@ -1,17 +1,12 @@
-import { mount, shallowMount } from '@vue/test-utils'
-import AudioPlayer from '../components/PersistentPlayer'
+import { mount } from '@vue/test-utils'
+import PersistentPlayer from '../components/PersistentPlayer'
 import { describe, test, expect } from '@jest/globals'
 
-describe('AudioPlayer', () => {
-  test('component renders', () => {
-    const wrapper = shallowMount(AudioPlayer)
-    expect(wrapper.exists())
-  })
-
+describe('PersistentPlayer', () => {
   test('file prop works', () => {
     // test if the file prop works by using a blank base64 wav file
     const file = 'data:audio/wave;base64,UklGRjIAAABXQVZFZm10IBIAAAABAAEAQB8AAEAfAAABAAgAAABmYWN0BAAAAAAAAABkYXRhAAAAAA=='
-    const wrapper = mount(AudioPlayer, {
+    const wrapper = mount(PersistentPlayer, {
       propsData: {
         file
       }
@@ -21,7 +16,7 @@ describe('AudioPlayer', () => {
   })
 
   test('back 15 button works', () => {
-    const wrapper = mount(AudioPlayer)
+    const wrapper = mount(PersistentPlayer)
     // move the current time to 60 seconds so we can go back 15 seconds
     wrapper.vm.audio.currentTime = 60
     const div = wrapper.get('.player-back-15-icon')
@@ -30,7 +25,7 @@ describe('AudioPlayer', () => {
   })
 
   test('ahead 15 button works', () => {
-    const wrapper = mount(AudioPlayer)
+    const wrapper = mount(PersistentPlayer)
     // check that start/current time is 0
     expect(wrapper.vm.audio.currentTime).toBe(0)
     const div = wrapper.get('.player-ahead-15-icon')
@@ -39,7 +34,7 @@ describe('AudioPlayer', () => {
   })
 
   test('title prop works', () => {
-    const wrapper = mount(AudioPlayer, {
+    const wrapper = mount(PersistentPlayer, {
       propsData: {
         title: 'The Show'
       }
@@ -52,7 +47,7 @@ describe('AudioPlayer', () => {
   })
 
   test('title-link prop works', () => {
-    const wrapper = mount(AudioPlayer, {
+    const wrapper = mount(PersistentPlayer, {
       propsData: {
         title: 'The Show',
         titleLink: 'http://www.titlelink.com'
@@ -67,7 +62,7 @@ describe('AudioPlayer', () => {
   })
 
   test('details prop works', () => {
-    const wrapper = mount(AudioPlayer, {
+    const wrapper = mount(PersistentPlayer, {
       propsData: {
         details: 'lorem ipsum dolor'
       }
@@ -79,8 +74,8 @@ describe('AudioPlayer', () => {
     expect(div.text()).toBe('lorem ipsum dolor')
   })
 
-  test('title-link prop works', () => {
-    const wrapper = mount(AudioPlayer, {
+  test('details-link prop works', () => {
+    const wrapper = mount(PersistentPlayer, {
       propsData: {
         details: 'lorem ipsum dolor',
         detailsLink: 'http://www.detailslink.com'
@@ -95,7 +90,7 @@ describe('AudioPlayer', () => {
   })
 
   test('mute button works', () => {
-    const wrapper = mount(AudioPlayer)
+    const wrapper = mount(PersistentPlayer)
     // check that start/current volume is 100
     expect(wrapper.vm.volume).toBe(100)
     const div = wrapper.get('.player-volume-icon')
@@ -108,7 +103,7 @@ describe('AudioPlayer', () => {
   })
 
   test('volume slider works', () => {
-    const wrapper = mount(AudioPlayer)
+    const wrapper = mount(PersistentPlayer)
     // check that start/current volume is 100
     expect(wrapper.vm.volume).toBe(100)
     // set the slider to 75
@@ -118,14 +113,14 @@ describe('AudioPlayer', () => {
   })
 
   test('download button is not visible by default', () => {
-    const wrapper = mount(AudioPlayer)
+    const wrapper = mount(PersistentPlayer)
     expect(wrapper.vm.showDownload).toBe(false)
     const div = wrapper.find('.player-download-icon')
     expect(div.exists()).toBe(false)
   })
 
   test('download prop works', () => {
-    const wrapper = mount(AudioPlayer, {
+    const wrapper = mount(PersistentPlayer, {
       propsData: {
         showDownload: true
       }
@@ -136,14 +131,14 @@ describe('AudioPlayer', () => {
   })
 
   test('livestream prop is false by default', () => {
-    const wrapper = mount(AudioPlayer)
+    const wrapper = mount(PersistentPlayer)
     expect(wrapper.vm.livestream).toBe(false)
     const div = wrapper.find('.player-livestream')
     expect(div.exists()).toBe(false)
   })
 
   test('livestream prop works', () => {
-    const wrapper = mount(AudioPlayer, {
+    const wrapper = mount(PersistentPlayer, {
       propsData: {
         livestream: true
       }
@@ -154,14 +149,14 @@ describe('AudioPlayer', () => {
   })
 
   test('track progress is visible if livestream is set to false', () => {
-    const wrapper = mount(AudioPlayer)
+    const wrapper = mount(PersistentPlayer)
     expect(wrapper.vm.livestream).toBe(false)
     const div = wrapper.find('.player-track-progress')
     expect(div.exists()).toBe(true)
   })
 
   test('track progress is not visible if livestream is set to true', () => {
-    const wrapper = mount(AudioPlayer, {
+    const wrapper = mount(PersistentPlayer, {
       propsData: {
         livestream: true
       }
@@ -172,14 +167,14 @@ describe('AudioPlayer', () => {
   })
 
   test('track time is visible if livestream is set to false', () => {
-    const wrapper = mount(AudioPlayer)
+    const wrapper = mount(PersistentPlayer)
     expect(wrapper.vm.livestream).toBe(false)
     const div = wrapper.find('.player-track-time')
     expect(div.exists()).toBe(true)
   })
 
   test('track time is not visible if livestream is set to true', () => {
-    const wrapper = mount(AudioPlayer, {
+    const wrapper = mount(PersistentPlayer, {
       propsData: {
         livestream: true
       }

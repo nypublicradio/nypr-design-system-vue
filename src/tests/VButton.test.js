@@ -11,7 +11,11 @@ describe('VButton', () => {
         label: label
       }
     })
+    // check if prop works
     expect(wrapper.text()).toBe(label)
+    // check if it was rendered correctly
+    const div = wrapper.find('.button-label')
+    expect(div.text()).toBe(label)
   })
 
   test('link attribute works', () => {
@@ -21,6 +25,7 @@ describe('VButton', () => {
         href: href
       }
     })
+    // check if prop works and rendered correctly
     expect(wrapper.attributes().href).toBe(href)
   })
 
@@ -31,7 +36,11 @@ describe('VButton', () => {
         disabled: disabled
       }
     })
+    // check if prop works
     expect(wrapper.props().disabled).toBe(disabled)
+    // check if it was rendered correctly
+    const div = wrapper.find('.disabled')
+    expect(div.exists()).toBe(true)
   })
 
   test('slot works', () => {
@@ -40,6 +49,7 @@ describe('VButton', () => {
         default: AudioIcon
       }
     })
+    // check if the component was successfully passed through the slot
     expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
   })
 })

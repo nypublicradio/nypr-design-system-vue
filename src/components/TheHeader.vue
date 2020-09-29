@@ -19,9 +19,10 @@
       </div>
       <div class="c-main-header__right">
         <v-button
+          v-if="donateUrl"
           class="c-main-header__donate"
           label="Donate"
-          href="https://pledge3.wnyc.org/donate/main/onestep/?utm_medium=partnersite&utm_source=w3k&utm_campaign=brandheader"
+          :href="donateUrl"
           target="_blank"
           rel="noopener"
           data-category="Click Tracking"
@@ -38,7 +39,13 @@ import VButton from '../components/VButton'
 
 export default {
   name: 'TheHeader',
-  components: { VButton }
+  components: { VButton },
+  props: {
+    donateUrl: {
+      type: String,
+      default: null
+    }
+  }
 }
 </script>
 

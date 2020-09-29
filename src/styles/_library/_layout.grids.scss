@@ -16,6 +16,12 @@
   grid-gap: 0;
 }
 
+.l-grid--1up--small {
+  @media all and (max-width: $medium) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
 .l-grid--2up {
   @include media(">medium") {
     grid-template-columns: repeat(2, 1fr);

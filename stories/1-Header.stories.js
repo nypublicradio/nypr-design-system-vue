@@ -12,7 +12,7 @@ export const MinimalistHeader = () => ({
   },
   template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
-      <the-header>
+      <the-header donate-url="http://www.google.com">
         <wnyc-logo />
       </the-header>
     </div>
