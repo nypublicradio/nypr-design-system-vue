@@ -75,11 +75,11 @@
 
 <script>
 export default {
-  name: 'Jlgreene',
+  name: 'JlgreeneLogo',
   props: {
     title: {
       type: String,
-      default: 'JL Greene'
+      default: 'JL Greene Foundation'
     }
   }
 }
