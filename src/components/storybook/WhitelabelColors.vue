@@ -1,16 +1,38 @@
 <template>
   <div class="colors">
-    <div class="u-background-color--cool-white"><span>cool-white</span></div>
-    <div class="u-background-color--ceramic-blue"><span>ceramic-blue</span></div>
-    <div class="u-background-color--concrete"><span>concrete</span></div>
-    <div class="u-background-color--ember-red"><span>ember-red</span></div>
-    <div class="u-background-color--cool-blue"><span>cool-blue</span></div>
-    <div class="u-background-color--sky-blue"><span>sky-blue</span></div>
-    <div class="u-background-color--sea-green"><span>sea-green</span></div>
-    <div class="u-background-color--bright-purple"><span>bright-purple</span></div>
-    <div class="u-background-color--light-gray"><span>light gray</span></div>
-    <div class="u-background-color--gray"><span>gray</span></div>
-    <div class="u-background-color--dark-gray"><span>dark gray</span></div>
+    <div class="u-background-color--cool-white">
+      <span>cool-white</span>
+    </div>
+    <div class="u-background-color--ceramic-blue">
+      <span>ceramic-blue</span>
+    </div>
+    <div class="u-background-color--concrete">
+      <span>concrete</span>
+    </div>
+    <div class="u-background-color--ember-red">
+      <span>ember-red</span>
+    </div>
+    <div class="u-background-color--cool-blue">
+      <span>cool-blue</span>
+    </div>
+    <div class="u-background-color--sky-blue">
+      <span>sky-blue</span>
+    </div>
+    <div class="u-background-color--sea-green">
+      <span>sea-green</span>
+    </div>
+    <div class="u-background-color--bright-purple">
+      <span>bright-purple</span>
+    </div>
+    <div class="u-background-color--light-gray">
+      <span>light gray</span>
+    </div>
+    <div class="u-background-color--gray">
+      <span>gray</span>
+    </div>
+    <div class="u-background-color--dark-gray">
+      <span>dark gray</span>
+    </div>
   </div>
 </template>
 
