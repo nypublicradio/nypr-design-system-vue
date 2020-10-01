@@ -1,61 +1,75 @@
 <template>
-  <div class="stream-switcher-card" :class="{'is-active':active}">
-    
-    <div class="stream-switcher-stations-label">{{ station }}</div>
+  <div
+    class="stream-switcher-card"
+    :class="{'is-active':active}"
+  >
+    <div class="stream-switcher-stations-label">
+      {{ station }}
+    </div>
     <div class="sound-animation">
-      <div class="sound-animation-bar"></div>
-      <div class="sound-animation-bar"></div>
-      <div class="sound-animation-bar"></div>
-      <div class="sound-animation-bar"></div>
-      <div class="sound-animation-bar"></div>
-      <div class="sound-animation-bar"></div>
-      <div class="sound-animation-bar"></div>
+      <div class="sound-animation-bar" />
+      <div class="sound-animation-bar" />
+      <div class="sound-animation-bar" />
+      <div class="sound-animation-bar" />
+      <div class="sound-animation-bar" />
+      <div class="sound-animation-bar" />
+      <div class="sound-animation-bar" />
     </div>
     <div class="on-air-image">
-      <img aria-hidden="true" :alt="showTitle" :src="image" />
+      <img
+        aria-hidden="true"
+        :alt="showTitle"
+        :src="image"
+      >
     </div>
     <div class="stream-switcher-streams-stream-show-title">
       {{ showTitle }}
     </div>
     <div class="up-next">
       <!---->
-      <div class="up-next-label">up next</div>
-      <div class="up-next-show-title">{{ upNext }}</div>
-      <div class="up-next-time">{{ time }}</div>
+      <div class="up-next-label">
+        up next
+      </div>
+      <div class="up-next-show-title">
+        {{ upNext }}
+      </div>
+      <div class="up-next-time">
+        {{ time }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "StreamSwitcherCard",
+  name: 'StreamSwitcherCard',
   props: {
     station: {
       type: String,
-      default: null,
+      default: null
     },
     showTitle: {
       type: String,
-      default: null,
+      default: null
     },
     image: {
       type: String,
-      default: null,
+      default: null
     },
     upNext: {
       type: String,
-      default: null,
+      default: null
     },
     time: {
       type: String,
-      default: null,
+      default: null
     },
     active: {
       type: Boolean,
-      default: false,
-    },
-  },
-};
+      default: false
+    }
+  }
+}
 </script>
 
 <style lang="scss">
