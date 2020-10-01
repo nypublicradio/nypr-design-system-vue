@@ -26,7 +26,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .v-spacer {
     clear: both;
   }

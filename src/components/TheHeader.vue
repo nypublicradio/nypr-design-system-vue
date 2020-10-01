@@ -50,6 +50,7 @@ export default {
 </script>
 
 <style lang="scss">
+$z-index-header: 5000;
 .c-main-header {
   text-align: center;
   position: relative;

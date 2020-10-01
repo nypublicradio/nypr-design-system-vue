@@ -4,12 +4,15 @@
       <div class="l-grid l-grid--2up l-grid--large-gutters">
         <div>
           <div class="c-main-footer__logo u-space--double--bottom">
-            <a href="/">
+            <a
+              href="/"
+              aria-label="home page"
+            >
               <slot name="logo" />
             </a>
           </div>
           <div class="c-main-footer__slogan u-space--triple--bottom">
-            {{ slogan }}
+            <p>{{ slogan }}</p>
           </div>
           <div
             class="c-main-footer__nav c-main-footer__primary-nav u-space--double--bottom"
@@ -186,12 +189,13 @@ export default {
   text-decoration: none;
 
   &:hover {
-    color: RGBA(var(--color-link-hover), var(--opacity-link-hover));
+    color: RGB(var(--color-link-hover));
+    opacity: var(--opacity-link-hover);
     text-decoration: none;
   }
 }
 
-.c-main-footer__inner {
+.c-main-footer .c-main-footer__inner {
   @include media(">xlarge") {
     margin-top: 0;
     display: flex;
@@ -200,14 +204,14 @@ export default {
   }
 }
 
-.c-main-footer__col1 {
+.c-main-footer .c-main-footer__col1 {
   width: 100%;
   max-width: 548px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.c-main-footer__branding {
+.c-main-footer .c-main-footer__branding {
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -226,10 +230,10 @@ export default {
 }
 
 .c-main-footer a:hover svg {
-  fill: RGBA(var(--color-navigation-link-hover), var(--opacity-navigation-link-hover));
+  fill: rgba(var(--color-navigation-link-hover), var(--opacity-navigation-link-hover));
 }
 
-.c-main-footer__logo {
+.c-main-footer .c-main-footer__logo {
   min-width: 150px;
   max-width: 150px;
   margin-right: var(--space-4);
@@ -239,29 +243,30 @@ export default {
   }
 }
 
-.c-main-footer__slogan p {
+.c-main-footer p,
+.c-main-footer .c-main-footer__slogan p {
   @include typeface(body, 6);
 }
 
-.c-main-footer__utility {
+.c-main-footer .c-main-footer__utility {
   @include media("<=small") {
     margin-bottom: -18px;
   }
 }
 
-.c-main-footer__nav {
+.c-main-footer .c-main-footer__nav {
   @include media("<=medium") {
     text-align: center;
   }
 }
 
-.c-main-footer__primary-nav {
+.c-main-footer .c-main-footer__primary-nav {
   @include media("<=medium") {
     text-align: center;
   }
 }
 
-.c-main-footer__nav .c-secondary-nav__item {
+.c-main-footer .c-main-footer__nav .c-secondary-nav__item {
   display: inline-block;
   margin: 0 var(--space-3) var(--space-4) 0;
 
@@ -270,13 +275,13 @@ export default {
   }
 }
 
-.c-main-footer__nav .c-secondary-nav__item:not(:last-child) {
+.c-main-footer .c-main-footer__nav .c-secondary-nav__item:not(:last-child) {
   @include media(">xlarge") {
     margin-right: var(--space-5);
   }
 }
 
-.c-main-footer__nav .c-secondary-nav__link {
+.c-main-footer .c-main-footer__nav .c-secondary-nav__link {
   padding: var(--space-2) 0;
 }
 
@@ -287,7 +292,7 @@ export default {
 }
 
 .c-main-footer .c-main-footer__social {
-  margin: auto;
+  margin: 0 0 0 auto;
 }
 
 .c-main-footer .c-share-tools__label {
@@ -310,7 +315,11 @@ export default {
   font-weight: normal;
 }
 
-.c-main-footer__nav .c-secondary-nav__item {
+.c-main-footer .c-secondary-nav__subheader-spacer {
+  height: 38px;
+}
+
+.c-main-footer .c-main-footer__nav .c-secondary-nav__item {
   display: inline-block;
   margin: 0 var(--space-3) var(--space-4) 0;
 
@@ -319,17 +328,17 @@ export default {
   }
 }
 
-.c-main-footer__nav .c-secondary-nav__item:not(:last-child) {
+.c-main-footer .c-main-footer__nav .c-secondary-nav__item:not(:last-child) {
   @include media(">xlarge") {
     margin-right: var(--space-5);
   }
 }
 
-.c-main-footer__nav .c-secondary-nav__link {
+.c-main-footer .c-main-footer__nav .c-secondary-nav__link {
   padding: var(--space-2) 0;
 }
 
-.c-main-footer__nypr-logo {
+.c-main-footer .c-main-footer__nypr-logo {
   width: 120px;
   margin: 0 auto var(--space-3);
 
@@ -338,12 +347,12 @@ export default {
   }
 }
 
-.c-main-footer__nypr-logo path,
-.c-main-footer__nypr-logo polygon {
+.c-main-footer .c-main-footer__nypr-logo path,
+.c-main-footer .c-main-footer__nypr-logo polygon {
   fill: RGB(var(--color-text));
 }
 
-.c-main-footer__brand-group {
+.c-main-footer .c-main-footer__brand-group {
   text-align: center;
 
   @include media(">xlarge") {
@@ -360,7 +369,7 @@ export default {
   width: 100%;
 }
 
-.c-main-footer__bottom {
+.c-main-footer .c-main-footer__bottom {
   padding: var(--space-4) var(--space-3);
   text-align: center;
   margin-left: calc(var(--space-3) * -1);
@@ -377,17 +386,17 @@ export default {
   }
 }
 
-.c-main-footer__bottom p {
+.c-main-footer .c-main-footer__bottom p {
   @include typeface(body, 6);
 }
 
-.c-main-footer__copyright {
+.c-main-footer .c-main-footer__copyright {
   @include media(">large") {
     margin-right: var(--space-4);
   }
 }
 
-.c-main-footer__terms-links {
+.c-main-footer .c-main-footer__terms-links {
   @include typeface(subheader, 5);
   @include media(">=medium") {
     @include typeface(subheader, 7);
@@ -399,7 +408,7 @@ export default {
   }
 }
 
-.c-main-footer__terms-links a {
+.c-main-footer .c-main-footer__terms-links a {
   @include typeface(body, 6);
   padding: 8px 0;
   font-weight: normal;

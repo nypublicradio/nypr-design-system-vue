@@ -47,6 +47,10 @@
   }
 }
 
+.c-main-footer .jlgreene-logo-icon {
+  height: 20px;
+}
+
 .c-main-footer .c-secondary-nav__subheader {
   @include typeface(subheader, 8);
 }
@@ -135,4 +139,8 @@
 .nypr-o-audio-player-play-button,
 .nypr-o-audio-player .button:active {
   background-color: RGB(var(--color-red));
+}
+
+.persistent-player .player-livestream .player-livestream-dot {
+  background-color: white;
 }

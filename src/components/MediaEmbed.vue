@@ -21,7 +21,7 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .responsive-embed {
     position: relative;
     height: 0;

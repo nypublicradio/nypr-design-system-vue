@@ -5,6 +5,7 @@
     :class="service"
     :aria-label="ariaLabel"
     target="_blank"
+    rel="noopener"
   >
     <component :is="service" />
   </a>
@@ -66,8 +67,6 @@ export default {
 <style
   lang="scss"
 >
-@import "../styles/themes/white-label/theme.legacy-variables";
-@import "../styles/_library/base.mixins";
 .c-share-tools__link {
   width: 30px;
   height: 30px;

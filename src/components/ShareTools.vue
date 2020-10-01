@@ -24,9 +24,7 @@ export default {
 }
 </script>
 
-<style
-  lang="scss"
->
+<style lang="scss">
 .c-share-tools {
   display: flex;
   align-items: center;
