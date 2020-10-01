@@ -3,7 +3,7 @@ $ember-basic-dropdown-content-z-index: 10000 !default;
 $ember-basic-dropdown-overlay-background: (0, 0, 0, 0.5) !default;
 $ember-basic-dropdown-overlay-pointer-events: none !default;
 
-@import "ember-basic-dropdown";
+//@import "ember-basic-dropdown";
 
 
 @mixin toggleBoxCaret($size, $color) {
