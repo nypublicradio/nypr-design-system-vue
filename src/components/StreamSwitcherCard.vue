@@ -88,6 +88,7 @@ export default {
   @include typeface(body, 4);
   background: RGB(var(--color-background));
   color: RGB(var(--color-text));
+  cursor: pointer;
 
   &.is-active {
     border: 3px solid RGB(var(--color-text-error));
@@ -160,7 +161,13 @@ export default {
 }
 
 .stream-switcher-card.is-playing .stream-switcher-card-show {
-  display: none;
+  @include media(">medium") {
+    display: none;
+  }
+}
+
+.stream-switcher-card.is-playing:hover .stream-switcher-card-show {
+  display: flex;
 }
 
 .stream-switcher-card .stream-switcher-card-show-image {
@@ -186,7 +193,13 @@ export default {
 }
 
 .stream-switcher-card.is-playing .stream-switcher-card-up-next {
-  display: none;
+  @include media(">medium") {
+    display: none;
+  }
+}
+
+.stream-switcher-card.is-playing:hover .stream-switcher-card-up-next {
+  display: flex;
 }
 
 .stream-switcher-card .stream-switcher-card-up-next-label {
