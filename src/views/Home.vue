@@ -1,35 +1,24 @@
 <template>
   <main class="home l-container">
-    <h1>Home page</h1>
-    <v-spacer size="triple" />
-    <share-tools label="Connect">
-      <share-tools-item
-        service="facebook"
-        username="WNYC"
-      />
-      <share-tools-item
-        service="twitter"
-        username="WNYC"
-      />
-      <share-tools-item
-        service="instagram"
-        username="WNYC"
-      />
-      <share-tools-item
-        service="youtube"
-        username="UCbysmY4hyViQAAYEzOR-uCQ"
-      />
-    </share-tools>
+    <theme-switcher>
+      <h1>Home page</h1>
+      <v-spacer size="triple" />
+      <v-button label="click me" />
+    </theme-switcher>
   </main>
 </template>
 
 <script>
-  import VSpacer from '../components/VSpacer'
-  import ShareTools from '../components/ShareTools'
-  import ShareToolsItem from '../components/ShareToolsItem'
+import ThemeSwitcher from '../components/storybook/ThemeSwitcher'
+import VSpacer from '../components/VSpacer'
+import VButton from '@/components/VButton'
 
-  export default {
-    name: 'Home',
-    components: { VSpacer, ShareTools, ShareToolsItem }
+export default {
+  name: 'Home',
+  components: {
+    ThemeSwitcher,
+    VSpacer,
+    VButton
   }
+}
 </script>

@@ -1,9 +1,15 @@
 <template>
-  <div>
+  <div class="gothamist-theme-wrapper">
     <slot />
   </div>
 </template>
 
-<style>
-@import "src/styles/gothamist.scss";
+<script>
+export default {
+  name: 'GothamistThemeWrapper'
+}
+</script>
+
+<style lang="scss">
+@import "src/styles/gothamist";
 </style>

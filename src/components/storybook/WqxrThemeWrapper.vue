@@ -1,9 +1,15 @@
 <template>
-  <div>
+  <div class="wqxr-theme-wrapper">
     <slot />
   </div>
 </template>
 
-<style>
-@import "src/styles/wqxr.scss";
+<script>
+export default {
+  name: 'WqxrThemeWrapper'
+}
+</script>
+
+<style lang="scss">
+@import "src/styles/wqxr";
 </style>

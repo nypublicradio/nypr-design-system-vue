@@ -1,9 +1,15 @@
 <template>
-  <div>
+  <div class="wnyc-theme-wrapper">
     <slot />
   </div>
 </template>
 
-<style>
-@import "src/styles/wnyc.scss";
+<script>
+export default {
+  name: 'WnycThemeWrapper'
+}
+</script>
+
+<style lang="scss">
+@import "src/styles/wnyc";
 </style>

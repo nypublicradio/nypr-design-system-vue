@@ -1,9 +1,15 @@
 <template>
-  <div>
+  <div class="whitelabel-theme-wrapper">
     <slot />
   </div>
 </template>
 
-<style>
+<script>
+export default {
+  name: 'WhitelabelThemeWrapper'
+}
+</script>
+
+<style lang="scss">
 @import "src/styles/white-label.scss";
 </style>

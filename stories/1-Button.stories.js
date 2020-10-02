@@ -1,3 +1,4 @@
+import WnycThemeWrapper from '../src/components/storybook/WnycThemeWrapper'
 import VButton from '../src/components/VButton'
 import AudioIcon from '../src/components/icons/AudioIcon'
 
@@ -7,10 +8,11 @@ export default {
 
 export const Buttons = () => ({
   components: {
+    WnycThemeWrapper,
     VButton
   },
   template: `
-    <div class="sbdocs-large-container sbdocs-container-margin">
+    <wnyc-theme-wrapper>
     <div class="l-grid l-grid--4up">
       <div>
         <v-button
@@ -41,7 +43,8 @@ export const Buttons = () => ({
         />
       </div>
     </div>
-    </div>`
+    </wnyc-theme-wrapper>
+  `
 })
 
 export const ButtonsWithIcons = () => ({
@@ -51,14 +54,15 @@ export const ButtonsWithIcons = () => ({
   },
   template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
-      <v-button
-        href="http://www.google.com"
-        class="mod-large"
-        label="Button"
-      >
-        <audio-icon />
-      </v-button>
-    </div>`
+    <v-button
+      href="http://www.google.com"
+      class="mod-large"
+      label="Button"
+    >
+      <audio-icon />
+    </v-button>
+    </div>
+  `
 })
 
 export const Secondary = () => ({
@@ -67,11 +71,11 @@ export const Secondary = () => ({
   },
   template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
-      <v-button
-        href="http://www.google.com"
-        class="mod-secondary"
-        label="Button"
-      />
+    <v-button
+      href="http://www.google.com"
+      class="mod-secondary"
+      label="Button"
+    />
     </div>`
 })
 
@@ -82,31 +86,31 @@ export const IconButtons = () => ({
   },
   template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
-      <div class="l-grid l-grid--3up">
-        <div>
+    <div class="l-grid l-grid--3up">
+      <div>
         <v-button
           href="http://www.google.com"
           class="mod-small"
         >
           <audio-icon />
         </v-button>
-        </div>
-        <div>
+      </div>
+      <div>
         <v-button
           href="http://www.google.com"
         >
           <audio-icon />
         </v-button>
-        </div>
-        <div>
+      </div>
+      <div>
         <v-button
           href="http://www.google.com"
           class="mod-large"
         >
           <audio-icon />
         </v-button>
-        </div>
       </div>
+    </div>
     </div>`
 })
 
@@ -116,10 +120,10 @@ export const Flat = () => ({
   },
   template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
-      <v-button
-        href="http://www.google.com"
-        class="mod-flat"
-        label="Button"
-      />
+    <v-button
+      href="http://www.google.com"
+      class="mod-flat"
+      label="Button"
+    />
     </div>`
 })
