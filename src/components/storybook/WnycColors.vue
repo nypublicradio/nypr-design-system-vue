@@ -1,43 +1,38 @@
 <template>
-  <wnyc-theme-wrapper>
-    <div class="colors">
-      <div class="u-background-color--cool-white">
-        <span>cool-white</span>
-      </div>
-      <div class="u-background-color---blue">
-        <span>ceramic-blue</span>
-      </div>
-      <div class="u-background-color--concrete">
-        <span>concrete</span>
-      </div>
-      <div class="u-background-color--red">
-        <span>red</span>
-      </div>
-      <div class="u-background-color--dark-red">
-        <span>dark-red</span>
-      </div>
-      <div class="u-background-color--reddish-orange">
-        <span>reddish-orange</span>
-      </div>
-      <div class="u-background-color--light-gray">
-        <span>light gray</span>
-      </div>
-      <div class="u-background-color--gray">
-        <span>gray</span>
-      </div>
-      <div class="u-background-color--dark-gray">
-        <span>dark gray</span>
-      </div>
+  <div class="colors">
+    <div class="u-background-color--cool-white">
+      <span>cool-white</span>
     </div>
-  </wnyc-theme-wrapper>
+    <div class="u-background-color---blue">
+      <span>ceramic-blue</span>
+    </div>
+    <div class="u-background-color--concrete">
+      <span>concrete</span>
+    </div>
+    <div class="u-background-color--red">
+      <span>red</span>
+    </div>
+    <div class="u-background-color--dark-red">
+      <span>dark-red</span>
+    </div>
+    <div class="u-background-color--reddish-orange">
+      <span>reddish-orange</span>
+    </div>
+    <div class="u-background-color--light-gray">
+      <span>light gray</span>
+    </div>
+    <div class="u-background-color--gray">
+      <span>gray</span>
+    </div>
+    <div class="u-background-color--dark-gray">
+      <span>dark gray</span>
+    </div>
+  </div>
 </template>
 
 <script>
-import WnycThemeWrapper from '../storybook/WnycThemeWrapper'
-
 export default {
-  name: 'WnycColors',
-  components: { WnycThemeWrapper }
+  name: 'WnycColors'
 }
 </script>
 

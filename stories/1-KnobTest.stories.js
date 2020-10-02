@@ -1,15 +1,14 @@
 import { withKnobs, select } from '@storybook/addon-knobs'
 import VButton from '../src/components/VButton'
-import ThemeSwitcher from '../src/components/storybook/ThemeSwitcher'
 
 const label = 'Themes'
 const options = {
-  Whitelabel: 'WhitelabelThemeWrapper',
-  Gothamist: 'GothamistThemeWrapper',
-  Wnyc: 'WnycThemeWrapper',
-  Wqxr: 'WqxrThemeWrapper'
+  Whitelabel: 'whitelabel',
+  Gothamist: 'gothamist',
+  Wnyc: 'wnyc',
+  Wqxr: 'wqxr'
 }
-const defaultValue = 'WhitelabelThemeWrapper'
+const defaultValue = 'whitelabel'
 
 export default {
   title: 'Knob Test',
@@ -18,8 +17,7 @@ export default {
 
 export const Buttons = () => ({
   components: {
-    VButton,
-    ThemeSwitcher
+    VButton
   },
   props: {
     theme: {
@@ -28,7 +26,7 @@ export const Buttons = () => ({
     }
   },
   template: `
-    <theme-switcher :theme="theme">
+    <div :class="theme">
       <div class="l-grid l-grid--4up">
         <div>
           <v-button
@@ -59,5 +57,5 @@ export const Buttons = () => ({
           />
         </div>
       </div>
-    </theme-switcher>`
+    </div>`
 })

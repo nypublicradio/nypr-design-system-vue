@@ -1,4 +1,3 @@
-import WnycThemeWrapper from '../src/components/storybook/WnycThemeWrapper'
 import VButton from '../src/components/VButton'
 import AudioIcon from '../src/components/icons/AudioIcon'
 
@@ -8,42 +7,39 @@ export default {
 
 export const Buttons = () => ({
   components: {
-    WnycThemeWrapper,
     VButton
   },
   template: `
-    <wnyc-theme-wrapper>
     <div class="l-grid l-grid--4up">
-      <div>
-        <v-button
-          href="http://www.google.com"
-          class="mod-small"
-          label="Small Button"
-        />
-      </div>
-      <div>
-        <v-button
-          href="http://www.google.com"
-          label="Regular Button"
-        />
-      </div>
-      <div>
-        <v-button
-          href="http://www.google.com"
-          class="mod-large"
-          label="Large Button"
-        />
-      </div>
-      <div>
-        <v-button
-          href="http://www.google.com"
-          class="mod-large"
-          label="Disabled Button"
-          disabled
-        />
-      </div>
+    <div>
+      <v-button
+        href="http://www.google.com"
+        class="mod-small"
+        label="Small Button"
+      />
     </div>
-    </wnyc-theme-wrapper>
+    <div>
+      <v-button
+        href="http://www.google.com"
+        label="Regular Button"
+      />
+    </div>
+    <div>
+      <v-button
+        href="http://www.google.com"
+        class="mod-large"
+        label="Large Button"
+      />
+    </div>
+    <div>
+      <v-button
+        href="http://www.google.com"
+        class="mod-large"
+        label="Disabled Button"
+        disabled
+      />
+    </div>
+    </div>
   `
 })
 

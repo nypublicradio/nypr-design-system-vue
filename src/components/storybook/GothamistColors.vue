@@ -1,49 +1,44 @@
 <template>
-  <gothamist-theme-wrapper>
-    <div class="colors">
-      <div class="u-background-color--brick-red">
-        <span>brick-red</span>
-      </div>
-      <div class="u-background-color---reddish-orange">
-        <span>reddish-orange</span>
-      </div>
-      <div class="u-background-color--banana-yellow">
-        <span>banana-yellow</span>
-      </div>
-      <div class="u-background-color--taxicab-yellow">
-        <span>taxicab-yellow</span>
-      </div>
-      <div class="u-background-color--dusk-blue">
-        <span>dusk-blue</span>
-      </div>
-      <div class="u-background-color--brown-grey">
-        <span>brown-grey</span>
-      </div>
-      <div class="u-background-color--dirty-salmon">
-        <span>dirty-salmon</span>
-      </div>
-      <div class="u-background-color--purple">
-        <span>purple</span>
-      </div>
-      <div class="u-background-color--light-gray">
-        <span>light gray</span>
-      </div>
-      <div class="u-background-color--gray">
-        <span>gray</span>
-      </div>
-      <div class="u-background-color--dark-gray">
-        <span>dark gray</span>
-      </div>
+  <div class="colors">
+    <div class="u-background-color--brick-red">
+      <span>brick-red</span>
     </div>
-  </gothamist-theme-wrapper>
+    <div class="u-background-color---reddish-orange">
+      <span>reddish-orange</span>
+    </div>
+    <div class="u-background-color--banana-yellow">
+      <span>banana-yellow</span>
+    </div>
+    <div class="u-background-color--taxicab-yellow">
+      <span>taxicab-yellow</span>
+    </div>
+    <div class="u-background-color--dusk-blue">
+      <span>dusk-blue</span>
+    </div>
+    <div class="u-background-color--brown-grey">
+      <span>brown-grey</span>
+    </div>
+    <div class="u-background-color--dirty-salmon">
+      <span>dirty-salmon</span>
+    </div>
+    <div class="u-background-color--purple">
+      <span>purple</span>
+    </div>
+    <div class="u-background-color--light-gray">
+      <span>light gray</span>
+    </div>
+    <div class="u-background-color--gray">
+      <span>gray</span>
+    </div>
+    <div class="u-background-color--dark-gray">
+      <span>dark gray</span>
+    </div>
+  </div>
 </template>
 
 <script>
-import GothamistThemeWrapper from '../storybook/GothamistThemeWrapper'
-
 export default {
-  name: 'GothamistColors',
-  components: { GothamistThemeWrapper }
+  name: 'GothamistColors'
 }
 </script>
 
@@ -51,6 +46,7 @@ export default {
   lang="scss"
   scoped
 >
+@import "src/styles/themes/gothamist/theme.colors";
 .colors div {
   width: 200px;
   height: 100px;
