@@ -32,7 +32,7 @@ export const Active = () => ({
       showTitle="BBC World Service"
       upNext="WNYC’s Special Convention Coverage 2020"
       time="in 99 mins"
-      active="true"
+      :active="true"
     />
     </div>`
 })
@@ -49,8 +49,8 @@ export const Playing = () => ({
       showTitle="BBC World Service"
       upNext="WNYC’s Special Convention Coverage 2020"
       time="in 99 mins"
-      active="true"
-      playing="true"
+      :active="true"
+      :playing="true"
     />
     </div>`
 })
