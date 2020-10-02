@@ -84,7 +84,8 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 250px;
+  min-width: 250px;
   @include typeface(body, 4);
   background: RGB(var(--color-background));
   color: RGB(var(--color-text));

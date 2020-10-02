@@ -1,7 +1,7 @@
 import StreamSwitcherCard from '../src/components/StreamSwitcherCard'
 
 export default {
-  title: 'Components/Organisms/Stream Switcher Card'
+  title: 'Components/Molecules/Stream Switcher Card'
 }
 
 export const Inactive = () => ({
@@ -9,15 +9,13 @@ export const Inactive = () => ({
     StreamSwitcherCard
   },
   template: `
-    <div style="max-width:260px">
     <stream-switcher-card
       station="WNYC 93.9 FM"
       showTitle="The Takeaway"
       image="https://media.wnyc.org/i/1400/1400/l/80/1/TheTakeway_Square_NoWNYCStudios.png"
       upNext="All Things Considered"
       time="in 15 min"
-    />
-    </div>`
+    />`
 })
 
 export const Active = () => ({
@@ -25,7 +23,6 @@ export const Active = () => ({
     StreamSwitcherCard
   },
   template: `
-    <div style="max-width:260px">
     <stream-switcher-card
       image="https://media.wnyc.org/i/1400/1400/l/80/1/TheTakeway_Square_NoWNYCStudios.png"
       station="WNYC 93.9 FM"
@@ -33,8 +30,7 @@ export const Active = () => ({
       upNext="WNYC’s Special Convention Coverage 2020"
       time="in 99 mins"
       :active="true"
-    />
-    </div>`
+    />`
 })
 
 export const Playing = () => ({
@@ -42,7 +38,6 @@ export const Playing = () => ({
     StreamSwitcherCard
   },
   template: `
-    <div style="max-width:260px">
     <stream-switcher-card
       image="https://media.wnyc.org/i/1400/1400/l/80/1/TheTakeway_Square_NoWNYCStudios.png"
       station="WNYC 93.9 FM"
@@ -51,6 +46,5 @@ export const Playing = () => ({
       time="in 99 mins"
       :active="true"
       :playing="true"
-    />
-    </div>`
+    />`
 })
