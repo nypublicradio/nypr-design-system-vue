@@ -1,10 +1,18 @@
 <template>
   <div class="theme-switcher">
     <select v-model="currentTheme">
-      <option value="whitelabel-theme-wrapper">Whitelabel</option>
-      <option value="gothamist-theme-wrapper">Gothamist</option>
-      <option value="wnyc-theme-wrapper">WNYC</option>
-      <option value="wqxr-theme-wrapper">WQXR</option>
+      <option value="whitelabel-theme-wrapper">
+        Whitelabel
+      </option>
+      <option value="gothamist-theme-wrapper">
+        Gothamist
+      </option>
+      <option value="wnyc-theme-wrapper">
+        WNYC
+      </option>
+      <option value="wqxr-theme-wrapper">
+        WQXR
+      </option>
     </select>
     <v-spacer size="triple" />
     <component :is="currentTheme">
