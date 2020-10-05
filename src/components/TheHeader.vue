@@ -9,12 +9,7 @@
           class="c-main-header__branding"
           name="logo"
         >
-          <a
-            href="/"
-            aria-label="home page"
-          >
-            <slot />
-          </a>
+          <slot />
         </div>
       </div>
       <div class="c-main-header__right">
