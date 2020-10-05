@@ -4,10 +4,19 @@
   "description": "New York Public Radio design system written in Vue",
   "repository": "nypublicradio/nypr-design-system-vue",
   "license": "MIT",
-  "author": "",
+  "main": "./dist/radial.common.js",
+  "author": "NYPR",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name radial",
     "lint": "vue-cli-service lint",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -s ./stories -p 6006",
