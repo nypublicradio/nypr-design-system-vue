@@ -4,12 +4,7 @@
       <div class="l-grid l-grid--2up l-grid--large-gutters">
         <div>
           <div class="c-main-footer__logo u-space--double--bottom">
-            <a
-              href="/"
-              aria-label="home page"
-            >
-              <slot name="logo" />
-            </a>
+            <slot name="logo" />
           </div>
           <div class="c-main-footer__slogan u-space--triple--bottom">
             <p>{{ slogan }}</p>
