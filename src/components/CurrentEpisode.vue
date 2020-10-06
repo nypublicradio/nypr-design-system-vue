@@ -8,7 +8,7 @@
     <img
       class="current-episode-image"
       :src="image"
-    />
+    >
     <span class="current-episode-image-desc">{{ imageDescription }}</span>
   </div>
 </template>
