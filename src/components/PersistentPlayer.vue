@@ -240,7 +240,7 @@ export default {
       this.audio.volume = this.volume / 100
     }
   },
-  created () {
+  mounted () {
     this.innerLoop = this.loop
     // keyboard accessibility
     window.addEventListener('keydown', event => {
@@ -265,8 +265,6 @@ export default {
           break
       }
     })
-  },
-  mounted () {
     this.audio = this.$refs.audioFile
     this.audio.addEventListener('timeupdate', this.update)
     this.audio.addEventListener('loadeddata', this.load)
