@@ -1,4 +1,6 @@
 import MainPlayer from '../src/components/MainPlayer'
+import VButton from '../src/components/VButton'
+import PlaySimple from '../src/components/icons/PlaySimple'
 
 export default {
   title: 'Components/Organisms/Main Player',
@@ -6,7 +8,7 @@ export default {
 }
 
 export const Default = () => ({
-  components: { MainPlayer },
+  components: { MainPlayer, VButton, PlaySimple },
   template: `
     <main-player
       image="http://placehold.it/175x175"
@@ -15,12 +17,16 @@ export const Default = () => ({
       details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
       details-link="http://www.bing.com"
       time="3:00 PM - 4:00 PM"
-    />
+    >
+      <v-button label="Listen Live">
+        <play-simple />
+      </v-button>
+    </main-player>
   `
 })
 
 export const WithoutTitle = () => ({
-  components: { MainPlayer },
+  components: { MainPlayer, VButton, PlaySimple },
   template: `
     <main-player
       image="http://placehold.it/175x175"
@@ -28,12 +34,16 @@ export const WithoutTitle = () => ({
       details-link="http://www.bing.com"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
       time="3:00 PM - 4:00 PM"
-    />
+    >
+    <v-button label="Listen Live">
+      <play-simple />
+    </v-button>
+    </main-player>
   `
 })
 
 export const WithoutDetails = () => ({
-  components: { MainPlayer },
+  components: { MainPlayer, VButton, PlaySimple },
   template: `
     <main-player
       image="http://placehold.it/175x175"
@@ -41,12 +51,16 @@ export const WithoutDetails = () => ({
       title-link="http://www.google.com"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
       time="3:00 PM - 4:00 PM"
-    />
+    >
+    <v-button label="Listen Live">
+      <play-simple />
+    </v-button>
+    </main-player>
   `
 })
 
 export const WithoutTitleLink = () => ({
-  components: { MainPlayer },
+  components: { MainPlayer, VButton, PlaySimple },
   template: `
     <main-player
       image="http://placehold.it/175x175"
@@ -55,12 +69,16 @@ export const WithoutTitleLink = () => ({
       details-link="http://www.bing.com"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
       time="3:00 PM - 4:00 PM"
-    />
+    >
+    <v-button label="Listen Live">
+      <play-simple />
+    </v-button>
+    </main-player>
   `
 })
 
 export const WithoutDetailsLink = () => ({
-  components: { MainPlayer },
+  components: { MainPlayer, VButton, PlaySimple },
   template: `
     <main-player
       image="http://placehold.it/175x175"
@@ -69,12 +87,16 @@ export const WithoutDetailsLink = () => ({
       details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
       time="3:00 PM - 4:00 PM"
-    />
+    >
+    <v-button label="Listen Live">
+      <play-simple />
+    </v-button>
+    </main-player>
   `
 })
 
 export const WithoutTime = () => ({
-  components: { MainPlayer },
+  components: { MainPlayer, VButton, PlaySimple },
   template: `
     <main-player
       image="http://placehold.it/175x175"
@@ -82,6 +104,10 @@ export const WithoutTime = () => ({
       title-link="http://www.google.com"
       details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
       details-link="http://www.bing.com"
-    />
+    >
+    <v-button label="Listen Live">
+      <play-simple />
+    </v-button>
+    </main-player>
   `
 })

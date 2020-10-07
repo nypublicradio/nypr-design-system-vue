@@ -11,37 +11,43 @@ Then
 npm install
 ```
 
-### Compiles and hot-reloads for development
+#### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+#### Compiles and minifies for production
 ```
 npm run build
 ```
 
-### Storybook
+#### Launches Storybook
 ```
 npm run storybook
 ```
 
-### Run unit tests
+#### Run unit tests
 ```
 npm run test
 ```
 
-### Lints and fixes files
+#### Lints and fixes files
 ```
 npm run lint
 ```
+
+See the Vue CLI [Configuration Reference](https://cli.vuejs.org/config/) for more!
 
 ### Local Development
 Create a global symlink for this package:
 ```
 npm link (or sudo npm link)
 ```
-Tell your application to use the global symlink / refresh your application after changes:
+Tell your application to use the global symlink:
+```
+npm link nypr-design-system-vue
+```
+Refresh your application after changes:
 ```
 npm link nypr-design-system-vue
 ```
@@ -50,5 +56,12 @@ Unlink it:
 npm unlink
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Nuxt configuration
+
+Add this to your nuxt.config.js file to import components for use with SSR:
+
+```
+build: {
+  transpile: ['nypr-design-system-vue']
+}
+```

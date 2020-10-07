@@ -6,9 +6,7 @@
         :alt="title"
         class="main-player-image"
       >
-      <v-button label="Listen Live">
-        <play-simple />
-      </v-button>
+      <slot />
     </div>
     <div>
       <h2
@@ -55,15 +53,11 @@
 
 <script>
 import LiveIndicator from '../components/LiveIndicator'
-import PlaySimple from '../components/icons/PlaySimple'
-import VButton from '../components/VButton'
 
 export default {
   name: 'MainPlayer',
   components: {
-    LiveIndicator,
-    PlaySimple,
-    VButton
+    LiveIndicator
   },
   props: {
     details: {
