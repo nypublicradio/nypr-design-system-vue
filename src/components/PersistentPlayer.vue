@@ -323,7 +323,10 @@ export default {
     },
     update () {
       this.currentSeconds = this.audio.currentTime
-      this.buffered = this.audio.buffered.end(0)
+      this.buffered = 0
+      if (this.audio.buffered.length > 0) {
+        this.buffered = this.audio.buffered.end(0)
+      }
     }
   }
 }
