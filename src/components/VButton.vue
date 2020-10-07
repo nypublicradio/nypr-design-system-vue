@@ -1,5 +1,6 @@
 <template>
   <a
+    @click="$emit('click', $event);"
     class="button"
     role="button"
     :class="{'disabled': disabled, 'is-icon-only': !label && this.$slots.default}"
