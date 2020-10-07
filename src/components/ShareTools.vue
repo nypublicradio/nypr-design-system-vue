@@ -1,5 +1,8 @@
 <template>
-  <div class="c-share-tools" :class="layout">
+  <div
+    class="c-share-tools"
+    :class="layout"
+  >
     <span
       v-if="label"
       class="c-share-tools__label u-font--secondary-style u-font--xs u-color--white"
