@@ -6,11 +6,25 @@ export default {
   component: ShareTools
 }
 
-export const WithLabel = () => ({
+export const HorizontalLayout = () => ({
   components: { ShareTools, ShareToolsItem },
   template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
       <share-tools label="Connect">
+        <share-tools-item service="facebook" username="WNYC" />
+        <share-tools-item service="twitter" username="WNYC" />
+        <share-tools-item service="instagram" username="WNYC" />
+        <share-tools-item service="youtube" username="UCbysmY4hyViQAAYEzOR-uCQ" />
+      </share-tools>
+    </div>
+  `
+})
+
+export const VerticalLayout = () => ({
+  components: { ShareTools, ShareToolsItem },
+  template: `
+    <div class="sbdocs-large-container sbdocs-container-margin">
+      <share-tools label="Connect" layout="vertical">
         <share-tools-item service="facebook" username="WNYC" />
         <share-tools-item service="twitter" username="WNYC" />
         <share-tools-item service="instagram" username="WNYC" />

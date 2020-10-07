@@ -1,5 +1,5 @@
 <template>
-  <div class="c-share-tools">
+  <div class="c-share-tools" :class="layout">
     <span
       v-if="label"
       class="c-share-tools__label u-font--secondary-style u-font--xs u-color--white"
@@ -19,6 +19,10 @@ export default {
     label: {
       type: String,
       default: null
+    },
+    layout: {
+      type: String,
+      default: 'horizontal'
     }
   }
 }
@@ -31,6 +35,11 @@ export default {
 
   @include media("<=small") {
     flex-wrap: wrap;
+  }
+
+  &.vertical {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -57,36 +66,18 @@ export default {
   }
 }
 
-.c-share-tools__label {
+.c-share-tools .c-share-tools__label {
   @include typeface(small, 4);
   margin-right: var(--space-2);
+}
+
+.c-share-tools.vertical .c-share-tools__label {
+  margin-bottom: var(--space-1);
+  margin-left: 19px;
 }
 
 .c-share-tools__group {
   display: flex;
   align-items: center;
-}
-
-.c-share-tools--vertical .c-share-tools__group {
-  flex-wrap: wrap;
-}
-
-.c-share-tools--vertical .c-share-tools__link {
-  flex-basis: 100%;
-  margin: 4px 0;
-}
-
-.c-share-tools--vertical .c-share-tools__link--print {
-  @include media(">medium") {
-    margin-bottom: 10px;
-    background-image: linear-gradient(to right, transparent 50%, RGBA(var(--color-high-contrast), 0.358) 50%);
-    background-position: center top;
-    background-size: 16px 1px;
-    background-repeat: repeat-x;
-  }
-}
-
-.c-share-tools--vertical .c-share-tools__link--print svg {
-  margin-top: 10px;
 }
 </style>
