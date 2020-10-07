@@ -1,13 +1,16 @@
 <template>
   <a
     class="button"
+    role="button"
     :class="{'disabled': disabled, 'is-icon-only': !label && this.$slots.default}"
   >
     <slot />
     <span
       v-if="label"
       class="button-label"
-    >{{ label }}</span>
+    >
+      {{ label }}
+    </span>
   </a>
 </template>
 
