@@ -217,11 +217,11 @@ export default {
 }
 
 .c-main-footer svg {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 .c-main-footer a svg {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 .c-main-footer a:hover svg {

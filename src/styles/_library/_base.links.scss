@@ -4,13 +4,13 @@
 
 a {
   text-decoration: none;
-  color: (var(--color-link));
+  color: RGB(var(--color-link));
   text-decoration: var(--text-decoration-link);
   transition: all var(--animation-duration-fast) var(--animation-easing-standard);
 }
 
 a:hover {
-  color: (var(--color-link-hover));
+  color: RGB(var(--color-link-hover));
   text-decoration: var(--text-decoration-link-hover);
   opacity: var(--opacity-link-hover);
 }
@@ -31,30 +31,30 @@ a > span {
 
 .u-has-accent:hover,
 .o-rte-text .u-has-accent:hover {
-  color: (var(--color-background));
+  color: RGB(var(--color-background));
 }
 
 .u-has-accent--neutral,
 .o-rte-text .u-has-accent--neutral {
-  color: (var(--color-border-bold));
-  border-bottom-color: (var(--color-border-bold));
+  color: RGB(var(--color-border-bold));
+  border-bottom-color: RGB(var(--color-border-bold));
 }
 
 .u-has-accent--primary,
 .o-rte-text .u-has-accent--primary {
-  color: (var(--color-primary-2));
-  border-bottom-color: (var(--color-primary-2));
+  color: RGB(var(--color-primary-2));
+  border-bottom-color: RGB(var(--color-primary-2));
 }
 
 .u-has-accent--quaternary,
 .o-rte-text .u-has-accent--quaternary {
-  color: (var(--color-primary-1));
-  border-bottom-color: (var(--color-primary-1));
+  color: RGB(var(--color-primary-1));
+  border-bottom-color: RGB(var(--color-primary-1));
 }
 
 .u-has-accent--secondary,
 .o-rte-text .u-has-accent--secondary {
-  color: (var(--color-link));
+  color: RGB(var(--color-link));
   border-bottom-color: (var(--color-link));
 }
 
@@ -64,7 +64,7 @@ a > span {
 
 .u-has-accent--secondary:hover path,
 .o-rte-text .u-has-accent--secondary:hover path {
-  fill: (var(--color-link-hover));
+  fill: RGB(var(--color-link-hover));
 }
 
 .u-has-accent-inline {
