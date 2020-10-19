@@ -17,6 +17,10 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --live-indicator-dot-color: #e74f4f;
+}
+
 .live-indicator {
   display: flex;
   align-items: center;
@@ -31,10 +35,23 @@ export default {
 }
 
 .live-indicator .live-indicator-dot {
-  background-color: #e74f4f;
+  background-color: var(--live-indicator-dot-color);
   border-radius: 8px;
   height: 8px;
   width: 8px;
   margin: 0 8px;
+}
+
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 RGBA(var(--live-indicator-dot-color), 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 20px RGBA(var(--live-indicator-dot-color), 0);
+  }
 }
 </style>
