@@ -2,6 +2,7 @@
   <a
     class="button"
     role="button"
+    tabindex="0"
     :class="{'disabled': disabled, 'is-icon-only': !label && this.$slots.default}"
     @click="$emit('click', $event);"
   >
