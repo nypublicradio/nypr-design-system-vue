@@ -9,7 +9,7 @@ export default {
 export const Intro = () => ({
   template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
-      <h1 class="u-space--double--bottom">Welcome to Radial (in Vue!), The New York Public Radio Design System</h1>
+      <h1 class="u-space--double--bottom">Welcome to Radial (in Vue), The New York Public Radio Design System</h1>
     </div>
   `
 })
