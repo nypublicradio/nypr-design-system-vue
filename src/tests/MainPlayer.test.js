@@ -13,7 +13,7 @@ describe('MainPlayer', () => {
       }
     })
     // check if prop works and was rendered correctly
-    const div = wrapper.find('.main-player-image')
+    const div = wrapper.find('img')
     expect(div.attributes('src')).toBe(image)
     expect(div.attributes('alt')).toBe(title)
   })

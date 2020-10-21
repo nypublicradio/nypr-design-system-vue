@@ -87,12 +87,27 @@ export default {
   width: 250px;
   min-width: 250px;
   @include typeface(body, 4);
-  background: RGB(var(--color-background));
-  color: RGB(var(--color-text));
+  border: 1px solid RGB(var(--color-background));
+  background: transparent;
+  color: RGB(var(--color-background));
   cursor: pointer;
 
   &.is-active {
-    border: 3px solid RGB(var(--color-text-error));
+    background: RGB(var(--color-background));
+    color: RGB(var(--color-text));
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      bottom: -16px;
+      height: 15px;
+      left: 30px;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 15px solid RGB(var(--color-text));
+      opacity: 0;
+      transition: opacity var(--animation-duration-slow) var(--animation-easing-incoming) 50ms;
+    }
   }
 }
 
@@ -162,12 +177,6 @@ export default {
 }
 
 .stream-switcher-card.is-playing .stream-switcher-card-show {
-  @include media(">medium") {
-    display: none;
-  }
-}
-
-.stream-switcher-card.is-playing:hover .stream-switcher-card-show {
   display: flex;
 }
 
@@ -194,12 +203,6 @@ export default {
 }
 
 .stream-switcher-card.is-playing .stream-switcher-card-up-next {
-  @include media(">medium") {
-    display: none;
-  }
-}
-
-.stream-switcher-card.is-playing:hover .stream-switcher-card-up-next {
   display: flex;
 }
 

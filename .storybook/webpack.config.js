@@ -9,7 +9,7 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-              prependData: '@import "./src/styles/white-label.scss";'
+              prependData: '@import "./src/styles/wnyc.scss";'
             }
           }
         ]

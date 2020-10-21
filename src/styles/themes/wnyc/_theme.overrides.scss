@@ -25,6 +25,7 @@ a {
 
 .header-dots {
   width: 1200px;
+  max-width: 100%;
   height: 340px;
   position: absolute;
   margin: auto;
@@ -55,7 +56,7 @@ a {
 }
 
 // buttons
-.whats-on .whats-on-show .play-button,
+.main-player .button,
 .c-main-header .button,
 .c-main-header .button::before {
   box-shadow: 0px 4px 8px RGBA(0, 0, 0, 0.15);
@@ -73,6 +74,10 @@ a {
 }
 
 // header
+.wnyc-logo-icon {
+  max-width: 100px;
+}
+
 .c-main-header,
 .c-main-header__inner {
   background-color: RGB(var(--color-red));
@@ -95,9 +100,18 @@ a {
   fill: RGB(var(--color-white));
 }
 
+.c-main-header .c-primary-nav {
+  margin: 0 auto 0 var(--space-5);
+}
+
+.c-main-header .c-secondary-nav__item {
+  @include typeface(body, 6);
+  font-weight: 700;
+}
+
 // header donate button
 .c-main-header__donate {
-  color: RGB(var(--color-red));
+  margin-right: var(--space-3);
 
   &:hover {
     background: RGB(var(--color-white));
@@ -107,6 +121,10 @@ a {
   @include media("<medium") {
     margin-right: 0;
   }
+}
+
+.c-main-header__donate .button-label {
+  color: RGB(var(--color-red));
 }
 
 // Footer
@@ -184,18 +202,18 @@ a {
 
 // brands popup
 
-.ember-basic-dropdown-content {
-  border-radius: 3px;
-}
-
-.ember-basic-dropdown-content a {
-  color: RGBA(var(--color-red));
-
-  &:hover {
-    color: RGBA(var(--color-red));
-    opacity: var(--opacity-hover);
-  }
-}
+//.ember-basic-dropdown-content {
+//  border-radius: 3px;
+//}
+//
+//.ember-basic-dropdown-content a {
+//  color: RGBA(var(--color-red));
+//
+//  &:hover {
+//    color: RGBA(var(--color-red));
+//    opacity: var(--opacity-hover);
+//  }
+//}
 
 // main player
 .main-player {
@@ -208,16 +226,22 @@ a {
   @extend .wnyc-card-styles;
 }
 
-.whats-on .whats-on-live-indicator .whats-on-live-indicator-text {
+.main-player-details-link {
+  text-decoration: none;
+  border: none;
+  padding: 0;
+}
+
+.main-player .live-indicator .whats-on-live-indicator-text {
   font-size: var(--font-size-4);
   font-weight: 700;
 }
 
-.whats-on .whats-on-live-indicator .whats-on-live-indicator-time {
+.main-player .live-indicator {
   color: RGB(var(--color-text));
 }
 
-.whats-on .whats-on-show .whats-on-show-title {
+.main-player .main-player-title {
   color: RGB(var(--color-text));
   font-weight: 600;
   font-size: var(--font-size-12);
@@ -226,22 +250,26 @@ a {
   margin-top: var(--space-3);
 }
 
-.whats-on .whats-on-show .on-air-image {
+.main-player img {
   border-radius: 3px;
 }
 
-.whats-on .whats-on-show .on-air-image img {
-  border-radius: 3px;
-}
-
-.whats-on .whats-on-show .play-button {
+.main-player .button {
   width: fit-content;
   padding-left: var(--space-3);
   height: 51px;
   background: RGBA(var(--color-primary-1), 1);
+
+  &:hover {
+    opacity: 1;
+    background: RGBA(var(--color-primary-1), 1);
+    transition: all 0.1s ease-in-out;
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 1);
+  }
 }
 
-.whats-on .whats-on-show .play-button .button-label {
+.main-player .button .button-label {
   color: RGB(var(--color-white));
   text-transform: uppercase;
   font-size: var(--font-size-7);
@@ -252,53 +280,58 @@ a {
   text-align: center;
 }
 
-.whats-on .whats-on-show .play-button .play-button-text {
-  letter-spacing: 0.02em;
-
-  &::after {
-    content: 'listen';
-
-    @include media(">=medium") {
-      content: 'listen live';
-    }
-  }
+.main-player .button svg path {
+  fill: RGB(var(--color-text));
 }
 
-.whats-on .whats-on-show .whats-on-show-description {
-  font-size: var(--font-size-5);
-}
-
-// what's on snapshot
-.schedule .schedule-metadata .schedule-metadata-image img {
-  border-radius: 3px;
-}
-
-.schedule .schedule-full-schedule-button {
-  text-transform: capitalize;
-  letter-spacing: 0.02em;
-}
-
-.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-label {
-  font-size: var(--font-size-4);
-  letter-spacing: 0.09em;
-}
-
-.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-text {
-  @include typeface(subheader, 8);
-  color: RGB(var(--color-black));
-}
-
-.schedule .schedule-metadata {
-  border-radius: 3px 3px 0 0;
-}
-
-.schedule .schedule-full-schedule-button {
-  border-radius: 0 0 3px 3px;
-}
-
-.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-time {
-  color: RGB(var(--color-dark-gray));
-}
+//
+//.whats-on .whats-on-show .play-button .play-button-text {
+//  letter-spacing: 0.02em;
+//
+//  &::after {
+//    content: 'listen';
+//
+//    @include media(">=medium") {
+//      content: 'listen live';
+//    }
+//  }
+//}
+//
+//.whats-on .whats-on-show .whats-on-show-description {
+//  font-size: var(--font-size-5);
+//}
+//
+//// what's on snapshot
+//.schedule .schedule-metadata .schedule-metadata-image img {
+//  border-radius: 3px;
+//}
+//
+//.schedule .schedule-full-schedule-button {
+//  text-transform: capitalize;
+//  letter-spacing: 0.02em;
+//}
+//
+//.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-label {
+//  font-size: var(--font-size-4);
+//  letter-spacing: 0.09em;
+//}
+//
+//.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-text {
+//  @include typeface(subheader, 8);
+//  color: RGB(var(--color-black));
+//}
+//
+//.schedule .schedule-metadata {
+//  border-radius: 3px 3px 0 0;
+//}
+//
+//.schedule .schedule-full-schedule-button {
+//  border-radius: 0 0 3px 3px;
+//}
+//
+//.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-time {
+//  color: RGB(var(--color-dark-gray));
+//}
 
 // persistent player
 .nypr-o-audio-player {

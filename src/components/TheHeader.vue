@@ -9,9 +9,12 @@
           class="c-main-header__branding"
           name="logo"
         >
-          <slot />
+          <slot name="logo" />
         </div>
       </div>
+      <nav class="c-primary-nav">
+        <slot name="navigation" />
+      </nav>
       <div class="c-main-header__right">
         <v-button
           v-if="donateUrl"
@@ -69,16 +72,12 @@ $z-index-header: 5000;
 
 .c-main-header__inner {
   background-color: RGB(var(--color-background));
-  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5);
+  padding: var(--space-2) var(--space-3);
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: var(--heading-height);
   position: relative;
-
-  @include media(">xsmall") {
-    padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5);
-  }
 }
 
 .c-main-header__branding {
@@ -95,6 +94,17 @@ $z-index-header: 5000;
   align-items: flex-end;
 }
 
+.c-main-header .c-secondary-nav__list {
+  display: none;
+  @include media(">large") {
+    display: block;
+  }
+}
+
+.c-main-header .c-secondary-nav__list .c-secondary-nav__item {
+  margin-bottom: 0;
+}
+
 .c-main-header__right {
   display: flex;
   align-items: center;
@@ -104,12 +114,6 @@ $z-index-header: 5000;
 }
 
 .c-main-header__donate {
-  margin-right: var(--space-3);
-
-  @include media("<=small") {
-    margin-right: 0;
-  }
-
   @include media("<=medium") {
     font-size: var(--font-size-3);
     padding-left: var(--space-3);

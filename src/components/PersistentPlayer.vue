@@ -344,6 +344,7 @@ $xlarge: 1440px;
 
 .persistent-player {
   position: fixed;
+  z-index: 1000;
   bottom: 0;
   width: 100%;
   color: RGB(var(--color-text));

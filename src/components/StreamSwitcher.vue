@@ -1,12 +1,21 @@
 <template>
-  <div class="stream-switcher">
+  <div
+    class="stream-switcher"
+    :class="orientation"
+  >
     <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'StreamSwitcher'
+  name: 'StreamSwitcher',
+  props: {
+    orientation: {
+      type: String,
+      default: 'horizontal'
+    }
+  }
 }
 </script>
 
@@ -15,26 +24,28 @@ export default {
   display: flex;
   flex-direction: row;
   width: 100%;
+}
+
+.stream-switcher.horizontal {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 
   &::-webkit-scrollbar {
     display: none;
   }
+}
 
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  @include media(">medium") {
-    flex-direction: column;
-  }
+.stream-switcher.vertical {
+  flex-direction: column;
 }
 
 .stream-switcher .stream-switcher-card {
   margin-right: var(--space-2);
+}
 
-  @include media(">medium") {
-    margin: 0 0 var(--space-2);
-  }
+.stream-switcher.vertical .stream-switcher-card {
+  margin-bottom: var(--space-2);
 }
 </style>
