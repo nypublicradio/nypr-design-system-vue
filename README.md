@@ -31,6 +31,8 @@ npm run storybook
 npm run build-storybook
 ```
 
+[See storybook deployment status at CircleCi](https://app.circleci.com/pipelines/github/nypublicradio/nypr-design-system-vue) 
+
 #### Runs unit tests
 ```
 npm run test
