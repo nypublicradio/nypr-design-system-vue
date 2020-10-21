@@ -30,8 +30,9 @@ npm run storybook
 ```
 npm run build-storybook
 ```
+[Public Storybook App](http://radial.kimlarocca.com)
 
-[See storybook deployment status at CircleCi](https://app.circleci.com/pipelines/github/nypublicradio/nypr-design-system-vue) 
+[Storybook Deployment at CircleCi](https://app.circleci.com/pipelines/github/nypublicradio/nypr-design-system-vue) 
 
 #### Runs unit tests
 ```
