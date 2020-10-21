@@ -9,7 +9,7 @@ export const Default = () => ({
     LiveIndicator
   },
   template: `
-    <div class="sbdocs-large-container sbdocs-container-margin">
+    <div class="sbdocs-large-container sbdocs-container-margin" style="background: black; padding: 3rem">
       <live-indicator label="3:00 PM - 4:00 PM" />
     </div>`
 })

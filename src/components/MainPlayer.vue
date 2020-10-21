@@ -113,7 +113,7 @@ export default {
     width: 100%;
     max-width: 100%;
     cursor: pointer;
-    margin: auto;
+    margin: 0 auto var(--space-2);
 
     @include media(">medium") {
       max-height: 330px;
@@ -121,6 +121,7 @@ export default {
       grid-column-start: 1;
       grid-column-end: 2;
       grid-row-start: span 5;
+      margin: 0 auto;
     }
 
     img {

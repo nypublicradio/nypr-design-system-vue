@@ -26,7 +26,12 @@ npm run build
 npm run storybook
 ```
 
-#### Run unit tests
+#### Builds Storybook
+```
+npm run build-storybook
+```
+
+#### Runs unit tests
 ```
 npm run test
 ```

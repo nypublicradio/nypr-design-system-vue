@@ -217,12 +217,6 @@ a {
 
 // main player
 .main-player {
-  width: calc(100% - var(--space-8));
-  display: block;
-  z-index: 1;
-  max-width: 813px;
-  margin: 0 auto;
-  padding-bottom: var(--space-4);
   @extend .wnyc-card-styles;
 }
 
