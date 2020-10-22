@@ -1,5 +1,3 @@
-import GridExamples from '../src/components/storybook/GridExamples'
-import SpacingExamples from '../src/components/storybook/SpacingExamples'
 import FontExamples from '../src/components/storybook/FontExamples'
 
 export default {
@@ -18,19 +16,5 @@ export const Fonts = () => ({
   components: { FontExamples },
   template: `
     <font-examples />
-  `
-})
-
-export const Spacing = () => ({
-  components: { SpacingExamples },
-  template: `
-    <spacing-examples />
-  `
-})
-
-export const TheGrid = () => ({
-  components: { GridExamples },
-  template: `
-    <grid-examples />
   `
 })

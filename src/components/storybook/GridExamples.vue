@@ -123,7 +123,7 @@
     <div class="l-grid l-grid--1x4 l-grid--top u-space--bottom">
       <div>
         <img
-          src="https://placehold.it/800x600"
+          :src="placeholder"
           alt="placeholder image"
         >
       </div>
@@ -134,7 +134,7 @@
     <div class="l-grid l-grid--1x4 l-grid--middle u-space--bottom">
       <div>
         <img
-          src="https://placehold.it/800x600"
+          :src="placeholder"
           alt="placeholder image"
         >
       </div>
@@ -145,7 +145,7 @@
     <div class="l-grid l-grid--1x4 l-grid--bottom u-space--bottom">
       <div>
         <img
-          src="https://placehold.it/800x600"
+          :src="placeholder"
           alt="placeholder image"
         >
       </div>
@@ -156,7 +156,19 @@
   </div>
 </template>
 
-<style scoped>
+<script>
+export default {
+  name: 'GridExamples',
+  props: {
+    placeholder: {
+      type: String,
+      default: null
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
 .u-background-color--light-gray {
   background: RGB(var(--color-light-gray));
 }

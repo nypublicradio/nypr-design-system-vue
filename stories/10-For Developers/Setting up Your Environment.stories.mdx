@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="For Developers/Setup" />
+
+# Setting Up your Environment For Local Development
+
+### Clone the repo
+
+```bash
+git clone git@github.com:nypublicradio/nypr-design-system.git
+cd nypr-design-system
+```
+
+### Install dependencies
+```bash
+yarn
+```
+
+> :warning: NOTE: You may need to install watchman if your dev environment doesn't have it already 
+
+```bash
+brew install watchman
+``` 
+
+### Start ember
+```bash
+ember serve
+```
+
+(*Storybook looks at the `/dist/` folder to find your ember components. If you're only working on documentation and not modifying ember components, you should be able to get away with only running `ember build`, but if you make any changes to ember code they won't be reflected in storybook until you build again.)
+
+### Run storybook
+While ember is still running:
+```bash
+yarn storybook
+```
+
+Storybook will open automatically in your browser. You can now edit your components and stories and see the changes live.
