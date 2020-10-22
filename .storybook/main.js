@@ -15,9 +15,17 @@ module.exports = {
 
     // Make whatever fine-grained changes you need
     config.module.rules.push({
-      test: /\.scss$/,
-      use: ['style-loader', 'css-loader', 'sass-loader'],
-      include: path.resolve(__dirname, '../'),
+      test: /\.(css|scss)$/,
+      use: [
+        'style-loader', 'css-loader', 'sass-loader',
+        {
+          loader: "sass-loader",
+          options: {
+            prependData: '@import "./src/styles/white-label.scss";'
+          }
+        }
+      ],
+      include: path.resolve(__dirname, '../')
     });
 
     // Return the altered config
