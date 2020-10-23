@@ -14,6 +14,7 @@ jobs:
       - run: git pull
       - node/with-cache:
           steps:
+            - run: npm rebuild node-sass
             - run: npm install
             - run: npm run build-storybook
       - run: scp -r -o StrictHostKeyChecking=no storybook-static/* root@198.211.112.212:/var/www/nypr-design-system-vue/storybook-static/
