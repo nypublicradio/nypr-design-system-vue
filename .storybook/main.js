@@ -1,8 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  stories: ['../stories/**/*.stories.(js|mdx)'],
+  stories: ['../stories/**/*.stories.@(js|mdx)'],
   addons: [
+    "@storybook/addon-essentials",
     '@storybook/addon-actions',
     '@storybook/addon-links',
     '@storybook/addon-viewport/register',
@@ -35,6 +36,22 @@ module.exports = {
       ],
       include: path.resolve(__dirname, '../')
     });
+
+    // config.module.rules.push({
+    //   test: /\.jsx$/,
+    //   use: [{
+    //     loader: 'babel-loader',
+    //     options: {
+    //       plugins: ['@babel/plugin-transform-react-jsx']
+    //     }
+    //   }],
+    //   include: path.resolve(__dirname, './custom/components'),
+    // });
+
+    // config.resolve.modules = [
+    //   ...(config.resolve.modules || []),
+    //   path.resolve(__dirname, "../src"),
+    // ];
 
     // Return the altered config
     return config;

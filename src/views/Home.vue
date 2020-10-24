@@ -10,7 +10,7 @@
 <script>
 import VSpacer from '../components/VSpacer'
 import VButton from '../components/VButton'
-import VLottie from '../components/VLottie'
+import VLottie from '../components/animations/AudioWaveIsActiveJson.json'
 
 export default {
   name: 'Home',

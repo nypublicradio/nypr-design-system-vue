@@ -1,7 +1,12 @@
 import LiveIndicator from '../src/components/LiveIndicator'
 
 export default {
-  title: 'Components/Molecules/Live Indicator'
+  title: 'Components/Molecules/Live Indicator',
+  parameters: {
+    backgrounds: {
+      default: 'dark'
+    }
+  }
 }
 
 export const Default = () => ({
@@ -9,7 +14,7 @@ export const Default = () => ({
     LiveIndicator
   },
   template: `
-    <div class="sbdocs-large-container sbdocs-container-margin" style="background: black; padding: 3rem">
+    <div class="sbdocs-large-container sbdocs-container-margin">
       <live-indicator label="3:00 PM - 4:00 PM" />
     </div>`
 })

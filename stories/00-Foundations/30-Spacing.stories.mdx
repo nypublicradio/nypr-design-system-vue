@@ -1,9 +1,7 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-// import { SpacingTable } from '../../.storybook/custom/components/Tables';
-// import './spacingStyles.css';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import VSpacer from '../../src/components/VSpacer';
 
 <Meta title="Foundations/Spacing" />
-
 
 ## Spacing
 
@@ -32,4 +30,52 @@ Below you'll find a list of where different types of spacing are typically found
 | Space 11 | Below pagination - ADD EXAMPLE IMAGE |
 
 **Spacing Examples**
-<img alt="Card Component demonstrating spacing between text elements" src="/images/Foundations-Spacing-DefaultSpacingExample.png" width="579" />
+<img
+    alt="Card Component demonstrating spacing between text elements"
+    src="/images/Foundations-Spacing-DefaultSpacingExample.png"
+    width="579"
+/>
+
+<Canvas>
+    <Story name="VSpacer Examples">
+        {{
+            components: { VSpacer },
+            template: `
+<div>
+    <p class="u-space--bottom">
+      Half:
+    </p>
+    <v-spacer
+      size="half"
+      class="u-background-color--cool-white"
+    />
+    <p class="u-space--top u-space--bottom">
+      Default:
+    </p>
+    <v-spacer class="u-background-color--cool-white" />
+    <p class="u-space--top">
+      Double:
+    </p>
+    <v-spacer
+      size="double"
+      class="u-background-color--cool-white"
+    />
+    <p class="u-space--top u-space--bottom">
+      Triple:
+    </p>
+    <v-spacer
+      size="triple"
+      class="u-background-color--cool-white"
+    />
+    <p class="u-space--top u-space--bottom">
+      Quad:
+    </p>
+    <v-spacer
+      size="quad"
+      class="u-background-color--cool-white"
+    />
+</div>
+`,
+        }}
+    </Story>
+</Canvas>

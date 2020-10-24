@@ -1,7 +1,11 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import BaseIcons from '../../src/components/storybook/BaseIcons';
+import GothamistIcons from '../../src/components/storybook/GothamistIcons';
+import WnycIcons from '../../src/components/storybook/WnycIcons';
+import WqxrIcons from '../../src/components/storybook/WqxrIcons';
+import AudioIcon from '../../src/components/icons/AudioIcon';
 
 <Meta title="Foundations/Iconography" />
-
 
 # Iconography
 
@@ -20,19 +24,47 @@ Icons that are interactive must follow the same WCAG 2.0 contrast standards as t
 
 ## Base Icons
 
-TBD
+<Canvas>
+    <Story name="Base Icons">
+        {{
+            components: { BaseIcons },
+            template: `<base-icons />`,
+        }}
+    </Story>
+</Canvas>
 
 ## Gothamist Icons
 
-TBD
+<Canvas>
+    <Story name="Gothamist Icons">
+        {{
+            components: { GothamistIcons },
+            template: `<gothamist-icons />`,
+        }}
+    </Story>
+</Canvas>
 
 ## WNYC Icons
 
-TBD
+<Canvas>
+    <Story name="Wnyc Icons">
+        {{
+            components: { WnycIcons },
+            template: `<wnyc-icons />`,
+        }}
+    </Story>
+</Canvas>
 
 ## WQXR Icons
 
-TBD
+<Canvas>
+    <Story name="Wqxr Icons">
+        {{
+            components: { WqxrIcons },
+            template: `<wqxr-icons />`,
+        }}
+    </Story>
+</Canvas>
 
 ## Sizing
 
@@ -49,9 +81,49 @@ When creating new icons, padding can be determined by using at least ⅛ of the 
 
 ## Sizing Examples
 
-TBD
-
-TBD GRAPHIC HERE
+<Canvas>
+    <Story name="Sizing Examples">
+        {{
+            components: { AudioIcon },
+            template: `
+  <div class="l-grid l-grid--4up">
+    <div>
+      <div class="u-flex u-align-items--center u-space--bottom">
+        <span class="o-icon u-icon--s u-space--right">
+          <audio-icon title="test title" />
+        </span>
+        <div>small</div>
+      </div>
+    </div>
+    <div>
+      <div class="u-flex u-align-items--center u-space--bottom">
+        <span class="o-icon u-icon--m u-space--right">
+          <audio-icon title="test title" />
+        </span>
+        <div>medium</div>
+      </div>
+    </div>
+    <div>
+      <div class="u-flex u-align-items--center u-space--bottom">
+        <span class="o-icon u-icon--i u-space--right">
+          <audio-icon title="test title" />
+        </span>
+        <div>large</div>
+      </div>
+    </div>
+    <div>
+      <div class="u-flex u-align-items--center u-space--bottom">
+        <span class="o-icon u-icon--xl u-space--right">
+          <audio-icon title="test title" />
+        </span>
+        <div>xlarge</div>
+      </div>
+    </div>
+  </div>
+`,
+        }}
+    </Story>
+</Canvas>
 
 ## Audio Icon Guidelines
 

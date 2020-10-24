@@ -1,5 +1,4 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
-// import { ColorSwatch } from '../../.storybook/custom/components/Swatches'
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 
 <Meta title="Foundations/Borders" />
 
@@ -23,6 +22,21 @@ The Whitelabel styles shown below are only to communicate best practices for the
 | --border-standard | 3px, solid |
 | --border-bold | 5px, dashed (10,10) |
 
-example goes here
+<Canvas>
+    <Story name="Border Examples">
+        {{
+            template: `
+  <div class="u-padding">
+    <p class="u-space--bottom">Subtle:</p>
+    <div class="sbdocs sbdocs-border-subtle u-space--double--bottom"></div>
+    <p class="u-space--bottom">Standard:</p>
+    <div class="sbdocs sbdocs-border-standard u-space--double--bottom"></div>
+    <p class="u-space--bottom">Bold:</p>
+    <div class="sbdocs sbdocs-border-bold"></div>
+  </div>
+`,
+        }}
+    </Story>
+</Canvas>
 
 More information on border styling can be found [here](https://flaviocopes.com/css-border/).

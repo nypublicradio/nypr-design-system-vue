@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/addon-docs/blocks'
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import AudioWaveIsActive from '../../src/components/animations/AudioWaveIsActive';
 
 <Meta title="Foundations/Animation" />
 
@@ -58,6 +59,20 @@ Easing is a control for the velocity of an animation over it’s duration. Timin
  <img alt="color transition animation" src="/images/Foundations-Animation-color-transition.gif" width="200" />
 
 
+## Lottie Animations
+
+<Canvas>
+    <Story name="Lottie Animations Example">
+        {{
+            components: { AudioWaveIsActive },
+            template: `
+    <span class="o-icon u-icon--l">
+      <audio-wave-is-active />
+    </span>
+`,
+        }}
+    </Story>
+</Canvas>
 
 ## Accessibility
 
