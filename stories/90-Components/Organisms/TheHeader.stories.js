@@ -1,6 +1,6 @@
-import SecondaryNavigation from '../src/components/SecondaryNavigation'
-import TheHeader from '../src/components/TheHeader'
-import WnycLogo from '../src/components/icons/wnyc/WnycLogo'
+import SecondaryNavigation from '../../../src/components/SecondaryNavigation'
+import TheHeader from '../../../src/components/TheHeader'
+import WnycLogo from '../../../src/components/icons/wnyc/WnycLogo'
 
 export default {
   title: 'Components/Organisms/The Header'

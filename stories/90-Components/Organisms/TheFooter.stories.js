@@ -1,7 +1,7 @@
-import TheFooter from '../src/components/TheFooter'
-import WnycLogo from '../src/components/icons/wnyc/WnycLogo'
-import ShareTools from '../src/components/ShareTools'
-import ShareToolsItem from '../src/components/ShareToolsItem'
+import TheFooter from '../../../src/components/TheFooter'
+import WnycLogo from '../../../src/components/icons/wnyc/WnycLogo'
+import ShareTools from '../../../src/components/ShareTools'
+import ShareToolsItem from '../../../src/components/ShareToolsItem'
 
 export default {
   title: 'Components/Organisms/The Footer',

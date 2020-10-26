@@ -1,6 +1,6 @@
-import MainPlayer from '../src/components/MainPlayer'
-import VButton from '../src/components/VButton'
-import PlaySimple from '../src/components/icons/PlaySimple'
+import MainPlayer from '../../../src/components/MainPlayer'
+import VButton from '../../../src/components/VButton'
+import PlaySimple from '../../../src/components/icons/PlaySimple'
 
 export default {
   title: 'Components/Organisms/Main Player',

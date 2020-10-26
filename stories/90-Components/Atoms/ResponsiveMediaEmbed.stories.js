@@ -1,4 +1,4 @@
-import MediaEmbed from '../src/components/MediaEmbed'
+import MediaEmbed from '../../../src/components/MediaEmbed'
 
 export default {
   title: 'Components/Atoms/Responsive Media Embed'

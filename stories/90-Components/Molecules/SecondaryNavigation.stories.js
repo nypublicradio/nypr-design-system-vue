@@ -1,4 +1,4 @@
-import SecondaryNavigation from '../src/components/SecondaryNavigation'
+import SecondaryNavigation from '../../../src/components/SecondaryNavigation'
 
 export default {
   title: 'Components/Molecules/Secondary Navigation',

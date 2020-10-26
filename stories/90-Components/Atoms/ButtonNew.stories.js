@@ -1,5 +1,5 @@
-import VButton from '../src/components/VButton'
-import AudioIcon from '../src/components/icons/AudioIcon'
+import VButton from '../../../src/components/VButton'
+import AudioIcon from '../../../src/components/icons/AudioIcon'
 
 export default {
   title: 'Components/Atoms/ButtonsNew'

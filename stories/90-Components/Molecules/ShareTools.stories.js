@@ -1,5 +1,5 @@
-import ShareTools from '../src/components/ShareTools'
-import ShareToolsItem from '../src/components/ShareToolsItem'
+import ShareTools from '../../../src/components/ShareTools'
+import ShareToolsItem from '../../../src/components/ShareToolsItem'
 
 export default {
   title: 'Components/Molecules/Share Tools',

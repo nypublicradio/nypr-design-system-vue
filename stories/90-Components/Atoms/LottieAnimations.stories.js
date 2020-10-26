@@ -1,4 +1,4 @@
-import AudioWaveIsActive from '../src/components/animations/AudioWaveIsActive'
+import AudioWaveIsActive from '../../../src/components/animations/AudioWaveIsActive'
 
 export default {
   title: 'Components/Atoms/Lottie Animations'

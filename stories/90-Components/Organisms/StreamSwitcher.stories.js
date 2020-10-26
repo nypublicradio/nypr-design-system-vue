@@ -1,5 +1,5 @@
-import StreamSwitcher from '../src/components/StreamSwitcher'
-import StreamSwitcherCard from '../src/components/StreamSwitcherCard'
+import StreamSwitcher from '../../../src/components/StreamSwitcher'
+import StreamSwitcherCard from '../../../src/components/StreamSwitcherCard'
 
 export default {
   title: 'Components/Organisms/Stream Switcher'

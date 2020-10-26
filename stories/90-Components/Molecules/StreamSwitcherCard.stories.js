@@ -1,4 +1,4 @@
-import StreamSwitcherCard from '../src/components/StreamSwitcherCard'
+import StreamSwitcherCard from '../../../src/components/StreamSwitcherCard'
 
 export default {
   title: 'Components/Molecules/Stream Switcher Card'

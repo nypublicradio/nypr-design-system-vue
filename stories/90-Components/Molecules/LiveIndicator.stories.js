@@ -1,4 +1,4 @@
-import LiveIndicator from '../src/components/LiveIndicator'
+import LiveIndicator from '../../../src/components/LiveIndicator'
 
 export default {
   title: 'Components/Molecules/Live Indicator',

@@ -1,4 +1,4 @@
-import PersistentPlayer from '../src/components/PersistentPlayer'
+import PersistentPlayer from '../../../src/components/PersistentPlayer'
 
 export default {
   title: 'Components/Organisms/Persistent Player',
