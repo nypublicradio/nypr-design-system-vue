@@ -1,9 +1,9 @@
-import SecondaryNavigation from '../src/components/SecondaryNavigation'
-import TheHeader from '../src/components/TheHeader'
-import WnycLogo from '../src/components/icons/wnyc/WnycLogo'
-import ShareTools from '../src/components/ShareTools'
-import ShareToolsItem from '../src/components/ShareToolsItem'
-import SearchIcon from '../src/components/icons/SearchIcon'
+import SecondaryNavigation from '../../../src/components/SecondaryNavigation'
+import TheHeader from '../../../src/components/TheHeader'
+import WnycLogo from '../../../src/components/icons/wnyc/WnycLogo'
+import ShareTools from '../../../src/components/ShareTools'
+import ShareToolsItem from '../../../src/components/ShareToolsItem'
+import SearchIcon from '../../../src/components/icons/SearchIcon'
 
 export default {
   title: 'Components/Organisms/The Header'

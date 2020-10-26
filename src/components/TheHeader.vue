@@ -65,10 +65,6 @@ export default {
 <style lang="scss">
 $z-index-header: 5000;
 
-.sbdocs-xsmall-container {
-    max-width: 400px;
-}
-
 .c-main-header {
   text-align: center;
   position: relative;
