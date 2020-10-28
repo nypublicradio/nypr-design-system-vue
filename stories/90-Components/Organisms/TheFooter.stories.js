@@ -9,7 +9,12 @@ export default {
 }
 
 export const FooterConfig1 = () => ({
-  components: { TheFooter, WnycLogo, ShareTools, ShareToolsItem },
+  components: {
+    TheFooter,
+    WnycLogo,
+    ShareTools,
+    ShareToolsItem
+  },
   template: `
     <div class="sbdocs-large-container">
     <the-footer
@@ -70,10 +75,22 @@ export const FooterConfig1 = () => ({
       </template>
       <template v-slot:social>
         <share-tools label="Connect">
-          <share-tools-item service="facebook" username="WNYC" />
-          <share-tools-item service="twitter" username="WNYC" />
-          <share-tools-item service="instagram" username="WNYC" />
-          <share-tools-item service="youtube" username="UCbysmY4hyViQAAYEzOR-uCQ" />
+          <share-tools-item
+            service="facebook"
+            username="WNYC"
+          />
+          <share-tools-item
+            service="twitter"
+            username="WNYC"
+          />
+          <share-tools-item
+            service="instagram"
+            username="WNYC"
+          />
+          <share-tools-item
+            service="youtube"
+            username="UCbysmY4hyViQAAYEzOR-uCQ"
+          />
         </share-tools>
       </template>
     </the-footer>
@@ -81,7 +98,12 @@ export const FooterConfig1 = () => ({
 })
 
 export const FooterConfig2 = () => ({
-  components: { TheFooter, WnycLogo, ShareTools, ShareToolsItem },
+  components: {
+    TheFooter,
+    WnycLogo,
+    ShareTools,
+    ShareToolsItem
+  },
   template: `
     <div class="sbdocs-large-container">
     <the-footer
@@ -110,7 +132,12 @@ export const FooterConfig2 = () => ({
 })
 
 export const FooterConfig3 = () => ({
-  components: { TheFooter, WnycLogo, ShareTools, ShareToolsItem },
+  components: {
+    TheFooter,
+    WnycLogo,
+    ShareTools,
+    ShareToolsItem
+  },
   template: `
     <div class="sbdocs-large-container">
     <the-footer
@@ -132,9 +159,6 @@ export const FooterConfig3 = () => ({
     >
       <template v-slot:logo>
         <wnyc-logo />
-      </template>
-      <template v-slot:rightComponent>
-        <p><em>slot for right component</em></p>
       </template>
     </the-footer>
     </div>`
