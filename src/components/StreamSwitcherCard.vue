@@ -1,69 +1,47 @@
 <template>
   <div
-    class="stream-switcher-card u-color-group-dark"
+    class="stream-switcher-card"
     :class="{'is-active':active, 'is-playing':playing}"
   >
+    <div
+      v-if="playing"
+      class="stream-switcher-card-animation"
+    >
+      <audio-wave-is-active />
+    </div>
     <div class="stream-switcher-card-station">
       {{ station }}
     </div>
     <div
-      class="stream-switcher-card-sound-animation"
-      :class="{'is-playing':playing}"
+      v-if="active"
+      class="stream-switcher-card-up-next"
     >
-      <div class="sound-animation-bar" />
-      <div class="sound-animation-bar" />
-      <div class="sound-animation-bar" />
-      <div class="sound-animation-bar" />
-      <div class="sound-animation-bar" />
-      <div class="sound-animation-bar" />
-      <div class="sound-animation-bar" />
+      up next
     </div>
-    <div class="stream-switcher-card-show">
-      <img
-        class="stream-switcher-card-show-image"
-        aria-hidden="true"
-        :alt="showTitle"
-        :src="image"
-      >
-      <div class="stream-switcher-card-show-title">
-        {{ showTitle }}
-      </div>
+    <div
+      v-else
+      class="stream-switcher-card-up-next"
+    >
+      on now
     </div>
-    <div class="stream-switcher-card-up-next">
-      <div class="stream-switcher-card-up-next-label">
-        up next
-      </div>
-      <div class="stream-switcher-card-up-next-show-title">
-        {{ upNext }}
-      </div>
-      <div class="stream-switcher-card-up-next-time">
-        {{ time }}
-      </div>
+    <div class="stream-switcher-card-title">
+      {{ title }}
     </div>
   </div>
 </template>
 
 <script>
+import AudioWaveIsActive from './animations/AudioWaveIsActive'
+
 export default {
   name: 'StreamSwitcherCard',
+  components: { AudioWaveIsActive },
   props: {
     station: {
       type: String,
       default: null
     },
-    showTitle: {
-      type: String,
-      default: null
-    },
-    image: {
-      type: String,
-      default: null
-    },
-    upNext: {
-      type: String,
-      default: null
-    },
-    time: {
+    title: {
       type: String,
       default: null
     },
@@ -81,162 +59,107 @@ export default {
 
 <style lang="scss">
 .stream-switcher-card {
+  @include typeface(body, 3);
   position: relative;
   display: flex;
-  flex-direction: column;
-  width: 250px;
-  min-width: 250px;
-  @include typeface(body, 4);
-  border: 1px solid RGB(var(--color-background));
-  background: transparent;
-  color: RGB(var(--color-background));
+  flex-wrap: wrap;
   cursor: pointer;
+  border: 1px solid RGB(var(--color-text-inverse));
+  padding: var(--space-1) var(--space-2) var(--space-2);
+  height: 70px;
+  align-items: center;
+  width: fit-content;
+  max-width: 320px;
+  min-width: 170px;
+  margin-bottom: -20px; // hack to get around overflow scroll issue
+  transition: var(--animation-duration-slow) var(--animation-easing-incoming);
+  background-color: transparent;
+  color: RGB(var(--color-text-inverse));
+
+  @include media(">xlarge") {
+    padding: var(--space-2) var(--space-3);
+    height: 50px;
+    flex-wrap: nowrap;
+  }
+
+  // active caret
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    bottom: -16px;
+    height: 15px;
+    left: 30px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 15px solid RGB(var(--color-text-inverse));
+    opacity: 0;
+    -webkit-transition: opacity var(--animation-duration-slow) var(--animation-easing-incoming) 50ms;
+    -moz-transition: opacity var(--animation-duration-slow) var(--animation-easing-incoming) 50ms;
+    -ms-transition: opacity var(--animation-duration-slow) var(--animation-easing-incoming) 50ms;
+    -o-transition: opacity var(--animation-duration-slow) var(--animation-easing-incoming) 50ms;
+    transition: opacity var(--animation-duration-slow) var(--animation-easing-incoming) 50ms;
+  }
+
+  &:hover {
+    background-color: RGBA(var(--color-text-inverse), .2);
+  }
 
   &.is-active {
-    background: RGB(var(--color-background));
+    background-color: RGBA(var(--color-text-inverse), 1);
     color: RGB(var(--color-text));
+
     &::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      bottom: -16px;
-      height: 15px;
-      left: 30px;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-top: 15px solid RGB(var(--color-text));
-      opacity: 0;
-      transition: opacity var(--animation-duration-slow) var(--animation-easing-incoming) 50ms;
+      opacity: 1;
     }
+  }
+}
+
+.stream-switcher-card .stream-switcher-card-animation {
+  flex-basis: 25px;
+  height: 25px;
+  margin: 0 var(--space-2) 0 0;
+
+  @include media(">xlarge") {
+    flex-basis: 50px;
   }
 }
 
 .stream-switcher-card .stream-switcher-card-station {
-  margin: var(--space-2);
+  @include typeface(body, 4);
   font-weight: bold;
   text-transform: uppercase;
-}
+  margin: 0 var(--space-3) 0 0;
+  line-height: 25px;
 
-.stream-switcher-card .stream-switcher-card-sound-animation {
-  position: absolute;
-  align-items: flex-end;
-  align-self: center;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  top: var(--space-2);
-  right: var(--space-2);
-  height: 16px;
-  width: 40px;
-
-  &.is-playing {
-    .sound-animation-bar {
-      animation: sound-bars 500ms linear 0ms infinite alternate;
-    }
-
-    .sound-animation-bar:nth-child(1) {
-      animation-delay: 0ms;
-    }
-
-    .sound-animation-bar:nth-child(2) {
-      animation-delay: 100ms;
-    }
-
-    .sound-animation-bar:nth-child(3) {
-      animation-delay: 200ms;
-    }
-
-    .sound-animation-bar:nth-child(4) {
-      animation-delay: 300ms;
-    }
-
-    .sound-animation-bar:nth-child(5) {
-      animation-delay: 400ms;
-    }
-
-    .sound-animation-bar:nth-child(6) {
-      animation-delay: 500ms;
-    }
-
-    .sound-animation-bar:nth-child(7) {
-      animation-delay: 600ms;
-    }
+  @include media(">xlarge") {
+    flex-basis: 120px;
   }
-
-  .sound-animation-bar {
-    height: 100%;
-    width: 2.2px;
-    max-width: 2.2px;
-    min-width: 2.2px;
-  }
-}
-
-.stream-switcher-card .stream-switcher-card-show {
-  display: flex;
-  margin: 0 0 var(--space-2) var(--space-2);
-}
-
-.stream-switcher-card.is-playing .stream-switcher-card-show {
-  display: flex;
-}
-
-.stream-switcher-card .stream-switcher-card-show-image {
-  height: 40px;
-  width: 40px;
-  margin-right: var(--space-2);
-  pointer-events: none;
-}
-
-.stream-switcher-card .stream-switcher-card-show-title {
-  align-self: center;
-  font-weight: bold;
-  pointer-events: none;
 }
 
 .stream-switcher-card .stream-switcher-card-up-next {
-  @include typeface(body, 1);
-  align-items: center;
-  border-top: solid 1px #fff;
-  padding: var(--space-2) 0;
-  display: flex;
-  pointer-events: none;
-}
-
-.stream-switcher-card.is-playing .stream-switcher-card-up-next {
-  display: flex;
-}
-
-.stream-switcher-card .stream-switcher-card-up-next-label {
-  margin: 0 var(--space-2);
-  opacity: 0.7;
-  pointer-events: none;
-  text-transform: uppercase;
-}
-
-.stream-switcher-card .stream-switcher-card-up-next-show-title {
-  flex: 1;
+  flex-basis: 50px;
+  margin: 0 var(--space-3) 0 0;
   font-weight: bold;
-  opacity: 0.7;
+  white-space: nowrap;
+  text-transform: uppercase;
   pointer-events: none;
-}
 
-.stream-switcher-card .stream-switcher-card-up-next-time {
-  margin: 0 var(--space-2);
-  opacity: 0.7;
-  pointer-events: none;
-  text-align: right;
-}
-
-@keyframes sound-bars {
-  0% {
-    opacity: 0.35;
-    background: #f3f3f3;
-    height: 1px;
+  @include media(">xlarge") {
+    flex-basis: auto;
   }
-  100% {
-    opacity: 1;
-    background: #fff;
-    height: 100%;
+}
+
+.stream-switcher-card .stream-switcher-card-title {
+  flex-basis: calc(100% - 50px - var(--space-3));
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+
+  @include media(">xlarge") {
+    flex-basis: auto;
   }
 }
 </style>
