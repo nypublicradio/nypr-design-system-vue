@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import AudioWaveIsActive from './animations/AudioWaveIsActive'
+import AudioWaveIsActive from '../components/animations/AudioWaveIsActive'
 
 export default {
   name: 'StreamSwitcherCard',
