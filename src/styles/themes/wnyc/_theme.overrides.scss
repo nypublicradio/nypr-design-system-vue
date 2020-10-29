@@ -7,8 +7,7 @@ body {
 }
 
 main {
-  background: linear-gradient(180deg, RGBA(var(--color-red), 1) 20.82%, RGBA(var(--color-blue), 1) 50.8%);
-  padding-top: var(--space-6);
+  background: linear-gradient(180deg, RGB(var(--color-red)) 20.82%, RGB(var(--color-blue)) 50.8%);
 }
 
 a {
@@ -17,7 +16,7 @@ a {
 }
 
 .dots {
-  opacity: .6;
+  opacity: .5;
   background-image: radial-gradient(RGBA(var(--color-white), .6) 2px, transparent 2px), radial-gradient(RGBA(var(--color-white), .6) 2px, transparent 2px);
   background-position: 35px 0, 35px 35px;
   background-size: 35px 35px;
@@ -56,7 +55,7 @@ a {
 }
 
 // buttons
-.main-player .button,
+.whats-on .whats-on-show .play-button,
 .c-main-header .button,
 .c-main-header .button::before {
   box-shadow: 0px 4px 8px RGBA(0, 0, 0, 0.15);
@@ -74,13 +73,9 @@ a {
 }
 
 // header
-.wnyc-logo-icon {
-  max-width: 100px;
-}
-
 .c-main-header,
 .c-main-header__inner {
-  background-color: RGB(var(--color-red));
+  background: RGB(var(--color-red));
 }
 
 .c-main-header__inner {
@@ -100,18 +95,25 @@ a {
   fill: RGB(var(--color-white));
 }
 
-.c-main-header .c-primary-nav {
-  margin: 0 auto 0 var(--space-5);
+// header nav
+.c-main-header .c-primary-nav--top {
+  padding-left: var(--space-9);
+  width: 100%;
+  text-align: left;
 }
 
-.c-main-header .c-secondary-nav__item {
+.c-primary-nav--top .c-primary-nav__link {
+  padding: 0;
   @include typeface(body, 6);
+}
+
+.c-primary-nav__link .c-primary-nav-link__text {
   font-weight: 700;
 }
 
 // header donate button
 .c-main-header__donate {
-  margin-right: var(--space-3);
+  color: RGB(var(--color-red));
 
   &:hover {
     background: RGB(var(--color-white));
@@ -123,14 +125,10 @@ a {
   }
 }
 
-.c-main-header__donate .button-label {
-  color: RGB(var(--color-red));
-}
-
 // Footer
 .c-main-footer {
-  background: linear-gradient(180deg, RGBA(var(--color-blue), 1) 0%, RGBA(var(--color-dark-blue), 1) 100%, #191716);
-  padding: 50px 0 70px;
+  background: linear-gradient(180deg, RGBA(var(--color-blue, 1)) 0%, RGBA(var(--color-dark-blue, 1)) 100%), #191716;
+  padding: 50px 0 80px;
   margin-bottom: 0;
 }
 
@@ -200,24 +198,14 @@ a {
   }
 }
 
-// brands popup
-
-//.ember-basic-dropdown-content {
-//  border-radius: 3px;
-//}
-//
-//.ember-basic-dropdown-content a {
-//  color: RGBA(var(--color-red));
-//
-//  &:hover {
-//    color: RGBA(var(--color-red));
-//    opacity: var(--opacity-hover);
-//  }
-//}
-
 // main player
 .main-player {
   @extend .wnyc-card-styles;
+  margin: auto;
+  width: calc(100% - var(--space-4) - var(--space-4));
+  @include media(">xlarge") {
+    width: 100%;
+  }
 }
 
 .main-player-details-link {
@@ -278,55 +266,6 @@ a {
   fill: RGB(var(--color-text));
 }
 
-//
-//.whats-on .whats-on-show .play-button .play-button-text {
-//  letter-spacing: 0.02em;
-//
-//  &::after {
-//    content: 'listen';
-//
-//    @include media(">=medium") {
-//      content: 'listen live';
-//    }
-//  }
-//}
-//
-//.whats-on .whats-on-show .whats-on-show-description {
-//  font-size: var(--font-size-5);
-//}
-//
-//// what's on snapshot
-//.schedule .schedule-metadata .schedule-metadata-image img {
-//  border-radius: 3px;
-//}
-//
-//.schedule .schedule-full-schedule-button {
-//  text-transform: capitalize;
-//  letter-spacing: 0.02em;
-//}
-//
-//.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-label {
-//  font-size: var(--font-size-4);
-//  letter-spacing: 0.09em;
-//}
-//
-//.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-text {
-//  @include typeface(subheader, 8);
-//  color: RGB(var(--color-black));
-//}
-//
-//.schedule .schedule-metadata {
-//  border-radius: 3px 3px 0 0;
-//}
-//
-//.schedule .schedule-full-schedule-button {
-//  border-radius: 0 0 3px 3px;
-//}
-//
-//.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-time {
-//  color: RGB(var(--color-dark-gray));
-//}
-
 // persistent player
 .nypr-o-audio-player {
   grid-template-columns: 75% 25%;
@@ -342,36 +281,12 @@ a {
 
 // stream switcher
 .stream-switcher {
-  max-width: 813px;
-  margin: 0 auto var(--space-1) var(--space-4);
-  @include media(">large") {
-    margin: 0 auto var(--space-1);
+  padding-left: var(--space-4);
+  @include media(">xlarge") {
+    padding-left: 0;
   }
 }
 
-.stream-switcher-streams-stream-show-title,
-.up-next .up-next-time,
-.stream-switcher-stations-label {
-  display: none;
-}
-
-.stream-switcher-streams-stream {
+.stream-switcher-card {
   border-radius: 3px;
-}
-
-.nypr-o-audio-player-level-one-four {
-  justify-self: left;
-}
-
-.nypr-o-audio-player-level-one {
-  text-align: left;
-}
-
-.nypr-o-audio-player-level-two-three {
-  height: auto;
-}
-
-.nypr-o-audio-player-level-one-four {
-  text-align: left;
-  text-transform: capitalize;
 }
