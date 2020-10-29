@@ -41,7 +41,7 @@ describe('PersistentPlayer', () => {
     })
     // check if props were passed correctly
     expect(wrapper.vm.title).toBe('The Show')
-    const div = wrapper.find('.player-track-title')
+    const div = wrapper.find('.track-info-title')
     // check if title was rendered correctly
     expect(div.text()).toBe('The Show')
   })
@@ -57,43 +57,43 @@ describe('PersistentPlayer', () => {
     expect(wrapper.vm.title).toBe('The Show')
     expect(wrapper.vm.titleLink).toBe('http://www.titlelink.com')
     // check if link was rendered correctly
-    const div = wrapper.find('.player-track-title-link')
+    const div = wrapper.find('.track-info-title-link')
     expect(div.attributes('href')).toBe('http://www.titlelink.com')
   })
 
-  test('details prop works', () => {
+  test('description prop works', () => {
     const wrapper = mount(PersistentPlayer, {
       propsData: {
-        details: 'lorem ipsum dolor'
+        description: 'lorem ipsum dolor'
       }
     })
     // check if props were passed correctly
-    expect(wrapper.vm.details).toBe('lorem ipsum dolor')
-    const div = wrapper.find('.player-track-title-details')
+    expect(wrapper.vm.description).toBe('lorem ipsum dolor')
+    const div = wrapper.find('.track-info-description')
     // check if title was rendered correctly
     expect(div.text()).toBe('lorem ipsum dolor')
   })
 
-  test('details-link prop works', () => {
+  test('description-link prop works', () => {
     const wrapper = mount(PersistentPlayer, {
       propsData: {
-        details: 'lorem ipsum dolor',
-        detailsLink: 'http://www.detailslink.com'
+        description: 'lorem ipsum dolor',
+        descriptionLink: 'http://www.descriptionlink.com'
       }
     })
     // check if props were passed correctly
-    expect(wrapper.vm.details).toBe('lorem ipsum dolor')
-    expect(wrapper.vm.detailsLink).toBe('http://www.detailslink.com')
+    expect(wrapper.vm.description).toBe('lorem ipsum dolor')
+    expect(wrapper.vm.descriptionLink).toBe('http://www.descriptionlink.com')
     // check if link was rendered correctly
-    const div = wrapper.find('.player-track-title-details-link')
-    expect(div.attributes('href')).toBe('http://www.detailslink.com')
+    const div = wrapper.find('.track-info-description-link')
+    expect(div.attributes('href')).toBe('http://www.descriptionlink.com')
   })
 
   test('mute button works', () => {
     const wrapper = mount(PersistentPlayer)
     // check that start/current volume is 100
     expect(wrapper.vm.volume).toBe(100)
-    const div = wrapper.get('.player-volume-icon')
+    const div = wrapper.get('.volume-control-icon')
     // mute the audio
     div.trigger('click')
     expect(wrapper.vm.volume).toBe(0)
@@ -107,9 +107,11 @@ describe('PersistentPlayer', () => {
     // check that start/current volume is 100
     expect(wrapper.vm.volume).toBe(100)
     // set the slider to 75
-    wrapper.find('input[type=range]').setValue(75)
+    const input = wrapper.find('.volume-control-slider')
+    input.setValue(75)
+    input.trigger('change')
     // check that start/current volume is 75
-    expect(wrapper.vm.volume).toBe('75')
+    expect(wrapper.vm.volume).toBe(75)
   })
 
   test('download button is not visible by default', () => {
@@ -133,7 +135,7 @@ describe('PersistentPlayer', () => {
   test('livestream prop is false by default', () => {
     const wrapper = mount(PersistentPlayer)
     expect(wrapper.vm.livestream).toBe(false)
-    const div = wrapper.find('.player-livestream')
+    const div = wrapper.find('.track-info-livestream')
     expect(div.exists()).toBe(false)
   })
 
@@ -144,14 +146,14 @@ describe('PersistentPlayer', () => {
       }
     })
     expect(wrapper.vm.livestream).toBe(true)
-    const div = wrapper.find('.player-livestream')
+    const div = wrapper.find('.track-info-livestream')
     expect(div.exists()).toBe(true)
   })
 
   test('track progress is visible if livestream is set to false', () => {
     const wrapper = mount(PersistentPlayer)
     expect(wrapper.vm.livestream).toBe(false)
-    const div = wrapper.find('.player-track-progress')
+    const div = wrapper.find('.track-info-progress')
     expect(div.exists()).toBe(true)
   })
 
@@ -162,14 +164,14 @@ describe('PersistentPlayer', () => {
       }
     })
     expect(wrapper.vm.livestream).toBe(true)
-    const div = wrapper.find('.player-track-progress')
+    const div = wrapper.find('.track-info-progress')
     expect(div.exists()).toBe(false)
   })
 
   test('track time is visible if livestream is set to false', () => {
     const wrapper = mount(PersistentPlayer)
     expect(wrapper.vm.livestream).toBe(false)
-    const div = wrapper.find('.player-track-time')
+    const div = wrapper.find('.track-info-time')
     expect(div.exists()).toBe(true)
   })
 
@@ -180,7 +182,7 @@ describe('PersistentPlayer', () => {
       }
     })
     expect(wrapper.vm.livestream).toBe(true)
-    const div = wrapper.find('.player-track-time')
+    const div = wrapper.find('.track-info-time')
     expect(div.exists()).toBe(false)
   })
 })
