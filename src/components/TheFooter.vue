@@ -10,14 +10,14 @@
             <p>{{ slogan }}</p>
           </div>
           <div
-            class="c-main-footer__nav c-main-footer__primary-nav u-space--double--bottom"
+            class="c-main-footer__nav c-main-footer__primary-nav"
             name="primaryNavFooter"
           >
             <secondary-navigation :nav-items="primaryNav" />
           </div>
           <div
             v-if="hasLeftComponentSlot"
-            class="c-main-footer__left-component u-space--triple--bottom"
+            class="c-main-footer__left-component"
           >
             <slot name="leftComponent" />
           </div>
@@ -199,6 +199,14 @@ export default {
   }
 }
 
+.c-main-footer .c-main-footer__left-component {
+  margin: 0;
+
+  @include media(">medium") {
+    margin: 0 0 var(--space-6);
+  }
+}
+
 .c-main-footer .c-main-footer__col1 {
   width: 100%;
   max-width: 548px;
@@ -256,8 +264,11 @@ export default {
 }
 
 .c-main-footer .c-main-footer__primary-nav {
-  @include media("<=medium") {
-    text-align: center;
+  margin-bottom: var(--space-4);
+  text-align: center;
+  @include media(">medium") {
+    margin-bottom: var(--space-6);
+    text-align: left;
   }
 }
 
@@ -266,7 +277,7 @@ export default {
   margin: 0 var(--space-3) var(--space-4) 0;
 
   @include media("<=medium") {
-    margin: 0 var(--space-3) var(--space-4);
+    margin: 0 var(--space-3) var(--space-4) 0;
   }
 }
 
@@ -287,7 +298,10 @@ export default {
 }
 
 .c-main-footer .c-main-footer__social {
-  margin: 0 0 0 auto;
+  margin: auto;
+  @include media(">medium") {
+    margin: 0 0 0 auto;
+  }
 }
 
 .c-main-footer .c-share-tools__label {
@@ -335,7 +349,7 @@ export default {
 
 .c-main-footer .c-main-footer__nypr-logo {
   width: 120px;
-  margin: 0 auto var(--space-3);
+  margin: 0 auto 0;
 
   @include media(">xlarge") {
     margin: 0 var(--space-5) 0 0;
