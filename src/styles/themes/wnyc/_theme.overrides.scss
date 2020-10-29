@@ -7,7 +7,7 @@ body {
 }
 
 main {
-  background: linear-gradient(180deg, RGBA(var(--color-red), 1) 20.82%, RGBA(var(--color-blue), 1) 50.8%);
+  background: linear-gradient(180deg, RGB(var(--color-red), 1) 20.82%, RGB(var(--color-blue), 1) 50.8%);
   padding-top: var(--space-6);
 }
 
@@ -17,8 +17,8 @@ a {
 }
 
 .dots {
-  opacity: .6;
-  background-image: radial-gradient(RGBA(var(--color-white), .6) 2px, transparent 2px), radial-gradient(RGBA(var(--color-white), .6) 2px, transparent 2px);
+  opacity: .5;
+  background-image: radial-gradient(RGB(var(--color-white), .6) 2px, transparent 2px), radial-gradient(RGB(var(--color-white), .6) 2px, transparent 2px);
   background-position: 35px 0, 35px 35px;
   background-size: 35px 35px;
 }
@@ -34,7 +34,7 @@ a {
 }
 
 .wnyc-card-styles {
-  background: linear-gradient(180deg, RGBA(43, 111, 153, 0.49) 0%, RGBA(43, 111, 153, 0.17) 100%), #191716;
+  background: linear-gradient(180deg, RGB(43, 111, 153, 0.49) 0%, RGB(43, 111, 153, 0.17) 100%), #191716;
   border-radius: 6px;
   position: relative;
 
@@ -42,7 +42,7 @@ a {
     content: '';
     height: 8px;
     width: calc(100% - 40px);
-    background: RGBA(var(--color-primary-1), 1);
+    background: RGB(var(--color-primary-1), 1);
     border-radius: 0 0 6px 6px;
     margin: auto;
     position: absolute;
@@ -56,10 +56,10 @@ a {
 }
 
 // buttons
-.main-player .button,
+.whats-on .whats-on-show .play-button,
 .c-main-header .button,
 .c-main-header .button::before {
-  box-shadow: 0px 4px 8px RGBA(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 8px RGB(0, 0, 0, 0.15);
   border-radius: 30px;
   padding: 0 var(--space-6);
   height: 41px;
@@ -71,16 +71,14 @@ a {
   font-weight: 700;
   letter-spacing: 0.02em;
   font-size: var(--font-size-6);
+  color: var(--color-red);
 }
 
 // header
-.wnyc-logo-icon {
-  max-width: 100px;
-}
-
 .c-main-header,
 .c-main-header__inner {
-  background-color: RGB(var(--color-red));
+  //background: RGB(var(--color-red));
+  background-color: cornflowerblue;
 }
 
 .c-main-header__inner {
@@ -95,23 +93,34 @@ a {
   fill: RGB(var(--color-white));
 }
 
+.c-main-header {
+  background: RGB(var(--color-red));
+}
+
 .c-main-header a:hover svg {
   opacity: var(--opacity-hover);
   fill: RGB(var(--color-white));
 }
 
-.c-main-header .c-primary-nav {
-  margin: 0 auto 0 var(--space-5);
+// header nav
+.c-main-header .c-primary-nav--top {
+  padding-left: var(--space-9);
+  width: 100%;
+  text-align: left;
 }
 
-.c-main-header .c-secondary-nav__item {
+.c-primary-nav--top .c-primary-nav__link {
+  padding: 0;
   @include typeface(body, 6);
+}
+
+.c-primary-nav__link .c-primary-nav-link__text {
   font-weight: 700;
 }
 
 // header donate button
 .c-main-header__donate {
-  margin-right: var(--space-3);
+  color: RGB(var(--color-red));
 
   &:hover {
     background: RGB(var(--color-white));
@@ -123,14 +132,10 @@ a {
   }
 }
 
-.c-main-header__donate .button-label {
-  color: RGB(var(--color-red));
-}
-
 // Footer
 .c-main-footer {
-  background: linear-gradient(180deg, RGBA(var(--color-blue), 1) 0%, RGBA(var(--color-dark-blue), 1) 100%, #191716);
-  padding: 50px 0 70px;
+  background: linear-gradient(180deg, RGB(var(--color-blue, 1)) 0%, RGB(var(--color-dark-blue, 1)) 100%), #191716;
+  padding: 50px 0;
   margin-bottom: 0;
 }
 
@@ -157,6 +162,15 @@ a {
   }
 }
 
+.c-secondary-nav__link {
+  color: RGB(var(--color-white), var(--opacity-hover));
+  font-size: var(--font-size-6);
+  font-weight: 700;
+  &:hover {
+    color: RGB(var(--color-white), var(--opacity-hover));
+  }
+}
+
 .c-main-footer .c-secondary-nav__subheader {
   @include typeface(subheader, 8);
 }
@@ -177,7 +191,7 @@ a {
 
 .c-main-footer .c-share-tools__link:hover path,
 .c-main-footer a:hover svg {
-  fill: RGBA(var(--color-white), var(--opacity-hover));
+  fill: RGB(var(--color-white), var(--opacity-hover));
 }
 
 .c-main-footer__terms-links {
@@ -202,40 +216,43 @@ a {
 
 // brands popup
 
-//.ember-basic-dropdown-content {
-//  border-radius: 3px;
-//}
-//
-//.ember-basic-dropdown-content a {
-//  color: RGBA(var(--color-red));
-//
-//  &:hover {
-//    color: RGBA(var(--color-red));
-//    opacity: var(--opacity-hover);
-//  }
-//}
+.ember-basic-dropdown-content {
+  border-radius: 3px;
+}
+
+.ember-basic-dropdown-content a {
+  color: RGB(var(--color-red));
+
+  &:hover {
+    color: RGB(var(--color-red));
+    opacity: var(--opacity-hover);
+  }
+}
 
 // main player
-.main-player {
+.whats-on {
+  width: calc(100% - var(--space-8));
+  display: block;
+  z-index: 1;
+  max-width: 813px;
+  margin: 0 auto;
+  padding-bottom: var(--space-4);
+}
+
+.whats-on .whats-on-show {
   @extend .wnyc-card-styles;
 }
 
-.main-player-details-link {
-  text-decoration: none;
-  border: none;
-  padding: 0;
-}
-
-.main-player .live-indicator .whats-on-live-indicator-text {
+.whats-on .whats-on-live-indicator .whats-on-live-indicator-text {
   font-size: var(--font-size-4);
   font-weight: 700;
 }
 
-.main-player .live-indicator {
+.whats-on .whats-on-live-indicator .whats-on-live-indicator-time {
   color: RGB(var(--color-text));
 }
 
-.main-player .main-player-title {
+.whats-on .whats-on-show .whats-on-show-title {
   color: RGB(var(--color-text));
   font-weight: 600;
   font-size: var(--font-size-12);
@@ -244,26 +261,22 @@ a {
   margin-top: var(--space-3);
 }
 
-.main-player img {
+.whats-on .whats-on-show .on-air-image {
   border-radius: 3px;
 }
 
-.main-player .button {
+.whats-on .whats-on-show .on-air-image img {
+  border-radius: 3px;
+}
+
+.whats-on .whats-on-show .play-button {
   width: fit-content;
   padding-left: var(--space-3);
   height: 51px;
-  background: RGBA(var(--color-primary-1), 1);
-
-  &:hover {
-    opacity: 1;
-    background: RGBA(var(--color-primary-1), 1);
-    transition: all 0.1s ease-in-out;
-    transform: translateY(-4px);
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 1);
-  }
+  background: RGB(var(--color-primary-1), 1);
 }
 
-.main-player .button .button-label {
+.whats-on .whats-on-show .play-button .button-label {
   color: RGB(var(--color-white));
   text-transform: uppercase;
   font-size: var(--font-size-7);
@@ -274,58 +287,53 @@ a {
   text-align: center;
 }
 
-.main-player .button svg path {
-  fill: RGB(var(--color-text));
+.whats-on .whats-on-show .play-button .play-button-text {
+  letter-spacing: 0.02em;
+
+  &::after {
+    content: 'listen';
+
+    @include media(">=medium") {
+      content: 'listen live';
+    }
+  }
 }
 
-//
-//.whats-on .whats-on-show .play-button .play-button-text {
-//  letter-spacing: 0.02em;
-//
-//  &::after {
-//    content: 'listen';
-//
-//    @include media(">=medium") {
-//      content: 'listen live';
-//    }
-//  }
-//}
-//
-//.whats-on .whats-on-show .whats-on-show-description {
-//  font-size: var(--font-size-5);
-//}
-//
-//// what's on snapshot
-//.schedule .schedule-metadata .schedule-metadata-image img {
-//  border-radius: 3px;
-//}
-//
-//.schedule .schedule-full-schedule-button {
-//  text-transform: capitalize;
-//  letter-spacing: 0.02em;
-//}
-//
-//.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-label {
-//  font-size: var(--font-size-4);
-//  letter-spacing: 0.09em;
-//}
-//
-//.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-text {
-//  @include typeface(subheader, 8);
-//  color: RGB(var(--color-black));
-//}
-//
-//.schedule .schedule-metadata {
-//  border-radius: 3px 3px 0 0;
-//}
-//
-//.schedule .schedule-full-schedule-button {
-//  border-radius: 0 0 3px 3px;
-//}
-//
-//.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-time {
-//  color: RGB(var(--color-dark-gray));
-//}
+.whats-on .whats-on-show .whats-on-show-description {
+  font-size: var(--font-size-5);
+}
+
+// what's on snapshot
+.schedule .schedule-metadata .schedule-metadata-image img {
+  border-radius: 3px;
+}
+
+.schedule .schedule-full-schedule-button {
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-label {
+  font-size: var(--font-size-4);
+  letter-spacing: 0.09em;
+}
+
+.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-text {
+  @include typeface(subheader, 8);
+  color: RGB(var(--color-dark-gray));
+}
+
+.schedule .schedule-metadata {
+  border-radius: 3px 3px 0 0;
+}
+
+.schedule .schedule-full-schedule-button {
+  border-radius: 0 0 3px 3px;
+}
+
+.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-time {
+  color: RGB(var(--color-dark-gray));
+}
 
 // persistent player
 .nypr-o-audio-player {
@@ -349,10 +357,53 @@ a {
   }
 }
 
-.stream-switcher-streams-stream-show-title,
-.up-next .up-next-time,
 .stream-switcher-stations-label {
   display: none;
+}
+
+.stream-switcher-streams-stream-show {
+  display: flex;
+  align-items: center;
+}
+
+.stream-switcher-streams-stream-on-now {
+  @include typeface(body, 4);
+  white-space: nowrap;
+
+  @include media(">medium") {
+    font-weight: 700px;
+  }
+}
+
+.stream-switcher .stream-switcher-streams .stream-switcher-streams-stream {
+  .up-next {
+    display: none;
+  }
+
+  .up-next .up-next-time {
+    display: none;
+  }
+
+
+  .stream-switcher-streams-stream-show-title {
+    white-space: nowrap;
+    @include media(">medium") {
+      line-height: 25.6px;
+    }
+  }
+}
+
+.stream-switcher .stream-switcher-streams .stream-switcher-streams-stream.is-active {
+  .stream-switcher-streams-stream-on-now {
+    display: none;
+  }
+  .stream-switcher-streams-stream-show-title {
+    display: none;
+  }
+
+  .up-next {
+    display: flex;
+  }
 }
 
 .stream-switcher-streams-stream {
