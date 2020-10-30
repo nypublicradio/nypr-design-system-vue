@@ -118,6 +118,12 @@ a {
   font-weight: 700;
 }
 
+.c-main-header .c-secondary-nav__list {
+  padding-right: 900px;
+  width: 100%;
+  text-align: left;
+}
+
 // header donate button
 .c-main-header__donate {
   color: RGB(var(--color-red));
