@@ -129,3 +129,9 @@
 .c-gallery-overlay {
   @include color-group-dark;
 }
+
+// Stream Switcher
+.stream-switcher-card {
+  background: RGB(var(--color-dark-gray));
+  border: 1px solid RGB(var(--color-dark-gray));
+}
