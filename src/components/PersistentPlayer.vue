@@ -1,64 +1,20 @@
 <template>
   <div class="persistent-player u-color-group-dark">
     <div class="player-controls">
-      <div class="player-track">
-        <template v-if="livestream">
-          <div class="player-livestream">
-            <span class="player-livestream-live-text">Live</span> <span class="player-livestream-dot" /> {{ station }}
-          </div>
-        </template>
-        <div class="player-track-title">
-          <h2 v-if="title && titleLink">
-            <a
-              :href="titleLink"
-              class="player-track-title-link"
-            >
-              {{ title }}
-            </a>
-          </h2>
-          <h2 v-if="title && !titleLink">
-            {{ title }}
-          </h2>
-        </div>
-        <div
-          v-if="details"
-          class="player-track-details"
-        >
-          <div
-            v-if="details && !detailsLink"
-            class="player-track-title-details"
-          >
-            {{ details }}
-          </div>
-          <a
-            v-if="details && detailsLink"
-            :href="detailsLink"
-            class="player-track-title-details-link"
-          >
-            {{ details }}
-          </a>
-        </div>
-        <template v-if="!livestream">
-          <div
-            class="player-track-progress"
-            @click="seek"
-          >
-            <div
-              :style="{ width: percentComplete + '%' }"
-              class="player-track-seeker"
-            />
-            <div
-              :style="{ width: percentBuffered + '%' }"
-              class="player-track-buffered"
-            />
-          </div>
-          <div class="player-track-time">
-            <span class="player-track-time-current">{{ convertTime(currentSeconds) }}</span>
-            <span class="player-track-time-separator">/</span>
-            <span class="player-track-time-total">{{ convertTime(durationSeconds) }}</span>
-          </div>
-        </template>
-      </div>
+      <TrackInfo
+        :livestream="livestream"
+        :station="station"
+        :image="image"
+        :title="title"
+        :title-link="titleLink"
+        :description="description"
+        :description-link="descriptionLink"
+        :buffered="buffered"
+        :current-seconds="currentSeconds"
+        :duration-seconds="durationSeconds"
+        @seek="seek"
+      />
+      <VolumeControl v-model.number="volume" />
       <a
         v-if="showSkip && !livestream"
         class="player-back-15-icon"
@@ -83,38 +39,6 @@
       >
         <ahead15 />
       </a>
-      <div
-        class="player-volume"
-        @mouseover.prevent="showVolume = true"
-        @mouseleave.prevent="showVolume = false"
-      >
-        <label
-          for="playerVolume"
-          class="is-vishidden"
-        >
-          volume slider
-        </label>
-        <transition name="slide-left">
-          <input
-            v-show="showVolume"
-            id="playerVolume"
-            v-model="volume"
-            type="range"
-            min="0"
-            max="100"
-          >
-        </transition>
-        <a
-          tabindex="0"
-          class="player-volume-icon"
-          :aria-label="muted ? 'unmute' : 'mute'"
-          @click="mute"
-          @keypress.space.enter="mute"
-        >
-          <volume-icon v-if="!muted" />
-          <volume-muted v-if="muted" />
-        </a>
-      </div>
       <a
         v-if="showDownload && !livestream"
         tabindex="0"
@@ -140,9 +64,9 @@
 import PlayIcon from './icons/PlayIcon'
 import Back15 from './icons/Back15'
 import Ahead15 from './icons/Ahead15'
-import VolumeIcon from './icons/VolumeIcon'
-import VolumeMuted from './icons/VolumeMuted'
 import DownloadIcon from './icons/DownloadIcon'
+import VolumeControl from './VolumeControl'
+import TrackInfo from './TrackInfo'
 
 export default {
   name: 'PersistentPlayer',
@@ -150,20 +74,20 @@ export default {
     PlayIcon,
     Back15,
     Ahead15,
-    VolumeIcon,
-    VolumeMuted,
-    DownloadIcon
+    VolumeControl,
+    DownloadIcon,
+    TrackInfo
   },
   props: {
     autoPlay: {
       type: Boolean,
       default: false
     },
-    details: {
+    description: {
       type: String,
       default: null
     },
-    detailsLink: {
+    descriptionLink: {
       type: String,
       default: null
     },
@@ -195,6 +119,10 @@ export default {
       type: String,
       default: null
     },
+    image: {
+      type: String,
+      default: null
+    },
     title: {
       type: String,
       default: null
@@ -216,17 +144,6 @@ export default {
       previousVolume: 35,
       showVolume: false,
       volume: 100
-    }
-  },
-  computed: {
-    muted () {
-      return this.volume / 100 === 0
-    },
-    percentBuffered () {
-      return (this.buffered / this.durationSeconds) * 100
-    },
-    percentComplete () {
-      return (this.currentSeconds / this.durationSeconds) * 100
     }
   },
   watch: {
@@ -300,14 +217,6 @@ export default {
       }
       throw new Error('Failed to load sound file.')
     },
-    mute () {
-      if (this.muted) {
-        this.volume = this.previousVolume
-        return this.volume
-      }
-      this.previousVolume = this.volume
-      this.volume = 0
-    },
     seek (e) {
       if (!this.loaded) return
       const el = e.target.getBoundingClientRect()
@@ -332,204 +241,60 @@ export default {
 }
 </script>
 
-<style
-  lang="scss"
-  scoped
->
-$xsmall: 450px;
-$small: 550px;
-$medium: 768px;
-$large: 1240px;
-$xlarge: 1440px;
+<style lang="scss">
+  $xsmall: 450px;
+  $small: 550px;
+  $medium: 768px;
+  $large: 1240px;
+  $xlarge: 1440px;
 
 .persistent-player {
-  position: fixed;
-  z-index: 1000;
   bottom: 0;
+  left: 0;
+  color: #FFF;
+  height: 96px;
+  position: fixed;
+  z-index: 1200;
   width: 100%;
+  padding: 0 8px;
   color: RGB(var(--color-text));
   background-color: RGB(var(--color-background));
-  padding: var(--space-1) var(--space-2);
-  @media all and (min-width: $medium) {
-    padding: var(--space-1) var(--space-3);
-  }
 }
 
-.persistent-player a,
-.persistent-player a:visited,
-.persistent-player a:active {
-  color: var(--color-text);
-  text-decoration: none;
-
-  &:hover {
+  .persistent-player a,
+  .persistent-player a:visited,
+  .persistent-player a:active {
+    color: var(--color-text);
     text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
-}
 
-.player-controls {
-  display: flex;
-  align-items: center;
-}
-
-.player-controls svg {
-  fill: RGB(var(--color-text));
-}
-
-.player-controls .play-button {
-  width: 55px;
-}
-
-.player-controls .back-15-icon {
-  margin-right: var(--space-2);
-}
-
-.player-controls .ahead-15-icon {
-  margin-left: var(--space-2);
-}
-
-.player-controls .download-icon {
-  margin-left: var(--space-2);
-}
-
-.persistent-player .player-livestream {
-  display: flex;
-  align-items: center;
-  font-size: var(--font-size-3);
-  font-weight: 400;
-}
-
-.persistent-player .player-livestream .player-livestream-live-text {
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.persistent-player .player-livestream .player-livestream-dot {
-  background-color: #e74f4f;
-  border-radius: 8px;
-  height: 8px;
-  width: 8px;
-  margin: 0 8px;
-}
-
-.persistent-player .player-track {
-  flex: auto;
-  padding: 0 var(--space-6) 0 0;
-  overflow: hidden;
-}
-
-.persistent-player .player-track-title {
-  width: 100%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.persistent-player .player-track-title h2 {
-  line-height: 1;
-}
-
-.persistent-player .player-track-title-details-link {
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-.persistent-player .player-track-progress {
-  position: absolute;
-  background-color: RGB(var(--color-text));
-  cursor: pointer;
-  min-width: 200px;
-  top: -5px;
-  left: 0;
-  right: 0;
-  height: 5px;
-  @media all and (min-width: $medium) {
-    height: 3px;
-    margin-top: .5rem;
-    position: relative;
-  }
-}
-
-.persistent-player .player-track-progress .player-track-seeker {
-  background-color: RGB(var(--color-text));
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  top: 0;
-  z-index: 20;
-}
-
-.persistent-player .player-track-progress .player-track-buffered {
-  background-color: RGB(var(--color-gray));
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  top: 0;
-  z-index: 10;
-}
-
-.persistent-player .player-track-progress .player-track-playhead {
-  position: absolute;
-  height: 22px;
-  width: 22px;
-  margin: -8px -16px;
-  transform: scale(0, 0);
-  left: 0;
-  opacity: 0;
-  bottom: 0;
-  transition: opacity .2s linear, transform .2s;
-
-  &::after {
-    content: '';
-    height: 22px;
-    width: 22px;
-    background-color: RGB(var(--color-dark-gray));
-    border-radius: 50%;
-    opacity: 1;
-    display: block;
-    position: absolute;
-    left: calc(50% - 11px);
-    top: calc(50% - 11px);
-  }
-}
-
-.persistent-player .player-track-time {
-  display: flex;
-  font-size: var(--font-size-2);
-  font-weight: 500;
-  @media all and (min-width: $medium) {
-    justify-content: flex-end;
-  }
-}
-
-.persistent-player .player-track-time .player-track-time-current {
-  margin-right: var(--space-1);
-}
-
-.persistent-player .player-track-time .player-track-time-total {
-  margin-left: var(--space-1);
-}
-
-.persistent-player .player-volume {
-  padding-left: var(--space-3);
-  display: none;
-  @media all and (min-width: $medium) {
+  .player-controls {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
   }
-}
 
-.persistent-player .player-volume-icon {
-  height: 24px;
-}
+    .player-controls svg {
+      fill: RGB(var(--color-text));
+    }
 
-.persistent-player .player-volume-icon svg path {
-  fill: RGB(var(--color-text));
-}
+    .player-controls .play-button {
+      width: 55px;
+      min-width: 55px;
+    }
+
+    .player-controls .back-15-icon {
+      margin-right: var(--space-2);
+    }
+
+    .player-controls .ahead-15-icon {
+      margin-left: var(--space-2);
+    }
+
+    .player-controls .download-icon {
+      margin-left: var(--space-2);
+    }
 </style>

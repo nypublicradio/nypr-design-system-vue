@@ -12,8 +12,8 @@ export const Default = () => ({
       title="The Takeaway"
       station="WNYC 93.9 FM"
       title-link="http://www.google.com"
-      details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
-      details-link="http://www.bing.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />
   `
@@ -25,10 +25,11 @@ export const Livestream = () => ({
     <persistent-player
       livestream
       station="WNYC 93.9 FM"
+      image="images/Placeholder-Image-1_1.png"
       title="The Takeaway"
       title-link="http://www.google.com"
-      details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
-      details-link="http://www.bing.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />
   `
@@ -40,14 +41,14 @@ export const LivestreamWithoutTitle = () => ({
     <persistent-player
       livestream
       station="WNYC 93.9 FM"
-      details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
-      details-link="http://www.bing.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />
   `
 })
 
-export const LivestreamWithoutDetails = () => ({
+export const LivestreamWithoutdescription = () => ({
   components: { PersistentPlayer },
   template: `
     <persistent-player
@@ -67,8 +68,8 @@ export const LivestreamWithoutStation = () => ({
       livestream
       title="The Takeaway"
       title-link="http://www.google.com"
-      details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
-      details-link="http://www.bing.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />
   `
@@ -81,14 +82,14 @@ export const LivestreamWithoutTitleLink = () => ({
       livestream
       station="WNYC 93.9 FM"
       title="The Takeaway"
-      details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
-      details-link="http://www.bing.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />
   `
 })
 
-export const LivestreamWithoutDetailsLink = () => ({
+export const LivestreamWithoutdescriptionLink = () => ({
   components: { PersistentPlayer },
   template: `
     <persistent-player
@@ -96,7 +97,7 @@ export const LivestreamWithoutDetailsLink = () => ({
       station="WNYC 93.9 FM"
       title="The Takeaway"
       title-link="http://www.google.com"
-      details="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
       file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
     />
   `
