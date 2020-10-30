@@ -69,7 +69,7 @@ export default {
   height: 70px;
   align-items: center;
   width: fit-content;
-  max-width: 320px;
+  max-width: 170px;
   min-width: 170px;
   margin-bottom: -20px; // hack to get around overflow scroll issue
   transition: var(--animation-duration-slow) var(--animation-easing-incoming);
@@ -79,6 +79,7 @@ export default {
   @include media(">xlarge") {
     padding: var(--space-2) var(--space-3);
     height: 50px;
+    max-width: 320px;
     flex-wrap: nowrap;
   }
 
