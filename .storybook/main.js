@@ -8,7 +8,6 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-viewport/register',
     '@storybook/addon-a11y/register',
-    '@storybook/addon-knobs/register',
     '@panosvoudouris/addon-versions/register',
     {
       name: '@storybook/addon-docs',
