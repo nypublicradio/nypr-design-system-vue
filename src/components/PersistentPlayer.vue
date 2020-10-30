@@ -25,7 +25,7 @@
       </a>
       <a
         class="play-button"
-        :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded}"
+        :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded, 'is-ready': neverPlayed}"
         :aria-label="playing ? 'pause' : 'play'"
         @click="togglePlay"
       >
@@ -144,6 +144,7 @@ export default {
       buffered: 0,
       innerLoop: false,
       loaded: false,
+      neverPlayed: true,
       previousVolume: 35,
       showVolume: false,
       volume: 100
@@ -231,6 +232,7 @@ export default {
       this.audio.currentTime = 0
     },
     togglePlay () {
+      this.neverPlayed = false;
       this.playing = !this.playing
       this.$emit('togglePlay')
     },
