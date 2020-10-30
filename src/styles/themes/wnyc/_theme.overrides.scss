@@ -162,7 +162,7 @@ a {
 }
 
 .c-secondary-nav__link {
-  color: RGB(var(--color-white), var(--opacity-hover));
+  color: RGB(var(--color-white));
   font-size: var(--font-size-6);
   font-weight: 700;
   &:hover {
