@@ -132,6 +132,7 @@ export default {
 
   .live-indicator {
     margin: 0 0 var(--space-3) var(--space-4);
+    color: RGB(var(--color-link));
   }
 
   .button {
