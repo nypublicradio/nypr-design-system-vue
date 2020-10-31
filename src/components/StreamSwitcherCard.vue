@@ -2,6 +2,7 @@
   <div
     class="stream-switcher-card"
     :class="{'is-active':active, 'is-playing':playing}"
+    @click="$emit('click', $event);"
   >
     <div
       v-if="playing"
