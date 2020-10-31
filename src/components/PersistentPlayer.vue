@@ -1,5 +1,8 @@
 <template>
-  <div class="persistent-player u-color-group-dark">
+  <div
+    class="persistent-player u-color-group-dark"
+    :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded, 'is-ready': neverPlayed}"
+  >
     <div class="player-controls">
       <TrackInfo
         :livestream="livestream"
@@ -232,9 +235,9 @@ export default {
       this.audio.currentTime = 0
     },
     togglePlay () {
-      this.neverPlayed = false;
       this.playing = !this.playing
       this.$emit('togglePlay')
+      this.neverPlayed = false
     },
     update () {
       this.currentSeconds = this.audio.currentTime

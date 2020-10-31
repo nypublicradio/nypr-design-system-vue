@@ -360,9 +360,16 @@ h1, h2, h3, h4, h5 {
 
 // persistent player
 .persistent-player {
+  --color-text: var(--color-white);
+  --color-text-inverse:  var(--color-black);
   background-color: RGB(var(--color-almost-black));
   height: 112px;
 }
+
+
+.persistent-player .play-button.is-ready.is-loading {
+  display: none;
+} 
 
 .persistent-player .play-button.is-ready {
   background: RGB(var(--color-red));
@@ -370,14 +377,33 @@ h1, h2, h3, h4, h5 {
   border-radius: 30px;
   width: 209px;
   height: 47px;
+  transition: none;
+  justify-content: flex-start;
+}
+
+.persistent-player .play-button.is-ready:hover {
+  transition: none;
 }
 
 .persistent-player .play-button.is-ready svg {
-  height: 150%;
+  transition: none;
+  height: 47px;
+  width: 28px;
+  overflow: hidden;
+  margin: 0 4px 0 27px;
 }
 
 .persistent-player .play-button.is-ready .outer-circle {
   display: none;
+}
+
+.persistent-player.is-ready.is-paused .volume-control {
+  display: none;
+}
+
+.persistent-player .play-button.is-ready .play {
+  transform-origin: center 32px;
+  transform: scale(1.5);
 }
 
 .persistent-player .play-button.is-ready:after {
@@ -388,6 +414,7 @@ h1, h2, h3, h4, h5 {
   font-weight: bold;
   font-size: var(--font-size-7);
   line-height: 47px;
+  letter-spacing: 0.09em;
 }
 
 .track-info-livestream-indicator {
