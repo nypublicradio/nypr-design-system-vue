@@ -19,6 +19,21 @@ export const Default = () => ({
   `
 })
 
+export const Autoplay = () => ({
+  components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      auto-play
+      title="The Takeaway"
+      station="WNYC 93.9 FM"
+      title-link="http://www.google.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+})
+
 export const Livestream = () => ({
   components: { PersistentPlayer },
   template: `

@@ -103,6 +103,10 @@ export default {
       type: Boolean,
       default: false
     },
+    playing: {
+      type: Boolean,
+      default: false
+    },
     showDownload: {
       type: Boolean,
       default: false
@@ -140,7 +144,6 @@ export default {
       buffered: 0,
       innerLoop: false,
       loaded: false,
-      playing: false,
       previousVolume: 35,
       showVolume: false,
       volume: 100
@@ -229,6 +232,7 @@ export default {
     },
     togglePlay () {
       this.playing = !this.playing
+      this.$emit('togglePlay')
     },
     update () {
       this.currentSeconds = this.audio.currentTime
