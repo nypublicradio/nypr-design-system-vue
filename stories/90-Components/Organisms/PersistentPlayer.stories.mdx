@@ -1,0 +1,97 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Organism/PersistentPlayer"/>
+
+# Persistent Player
+
+The persistent player provides users with quick access to currently playing audio content wherever they are on the site. Functionally, it allows the user to see metadata for currently playing audio on the livestream, play / pause the livestream, and control its volume output separately from the user’s system volume controls on desktop. Users may also select a Tooltip to see secondary information about what’s on the livestream. For some sites, clicking on the metadata may take the user to the related content page (e.g., show, episode, composer, etc. page).
+
+## Use Cases
+
+The persistent player can be used to control both live streaming and on-demand audio but the Storybook-based component is currently only in production for livestream audio.
+
+In order to be used for on-demand audio, the current whitelabeled persistent player needs to be designed to include additional features such as scrubbing ability, 15 sec timeshifting, etc. For sites that present both live streaming and on-demand options, the context that the persistent player is in needs to be considered in how the player is initiated and presented so that it's clear what the user is selecting to play. For example, for on-demand audio, the persistent player can appear once an on-demand piece of audio is played from the site page and/or be shown before playback as long as its presentation and controls cannot be confused for playing/pausing a different piece of audio on the same page or on the livestream.  
+
+In an on-demand context, the persistent player should appear when the user chooses to start playing on-demand audio presented on the page (e.g., a podcast episode).
+
+If the user is on a site with live stream audio, and has not started the live stream but navigates to another page on the site, then the persistent player should appear consistently and “follow” the user. This keeps the users constantly informed about what is playing live on the air and gives them the option to play at anytime.
+    
+
+## What’s Inside
+
+<img alt="Persistent Player anatomy" src="/images/Organisms-PeristentPlayer-Diagram.png" width="800" />
+  
+ 
+ 1- **Play/Pause Button** - Description of thing and any underlying logic within it.
+
+2- **Volume Control** - Description of thing and any underlying logic within it.
+
+3- **Level 1 Information** - Refer to the information architecture guidelines
+
+4- **Level 2 Information** - Refer to the information architecture guidelines.
+
+5- **Level 3 Information** - Refer to the information architecture guidelines. This might vary depending on use case.
+
+6- **Tooltip** - Optional element displays Level 4 + 5 information.
+
+7- **Live Indicator** - Atom to be used in live streaming use cases indicating live audio.
+
+9- **Image** - Optional image for show art
+
+
+## States 
+
+### Persistent Player - Desktop - Volume Hover
+<img alt="Persistent Player volume hover" src="/images/Organisms-PeristentPlayer-VolumeHover.png" width="600" />
+See animation outline.
+
+### Persistent Player - Desktop - Volume Mute
+<img alt="Persistent Player when muted" src="/images/Organisms-PeristentPlayer-VolumeMuted.png" width="600" />
+When the volume slider is adjusted to zero or the user clicks the sound icons, the icon changes to the muted version, and the audio stream mutes.
+
+### Persistent Player - Desktop - Tooltip
+<img alt="Persistent Player with tooltip" src="/images/Organisms-PeristentPlayer-Tooltip.png" width="600" />
+See animation outline.
+
+## Variants
+
+### Persistent Player - Mobile
+<img alt="Persistent Player Mobile" src="/images/Organisms-PeristentPlayer-Mobile.png" width="394" />
+State description here.
+
+## Animation
+
+### Play Button
+If the user has not started the livestream then the play button has a subtle pulsing animation. This animation stops once the user starts the livestream. Anytime the user clicks the play button, an animation of rotating half circles appears as a transition between the two play and pause icons to indicate to the user that the site is currently loading the audio stream for playback. If the user pauses audio, the blue pulsing animation around the play button resumes.
+
+
+### Volume Control (Desktop Only)
+When the user hovers over the volume control icon, the icon slides to the left and the volume bar appears. When the user moves away, the volume icon slides back to the original position on the right. When the user clicks the volume icon, the volume is muted and the muted state of the icon is shown.
+
+### Tooltip
+When the user selects to view secondary data about a list item (e.g., track or segment), the Tooltip should subtly fade and expand up. When the user clicks to close the Tooltip, it should subtly fade and detract out.
+
+## Accessibility
+-   There should always be information displayed in the persistent player that makes clear to the user what audio the player will play, such as the name of the currently live Show and name of the track and its composer.
+    
+-   If a track or segment has secondary information in the Tooltip, then on hover, the mouse state should signal to the user that the Tooltip is clickable
+    
+-   Text should have appropriate tags so users with screen readers can quickly understand the important elements on the page such as name of composer and musical piece, in a logical order.
+
+
+## WQXR Jukebox Variation
+
+On WQXR Jukebox, the persistent player is always apparent at the bottom on the homepage.
+
+<img alt="Persistent Player for WQXR" src="/images/Organisms-PeristentPlayer-WQXR.png" width="800" />
+
+
+## WNYC Livestreaming Variation
+
+On WNYC Lab, the persistent player is used for live streaming a range of shows over two streams.
+
+<img alt="Persistent Player for WNYC" src="/images/Organisms-PeristentPlayer-WNYC.png" width="800" />
+  
+
+## Testing and Iterations
+Any updates/progress to this component can be listed out here. Maybe eventually this will be automated.
