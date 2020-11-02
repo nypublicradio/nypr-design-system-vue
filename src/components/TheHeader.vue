@@ -119,6 +119,10 @@ $z-index-header: 5000;
   }
 }
 
+.main-player-title {
+  font-size: var(--font-size-4);
+}
+
 .c-main-header__left {
   display: flex;
   align-items: flex-end;
