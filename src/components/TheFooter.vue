@@ -351,7 +351,7 @@ export default {
   width: 120px;
   margin: 0 auto 0;
 
-  @include media(">xlarge") {
+  @include media(">medium") {
     margin: 0 var(--space-5) 0 0;
   }
 }
