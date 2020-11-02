@@ -120,7 +120,7 @@ $z-index-header: 5000;
 }
 
 .main-player-title {
-  font-size: var(--font-size-4);
+  font-size: var(--font-size-6);
 }
 
 .c-main-header__left {
