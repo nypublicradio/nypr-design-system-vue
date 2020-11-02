@@ -20,16 +20,19 @@ export const Horizontal = () => ({
       <stream-switcher-card
         station="WNYC 93.9 FM"
         title="BBC World Service"
+        up-next-title="New Sounds"
         :active="true"
         :playing="true"
       />
       <stream-switcher-card
         station="WNYC 93.9 FM"
         title="The Takeaway"
+        up-next-title="All Of It"
       />
       <stream-switcher-card
         station="WNYC 93.9 FM"
         title="BBC World Service"
+        up-next-title="New Sounds"
       />
     </stream-switcher>
   `

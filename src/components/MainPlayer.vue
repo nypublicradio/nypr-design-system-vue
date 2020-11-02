@@ -136,36 +136,13 @@ export default {
   }
 
   .button {
-    background-color: RGB(var(--color-button));
     width: 235px;
     max-width: 235px;
     margin: 0 0 var(--space-5) var(--space-4);
 
-    @include media(">=medium") {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      grid-row-start: 4;
-      grid-row-end: 5;
-      margin-bottom: var(--space-4);
-    }
-
-    &::after,
-    &::before {
-      left: 0;
-    }
-
     svg {
       max-height: 54px;
       max-width: 54px;
-    }
-
-    .button-label {
-      @include typeface(body, 5);
-      color: RGB(var(--color-button-text));
-      display: block;
-      font-weight: bold;
-      letter-spacing: 1.6px;
-      text-transform: capitalize;
     }
   }
 

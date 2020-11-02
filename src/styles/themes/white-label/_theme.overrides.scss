@@ -4,6 +4,7 @@
 
 .c-main-header {
   --color-background: var(--color-cool-white);
+
   &.side-menu-is-active {
     .c-main-header__branding {
       opacity: 0;
@@ -130,8 +131,16 @@
   @include color-group-dark;
 }
 
+// main player
+.main-player .button {
+  svg,
+  path,
+  rect {
+    fill: RGB(var(--color-button-text));
+  }
+}
+
 // Stream Switcher
 .stream-switcher-card {
   background: RGB(var(--color-dark-gray));
-  border: 1px solid RGB(var(--color-dark-gray));
 }

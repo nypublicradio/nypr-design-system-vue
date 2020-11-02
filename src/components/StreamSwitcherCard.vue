@@ -25,7 +25,16 @@
     >
       on now
     </div>
-    <div class="stream-switcher-card-title">
+    <div
+      v-if="active"
+      class="stream-switcher-card-title"
+    >
+      {{ upNextTitle }}
+    </div>
+    <div
+      v-else
+      class="stream-switcher-card-title"
+    >
       {{ title }}
     </div>
   </div>
@@ -43,6 +52,10 @@ export default {
       default: null
     },
     title: {
+      type: String,
+      default: null
+    },
+    upNextTitle: {
       type: String,
       default: null
     },
@@ -81,6 +94,7 @@ export default {
     padding: var(--space-2) var(--space-3);
     height: 50px;
     max-width: 320px;
+    min-width: 320px;
     flex-wrap: nowrap;
   }
 
@@ -89,9 +103,10 @@ export default {
     content: '';
     position: absolute;
     width: 0;
-    bottom: -16px;
+    bottom: -15px;
     height: 15px;
     left: 30px;
+    z-index: 10;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     border-top: 15px solid RGB(var(--color-text-inverse));
@@ -120,23 +135,16 @@ export default {
 .stream-switcher-card .stream-switcher-card-animation {
   flex-basis: 25px;
   height: 25px;
-  margin: 0 var(--space-2) 0 0;
-
-  @include media(">xlarge") {
-    flex-basis: 50px;
-  }
+  margin: 0 var(--space-3) 0 0;
 }
 
 .stream-switcher-card .stream-switcher-card-station {
   @include typeface(body, 4);
   font-weight: bold;
   text-transform: uppercase;
+  min-width: 88px;
   margin: 0 var(--space-3) 0 0;
   line-height: 25px;
-
-  @include media(">xlarge") {
-    flex-basis: 120px;
-  }
 }
 
 .stream-switcher-card .stream-switcher-card-up-next {
