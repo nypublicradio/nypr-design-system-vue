@@ -83,14 +83,15 @@ export default {
   height: 70px;
   align-items: center;
   width: fit-content;
-  max-width: 170px;
-  min-width: 170px;
+  max-width: 180px;
+  min-width: 180px;
   margin-bottom: -20px; // hack to get around overflow scroll issue
   transition: var(--animation-duration-slow) var(--animation-easing-incoming);
   background-color: transparent;
   color: RGB(var(--color-text-inverse));
 
   @include media(">xlarge") {
+    @include typeface(body, 5);
     padding: var(--space-2) var(--space-3);
     height: 50px;
     max-width: 320px;
@@ -139,12 +140,14 @@ export default {
 }
 
 .stream-switcher-card .stream-switcher-card-station {
-  @include typeface(body, 4);
   font-weight: bold;
   text-transform: uppercase;
-  min-width: 88px;
+  min-width: 100px;
   margin: 0 var(--space-3) 0 0;
   line-height: 25px;
+  -webkit-font-feature-settings: "lnum";
+  -moz-font-feature-settings: "lnum";
+  font-feature-settings: "lnum";
 }
 
 .stream-switcher-card .stream-switcher-card-up-next {
