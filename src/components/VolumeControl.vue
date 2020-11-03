@@ -107,6 +107,10 @@ export default {
     fill: RGB(var(--color-text));
   }
 
+  .volume-control-slider {
+    padding: 24px 0;
+  }
+
   .volume-control-slider.slide-left-enter,
   .volume-control-slider.slide-left-leave-to {
     width: 0px;
