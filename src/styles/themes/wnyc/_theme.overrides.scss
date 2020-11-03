@@ -17,6 +17,14 @@ a {
   border-bottom: solid 2px RGB(var(--color-white));
 }
 
+h1, h2, h3, h4, h5 {
+  // Use lining figures instead of text figures for headers
+  // https://www.codesmite.com/article/fixing-raleway-and-similar-fonts-numerals
+  -webkit-font-feature-settings: "lnum";
+  -moz-font-feature-settings: "lnum";
+  font-feature-settings: "lnum";
+}
+
 .dots {
   opacity: .5;
   background-image: radial-gradient(RGB(var(--color-white), .6) 2px, transparent 2px), radial-gradient(RGB(var(--color-white), .6) 2px, transparent 2px);
@@ -311,16 +319,72 @@ a {
 }
 
 // persistent player
-.nypr-o-audio-player {
-  grid-template-columns: 75% 25%;
-  grid-template-rows: auto;
+.persistent-player {
+  --color-text: var(--color-white);
+  --color-text-inverse:  var(--color-black);
+  background-color: RGB(var(--color-almost-black));
+  height: 112px;
 }
 
-.nypr-o-audio-player,
-.nypr-o-audio-player-controls,
-.nypr-o-audio-player-play-button,
-.nypr-o-audio-player .button:active {
-  background-color: RGB(var(--color-dark-blue));
+.persistent-player .player-cta-play-button {
+  color: RGB(var(--color-text));
+  background: RGB(var(--color-red));
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+  height: 47px;
+  margin-right: 24px;
+  justify-content: flex-start;
+  transition: all 0.1s ease-in-out;
+}
+
+  .persistent-player .player-cta-play-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, .15);
+  }
+
+  .persistent-player .player-cta-play-button .button-text {
+    font-family: var(--font-family-body);
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    font-size: var(--font-size-7);
+    line-height: 47px;
+    letter-spacing: 0.09em;
+  }
+
+.track-info-livestream-indicator {
+  background: transparent;
+  color: RGB(var(--color-text));
+}
+
+  .track-info-livestream-indicator-text {
+    margin-right: 2px;
+  }
+
+  .track-info-livestream-station {
+      // Use lining figures instead of text figures
+      // https://www.codesmite.com/article/fixing-raleway-and-similar-fonts-numerals
+      -webkit-font-feature-settings: "lnum";
+      -moz-font-feature-settings: "lnum";
+      font-feature-settings: "lnum";
+  }
+
+.track-info-image {
+  --track-info-image-size: 96px;
+}
+
+.track-info-title {
+  font-family: var(--font-family-body);
+
+}
+  .track-info-title h2 {
+    line-height: 1.25;
+  }
+
+.track-info-title-link,
+.track-info-description-link {
+  text-decoration: none;
+  border: none;
 }
 
 // stream switcher
