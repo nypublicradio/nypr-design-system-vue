@@ -1,5 +1,8 @@
 <template>
-  <div class="persistent-player u-color-group-dark">
+  <div
+    class="persistent-player u-color-group-dark"
+    :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded, 'is-initial': !hasPlayed}"
+  >
     <div class="player-controls">
       <TrackInfo
         :livestream="livestream"
@@ -14,31 +17,42 @@
         :duration-seconds="durationSeconds"
         @seek="seek"
       />
-      <VolumeControl v-model.number="volume" />
-      <a
-        v-if="showSkip && !livestream"
-        class="player-back-15-icon"
-        aria-label="go back 15 seconds"
-        @click="goBack15"
-      >
-        <back15 />
-      </a>
-      <a
-        class="play-button"
-        :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded}"
-        :aria-label="playing ? 'pause' : 'play'"
-        @click="togglePlay"
-      >
-        <play-icon />
-      </a>
-      <a
-        v-if="showSkip && !livestream"
-        class="player-ahead-15-icon"
-        aria-label="go ahead 15 seconds"
-        @click="goAhead15"
-      >
-        <ahead15 />
-      </a>
+      <template v-if="shouldShowCta && !hasPlayed">
+        <button
+          class="button player-cta-play-button"
+          @click="togglePlay"
+        >
+          <play-simple class="button-icon" />
+          <span class="button-text">Listen Live</span>
+        </button>
+      </template>
+      <template v-else>
+        <VolumeControl v-model.number="volume" />
+        <a
+          v-if="showSkip && !livestream"
+          class="player-back-15-icon"
+          aria-label="go back 15 seconds"
+          @click="goBack15"
+        >
+          <back15 />
+        </a>
+        <a
+          class="play-button"
+          :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded, 'is-initial': !hasPlayed}"
+          :aria-label="playing ? 'pause' : 'play'"
+          @click="togglePlay"
+        >
+          <play-icon />
+        </a>
+        <a
+          v-if="showSkip && !livestream"
+          class="player-ahead-15-icon"
+          aria-label="go ahead 15 seconds"
+          @click="goAhead15"
+        >
+          <ahead15 />
+        </a>
+      </template>
       <a
         v-if="showDownload && !livestream"
         tabindex="0"
@@ -62,6 +76,7 @@
 
 <script>
 import PlayIcon from './icons/PlayIcon'
+import PlaySimple from './icons/PlaySimple'
 import Back15 from './icons/Back15'
 import Ahead15 from './icons/Ahead15'
 import DownloadIcon from './icons/DownloadIcon'
@@ -72,6 +87,7 @@ export default {
   name: 'PersistentPlayer',
   components: {
     PlayIcon,
+    PlaySimple,
     Back15,
     Ahead15,
     VolumeControl,
@@ -104,6 +120,10 @@ export default {
       default: false
     },
     playing: {
+      type: Boolean,
+      default: false
+    },
+    shouldShowCta: {
       type: Boolean,
       default: false
     },
@@ -144,6 +164,7 @@ export default {
       buffered: 0,
       innerLoop: false,
       loaded: false,
+      hasPlayed: false,
       previousVolume: 35,
       showVolume: false,
       volume: 100
@@ -233,6 +254,7 @@ export default {
     togglePlay () {
       this.playing = !this.playing
       this.$emit('togglePlay')
+      this.hasPlayed = true
     },
     update () {
       this.currentSeconds = this.audio.currentTime
@@ -283,6 +305,11 @@ export default {
 
     .player-controls svg {
       fill: RGB(var(--color-text));
+    }
+
+    .player-controls .player-cta-play-button svg path {
+      fill: RGB(var(--color-text));
+
     }
 
     .player-controls .play-button {

@@ -50,6 +50,23 @@ export const Livestream = () => ({
   `
 })
 
+export const LivestreamWithCta = () => ({
+  components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      livestream
+      shouldShowCta
+      station="WNYC 93.9 FM"
+      image="images/Placeholder-Image-1_1.png"
+      title="The Takeaway"
+      title-link="http://www.google.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+})
+
 export const LivestreamWithoutTitle = () => ({
   components: { PersistentPlayer },
   template: `
