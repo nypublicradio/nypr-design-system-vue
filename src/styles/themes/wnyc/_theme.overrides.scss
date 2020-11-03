@@ -244,29 +244,31 @@ h1, h2, h3, h4, h5 {
 }
 
 // main player
-.whats-on {
-  width: calc(100% - var(--space-8));
-  display: block;
-  z-index: 1;
-  max-width: 813px;
-  margin: 0 auto;
-  padding-bottom: var(--space-4);
-}
-
-.whats-on .whats-on-show {
+.main-player {
   @extend .wnyc-card-styles;
+  margin: auto;
+  width: calc(100% - var(--space-4) - var(--space-4));
+  @include media(">xlarge") {
+    width: 100%;
+  }
 }
 
-.whats-on .whats-on-live-indicator .whats-on-live-indicator-text {
+.main-player-details-link {
+  text-decoration: none;
+  border: none;
+  padding: 0;
+}
+
+.main-player .live-indicator .whats-on-live-indicator-text {
   font-size: var(--font-size-4);
   font-weight: 700;
 }
 
-.whats-on .whats-on-live-indicator .whats-on-live-indicator-time {
+.main-player .live-indicator {
   color: RGB(var(--color-text));
 }
 
-.whats-on .whats-on-show .whats-on-show-title {
+.main-player .main-player-title {
   color: RGB(var(--color-text));
   font-weight: 600;
   font-size: var(--font-size-12);
@@ -275,15 +277,11 @@ h1, h2, h3, h4, h5 {
   margin-top: var(--space-3);
 }
 
-.whats-on .whats-on-show .on-air-image {
+.main-player img {
   border-radius: 3px;
 }
 
-.whats-on .whats-on-show .on-air-image img {
-  border-radius: 3px;
-}
-
-.whats-on .whats-on-show .play-button {
+.main-player .button {
   width: fit-content;
   padding: 0 37px;
   height: 51px;
@@ -297,9 +295,15 @@ h1, h2, h3, h4, h5 {
     transform: translateY(-4px);
     box-shadow: 0px 8px 12px rgba(0, 0, 0, .15);
   }
+
+  svg,
+  path,
+  rect {
+    fill: RGB(var(--color-text));
+  }
 }
 
-.whats-on .whats-on-show .play-button .button-label {
+.main-player .button .button-label {
   color: RGB(var(--color-white));
   text-transform: uppercase;
   font-size: var(--font-size-7);
@@ -310,52 +314,8 @@ h1, h2, h3, h4, h5 {
   text-align: center;
 }
 
-.whats-on .whats-on-show .play-button .play-button-text {
-  letter-spacing: 0.02em;
-
-  &::after {
-    content: 'listen';
-
-    @include media(">=medium") {
-      content: 'listen live';
-    }
-  }
-}
-
-.whats-on .whats-on-show .whats-on-show-description {
-  font-size: var(--font-size-5);
-}
-
-// what's on snapshot
-.schedule .schedule-metadata .schedule-metadata-image img {
-  border-radius: 3px;
-}
-
-.schedule .schedule-full-schedule-button {
-  text-transform: capitalize;
-  letter-spacing: 0.02em;
-}
-
-.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-label {
-  font-size: var(--font-size-4);
-  letter-spacing: 0.09em;
-}
-
-.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-title .schedule-metadata-copy-title-text {
-  @include typeface(subheader, 8);
-  color: RGB(var(--color-dark-gray));
-}
-
-.schedule .schedule-metadata {
-  border-radius: 3px 3px 0 0;
-}
-
-.schedule .schedule-full-schedule-button {
-  border-radius: 0 0 3px 3px;
-}
-
-.schedule .schedule-metadata .schedule-metadata-copy .schedule-metadata-copy-time {
-  color: RGB(var(--color-dark-gray));
+.main-player .button svg path {
+  fill: RGB(var(--color-text));
 }
 
 // persistent player

@@ -17,6 +17,7 @@ export const Inactive = () => ({
     <stream-switcher-card
       station="WNYC 93.9 FM"
       title="The Takeaway"
+      up-next-title="All Of It"
     />`
 })
 
@@ -28,6 +29,7 @@ export const Active = () => ({
     <stream-switcher-card
       station="WNYC 93.9 FM"
       title="BBC World Service"
+      up-next-title="New Sounds"
       :active="true"
     />`
 })
@@ -40,6 +42,7 @@ export const Playing = () => ({
     <stream-switcher-card
       station="WNYC 93.9 FM"
       title="BBC World Service"
+      up-next-title="New Sounds"
       :active="true"
       :playing="true"
     />`

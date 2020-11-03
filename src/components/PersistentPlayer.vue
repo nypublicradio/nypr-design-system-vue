@@ -119,7 +119,7 @@ export default {
       type: Boolean,
       default: false
     },
-    playing: {
+    isPlaying: {
       type: Boolean,
       default: false
     },
@@ -163,6 +163,7 @@ export default {
       durationSeconds: 0,
       buffered: 0,
       innerLoop: false,
+      playing: this.isPlaying,
       loaded: false,
       hasPlayed: false,
       previousVolume: 35,
@@ -171,7 +172,7 @@ export default {
     }
   },
   watch: {
-    playing (value) {
+    isPlaying (value) {
       if (value) {
         return this.audio.play()
       }
@@ -268,11 +269,11 @@ export default {
 </script>
 
 <style lang="scss">
-  $xsmall: 450px;
-  $small: 550px;
-  $medium: 768px;
-  $large: 1240px;
-  $xlarge: 1440px;
+$xsmall: 450px;
+$small: 550px;
+$medium: 768px;
+$large: 1240px;
+$xlarge: 1440px;
 
 .persistent-player {
   bottom: 0;
@@ -287,25 +288,25 @@ export default {
   background-color: RGB(var(--color-background));
 }
 
-  .persistent-player a,
-  .persistent-player a:visited,
-  .persistent-player a:active {
-    color: var(--color-text);
+.persistent-player a,
+.persistent-player a:visited,
+.persistent-player a:active {
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
     text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
+}
 
-  .player-controls {
-    display: flex;
-    align-items: center;
-  }
+.player-controls {
+  display: flex;
+  align-items: center;
+}
 
-    .player-controls svg {
-      fill: RGB(var(--color-text));
-    }
+.player-controls svg {
+  fill: RGB(var(--color-text));
+}
 
     .player-controls .player-cta-play-button svg path {
       fill: RGB(var(--color-text));
@@ -317,15 +318,15 @@ export default {
       min-width: 55px;
     }
 
-    .player-controls .back-15-icon {
-      margin-right: var(--space-2);
-    }
+.player-controls .back-15-icon {
+  margin-right: var(--space-2);
+}
 
-    .player-controls .ahead-15-icon {
-      margin-left: var(--space-2);
-    }
+.player-controls .ahead-15-icon {
+  margin-left: var(--space-2);
+}
 
-    .player-controls .download-icon {
-      margin-left: var(--space-2);
-    }
+.player-controls .download-icon {
+  margin-left: var(--space-2);
+}
 </style>
