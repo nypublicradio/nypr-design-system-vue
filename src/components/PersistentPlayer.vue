@@ -303,10 +303,6 @@ export default {
     align-items: center;
   }
 
-    .player-controls .player-cta-play-button {
-
-    }
-
     .player-controls svg {
       fill: RGB(var(--color-text));
     }
