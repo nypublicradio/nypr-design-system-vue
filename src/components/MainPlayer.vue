@@ -18,6 +18,7 @@
           :href="titleLink"
           class="main-player-title-link"
           target="_blank"
+          rel="noopener"
         >
           {{ title }}
         </a>
@@ -43,6 +44,7 @@
           :href="detailsLink"
           class="main-player-details-link"
           target="_blank"
+          rel="noopener"
         >
           {{ details }}
         </a>
