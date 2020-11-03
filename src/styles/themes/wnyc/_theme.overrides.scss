@@ -395,55 +395,6 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-.stream-switcher-stations-label {
-  display: none;
-}
-
-.stream-switcher-streams-stream-show {
-  display: flex;
-  align-items: center;
-}
-
-.stream-switcher-streams-stream-on-now {
-  @include typeface(body, 4);
-  white-space: nowrap;
-
-  @include media(">medium") {
-    font-weight: 700px;
-  }
-}
-
-.stream-switcher .stream-switcher-streams .stream-switcher-streams-stream {
-  .up-next {
-    display: none;
-  }
-
-  .up-next .up-next-time {
-    display: none;
-  }
-
-
-  .stream-switcher-streams-stream-show-title {
-    white-space: nowrap;
-    @include media(">medium") {
-      line-height: 25.6px;
-    }
-  }
-}
-
-.stream-switcher .stream-switcher-streams .stream-switcher-streams-stream.is-active {
-  .stream-switcher-streams-stream-on-now {
-    display: none;
-  }
-  .stream-switcher-streams-stream-show-title {
-    display: none;
-  }
-
-  .up-next {
-    display: flex;
-  }
-}
-
-.stream-switcher-streams-stream {
+.stream-switcher-card {
   border-radius: 3px;
 }
