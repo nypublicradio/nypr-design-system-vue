@@ -17,6 +17,7 @@
         <a
           :href="titleLink"
           class="main-player-title-link"
+          target="_blank"
         >
           {{ title }}
         </a>
@@ -41,6 +42,7 @@
           v-if="details && detailsLink"
           :href="detailsLink"
           class="main-player-details-link"
+          target="_blank"
         >
           {{ details }}
         </a>
