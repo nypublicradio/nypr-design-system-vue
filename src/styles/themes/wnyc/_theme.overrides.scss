@@ -415,11 +415,15 @@ h1, h2, h3, h4, h5 {
 
 .track-info-title {
   font-family: var(--font-family-body);
-
 }
+
   .track-info-title h2 {
     line-height: 1.25;
   }
+
+.track-info-description {
+  font-size: var(--font-size-4);
+}
 
 .track-info-title-link,
 .track-info-description-link {
