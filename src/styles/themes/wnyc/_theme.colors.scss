@@ -6,11 +6,11 @@
   /* Theme Color Palette */
 
   /* Neutrals */
-  --color-black:      #{hex2rgb(#000000)};
-  --color-dark-gray:  #{hex2rgb(#333333)};
-  --color-gray:       #{hex2rgb(#ae969a)};
-  --color-light-gray: #{hex2rgb(#f3f3f3)};
-  --color-white:      #{hex2rgb(#ffffff)};
+  --color-black:        #{hex2rgb(#000000)};
+  --color-dark-gray:    #{hex2rgb(#333333)};
+  --color-gray:         #{hex2rgb(#ae969a)};
+  --color-light-gray:   #{hex2rgb(#f3f3f3)};
+  --color-white:        #{hex2rgb(#ffffff)};
 
   /* Forms */
   --color-valid:              #{hex2rgb(#089E00)};
@@ -22,6 +22,8 @@
   --color-concrete:           #{hex2rgb(#E0E2E3)};
   --color-red:                #{hex2rgb(#de1e3d)};
   --color-dark-red:           #{hex2rgb(#6a1017)};
+  --color-almost-black:       #{hex2rgb(#101012)};
+
 }
 
 @mixin color-group-light {

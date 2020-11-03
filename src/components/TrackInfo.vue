@@ -145,13 +145,14 @@ export default {
 }
 
   .track-info-image {
+    --track-info-image-size: 80px;
     display: none;
     @media all and (min-width: $medium) {
       display: inline-block;
-      width: 80px;
-      max-width: 80px;
-      height: 80px;
-      flex: 1 0 80px;
+      width: var(--track-info-image-size);
+      max-width: var(--track-info-image-size);
+      height: var(--track-info-image-size);;
+      flex: 1 0 var( --track-info-image-size);
       margin-right: 16px;
     }
   }
@@ -191,6 +192,12 @@ export default {
         height: 8px;
         width: 8px;
       }
+
+    .track-info-livestream-station {
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-2);
+      font-weight: 700;
+    }
 
   .track-info-title {
     font-family: var(--font-family-subheader);
