@@ -8,8 +8,6 @@ body {
 
 main {
   background: linear-gradient(180deg, RGB(var(--color-red), 1) 20.82%, RGB(var(--color-blue), 1) 50.8%);
-  padding-top: var(--space-6);
-
 }
 
 a {
@@ -111,10 +109,9 @@ h1, h2, h3, h4, h5 {
 }
 
 // header nav
-.c-main-header .c-primary-nav--top {
-  padding-left: var(--space-9);
+.c-primary-nav {
   width: 100%;
-  text-align: left;
+  padding-left: var(--space-5);
 }
 
 .c-primary-nav--top .c-primary-nav__link {
@@ -127,7 +124,6 @@ h1, h2, h3, h4, h5 {
 }
 
 .c-main-header .c-secondary-nav__list {
-  padding-right: 900px;
   width: 100%;
   text-align: left;
 }

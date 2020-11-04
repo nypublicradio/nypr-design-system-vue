@@ -73,7 +73,7 @@ export default {
 
 <style lang="scss">
 .stream-switcher-card {
-  @include typeface(body, 3);
+  @include typeface(body, 4);
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -152,7 +152,7 @@ export default {
 
 .stream-switcher-card .stream-switcher-card-up-next {
   flex-basis: 50px;
-  margin: 0 var(--space-3) 0 0;
+  margin: 0 var(--space-1) 0 0;
   font-weight: bold;
   white-space: nowrap;
   text-transform: uppercase;

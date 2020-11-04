@@ -4,7 +4,7 @@
       id="header-inner"
       class="c-main-header__inner "
     >
-      <div class="c-main-header__left _u-truncate--flex">
+      <div class="c-main-header__left">
         <div
           class="c-main-header__branding"
           name="logo"
@@ -130,7 +130,7 @@ $z-index-header: 5000;
 
 .c-main-header .c-secondary-nav__list {
   display: none;
-  @include media(">large") {
+  @include media(">medium") {
     display: block;
   }
 }
