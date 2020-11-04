@@ -308,10 +308,20 @@ $xlarge: 1440px;
   fill: RGB(var(--color-text));
 }
 
-    .player-controls .player-cta-play-button svg path {
-      fill: RGB(var(--color-text));
-
+    .player-controls .player-cta-play-button {
+      margin-right: 4px;
+      @media all and (min-width: $medium) {
+        margin-right: 24px;
+      }
     }
+
+      .player-controls .player-cta-play-button svg {
+        min-width: 20px;
+      }
+
+        .player-controls .player-cta-play-button svg path {
+          fill: RGB(var(--color-text));
+        }
 
     .player-controls .play-button {
       width: 55px;
