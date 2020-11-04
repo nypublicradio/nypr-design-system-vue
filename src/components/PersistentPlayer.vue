@@ -316,7 +316,6 @@ $xlarge: 1440px;
     }
 
       .player-controls .player-cta-play-button svg {
-        fill: RGB(var(--color-text));
         min-width: 20px;
       }
 
