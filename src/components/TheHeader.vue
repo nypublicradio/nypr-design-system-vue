@@ -67,7 +67,10 @@ $z-index-header: 5000;
 
 .c-main-header {
   text-align: center;
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: $z-index-header;
   @include typeface(header, 5);
   background: RGB(var(--color-background-muted));
