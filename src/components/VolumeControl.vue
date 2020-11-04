@@ -101,6 +101,7 @@ export default {
     cursor: pointer;
     display: inline-block;
     height: 24px;
+    min-width: 24px;
   }
 
   .volume-control-icon svg path {

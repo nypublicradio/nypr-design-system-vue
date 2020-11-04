@@ -140,8 +140,11 @@ export default {
 .track-info {
   display: flex;
   flex: auto;
-  padding: 8px var(--space-6) 8px 0;
+  padding: 8px var(--space-3) 8px 0;
   overflow: hidden;
+  @media all and (min-width: $medium) {
+    padding: 8px var(--space-6) 8px 0;
+  }
 }
 
   .track-info-image {
@@ -214,8 +217,12 @@ export default {
     }
 
   .track-info-description {
-    font-family: var(--font-family-small);
-    font-size: var(--font-size-2);
+    display: none;
+    @media all and (min-width: $medium) {
+      display: block;
+      font-family: var(--font-family-small);
+      font-size: var(--font-size-2);
+    }
   }
 
     .track-info-description-link {
