@@ -24,7 +24,9 @@ export const Default = () => ({
       </template>
     </v-accordion>
     <v-accordion class="u-space--bottom">
-      <template slot="header"><p><strong>Header 2 A Really Long Title Goes Here</strong></p></template>
+      <template slot="header"><p>
+        <strong>Header 2 A Really Long Title Goes Here Lorem ipsum dolor sit amet, consectetur adipiscing elit</strong>
+      </p></template>
       <template slot="content">
         <p>
           Content 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit.

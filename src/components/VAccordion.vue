@@ -7,7 +7,9 @@
       @click="open"
       @keypress.enter.space="open"
     >
-      <slot name="header" />
+      <div class="accordion-header-wrapper">
+        <slot name="header" />
+      </div>
       <div class="accordion-icon">
         <simple-arrow-down v-if="active" />
         <simple-arrow-up v-else />
@@ -68,6 +70,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+}
+
+.accordion .accordion-header-wrapper {
+  width: 100%;
+  padding-right: var(--space-2);
 }
 
 .accordion .accordion-icon {
