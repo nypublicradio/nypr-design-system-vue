@@ -2,6 +2,7 @@ import TheFooter from '../../../src/components/TheFooter'
 import WnycLogo from '../../../src/components/icons/wnyc/WnycLogo'
 import ShareTools from '../../../src/components/ShareTools'
 import ShareToolsItem from '../../../src/components/ShareToolsItem'
+import JlgreenLogo from '../../../src/components/icons/wnyc/JlgreenLogo'
 
 export default {
   title: 'Components/Organisms/The Footer',
@@ -13,7 +14,8 @@ export const FooterConfig1 = () => ({
     TheFooter,
     WnycLogo,
     ShareTools,
-    ShareToolsItem
+    ShareToolsItem,
+    JlgreenLogo
   },
   template: `
     <div class="sbdocs-large-container">
