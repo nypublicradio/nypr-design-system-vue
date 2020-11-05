@@ -1,14 +1,14 @@
 <template>
   <li class="accordion-item">
     <div
-      @click="open"
-      @keypress.enter.space="open"
       class="accordion-header"
       :class="{'accordion-header-active': visible, 'mobile-only': isMobileOnly}"
       tabindex="0"
+      @click="open"
+      @keypress.enter.space="open"
     >
-      <slot name="header"></slot>
-      <div class="accordion-icon"></div>
+      <slot name="header" />
+      <div class="accordion-icon" />
     </div>
 
     <transition
@@ -18,18 +18,15 @@
       @before-leave="start"
       @after-leave="end"
     >
-
       <div
-        class="accordion-content"
         v-show="visible"
+        class="accordion-content"
       >
         <ul>
-          <slot name="content"></slot>
+          <slot name="content" />
         </ul>
       </div>
-
     </transition>
-
   </li>
 </template>
 
@@ -56,6 +53,38 @@ export default {
     isMobileOnly () {
       return this.mobileOnly
     }
+  },
+  created () {
+    this.mobileOnly = false
+    // open the first item in each accordion
+    this.openFirst()
+    // open all accordions on desktop
+    // open only the first accordion on mobile
+    if (this.Accordion.mobileOnly) {
+      this.active = true
+      this.mobileOnly = true
+      if (this.window.width < 1240) {
+        this.closeAll()
+        this.openFirst()
+      } else {
+        this.openAll()
+      }
+    }
+  },
+  mounted () {
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize()
+    // close all accordions if closeAll prop is true
+    if (this.Accordion.closeAll) {
+      this.closeAll()
+    }
+    // check openOnLoad prop on accordion items and open any set to true
+    if (this.openOnLoad) {
+      this.open()
+    }
+  },
+  destroyed () {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
     open () {
@@ -103,38 +132,6 @@ export default {
         }
       }
     }
-  },
-  created () {
-    this.mobileOnly = false
-    // open the first item in each accordion
-    this.openFirst()
-    // open all accordions on desktop
-    // open only the first accordion on mobile
-    if (this.Accordion.mobileOnly) {
-      this.active = true
-      this.mobileOnly = true
-      if (this.window.width < 1240) {
-        this.closeAll()
-        this.openFirst()
-      } else {
-        this.openAll()
-      }
-    }
-  },
-  mounted () {
-    window.addEventListener('resize', this.handleResize)
-    this.handleResize()
-    // close all accordions if closeAll prop is true
-    if (this.Accordion.closeAll) {
-      this.closeAll()
-    }
-    // check openOnLoad prop on accordion items and open any set to true
-    if (this.openOnLoad) {
-      this.open()
-    }
-  },
-  destroyed () {
-    window.removeEventListener('resize', this.handleResize)
   }
 }
 </script>

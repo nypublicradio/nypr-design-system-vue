@@ -51,13 +51,13 @@ export default {
       return this.active
     }
   },
+  updated () {
+    this.height = this.$slots.content[0].elm.clientHeight
+  },
   methods: {
     open () {
       this.active = !this.visible
     }
-  },
-  updated () {
-    this.height = this.$slots.content[0].elm.clientHeight
   }
 }
 </script>
