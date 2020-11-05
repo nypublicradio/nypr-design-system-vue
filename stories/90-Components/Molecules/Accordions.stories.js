@@ -1,7 +1,7 @@
 import VAccordion from '../../../src/components/VAccordion'
 
 export default {
-  title: 'Components/Organisms/Accordions'
+  title: 'Components/Molecules/Accordions'
 }
 
 export const Default = () => ({
