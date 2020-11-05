@@ -351,7 +351,7 @@ export default {
   width: 120px;
   margin: 0 auto 0;
 
-  @include media(">medium") {
+  @include media(">xlarge") {
     margin: 0 var(--space-5) 0 0;
   }
 }
@@ -446,5 +446,10 @@ export default {
 // view all brands
 .c-main-footer .o-text-with-icon {
   font-size: var(--font-size-3);
+}
+
+.jlgreene-logo-icon {
+  width: 100px;
+  padding-top: 5px;
 }
 </style>
