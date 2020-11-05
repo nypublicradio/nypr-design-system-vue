@@ -1,0 +1,52 @@
+import VAccordion from '../../../src/components/VAccordion'
+
+export default {
+  title: 'Components/Organisms/Accordions'
+}
+
+export const Default = () => ({
+  components: {
+    VAccordion
+  },
+  template: `
+    <div>
+    <v-accordion class="u-space--bottom">
+      <template slot="header"><h2>Header 1</h2></template>
+      <template slot="content">
+        <p>
+          Content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          tempor
+          incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+          ut aliquip ex
+          ea commodo consequat.
+        </p>
+      </template>
+    </v-accordion>
+    <v-accordion class="u-space--bottom">
+      <template slot="header"><p><strong>Header 2 A Really Long Title Goes Here</strong></p></template>
+      <template slot="content">
+        <p>
+          Content 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </template>
+    </v-accordion>
+    <v-accordion>
+      <template slot="header"><p>Header 3</p></template>
+      <template slot="content">
+        <p>
+          Content 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+          ut aliquip ex
+          ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+          ut aliquip ex
+          ea commodo consequat.
+        </p>
+      </template>
+    </v-accordion>
+    </div>
+  `
+})
