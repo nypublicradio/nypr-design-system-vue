@@ -1,8 +1,13 @@
 <template>
-  <div class="accordion">
+  <div
+    class="accordion"
+    :aria-expanded="active"
+  >
     <div
+      :id="id"
       class="accordion-header"
       :class="{'accordion-header-active': visible}"
+      role="button"
       tabindex="0"
       @click="open"
       @keypress.enter.space="open"
@@ -19,6 +24,8 @@
       <div
         v-show="visible"
         class="accordion-content"
+        role="region"
+        :aria-labelledby="id"
         :style="'max-height: '+height+'px'"
       >
         <slot name="content" />
@@ -37,24 +44,27 @@ export default {
     SimpleArrowUp
   },
   props: {
-    openOnLoad: {
+    shouldOpenOnLoad: {
       type: Boolean,
       default: false
     }
   },
   data () {
     return {
-      active: this.openOnLoad,
+      active: this.shouldOpenOnLoad,
       height: '500px'
     }
   },
   computed: {
+    id () {
+      return Math.floor(Math.random() * Math.floor(1000))
+    },
     visible () {
       return this.active
     }
   },
   updated () {
-    this.height = this.$slots.content[0].elm.clientHeight
+    this.height = this.$slots.content[0].context.$el.clientHeight
   },
   methods: {
     open () {
@@ -82,11 +92,11 @@ export default {
 }
 
 .accordion-enter-active {
-  transition: max-height var(--animation-duration-standard);
+  transition: max-height var(--animation-duration-slow);
 }
 
 .accordion-leave-active {
-  transition: max-height var(--animation-duration-standard);
+  transition: max-height var(--animation-duration-slow);
 }
 
 .accordion-enter-to, .accordion-leave {
