@@ -4,7 +4,7 @@
     :href="url"
     class="segment-list-item"
   >
-    <div>
+    <div class="segment-list-item-title">
       {{ title }}
     </div>
     <div class="segment-list-item-icon">
@@ -52,6 +52,10 @@ export default {
   &:hover {
     text-decoration: none;
   }
+}
+
+.segment-list-item .segment-list-item-title {
+  width: 100%;
 }
 
 .segment-list-item .segment-list-item-icon {
