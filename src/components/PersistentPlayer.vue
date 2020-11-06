@@ -175,6 +175,7 @@ export default {
   watch: {
     isPlaying (value) {
       if (value) {
+        this.audio.pause()
         return this.audio.play()
       }
       this.audio.pause()
