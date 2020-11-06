@@ -1,5 +1,6 @@
 <template>
   <a
+    v-if="url"
     :href="url"
     class="segment-list-item"
   >
@@ -10,6 +11,12 @@
       <simple-arrow-right />
     </div>
   </a>
+  <div
+    v-else
+    class="segment-list-item"
+  >
+    {{ title }}
+  </div>
 </template>
 
 <script>
@@ -48,7 +55,7 @@ export default {
 }
 
 .segment-list-item .segment-list-item-icon {
-  height: 18px;
+  height: var(--space-3);
   padding-left: var(--space-2);
 }
 </style>

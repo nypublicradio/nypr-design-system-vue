@@ -26,14 +26,46 @@ Radial allows for flexible image functionality with elements that can be switche
 ## Usage
 
 <Canvas>
-    <Story name="Image With Caption">
+    <Story name="Image With Caption, Credit and Credit Link">
         {{
             components: { ImageWithCaption },
             template: `
               <image-with-caption
                 alt-text="image alt text"
                 image="http://placehold.it/768x512"
-                caption="( AP Photo/Carolyn Kaster )"
+                caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                credit="( AP Photo/Carolyn Kaster )"
+                credit-url="http:///www.google.com"
+              />`,
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Image With Credit and Credit Link">
+        {{
+            components: { ImageWithCaption },
+            template: `
+              <image-with-caption
+                alt-text="image alt text"
+                image="http://placehold.it/768x512"
+                credit="( AP Photo/Carolyn Kaster )"
+                credit-url="http:///www.google.com"
+              />`,
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Image With Caption and Credit">
+        {{
+            components: { ImageWithCaption },
+            template: `
+              <image-with-caption
+                alt-text="image alt text"
+                image="http://placehold.it/768x512"
+                credit="( AP Photo/Carolyn Kaster )"
+                caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
               />`,
         }}
     </Story>

@@ -1,18 +1,32 @@
 <template>
-  <figure class="image-with-caption">
-    <img
-      v-if="image"
-      :src="image"
-      :alt="altText"
-      class="image-with-caption-image"
-    >
-    <figcaption
-      v-if="caption"
-      class="image-with-caption-caption"
-    >
+  <div>
+    <figure class="image-with-caption">
+      <img
+        v-if="image"
+        :src="image"
+        :alt="altText"
+        class="image-with-caption-image"
+      >
+      <figcaption
+        v-if="credit"
+        class="image-with-caption-caption"
+      >
+        <a
+          v-if="creditUrl"
+          :href="creditUrl"
+          rel="noopener"
+        >
+          {{ credit }}
+        </a>
+        <template v-else>
+          {{ credit }}
+        </template>
+      </figcaption>
+    </figure>
+    <p v-if="caption">
       {{ caption }}
-    </figcaption>
-  </figure>
+    </p>
+  </div>
 </template>
 
 <script>
@@ -24,6 +38,14 @@ export default {
       type: String
     },
     caption: {
+      default: null,
+      type: String
+    },
+    credit: {
+      default: null,
+      type: String
+    },
+    creditUrl: {
       default: null,
       type: String
     },
