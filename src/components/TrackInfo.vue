@@ -13,7 +13,7 @@
       >
         <div class="track-info-livestream-indicator">
           <span class="track-info-livestream-indicator-text">Live</span>
-          <span class="track-info-livestream-indicator-dot" />
+          <span class="track-info-livestream-indicator-dot pulse" />
         </div>
         <div class="track-info-livestream-station">
           {{ station }}
@@ -141,6 +141,7 @@ export default {
   display: flex;
   flex: auto;
   padding: 8px var(--space-3) 8px 0;
+  align-self: flex-start;
   overflow: hidden;
   @media all and (min-width: $medium) {
     padding: 8px var(--space-6) 8px 0;
