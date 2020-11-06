@@ -74,6 +74,9 @@ $z-index-header: 5000;
   z-index: $z-index-header;
   @include typeface(header, 5);
   background: RGB(var(--color-background-muted));
+  &.not-fixed {
+    position: relative;
+  }
 }
 
 .c-main-header svg {
