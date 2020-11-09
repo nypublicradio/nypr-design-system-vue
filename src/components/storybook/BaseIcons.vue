@@ -131,6 +131,14 @@
     <div>
       <div class="u-flex u-align-items--center u-space--bottom">
         <span class="o-icon u-icon--s u-space--right">
+          <info-icon />
+        </span>
+        <div>info</div>
+      </div>
+    </div>
+    <div>
+      <div class="u-flex u-align-items--center u-space--bottom">
+        <span class="o-icon u-icon--s u-space--right">
           <instagram-icon />
         </span>
         <div>instagram</div>
@@ -308,6 +316,7 @@ import EmbedIcon from '../icons/EmbedIcon'
 import FacebookIcon from '../icons/FacebookIcon'
 import GalleryIcon from '../icons/GalleryIcon'
 import HamburgerIcon from '../icons/HamburgerIcon'
+import InfoIcon from '../icons/InfoIcon'
 import InstagramIcon from '../icons/InstagramIcon'
 import NyprLogo from '../icons/NyprLogo'
 import OpenInNewWindow from '../icons/OpenInNewWindow'
@@ -348,6 +357,7 @@ export default {
     FacebookIcon,
     GalleryIcon,
     HamburgerIcon,
+    InfoIcon,
     InstagramIcon,
     NyprLogo,
     OpenInNewWindow,
