@@ -20,7 +20,6 @@
       fill="white"
     />
   </svg>
-
 </template>
 
 <script>

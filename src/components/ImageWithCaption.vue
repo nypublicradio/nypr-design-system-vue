@@ -17,8 +17,8 @@
           </p>
         </transition>
         <div
-          @click="toggleCaption"
           class="image-with-caption-icons"
+          @click="toggleCaption"
         >
           <info-icon
             v-if="!captionVisible"
