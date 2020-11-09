@@ -16,8 +16,7 @@
         <slot name="header" />
       </div>
       <div class="accordion-icon">
-        <simple-arrow-down v-if="active" />
-        <simple-arrow-up v-else />
+        <simple-arrow-down />
       </div>
     </div>
     <transition name="accordion">
@@ -36,12 +35,10 @@
 
 <script>
 import SimpleArrowDown from '../components/icons/SimpleArrowDown'
-import SimpleArrowUp from '../components/icons/SimpleArrowUp'
 
 export default {
   components: {
-    SimpleArrowDown,
-    SimpleArrowUp
+    SimpleArrowDown
   },
   props: {
     shouldOpenOnLoad: {
@@ -89,6 +86,11 @@ export default {
 
 .accordion .accordion-icon {
   height: 20px;
+  transition: var(--animation-duration-slow);
+}
+
+.accordion .accordion-header-active .accordion-icon {
+  transform: rotate(180deg);
 }
 
 .accordion-enter-active {
@@ -96,7 +98,7 @@ export default {
 }
 
 .accordion-leave-active {
-  transition: max-height var(--animation-duration-slow);
+  transition: max-height var(--animation-duration-slow) var(--animation-easing-outgoing);
 }
 
 .accordion-enter-to, .accordion-leave {
