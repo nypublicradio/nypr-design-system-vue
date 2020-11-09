@@ -127,6 +127,9 @@ $z-index-header: 5000;
 
 .main-player-title {
   font-size: var(--font-size-6);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .c-main-header__left {
@@ -160,6 +163,12 @@ $z-index-header: 5000;
     padding-right: var(--space-3);
   }
 }
+
+ .c-share-tools__group {
+     @include media("<medium") {
+    display: none;
+    }
+  }
 
 .c-main-header__donate.button {
   font-size: var(--font-size-5);

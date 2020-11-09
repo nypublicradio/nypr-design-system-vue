@@ -60,10 +60,6 @@ export default {
     margin: 0;
   }
 
-  .c-share-tools__group {
-    flex-wrap: wrap;
-  }
-
   .c-share-tools__group > * + * {
     margin: 0 0 0 var(--space-1);
   }

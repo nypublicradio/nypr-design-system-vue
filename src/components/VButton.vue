@@ -100,7 +100,7 @@ a.button {
   @include typeface(body, 7);
   color: RGB(var(--color-button-text));
   line-height: 32px;
-  font-size: var(--font-size-4);
+  font-size: var(--font-size-6);
 }
 
 .button-icon {
