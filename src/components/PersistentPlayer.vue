@@ -175,9 +175,11 @@ export default {
   watch: {
     isPlaying (value) {
       if (value) {
-        this.audio.pause()
-        return this.audio.play()
+        console.log('PP play')
+        this.audio.play()
+        return
       }
+      console.log('PP pause')
       this.audio.pause()
     },
     volume () {
