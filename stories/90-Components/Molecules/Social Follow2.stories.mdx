@@ -20,6 +20,23 @@ The social follow component is a collection of linked social media icons and a p
 
 ## What’s Inside
 
+<Canvas>
+    <Story name="Horizontal">
+        {{
+            components: { ShareTools, ShareToolsItem },
+     template: `
+<div class="sbdocs-large-container sbdocs-container-margin">
+<share-tools label="Connect">
+<share-tools-item service="facebook" username="WNYC" />
+<share-tools-item service="twitter" username="WNYC" />
+<share-tools-item service="instagram" username="WNYC" />
+<share-tools-item service="youtube" username="UCbysmY4hyViQAAYEzOR-uCQ" />
+</share-tools>
+</div>
+`
+        }}
+    </Story>
+</Canvas>
 
 1- **Microcopy** - A short, action-oriented CTA that tells a user the intended action (i.e. "Connect with the show!", "Follow Us", "[Entity Name] Online")
 
@@ -31,20 +48,71 @@ Variants of social follow will typically only display changes in font style. Tex
 ### WNYC Variation
 ![enter image description here](https://via.placeholder.com/150)
 
+## Default State
+
+The default state takes only a `handle` argument and returns a component that
+displays a "Follow Us" label, and three icons linked to their appropriate
+networks: Facebook, Twitter and Instagram.
+
+**Note:** If handles are different between social networks (e.g. `WNYC` vs.
+`WNYCRadio`), please use the *Component Block* version of this component to take
+full control over the component's presentation.
+
+
+
+## Overriding the "Follow Us" Label
+
+The "Follow Us" label can be overridden (because "us" may not be appropriate
+for every use-case) via the `@label` argument:
+
+
+
+## Overriding / Re-arranging Social Networks via Component Block
+
+The component can also be used as a higher order component so that you can have
+complete control over a) which social networks are displayed, b) what order
+they are displayed in, and c) the full URL that they link to.
+
+This format requires you pass the full `@href` attribute into the sub-component in
+order for it to correctly link.
+
+**Note**: You *must* use this format if the social media handles differ between
+social networks (e.g. if Facebook was "WNYC" while Twitter used lower-case "wnyc").
+
+In the below example, we've moved Twitter to be the *first* social network
+displayed, and have removed Instagram entirely
 
 ## Accessibility
 -   Text, icons, and background color must meet WCAG 2.0  [minimum contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)  requirement.
 -   Use alt texts or descriptive labels for icons
 
-## Testing
+## Configurations
 
 <Canvas>
-    <Story name="Horizontal">
+    <Story name="HorizontalLayout">
         {{
             components: { ShareTools, ShareToolsItem },
      template: `
 <div class="sbdocs-large-container sbdocs-container-margin">
 <share-tools label="Connect">
+<share-tools-item service="facebook" username="WNYC" />
+<share-tools-item service="twitter" username="WNYC" />
+<share-tools-item service="instagram" username="WNYC" />
+<share-tools-item service="youtube" username="UCbysmY4hyViQAAYEzOR-uCQ" />
+</share-tools>
+</div>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="VerticalLayout">
+        {{
+            components: { ShareTools, ShareToolsItem },
+     template: `
+<div class="sbdocs-large-container sbdocs-container-margin">
+<share-tools label="Connect" layout="vertical">
 <share-tools-item service="facebook" username="WNYC" />
 <share-tools-item service="twitter" username="WNYC" />
 <share-tools-item service="instagram" username="WNYC" />
