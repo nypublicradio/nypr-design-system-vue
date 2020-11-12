@@ -225,6 +225,29 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+.jlgreen-box {
+  @include media("<large") {
+    flex-direction: column;
+  }
+}
+
+.o-text-with-icon {
+  @include media("<large") {
+    display: inline-flex;
+    align-items: flex-start;
+  }
+}
+
+.o-text-with-icon > *:last-child {
+  @include media("<large") {
+    margin-left: 0px;
+  }
+}
+
+.jlgreen-message {
+  white-space: nowrap;
+}
+
 // brands popup
 
 .ember-basic-dropdown-content {
