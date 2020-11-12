@@ -94,19 +94,15 @@ export default {
 }
 
 .accordion-enter-active {
-  transition: max-height var(--animation-duration-slow);
+  transition: all var(--animation-duration-standard) var(--animation-easing-standard);
 }
 
 .accordion-leave-active {
-  transition: max-height var(--animation-duration-slow) var(--animation-easing-outgoing);
-}
-
-.accordion-enter-to, .accordion-leave {
-  overflow: hidden;
+  transition: all var(--animation-duration-standard) var(--animation-easing-outgoing);
 }
 
 .accordion-enter, .accordion-leave-to {
-  overflow: hidden;
-  max-height: 0 !important; // need important to override inline style
+  max-height: 0 !important;
+  opacity: 0;
 }
 </style>
