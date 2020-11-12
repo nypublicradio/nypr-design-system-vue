@@ -14,6 +14,7 @@ main {
 a {
   padding-bottom: var(--space-1);
   border-bottom: solid 2px RGB(var(--color-white));
+  transition: var(--animation-duration-standard);
 }
 
 h1, h2, h3, h4, h5 {
@@ -22,6 +23,13 @@ h1, h2, h3, h4, h5 {
   -webkit-font-feature-settings: "lnum";
   -moz-font-feature-settings: "lnum";
   font-feature-settings: "lnum";
+}
+
+.l-container {
+  width: calc(100% - var(--space-4) - var(--space-4));
+  @include media(">xlarge") {
+    width: 100%;
+  }
 }
 
 .dots {
@@ -64,10 +72,14 @@ h1, h2, h3, h4, h5 {
 }
 
 // buttons
+.button {
+  transition: var(--animation-duration-standard);
+}
+
 .whats-on .whats-on-show .play-button,
 .c-main-header .button,
 .c-main-header .button::before {
-  box-shadow: 0px 4px 8px RGB(0, 0, 0, 0.15);
+  box-shadow: 0px 4px 8px RGBA(0, 0, 0, 0.15);
   border-radius: 30px;
   padding: 0 var(--space-6);
   height: 41px;
@@ -177,6 +189,7 @@ h1, h2, h3, h4, h5 {
   color: RGB(var(--color-white));
   font-size: var(--font-size-6);
   font-weight: 700;
+
   &:hover {
     color: RGB(var(--color-white), var(--opacity-hover));
   }
@@ -244,10 +257,6 @@ h1, h2, h3, h4, h5 {
 .main-player {
   @extend .wnyc-card-styles;
   margin: auto;
-  width: calc(100% - var(--space-4) - var(--space-4));
-  @include media(">xlarge") {
-    width: 100%;
-  }
 }
 
 .main-player-details-link {
@@ -318,7 +327,7 @@ h1, h2, h3, h4, h5 {
 // persistent player
 .persistent-player {
   --color-text: var(--color-white);
-  --color-text-inverse:  var(--color-black);
+  --color-text-inverse: var(--color-black);
   background-color: RGB(var(--color-almost-black));
   height: 112px;
 }
@@ -334,37 +343,37 @@ h1, h2, h3, h4, h5 {
   transition: all 0.1s ease-in-out;
 }
 
-  .persistent-player .player-cta-play-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, .15);
-  }
+.persistent-player .player-cta-play-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, .15);
+}
 
-  .persistent-player .player-cta-play-button .button-text {
-    font-family: var(--font-family-body);
-    text-transform: uppercase;
-    font-style: normal;
-    font-weight: bold;
-    font-size: var(--font-size-7);
-    line-height: 47px;
-    letter-spacing: 0.09em;
-  }
+.persistent-player .player-cta-play-button .button-text {
+  font-family: var(--font-family-body);
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: bold;
+  font-size: var(--font-size-7);
+  line-height: 47px;
+  letter-spacing: 0.09em;
+}
 
 .track-info-livestream-indicator {
   background: transparent;
   color: RGB(var(--color-text));
 }
 
-  .track-info-livestream-indicator-text {
-    margin-right: 2px;
-  }
+.track-info-livestream-indicator-text {
+  margin-right: 2px;
+}
 
-  .track-info-livestream-station {
-      // Use lining figures instead of text figures
-      // https://www.codesmite.com/article/fixing-raleway-and-similar-fonts-numerals
-      -webkit-font-feature-settings: "lnum";
-      -moz-font-feature-settings: "lnum";
-      font-feature-settings: "lnum";
-  }
+.track-info-livestream-station {
+  // Use lining figures instead of text figures
+  // https://www.codesmite.com/article/fixing-raleway-and-similar-fonts-numerals
+  -webkit-font-feature-settings: "lnum";
+  -moz-font-feature-settings: "lnum";
+  font-feature-settings: "lnum";
+}
 
 .track-info-image {
   --track-info-image-size: 96px;
@@ -374,9 +383,9 @@ h1, h2, h3, h4, h5 {
   font-family: var(--font-family-body);
 }
 
-  .track-info-title h2 {
-    line-height: 1.25;
-  }
+.track-info-title h2 {
+  line-height: 1.25;
+}
 
 .track-info-description {
   font-size: var(--font-size-4);
@@ -398,4 +407,102 @@ h1, h2, h3, h4, h5 {
 
 .stream-switcher-card {
   border-radius: 3px;
+}
+
+// on today's show
+.on-todays-show {
+  color: RGB(var(--color-text));
+}
+
+.on-todays-show .on-todays-show-title {
+  position: relative;
+  @include typeface(header, 8);
+  margin-bottom: var(--space-3);
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    margin-left: 20px;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    background: RGB(var(--color-cool-white));
+    opacity: .2;
+  }
+}
+
+.on-todays-show .on-todays-show-headline {
+  @include typeface(header, 10);
+  font-weight: normal;
+}
+
+.on-todays-show .accordion-icon path,
+.on-todays-show .segment-list-item-icon path {
+  fill: RGB(var(--color-text));
+}
+
+.on-todays-show .segment-list {
+  text-align: center;
+}
+
+.on-todays-show .segment-list .segment-list-item {
+  text-align: left;
+}
+
+.on-todays-show .segment-list .button {
+  box-shadow: 0px 4px 8px RGBA(0, 0, 0, 0.15);
+  border-radius: 30px;
+  padding: 0 var(--space-6);
+  min-width: 318px;
+  height: 41px;
+  line-height: 41px;
+
+  &:hover {
+    background-color: RGB(var(--color-white));
+  }
+}
+
+.on-todays-show .segment-list .button-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: var(--font-size-4);
+  color: RGB(var(--color-blue));
+}
+
+.image-with-caption-credit a {
+  border: none;
+  padding: 0;
+}
+
+.on-todays-show .on-todays-show-right {
+  position: relative;
+  margin-bottom: var(--space-6);
+  @include media(">xlarge") {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.on-todays-show .image-with-caption {
+  z-index: 10;
+}
+
+.on-todays-show .image-with-caption img {
+  width: calc(100% - 40px);
+  margin: auto;
+  @include media(">xlarge") {
+    width: 100%;
+  }
+}
+
+.on-todays-show .dots {
+  width: 100%;
+  position: absolute;
+  height: 250px;
+  right: -45px;
+  top: 120px;
+  @include media(">xlarge") {
+    height: 330px;
+  }
 }

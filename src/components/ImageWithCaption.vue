@@ -1,32 +1,35 @@
 <template>
   <figure class="image-with-caption">
-    <div class="image-with-caption-image">
-      <img
-        v-if="image"
-        :src="image"
-        :alt="altText"
-      >
+    <div class="image-with-caption-wrapper">
+      <div class="image-with-caption-image">
+        <img
+          v-if="image"
+          :src="image"
+          :alt="altText"
+        >
+        <div
+          v-if="caption"
+          class="image-with-caption-caption"
+          :class="{'visible': captionVisible}"
+        >
+          <transition name="fade">
+            <p v-show="captionVisible">
+              {{ caption }}
+            </p>
+          </transition>
+        </div>
+      </div>
       <div
         v-if="caption"
-        class="image-with-caption-caption"
-        :class="{'visible': captionVisible}"
+        class="image-with-caption-icons"
+        @click="toggleCaption"
       >
-        <transition name="fade">
-          <p v-if="captionVisible">
-            {{ caption }}
-          </p>
-        </transition>
-        <div
-          class="image-with-caption-icons"
-          @click="toggleCaption"
-        >
-          <info-icon
-            v-if="!captionVisible"
-          />
-          <close-icon
-            v-if="captionVisible"
-          />
-        </div>
+        <info-icon
+          v-show="!captionVisible"
+        />
+        <close-icon
+          v-show="captionVisible"
+        />
       </div>
     </div>
     <figcaption
@@ -94,7 +97,8 @@ export default {
 </script>
 
 <style lang="scss">
-.image-with-caption .image-with-caption-image {
+.image-with-caption .image-with-caption-image,
+.image-with-caption .image-with-caption-wrapper {
   position: relative;
 }
 
@@ -118,7 +122,7 @@ export default {
 .image-with-caption .image-with-caption-credit,
 .image-with-caption .image-with-caption-caption p {
   @include typeface(body, 3);
-  margin-right: var(--space-2);
+  margin-right: var(--space-3);
 }
 
 .image-with-caption .image-with-caption-credit {
@@ -129,21 +133,24 @@ export default {
 .image-with-caption .image-with-caption-icons {
   cursor: pointer;
   margin: 0 0 0 auto;
+  position: absolute;
+  bottom: var(--space-2);
+  right: var(--space-2);
 }
 
+.image-with-caption .info-icon,
 .image-with-caption .o-close-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.image-with-caption .info-icon {
+  transition: var(--animation-duration-standard);
   width: 28px;
   height: 28px;
-  transition: var(--animation-duration-standard);
 
   &:hover {
     opacity: var(--opacity-hover);
   }
+}
+
+.image-with-caption .o-close-icon {
+  padding: 6px;
 }
 
 .image-with-caption .o-close-icon path,

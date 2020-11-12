@@ -86,7 +86,7 @@ export default {
 
 .accordion .accordion-icon {
   height: 20px;
-  transition: var(--animation-duration-slow);
+  transition: var(--animation-duration-standard);
 }
 
 .accordion .accordion-header-active .accordion-icon {
