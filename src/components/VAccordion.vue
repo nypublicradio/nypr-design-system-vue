@@ -10,7 +10,7 @@
       role="button"
       tabindex="0"
       @click="open"
-      @keypress.enter.space="open"
+      @keypress.enter.space.prevent="open"
     >
       <div class="accordion-header-wrapper">
         <slot name="header" />
