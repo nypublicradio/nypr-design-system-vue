@@ -87,6 +87,7 @@ $tests: false;
 \*------------------------------------*/
 @import "base.mixins";
 
+@import "base.accessibility";
 @import "base.forms";
 @import "base.headers";
 @import "base.links";

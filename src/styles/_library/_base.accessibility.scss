@@ -1,0 +1,5 @@
+// hide outline when using a mouse but not when using a keyboard
+// https://github.com/WICG/focus-visible
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}

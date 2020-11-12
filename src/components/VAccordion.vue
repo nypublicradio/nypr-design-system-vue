@@ -35,6 +35,7 @@
 
 <script>
 import SimpleArrowDown from '../components/icons/SimpleArrowDown'
+import 'focus-visible'
 
 export default {
   components: {
