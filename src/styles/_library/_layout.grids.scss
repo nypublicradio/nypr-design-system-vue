@@ -17,7 +17,19 @@
 }
 
 .l-grid--1up--small {
-  @media all and (max-width: $medium) {
+  @include media("<medium") {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.l-grid--1up--medium {
+  @include media("<large") {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.l-grid--1up--large {
+  @include media("<xlarge") {
     grid-template-columns: repeat(1, 1fr);
   }
 }
