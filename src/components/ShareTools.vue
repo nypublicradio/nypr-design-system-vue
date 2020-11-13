@@ -36,7 +36,7 @@ export default {
   display: flex;
   align-items: center;
 
-  @include media("<=small") {
+  @include media("<=large") {
     flex-wrap: wrap;
   }
 
@@ -46,13 +46,16 @@ export default {
   }
 }
 
-@include media("<=small") {
+@include media("<=large") {
   .c-share-tools__label {
     flex-basis: 100%;
     margin: 0 0 2px 0;
 
     + .c-share-tools__group > .c-share-tools__link:first-of-type {
-      margin-left: -5px; /* align first icon with label if present*/
+      margin-left: -14px;
+      @include media("<=small") {
+        margin-left: -10px;
+      }
     }
   }
 
@@ -72,7 +75,13 @@ export default {
 
 .c-share-tools.vertical .c-share-tools__label {
   margin-bottom: var(--space-1);
-  margin-left: 19px;
+
+  + .c-share-tools__group > .c-share-tools__link:first-of-type {
+    margin-left: -14px; /* align first icon with label if present*/
+    @include media("<=small") {
+      margin-left: -10px;
+    }
+  }
 }
 
 .c-share-tools__group {
