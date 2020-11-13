@@ -14,7 +14,12 @@
         v-if="title"
         class="card-title"
       >
-        {{ title }}
+        <a
+          class="card-title-link"
+          :href="titleLink"
+        >
+          {{ title }}
+        </a>
       </div>
       <div
         v-if="subtitle"
@@ -39,6 +44,10 @@ export default {
       default: null
     },
     title: {
+      type: String,
+      default: null
+    },
+    titleLink: {
       type: String,
       default: null
     },

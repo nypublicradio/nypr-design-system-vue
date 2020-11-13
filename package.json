@@ -59,6 +59,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "jest": "^26.4.2",
+    "jest-axe": "^4.1.0",
     "node-sass": "^4.14.1",
     "react": "^16.14.0",
     "react-dom": "^16.13.0",
