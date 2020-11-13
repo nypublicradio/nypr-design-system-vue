@@ -38,11 +38,11 @@ export default {
 }
 
 .segment-list .accordion-header {
-  justify-content: normal;
+  justify-content: normal !important;
   margin-bottom: var(--space-1);
 }
 
 .segment-list .accordion-header-wrapper {
-  width: auto;
+  width: auto !important;
 }
 </style>

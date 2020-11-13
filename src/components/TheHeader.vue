@@ -74,6 +74,7 @@ $z-index-header: 5000;
   z-index: $z-index-header;
   @include typeface(header, 5);
   background: RGB(var(--color-background-muted));
+
   &.not-fixed {
     position: relative;
   }
@@ -164,11 +165,11 @@ $z-index-header: 5000;
   }
 }
 
- .c-share-tools__group {
-     @include media("<medium") {
+.c-main-header .c-share-tools__group {
+  @include media("<medium") {
     display: none;
-    }
   }
+}
 
 .c-main-header__donate.button {
   font-size: var(--font-size-5);

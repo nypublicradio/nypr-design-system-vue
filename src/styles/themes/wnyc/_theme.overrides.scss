@@ -168,7 +168,6 @@ h1, h2, h3, h4, h5 {
 }
 
 .c-main-footer .l-container {
-  border-top: var(--border-subtle);
   padding: 50px 16px;
 }
 
@@ -236,6 +235,29 @@ h1, h2, h3, h4, h5 {
   @include media(">large") {
     margin: 0 var(--space-3) 0 0;
   }
+}
+
+.jlgreen-box {
+  @include media("<large") {
+    flex-direction: column;
+  }
+}
+
+.o-text-with-icon {
+  @include media("<large") {
+    display: inline-flex;
+    align-items: flex-start;
+  }
+}
+
+.o-text-with-icon > *:last-child {
+  @include media("<large") {
+    margin-left: 0px;
+  }
+}
+
+.jlgreen-message {
+  white-space: nowrap;
 }
 
 // brands popup

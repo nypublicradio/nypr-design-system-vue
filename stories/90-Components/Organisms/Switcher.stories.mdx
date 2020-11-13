@@ -1,0 +1,95 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import StreamSwitcher from "../../../src/components/StreamSwitcher";
+import StreamSwitcherCard from "../../../src/components/StreamSwitcherCard";
+
+<Meta title="Components/Organisms/Switcher" />
+
+# Switcher
+
+The Switcher organism is used to navigate or control different areas/panels/windows within a page. Users can select a single option at a time, like a radio button!
+
+## Use Cases
+
+- As a control, to switch between two or more options within a page. (i.e. Light Mode or Dark Mode)
+
+- As a selector, to pick between two or more choices within a form (i.e. Monthly Donation or Annual Donation)
+
+- As a stream selector, to pick between two or more stream options within a streaming experience.
+
+## What’s Inside
+
+Switchers contain objects called Switcher Cards. A switcher must contain a minimum of two switcher cards. Our whitelabel switcher card has an optional icon and line of text.
+
+<Canvas>
+  <Story name="Horizontal">
+    {{
+      components: {
+        StreamSwitcher,
+        StreamSwitcherCard,
+      },
+      template: `
+    <stream-switcher>
+      <stream-switcher-card
+        station="WNYC 93.9 FM"
+        title="BBC World Service"
+        up-next-title="New Sounds"
+        :active="true"
+        :playing="true"
+      />
+      <stream-switcher-card
+        station="WNYC 93.9 FM"
+        title="The Takeaway"
+        up-next-title="All Of It"
+      />
+      <stream-switcher-card
+        station="WNYC 93.9 FM"
+        title="BBC World Service"
+        up-next-title="New Sounds"
+      />
+    </stream-switcher>
+  `,
+    }}
+  </Story>
+</Canvas>
+
+1- **Icon** - Description of thing and any underlying logic within it.
+
+2- **Text** - Description of thing and any underlying logic within it.
+
+## Placement
+
+Switchers that change a user’s experience should typically be towards the top or upper bounds of the page, following the logic that something that creates global changes should have a higher hierarchy. Switchers used in forms or as inputs should be left aligned with other inputs.
+
+## Animation
+
+On page load, one option will be selected by default. When a user navigates to select another option, the switcher should animate to “switch” to the new chosen option.
+
+Switcher cards should include hover states to afford interactivity.
+
+## Variants
+
+### WNYC
+
+<img
+  alt="WNYC variant of the switcher"
+  src="/images/Organisms-Switcher-WNYC.png"
+  width="500"
+/>
+
+In our WNYC Lab version, the switcher is used in a live radio streaming context to change between radio streams.
+
+## Mobile Scrolling
+
+If a switcher component is too long for the viewport width of a mobile device, the Switcher has optional horizontal scrolling capabilities.
+
+## Accessibility
+
+- Each switcher card must have a unique title that clearly describes the card. This helps users of assistive technologies get the information they need to effectively navigate the UI.
+
+- Text, icons, and background color must meet WCAG 2.0 [minimum contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) requirement.
+
+- Use alt texts or descriptive labels for icons
+
+## Testing and Iterations
+
+Any updates/progress to this component can be listed out here.
