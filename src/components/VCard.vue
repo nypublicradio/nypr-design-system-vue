@@ -1,14 +1,31 @@
 <template>
   <div class="card">
-    <img v-if="image" class="card-image" :src="image" alt="alt"/>
-    <div v-if="hasDetails" class="card-details">
-      <div v-if="title" class="card-title">{{title}}</div>
-      <div v-if="subtitle" class="card-subtitle">{{subtitle}}</div>
+    <img
+      v-if="image"
+      class="card-image"
+      :src="image"
+      alt="alt"
+    >
+    <div
+      v-if="hasDetails"
+      class="card-details"
+    >
+      <div
+        v-if="title"
+        class="card-title"
+      >
+        {{ title }}
+      </div>
+      <div
+        v-if="subtitle"
+        class="card-subtitle"
+      >
+        {{ subtitle }}
+      </div>
       <slot />
     </div>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -32,7 +49,7 @@ export default {
   },
   computed: {
     hasDetails () {
-      return !!this.title || !!this.subtitle || !!this.$slots.default;
+      return !!this.title || !!this.subtitle || !!this.$slots.default
     }
   }
 }
@@ -103,6 +120,5 @@ export default {
     --card-image-height: 413px;
     width: 620px;
   }
-
 
 </style>
