@@ -299,9 +299,6 @@ export default {
 
 .c-main-footer .c-main-footer__social {
   margin: auto;
-  @include media(">medium") {
-    margin: 0 0 0 auto;
-  }
 }
 
 .c-main-footer .c-share-tools__label {

@@ -951,9 +951,7 @@ form .o-button:hover {
 
 .c-main-footer .c-main-footer__social {
   margin: auto;
-  @include media(">xlarge") {
-    margin: auto 0 auto auto;
-  }
+  background-color: pink;
 }
 
 .c-main-footer .c-main-footer__right-component {
