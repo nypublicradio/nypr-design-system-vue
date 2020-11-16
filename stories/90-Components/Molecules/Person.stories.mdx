@@ -24,3 +24,26 @@ import VPerson from '../../../src/components/VPerson'
         }}
     </Story>
 </Canvas>
+
+<Canvas>
+    <Story name="Person with Link">
+        {{
+            components: { VPerson },
+            data() {
+                return {
+                    person: {
+                        image: 'http://placehold.it/200x200',
+                        name: 'Title',
+                        nameLink: 'http://example.com',
+                        role: 'Subtitle',
+                    }
+                }
+            },
+            template: `
+<v-person
+    :person="person"
+/>
+`
+        }}
+    </Story>
+</Canvas>
