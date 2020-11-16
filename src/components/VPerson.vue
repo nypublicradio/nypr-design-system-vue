@@ -2,7 +2,6 @@
   <v-card
     class="person-card"
     :image="person.image"
-    alt=""
     :title="person.name"
     :title-link="person.nameLink"
     :subtitle="person.role"

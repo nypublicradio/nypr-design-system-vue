@@ -4,12 +4,16 @@
       v-if="titleLink"
       class="card-image-link"
       :href="titleLink"
+      aria-hidden="true"
+      role="presentation"
+      tabindex="-1"
     >
       <img
         v-if="image"
         class="card-image"
         :src="image"
-        alt="alt"
+        :alt="title || alt"
+        role="presentation"
       >
     </a>
     <span
@@ -20,7 +24,8 @@
         v-if="image"
         class="card-image"
         :src="image"
-        alt="alt"
+        alt=""
+        role="presentation"
       >
     </span>
     <div
@@ -57,10 +62,6 @@
 export default {
   props: {
     image: {
-      type: String,
-      default: null
-    },
-    alt: {
       type: String,
       default: null
     },
