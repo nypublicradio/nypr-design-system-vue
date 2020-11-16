@@ -1,11 +1,28 @@
 <template>
   <div class="card">
-    <img
-      v-if="image"
-      class="card-image"
-      :src="image"
-      alt="alt"
+    <a
+      v-if="titleLink"
+      class="card-image-link"
+      :href="titleLink"
     >
+      <img
+        v-if="image"
+        class="card-image"
+        :src="image"
+        alt="alt"
+      >
+    </a>
+    <span
+      v-else
+      class="card-image-wrapper"
+    >
+      <img
+        v-if="image"
+        class="card-image"
+        :src="image"
+        alt="alt"
+      >
+    </span>
     <div
       v-if="hasDetails"
       class="card-details"
@@ -15,11 +32,15 @@
         class="card-title"
       >
         <a
+          v-if="titleLink"
           class="card-title-link"
           :href="titleLink"
         >
           {{ title }}
         </a>
+        <template v-else>
+          {{ title }}
+        </template>
       </div>
       <div
         v-if="subtitle"
@@ -96,6 +117,17 @@ export default {
   .card-title {
     font-family: var(--font-family-header);
     font-size: var(--font-size-7);
+  }
+
+  .card-title-link {
+    color: RGB(var(--color-text));
+    text-decoration: none;
+  }
+
+  .card-title-link:hover {
+    color: RGB(var(--color-text));
+    opacity: var(--opacity-link-hover);
+    text-decoration: none;
   }
 
   .card-subtitle {

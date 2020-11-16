@@ -26,6 +26,42 @@ describe('VCard', () => {
     expect(subtitleTag.text()).toContain(subtitle)
   })
 
+  test('it renders without a link', () => {
+    const image = 'http://placehold.it/175x175'
+    const alt = 'Title'
+    const title = 'Title'
+    const subtitle = 'Subtitle'
+    const wrapper = mount(VCard, {
+      propsData: { image, alt, title, subtitle }
+    })
+    // check if prop works and was rendered correctly
+    const img = wrapper.find('.card-image')
+    const titleTag = wrapper.find('.card-title')
+    const subtitleTag = wrapper.find('.card-subtitle')
+    expect(wrapper.find('.card-title-link').exists()).toBe(false)
+    expect(img.attributes('src')).toBe(image)
+    expect(titleTag.text()).toContain(title)
+    expect(subtitleTag.text()).toContain(subtitle)
+  })
+
+  test('it renders without an image', () => {
+    const title = 'Title'
+    const titleLink = 'https://example.com'
+    const subtitle = 'Subtitle'
+    const wrapper = mount(VCard, {
+      propsData: { title, titleLink, subtitle }
+    })
+    // check if prop works and was rendered correctly
+    const titleTag = wrapper.find('.card-title')
+    const titleLinkTag = wrapper.find('.card-title-link')
+    const subtitleTag = wrapper.find('.card-subtitle')
+    expect(wrapper.find('.card-image').exists()).toBe(false)
+    expect(titleTag.text()).toContain(title)
+    expect(titleLinkTag.text()).toContain(title)
+    expect(titleLinkTag.attributes('href')).toBe(titleLink)
+    expect(subtitleTag.text()).toContain(subtitle)
+  })
+
   test('it passes basic accessibility tests', async () => {
     const image = 'http://placehold.it/175x175'
     const alt = 'Title'
