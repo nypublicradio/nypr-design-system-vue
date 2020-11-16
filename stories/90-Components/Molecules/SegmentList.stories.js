@@ -24,8 +24,9 @@ export const LessThan6 = () => ({
           url: ''
         },
         {
-          title: 'Item number 3',
-          url: 'http://www.google.com'
+          title: 'Item number 3 opening in a new tab',
+          url: 'http://www.google.com',
+          newWindow: true
         },
         {
           title: 'Item number 4',
@@ -50,6 +51,7 @@ export const LessThan6 = () => ({
       :key="index"
       :title="segment.title"
       :url="segment.url"
+      :new-window="segment.newWindow"
     />
     <v-button
       v-if="segments.length > segmentsToShow"
@@ -75,12 +77,12 @@ export const MoreThan6 = () => ({
           url: 'http://www.google.com'
         },
         {
-          title: 'Item Number Two with no link!',
-          url: ''
+          title: 'Item Number Two with no link!'
         },
         {
-          title: 'Item number 3',
-          url: 'http://www.google.com'
+          title: 'Item number 3 opening in a new tab',
+          url: 'http://www.google.com',
+          newWindow: true
         },
         {
           title: 'Item number 4',
@@ -126,6 +128,12 @@ export const MoreThan6 = () => ({
       v-if="segments.length > segmentsToShow"
       label="show more"
       @click="segmentsToShow=segments.length"
+      class="u-space--top"
+    />
+    <v-button
+      v-else
+      label="show less"
+      @click="segmentsToShow=6"
       class="u-space--top"
     />
     </segment-list>

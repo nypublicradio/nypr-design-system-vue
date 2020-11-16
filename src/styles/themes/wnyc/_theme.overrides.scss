@@ -438,7 +438,7 @@ h1, h2, h3, h4, h5 {
 
 .on-todays-show .on-todays-show-title {
   position: relative;
-  @include typeface(header, 8);
+  @include typeface(body, 8);
   margin-bottom: var(--space-3);
   overflow: hidden;
 
