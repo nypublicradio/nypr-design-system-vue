@@ -1,8 +1,23 @@
 // fade in & out
-.fade-enter-active, .fade-leave-active {
+
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity var(--animation-duration-standard);
 }
 
 .fade-enter, .fade-leave-to {
   opacity: 0;
+}
+
+// slide in from left to right
+
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all var(--animation-duration-standard) var(--animation-easing-standard);
+}
+
+.slide-right-enter,
+.slide-right-leave-to {
+  transform: translateX(-100%);
+  transition: all var(--animation-duration-standard) var(--animation-easing-incoming) 0s;
 }
