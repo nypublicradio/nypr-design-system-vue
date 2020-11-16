@@ -1,0 +1,64 @@
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import MainPlayer from '../../../src/components/MainPlayer'
+import LiveIndicator from '../../../src/components/LiveIndicator'
+
+
+<Meta title="Components/Organisms/MainPlayer"/>
+
+# Main Player
+The main audio player must include at a minimum all the elements listed below. Additional elements can be added based on brand specific requirements. The arrangements can be modified based on the audio type (i.e. music vs. news). Metadata displayed,such as show name, title, composer, etc., will change based on the audio content and brand.
+
+In order to convey a sense of liveliness--that audio is playing live on-air "now"--we utilize an animated “Live” indicator and an animated play button as a focal point on the UX. The goal of these design elements is to draw the user's eye and make it very clear how to play what’s currently on.
+
+
+## Use Cases
+
+Currently, the main audio player is the main component on the WQXR listening-first homepage, fondly referred to as the [WQXR Beta](https://beta.wqxr.org/listen) (formerly known as Jukebox), and provides the primary way to listen to the WQXR FM stream. Beyond the WQXR Beta, WNYC has also implemented a version of this component in the [WNYC Lab](http://lab.wnyc.org) experience, also in a live-streaming context.
+    
+
+## What’s Inside
+
+**[LIVE EXAMPLE HERE]**
+ 
+ 1- **Title / Headline(s)** - displays the name of the Show currently on-air
+
+2- **Image** - typically of the Show Art but can also be of Host  when Show Art image is not available
+
+3- **Live Indicator** - tells the user that the Show on-air is live, uses the Live Indicator component.
+
+4- **Program Time** - Lists the start and end time of the program currently on air. Uses the timestamp component.
+
+5- **Optional Dropdown** - Dropdown used for auxiliary functionality or information. WQXR uses this to provide social links to it's audience.
+
+6- **Play Button** -  Icon button clicked to play the livestream, can include text if need be.
+
+
+## States
+
+### Paused / Not Yet Played
+<img alt="text" src="/images/Organisms-MainPlayer-PausedState.png" width="600" />
+
+### Playing
+<img alt="text" src="/images/Organisms-MainPlayer-PlayingState.png" width="600" />
+
+
+## Variants
+
+### **WQXR**
+<img alt="WQXR variation of the main player" src="/images/Organisms-MainPlayer-WQXR.png" width="600" />
+
+The main audio player for WQXR Jukebox is meant to provide a relaxing and immersive audio focused experience for live streaming classical music.
+
+  
+### **WNYC Lab**
+<img alt="WNYC variation of the main player" src="/images/Organisms-MainPlayer-WNYC.png" width="600" />
+
+The main player in our WNYC experience is used to communicate what’s currently on air in a quick and digestible fashion, highlighting recognizable metadata like Show Art and Show Title.
+
+## Accessibility
+-   For the ‘Message the Show’ dropdown menu, the entire component (text and down arrow) and 5 pixels around should be clickable for the dropdown menu.
+    
+-   Text should have appropriate tags so users with screen readers can quickly understand the important elements on the page such as show name and play button to start the livestream.
+
+## Testing and Iterations
+Any updates/progress to this component can be listed out here. Maybe eventually this will be automated.
