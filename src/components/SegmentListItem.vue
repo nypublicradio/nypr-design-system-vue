@@ -2,6 +2,7 @@
   <a
     v-if="url"
     :href="url"
+    :target="newWindow && '_blank'"
     class="segment-list-item"
   >
     <div class="segment-list-item-title">
@@ -23,11 +24,15 @@
 import SimpleArrowRight from '../components/icons/SimpleArrowRight'
 
 export default {
-  name: 'SegmentList',
+  name: 'SegmentListItem',
   components: {
     SimpleArrowRight
   },
   props: {
+    newWindow: {
+      default: false,
+      type: Boolean
+    },
     title: {
       default: null,
       type: String
