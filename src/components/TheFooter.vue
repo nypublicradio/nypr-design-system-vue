@@ -449,4 +449,5 @@ export default {
   width: 100px;
   padding-top: 5px;
 }
+
 </style>
