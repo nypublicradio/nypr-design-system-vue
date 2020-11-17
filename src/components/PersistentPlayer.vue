@@ -18,6 +18,7 @@
         @seek="seek"
       />
       <template v-if="shouldShowCta && !hasPlayed">
+        <VolumeControl v-model.number="volume" />
         <button
           class="button player-cta-play-button"
           @click="togglePlay"
@@ -174,7 +175,8 @@ export default {
   watch: {
     isPlaying (value) {
       if (value) {
-        return this.audio.play()
+        this.audio.play()
+        return
       }
       this.audio.pause()
     },
@@ -302,6 +304,7 @@ $xlarge: 1440px;
 .player-controls {
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .player-controls svg {
@@ -316,7 +319,7 @@ $xlarge: 1440px;
     }
 
       .player-controls .player-cta-play-button svg {
-        min-width: 20px;
+          min-width: 20px;
       }
 
         .player-controls .player-cta-play-button svg path {

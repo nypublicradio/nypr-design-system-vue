@@ -1,7 +1,21 @@
 <template>
   <div class="main-player l-grid l-grid--middle">
     <div>
+      <a
+        v-if="titleLink"
+        :href="titleLink"
+        class="main-player-title-link"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          :src="image"
+          :alt="title"
+          class="on-air-image"
+        >
+      </a>
       <img
+        v-else
         :src="image"
         :alt="title"
         class="on-air-image"

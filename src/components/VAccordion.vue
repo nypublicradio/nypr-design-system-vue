@@ -10,14 +10,13 @@
       role="button"
       tabindex="0"
       @click="open"
-      @keypress.enter.space="open"
+      @keypress.enter.space.prevent="open"
     >
       <div class="accordion-header-wrapper">
         <slot name="header" />
       </div>
       <div class="accordion-icon">
-        <simple-arrow-down v-if="active" />
-        <simple-arrow-up v-else />
+        <simple-arrow-down />
       </div>
     </div>
     <transition name="accordion">
@@ -36,12 +35,11 @@
 
 <script>
 import SimpleArrowDown from '../components/icons/SimpleArrowDown'
-import SimpleArrowUp from '../components/icons/SimpleArrowUp'
+import 'focus-visible'
 
 export default {
   components: {
-    SimpleArrowDown,
-    SimpleArrowUp
+    SimpleArrowDown
   },
   props: {
     shouldOpenOnLoad: {
@@ -89,22 +87,23 @@ export default {
 
 .accordion .accordion-icon {
   height: 20px;
+  transition: var(--animation-duration-standard);
+}
+
+.accordion .accordion-header-active .accordion-icon {
+  transform: rotate(180deg);
 }
 
 .accordion-enter-active {
-  transition: max-height var(--animation-duration-slow);
+  transition: all var(--animation-duration-standard) var(--animation-easing-standard);
 }
 
 .accordion-leave-active {
-  transition: max-height var(--animation-duration-slow);
-}
-
-.accordion-enter-to, .accordion-leave {
-  overflow: hidden;
+  transition: all var(--animation-duration-standard) var(--animation-easing-outgoing);
 }
 
 .accordion-enter, .accordion-leave-to {
-  overflow: hidden;
-  max-height: 0 !important; // need important to override inline style
+  max-height: 0 !important;
+  opacity: 0;
 }
 </style>

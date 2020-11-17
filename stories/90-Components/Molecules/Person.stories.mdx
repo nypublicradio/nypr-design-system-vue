@@ -1,0 +1,49 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import VPerson from '../../../src/components/VPerson'
+
+<Meta title="Components/Molecules/Person" />
+
+<Canvas>
+    <Story name="Person">
+        {{
+            components: { VPerson },
+            data() {
+                return {
+                    person: {
+                        image: 'http://placehold.it/200x200',
+                        name: 'Title',
+                        role: 'Subtitle'
+                    }
+                }
+            },
+            template: `
+<v-person
+    :person="person"
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Person with Link">
+        {{
+            components: { VPerson },
+            data() {
+                return {
+                    person: {
+                        image: 'http://placehold.it/200x200',
+                        name: 'Title',
+                        nameLink: 'http://example.com',
+                        role: 'Subtitle',
+                    }
+                }
+            },
+            template: `
+<v-person
+    :person="person"
+/>
+`
+        }}
+    </Story>
+</Canvas>

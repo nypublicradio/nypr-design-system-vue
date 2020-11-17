@@ -299,9 +299,6 @@ export default {
 
 .c-main-footer .c-main-footer__social {
   margin: auto;
-  @include media(">medium") {
-    margin: 0 0 0 auto;
-  }
 }
 
 .c-main-footer .c-share-tools__label {
@@ -351,7 +348,7 @@ export default {
   width: 120px;
   margin: 0 auto 0;
 
-  @include media(">medium") {
+  @include media(">xlarge") {
     margin: 0 var(--space-5) 0 0;
   }
 }
@@ -447,4 +444,10 @@ export default {
 .c-main-footer .o-text-with-icon {
   font-size: var(--font-size-3);
 }
+
+.jlgreene-logo-icon {
+  width: 100px;
+  padding-top: 5px;
+}
+
 </style>

@@ -1,11 +1,55 @@
-import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import ShareTools from '../../../src/components/ShareTools'
+import ShareToolsItem from '../../../src/components/ShareToolsItem'
 
-<Meta title="Components/Molecules/Social Follow" />
+<Meta title="Components/Molecules/Social Follow"/>
 
 # Social Follow
 
-The social follow component is used for linking to the social media
-accounts for a site, show, person, etc.
+The social follow component is a collection of linked social media icons and a piece of microcopy that encourages users to connect and engage with brands through their social media accounts offsite.
+
+This component is similar to our "Social Share" component, but is specific to following or contacting brand/person social media pages rather than sharing content to a user's personal social media page.
+
+## Use Cases
+
+- Linking to social media accounts pertaining to a show (such as The Brian Lehrer Show, The Takeaway, or All Of It).
+
+- Linking to social media accounts pertaining to a person (such as an author, host, or producer).
+
+- Linking to social media accounts pertaining to a brand (such as Gothamist, WNYC, or WQXR).
+
+- Offering more ways for users to contact or engage with an entity above.
+
+## What’s Inside
+
+<Canvas>
+    <Story name="Horizontal">
+        {{
+            components: { ShareTools, ShareToolsItem },
+     template: `
+<div class="sbdocs-large-container sbdocs-container-margin">
+<share-tools label="Connect">
+<share-tools-item service="facebook" username="WNYC" />
+<share-tools-item service="twitter" username="WNYC" />
+<share-tools-item service="instagram" username="WNYC" />
+<share-tools-item service="youtube" username="UCbysmY4hyViQAAYEzOR-uCQ" />
+</share-tools>
+</div>
+`
+        }}
+    </Story>
+</Canvas>
+
+1- **Microcopy** - A short, action-oriented CTA that tells a user the intended action (eg. "Connect with the show!", "Follow Us", "[Entity Name] Online")
+
+2- **Social Media Icons** - Icons displaying logos of different social media sites, able to be hidden/shown based on relevancy. Whitelabel defaults to show Twitter, Facebook, and Youtube, but up to 5 icons can be listed.
+
+## Variants
+Variants of social follow will typically only display changes in font style. Text and icon color can change as needed within accessible ranges. According to where the component is being used, it may include more or fewer icons based on the social media pages available for that brand, person, or show.
+
+### WNYC Variation
+<img alt="the WNYC variation of social follow" src="/images/Molecules-SocialFollow-WNYC.png" width="262"/>
+
 
 ## Default State
 
@@ -40,3 +84,47 @@ social networks (e.g. if Facebook was "WNYC" while Twitter used lower-case "wnyc
 
 In the below example, we've moved Twitter to be the *first* social network
 displayed, and have removed Instagram entirely
+
+## Accessibility
+-   Text, icons, and background color must meet WCAG 2.0  [minimum contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)  requirement.
+-   Use alt texts or descriptive labels for icons
+
+## Configurations
+
+### Horizontal
+<Canvas>
+    <Story name="Horizontal Layout">
+        {{
+            components: { ShareTools, ShareToolsItem },
+     template: `
+<div class="sbdocs-large-container sbdocs-container-margin">
+<share-tools label="Connect">
+<share-tools-item service="facebook" username="WNYC" />
+<share-tools-item service="twitter" username="WNYC" />
+<share-tools-item service="instagram" username="WNYC" />
+<share-tools-item service="youtube" username="UCbysmY4hyViQAAYEzOR-uCQ" />
+</share-tools>
+</div>
+`
+        }}
+    </Story>
+</Canvas>
+
+### Vertical
+<Canvas>
+    <Story name="Vertical Layout">
+        {{
+            components: { ShareTools, ShareToolsItem },
+     template: `
+<div class="sbdocs-large-container sbdocs-container-margin">
+<share-tools label="Connect" layout="vertical">
+<share-tools-item service="facebook" username="WNYC" />
+<share-tools-item service="twitter" username="WNYC" />
+<share-tools-item service="instagram" username="WNYC" />
+<share-tools-item service="youtube" username="UCbysmY4hyViQAAYEzOR-uCQ" />
+</share-tools>
+</div>
+`
+        }}
+    </Story>
+</Canvas>

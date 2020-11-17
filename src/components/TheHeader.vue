@@ -74,6 +74,10 @@ $z-index-header: 5000;
   z-index: $z-index-header;
   @include typeface(header, 5);
   background: RGB(var(--color-background-muted));
+
+  &.not-fixed {
+    position: relative;
+  }
 }
 
 .c-main-header svg {
@@ -124,6 +128,12 @@ $z-index-header: 5000;
 
 .main-player-title {
   font-size: var(--font-size-6);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  @include media("<medium"){
+     display: none;
+  }
 }
 
 .c-main-header__left {
@@ -133,7 +143,7 @@ $z-index-header: 5000;
 
 .c-main-header .c-secondary-nav__list {
   display: none;
-  @include media(">medium") {
+  @include media(">xlarge") {
     display: block;
   }
 }
@@ -158,6 +168,12 @@ $z-index-header: 5000;
   }
 }
 
+.c-main-header .c-share-tools__group {
+  @include media("<medium") {
+    display: none;
+  }
+}
+
 .c-main-header__donate.button {
   font-size: var(--font-size-5);
 }
@@ -166,6 +182,9 @@ $z-index-header: 5000;
   margin: var(--space-2) 0 var(--space-2) var(--space-2);
   width: 40%;
   height: 40%;
+  @include media("<large") {
+    display: none;
+  }
 }
 
 </style>

@@ -91,17 +91,20 @@ export default {
     height: 96px;
     align-items: center;
     justify-content: flex-end;
+    margin-right: 16px;
   }
 }
 
   .volume-control-icon {
+    flex: 1 0;
     appearance: none;
     border: none;
     background: transparent;
     cursor: pointer;
     display: inline-block;
-    height: 24px;
-    min-width: 24px;
+    height: 36px;
+    min-width: 36px;
+    max-width: 36px;
   }
 
   .volume-control-icon svg path {
@@ -110,24 +113,28 @@ export default {
 
   .volume-control-slider {
     padding: 24px 0;
+    width: 116px;
+    min-width: 116px;
   }
 
   .volume-control-slider.slide-left-enter,
   .volume-control-slider.slide-left-leave-to {
     width: 0px;
+    min-width: 0px;
   }
 
   .volume-control-slider.slide-left-leave,
   .volume-control-slider.slide-left-enter-to {
     width: 116px;
+    min-width: 116px;
   }
 
   .volume-control-slider.slide-left-enter-active {
-    transition: width var(--animation-duration-standard) var(--animation-easing-incoming);
+    transition: all var(--animation-duration-standard) var(--animation-easing-incoming);
   }
 
   .volume-control-slider.slide-left-leave-active {
-    transition: width var(--animation-duration-standard) var(--animation-easing-outgoing);
+    transition: all var(--animation-duration-standard) var(--animation-easing-outgoing);
   }
 
 </style>
