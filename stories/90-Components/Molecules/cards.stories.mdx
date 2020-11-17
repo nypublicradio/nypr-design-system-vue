@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import VCard from '../../../src/components/VCard'
 
 <Meta title="Components/Molecules/Cards" />
 
@@ -59,8 +60,68 @@ Radial uses two different card layouts, Horizontal and Vertical, to provide flex
 | Vertical, Large  | <img alt="example of large vertical card" src="/images/Molecules-Cards-Large-Vertical-Card.png" width="334"/> |
 
 
+<Canvas>
+    <Story name="Horizontal Small">
+        {{
+            components: { VCard },
+            template: `
+<v-card 
+    image="http://placehold.it/200x200"
+    title="Title"
+    subtitle="Subtitle"
+>
+`
+        }}
+    </Story>
+</Canvas>
 
+<Canvas>
+    <Story name="Horizontal Large">
+        {{
+            components: { VCard },
+            template: `
+<v-card 
+    class="mod-large"
+    image="http://placehold.it/500x500"
+    title="Title"
+    subtitle="Subtitle"
+>
+`
+        }}
+    </Story>
+</Canvas>
 
+<Canvas>
+    <Story name="Vertical Small">
+        {{
+            components: { VCard },
+            template: `
+<v-card 
+    class="mod-vertical"
+    image="http://placehold.it/200x200"
+    title="Title"
+    subtitle="Subtitle"
+>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Vertical Large">
+        {{
+            components: { VCard },
+            template: `
+<v-card 
+    class="mod-vertical mod-large"
+    image="http://placehold.it/500x500"
+    title="Title"
+    subtitle="Subtitle"
+>
+`
+        }}
+    </Story>
+</Canvas>
 
 ## Accessibility
 

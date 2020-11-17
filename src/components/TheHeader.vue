@@ -131,6 +131,9 @@ $z-index-header: 5000;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  @include media("<medium"){
+     display: none;
+  }
 }
 
 .c-main-header__left {
@@ -140,7 +143,7 @@ $z-index-header: 5000;
 
 .c-main-header .c-secondary-nav__list {
   display: none;
-  @include media(">medium") {
+  @include media(">xlarge") {
     display: block;
   }
 }
@@ -179,6 +182,9 @@ $z-index-header: 5000;
   margin: var(--space-2) 0 var(--space-2) var(--space-2);
   width: 40%;
   height: 40%;
+  @include media("<large") {
+    display: none;
+  }
 }
 
 </style>

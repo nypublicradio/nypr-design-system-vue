@@ -434,11 +434,16 @@ h1, h2, h3, h4, h5 {
 // on today's show
 .on-todays-show {
   color: RGB(var(--color-text));
+
+  @media only screen and (min-width: 1330px) { // 1330 is about the width of the container plus the 2 col breakout
+    margin-right: calc((var(--max-width) / 16) * -2);
+  }
 }
 
 .on-todays-show .on-todays-show-title {
   position: relative;
-  @include typeface(header, 8);
+  @include typeface(body, 9);
+  font-weight: bold;
   margin-bottom: var(--space-3);
   overflow: hidden;
 
