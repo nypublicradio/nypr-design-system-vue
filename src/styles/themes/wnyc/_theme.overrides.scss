@@ -435,8 +435,8 @@ h1, h2, h3, h4, h5 {
 .on-todays-show {
   color: RGB(var(--color-text));
 
-  @media only screen and (min-width: 1330px) { // 1330 is about the width of the container plus the 2 col breakout
-    margin-right: calc((var(--max-width) / 16) * -2);
+  @media only screen and (min-width: 1215px) { // 1215 is about the width of the container plus the 1 col breakout
+    margin-right: calc((var(--max-width) / 16) * -1);
   }
 }
 
@@ -505,6 +505,7 @@ h1, h2, h3, h4, h5 {
 .on-todays-show .on-todays-show-right {
   position: relative;
   margin-bottom: var(--space-6);
+  text-align: right;
   @include media(">xlarge") {
     width: 100%;
     margin-bottom: 0;
@@ -513,6 +514,7 @@ h1, h2, h3, h4, h5 {
 
 .on-todays-show .image-with-caption {
   z-index: 10;
+  text-align: left;
 }
 
 .on-todays-show .dots {
