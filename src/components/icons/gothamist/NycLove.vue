@@ -3,6 +3,7 @@
     role="img"
     width="121"
     height="134"
+    class="o-icon nyc-love"
     viewBox="0 0 121 134"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

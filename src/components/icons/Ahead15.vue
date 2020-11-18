@@ -7,7 +7,7 @@
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    class="ahead-15-icon"
+    class="o-icon ahead-15-icon"
   >
     <title>{{ title }}</title>
     <g

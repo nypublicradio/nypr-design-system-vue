@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-    class="gothamist-logo-icon"
+    class="o-icon gothamist-logo-icon"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 119 27"
   >

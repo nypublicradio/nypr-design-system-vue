@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-    class="o-instagram-icon"
+    class="o-icon o-instagram-icon"
     viewBox="4 4 16 16"
     width="40"
     height="40"

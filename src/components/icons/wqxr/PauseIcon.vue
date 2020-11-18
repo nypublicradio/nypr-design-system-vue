@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-    class="wqxr-pause"
+    class="o-icon wqxr-pause"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="2 2 20 20"
   >

@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-    class="o-reddit-icon"
+    class="o-icon o-reddit-icon"
     viewBox="3 3 18 18"
     width="40"
     height="40"

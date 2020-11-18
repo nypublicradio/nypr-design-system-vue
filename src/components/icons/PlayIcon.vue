@@ -3,6 +3,7 @@
     id="play-shapes"
     width="100px"
     role="img"
+    class="o-icon play-icon"
     height="100px"
     viewBox="0 0 100 100"
     version="1.1"

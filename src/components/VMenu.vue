@@ -8,8 +8,8 @@
     </div>
     <transition name="slide-right">
       <nav
-        class="menu-panel"
         v-if="menuOpen"
+        class="menu-panel"
       >
         <div
           class="menu-close"
@@ -20,7 +20,61 @@
         <div class="menu-logo">
           <slot name="logo" />
         </div>
-        <p>menu stuff goes here</p>
+        <v-spacer size="triple" />
+        <div class="menu-button">
+          <slot name="button" />
+        </div>
+        <v-spacer size="triple" />
+        <div class="menu-primary-navigation">
+          <secondary-navigation :nav-items="primaryNav" />
+        </div>
+        <v-spacer size="triple" />
+        <div
+          v-if="hasComponentSlot"
+          class="menu-component"
+        >
+          <slot name="component" />
+          <v-spacer size="triple" />
+        </div>
+        <div
+          v-if="hasSearchSlot"
+          class="menu-search"
+        >
+          <slot name="search" />
+          <v-spacer size="triple" />
+        </div>
+        <div class="menu-secondary-navigation">
+          <secondary-navigation :nav-items="secondaryNav" />
+        </div>
+        <v-spacer size="triple" />
+        <div class="menu-social">
+          <slot name="social" />
+        </div>
+        <v-spacer size="triple" />
+        <div class="menu-nypr-logo">
+          <nypr-logo />
+        </div>
+        <v-spacer size="triple" />
+        <p class="menu-copyright">© 2020 New York Public Radio. All rights reserved.</p>
+        <v-spacer size="triple" />
+        <div class="menu-terms-links l-grid l-grid--2up l-grid--2up--small">
+          <a
+            href="https://www.wnyc.org/terms"
+            target="_blank"
+            rel="noopener"
+            name="termsSideMenu"
+          >
+            <strong>Terms of Use</strong>
+          </a>
+          <a
+            href="https://www.wnyc.org/privacy"
+            target="_blank"
+            rel="noopener"
+            name="privacySideMenu"
+          >
+            <strong>Privacy Policy</strong>
+          </a>
+        </div>
       </nav>
     </transition>
   </div>
@@ -29,16 +83,40 @@
 <script>
 import CloseIcon from '../components/icons/CloseIcon'
 import HamburgerIcon from '../components/icons/HamburgerIcon'
+import NyprLogo from '../components/icons/NyprLogo'
+import SecondaryNavigation from '../components/SecondaryNavigation'
+import VSpacer from '../components/VSpacer'
 
 export default {
   name: 'VMenu',
   components: {
     CloseIcon,
-    HamburgerIcon
+    HamburgerIcon,
+    NyprLogo,
+    SecondaryNavigation,
+    VSpacer
+  },
+  props: {
+    primaryNav: {
+      type: Array,
+      default: null
+    },
+    secondaryNav: {
+      type: Array,
+      default: null
+    }
   },
   data: function () {
     return {
       menuOpen: false
+    }
+  },
+  computed: {
+    hasComponentSlot () {
+      return !!this.$slots.component
+    },
+    hasSearchSlot () {
+      return !!this.$slots.search
     }
   },
   methods: {
@@ -51,30 +129,34 @@ export default {
 
 <style lang="scss">
 .menu {
-  --menu-width: 300px;
+  --menu-width: 368px;
 }
 
-.menu-hamburger {
+.menu .menu-hamburger {
   position: absolute;
   top: 0;
   left: 0;
   cursor: pointer;
 }
 
-.menu-logo {
-  width: 94px;
-  margin-bottom: var(--space-5);
+.menu.not-fixed .menu-hamburger {
+  position: relative;
 }
 
-.menu-close {
+.menu .menu-logo {
+  max-width: 100px;
+  max-height: 36px;
+}
+
+.menu .menu-close {
   cursor: pointer;
   position: absolute;
+  // make the tappable area at least 30px and the icon 18x18
   width: 30px;
   height: 30px;
-  // adding / adjusting for padding to make the tappable area 30px
   padding: 6px;
-  top: -6px;
-  right: -6px;
+  top: var(--space-3);
+  right: var(--space-3);
   transition: var(--animation-duration-standard);
 
   &:hover {
@@ -82,16 +164,80 @@ export default {
   }
 }
 
-.menu-panel {
+.menu .menu-panel {
   overflow-y: auto;
   color: RGB(var(--color-text));
-  background-color: RGB(var(--color-background-muted));
+  background-color: RGB(var(--color-background-highlight));
   position: fixed;
   left: 0;
   top: 0;
   height: 100vh;
   z-index: 9999;
-  padding: var(--space-3);
-  width: var(--menu-width);
+  padding: var(--space-4);
+  width: 100%;
+
+  @include media(">small") {
+    width: var(--menu-width);
+  }
+}
+
+.menu .menu-button .button {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+}
+
+.menu .menu-search .search-bar {
+  margin: auto;
+}
+
+.menu .menu-primary-navigation,
+.menu .menu-secondary-navigation {
+  text-align: center;
+}
+
+.menu .c-secondary-nav__item {
+  margin-bottom: var(--space-4);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.menu .menu-primary-navigation .c-secondary-nav__link {
+  @include typeface(header, 9);
+  font-weight: normal;
+}
+
+.menu .menu-secondary-navigation .c-secondary-nav__link {
+  @include typeface(body, 6);
+  font-weight: normal;
+  color: RGB(var(--color-link));
+}
+
+.menu .c-share-tools {
+  justify-content: center;
+}
+
+.menu .menu-nypr-logo {
+  margin: auto;
+  width: 120px;
+}
+
+.menu .menu-copyright {
+  @include typeface(body, 5);
+  text-align: center;
+}
+
+.menu .menu-terms-links {
+  @include typeface(body, 3);
+  text-align: center;
+  text-transform: uppercase;
+  text-transform: uppercase;
+}
+
+.menu .menu-terms-links a {
+  text-decoration: none;
+  color: RGB(var(--color-text));
 }
 </style>

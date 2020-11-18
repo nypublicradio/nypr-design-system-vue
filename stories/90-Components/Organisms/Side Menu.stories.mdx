@@ -1,5 +1,12 @@
 import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 
+import VMenu from '../../../src/components/VMenu'
+import WnycLogo from '../../../src/components/icons/wnyc/WnycLogo'
+import VButton from '../../../src/components/VButton'
+import VSearch from '../../../src/components/VSearch'
+import ShareTools from '../../../src/components/ShareTools'
+import ShareToolsItem from '../../../src/components/ShareToolsItem'
+
 <Meta title="Components/Organisms/Side Menu" />
 
 # Side Menu
@@ -23,7 +30,11 @@ At the minimum, a side menu should contain a series of navigational links to the
 
 Radial’s default side menu includes placeholders for branding, primary CTA, primary/secondary navigation, and social links. It also contains an area for additional components to be dropped in as needed. In many cases, much of what can be found in the site’s footer can also be found in its sidemenu including a donate CTA, primary nav links, social links, and more. The vertical order of these components might be different depending on brand or use case.
 
-<img alt="side menu anatomy" src="/images/Organisms-Sidebar-Whitelabel-anatomy.png" width="375" />
+<img
+    alt="side menu anatomy"
+    src="/images/Organisms-Sidebar-Whitelabel-anatomy.png"
+    width="375"
+/>
 
 1- **Close Button** - Clickable icon that closes the side menu when clicked.
 
@@ -76,3 +87,87 @@ On mobile side menus expand to cover 100% of the width of the screen when opened
 
 
 ## Configurations
+
+<Canvas>
+    <Story name="Side Menu">
+        {{
+            components: {
+                VMenu,
+                WnycLogo,
+                VButton,
+                VSearch,
+                ShareTools,
+                ShareToolsItem
+            },
+            template: `
+                <v-menu
+                  class="not-fixed"
+                  :primaryNav="[
+                    {
+                      url: 'http://www.google.com',
+                      text: 'Primary Link 1',
+                    },
+                    {
+                      url: 'http://www.google.com',
+                      text: 'Primary Link 2',
+                    },
+                    {
+                      url: 'http://www.google.com',
+                      text: 'Primary Link 3',
+                    }
+                  ]"
+                  :secondaryNav="[
+                    {
+                      url: 'http://www.google.com',
+                      text: 'Secondary Link 1',
+                    },
+                    {
+                      url: 'http://www.google.com',
+                      text: 'Secondary Link 2',
+                    },
+                    {
+                      url: 'http://www.google.com',
+                      text: 'Secondary Link 3',
+                    }
+                  ]"
+                >
+                <template v-slot:logo>
+                  <wnyc-logo />
+                </template>
+                <template v-slot:button>
+                  <v-button
+                    href="http://www.google.com"
+                    label="Primary Button"
+                  />
+                </template>
+                <template v-slot:component>
+                  <p class="u-align--center"><em>slot for component</em></p>
+                </template>
+                <template v-slot:search>
+                  <v-search action="/search" />
+                </template>
+                <template v-slot:social>
+                  <share-tools label="Connect">
+                    <share-tools-item
+                      service="facebook"
+                      username="WNYC"
+                    />
+                    <share-tools-item
+                      service="twitter"
+                      username="WNYC"
+                    />
+                    <share-tools-item
+                      service="instagram"
+                      username="WNYC"
+                    />
+                    <share-tools-item
+                      service="youtube"
+                      username="UCbysmY4hyViQAAYEzOR-uCQ"
+                    />
+                  </share-tools>
+                </template>
+                    </v-menu>
+            `
+        }}
+    </Story>
+</Canvas>

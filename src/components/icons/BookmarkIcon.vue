@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-    class="o-bookmark-icon"
+    class="o-icon o-bookmark-icon"
     fill="none"
     viewBox="2 2 20 20"
     width="40"

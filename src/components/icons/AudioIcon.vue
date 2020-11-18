@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-    class="o-audio-icon"
+    class="o-icon o-audio-icon"
     viewBox="4 4 16 16"
     width="40"
     height="40"

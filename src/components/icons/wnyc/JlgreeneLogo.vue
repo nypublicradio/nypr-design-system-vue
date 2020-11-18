@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-    class="jlgreene-logo-icon"
+    class="o-icon jlgreene-logo-icon"
     viewBox="0 0 309 54"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"

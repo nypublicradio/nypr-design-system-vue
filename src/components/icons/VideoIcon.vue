@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-    class="o-video-icon"
+    class="o-icon o-video-icon"
     viewBox="4 4 16 16"
     width="40"
     height="40"

@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-    class="o-facebook-icon"
+    class="o-icon o-facebook-icon"
     viewBox="2 2 20 20"
     width="40"
     height="40"

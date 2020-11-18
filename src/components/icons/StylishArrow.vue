@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-    class="o-arrow-stylish-arrow-icon"
+    class="o-icon o-arrow-stylish-arrow-icon"
     viewBox="3 3 18 18"
     width="40"
     height="40"
