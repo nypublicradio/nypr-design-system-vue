@@ -464,6 +464,10 @@ h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
 
+.on-todays-show .on-todays-show-headline a {
+  border: none;
+}
+
 .on-todays-show .accordion-icon path,
 .on-todays-show .segment-list-item-icon path {
   fill: RGB(var(--color-text));
