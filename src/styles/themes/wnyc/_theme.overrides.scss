@@ -262,7 +262,7 @@ h1, h2, h3, h4, h5 {
 
 .c-main-footer .c-main-footer__social {
   margin: 0 0 0 auto;
-  @include media("<large") {
+  @include media("<xlarge") {
     margin: auto;
   }
 }
