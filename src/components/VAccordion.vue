@@ -45,6 +45,10 @@ export default {
     shouldOpenOnLoad: {
       type: Boolean,
       default: false
+    },
+    closedOnMobile: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -61,10 +65,18 @@ export default {
       return this.active
     }
   },
+  mounted () {
+    if (this.closedOnMobile && window.innerWidth < 850) {
+      this.close()
+    }
+  },
   updated () {
     this.height = this.$slots.content[0].context.$el.clientHeight
   },
   methods: {
+    close () {
+      this.active = false
+    },
     open () {
       this.active = !this.visible
     }
@@ -103,7 +115,7 @@ export default {
 }
 
 .accordion-enter, .accordion-leave-to {
-  max-height: 0 !important;
+  max-height: 0 !important; // needs important to override inline style
   opacity: 0;
 }
 </style>
