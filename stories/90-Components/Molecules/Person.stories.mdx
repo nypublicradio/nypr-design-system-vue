@@ -1,22 +1,8 @@
-import { Meta, Canvas, Story, Title, Subtitle, Description, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, Subtitle, ArgsTable } from '@storybook/addon-docs/blocks';
 import VPerson from '../../../src/components/VPerson';
 const component = VPerson;
 
 <Meta title="Components/Molecules/Person" component={component} />
-
-<Title />
-
-## Description
-
-<Description of={component} />
-
-## Component Properties
-
-<ArgsTable of={component} />
-
-## Stories
-
-### Person
 
 # Person
 
@@ -64,6 +50,14 @@ The person component can be arranged horizontally or vertically. Horizontal is t
 
 ## Testing and Iterations
 Any updates/progress to this component can be listed out here. Maybe eventually this will be automated.
+
+## Component Properties
+
+<ArgsTable of={component} />
+
+## Stories
+
+### Person
 
 <Canvas>
     <Story name="Person">
