@@ -1,24 +1,51 @@
 <template>
   <v-card
     class="person-card"
-    :image="person.image"
-    :title="person.name"
-    :title-link="person.nameLink"
-    :subtitle="person.role"
+    :image="image"
+    :title="name"
+    :title-link="nameLink"
+    :subtitle="role"
   />
 </template>
 
 <script>
 import VCard from './VCard'
 
+/**
+ * A component for displaying details about a person
+ */
 export default {
   components: {
     VCard
   },
   props: {
-    person: {
-      type: Object,
-      default () { return {} }
+    /**
+     *  A URL pointing to an image of the person.
+     */
+    image: {
+      type: String,
+      default: null
+    },
+    /**
+     *  Full name of the person.
+     */
+    name: {
+      type: String,
+      default: null
+    },
+    /**
+     *  A URL pointing to the person's bio page.
+     */
+    nameLink: {
+      type: String,
+      default: null
+    },
+    /**
+     *  The person's role or job. e.g. Host, Guest, Author, etc.
+     */
+    role: {
+      type: String,
+      default: null
     }
   }
 }
@@ -26,16 +53,22 @@ export default {
 
 <style lang="scss">
 .person-card {
-  --card-image-width: 72px;
-  --card-image-height: 72px;
-  width: auto;
+  --card-image-width: 112px;
+  --card-image-height: 112px;
+  width: 200px;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
   background: transparent;
   box-shadow: none;
   border-radius: 0;
   margin: var(space-4);
-    @include media(">medium") {
-    --card-image-width: 112px;
-    --card-image-height: 112px;
+  @include media(">medium") {
+    width: auto;
+    flex-direction: row;
+    text-align: left;
+    --card-image-width: 100px;
+    --card-image-height: 100px;
   }
 }
 
@@ -71,4 +104,17 @@ export default {
     }
   }
 
+  .person-card.mod-horizontal-mobile {
+    width: auto;
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .person-card.mod-vertical-desktop {
+    @include media(">medium") {
+      width: 200px;
+      flex-direction: column;
+      text-align: center;
+    }
+  }
 </style>

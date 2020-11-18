@@ -46,6 +46,10 @@ export default {
   }
 }
 
+.c-share-tools .c-share-tools__link:hover path {
+  fill: (var(--color-text, --opacity-hover));
+}
+
 @include media("<=large") {
   .c-share-tools__label {
     flex-basis: 100%;

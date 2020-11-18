@@ -214,7 +214,7 @@ h1, h2, h3, h4, h5 {
 
 .c-main-footer .c-share-tools__link:hover path,
 .c-main-footer a:hover svg {
-  fill: RGB(var(--color-white), var(--opacity-hover));
+  fill: RGBA(var(--color-text), var(--opacity-hover));
 }
 
 .c-main-footer__terms-links {
@@ -258,6 +258,13 @@ h1, h2, h3, h4, h5 {
 
 .jlgreen-message {
   white-space: nowrap;
+}
+
+.c-main-footer .c-main-footer__social {
+  margin: 0 0 0 auto;
+  @include media("<xlarge") {
+    margin: auto;
+  }
 }
 
 // brands popup
@@ -435,8 +442,8 @@ h1, h2, h3, h4, h5 {
 .on-todays-show {
   color: RGB(var(--color-text));
 
-  @media only screen and (min-width: 1330px) { // 1330 is about the width of the container plus the 2 col breakout
-    margin-right: calc((var(--max-width) / 16) * -2);
+  @media only screen and (min-width: 1215px) { // 1215 is about the width of the container plus the 1 col breakout
+    margin-right: calc((var(--max-width) / 16) * -1);
   }
 }
 
@@ -513,6 +520,7 @@ h1, h2, h3, h4, h5 {
 
 .on-todays-show .image-with-caption {
   z-index: 10;
+  text-align: left;
 }
 
 .on-todays-show .dots {
