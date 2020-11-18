@@ -3,6 +3,53 @@ import VPerson from '../../../src/components/VPerson'
 
 <Meta title="Components/Molecules/Person" />
 
+# Person
+
+Our person component displays a visual depiction of an author or host along with text fields for name and role.
+
+## Use Cases
+
+-   Displaying the author or producer of a written or produced piece of content
+    
+-   Displaying the host and/or guest of a radio show or podcast
+    
+
+## What’s Inside
+
+
+
+1- **Image** - An image of the person, or a placeholder image if none is provided. Can be made a clickable link out to a relevant page (i.e. twitter profile, bio, author page.)
+    
+2- **Name** - Name of person, required for this component. Can be made a clickable link out to a relevant page (i.e. twitter profile, bio, author page.)
+    
+3- **Role** - Role or subtitle, optional. In the case of Gothamist’s “Contributing Organization” authors, the organization can be listed here concluding or replacing the role. ex: Jess Fisher, Writer (NYT) or  Jess Fisher, NYT
+
+
+## Cropping
+
+It is recommended that square profile pictures are used, with the subject centered. Using landscape or portrait orientated photos might result in unwanted cropping.
+<img alt="text" src="/images/Molecule-Person-Cropping.png" width="700" />
+
+
+## Variants
+
+### **WNYC**
+<img alt="text" src="/images/Molecules-Person-WNYC.png" width="300" />
+
+The WNYC variant is used to display show hosts and guests using our WNYC theme fonts and colors.
+
+## Configurations
+The person component can be arranged horizontally or vertically. Horizontal is the preferred and default configuration, but vertical is useful on mobile or when listing many people.
+
+## Accessibility
+- Text, icons, and background color must meet WCAG 2.0 [minimum contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) requirement.
+
+- Always include an alt attribute describing the information that is visually displayed in the image.
+
+
+## Testing and Iterations
+Any updates/progress to this component can be listed out here. Maybe eventually this will be automated.
+
 <Canvas>
     <Story name="Person">
         {{
