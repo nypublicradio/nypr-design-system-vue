@@ -14,7 +14,7 @@ describe('VPerson', () => {
     const nameLink = 'https://example.com'
     const role = 'Subtitle'
     const wrapper = mount(VPerson, {
-      propsData: { person: { image, name, nameLink, role } }
+      propsData: { image, name, nameLink, role }
     })
     // check if prop works and was rendered correctly
     const img = wrapper.find('.card-image')
@@ -32,7 +32,7 @@ describe('VPerson', () => {
     const nameLink = 'https://example.com'
     const role = 'Subtitle'
     const wrapper = mount(VPerson, {
-      propsData: { person: { image, name, nameLink, role } }
+      propsData: { image, name, nameLink, role }
     })
     const results = await axe(wrapper.element)
     expect(results).toHaveNoViolations()

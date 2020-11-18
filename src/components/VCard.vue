@@ -1,21 +1,35 @@
 <template>
   <div class="card">
-    <a
-      v-if="titleLink"
-      class="card-image-link"
-      :href="titleLink"
-      aria-hidden="true"
-      role="presentation"
-      tabindex="-1"
-    >
-      <img
-        v-if="image"
-        class="card-image"
-        :src="image"
-        :alt="title || alt"
+    <template v-if="titleLink">
+      <a
+        v-if="title"
+        class="card-image-link"
+        :href="titleLink"
+        aria-hidden="true"
         role="presentation"
+        tabindex="-1"
       >
-    </a>
+        <img
+          v-if="image"
+          class="card-image"
+          :src="image"
+          :alt="title"
+          role="presentation"
+        >
+      </a>
+      <a
+        v-else
+        class="card-image-link"
+        :href="titleLink"
+      >
+        <img
+          v-if="image"
+          class="card-image"
+          :src="image"
+          :alt="alt"
+        >
+      </a>
+    </template>
     <span
       v-else
       class="card-image-wrapper"
@@ -62,6 +76,10 @@
 export default {
   props: {
     image: {
+      type: String,
+      default: null
+    },
+    alt: {
       type: String,
       default: null
     },
