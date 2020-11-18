@@ -214,7 +214,7 @@ h1, h2, h3, h4, h5 {
 
 .c-main-footer .c-share-tools__link:hover path,
 .c-main-footer a:hover svg {
-  fill: RGB(var(--color-white), var(--opacity-hover));
+  fill: RGBA(var(--color-text), var(--opacity-hover));
 }
 
 .c-main-footer__terms-links {
@@ -512,7 +512,6 @@ h1, h2, h3, h4, h5 {
 .on-todays-show .on-todays-show-right {
   position: relative;
   margin-bottom: var(--space-6);
-  text-align: right;
   @include media(">xlarge") {
     width: 100%;
     margin-bottom: 0;
