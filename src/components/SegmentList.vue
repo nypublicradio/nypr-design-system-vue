@@ -1,6 +1,9 @@
 <template>
   <div class="segment-list">
-    <v-accordion should-open-on-load closed-on-mobile>
+    <v-accordion
+      should-open-on-load
+      closed-on-mobile
+    >
       <template v-slot:header>
         <h4 class="segment-list-title">
           Segments
