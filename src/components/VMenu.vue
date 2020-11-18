@@ -55,7 +55,9 @@
           <nypr-logo />
         </div>
         <v-spacer size="triple" />
-        <p class="menu-copyright">© 2020 New York Public Radio. All rights reserved.</p>
+        <p class="menu-copyright">
+          © 2020 New York Public Radio. All rights reserved.
+        </p>
         <v-spacer size="triple" />
         <div class="menu-terms-links l-grid l-grid--2up l-grid--2up--small">
           <a
