@@ -20,12 +20,6 @@ export default {
   name: 'SegmentList',
   components: {
     VAccordion
-  },
-  props: {
-    segments: {
-      default: null,
-      type: Array
-    }
   }
 }
 </script>
