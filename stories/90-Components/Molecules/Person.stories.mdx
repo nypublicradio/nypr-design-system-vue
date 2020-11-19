@@ -17,7 +17,20 @@ Our person component displays a visual depiction of an author or host along with
 
 ## What’s Inside
 
-
+<Canvas>
+    <Story name="Person">
+        {{
+            components: { VPerson },
+            template: `
+<v-person
+    image='http://placehold.it/200x200'
+    name='Firstname Lastname'
+    role='Host'
+/>
+`
+        }}
+    </Story>
+</Canvas>
 
 1- **Image** - An image of the person, or a placeholder image if none is provided. Can be made a clickable link out to a relevant page (i.e. twitter profile, bio, author page.)
     
@@ -57,22 +70,6 @@ Any updates/progress to this component can be listed out here. Maybe eventually 
 
 ## Stories
 
-### Person
-
-<Canvas>
-    <Story name="Person">
-        {{
-            components: { VPerson },
-            template: `
-<v-person
-    image='http://placehold.it/200x200'
-    name='Firstname Lastname'
-    role='Host'
-/>
-`
-        }}
-    </Story>
-</Canvas>
 
 ### Person With Link
 
