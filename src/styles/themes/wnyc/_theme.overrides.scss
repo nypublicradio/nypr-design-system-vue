@@ -168,7 +168,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .c-main-footer .l-container {
-  padding: 50px 16px;
+  border-top: 2px solid RGB(var(--color-cool-white), 0.2);
+  padding: 50px 0px;
 }
 
 .c-main-footer .c-secondary-nav__subheader-spacer {
