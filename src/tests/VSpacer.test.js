@@ -1,6 +1,10 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
 import VSpacer from '../components/VSpacer'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
 
 describe('VSpacer', () => {
   test('size prop works: null', () => {
@@ -9,46 +13,43 @@ describe('VSpacer', () => {
     const div = wrapper.find('.v-spacer')
     expect(div.classes()).toContain('u-padding--top')
   })
-})
 
-describe('VSpacer', () => {
   test('size prop works: double', () => {
-    const value = 'double'
     const wrapper = mount(VSpacer, {
       propsData: {
-        size: value
+        size: 'double'
       }
     })
     // check if size prop works and was rendered correctly
     const div = wrapper.find('.v-spacer')
     expect(div.classes()).toContain('u-padding--double--top')
   })
-})
 
-describe('VSpacer', () => {
   test('size prop works: triple', () => {
-    const value = 'triple'
     const wrapper = mount(VSpacer, {
       propsData: {
-        size: value
+        size: 'triple'
       }
     })
     // check if size prop works and was rendered correctly
     const div = wrapper.find('.v-spacer')
     expect(div.classes()).toContain('u-padding--triple--top')
   })
-})
 
-describe('VSpacer', () => {
   test('size prop works: quad', () => {
-    const value = 'quad'
     const wrapper = mount(VSpacer, {
       propsData: {
-        size: value
+        size: 'quad'
       }
     })
     // check if size prop works and was rendered correctly
     const div = wrapper.find('.v-spacer')
     expect(div.classes()).toContain('u-padding--quad--top')
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(VSpacer)
+    const results = await axe(wrapper.element)
+    expect(results).toHaveNoViolations()
   })
 })

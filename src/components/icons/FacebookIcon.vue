@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-:aria-label="title"
+    :aria-label="title"
     class="o-icon o-facebook-icon"
     viewBox="2 2 20 20"
     width="40"

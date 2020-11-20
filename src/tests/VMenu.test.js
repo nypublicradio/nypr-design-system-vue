@@ -2,6 +2,11 @@ import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
 import VMenu from '../components/VMenu'
 import AudioIcon from '../components/icons/AudioIcon'
+import VSearch from '../components/VSearch'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
 
 describe('VMenu', () => {
   const navigation = [
@@ -18,6 +23,8 @@ describe('VMenu', () => {
       text: 'Primary Link 3'
     }
   ]
+  const primaryNav = navigation
+  const secondaryNav = navigation
 
   test('hamburger button works', () => {
     const wrapper = mount(VMenu)
@@ -102,14 +109,14 @@ describe('VMenu', () => {
   test('search slot works', () => {
     const wrapper = mount(VMenu, {
       slots: {
-        search: AudioIcon
+        search: VSearch
       }
     })
     // open the menu
     wrapper.vm.$data.menuOpen = true
     // check if the component was successfully passed through the slot
     wrapper.vm.$nextTick(() => {
-      expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
+      expect(wrapper.findComponent(VSearch).exists()).toBe(true)
     })
   })
 
@@ -124,6 +131,27 @@ describe('VMenu', () => {
     // check if the component was successfully passed through the slot
     wrapper.vm.$nextTick(() => {
       expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
+    })
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(VMenu, {
+      propsData: {
+        primaryNav,
+        secondaryNav
+      },
+      slots: {
+        social: AudioIcon,
+        search: VSearch,
+        logo: AudioIcon,
+        component: AudioIcon
+      }
+    })
+    // open the menu
+    wrapper.vm.$data.menuOpen = true
+    const results = await axe(wrapper.element)
+    wrapper.vm.$nextTick(() => {
+      expect(results).toHaveNoViolations()
     })
   })
 })

@@ -1,7 +1,7 @@
 <template>
   <svg
     role="img"
-:aria-label="title"
+    :aria-label="title"
     width="121"
     height="134"
     class="o-icon nyc-love"
