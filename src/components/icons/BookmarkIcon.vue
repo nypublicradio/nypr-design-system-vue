@@ -1,6 +1,7 @@
 <template>
   <svg
     role="img"
+:aria-label="title"
     class="o-icon o-bookmark-icon"
     fill="none"
     viewBox="2 2 20 20"

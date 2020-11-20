@@ -1,11 +1,19 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
 import MainPlayer from '../components/MainPlayer'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
 
 describe('MainPlayer', () => {
+  const image = 'http://placehold.it/175x175'
+  const title = 'The Show'
+  const titleLink = 'http://www.titlelink.com'
+  const details = 'lorem ipsum dolor'
+  const detailsLink = 'http://www.detailslink.com'
+  const time = 'right now'
   test('image prop works', () => {
-    const image = 'http://placehold.it/175x175'
-    const title = 'The Show'
     const wrapper = mount(MainPlayer, {
       propsData: {
         image: image,
@@ -19,7 +27,6 @@ describe('MainPlayer', () => {
   })
 
   test('title prop works', () => {
-    const title = 'The Show'
     const wrapper = mount(MainPlayer, {
       propsData: {
         title: title
@@ -33,8 +40,6 @@ describe('MainPlayer', () => {
   })
 
   test('title-link prop works', () => {
-    const title = 'The Show'
-    const titleLink = 'http://www.titlelink.com'
     const wrapper = mount(MainPlayer, {
       propsData: {
         title: title,
@@ -47,7 +52,6 @@ describe('MainPlayer', () => {
   })
 
   test('details prop works', () => {
-    const details = 'lorem ipsum dolor'
     const wrapper = mount(MainPlayer, {
       propsData: {
         details: details
@@ -61,8 +65,6 @@ describe('MainPlayer', () => {
   })
 
   test('detailsLink prop works', () => {
-    const details = 'lorem ipsum dolor'
-    const detailsLink = 'http://www.detailslink.com'
     const wrapper = mount(MainPlayer, {
       propsData: {
         details: details,
@@ -75,7 +77,6 @@ describe('MainPlayer', () => {
   })
 
   test('time prop works', () => {
-    const time = 'right now'
     const wrapper = mount(MainPlayer, {
       propsData: {
         time: time
@@ -84,5 +85,13 @@ describe('MainPlayer', () => {
     // check if prop works and was rendered correctly
     const div = wrapper.find('.live-indicator')
     expect(div.text()).toContain(time)
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(MainPlayer, {
+      propsData: { image, titleLink, title, detailsLink, details, time }
+    })
+    const results = await axe(wrapper.element)
+    expect(results).toHaveNoViolations()
   })
 })

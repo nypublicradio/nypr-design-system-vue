@@ -1,78 +1,83 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
 import ImageWithCaption from '../components/ImageWithCaption'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
 
 describe('ImageWithCaption', () => {
+  const image = 'http://placehold.it/768x512'
+  const title = 'i am a test title'
+  const altText = title
+  const caption = 'i am a test caption'
+  const credit = 'i am a test credit'
+  const creditUrl = 'http://www.google.com'
   test('image prop works', () => {
-    const value = 'http://placehold.it/768x512'
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        image: value
+        image: image
       }
     })
     // check if image prop works and was rendered correctly
     const div = wrapper.find('img')
     expect(div.exists()).toBe(true)
   })
-})
 
-describe('ImageWithCaption', () => {
   test('altText prop works', () => {
-    const value = 'i am a test string'
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        altText: value,
-        image: 'http://placehold.it/768x512'
+        altText: altText,
+        image: image
       }
     })
     // check if altText prop works and was rendered correctly
     const div = wrapper.find('img')
-    expect(div.attributes('alt')).toBe(value)
+    expect(div.attributes('alt')).toBe(title)
   })
-})
 
-describe('ImageWithCaption', () => {
   test('caption prop works', () => {
-    const value = 'i am a test string'
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        caption: value,
-        image: 'http://placehold.it/768x512'
+        caption: caption,
+        image: image
       }
     })
     // check if caption prop works and was rendered correctly
     const div = wrapper.find('.image-with-caption-caption')
-    expect(div.text()).toContain(value)
+    expect(div.text()).toContain(caption)
   })
-})
 
-describe('ImageWithCaption', () => {
   test('credit prop works', () => {
-    const value = 'i am a test string'
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        credit: value,
-        image: 'http://placehold.it/768x512'
+        credit: credit,
+        image: image
       }
     })
     // check if credit prop works and was rendered correctly
     const div = wrapper.find('.image-with-caption-credit')
-    expect(div.text()).toContain(value)
+    expect(div.text()).toContain(credit)
   })
-})
 
-describe('ImageWithCaption', () => {
   test('creditUrl prop works', () => {
-    const value = 'http://www.google.com'
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        creditUrl: value,
-        credit: 'test credit',
-        image: 'http://placehold.it/768x512'
+        creditUrl: creditUrl,
+        credit: credit,
+        image: image
       }
     })
     // check if creditUrl prop works and was rendered correctly
     const div = wrapper.find('a')
-    expect(div.attributes('href')).toBe(value)
+    expect(div.attributes('href')).toBe(creditUrl)
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(ImageWithCaption, {
+      propsData: { image, title, altText, caption, credit, creditUrl }
+    })
+    const results = await axe(wrapper.element)
+    expect(results).toHaveNoViolations()
   })
 })

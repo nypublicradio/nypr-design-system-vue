@@ -1,6 +1,7 @@
 <template>
   <svg
     role="img"
+:aria-label="title"
     class="o-icon o-twitter-icon"
     viewBox="2 2 20 20"
     width="40"

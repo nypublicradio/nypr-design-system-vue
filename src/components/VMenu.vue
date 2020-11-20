@@ -17,18 +17,27 @@
         >
           <close-icon />
         </div>
-        <div class="menu-logo">
+        <div
+          v-if="hasLogoSlot"
+          class="menu-logo"
+        >
           <slot name="logo" />
+          <v-spacer size="triple" />
         </div>
-        <v-spacer size="triple" />
-        <div class="menu-button">
+        <div
+          v-if="hasButtonSlot"
+          class="menu-button"
+        >
           <slot name="button" />
+          <v-spacer size="triple" />
         </div>
-        <v-spacer size="triple" />
-        <div class="menu-primary-navigation">
+        <div
+          v-if="primaryNav"
+          class="menu-primary-navigation"
+        >
           <secondary-navigation :nav-items="primaryNav" />
+          <v-spacer size="triple" />
         </div>
-        <v-spacer size="triple" />
         <div
           v-if="hasComponentSlot"
           class="menu-component"
@@ -43,14 +52,20 @@
           <slot name="search" />
           <v-spacer size="triple" />
         </div>
-        <div class="menu-secondary-navigation">
+        <div
+          v-if="secondaryNav"
+          class="menu-secondary-navigation"
+        >
           <secondary-navigation :nav-items="secondaryNav" />
+          <v-spacer size="triple" />
         </div>
-        <v-spacer size="triple" />
-        <div class="menu-social">
+        <div
+          v-if="hasSocialSlot"
+          class="menu-social"
+        >
           <slot name="social" />
+          <v-spacer size="triple" />
         </div>
-        <v-spacer size="triple" />
         <div class="menu-nypr-logo">
           <nypr-logo />
         </div>
@@ -64,7 +79,6 @@
             href="https://www.wnyc.org/terms"
             target="_blank"
             rel="noopener"
-            name="termsSideMenu"
           >
             <strong>Terms of Use</strong>
           </a>
@@ -72,7 +86,6 @@
             href="https://www.wnyc.org/privacy"
             target="_blank"
             rel="noopener"
-            name="privacySideMenu"
           >
             <strong>Privacy Policy</strong>
           </a>
@@ -114,10 +127,19 @@ export default {
     }
   },
   computed: {
+    hasButtonSlot () {
+      return !!this.$slots.button
+    },
     hasComponentSlot () {
       return !!this.$slots.component
     },
+    hasLogoSlot () {
+      return !!this.$slots.logo
+    },
     hasSearchSlot () {
+      return !!this.$slots.search
+    },
+    hasSocialSlot () {
       return !!this.$slots.search
     }
   },
@@ -234,7 +256,6 @@ export default {
 .menu .menu-terms-links {
   @include typeface(body, 3);
   text-align: center;
-  text-transform: uppercase;
   text-transform: uppercase;
 }
 

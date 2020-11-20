@@ -1,6 +1,7 @@
 <template>
   <svg
     role="img"
+:aria-label="title"
     class="o-icon gothamist-logo-icon--stacked"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 57 60"

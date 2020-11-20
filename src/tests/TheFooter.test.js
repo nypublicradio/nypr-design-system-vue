@@ -1,11 +1,23 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount, shallowMount } from '@vue/test-utils'
 import TheFooter from '../components/TheFooter'
 import { describe, test, expect } from '@jest/globals'
 import AudioIcon from '../components/icons/AudioIcon'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
 
 describe('TheFooter', () => {
+  const slogan = 'slogan message'
+  const subheader1 = 'subheader1 message'
+  const subheader2 = 'subheader2 message'
+  const navItems = [
+    {
+      url: 'http://www.google.com',
+      text: 'Secondary Link 1'
+    }
+  ]
   test('slogan prop works', () => {
-    const slogan = 'new message'
     const wrapper = shallowMount(TheFooter, {
       propsData: {
         slogan: slogan
@@ -47,12 +59,6 @@ describe('TheFooter', () => {
   })
 
   test('primaryNav prop works', () => {
-    const navItems = [
-      {
-        url: 'http://www.google.com',
-        text: 'Secondary Link 1'
-      }
-    ]
     const wrapper = shallowMount(TheFooter, {
       propsData: {
         primaryNav: navItems
@@ -66,12 +72,6 @@ describe('TheFooter', () => {
   })
 
   test('secondaryNav prop works', () => {
-    const navItems = [
-      {
-        url: 'http://www.google.com',
-        text: 'Secondary Link 1'
-      }
-    ]
     const wrapper = shallowMount(TheFooter, {
       propsData: {
         secondaryNav: navItems
@@ -85,12 +85,6 @@ describe('TheFooter', () => {
   })
 
   test('tertiaryNav prop works', () => {
-    const navItems = [
-      {
-        url: 'http://www.google.com',
-        text: 'Secondary Link 1'
-      }
-    ]
     const wrapper = shallowMount(TheFooter, {
       propsData: {
         tertiaryNav: navItems
@@ -104,13 +98,6 @@ describe('TheFooter', () => {
   })
 
   test('subheader1 prop works', () => {
-    const subheader1 = 'new message'
-    const navItems = [
-      {
-        url: 'http://www.google.com',
-        text: 'Secondary Link 1'
-      }
-    ]
     const wrapper = shallowMount(TheFooter, {
       propsData: {
         subheader1: subheader1,
@@ -123,13 +110,6 @@ describe('TheFooter', () => {
   })
 
   test('subheader2 prop works', () => {
-    const subheader2 = 'new message'
-    const navItems = [
-      {
-        url: 'http://www.google.com',
-        text: 'Secondary Link 1'
-      }
-    ]
     const wrapper = shallowMount(TheFooter, {
       propsData: {
         subheader2: subheader2,
@@ -149,5 +129,13 @@ describe('TheFooter', () => {
     })
     // check if the component was successfully passed through the slot
     expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(TheFooter, {
+      propsData: { subheader1, subheader2, slogan }
+    })
+    const results = await axe(wrapper.element)
+    expect(results).toHaveNoViolations()
   })
 })
