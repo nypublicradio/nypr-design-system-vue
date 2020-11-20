@@ -10,12 +10,12 @@
       for="search"
       class="is-vishidden"
     >
-      Search this site
+      {{ placeholder }}
     </label>
     <input
       id="search"
       name="q"
-      placeholder="Search"
+      :placeholder="placeholder"
       class="search-input"
       type="search"
     >
@@ -39,6 +39,10 @@ export default {
     action: {
       type: String,
       default: null
+    },
+    placeholder: {
+      type: String,
+      default: 'Search'
     }
   }
 }

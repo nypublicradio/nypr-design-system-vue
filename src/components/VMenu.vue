@@ -22,50 +22,50 @@
           class="menu-logo"
         >
           <slot name="logo" />
-          <v-spacer size="triple" />
         </div>
         <div
           v-if="hasButtonSlot"
           class="menu-button"
         >
-          <slot name="button" />
           <v-spacer size="triple" />
+          <slot name="button" />
         </div>
         <div
           v-if="primaryNav"
           class="menu-primary-navigation"
         >
-          <secondary-navigation :nav-items="primaryNav" />
           <v-spacer size="triple" />
+          <secondary-navigation :nav-items="primaryNav" />
         </div>
         <div
           v-if="hasComponentSlot"
           class="menu-component"
         >
-          <slot name="component" />
           <v-spacer size="triple" />
+          <slot name="component" />
         </div>
         <div
           v-if="hasSearchSlot"
           class="menu-search"
         >
-          <slot name="search" />
           <v-spacer size="triple" />
+          <slot name="search" />
         </div>
         <div
           v-if="secondaryNav"
           class="menu-secondary-navigation"
         >
-          <secondary-navigation :nav-items="secondaryNav" />
           <v-spacer size="triple" />
+          <secondary-navigation :nav-items="secondaryNav" />
         </div>
         <div
           v-if="hasSocialSlot"
           class="menu-social"
         >
-          <slot name="social" />
           <v-spacer size="triple" />
+          <slot name="social" />
         </div>
+        <v-spacer size="triple" />
         <div class="menu-nypr-logo">
           <nypr-logo />
         </div>
