@@ -54,7 +54,6 @@ export default {
   .c-share-tools__label {
     flex-basis: 100%;
     margin: 0 0 2px 0;
-    text-align: center;
 
     + .c-share-tools__group > .c-share-tools__link:first-of-type {
       margin-left: -14px;
