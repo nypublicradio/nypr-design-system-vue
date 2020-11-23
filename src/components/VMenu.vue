@@ -241,6 +241,12 @@ export default {
 
 .menu .c-share-tools {
   justify-content: center;
+
+  @include media("<=large") {
+    .c-share-tools__label {
+      text-align: center;
+    }
+  }
 }
 
 .menu .menu-nypr-logo {
