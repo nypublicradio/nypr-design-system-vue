@@ -11,9 +11,10 @@
 
 .o-icon svg,
 .o-icon path,
+.o-icon polygon,
 .o-icon image,
 .o-icon rect {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 .o-text-with-icon {

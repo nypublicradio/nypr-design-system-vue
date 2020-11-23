@@ -1,7 +1,8 @@
 <template>
   <svg
     role="img"
-    class="o-embed-icon"
+    :aria-label="title"
+    class="o-icon o-embed-icon"
     viewBox="3 3 18 18"
     width="40"
     height="40"

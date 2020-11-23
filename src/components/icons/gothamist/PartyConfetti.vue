@@ -1,7 +1,8 @@
 <template>
   <svg
     role="img"
-    class="party-confetti-icon"
+    :aria-label="title"
+    class="o-icon party-confetti-icon"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 131.3 169.69"
   >

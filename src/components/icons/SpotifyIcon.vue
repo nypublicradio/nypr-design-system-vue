@@ -1,7 +1,8 @@
 <template>
   <svg
     role="img"
-    class="o-spotify-icon"
+    :aria-label="title"
+    class="o-icon o-spotify-icon"
     viewBox="2 2 19 19"
     width="40"
     height="40"

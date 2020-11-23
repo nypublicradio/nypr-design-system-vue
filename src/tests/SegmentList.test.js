@@ -1,6 +1,10 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
 import SegmentListItem from '../components/SegmentListItem'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
 
 // FYI
 // the SegmentList component is just an accordion
@@ -46,5 +50,13 @@ describe('SegmentListItem', () => {
     // check if newWindow prop works and was rendered correctly
     const div = wrapper.find('a')
     expect(div.attributes('target')).toBe('_blank')
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(SegmentListItem, {
+      propsData: { title, url, newWindow }
+    })
+    const results = await axe(wrapper.element)
+    expect(results).toHaveNoViolations()
   })
 })

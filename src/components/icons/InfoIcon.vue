@@ -1,12 +1,13 @@
 <template>
   <svg
     role="img"
+    :aria-label="title"
     width="29"
     height="29"
     viewBox="0 0 29 29"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    class="info-icon"
+    class="o-icon info-icon"
   >
     <title>{{ title }}</title>
     <g opacity="0.7">

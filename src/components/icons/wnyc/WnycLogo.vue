@@ -1,7 +1,8 @@
 <template>
   <svg
     role="img"
-    class="wnyc-logo-icon"
+    :aria-label="title"
+    class="o-icon wnyc-logo-icon"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="1 8 22 9"
   >

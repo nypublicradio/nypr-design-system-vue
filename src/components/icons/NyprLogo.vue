@@ -1,7 +1,8 @@
 <template>
   <svg
     role="img"
-    class="nypr-logo-icon"
+    :aria-label="title"
+    class="o-icon nypr-logo-icon"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 515.62 207.19"
   >

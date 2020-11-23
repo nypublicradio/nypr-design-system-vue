@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount, shallowMount } from '@vue/test-utils'
 import ShareToolsItem from '../components/ShareToolsItem'
 import FacebookIcon from '../components/icons/FacebookIcon'
 import InstagramIcon from '../components/icons/InstagramIcon'
@@ -7,11 +7,16 @@ import SpotifyIcon from '../components/icons/SpotifyIcon'
 import TwitterIcon from '../components/icons/TwitterIcon'
 import YoutubeIcon from '../components/icons/YoutubeIcon'
 import { describe, test, expect } from '@jest/globals'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
 
 describe('ShareToolsItem', () => {
+  const label = 'follow us'
+  const username = 'WNYC'
+  const service = 'facebook'
   test('username attribute works', () => {
-    const username = 'WNYC'
-    const service = 'facebook'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
         username: username,
@@ -23,7 +28,6 @@ describe('ShareToolsItem', () => {
   })
 
   test('label attribute works', () => {
-    const label = 'follow us'
     const service = 'facebook'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
@@ -110,5 +114,17 @@ describe('ShareToolsItem', () => {
     })
     // check if the corresponding component was successfully created
     expect(wrapper.findComponent(YoutubeIcon).exists()).toBe(true)
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(ShareToolsItem, {
+      propsData: {
+        username,
+        service,
+        label
+      }
+    })
+    const results = await axe(wrapper.element)
+    expect(results).toHaveNoViolations()
   })
 })

@@ -1,7 +1,11 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount, shallowMount } from '@vue/test-utils'
 import VAccordion from '../components/VAccordion'
 import AudioIcon from '../components/icons/AudioIcon'
 import { describe, test, expect } from '@jest/globals'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
 
 describe('VAccordion', () => {
   test('header slot works', () => {
@@ -31,5 +35,19 @@ describe('VAccordion', () => {
     // check if it was rendered correctly
     const div = wrapper.find('.accordion-header-active')
     expect(div.exists()).toBe(true)
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(VAccordion, {
+      slots: {
+        header: AudioIcon,
+        content: AudioIcon
+      },
+      propsData: {
+        shouldOpenOnLoad: true
+      }
+    })
+    const results = await axe(wrapper.element)
+    expect(results).toHaveNoViolations()
   })
 })

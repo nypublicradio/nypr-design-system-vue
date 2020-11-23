@@ -1,7 +1,8 @@
 <template>
   <svg
     role="img"
-    class="o-gothamist-arrow-icon"
+    :aria-label="title"
+    class="o-icon o-gothamist-arrow-icon"
     viewBox="4 4 16 16"
     width="40"
     height="40"

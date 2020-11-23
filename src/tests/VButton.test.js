@@ -1,11 +1,17 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount, shallowMount } from '@vue/test-utils'
 import VButton from '../components/VButton'
 import AudioIcon from '../components/icons/AudioIcon'
 import { describe, test, expect } from '@jest/globals'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
 
 describe('VButton', () => {
+  const label = 'new message'
+  const href = 'http://www.foo.com'
+  const disabled = true
   test('label prop works', () => {
-    const label = 'new message'
     const wrapper = shallowMount(VButton, {
       propsData: {
         label: label
@@ -19,7 +25,6 @@ describe('VButton', () => {
   })
 
   test('link attribute works', () => {
-    const href = 'http://www.foo.com'
     const wrapper = shallowMount(VButton, {
       attrs: {
         href: href
@@ -30,7 +35,6 @@ describe('VButton', () => {
   })
 
   test('disabled prop works', () => {
-    const disabled = true
     const wrapper = shallowMount(VButton, {
       propsData: {
         disabled: disabled
@@ -51,5 +55,17 @@ describe('VButton', () => {
     })
     // check if the component was successfully passed through the slot
     expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(VButton, {
+      propsData: {
+        label,
+        href,
+        disabled
+      }
+    })
+    const results = await axe(wrapper.element)
+    expect(results).toHaveNoViolations()
   })
 })

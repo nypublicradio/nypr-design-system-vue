@@ -26,7 +26,7 @@ export default {
     },
     label: {
       type: String,
-      default: 'click here'
+      default: null
     }
   }
 }

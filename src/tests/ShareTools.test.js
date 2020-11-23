@@ -2,10 +2,14 @@ import { mount, shallowMount } from '@vue/test-utils'
 import ShareTools from '../components/ShareTools'
 import AudioIcon from '../components/icons/AudioIcon'
 import { describe, test, expect } from '@jest/globals'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
 
 describe('ShareTools', () => {
+  const label = 'The Label'
   test('label prop works', () => {
-    const label = 'The Label'
     const wrapper = mount(ShareTools, {
       propsData: {
         label: label
@@ -26,5 +30,16 @@ describe('ShareTools', () => {
     })
     // check if the component was successfully passed through the slot
     expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(ShareTools, {
+      propsData: { label },
+      slots: {
+        default: AudioIcon
+      }
+    })
+    const results = await axe(wrapper.element)
+    expect(results).toHaveNoViolations()
   })
 })

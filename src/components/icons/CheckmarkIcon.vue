@@ -1,7 +1,8 @@
 <template>
   <svg
     role="img"
-    class="o-checkmark-icon"
+    :aria-label="title"
+    class="o-icon o-checkmark-icon"
     viewBox="5 5 14 14"
     width="40"
     height="40"
