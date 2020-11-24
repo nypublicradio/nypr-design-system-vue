@@ -1,4 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, Subtitle, ArgsTable } from '@storybook/addon-docs/blocks';
+import PersistentPlayer from '../../../src/components/PersistentPlayer'
+const component = PersistentPlayer;
 
 <Meta title="Components/Organisms/PersistentPlayer"/>
 
@@ -20,9 +22,8 @@ If the user is on a site with live stream audio, and has not started the live st
 ## What’s Inside
 
 <img alt="Persistent Player anatomy" src="/images/Organisms-PeristentPlayer-Diagram.png" width="1000" />
-  
- 
- 1- **Play/Pause Button** - Description of thing and any underlying logic within it.
+
+1- **Play/Pause Button** - Description of thing and any underlying logic within it.
 
 2- **Volume Control** - Description of thing and any underlying logic within it.
 
@@ -95,3 +96,189 @@ On WNYC Lab, the persistent player is used for live streaming a range of shows o
 
 ## Testing and Iterations
 Any updates/progress to this component can be listed out here. Maybe eventually this will be automated.
+
+## Component Properties
+
+<ArgsTable of={component} />
+
+## Configurations
+
+
+### Default
+
+<Canvas>
+    <Story name="Default">
+        {{
+            components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      title="The Takeaway"
+      station="WNYC 93.9 FM"
+      title-link="http://www.google.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+        }}
+    </Story>
+</Canvas>
+
+### Auto Play
+<Canvas>
+    <Story name="Auto Play">
+        {{
+            components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      auto-play
+      title="The Takeaway"
+      station="WNYC 93.9 FM"
+      title-link="http://www.google.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+        }}
+    </Story>
+</Canvas>
+
+### Livestream
+<Canvas>
+    <Story name="Livestream">
+        {{
+            components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      livestream
+      station="WNYC 93.9 FM"
+      image="images/Placeholder-Image-1_1.png"
+      title="The Takeaway"
+      title-link="http://www.google.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+        }}
+    </Story>
+</Canvas>
+
+### Livestream with CTA
+<Canvas>
+    <Story name="Livestream with CTA">
+        {{
+            components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      livestream
+      shouldShowCta
+      station="WNYC 93.9 FM"
+      image="images/Placeholder-Image-1_1.png"
+      title="The Takeaway"
+      title-link="http://www.google.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+        }}
+    </Story>
+</Canvas>
+
+### Livestream without Title
+<Canvas>
+    <Story name="Livestream without Title">
+        {{
+            components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      livestream
+      station="WNYC 93.9 FM"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+        }}
+    </Story>
+</Canvas>
+
+
+### Livestream without Description
+<Canvas>
+    <Story name="Livestream without Description">
+        {{
+            components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      livestream
+      station="WNYC 93.9 FM"
+      title="The Takeaway"
+      title-link="http://www.google.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+        }}
+    </Story>
+</Canvas>
+
+
+### Livestream without Station
+<Canvas>
+    <Story name="Livestream without Station">
+        {{
+            components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      livestream
+      title="The Takeaway"
+      title-link="http://www.google.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+        }}
+    </Story>
+</Canvas>
+
+
+### Livestream without Title Link
+<Canvas>
+    <Story name="Livestream without Title Link">
+        {{
+            components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      livestream
+      station="WNYC 93.9 FM"
+      title="The Takeaway"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      description-link="http://www.bing.com"
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+        }}
+    </Story>
+</Canvas>
+
+### Livestream without Description Link
+<Canvas>
+    <Story name="Livestream without Description Link">
+        {{
+            components: { PersistentPlayer },
+  template: `
+    <persistent-player
+      livestream
+      station="WNYC 93.9 FM"
+      title="The Takeaway"
+      title-link="http://www.google.com"
+      description="This week, people in Tulsa filed a lawsuit demanding reparations for victims and descendants of the Tulsa Race Massacre."
+      file="http://www.hochmuth.com/mp3/Haydn_Cello_Concerto_D-1.mp3"
+    />
+  `
+        }}
+    </Story>
+</Canvas>
