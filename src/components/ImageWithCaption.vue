@@ -136,6 +136,7 @@ export default {
   position: absolute;
   bottom: var(--space-2);
   right: var(--space-2);
+  z-index: 999;
 }
 
 .image-with-caption .info-icon,
@@ -154,7 +155,11 @@ export default {
 }
 
 .image-with-caption .o-close-icon path,
-.image-with-caption .info-icon {
+.image-with-caption .info-icon-i {
   fill: RGB(var(--color-white));
+}
+
+.image-with-caption .info-icon-bg {
+  fill: RGB(var(--color-dark-gray));
 }
 </style>
