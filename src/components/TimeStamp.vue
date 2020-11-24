@@ -9,30 +9,30 @@
 
 <script>
 export default {
-  name: "TimeStamp",
+  name: 'TimeStamp',
   props: {
     date1Label: {
       type: String,
-      default: null,
+      default: null
     },
     date1: {
       type: String,
-      default: null,
+      default: null
     },
     date2: {
       type: String,
-      default: null,
+      default: null
     },
     date2Label: {
       type: String,
-      default: null,
+      default: null
     },
     seperator: {
       type: String,
-      default: "•",
-    },
-  },
-};
+      default: '•'
+    }
+  }
+}
 </script>
 
 <style lang="scss">
