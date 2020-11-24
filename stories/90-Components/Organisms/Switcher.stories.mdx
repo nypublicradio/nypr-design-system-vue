@@ -93,3 +93,35 @@ If a switcher component is too long for the viewport width of a mobile device, t
 ## Testing and Iterations
 
 Any updates/progress to this component can be listed out here.
+
+## Configurations
+Although this configuration is not currently in use, the switcher has the ability to stack vertically.
+
+<Canvas>
+  <Story name="Vertical">
+    {{
+      components: {
+    StreamSwitcher,
+    StreamSwitcherCard
+  },
+  template: `
+    <stream-switcher orientation="vertical">
+      <stream-switcher-card
+        station="WNYC 93.9 FM"
+        title="BBC World Service"
+        :active="true"
+        :playing="true"
+      />
+      <stream-switcher-card
+        station="WNYC 93.9 FM"
+        title="The Takeaway"
+      />
+      <stream-switcher-card
+        station="WNYC 93.9 FM"
+        title="BBC World Service"
+      />
+    </stream-switcher>
+  `
+    }}
+  </Story>
+</Canvas>
