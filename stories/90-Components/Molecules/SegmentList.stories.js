@@ -113,7 +113,19 @@ export const MoreThan6 = () => ({
           url: 'http://www.google.com'
         }
       ],
-      segmentsToShow: 6
+      segmentsToShow: 3,
+      mobileSegments: 3,
+      desktopSegments: 6
+    }
+  },
+  mounted () {
+    if (window.innerWidth > 850) {
+      this.segmentsToShow = 6
+    }
+  },
+  methods: {
+    collapseSegments () {
+      window.innerWidth > 850 ? this.segmentsToShow = this.desktopSegments : this.segmentsToShow = this.mobileSegments
     }
   },
   template: `
@@ -133,7 +145,7 @@ export const MoreThan6 = () => ({
     <v-button
       v-else
       label="show less"
-      @click="segmentsToShow=6"
+      @click="collapseSegments"
       class="u-space--top"
     />
     </segment-list>
