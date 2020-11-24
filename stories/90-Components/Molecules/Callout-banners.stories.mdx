@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import CalloutBanner from '../../../src/components/CalloutBanner'
 
 <Meta title="Components/Molecules/Callout Banners" />
 
@@ -35,11 +36,19 @@ Description: Max-length of 5 lines of text (mobile)
 ### Brand Examples (Mobile & Desktop)
 
 #### Whitelabel
- <img alt="examples of a Whitelabel top callout banner" src="/images/Molecules-Organisms-CalloutBanner-WhitelabelTop.png" width="1000" />
-<br/>
+ <img
+    alt="examples of a Whitelabel top callout banner"
+    src="/images/Molecules-Organisms-CalloutBanner-WhitelabelTop.png"
+    width="1000"
+/>
+<br />
 
 #### Gothamist
-<img alt="examples of a Gothamist top callout banner" src="/images/Molecules-Organisms-CalloutBanner-GothamistTop.png" width="1000" />
+<img
+    alt="examples of a Gothamist top callout banner"
+    src="/images/Molecules-Organisms-CalloutBanner-GothamistTop.png"
+    width="1000"
+/>
 
 
 ## Product Marketing Banner (Persistent)
@@ -64,8 +73,35 @@ Description: Max-length of 5 lines of text (mobile)
 ### Brand Examples (Mobile & Desktop)
 
 #### Whitelabel
- <img alt="examples of a Whitelabel persistent callout banner" src="/images/Molecules-Organisms-CalloutBanner-WhitelabelPersistent.png" width="1000" />
-<br/>
+ <img
+    alt="examples of a Whitelabel persistent callout banner"
+    src="/images/Molecules-Organisms-CalloutBanner-WhitelabelPersistent.png"
+    width="1000"
+/>
+<br />
 
 #### Gothamist
-<img alt="examples of a Gothamist persistent callout banner" src="/images/Molecules-Organisms-CalloutBanner-GothamistPersistent.png" width="1000" />
+<img
+    alt="examples of a Gothamist persistent callout banner"
+    src="/images/Molecules-Organisms-CalloutBanner-GothamistPersistent.png"
+    width="1000"
+/>
+
+
+
+<Canvas>
+    <Story name="Base Icons">
+        {{
+            components: { CalloutBanner },
+            template: `<callout-banner>
+                        <template slot="message">
+                            <p>
+                                We use cookies to better understand how you use our website so that we can improve in our
+                                experience. By continuing to browse or closing this banner, you indicate your agreement. To learn
+                                more, please visit our <a href="http://www.google.com">Privacy Policy.</a>
+                            </p>
+                        </template>
+                    </callout-banner>`,
+        }}
+    </Story>
+</Canvas>
