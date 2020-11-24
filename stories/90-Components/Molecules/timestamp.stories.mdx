@@ -1,6 +1,8 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, Subtitle, ArgsTable } from '@storybook/addon-docs/blocks';
+import TimeStamp from '../../../src/components/TimeStamp'
+const component = TimeStamp;
 
-<Meta title="Components/Molecules/Timestamps" />
+<Meta title="Components/Molecules/Timestamp" component={component} />
 
 
 # Timestamp
@@ -13,6 +15,20 @@ Timestamp displays information related to the date or time. Current usage includ
 
 ## Fields
 This component includes optional description text, which can be used to help contextualize time in relation to a piece of content to the user. On a news story, publish date and updated date labels are examples of how this might be used. This descriptor text is flexible to be relevant to the organism/context it is used within.
+
+<Canvas>
+    <Story name="Default">
+        {{
+            components: {
+    TimeStamp
+  },
+  template: `
+    <div class="sbdocs-large-container sbdocs-container-margin">
+      <time-stamp date1="January 28, 2019 1:25PM" date2="February 1, 2019 10:08AM" date2Label="Updated:" />
+    </div>`
+        }}
+    </Story>
+</Canvas>
 
 **Publish Date** - Time when the content was originally published.
 
@@ -42,26 +58,71 @@ To reduce clutter and save horizontal space, certain timestamp fields display di
 
 **Months** are abbreviated to the following:
 
-Jan
+Jan, Feb, March, April, May, June, July, Aug, Sept, Oct, Nov, Dec
 
-Feb
+## Component Properties
 
-March
+<ArgsTable of={component} />
 
-April
+## Configurations
 
-May
+### Single Date
 
-June
+<Canvas>
+    <Story name="Single Date">
+        {{
+            components: {
+      TimeStamp
+    },
+    template: `
+      <div class="sbdocs-large-container sbdocs-container-margin">
+        <time-stamp date1="January 28, 2019 1:25PM" />
+      </div>`
+        }}
+    </Story>
+</Canvas>
 
-July
+### Custom Seperator
+<Canvas>
+    <Story name="Custom Seperator">
+        {{
+            components: {
+      TimeStamp
+    },
+    template: `
+      <div class="sbdocs-large-container sbdocs-container-margin">
+        <time-stamp date1="January 28, 2019 1:25PM" seperator="|" date2="February 1, 2019 10:08AM" />
+      </div>`
+        }}
+    </Story>
+</Canvas>
 
-Aug
+### No Labels
+<Canvas>
+    <Story name="No Labels">
+        {{
+            components: {
+      TimeStamp
+    },
+    template: `
+      <div class="sbdocs-large-container sbdocs-container-margin">
+        <time-stamp date1="January 28, 2019 1:25PM" date2="February 1, 2019 10:08AM" />
+      </div>`
+        }}
+    </Story>
+</Canvas>
 
-Sept
-
-Oct
-
-Nov
-
-Dec
+### Both Labels
+<Canvas>
+    <Story name="Both Labels">
+        {{
+            components: {
+      TimeStamp
+    },
+    template: `
+      <div class="sbdocs-large-container sbdocs-container-margin">
+        <time-stamp date1Label="Published:" date1="January 28, 2019 1:25PM" date2="February 1, 2019 10:08AM" date2Label="Updated:" />
+      </div>`
+        }}
+    </Story>
+</Canvas>
