@@ -82,6 +82,53 @@ Jan, Feb, March, April, May, June, July, Aug, Sept, Oct, Nov, Dec
     </Story>
 </Canvas>
 
+### No Year
+<Canvas>
+    <Story name="No Year">
+        {{
+            components: {
+      TimeStamp
+    },
+    template: `
+      <div class="sbdocs-large-container sbdocs-container-margin">
+        <time-stamp date1="January 28, 1:25PM" />
+      </div>`
+        }}
+    </Story>
+</Canvas>
+
+### Just Now
+<Canvas>
+    <Story name="Just Now">
+        {{
+            components: {
+      TimeStamp
+    },
+    template: `
+      <div class="sbdocs-large-container sbdocs-container-margin">
+        <time-stamp date1Label="Published:" date1="January 28, 2019 1:25PM" date2Label="Updated:" date2="Just Now" />
+      </div>`
+      }}
+    </Story>
+</Canvas>
+
+
+### Time Ago 
+<Canvas>
+    <Story name="Time Ago">
+        {{
+            components: {
+      TimeStamp
+    },
+    template: `
+      <div class="sbdocs-large-container sbdocs-container-margin">
+        <time-stamp date1Label="Published:" date1="5 hours ago" />
+      </div>`
+      }}
+    </Story>
+</Canvas>
+
+
 ### Custom Seperator
 <Canvas>
     <Story name="Custom Seperator">
