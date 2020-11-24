@@ -3,18 +3,18 @@ const path = require('path');
 module.exports = {
   stories: ['../stories/**/*.stories.@(js|mdx)'],
   addons: [
-    "@storybook/addon-essentials",
-    '@storybook/addon-actions',
-    '@storybook/addon-links',
-    '@storybook/addon-viewport/register',
-    '@storybook/addon-a11y/register',
-    '@panosvoudouris/addon-versions/register',
     {
       name: '@storybook/addon-docs',
       options: {
         configureJSX: true,
       }
-    }
+    },
+    "@storybook/addon-essentials",
+    '@storybook/addon-actions',
+    '@storybook/addon-links',
+    '@storybook/addon-viewport/register',
+    '@storybook/addon-a11y/register',
+    '@panosvoudouris/addon-versions/register'
   ],
   webpackFinal: async (config, {configType}) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
