@@ -4,7 +4,6 @@
       <a
         v-if="titleLink"
         :href="titleLink"
-        class="main-player-title-link"
         target="_blank"
         rel="noopener"
       >
@@ -12,6 +11,8 @@
           :src="image"
           :alt="title"
           class="on-air-image"
+          width="850"
+          height="850"
         >
       </a>
       <img
@@ -30,7 +31,6 @@
       >
         <a
           :href="titleLink"
-          class="main-player-title-link"
           target="_blank"
           rel="noopener"
         >

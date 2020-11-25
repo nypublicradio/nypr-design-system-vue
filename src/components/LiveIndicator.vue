@@ -57,6 +57,7 @@ export default {
 }
 
 .pulse {
+  will-change: transform;
   animation: pulse-animation 2s infinite;
 }
 

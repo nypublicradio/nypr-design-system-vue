@@ -6,6 +6,8 @@
           v-if="image"
           :src="image"
           :alt="altText"
+          :width="width"
+          :height="height"
         >
         <div
           v-if="caption"
@@ -77,7 +79,15 @@ export default {
       default: null,
       type: String
     },
+    height: {
+      default: null,
+      type: String
+    },
     image: {
+      default: null,
+      type: String
+    },
+    width: {
       default: null,
       type: String
     }

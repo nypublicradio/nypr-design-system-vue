@@ -14,7 +14,7 @@ main {
 a {
   padding-bottom: var(--space-1);
   border-bottom: solid 2px RGB(var(--color-white));
-  transition: var(--animation-duration-standard);
+  transition: opacity var(--animation-duration-standard);
 }
 
 h1, h2, h3, h4, h5 {
@@ -119,6 +119,10 @@ h1, h2, h3, h4, h5 {
 .c-main-header a:hover svg {
   opacity: var(--opacity-hover);
   fill: RGB(var(--color-white));
+}
+
+.c-main-header__branding a {
+  border: none;
 }
 
 // header nav

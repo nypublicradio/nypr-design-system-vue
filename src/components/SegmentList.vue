@@ -5,9 +5,9 @@
       closed-on-mobile
     >
       <template v-slot:header>
-        <h4 class="segment-list-title">
+        <h3 class="segment-list-title">
           Segments
-        </h4>
+        </h3>
       </template>
       <template v-slot:content>
         <slot />
