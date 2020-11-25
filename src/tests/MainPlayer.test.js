@@ -47,7 +47,7 @@ describe('MainPlayer', () => {
       }
     })
     // check if titleLink prop works and was rendered correctly
-    const div = wrapper.find('.main-player-title-link')
+    const div = wrapper.find('.main-player-title a')
     expect(div.attributes('href')).toBe(titleLink)
   })
 
@@ -89,7 +89,14 @@ describe('MainPlayer', () => {
 
   test('it passes basic accessibility tests', async () => {
     const wrapper = mount(MainPlayer, {
-      propsData: { image, titleLink, title, detailsLink, details, time }
+      propsData: {
+        image,
+        titleLink,
+        title,
+        detailsLink,
+        details,
+        time
+      }
     })
     const results = await axe(wrapper.element)
     expect(results).toHaveNoViolations()

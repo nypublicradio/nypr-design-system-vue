@@ -5,6 +5,8 @@
       class="track-info-image"
       :src="image"
       alt=""
+      width="80"
+      height="80"
     >
     <div class="track-info-details">
       <div

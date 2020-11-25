@@ -12,10 +12,8 @@
         <a
           v-if="item.url"
           :href="item.url"
-          class="c-secondary-nav__link u-font--secondary-style u-font--xs"
           target="_blank"
           rel="noopener"
-          :data-test-seconary-nav-link="index"
         >
           {{ item.text }}
         </a>

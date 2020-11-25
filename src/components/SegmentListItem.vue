@@ -4,6 +4,7 @@
     :href="url"
     :target="newWindow && '_blank'"
     class="segment-list-item"
+    rel="noopener"
   >
     <div class="segment-list-item-title">
       {{ title }}
