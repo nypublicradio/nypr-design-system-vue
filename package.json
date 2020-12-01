@@ -15,7 +15,7 @@
     "build:rollup": "rollup -c --environment BUILD:production",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006 -s dist,stories/assets",
-    "build-storybook": "build-storybook -s storybook-static,stories/assets",
+    "build-storybook": "build-storybook -s dist,stories/assets",
     "test": "jest"
   },
   "dependencies": {
