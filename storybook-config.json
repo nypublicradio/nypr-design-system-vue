@@ -1,0 +1,13 @@
+
+{
+  "storybook": {
+    "versions": {
+      "availableVersions": [
+        "latest"
+      ],
+      "hostname": "storybook.nypr.digital",
+      "localhost": "storybook.nypr.digital",
+      "regex": "\/(.*)\/index[.]html$"
+    }
+  }
+}
