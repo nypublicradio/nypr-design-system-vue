@@ -1,24 +1,83 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
+
 jobs:
+
   build:
     executor:
       name: node/default
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "53:e9:1a:71:cf:11:fd:ac:21:d2:b9:fb:dd:33:0d:b9"
-      - run: git reset --hard
-      - run: git pull
       - node/with-cache:
           steps:
             - run: npm rebuild node-sass
             - run: npm install
             - run: npm run build-storybook
-      - run: scp -r -o StrictHostKeyChecking=no storybook-static/* root@198.211.112.212:/var/www/nypr-design-system-vue/storybook-static/
+
+
+  build-storybook:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - run:
+                name: Build Storybook
+                command: |
+                  [[ $CIRCLE_BRANCH = "main" ]] && RELEASE="latest" || { [[ -n $CIRCLE_BRANCH ]] && RELEASE=$CIRCLE_BRANCH || RELEASE=$CIRCLE_TAG; }
+                  npm run build-storybook -- -o storybook-static/$RELEASE
+                  cp index.html storybook-config.json storybook-static/
+            - persist_to_workspace:
+                root: .
+                paths:
+                  - storybook-static
+
+  deploy-storybook-to-s3:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - attach_workspace:
+                at: .
+            - run:
+                name: Disable jekyll builds
+                command: touch storybook-static/.nojekyll
+            - run:
+                name: Install AWSCLI
+                command: |
+                  sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+                  sudo unzip awscliv2.zip
+                  sudo ./aws/install
+                  aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+                  aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+                  aws configure set default.region $AWS_DEFAULT_REGION
+            - run:
+                name: Deploy docs to aws s3
+                command: |
+                  [[ $CIRCLE_BRANCH = "main" ]] && RELEASE="latest" || { [[ -n $CIRCLE_BRANCH ]] && RELEASE=$CIRCLE_BRANCH || RELEASE=$CIRCLE_TAG; }
+                  yarn storybook-to-aws-s3 --bucket-path=$S3_BUCKET/$RELEASE -e=./storybook-static/$RELEASE
+                  aws s3 cp storybook-static/index.html s3://$S3_BUCKET
+                  aws s3 cp storybook-static/storybook-config.json s3://$S3_BUCKET
+                  AWS_PAGER="" aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/index.html" "/storybook-config.json" "/$RELEASE/*"
+
 workflows:
-  build:
+  deploy-storybook-to-s3:
     jobs:
-      - build
+      - build:
+          filters:
+            tags:
+              only: /^v[0-9]+\.[0-9]+\.[0-9]+/
+            branches:
+              only:
+                - main
+                - /qa\/.*/
+      - build-storybook:
+          requires:
+            - build
+      - deploy-storybook-to-s3:
+          requires:
+            - build-storybook
