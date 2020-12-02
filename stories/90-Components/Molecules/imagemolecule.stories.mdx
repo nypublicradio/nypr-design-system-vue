@@ -1,29 +1,28 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import ImageWithCaption from '../../../src/components/ImageWithCaption';
 
-<Meta title="Components/Molecules/Image Molecules" />
+<Meta title="Components/Molecules/Image Molecule" />
 
-# Image Molecules
+# Image Molecule
 
-An image molecule is a larger repurposable component made up of an image atom and its metadata.
+Our image molecule is a wrapper for images used in an editorial context, it allows images to have credit text, a caption, and other available metadata.
+
+## Use Cases
+
+-   Displaying photos that need credit shown
+    
+-   Displaying photos that have a caption
+    
+-   Lead images in articles (ex: Gothamist)
+    
+-   In-article images
+    
+-   Gallery Images
+
+-  **Don't** use the image molecule if you *just* need an image, use the image atom instead.
 
 
-## Overview
-
-Image molecules hold image-related information
-
-
-## Anatomy
-
-Radial allows for flexible image functionality with elements that can be switched on or off to best fit our users needs.
-
-
-
-
-
-
-
-## Usage
+## What’s Inside
 
 <Canvas>
     <Story name="Image With Caption, Credit and Credit Link">
@@ -32,7 +31,8 @@ Radial allows for flexible image functionality with elements that can be switche
             template: `
               <image-with-caption
                 alt-text="image alt text"
-                image="http://placehold.it/768x512"
+                image="https://picsum.photos/id/1025/585/378
+"
                 caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elitlorem ipsum dolor sit amet, consectetur adipiscing elit"
                 credit="( AP Photo/Carolyn Kaster )"
                 credit-url="http:///www.google.com"
@@ -40,6 +40,45 @@ Radial allows for flexible image functionality with elements that can be switche
         }}
     </Story>
 </Canvas>
+
+ 1- **Expand Button** - This icon button should launch a modal of a larger version of the image when clicked. This is an optional feature.
+ 
+ 2- **Caption** - This line of text should describe the picture it’s attached to. Aim to keep the length about the same as a tweet (140 characters). This is optional.
+
+3- **Credit** - The credit line or photo credit identifies the photographer, illustrator, or copyright holder for images in a publication or on a website. These are typically formatted like [artist name] via [publication or source]. This is optional and has flexibility to be optionally hyperlinked. If used, it should always be exposed and not be hidden under the icon button.
+
+4- **Image Atom** - Cropped to set ratio, default 4:3.
+
+
+
+## Image Ratios
+The image size inside this component comes with an adjustable ratio variable, set at 4:3 by default. Images used inside the component that are not 4:3 will be cropped to fit.
+
+
+
+## States 
+
+The WNYC variant of this component has 2 states, both related to the caption.
+
+### Caption Hidden
+In this state, the caption is hidden. Notice the icon button in the lower right using an info icon.
+
+<img alt="text" src="/images/Molecules-ImageMolcule-CaptionHidden.png" width="400" />
+
+### Caption Visable 
+Clicking the icon button should change the inside icon from an info icon to a close icon while the caption fades from hidden to visible.
+<img alt="text" src="/images/Molecules-ImageMolcule-CaptionVisable.png" width="400" />
+
+
+## Variants
+
+### WNYC
+Features a show/hide caption option.
+<img alt="text" src="/images/Molecules-ImageMolcule-CaptionHidden.png" width="500" />
+
+### Gothamist
+Features a custom icon left aligned to the caption.
+<img alt="text" src="/images/Molecules-ImageMolcule-Gothamist.png" width="500" />
 
 <Canvas>
     <Story name="Image With Credit and Credit Link">
@@ -70,20 +109,6 @@ Radial allows for flexible image functionality with elements that can be switche
         }}
     </Story>
 </Canvas>
-
-## Sizing & Grids
-
-
-
-
-
-
-
-
-
-
-
-## Accessibility
 
 
 
