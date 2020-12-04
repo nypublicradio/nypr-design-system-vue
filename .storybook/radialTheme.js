@@ -33,5 +33,5 @@ export default create({
 
   brandTitle: 'Radial Design System',
   brandUrl: 'https://nypr-design-system.nypr.digital/',
-  brandImage: '/images/radial_logo.svg',
+  brandImage: './images/radial_logo.svg',
 });
