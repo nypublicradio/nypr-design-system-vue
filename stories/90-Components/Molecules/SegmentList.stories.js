@@ -27,18 +27,6 @@ export const LessThan6 = () => ({
           title: 'Item number 3 opening in a new tab',
           url: 'http://www.google.com',
           newWindow: true
-        },
-        {
-          title: 'Item number 4',
-          url: 'http://www.google.com'
-        },
-        {
-          title: 'Item number 5',
-          url: 'http://www.google.com'
-        },
-        {
-          title: 'Item number 6',
-          url: 'http://www.google.com'
         }
       ],
       segmentsToShow: 6
@@ -135,6 +123,7 @@ export const MoreThan6 = () => ({
       :key="index"
       :title="segment.title"
       :url="segment.url"
+      :new-window="segment.newWindow"
     />
     <v-button
       v-if="segments.length > segmentsToShow"
