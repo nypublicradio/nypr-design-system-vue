@@ -343,6 +343,31 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+.card.person-card {
+  display: inline-flex;
+  width: 200px;
+  max-width: 200px;
+  @include media(">medium") {
+    width: 280px;
+  }
+}
+
+.person-card .card-title {
+  font-size: var(--font-size-6);
+}
+
+.person-card .card-subtitle {
+  font-size: var(--font-size-3);
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.person-card .card-image-link,
+.person-card .card-title-link {
+  text-decoration: none;
+  border: none;
+}
+
 .main-player .button .button-label {
   color: RGB(var(--color-white));
   text-transform: uppercase;

@@ -52,10 +52,11 @@ export default {
 </script>
 
 <style lang="scss">
-.person-card {
+
+.card.person-card {
   --card-image-width: 112px;
   --card-image-height: 112px;
-  width: 200px;
+  width: 160px;
   flex-direction: column;
   text-align: center;
   align-items: center;
@@ -73,11 +74,16 @@ export default {
 }
 
   .person-card .card-image {
+    display: inline-block;
     border-radius: 50%;
+    @include media(">medium") {
+      display: block;
+    }
   }
 
   .person-card .card-details {
     align-self: center;
+    padding: 8px 16px;
   }
 
     .person-card .card-details > *:not(:last-child) {
@@ -105,6 +111,7 @@ export default {
   }
 
   .person-card.mod-horizontal-mobile {
+    display: block;
     width: auto;
     flex-direction: row;
     text-align: left;
@@ -112,6 +119,7 @@ export default {
 
   .person-card.mod-vertical-desktop {
     @include media(">medium") {
+      display: inline-block;
       width: 200px;
       flex-direction: column;
       text-align: center;
