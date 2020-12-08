@@ -291,6 +291,7 @@ h1, h2, h3, h4, h5 {
 .main-player {
   @extend .wnyc-card-styles;
   margin: auto;
+  position: relative;
 }
 
 .main-player-details-link {
@@ -302,7 +303,7 @@ h1, h2, h3, h4, h5 {
 .main-player .on-air-image {
   max-width: 204px;
   max-height: 204px;
-  margin: 16px auto 24px auto;
+  margin: 64px auto 24px auto;
   @include media('>=medium') {
     max-width: 240px;
     max-height: 240px;
@@ -316,7 +317,21 @@ h1, h2, h3, h4, h5 {
 }
 
 .main-player .live-indicator {
+  position: absolute;
+  margin: 0;
+  top: 24px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   color: RGB(var(--color-text));
+  @include media('>=medium') {
+    position: static;
+    margin: 0 0 16px 24px;
+    top: auto;
+    left: auto;
+    -webkit-transform: none;
+    transform: none;  
+  }
 }
 
 .main-player .main-player-title {
