@@ -299,6 +299,17 @@ h1, h2, h3, h4, h5 {
   padding: 0;
 }
 
+.main-player .on-air-image {
+  max-width: 204px;
+  max-height: 204px;
+  margin: 16px auto 24px auto;
+  @include media('>=medium') {
+    max-width: 240px;
+    max-height: 240px;
+    margin: 45px 16px 45px 40px;
+  }
+}
+
 .main-player .live-indicator .whats-on-live-indicator-text {
   font-size: var(--font-size-4);
   font-weight: 700;
