@@ -320,6 +320,7 @@ h1, h2, h3, h4, h5 {
   left: 50%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+  white-space: nowrap;
   color: RGB(var(--color-text));
   @include media('>=medium') {
     position: static;
