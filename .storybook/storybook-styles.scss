@@ -18,6 +18,39 @@
     margin: 0;
 }
 
+.intro-box {
+    width: 100%;
+    max-width: 926px;
+    border-radius:5px;
+    padding:24px;
+    margin:16px;
+    box-shadow: 2px 2px 10px grey;
+}
+
+.intro-spacer {
+    height: 54px;
+}
+
+.intro-header {
+    margin: 20px 0 8px;
+    padding: 0;
+    cursor: text;
+    position: relative;
+    color: #333333;
+    font-size: 24px !important;
+    padding-bottom: 4px;
+}
+
+.intro-icon {
+    float: right;
+}
+
+.intro-linkroll {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    max-width: 680px;
+}
+
 .colors > div {
     height: 100px;
     width: 250px;
