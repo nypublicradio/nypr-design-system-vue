@@ -108,6 +108,15 @@
           >
             Privacy Policy
           </a>
+          <a
+            href="https://media.wnyc.org/media/resources/2020/Oct/30/accessibility_policy_10.30.20.pdf"
+            class="u-font--secondary-style u-font--xs"
+            target="_blank"
+            rel="noopener"
+            name="accessibilityFooter"
+          >
+            Accessibility
+          </a>
         </div>
       </div>
     </div>
