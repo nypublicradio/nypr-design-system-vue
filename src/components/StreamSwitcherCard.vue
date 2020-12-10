@@ -17,7 +17,6 @@
       v-if="active"
       class="stream-switcher-card-up-next"
     >
-      up next
     </div>
     <div
       v-else
@@ -29,7 +28,6 @@
       v-if="active"
       class="stream-switcher-card-title"
     >
-      {{ upNextTitle }}
     </div>
     <div
       v-else
@@ -110,7 +108,7 @@ export default {
     z-index: 10;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-top: 15px solid RGB(var(--color-text-inverse));
+    border-top: 15px solid #1E2F39;
     opacity: 0;
     -webkit-transition: opacity var(--animation-duration-slow) var(--animation-easing-incoming) 50ms;
     -moz-transition: opacity var(--animation-duration-slow) var(--animation-easing-incoming) 50ms;
@@ -124,19 +122,36 @@ export default {
   }
 
   &.is-active {
-    background-color: RGBA(var(--color-text-inverse), 1);
-    color: RGB(var(--color-text));
+    background: linear-gradient(180deg, #354155 0%, #1E2F39 100%);
+    color: RGB(var(--color-white));
+    border: #191716;
 
     &::after {
       opacity: 1;
     }
+      @include media(">xlarge") {
+        @include typeface(body, 5);
+        padding: var(--space-2) var(--space-3);
+        height: 50px;
+        max-width: 210px;
+        min-width: 210px;
+        flex-wrap: nowrap;
+      }
+    }
   }
-}
 
 .stream-switcher-card .stream-switcher-card-animation {
   flex-basis: 25px;
   height: 25px;
   margin: 0 var(--space-3) 0 0;
+  path {
+    fill: RGB(var(--color-white));
+
+  }
+    @include media(">small") {
+    flex-basis: 33px;
+    order: 2;
+  }
 }
 
 .stream-switcher-card .stream-switcher-card-station {
