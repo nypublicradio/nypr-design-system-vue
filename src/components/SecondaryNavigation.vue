@@ -16,6 +16,7 @@
           rel="noopener"
         >
           {{ item.text }}
+          <span class="is-vishidden">(New tab)</span>
         </a>
         <router-link
           v-else

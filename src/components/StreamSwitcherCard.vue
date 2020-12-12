@@ -16,8 +16,7 @@
     <div
       v-if="active"
       class="stream-switcher-card-up-next"
-    >
-    </div>
+    />
     <div
       v-else
       class="stream-switcher-card-up-next"
@@ -27,8 +26,7 @@
     <div
       v-if="active"
       class="stream-switcher-card-title"
-    >
-    </div>
+    />
     <div
       v-else
       class="stream-switcher-card-title"
