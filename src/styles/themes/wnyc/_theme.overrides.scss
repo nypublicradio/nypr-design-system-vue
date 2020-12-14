@@ -131,12 +131,9 @@ h1, h2, h3, h4, h5 {
   padding-left: var(--space-5);
 }
 
-.c-primary-nav--top .c-secondary-nav__item {
+.c-main-header .c-secondary-nav__item {
   padding: 0;
   @include typeface(body, 6);
-}
-
-.c-primary-nav__link .c-primary-nav-link__text {
   font-weight: 700;
 }
 
