@@ -33,7 +33,7 @@ describe('SecondaryNavigation', () => {
     })
     // check if prop was passed correctly
     const div = wrapper.find('.c-secondary-nav__item a')
-    expect(div.text()).toBe(navItems[0].text)
+    expect(div.text()).toContain(navItems[0].text)
     expect(div.attributes('href')).toContain(navItems[0].url)
   })
 
