@@ -131,9 +131,6 @@ $z-index-header: 5000;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  @include media("<medium"){
-     display: none;
-  }
 }
 
 .c-main-header__left {
