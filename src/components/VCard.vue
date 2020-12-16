@@ -14,6 +14,8 @@
           class="card-image"
           :src="image"
           :alt="title"
+          :width="imageWidth"
+          :height="imageHeight"
           role="presentation"
         >
       </a>
@@ -77,6 +79,14 @@ export default {
   props: {
     image: {
       type: String,
+      default: null
+    },
+    imageHeight: {
+      type: Number,
+      default: null
+    },
+    imageWidth: {
+      type: Number,
       default: null
     },
     alt: {
