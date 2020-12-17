@@ -498,10 +498,7 @@ h1, h2, h3, h4, h5 {
 
 // stream switcher
 .stream-switcher {
-  padding-left: var(--space-4);
-  @include media(">xlarge") {
-    padding-left: 0;
-  }
+  padding-left: 0;
 }
 
 .stream-switcher-card {

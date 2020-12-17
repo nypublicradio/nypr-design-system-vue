@@ -85,7 +85,8 @@ export default {
   transition: var(--animation-duration-slow) var(--animation-easing-incoming);
   background-color: transparent;
   color: RGB(var(--color-text-inverse));
-
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   @include media(">xlarge") {
     @include typeface(body, 5);
     padding: var(--space-2) var(--space-3);
@@ -142,13 +143,13 @@ export default {
   flex-basis: 25px;
   height: 25px;
   margin: 0 var(--space-3) 0 0;
+  order: 0;
   path {
     fill: RGB(var(--color-white));
-
   }
-    @include media(">small") {
+    @include media(">xsmall") {
+    order: 1;
     flex-basis: 33px;
-    order: 2;
   }
 }
 
