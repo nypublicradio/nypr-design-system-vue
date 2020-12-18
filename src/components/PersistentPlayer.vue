@@ -102,6 +102,10 @@ export default {
       type: String,
       default: null
     },
+    file: {
+      type: String,
+      default: null
+    },
     livestream: {
       type: Boolean,
       default: false
