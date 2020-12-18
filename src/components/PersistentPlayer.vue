@@ -1,7 +1,6 @@
 <template>
   <div
     class="persistent-player u-color-group-dark"
-    :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded, 'is-initial': !hasPlayed}"
   >
     <div class="player-controls">
       <TrackInfo
@@ -17,7 +16,7 @@
         :duration-seconds="durationSeconds"
         @seek="seek"
       />
-      <template v-if="shouldShowCta && !hasPlayed">
+      <template v-if="shouldShowCta">
         <VolumeControl v-model.number="volume" />
         <button
           class="button player-cta-play-button"
@@ -37,14 +36,14 @@
         >
           <back15 />
         </a>
-        <a
+        <v-button
           class="play-button"
-          :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded, 'is-initial': !hasPlayed}"
-          :aria-label="playing ? 'pause' : 'play'"
+          label="Listen Live"
           @click="togglePlay"
         >
-          <play-icon />
-        </a>
+          <pause-icon v-if="isPlaying" />
+          <play-simple v-else />
+        </v-button>
         <a
           v-if="showSkip && !livestream"
           class="player-ahead-15-icon"
@@ -65,19 +64,13 @@
         <download-icon />
       </a>
     </div>
-    <audio
-      ref="audioFile"
-      :loop="innerLoop"
-      :src="file"
-      preload="auto"
-      style="display: none"
-    />
   </div>
 </template>
 
 <script>
-import PlayIcon from './icons/PlayIcon'
+import VButton from './VButton'
 import PlaySimple from './icons/PlaySimple'
+import PauseIcon from './icons/wqxr/PauseIcon'
 import Back15 from './icons/Back15'
 import Ahead15 from './icons/Ahead15'
 import DownloadIcon from './icons/DownloadIcon'
@@ -87,13 +80,14 @@ import TrackInfo from './TrackInfo'
 export default {
   name: 'PersistentPlayer',
   components: {
-    PlayIcon,
     PlaySimple,
     Back15,
     Ahead15,
     VolumeControl,
     DownloadIcon,
-    TrackInfo
+    TrackInfo,
+    VButton,
+    PauseIcon
   },
   props: {
     autoPlay: {
@@ -108,15 +102,15 @@ export default {
       type: String,
       default: null
     },
-    file: {
-      type: String,
-      default: null
-    },
     livestream: {
       type: Boolean,
       default: false
     },
     loop: {
+      type: Boolean,
+      default: false
+    },
+    isLoading: {
       type: Boolean,
       default: false
     },
@@ -159,30 +153,22 @@ export default {
   },
   data () {
     return {
-      audio: undefined,
       currentSeconds: 0,
       durationSeconds: 0,
       buffered: 0,
       innerLoop: false,
-      playing: this.isPlaying,
       loaded: false,
-      hasPlayed: false,
       previousVolume: 35,
       showVolume: false,
       volume: 100
     }
   },
   watch: {
-    isPlaying (value) {
-      if (value) {
-        this.audio.play()
-        return
-      }
-      this.audio.pause()
-    },
+    /*
     volume () {
       this.audio.volume = this.volume / 100
     }
+    */
   },
   mounted () {
     this.innerLoop = this.loop
@@ -209,16 +195,6 @@ export default {
           break
       }
     })
-    this.audio = this.$refs.audioFile
-    this.audio.addEventListener('timeupdate', this.update)
-    this.audio.addEventListener('loadeddata', this.load)
-    this.audio.addEventListener('buffered', this.update)
-    this.audio.addEventListener('pause', () => {
-      this.playing = false
-    })
-    this.audio.addEventListener('play', () => {
-      this.playing = true
-    })
   },
   methods: {
     convertTime (val) {
@@ -226,45 +202,26 @@ export default {
       return hhmmss.indexOf('00:') === 0 ? hhmmss.substr(3) : hhmmss
     },
     download () {
-      this.stop()
+      // this.stop() // emit event so vue-hifi can handle
       window.open(this.file, 'download')
     },
     goAhead15 () {
-      this.audio.currentTime = this.audio.currentTime + 15
+      // emit event so vue-hifi can handle
+      // this.audio.currentTime = this.audio.currentTime + 15
     },
     goBack15 () {
-      this.audio.currentTime = this.audio.currentTime - 15
-    },
-    load () {
-      if (this.audio.readyState >= 2) {
-        this.loaded = true
-        this.durationSeconds = parseInt(this.audio.duration)
-        this.playing = this.autoPlay
-        return this.playing
-      }
-      throw new Error('Failed to load sound file.')
+      // emit event so vue-hifi can handle
+      // this.audio.currentTime = this.audio.currentTime - 15
     },
     seek (e) {
-      if (!this.loaded) return
-      const el = e.target.getBoundingClientRect()
-      const seekPos = (e.clientX - el.left) / el.width
-      this.audio.currentTime = (this.audio.duration * seekPos)
-    },
-    stop () {
-      this.playing = false
-      this.audio.currentTime = 0
+      // emit event so vue-hifi can handle
+      // if (!this.loaded) return
+      // const el = e.target.getBoundingClientRect()
+      // const seekPos = (e.clientX - el.left) / el.width
+      // this.audio.currentTime = (this.audio.duration * seekPos)
     },
     togglePlay () {
-      this.playing = !this.playing
       this.$emit('togglePlay')
-      this.hasPlayed = true
-    },
-    update () {
-      this.currentSeconds = this.audio.currentTime
-      this.buffered = 0
-      if (this.audio.buffered.length > 0) {
-        this.buffered = this.audio.buffered.end(0)
-      }
     }
   }
 }

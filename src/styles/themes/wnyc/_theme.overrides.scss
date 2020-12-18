@@ -358,7 +358,8 @@ h1, h2, h3, h4, h5 {
   border-radius: 3px;
 }
 
-.main-player .button {
+.main-player .button,
+.persistent-player .play-button {
   width: fit-content;
   padding: 0 37px;
   height: 51px;
@@ -408,7 +409,8 @@ h1, h2, h3, h4, h5 {
   border: none;
 }
 
-.main-player .button .button-label {
+.main-player .button .button-label,
+.persistent-player .play-button .button-label {
   color: RGB(var(--color-white));
   text-transform: uppercase;
   font-size: var(--font-size-7);
