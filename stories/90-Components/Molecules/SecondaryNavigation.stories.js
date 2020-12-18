@@ -12,7 +12,8 @@ export const Vertical = () => ({
       <secondary-navigation :nav-items="[
         {
           url: 'http://www.google.com',
-          text: 'Secondary Link 1',
+          text: 'Secondary Link 1 in a New Window!',
+          newWindow: true
         },
         {
           url: 'http://www.google.com',
@@ -34,7 +35,8 @@ export const Horizontal = () => ({
       <secondary-navigation orientation="horizontal" :nav-items="[
         {
           url: 'http://www.google.com',
-          text: 'Secondary Link 1',
+          text: 'Secondary Link 1 in a New Window',
+          newWindow: true
         },
         {
           url: 'http://www.google.com',
@@ -42,7 +44,7 @@ export const Horizontal = () => ({
         },
         {
           url: 'http://www.google.com',
-          text: 'Secondary Link 3',
+          text: 'Secondary Link 3'
         }
       ]" />
     </div>
