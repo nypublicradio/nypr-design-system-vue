@@ -6,6 +6,12 @@
     >
       <div class="c-main-header__left">
         <div
+          class="c-menu-toggle"
+          name="side-menu"
+        >
+          <slot name="menu" />
+        </div>
+        <div
           class="c-main-header__branding"
           name="logo"
         >
@@ -135,7 +141,7 @@ $z-index-header: 5000;
 
 .c-main-header__left {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .c-main-header .c-secondary-nav__list {
@@ -175,7 +181,7 @@ $z-index-header: 5000;
   font-size: var(--font-size-5);
 }
 
-.search {
+.c-main-header .search {
   margin: var(--space-2) 0 var(--space-2) var(--space-2);
   width: 40%;
   height: 40%;
@@ -184,4 +190,12 @@ $z-index-header: 5000;
   }
 }
 
+.c-main-header .menu-hamburger {
+  width: 20px;
+  transition: var(--animation-duration-standard);
+  margin-right: var(--space-2);
+  &:hover {
+    opacity: var(--opacity-hover);
+  }
+}
 </style>
