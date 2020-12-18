@@ -75,7 +75,7 @@ export default {
   flex-wrap: wrap;
   cursor: pointer;
   border: 1px solid RGB(var(--color-text-inverse));
-  padding: var(--space-1) var(--space-2) var(--space-2);
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-2);
   height: 70px;
   align-items: center;
   width: fit-content;
@@ -89,10 +89,11 @@ export default {
   justify-content: flex-end;
   @include media(">xlarge") {
     @include typeface(body, 5);
-    padding: var(--space-2) var(--space-3);
+    padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3);
     height: 50px;
     max-width: 320px;
     min-width: 320px;
+    flex-direction: row;
     flex-wrap: nowrap;
   }
 
@@ -128,27 +129,36 @@ export default {
     &::after {
       opacity: 1;
     }
-      @include media(">xlarge") {
-        @include typeface(body, 5);
-        padding: var(--space-2) var(--space-3);
-        height: 50px;
-        max-width: 210px;
-        min-width: 210px;
-        flex-wrap: nowrap;
-      }
+
+    @include media(">xlarge") {
+      @include typeface(body, 5);
+      justify-content: left;
+      height: 50px;
+      max-width: 210px;
+      min-width: 210px;
+      flex-wrap: nowrap;
     }
   }
+
+  &.is-playing {
+    @include media(">xlarge") {
+      padding-left: var(--space-2);
+    }
+  }
+}
 
 .stream-switcher-card .stream-switcher-card-animation {
   flex-basis: 25px;
   height: 25px;
   margin: 0 var(--space-3) 0 0;
-  order: 0;
+  order: 1;
+
   path {
     fill: RGB(var(--color-white));
   }
-    @include media(">xsmall") {
-    order: 1;
+
+  @include media(">xlarge") {
+    order: 0;
     flex-basis: 33px;
   }
 }
@@ -162,23 +172,30 @@ export default {
   -webkit-font-feature-settings: "lnum";
   -moz-font-feature-settings: "lnum";
   font-feature-settings: "lnum";
+  align-self: flex-start;
+
+  @include media(">xlarge") {
+    align-self: center;
+  }
 }
 
 .stream-switcher-card .stream-switcher-card-up-next {
   flex-basis: 50px;
-  margin: 0 var(--space-1) 0 0;
+  margin: 0 var(--space-3) 0 0;
   font-weight: bold;
   white-space: nowrap;
   text-transform: uppercase;
   pointer-events: none;
+  order: 1;
 
   @include media(">xlarge") {
     flex-basis: auto;
+    order: 0;
   }
 }
 
 .stream-switcher-card .stream-switcher-card-title {
-  flex-basis: calc(100% - 50px - var(--space-3));
+  flex-basis: calc(100% - 60px - var(--space-3));
   pointer-events: none;
   white-space: nowrap;
   overflow: hidden;
