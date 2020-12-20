@@ -17,7 +17,12 @@
         @seek="seek"
       />
       <template v-if="shouldShowCta">
-        <VolumeControl v-model.number="volume" />
+        <VolumeControl
+          :volume="volume"
+          :is-muted="isMuted"
+          @volume-toggle-mute="$emit('volume-toggle-mute')"
+          @volume-change="$emit('volume-change', $event)"
+        />
         <button
           class="button player-cta-play-button"
           @click="togglePlay"
@@ -27,7 +32,12 @@
         </button>
       </template>
       <template v-else>
-        <VolumeControl v-model.number="volume" />
+        <VolumeControl
+          :volume="volume"
+          :is-muted="isMuted"
+          @volume-toggle-mute="$emit('volume-toggle-mute')"
+          @volume-change="$emit('volume-change', $event)"
+        />
         <a
           v-if="showSkip && !livestream"
           class="player-back-15-icon"
@@ -153,6 +163,14 @@ export default {
     titleLink: {
       type: String,
       default: null
+    },
+    volume: {
+      type: Number,
+      default: 100
+    },
+    isMuted: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -163,16 +181,8 @@ export default {
       innerLoop: false,
       loaded: false,
       previousVolume: 35,
-      showVolume: false,
-      volume: 100
+      showVolume: false
     }
-  },
-  watch: {
-    /*
-    volume () {
-      this.audio.volume = this.volume / 100
-    }
-    */
   },
   mounted () {
     this.innerLoop = this.loop
