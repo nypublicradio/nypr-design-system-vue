@@ -95,6 +95,7 @@ export default {
     min-width: 320px;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: flex-start;
   }
 
   // active caret
@@ -134,8 +135,6 @@ export default {
       @include typeface(body, 5);
       justify-content: left;
       height: 50px;
-      max-width: 210px;
-      min-width: 210px;
       flex-wrap: nowrap;
     }
   }
