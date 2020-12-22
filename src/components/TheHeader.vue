@@ -6,7 +6,7 @@
     >
       <div class="c-main-header__left">
         <div
-          class="c-menu-toggle"
+          class="c-side-menu"
           name="side-menu"
         >
           <slot name="menu" />
@@ -144,14 +144,14 @@ $z-index-header: 5000;
   align-items: center;
 }
 
-.c-main-header .c-secondary-nav__list {
+.c-main-header .c-primary-nav .c-secondary-nav__list {
   display: none;
   @include media(">xlarge") {
     display: block;
   }
 }
 
-.c-main-header .c-secondary-nav__list .c-secondary-nav__item {
+.c-main-header .c-primary-nav .c-secondary-nav__list .c-secondary-nav__item {
   margin-bottom: 0;
 }
 

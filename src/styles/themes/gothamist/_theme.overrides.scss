@@ -991,6 +991,9 @@ form .o-button:hover {
 // new vue overrides
 
 // HEADER
+.c-main-header a:hover svg {
+  fill: RGB(var(--color-white));
+}
 .c-main-header .c-secondary-nav__item {
   position: relative;
 
