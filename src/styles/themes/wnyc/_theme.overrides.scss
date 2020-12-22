@@ -140,6 +140,9 @@ h1, h2, h3, h4, h5 {
 .c-main-header .c-secondary-nav__list {
   width: 100%;
   text-align: left;
+  @include media(">medium") {
+    display: block;
+  }
 }
 
 // header donate button
@@ -295,6 +298,10 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+.main-player > div:last-child {
+  overflow: auto;
+}
+
 .main-player-details-link {
   text-decoration: none;
   border: none;
@@ -337,10 +344,11 @@ h1, h2, h3, h4, h5 {
 }
 
 .main-player .main-player-title {
+  white-space: normal;
   color: RGB(var(--color-text));
   font-weight: 600;
   font-size: var(--font-size-12);
-  line-height: 42px;
+  line-height: 1.35;
   position: relative;
   margin-top: var(--space-3);
   @include media('>=medium') {
@@ -358,7 +366,8 @@ h1, h2, h3, h4, h5 {
   border-radius: 3px;
 }
 
-.main-player .button {
+.main-player .button,
+.persistent-player .play-button {
   width: fit-content;
   padding: 0 37px;
   height: 51px;
@@ -408,7 +417,8 @@ h1, h2, h3, h4, h5 {
   border: none;
 }
 
-.main-player .button .button-label {
+.main-player .button .button-label,
+.persistent-player .play-button .button-label {
   color: RGB(var(--color-white));
   text-transform: uppercase;
   font-size: var(--font-size-7);

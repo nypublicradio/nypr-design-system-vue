@@ -12,12 +12,12 @@
     </label>
     <button
       class="volume-control-icon"
-      :aria-label="muted ? 'unmute' : 'mute'"
-      @click="mute"
+      :aria-label="isMuted ? 'unmute' : 'mute'"
+      @click="$emit('volume-toggle-mute')"
       @keypress.space.enter="mute"
     >
-      <volume-icon v-if="!muted" />
-      <volume-muted v-if="muted" />
+      <volume-icon v-if="!isMuted" />
+      <volume-muted v-if="isMuted" />
     </button>
     <transition name="slide-left">
       <input
@@ -27,8 +27,8 @@
         type="range"
         min="0"
         max="100"
-        :value="value"
-        @change="$emit('change', $event.target.value)"
+        :value="volume"
+        @change="$emit('volume-change', parseInt($event.target.value))"
       >
     </transition>
   </div>
@@ -44,39 +44,20 @@ export default {
     VolumeIcon,
     VolumeMuted
   },
-  model: {
-     event: 'change'
-  },
   props: {
-    value: {
+    volume: {
       type: Number,
       default: 100
+    },
+    isMuted: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
-      volume: 100,
       previousVolume: 35,
       showVolume: false
-    }
-  },
-  computed: {
-    muted () {
-      return this.volume / 100 === 0
-    }
-  },
-  methods: {
-    mute () {
-      if (this.muted) {
-        this.updateVolume(this.previousVolume)
-      } else {
-        this.previousVolume = this.value
-        this.updateVolume(0)
-      }
-    },
-    updateVolume (volume) {
-      this.volume = volume
-      this.$emit('change', volume)
     }
   }
 }
