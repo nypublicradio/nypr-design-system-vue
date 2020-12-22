@@ -16,7 +16,10 @@
           class="c-secondary-nav__link"
         >
           {{ item.text }}
-          <span v-if="item.newWindow" class="is-vishidden">(New tab)</span>
+          <span
+            v-if="item.newWindow"
+            class="is-vishidden"
+          >(New tab)</span>
         </a>
       </li>
     </ul>
