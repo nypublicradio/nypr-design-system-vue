@@ -305,6 +305,13 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+.main-player > div {
+  @include media(">medium") {
+    padding-top: var(--space-5);
+    align-self: flex-start;
+  }
+}
+
 .main-player > div:last-child {
   overflow: auto;
 }
@@ -322,7 +329,7 @@ h1, h2, h3, h4, h5 {
   @include media('>=medium') {
     max-width: 240px;
     max-height: 240px;
-    margin: 45px auto;
+    margin: 0 auto 45px;
   }
 }
 
