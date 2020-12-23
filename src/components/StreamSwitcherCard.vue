@@ -147,7 +147,7 @@ export default {
 }
 
 .stream-switcher-card .stream-switcher-card-animation {
-  flex-basis: 25px;
+  flex-basis: 33px;
   height: 25px;
   margin: 0 var(--space-3) 0 0;
   order: 1;
@@ -160,6 +160,14 @@ export default {
     order: 0;
     flex-basis: 33px;
   }
+}
+
+.stream-switcher-card.is-playing .stream-switcher-card-animation {
+  flex-basis: 43px;
+}
+
+.stream-switcher-card.is-active.is-playing .stream-switcher-card-animation {
+  flex-basis: 33px;
 }
 
 .stream-switcher-card .stream-switcher-card-station {
