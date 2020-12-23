@@ -14,7 +14,7 @@
       {{ station }}
     </div>
     <div
-      v-if="active"
+      v-if="active && playing || !active && playing"
       class="stream-switcher-card-up-next"
     />
     <div
@@ -24,7 +24,7 @@
       on now
     </div>
     <div
-      v-if="active"
+      v-if="active && playing || !active && playing"
       class="stream-switcher-card-title"
     />
     <div
@@ -160,14 +160,6 @@ export default {
     order: 0;
     flex-basis: 33px;
   }
-}
-
-.stream-switcher-card.is-playing .stream-switcher-card-animation {
-  flex-basis: 43px;
-}
-
-.stream-switcher-card.is-active.is-playing .stream-switcher-card-animation {
-  flex-basis: 33px;
 }
 
 .stream-switcher-card .stream-switcher-card-station {
