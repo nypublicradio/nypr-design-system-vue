@@ -636,3 +636,21 @@ h1, h2, h3, h4, h5 {
 .on-todays-show .c-share-tools__group a {
   border: none;
 }
+
+// side menu
+.menu .menu-hamburger {
+  margin-right: var(--space-3);
+}
+
+.menu .c-secondary-nav__list {
+  margin-bottom: var(--space-4);
+}
+
+.menu .c-secondary-nav__list .c-secondary-nav__item {
+  margin-bottom: var(--space-4);
+  text-align: center;
+}
+
+.menu .menu-terms-links a {
+  border: none;
+}
