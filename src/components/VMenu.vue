@@ -161,6 +161,7 @@ export default {
   top: 0;
   left: 0;
   cursor: pointer;
+  width: var(--space-4);
 }
 
 .menu.not-fixed .menu-hamburger {
