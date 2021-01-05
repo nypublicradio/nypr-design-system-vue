@@ -10,22 +10,17 @@
         class="c-secondary-nav__item"
       >
         <a
-          v-if="item.url"
           :href="item.url"
-          target="_blank"
+          :target="item.newWindow && '_blank'"
           rel="noopener"
-        >
-          {{ item.text }}
-          <span class="is-vishidden">(New tab)</span>
-        </a>
-        <router-link
-          v-else
-          :to="item.route"
           class="c-secondary-nav__link"
-          :data-test-seconary-nav-link="index"
         >
           {{ item.text }}
-        </router-link>
+          <span
+            v-if="item.newWindow"
+            class="is-vishidden"
+          >(New tab)</span>
+        </a>
       </li>
     </ul>
   </div>

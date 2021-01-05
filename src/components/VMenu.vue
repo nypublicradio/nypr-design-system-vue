@@ -168,11 +168,6 @@ export default {
   position: relative;
 }
 
-.menu .menu-logo {
-  max-width: 100px;
-  max-height: 36px;
-}
-
 .menu .menu-close {
   cursor: pointer;
   position: absolute;
@@ -192,7 +187,7 @@ export default {
 .menu .menu-panel {
   overflow-y: auto;
   color: RGB(var(--color-text));
-  background-color: RGB(var(--color-background-highlight));
+  background-color: RGB(var(--color-background));
   position: fixed;
   left: 0;
   top: 0;
@@ -204,12 +199,6 @@ export default {
   @include media(">small") {
     width: var(--menu-width);
   }
-}
-
-.menu .menu-button .button {
-  width: 100%;
-  height: 50px;
-  line-height: 50px;
 }
 
 .menu .menu-search .search-bar {
