@@ -146,6 +146,7 @@ export default {
   methods: {
     toggleMenu () {
       this.menuOpen = !this.menuOpen
+      console.log('menu toggle')
     }
   }
 }
@@ -161,7 +162,8 @@ export default {
   top: 0;
   left: 0;
   cursor: pointer;
-  width: var(--space-4);
+  width: 24px;
+  height: 24px;
 }
 
 .menu.not-fixed .menu-hamburger {
@@ -242,6 +244,10 @@ export default {
 .menu .menu-nypr-logo {
   margin: auto;
   width: 120px;
+}
+
+.menu .menu-nypr-logo svg:hover {
+  opacity: 1;
 }
 
 .menu .menu-copyright {
