@@ -1,4 +1,4 @@
-# new sounds web client - built with Vue.js
+# New York Public Radio Design System
 
 ## Project setup
 If vue isn’t installed, run 
