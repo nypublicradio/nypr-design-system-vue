@@ -1,6 +1,6 @@
 <template>
   <a
-    :href="link"
+    :href="username ? socialLink : link"
     class="c-share-tools__link o-icon"
     :class="service"
     :aria-label="ariaLabel"
@@ -43,10 +43,14 @@ export default {
     label: {
       type: String,
       default: null
+    },
+    link: {
+      type: String,
+      default: null
     }
   },
   computed: {
-    link () {
+    socialLink () {
       switch (this.service) {
         case 'email': return 'mailto:' + this.username
         case 'facebook': return 'https://www.facebook.com/' + this.username
