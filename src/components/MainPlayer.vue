@@ -50,18 +50,16 @@
       >
         <div
           v-if="details && !detailsLink"
-        >
-          {{ details }}
-        </div>
+          v-html="details"
+        />
         <a
           v-if="details && detailsLink"
           :href="detailsLink"
           class="main-player-details-link"
           target="_blank"
           rel="noopener"
-        >
-          {{ details }}
-        </a>
+          v-html="details"
+        />
       </div>
       <slot />
     </div>
