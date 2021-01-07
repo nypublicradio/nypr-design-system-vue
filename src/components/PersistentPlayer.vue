@@ -251,7 +251,6 @@ $xlarge: 1440px;
 .persistent-player {
   bottom: 0;
   left: 0;
-  color: #FFF;
   height: 96px;
   position: fixed;
   z-index: 1200;
@@ -282,25 +281,24 @@ $xlarge: 1440px;
   fill: RGB(var(--color-text));
 }
 
-    .player-controls .player-cta-play-button {
-      margin-right: 4px;
-      @media all and (min-width: $medium) {
-        margin-right: 24px;
-      }
-    }
+.player-controls .player-cta-play-button {
+  margin-right: 4px;
+  @media all and (min-width: $medium) {
+    margin-right: 24px;
+  }
+}
 
-      .player-controls .player-cta-play-button svg {
-          min-width: 20px;
-      }
+.player-controls .player-cta-play-button svg {
+  min-width: 20px;
+}
 
-        .player-controls .player-cta-play-button svg path {
-          fill: RGB(var(--color-text));
-        }
+.player-controls .player-cta-play-button svg path {
+  fill: RGB(var(--color-text));
+}
 
-    .player-controls .play-button {
-      width: 55px;
-      min-width: 55px;
-    }
+.player-controls .play-button {
+  min-width: 55px;
+}
 
 .player-controls .back-15-icon {
   margin-right: var(--space-2);
