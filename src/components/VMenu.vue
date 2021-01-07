@@ -149,7 +149,6 @@ export default {
   methods: {
     toggleMenu () {
       this.menuOpen = !this.menuOpen
-      console.log('menu toggle')
     }
   }
 }
