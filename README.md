@@ -57,7 +57,7 @@ npm link nypr-design-system-vue
 ```
 Refresh your application after changes:
 ```
-npm link nypr-design-system-vue
+npm link nypr-design-system-vue and/or npm update
 ```
 Unlink it:
 ```
