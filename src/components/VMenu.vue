@@ -205,7 +205,6 @@ export default {
 
 .menu .menu-logo {
   margin: auto;
-  max-width: 100px;
 }
 
 .menu .menu-search .search-bar {
@@ -248,7 +247,7 @@ export default {
 
 .menu .menu-nypr-logo {
   margin: auto;
-  width: 120px;
+  width: 100px;
 }
 
 .menu .menu-nypr-logo svg:hover {
