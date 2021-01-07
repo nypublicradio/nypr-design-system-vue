@@ -65,15 +65,15 @@
           <v-spacer size="triple" />
           <slot name="social" />
         </div>
-        <v-spacer size="triple" />
+        <v-spacer size="quad" />
         <div class="menu-nypr-logo">
           <nypr-logo />
         </div>
-        <v-spacer size="triple" />
+        <v-spacer size="double" />
         <p class="menu-copyright">
           © 2020 New York Public Radio. All rights reserved.
         </p>
-        <v-spacer size="triple" />
+        <v-spacer />
         <div class="menu-terms-links l-grid l-grid--2up l-grid--2up--small">
           <a
             href="https://www.wnyc.org/terms"
@@ -201,6 +201,11 @@ export default {
   @include media(">small") {
     width: var(--menu-width);
   }
+}
+
+.menu .menu-logo {
+  margin: auto;
+  max-width: 100px;
 }
 
 .menu .menu-search .search-bar {
