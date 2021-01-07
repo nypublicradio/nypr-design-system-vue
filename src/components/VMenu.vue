@@ -71,7 +71,7 @@
         </div>
         <v-spacer size="double" />
         <p class="menu-copyright">
-          © 2020 New York Public Radio. All rights reserved.
+          © {{ currentYear }} New York Public Radio. All rights reserved.
         </p>
         <v-spacer />
         <div class="menu-terms-links l-grid l-grid--2up l-grid--2up--small">
@@ -127,6 +127,9 @@ export default {
     }
   },
   computed: {
+    currentYear () {
+      return new Date().getFullYear()
+    },
     hasButtonSlot () {
       return !!this.$slots.button
     },
