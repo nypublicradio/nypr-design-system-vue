@@ -161,7 +161,7 @@ export default {
   },
   computed: {
     currentYear () {
-      return 2020
+      return new Date().getFullYear()
     },
     hasLeftComponentSlot () {
       return !!this.$slots.leftComponent
