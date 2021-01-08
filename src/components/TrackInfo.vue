@@ -25,6 +25,7 @@
         <h2 v-if="title && titleLink">
           <a
             :href="titleLink"
+            target="_blank"
             class="track-info-title-link"
           >
             {{ title }}
