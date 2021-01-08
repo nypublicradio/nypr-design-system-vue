@@ -99,7 +99,6 @@ export default {
   },
   methods: {
     toggleCaption () {
-      console.log('kim')
       this.captionVisible = !this.captionVisible
     }
   }
