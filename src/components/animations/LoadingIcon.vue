@@ -1,0 +1,22 @@
+<template>
+  <Lottie :options="defaultOptions" />
+</template>
+
+<script>
+import * as animationData from './LoadingIconJson.json'
+import Lottie from 'vue-lottie/src/lottie.vue'
+
+export default {
+  name: 'LoadingIconJson',
+  components: {
+    Lottie
+  },
+  data () {
+    return {
+      defaultOptions: {
+        animationData: animationData.default
+      }
+    }
+  }
+}
+</script>
