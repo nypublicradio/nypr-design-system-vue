@@ -12,12 +12,12 @@ The persistent player provides users with quick access to currently playing audi
 
 The persistent player can be used to control both live streaming and on-demand audio but the Storybook-based component is currently only in production for livestream audio.
 
-In order to be used for on-demand audio, the current whitelabeled persistent player needs to be designed to include additional features such as scrubbing ability, 15 sec timeshifting, etc. For sites that present both live streaming and on-demand options, the context that the persistent player is in needs to be considered in how the player is initiated and presented so that it's clear what the user is selecting to play. For example, for on-demand audio, the persistent player can appear once an on-demand piece of audio is played from the site page and/or be shown before playback as long as its presentation and controls cannot be confused for playing/pausing a different piece of audio on the same page or on the livestream.  
+In order to be used for on-demand audio, the current whitelabeled persistent player needs to be designed to include additional features such as scrubbing ability, 15 sec timeshifting, etc. For sites that present both live streaming and on-demand options, the context that the persistent player is in needs to be considered in how the player is initiated and presented so that it's clear what the user is selecting to play. For example, for on-demand audio, the persistent player can appear once an on-demand piece of audio is played from the site page and/or be shown before playback as long as its presentation and controls cannot be confused for playing/pausing a different piece of audio on the same page or on the livestream.
 
 In an on-demand context, the persistent player should appear when the user chooses to start playing on-demand audio presented on the page (e.g., a podcast episode).
 
 If the user is on a site with live stream audio, and has not started the live stream but navigates to another page on the site, then the persistent player should appear consistently and “follow” the user. This keeps the users constantly informed about what is playing live on the air and gives them the option to play at anytime.
-    
+
 
 ## What’s Inside
 
@@ -40,7 +40,7 @@ If the user is on a site with live stream audio, and has not started the live st
 9- **Image** - Optional image for show art
 
 
-## States 
+## States
 
 #### Persistent Player - Desktop - Volume Hover
 <img alt="Persistent Player volume hover" src="./images/Organisms-PeristentPlayer-VolumeHover.png" width="600" />
@@ -74,9 +74,9 @@ When the user selects to view secondary data about a list item (e.g., track or s
 
 ## Accessibility
 -   There should always be information displayed in the persistent player that makes clear to the user what audio the player will play, such as the name of the currently live Show and name of the track and its composer.
-    
+
 -   If a track or segment has secondary information in the Tooltip, then on hover, the mouse state should signal to the user that the Tooltip is clickable
-    
+
 -   Text should have appropriate tags so users with screen readers can quickly understand the important elements on the page such as name of composer and musical piece, in a logical order.
 
 
@@ -92,7 +92,7 @@ On WQXR Jukebox, the persistent player is always apparent at the bottom on the h
 On WNYC Lab, the persistent player is used for live streaming a range of shows over two streams.
 
 <img alt="Persistent Player for WNYC" src="./images/Organisms-PeristentPlayer-WNYC.png" width="1000" />
-  
+
 
 ## Testing and Iterations
 Any updates/progress to this component can be listed out here. Maybe eventually this will be automated.
@@ -271,6 +271,7 @@ Any updates/progress to this component can be listed out here. Maybe eventually 
             components: { PersistentPlayer },
   template: `
     <persistent-player
+      isLoading
       livestream
       station="WNYC 93.9 FM"
       title="The Takeaway"
