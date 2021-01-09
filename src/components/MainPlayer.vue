@@ -195,5 +195,11 @@ export default {
       line-height: 25px;
     }
   }
+
+  .loading-icon {
+    width: 16px!important;
+    height: 16px!important;
+    margin: 0 var(--space-2) 0 0!important;
+  }
 }
 </style>
