@@ -1,4 +1,5 @@
 module.exports = {
+  setupFiles: ['jest-canvas-mock'],
   verbose: true,
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node', 'vue'],
   transform: {
@@ -6,5 +7,6 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     // process `*.vue` files with `vue-jest`
     '.*\\.(vue)$': 'vue-jest'
-  }
+  },
+  transformIgnorePatterns: ['node_modules/(?!(vue-lottie)/)']
 }

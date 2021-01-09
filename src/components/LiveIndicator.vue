@@ -1,15 +1,20 @@
 <template>
   <div class="live-indicator">
     <div class="live-indicator-wrapper">
-      <span class="live-indicator-live-text">Live</span> <span class="live-indicator-dot pulse" />
+      <span class="live-indicator-live-text">Live</span> <span class="live-indicator-dot"><live-indicator-dot /></span>
     </div>
     {{ label }}
   </div>
 </template>
 
 <script>
+import LiveIndicatorDot from '../components/animations/LiveIndicatorDot'
+
 export default {
   name: 'LiveIndicator',
+  components: {
+    LiveIndicatorDot
+  },
   props: {
     label: {
       type: String,
@@ -50,23 +55,7 @@ export default {
 }
 
 .live-indicator .live-indicator-dot {
-  background-color: #e74f4f;
-  border-radius: 8px;
-  height: 8px;
-  width: 8px;
-}
-
-.pulse {
-  will-change: transform;
-  animation: pulse-animation 2s infinite;
-}
-
-@keyframes pulse-animation {
-  0% {
-    box-shadow: 0 0 0 0 RGBA(231, 79, 79, 0.2);
-  }
-  100% {
-    box-shadow: 0 0 0 20px RGBA(231, 79, 79, 0);
-  }
+  height: 12px;
+  width: 12px;
 }
 </style>
