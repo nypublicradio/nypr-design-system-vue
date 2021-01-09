@@ -362,6 +362,10 @@ export default {
   }
 }
 
+.c-main-footer .c-main-footer__nypr-logo svg:hover {
+  opacity: 1;
+}
+
 .c-main-footer .c-main-footer__nypr-logo path,
 .c-main-footer .c-main-footer__nypr-logo polygon {
   fill: RGB(var(--color-text));
