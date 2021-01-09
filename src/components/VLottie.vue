@@ -1,5 +1,5 @@
 <template>
-  <Lottie
+  <lottie
     :options="defaultOptions"
   />
 </template>

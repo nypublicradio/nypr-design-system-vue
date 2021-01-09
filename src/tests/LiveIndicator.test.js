@@ -3,6 +3,7 @@ import { describe, test, expect } from '@jest/globals'
 import LiveIndicator from '../components/LiveIndicator'
 import { toHaveNoViolations } from 'jest-axe'
 import axe from './axe-helper'
+import 'jest-canvas-mock'
 
 expect.extend(toHaveNoViolations)
 
