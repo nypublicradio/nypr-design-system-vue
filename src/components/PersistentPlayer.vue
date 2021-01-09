@@ -48,7 +48,6 @@
         </a>
         <v-button
           class="play-button"
-          label="Listen Live"
           @click="togglePlay"
         >
           <pause-icon v-show="isPlaying" />
@@ -318,6 +317,5 @@ $xlarge: 1440px;
 .player-controls .loading-icon {
   width: 16px!important;
   height: 16px!important;
-  margin: 0 var(--space-2) 0 0!important;
 }
 </style>
