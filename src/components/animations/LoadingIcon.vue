@@ -1,5 +1,5 @@
 <template>
-  <Lottie :options="defaultOptions" />
+  <Lottie class="loading-icon" :options="defaultOptions" />
 </template>
 
 <script>
