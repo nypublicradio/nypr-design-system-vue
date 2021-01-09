@@ -26,6 +26,7 @@
           <a
             :href="titleLink"
             target="_blank"
+            rel="noopener"
             class="track-info-title-link"
           >
             {{ title }}
