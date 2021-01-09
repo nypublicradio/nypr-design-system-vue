@@ -51,8 +51,9 @@
           label="Listen Live"
           @click="togglePlay"
         >
-          <pause-icon v-if="isPlaying" />
-          <play-simple v-else />
+          <pause-icon v-show="isPlaying" />
+          <loading-icon v-show="isLoading" />
+          <play-simple v-show="!isPlaying && !isLoading" />
         </v-button>
         <a
           v-if="showSkip && !livestream"
@@ -81,6 +82,7 @@
 import VButton from './VButton'
 import PlaySimple from './icons/PlaySimple'
 import PauseIcon from './icons/wqxr/PauseIcon'
+import LoadingIcon from './animations/LoadingIcon'
 import Back15 from './icons/Back15'
 import Ahead15 from './icons/Ahead15'
 import DownloadIcon from './icons/DownloadIcon'
@@ -97,7 +99,8 @@ export default {
     DownloadIcon,
     TrackInfo,
     VButton,
-    PauseIcon
+    PauseIcon,
+    LoadingIcon
   },
   props: {
     autoPlay: {
@@ -310,5 +313,11 @@ $xlarge: 1440px;
 
 .player-controls .download-icon {
   margin-left: var(--space-2);
+}
+
+.player-controls .loading-icon {
+  width: 16px!important;
+  height: 16px!important;
+  margin: 0 var(--space-2) 0 0!important;
 }
 </style>
