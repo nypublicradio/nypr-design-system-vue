@@ -1,5 +1,8 @@
 <template>
-  <Lottie class="loading-icon" :options="defaultOptions" />
+  <Lottie
+    class="loading-icon"
+    :options="defaultOptions"
+  />
 </template>
 
 <script>
@@ -14,7 +17,10 @@ export default {
   data () {
     return {
       defaultOptions: {
-        animationData: animationData.default
+        animationData: animationData.default,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid meet'
+        }
       }
     }
   }

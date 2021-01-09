@@ -22,7 +22,7 @@ export const LoadingAnimation = () => ({
     LoadingIcon
   },
   template: `
-    <span class="o-icon u-icon--l">
+    <span class="o-icon u-icon--l" style="background: black">
       <loading-icon />
     </span>
   `
