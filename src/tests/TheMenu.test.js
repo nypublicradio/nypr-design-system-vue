@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
-import VMenu from '../components/VMenu'
+import TheMenu from '../components/TheMenu'
 import AudioIcon from '../components/icons/AudioIcon'
 import VSearch from '../components/VSearch'
 import { toHaveNoViolations } from 'jest-axe'
@@ -8,7 +8,7 @@ import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
 
-describe('VMenu', () => {
+describe('TheMenu', () => {
   const navigation = [
     {
       url: 'http://www.google.com',
@@ -27,7 +27,7 @@ describe('VMenu', () => {
   const secondaryNav = navigation
 
   test('hamburger button works', () => {
-    const wrapper = mount(VMenu)
+    const wrapper = mount(TheMenu)
     expect(wrapper.vm.$data.menuOpen).toBe(false)
     const div = wrapper.get('.menu-hamburger')
     div.trigger('click')
@@ -35,7 +35,7 @@ describe('VMenu', () => {
   })
 
   test('primaryNav prop works', () => {
-    const wrapper = mount(VMenu, {
+    const wrapper = mount(TheMenu, {
       propsData: {
         primaryNav: navigation
       }
@@ -50,7 +50,7 @@ describe('VMenu', () => {
   })
 
   test('secondaryNav prop works', () => {
-    const wrapper = mount(VMenu, {
+    const wrapper = mount(TheMenu, {
       propsData: {
         secondaryNav: navigation
       }
@@ -65,7 +65,7 @@ describe('VMenu', () => {
   })
 
   test('button slot works', () => {
-    const wrapper = mount(VMenu, {
+    const wrapper = mount(TheMenu, {
       slots: {
         button: AudioIcon
       }
@@ -79,7 +79,7 @@ describe('VMenu', () => {
   })
 
   test('logo slot works', () => {
-    const wrapper = mount(VMenu, {
+    const wrapper = mount(TheMenu, {
       slots: {
         logo: AudioIcon
       }
@@ -93,7 +93,7 @@ describe('VMenu', () => {
   })
 
   test('component slot works', () => {
-    const wrapper = mount(VMenu, {
+    const wrapper = mount(TheMenu, {
       slots: {
         component: AudioIcon
       }
@@ -107,7 +107,7 @@ describe('VMenu', () => {
   })
 
   test('search slot works', () => {
-    const wrapper = mount(VMenu, {
+    const wrapper = mount(TheMenu, {
       slots: {
         search: VSearch
       }
@@ -121,7 +121,7 @@ describe('VMenu', () => {
   })
 
   test('social slot works', () => {
-    const wrapper = mount(VMenu, {
+    const wrapper = mount(TheMenu, {
       slots: {
         social: AudioIcon
       }
@@ -135,7 +135,7 @@ describe('VMenu', () => {
   })
 
   test('it passes basic accessibility tests', async () => {
-    const wrapper = mount(VMenu, {
+    const wrapper = mount(TheMenu, {
       propsData: {
         primaryNav,
         secondaryNav
