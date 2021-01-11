@@ -49,6 +49,8 @@
         <a
           v-if="description && descriptionLink"
           :href="descriptionLink"
+          target="_blank"
+          rel="noopener"
           class="track-info-description-link"
         >
           {{ description }}
