@@ -29,6 +29,8 @@
           class="card-image"
           :src="image"
           :alt="alt"
+          :width="imageWidth"
+          :height="imageHeight"
         >
       </a>
     </template>
@@ -40,6 +42,8 @@
         v-if="image"
         class="card-image"
         :src="image"
+        :width="imageWidth"
+        :height="imageHeight"
         alt=""
         role="presentation"
       >
