@@ -219,6 +219,10 @@ export default {
     .track-info-title h2 {
       font-weight: 700;
       line-height: 1;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
     }
 
   .track-info-description {
