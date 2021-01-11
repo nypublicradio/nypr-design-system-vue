@@ -227,6 +227,10 @@ export default {
       display: block;
       font-family: var(--font-family-small);
       font-size: var(--font-size-2);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
     }
   }
 
