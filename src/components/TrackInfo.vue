@@ -1,7 +1,22 @@
 <template>
   <div class="track-info">
+    <a
+      v-if="image && titleLink"
+      :href="titleLink"
+      target="_blank"
+      rel="noopener"
+    >
+      <img
+        v-if="image"
+        class="track-info-image"
+        :src="image"
+        alt=""
+        width="80"
+        height="80"
+      >
+    </a>
     <img
-      v-if="image"
+      v-else-if="image"
       class="track-info-image"
       :src="image"
       alt=""
@@ -154,177 +169,177 @@ export default {
   }
 }
 
-  .track-info-image {
-    --track-info-image-size: 80px;
-    display: none;
-    @media all and (min-width: $medium) {
-      display: inline-block;
-      width: var(--track-info-image-size);
-      max-width: var(--track-info-image-size);
-      height: var(--track-info-image-size);;
-      flex: 1 0 var( --track-info-image-size);
-      margin-right: 16px;
-    }
+.track-info-image {
+  --track-info-image-size: 80px;
+  display: none;
+  @media all and (min-width: $medium) {
+    display: inline-block;
+    width: var(--track-info-image-size);
+    max-width: var(--track-info-image-size);
+    height: var(--track-info-image-size);;
+    flex: 1 0 var(--track-info-image-size);
+    margin-right: 16px;
   }
+}
 
-  .track-info-details {
-    padding: 8px 0;
-    overflow: hidden;
-  }
+.track-info-details {
+  padding: 8px 0;
+  overflow: hidden;
+}
 
-  .track-info-livestream {
-      height: 16px;
-      line-height: 16px;
-      display: flex;
-      margin-bottom: 8px;
-    }
+.track-info-livestream {
+  height: 16px;
+  line-height: 16px;
+  display: flex;
+  margin-bottom: 8px;
+}
 
-    .track-info-livestream-indicator {
-      display: flex;
-      align-items: center;
-      background: RGB(var(--color-text));
-      color: RGB(var(--color-text-inverse));
-      border-radius: 44px;
-      padding: 4px;
-      margin-right: 8px;
-    }
+.track-info-livestream-indicator {
+  display: flex;
+  align-items: center;
+  background: RGB(var(--color-text));
+  color: RGB(var(--color-text-inverse));
+  border-radius: 44px;
+  padding: 4px;
+  margin-right: 8px;
+}
 
-      .track-info-livestream-indicator-text {
-        font-size: var(--font-size-1);
-        font-weight: 900;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
+.track-info-livestream-indicator-text {
+  font-size: var(--font-size-1);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 
-      .track-info-livestream-indicator-dot {
-        background-color: #e74f4f;
-        border-radius: 8px;
-        height: 8px;
-        width: 8px;
-      }
+.track-info-livestream-indicator-dot {
+  background-color: #e74f4f;
+  border-radius: 8px;
+  height: 8px;
+  width: 8px;
+}
 
-    .track-info-livestream-station {
-      font-family: var(--font-family-body);
-      font-size: var(--font-size-2);
-      font-weight: 700;
-    }
+.track-info-livestream-station {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-2);
+  font-weight: 700;
+}
 
-  .track-info-title {
-    font-family: var(--font-family-subheader);
-    font-size: var(--font-size-6);
-    width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-  }
+.track-info-title {
+  font-family: var(--font-family-subheader);
+  font-size: var(--font-size-6);
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
-    .track-info-title h2 {
-      font-weight: 700;
-      line-height: 1;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-    }
+.track-info-title h2 {
+  font-weight: 700;
+  line-height: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
 
-  .track-info-description {
-    display: none;
-    @media all and (min-width: $medium) {
-      display: block;
-      font-family: var(--font-family-small);
-      font-size: var(--font-size-2);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      -webkit-line-clamp: 3;
-    }
-  }
-
-    .track-info-description-link {
-      display: block;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
-
-  .track-info-progress {
-    position: absolute;
-    background-color: RGB(var(--color-text));
-    cursor: pointer;
-    min-width: 200px;
-    top: -5px;
-    left: 0;
-    right: 0;
-    height: 5px;
-    @media all and (min-width: $medium) {
-      height: 3px;
-      margin-top: .5rem;
-      position: relative;
-    }
-  }
-
-    .track-info-progress .player-track-seeker {
-      background-color: RGB(var(--color-text));
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      top: 0;
-      z-index: 20;
-    }
-
-    .track-info-progress .player-track-buffered {
-      background-color: RGB(var(--color-gray));
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      top: 0;
-      z-index: 10;
-    }
-
-    .track-info-progress .player-track-playhead {
-      position: absolute;
-      height: 22px;
-      width: 22px;
-      margin: -8px -16px;
-      transform: scale(0, 0);
-      left: 0;
-      opacity: 0;
-      bottom: 0;
-      transition: opacity .2s linear, transform .2s;
-
-    &::after {
-      content: '';
-      height: 22px;
-      width: 22px;
-      background-color: RGB(var(--color-dark-gray));
-      border-radius: 50%;
-      opacity: 1;
-      display: block;
-      position: absolute;
-      left: calc(50% - 11px);
-      top: calc(50% - 11px);
-    }
-  }
-
-  .track-info-time {
-    display: flex;
+.track-info-description {
+  display: none;
+  @media all and (min-width: $medium) {
+    display: block;
+    font-family: var(--font-family-small);
     font-size: var(--font-size-2);
-    font-weight: 500;
-    @media all and (min-width: $medium) {
-      justify-content: flex-end;
-    }
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
   }
+}
 
-    .track-info-time .player-track-time-current {
-      margin-right: var(--space-1);
-    }
+.track-info-description-link {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
 
-    .track-info-time .player-track-time-total {
-      margin-left: var(--space-1);
-    }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.track-info-progress {
+  position: absolute;
+  background-color: RGB(var(--color-text));
+  cursor: pointer;
+  min-width: 200px;
+  top: -5px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  @media all and (min-width: $medium) {
+    height: 3px;
+    margin-top: .5rem;
+    position: relative;
+  }
+}
+
+.track-info-progress .player-track-seeker {
+  background-color: RGB(var(--color-text));
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 20;
+}
+
+.track-info-progress .player-track-buffered {
+  background-color: RGB(var(--color-gray));
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+.track-info-progress .player-track-playhead {
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  margin: -8px -16px;
+  transform: scale(0, 0);
+  left: 0;
+  opacity: 0;
+  bottom: 0;
+  transition: opacity .2s linear, transform .2s;
+
+  &::after {
+    content: '';
+    height: 22px;
+    width: 22px;
+    background-color: RGB(var(--color-dark-gray));
+    border-radius: 50%;
+    opacity: 1;
+    display: block;
+    position: absolute;
+    left: calc(50% - 11px);
+    top: calc(50% - 11px);
+  }
+}
+
+.track-info-time {
+  display: flex;
+  font-size: var(--font-size-2);
+  font-weight: 500;
+  @media all and (min-width: $medium) {
+    justify-content: flex-end;
+  }
+}
+
+.track-info-time .player-track-time-current {
+  margin-right: var(--space-1);
+}
+
+.track-info-time .player-track-time-total {
+  margin-left: var(--space-1);
+}
 </style>
