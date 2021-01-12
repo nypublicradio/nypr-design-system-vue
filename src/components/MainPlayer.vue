@@ -20,6 +20,8 @@
         :src="image"
         :alt="title"
         class="on-air-image"
+        width="850"
+        height="850"
       >
     </div>
     <div>

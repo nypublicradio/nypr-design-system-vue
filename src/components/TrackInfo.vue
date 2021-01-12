@@ -10,7 +10,7 @@
         v-if="image"
         class="track-info-image"
         :src="image"
-        alt=""
+        :alt="title"
         width="80"
         height="80"
       >
@@ -19,7 +19,7 @@
       v-else-if="image"
       class="track-info-image"
       :src="image"
-      alt=""
+      :alt="title"
       width="80"
       height="80"
     >
