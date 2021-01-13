@@ -1,5 +1,9 @@
 # `nypr-design-system-vue` changelog
 
+## 1.0.4
+
+- [ENHANCEMENT] small pagespeed tweaks
+
 ## 1.0.3
 
 - [ENHANCEMENT] added link to persistent player image
