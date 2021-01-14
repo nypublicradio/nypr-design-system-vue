@@ -30,7 +30,7 @@ npm run storybook
 ```
 npm run build-storybook
 ```
-See Storybook at [http://radial.kimlarocca.com](http://radial.kimlarocca.com)
+See Storybook at [https://storybook.nypr.digital](https://storybook.nypr.digital)
 
 Pushing to main will trigger a [Storybook deployment on CircleCi](https://app.circleci.com/pipelines/github/nypublicradio/nypr-design-system-vue) 
 
