@@ -1,5 +1,9 @@
 # `nypr-design-system-vue` changelog
 
+## 1.0.5
+
+- [ENHANCEMENT] added emmitted events to some of the components
+
 ## 1.0.4
 
 - [ENHANCEMENT] small pagespeed tweaks
