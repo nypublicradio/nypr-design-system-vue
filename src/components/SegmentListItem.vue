@@ -5,6 +5,7 @@
     :target="newWindow && '_blank'"
     class="segment-list-item"
     rel="noopener"
+    @click="$emit('componentEvent', url)"
   >
     <div class="segment-list-item-title">
       {{ title }}

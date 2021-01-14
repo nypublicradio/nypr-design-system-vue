@@ -8,6 +8,7 @@
         aria-hidden="true"
         role="presentation"
         tabindex="-1"
+        @click="$emit('componentEvent', titleLink)"
       >
         <img
           v-if="image"
@@ -23,6 +24,7 @@
         v-else
         class="card-image-link"
         :href="titleLink"
+        @click="$emit('componentEvent', titleLink)"
       >
         <img
           v-if="image"

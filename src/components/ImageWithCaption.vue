@@ -100,6 +100,11 @@ export default {
   methods: {
     toggleCaption () {
       this.captionVisible = !this.captionVisible
+      if (this.captionVisible) {
+        this.$emit('componentEvent', 'Image caption expanded')
+      } else {
+        this.$emit('componentEvent', 'Image caption collapsed')
+      }
     }
   }
 }

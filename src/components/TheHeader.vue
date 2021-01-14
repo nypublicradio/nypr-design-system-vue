@@ -40,6 +40,7 @@
           data-category="Click Tracking"
           data-action="Header"
           data-label="Donate Button"
+          @click="$emit('componentEvent', donateUrl)"
         />
         <div class="search">
           <slot name="search" />
