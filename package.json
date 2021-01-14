@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@jest/globals": "^26.6.2",
-    "@vue/composition-api": "^1.0.0-beta.25",
+    "@vue/composition-api": "^1.0.0-beta.26",
     "core-js": "^3.8.2",
     "focus-visible": "^5.2.0",
     "vue": "^2.6.12",
@@ -68,6 +68,7 @@
     "jest-axe": "^4.1.0",
     "jest-canvas-mock": "^2.3.0",
     "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
     "react": "^16.14.0",
     "react-dom": "^16.13.0",
     "react-is": "^16.13.1",
