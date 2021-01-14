@@ -12,6 +12,7 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm rebuild node-sass
+            - run: npm cache clean --force
             - run: npm install
             - run: npm run build-storybook
 
