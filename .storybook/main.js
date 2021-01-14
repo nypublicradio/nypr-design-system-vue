@@ -52,8 +52,6 @@ module.exports = {
     //   path.resolve(__dirname, "../src"),
     // ];
 
-    config.resolve.modules =  ['node_modules'];
-
     // Return the altered config
     return config;
   }
