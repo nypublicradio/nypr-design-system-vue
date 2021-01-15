@@ -1,5 +1,9 @@
 # `nypr-design-system-vue` changelog
 
+## 1.0.6
+
+- [ENHANCEMENT] removed cursor pointer style from main player on-air-image
+
 ## 1.0.5
 
 - [ENHANCEMENT] added emmitted events to some of the components
