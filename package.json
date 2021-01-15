@@ -73,6 +73,7 @@
     "react-dom": "^16.13.0",
     "react-is": "^16.13.1",
     "react-popper": "^2.2.4",
+    "replace-ext": "^2.0.0",
     "rollup": "^0.59.4",
     "rollup-plugin-css-only": "^0.4.0",
     "rollup-plugin-vue": "^6.0.0",
