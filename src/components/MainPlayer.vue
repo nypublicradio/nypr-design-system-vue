@@ -130,7 +130,6 @@ export default {
     height: auto;
     width: 100%;
     max-width: 100%;
-    cursor: pointer;
     margin: 0 auto var(--space-2);
 
     @include media(">medium") {
