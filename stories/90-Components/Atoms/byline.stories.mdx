@@ -1,6 +1,7 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import VByline from '../../../src/components/VByline'
 
-<Meta title="Components/Atoms/Byline"/>
+<Meta title="Components/Atoms/Byline" />
 
 # Byline
 
@@ -12,12 +13,16 @@ This molecule can include one or more author names along with optional author or
 
 ## Fields and Formatting
 
-<br/><br/>
+<br /><br />
 
 
- <img alt="example of byline anatomy" src="./images/Atom-Byline-Anatomy.png" width="400" />
+<img
+    alt="example of byline anatomy"
+    src="./images/Atom-Byline-Anatomy.png"
+    width="400"
+/>
 
-<br/><br/>
+<br /><br />
 
 1- **Authors** - The display name of a person(s) who has authored the content. Author names listed in the byline will most often link to the author’s bio page or a dynamically populated author listing page. When linked, the byline inherits default link style from parent brand.
 
@@ -36,3 +41,94 @@ On smaller breakpoints, text should wrap at commas or bullets to avoid splitting
 ## Testing & Learnings
 
 No tests have been run on the byline atom at this time.
+
+## Configurations
+
+<Canvas>
+    <Story name="ManyAuthors">
+        {{
+            components: { VByline },
+            data () {
+                return {
+                    authors: [
+                        {
+                            firstName: 'Jen',
+                            lastName: 'Chung',
+                            organization: 'Gothamist',
+                            organizationUrl: 'http://www.gothamist.com'
+                        },
+                        {
+                            firstName: 'Brian',
+                            lastName: 'Lehrer',
+                            url: 'http://www.google.com',
+                        }
+                        ,
+                        {
+                            firstName: 'Shumita',
+                            lastName: 'Basu',
+                            url: 'http://www.google.com',
+                            organization: 'WNYC',
+                            organizationUrl: 'http://www.wnyc.org'
+                        }
+                    ]
+                }
+            },
+            template: `<v-byline :authors="authors" />`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="TwoAuthors">
+        {{
+            components: { VByline },
+            data () {
+                return {
+                    authors: [
+                        {
+                            firstName: 'Jen',
+                            lastName: 'Chung',
+                            organization: 'Gothamist',
+                            organizationUrl: 'http://www.gothamist.com'
+                        },
+                        {
+                            firstName: 'Brian',
+                            lastName: 'Lehrer',
+                            url: 'http://www.google.com',
+                        }
+                    ]
+                }
+            },
+            template: `
+                        <v-byline
+                        :authors="authors"
+                        />
+                      `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="OneAuthor">
+        {{
+            components: { VByline },
+            data () {
+                return {
+                    authors: [
+                        {
+                            firstName: 'Jen',
+                            lastName: 'Chung',
+                            organization: 'Gothamist',
+                            organizationUrl: 'http://www.gothamist.com'
+                        }
+                    ]
+                }
+            },
+            template: `
+                        <v-byline
+                        :authors="authors"
+                        />
+                      `
+        }}
+    </Story>
+</Canvas>
