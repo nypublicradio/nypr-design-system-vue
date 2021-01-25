@@ -1,5 +1,7 @@
-
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import ArticleMetadata from '../../../src/components/ArticleMetadata'
+import VByline from '../../../src/components/VByline'
+import VCounter from '../../../src/components/VCounter'
 
 <Meta title="Components/Molecules/Article Metadata" />
 
@@ -46,7 +48,183 @@ If no author is given for Contributing Organizations, display like "with Contrib
 
 6- **Photos** - If an article has photos, displays the # of photos in an article gallery in the format "# Photo(s)." where the s is included when there are >1 photos. Part of the [counter](https://nypr-design-system.nypr.digital/latest/index.html?path=/docs/components-atoms-counter--page) component.
 
+## Configurations
 
+<Canvas>
+    <Story name="All">
+        {{
+            components: { ArticleMetadata, VCounter, VByline },
+            data () {
+                return {
+                    authors: [
+                        {
+                            firstName: 'Jen',
+                            lastName: 'Chung',
+                            organization: 'Gothamist',
+                            organizationUrl: 'http://www.gothamist.com'
+                        },
+                        {
+                            firstName: 'Brian',
+                            lastName: 'Lehrer',
+                            url: 'http://www.google.com',
+                        }
+                        ,
+                        {
+                            firstName: 'Shumita',
+                            lastName: 'Basu',
+                            url: 'http://www.google.com',
+                            organization: 'WNYC',
+                            organizationUrl: 'http://www.wnyc.org'
+                        }
+                    ]
+                }
+            },
+            template: `
+<article-metadata
+publish-date="Jan 1, 2020"
+updated-date="Mar 2, 2020"
+>
+<template v-slot:authors><v-byline :authors="authors" /></template>
+<template v-slot:comments><v-counter icon="comment" text="Comments" value="40" href="http://www.google.com"/></template>
+<template v-slot:photos><v-counter icon="gallery" text="Photos" value="40" href="http://www.google.com"/></template>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="WithoutAuthors">
+        {{
+            components: { ArticleMetadata, VCounter, VByline },
+            template: `
+<article-metadata
+publish-date="Jan 1, 2020"
+updated-date="Mar 2, 2020"
+>
+<template v-slot:comments><v-counter icon="comment" text="Comments" value="40" href="http://www.google.com"/></template>
+<template v-slot:photos><v-counter icon="gallery" text="Photos" value="40" href="http://www.google.com"/></template>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="WithoutComments">
+        {{
+            components: { ArticleMetadata, VCounter, VByline },
+            template: `
+<article-metadata
+publish-date="Jan 1, 2020"
+updated-date="Mar 2, 2020"
+>
+<template v-slot:photos><v-counter icon="gallery" text="Photos" value="40" href="http://www.google.com"/></template>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="WithoutPhotos">
+        {{
+            components: { ArticleMetadata, VCounter, VByline },
+            template: `
+<article-metadata
+publish-date="Jan 1, 2020"
+updated-date="Mar 2, 2020"
+>
+<template v-slot:comments><v-counter icon="comment" text="Comments" value="40" href="http://www.google.com"/></template>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="WithoutUpdatedDate">
+        {{
+            components: { ArticleMetadata, VCounter, VByline },
+            data () {
+                return {
+                    authors: [
+                        {
+                            firstName: 'Jen',
+                            lastName: 'Chung',
+                            organization: 'Gothamist',
+                            organizationUrl: 'http://www.gothamist.com'
+                        },
+                        {
+                            firstName: 'Brian',
+                            lastName: 'Lehrer',
+                            url: 'http://www.google.com',
+                        }
+                        ,
+                        {
+                            firstName: 'Shumita',
+                            lastName: 'Basu',
+                            url: 'http://www.google.com',
+                            organization: 'WNYC',
+                            organizationUrl: 'http://www.wnyc.org'
+                        }
+                    ]
+                }
+            },
+            template: `
+<article-metadata
+publish-date="Jan 1, 2020"
+>
+<template v-slot:authors><v-byline :authors="authors" /></template>
+<template v-slot:comments><v-counter icon="comment" text="Comments" value="40" href="http://www.google.com"/></template>
+<template v-slot:photos><v-counter icon="gallery" text="Photos" value="40" href="http://www.google.com"/></template>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="WithoutPublishedDate">
+        {{
+            components: { ArticleMetadata, VCounter, VByline },
+            data () {
+                return {
+                    authors: [
+                        {
+                            firstName: 'Jen',
+                            lastName: 'Chung',
+                            organization: 'Gothamist',
+                            organizationUrl: 'http://www.gothamist.com'
+                        },
+                        {
+                            firstName: 'Brian',
+                            lastName: 'Lehrer',
+                            url: 'http://www.google.com',
+                        }
+                        ,
+                        {
+                            firstName: 'Shumita',
+                            lastName: 'Basu',
+                            url: 'http://www.google.com',
+                            organization: 'WNYC',
+                            organizationUrl: 'http://www.wnyc.org'
+                        }
+                    ]
+                }
+            },
+            template: `
+<article-metadata
+updated-date="Jan 1, 2020"
+>
+<template v-slot:authors><v-byline :authors="authors" /></template>
+<template v-slot:comments><v-counter icon="comment" text="Comments" value="40" href="http://www.google.com"/></template>
+<template v-slot:photos><v-counter icon="gallery" text="Photos" value="40" href="http://www.google.com"/></template>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
 
 
 ## Article Metadata on Cards
