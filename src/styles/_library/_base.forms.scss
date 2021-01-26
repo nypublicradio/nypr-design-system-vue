@@ -8,9 +8,16 @@ form ul {
   margin-left: 0;
 }
 
+label,
 legend {
+  @include typeface(body, 5);
   margin-bottom: 6px;
   font-weight: bold;
+}
+
+label input,
+label textarea {
+  margin-top: var(--space-1);
 }
 
 fieldset {
@@ -24,18 +31,29 @@ input,
 select,
 textarea {
   width: 100%;
-  border: none;
+  border: solid 1px RGB(var(--color-text-muted));
   appearance: none;
+
+  &::placeholder {
+    color: RGB(var(--color-text-muted));
+    opacity: 1;
+  }
+}
+
+textarea {
+  min-height: 100px;
 }
 
 input[type=text],
 input[type=password],
 input[type=email],
 input[type=search],
-input[type=tel] {
+input[type=tel],
+textarea,
+select {
   @include typeface(small, 6);
   line-height: 28px;
-  padding: var(--space-3);
+  padding: var(--space-2);
   box-shadow: none;
   border-radius: 0;
 }
@@ -85,20 +103,31 @@ input[type=radio] {
 }
 
 /* clears the 'X' from Internet Explorer */
-input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
-input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
 
 /* clears the 'X' from Chrome */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { display: none; }
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
 
 /* removes the blue background on Chrome's autocomplete */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active  {
+input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset;
 }
 
@@ -107,14 +136,13 @@ select {
   cursor: pointer;
   text-indent: 0.01px;
   text-overflow: "";
-  background: url("/src/components/svg/ArrowDown.svg") center left calc(var(--space-3) / 2) no-repeat;
+  background: url('data:image/svg+xml;<svg class="o-icon o-simple-arrow-down-icon" viewBox="1 1 20 20" width="40" height="40" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg"><title>arrow down</title><path opacity="0.6" fill-rule="evenodd" clip-rule="evenodd" d="M1.77754 6.72492C2.30036 6.21885 2.75785 6.72492 2.75785 6.72492L11.729 15.3985L20.275 6.69305C20.275 6.69305 20.8108 6.26335 21.2878 6.72492C21.7652 7.1861 21.2878 7.83036 21.2878 7.83036L11.7129 17.5L1.6308 7.75204C1.6308 7.75204 1.25492 7.23022 1.77754 6.72492Z" fill="black"/></svg> ') center left calc(var(--space-3) / 2) no-repeat;
   background-size: calc(20px - 5px) calc(20px - 5px);
-  padding-left: calc((20px * 2) - 5px);
 }
 
 select::-ms-expand {
-    display: none;
-  }
+  display: none;
+}
 
 ::placeholder {
   @include typeface(small, 6);
@@ -125,11 +153,12 @@ select::-ms-expand {
 
 /* don't apply hover effects to form buttons*/
 form .o-button:before {
-      display: none;
-    }
+  display: none;
+}
+
 form .o-button:hover {
-      transform: none;
-    }
+  transform: none;
+}
 
 // input range base styles
 
@@ -230,4 +259,59 @@ input[type=range]::-ms-fill-upper {
 
 input[type=range]:focus::-ms-fill-upper {
   background: RGB(var(--color-text));
+}
+
+// required styles
+
+label.required {
+  &::before {
+    content: '*';
+    margin-right: var(--space-1);
+    color: RGB(var(--color-text-error));
+  }
+}
+
+// error styles
+
+label.error {
+  input,
+  select,
+  textarea {
+    border: solid 1px RGB(var(--color-text-error));
+  }
+
+  p {
+    @include typeface(body, 2);
+    color: RGB(var(--color-text-error));
+    margin-top: var(--space-1);
+  }
+}
+
+// disabled styles
+
+label.disabled {
+  color: RGB(var(--color-gray));
+
+  input,
+  select,
+  textarea {
+    background-color: RGB(var(--color-background-muted));
+  }
+}
+
+// inline button style
+.inline-button {
+  display: flex;
+}
+
+.inline-button .button {
+  padding: 0 var(--space-3);
+}
+
+// text area styles
+textarea + p {
+  @include typeface(body, 2);
+  color: RGB(var(--color-text-muted));
+  margin-top: var(--space-1);
+  text-align: right;
 }
