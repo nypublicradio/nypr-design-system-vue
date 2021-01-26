@@ -1,6 +1,8 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Title, Subtitle, Description, Props, Preview, Story, Heading } from '@storybook/addon-docs/blocks';
+import ArrowPointedRight from '../../../src/components/icons/ArrowPointedRight'
+import VButton from '../../../src/components/VButton'
 
-<Meta title="Components/Atoms/TextInput"/>
+<Meta title="Components/Atoms/Text Input"/>
 
 # Text Input
 
@@ -65,7 +67,117 @@ Use the disabled state when input is not yet possible. Use a brand utility color
   <br/><br/>
 
 
+## Code Examples
 
+<Canvas>
+    <Story name="Default">
+        {{
+            template: `
+              <div>
+    <label>Default Input
+        <input
+        type="text"
+        placeholder="placeholder text"
+        >
+    </label>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br/>
+
+<Canvas>
+    <Story name="InlineButton">
+        {{
+            components: { ArrowPointedRight, VButton },
+            template: `
+              <div>
+    <label
+      for="search"
+    >
+      Inline Button
+    </label>
+<div class="inline-button">
+    <input
+      id="search"
+      name="q"
+      placeholder="placeholder text"
+      class="search-input"
+      type="search"
+    >
+    <v-button>
+      <arrow-pointed-right />
+    </v-button>
+              </div>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br/>
+
+<Canvas>
+    <Story name="Required">
+        {{
+            template: `
+              <div>
+    <label class="required">Required Input
+        <input
+        type="text"
+        placeholder="placeholder text"
+        >
+    </label>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br/>
+
+<Canvas>
+    <Story name="Error">
+        {{
+            template: `
+              <div>
+    <label class="required error">Error Input
+        <input
+        required
+        aria-required="true"
+        type="text"
+        placeholder="placeholder text"
+        >
+        <p class="error">Error text lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </label>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br/>
+
+<Canvas>
+    <Story name="Disabled">
+        {{
+            template: `
+              <div>
+    <label class="disabled">Disabled Input
+        <input
+        disabled
+        aria-disabled="true"
+        type="text"
+        placeholder="placeholder text"
+        >
+    </label>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
 
 
 
