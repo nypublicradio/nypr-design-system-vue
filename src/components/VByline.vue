@@ -15,14 +15,13 @@
         rel="nofollow"
       >{{ author.firstName }}&nbsp;{{ author.lastName }}</a>
       <template v-else>{{ author.firstName }}&nbsp;{{ author.lastName }}</template>
-      <a
+      <template
         v-if="author.organization && author.organizationUrl"
+      >(<a
         :href="author.organizationUrl"
         target="_blank"
         rel="nofollow"
-      >
-        ({{ author.organization }})<template v-if="index < authors.length-2">,</template>
-      </a>
+      >{{ author.organization }}</a>)</template><template v-if="index < authors.length-2">,</template>
       <template v-if="author.organization && !author.organizationUrl">({{ author.organization }})<template v-if="index < authors.length-2">, </template></template>
       <template v-if="index === authors.length-2"> and </template>
     </span>

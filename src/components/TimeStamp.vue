@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss">
 .time-stamp {
-  @include typeface(body, 2);
+  @include typeface(body, 4);
   font-feature-settings: "lnum";
   color: RGB(var(--color-text));
 }

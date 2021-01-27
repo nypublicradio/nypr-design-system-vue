@@ -56,10 +56,11 @@ export default {
 
 .article-metadata .article-metadata-line-two {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
-.article-metadata .article-metadata-line-two span {
+.article-metadata .article-metadata-line-two > span {
   &::after {
     content: '\2022';
     margin: 0 var(--space-2);
@@ -74,8 +75,8 @@ export default {
 
 .article-metadata .article-metadata-comments,
 .article-metadata .article-metadata-photos {
-  align-items: center;
   display: flex;
+  height: 19px;
 }
 
 .article-metadata .counter .o-icon {
