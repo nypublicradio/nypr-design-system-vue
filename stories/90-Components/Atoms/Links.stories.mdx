@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Title, Subtitle, Description, Props, Preview, Story, Heading } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Atoms/Links"/>
 
@@ -85,6 +85,22 @@ The disabled link state should be used when interaction is not yet possible to d
 Visited link treatment should be used sparingly when it is important that a user knows they have already clicked on a link. Examples include within a search result page or page containing a long list of links, to help make clear for the user which links they have clicked on previously. This state is turned off by default to prevent unnecessary visual noise.
 <img alt="example of a visited link" src="./images/Atoms-Links-VisitedState.png" width="75" />
   <br/>
+
+
+## Code Example
+
+<Canvas>
+    <Story name="Link">
+        {{
+            template: `
+              <div>
+                <p><a href="http://www.gothamist.com">Here is a link</a></p>
+                <p><a class="disabled" aria-disabled="true" href="http://www.gothamist.com">Here is a disabled link</a></p>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
 
 
 ## Accessibility

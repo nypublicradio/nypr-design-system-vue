@@ -1,4 +1,5 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Title, Subtitle, Description, Props, Preview, Story, Heading } from '@storybook/addon-docs/blocks';
+import LogoIcons from '../../../src/components/storybook/LogoIcons'
 
 <Meta title="Components/Atoms/Logos" />
 
@@ -6,10 +7,10 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Logos
 
-  
+
 ## Usage
 
-Logos serve as branding opportunities for our websites, as well as a landmark that helps our users navigate back to the homepage. Per Neilson’s guidelines for logo placment, users are most likely to find the logos for websites in the upper left corner of the page. This top of page placement fits with default patterns found around the web. 
+Logos serve as branding opportunities for our websites, as well as a landmark that helps our users navigate back to the homepage. Per Neilson’s guidelines for logo placment, users are most likely to find the logos for websites in the upper left corner of the page. This top of page placement fits with default patterns found around the web.
 
 All logo designs shown here are maintained by our Marketing department. Please reach out to Marketing using the Creative Request Form for any additional sizes or colorways as needed.
 
@@ -27,9 +28,13 @@ All logo designs shown here are maintained by our Marketing department. Please r
 ## Appearance & Placement
 
 When placing the logo, use the height and width of the first letter as a visual aid for the amount of clear space that should be maintained around the logo. This
-will ensure adequate space from competing text and imagery. 
+will ensure adequate space from competing text and imagery.
 
-<img alt="logo margin diagram" src="./images/Logo-Appearance.png" width="200" />
+<img
+    alt="logo margin diagram"
+    src="./images/Logo-Appearance.png"
+    width="200"
+/>
 
 ## Improper Usage
 
@@ -37,10 +42,21 @@ Below are a few Do's and Don'ts of what to avoid when using our brand logos:
 
 * Don't alter the logo in any way
 * Don't alter the logo colorways (only use Marketing approved colorways)
-* Don't put the logo in a box unneccisarily 
+* Don't put the logo in a box unneccisarily
 * Don't rearrange the logo elements
 * Don't place the logo on busy or low contrast backgrounds (reducing logo's legibility)
 * Don't rotate the logo
 * Do provide enough padding around the logo so that it is prominent and easy to read
 * Do make sure the logo is displayed at a size that facilitates legibility
 * Do reach out to the [Marketing Team](https://docs.google.com/forms/d/e/1FAIpQLSe5tH-ENGRqjFn8Za3amlHpBWVkgvKRtl8HmK3a3c-2Ic47QA/viewform) if you need additional logo lockups, colorways, and layouts
+
+## Code Examples
+
+<Canvas>
+    <Story name="Logo Icons">
+        {{
+            components: { LogoIcons },
+            template: `<logo-icons />`,
+        }}
+    </Story>
+</Canvas>

@@ -15,6 +15,12 @@ a:hover {
   opacity: var(--opacity-link-hover);
 }
 
+a.disabled {
+  cursor: default;
+  pointer-events: none;
+  color: RGB(var(--color-gray));
+}
+
 a > span {
   transition: var(--animation-easing-standard) var(--animation-duration-fast);
 }
