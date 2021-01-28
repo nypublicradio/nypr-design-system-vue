@@ -6,13 +6,13 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 ## Trello Style Guide
 
-For our CSS we roughly follow the [Trello CSS Style Guide](https://github.com/trello/trellisheets/blob/master/styleguide.md). 
+For our CSS we roughly follow the [Trello CSS Style Guide](https://github.com/trello/trellisheets/blob/master/styleguide.md).
 
 ### CSS Custom Properties
 
 For variables, we use CSS custom properties, usually scoped to the root element
 
-```css
+```
 :root {
   /* this is the variable: */
   --color-wnyc-red: #de1e3d;
@@ -25,12 +25,12 @@ For variables, we use CSS custom properties, usually scoped to the root element
 
 Use the `.component-descendant-descendant` pattern for components.
 
-```html
-<div class="card" ...attributes>
+```
+<div class="card">
   <h3 class="card-title">
-    <a class="card-title-link">{{@title}}</a>
+    <a class="card-title-link">{{title}}</a>
   </h3>
-  <div class="card-body">{{@body}}</div>
+  <div class="card-body">{{body}}</div>
 </div>
 ```
 
