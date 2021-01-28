@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="For Developers/Npm Link" />
+
+# NPM Link is used to link project dependencies together locally without having to publish them.
+
+## Setup
+
+Create a global symlink for this package (run this in the nypr-design-system-vue project):
+
+```
+npm link (or sudo npm link)
+```
+
+Tell your application to use the global symlink (run this in your web client project, such as wnyc-3000-vue):
+
+```
+npm link nypr-design-system-vue
+```
+
+Your web client should automatically refresh with changes, but you may need to update it after components are changed by running:
+
+```
+npm update
+```
+
+Unlink your web client or nypr-design-system-vue:
+
+```
+npm unlink
+```

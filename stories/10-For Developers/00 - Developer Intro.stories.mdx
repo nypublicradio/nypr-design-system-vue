@@ -10,13 +10,22 @@ Radial is a living design system.  It's a shared reference for our team to use. 
 
 Storybook is a tool for documenting our design system. It contains both our style guide and UI component library. It's also a sandbox for developing components in isolation. You can easily set up multiple states and variants to preview as you develop a component.
 
-# nypr-design-system
+# nypr-design-system-vue
 
-`nypr-design-system` is the ember addon that lets you use the components in ember apps.
+`nypr-design-system-vue` is the npm package that lets you use the components in vue apps.
 
-`ember install nypr-design-system` to pull them in.
+`npm install nypr-design-system-vue` to pull them in to your web client's vue app.
 
-*TODO: One sentence version of how to configure your app to load the css for a theme.*
+In your web client's main scss file, import the desired theme:
+
+```
+// import any mixins or variables the vue components use first
+@import "~nypr-design-system-vue/src/styles/_library/_base.media.scss";
+@import "~nypr-design-system-vue/src/styles/_library/_base.mixins.scss";
+
+//import the theme
+@import "~nypr-design-system-vue/src/styles/wnyc";
+```
 
 # Theming and Tokens
 
