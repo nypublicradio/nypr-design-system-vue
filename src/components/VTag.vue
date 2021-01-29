@@ -28,6 +28,7 @@ export default {
   display: inline-block;
   margin-right: var(--space-2);
   @include typeface(small, 1);
+  font-weight: bold;
   background: RGB(var(--color-tag-background));
   color: RGB(var(--color-tag-text));
   text-decoration: none;
