@@ -1,5 +1,9 @@
 # `nypr-design-system-vue` changelog
 
+## 1.0.7
+
+- [ENHANCEMENT] updated image with caption label for GA events, added byline, counter, timestamp and article metadata components as well as updated stories and form element styles
+
 ## 1.0.6
 
 - [ENHANCEMENT] removed cursor pointer style from main player on-air-image
