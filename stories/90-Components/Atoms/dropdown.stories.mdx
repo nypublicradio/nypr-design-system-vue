@@ -1,5 +1,5 @@
 
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Title, Subtitle, Description, Props, Preview, Story, Heading } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Atoms/Dropdown"/>
 
@@ -63,7 +63,92 @@ Use when input is not yet possible. Use a brand utility colors for text and stro
 
 
 
+## Code Examples
 
+<Canvas>
+    <Story name="Default">
+        {{
+            template: `
+              <div>
+                <label>Default Dropdown
+                  <select>
+                    <option value="Gothamist">Gothamist</option>
+                    <option value="WNYC">WNYC</option>
+                    <option value="Greenspace">Greenspace</option>
+                    <option value="WQXR">WQXR</option>
+                  </select>
+                </label>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br/>
+
+<Canvas>
+    <Story name="Required">
+        {{
+            template: `
+              <div>
+                <label class="required">Required Dropdown
+                  <select>
+                    <option value="Gothamist">Gothamist</option>
+                    <option value="WNYC">WNYC</option>
+                    <option value="Greenspace">Greenspace</option>
+                    <option value="WQXR">WQXR</option>
+                  </select>
+                </label>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br/>
+
+<Canvas>
+    <Story name="Disabled">
+        {{
+            template: `
+              <div>
+                <label class="disabled">Disabled Dropdown
+                  <select disabled aria-disabled="true">
+                    <option value="Gothamist">Gothamist</option>
+                    <option value="WNYC">WNYC</option>
+                    <option value="Greenspace">Greenspace</option>
+                    <option value="WQXR">WQXR</option>
+                  </select>
+                </label>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br/>
+
+<Canvas>
+    <Story name="Error">
+        {{
+            template: `
+              <div>
+                <label class="error">Error Dropdown
+                  <select>
+                    <option value="Gothamist">Gothamist</option>
+                    <option value="WNYC">WNYC</option>
+                    <option value="Greenspace">Greenspace</option>
+                    <option value="WQXR">WQXR</option>
+                  </select>
+                  <p class="error">Error text lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </label>
+              </div>
+`
+        }}
+    </Story>
+</Canvas>
+
+<br/>
 
 
 ## Accessibility
