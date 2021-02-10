@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 
 <Meta title="Components/Atoms/Images" />
 
@@ -59,3 +59,65 @@ For users with slow connections, progressively loading images reduces the bounce
 | Initial Page Load Placeholder | <img alt="Initial Page Load Placeholder" src="./images/Atom-Images-ProgressiveLoading1.jpg" width="300" /> |
 | Low Res Photo Loaded & Blurred | <img alt="Low Res Photo Loaded & Blurred" src="./images/Atom-Images-ProgressiveLoading2.jpg" width="300" /> |
 | Final Loaded Image | <img alt="Final Loaded Image" src="./images/Atom-Images-ProgressiveLoading3.jpg" width="300" /> |
+
+## Code Examples
+
+### 1:1 Ratio Container
+<Canvas>
+    <Story name="1:1 Ratio Horizontal">
+        {{
+            template: `
+            <div class="l-container l-container--10col">
+              <div class="u-image__1x1">
+                 <img src="https://cdn.cms.demo.nypr.digital/images/dog_f1fMIoF.2e16d0ba.fill-800x533.jpg" alt="placeholder image"/>
+              </div>
+            </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="1:1 Ratio Vertical">
+        {{
+            template: `
+            <div class="l-container l-container--10col">
+              <div class="u-image__1x1">
+                 <img src="https://cdn.cms.demo.nypr.digital/images/hans_hemmert_06.2e16d0ba.fill-634x812.jpg" alt="placeholder image"/>
+              </div>
+            </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br />
+
+### 4:3 Ratio Container
+<Canvas>
+    <Story name="4:3 Ratio Horizontal">
+        {{
+            template: `
+            <div class="l-container l-container--10col">
+              <div class="u-image__4x3">
+                 <img src="https://cdn.cms.demo.nypr.digital/images/dog_f1fMIoF.2e16d0ba.fill-800x533.jpg" alt="placeholder image"/>
+              </div>
+            </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="4:3 Ratio Vertical">
+        {{
+            template: `
+            <div class="l-container l-container--10col">
+              <div class="u-image__4x3">
+                 <img src="https://cdn.cms.demo.nypr.digital/images/hans_hemmert_06.2e16d0ba.fill-634x812.jpg" alt="placeholder image"/>
+              </div>
+            </div>
+            `
+        }}
+    </Story>
+</Canvas>
