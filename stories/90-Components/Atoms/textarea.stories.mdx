@@ -93,11 +93,9 @@ Use when input is not yet possible. Use a brand utility colors for text and stro
     <Story name="Default">
         {{
             template: `
-              <div>
-    <label>Default Textarea
-        <textarea placeholder="placeholder text"/>
-    </label>
-              </div>
+                <label>Default Textarea
+                    <textarea placeholder="placeholder text"/>
+                </label>
             `
         }}
     </Story>
@@ -113,12 +111,10 @@ Use when input is not yet possible. Use a brand utility colors for text and stro
                 maxCharacters: 10,
             }),
             template: `
-              <div>
-    <label :class="{'error': maxCharacters-textarea.length < 0}">Textarea with Character Count
-        <textarea v-model="textarea" placeholder="placeholder text"/>
-        <p>{{ maxCharacters-textarea.length }} Characters Remaining</p>
-    </label>
-              </div>
+                <label>Textarea with Character Count
+                    <textarea v-model="textarea" placeholder="placeholder text"/>
+                    <p :class="{'error': maxCharacters-textarea.length < 0}">{{ maxCharacters-textarea.length }} Characters Remaining</p>
+                </label>
             `
         }}
     </Story>
@@ -130,11 +126,9 @@ Use when input is not yet possible. Use a brand utility colors for text and stro
     <Story name="Required">
         {{
             template: `
-              <div>
-    <label class="required">Required Textarea
-        <textarea placeholder="placeholder text" required aria-required="true"/>
-    </label>
-              </div>
+                <label class="required">Required Textarea
+                    <textarea placeholder="placeholder text" required aria-required="true"/>
+                </label>
             `
         }}
     </Story>
@@ -146,12 +140,10 @@ Use when input is not yet possible. Use a brand utility colors for text and stro
     <Story name="Error">
         {{
             template: `
-              <div>
-    <label class="error">Error Textarea
-        <textarea placeholder="placeholder text"/>
-        <p class="error">Error text lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </label>
-              </div>
+                <label class="error">Error Textarea
+                    <textarea placeholder="placeholder text"/>
+                    <p class="error">Error text lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </label>
             `
         }}
     </Story>
@@ -163,11 +155,9 @@ Use when input is not yet possible. Use a brand utility colors for text and stro
     <Story name="Disabled">
         {{
             template: `
-              <div>
-    <label class="disabled">Disabled Textarea
-        <textarea placeholder="placeholder text" disabled aria-disabled="true"/>
-    </label>
-              </div>
+                <label class="disabled">Disabled Textarea
+                    <textarea placeholder="placeholder text" disabled aria-disabled="true"/>
+                </label>
             `
         }}
     </Story>
