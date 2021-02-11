@@ -2,7 +2,7 @@ import { Meta, Title, Subtitle, Description, Props, Preview, Story, Heading } fr
 import ArrowPointedRight from '../../../src/components/icons/ArrowPointedRight'
 import VButton from '../../../src/components/VButton'
 
-<Meta title="Components/Atoms/Text Input"/>
+<Meta title="Components/Atoms/Text Input" />
 
 # Text Input
 
@@ -15,10 +15,14 @@ A text input allows you to gather information from a user in the form of alphanu
 ## What’s Inside
 
 Radial provides flexibile functionality for text inputs that can be switched on or off to best fit your needs.
-<br/><br/>
+<br /><br />
 
 
- <img alt="example of text input anatomy" src="./images/Molecules-TextInput-Anatomy.png" width="400" />
+<img
+    alt="example of text input anatomy"
+    src="./images/Molecules-TextInput-Anatomy.png"
+    width="400"
+/>
 
 
 
@@ -41,30 +45,50 @@ Radial provides flexibile functionality for text inputs that can be switched on 
 
 #### **Default**
 In the text input's default state, the user has not yet interacted with the input. The form is prepped and ready to accept input.
- <img alt="example of default text input" src="./images/Molecules-TextInput-DefaultState.png" width="250" />
-<br/><br/>
+<img
+    alt="example of default text input"
+    src="./images/Molecules-TextInput-DefaultState.png"
+    width="250"
+/>
+<br /><br />
 
 #### **Active**
 When a user is focused on an element and the element is "active," outline the container with the stroke of an accent color to indicate this to the user.
- <img alt="example of active text input" src="./images/Molecules-TextInput-ActiveState.png" width="250" />
-<br/><br/>
+<img
+    alt="example of active text input"
+    src="./images/Molecules-TextInput-ActiveState.png"
+    width="250"
+/>
+<br /><br />
 
 #### **Required**
 If a form element is required, an asterisk should be injected before the input title, colored with the brand’s accent color for error.
- <img alt="example of required text input" src="./images/Molecules-TextInput-RequiredState.png" width="250" />
-  <br/><br/>
+<img
+    alt="example of required text input"
+    src="./images/Molecules-TextInput-RequiredState.png"
+    width="250"
+/>
+  <br /><br />
 
 
 #### **Error**
 If an error occurred when the form was submitted, the form element should provide feedback to the user by displaying a changed container stroke and error text microcopy, usings the brand’s accent color for error.
- <img alt="example of error text input" src="./images/Molecules-TextInput-ErrorState.png" width="250" />
-  <br/><br/>
+<img
+    alt="example of error text input"
+    src="./images/Molecules-TextInput-ErrorState.png"
+    width="250"
+/>
+  <br /><br />
 
 #### **Disabled**
 Use the disabled state when input is not yet possible. Use a brand utility colors for text and stroke.
- <img alt="example of diabled text input" src="./images/Molecules-TextInput-DisabledState.png" width="250" />
+<img
+    alt="example of diabled text input"
+    src="./images/Molecules-TextInput-DisabledState.png"
+    width="250"
+/>
 
-  <br/><br/>
+  <br /><br />
 
 
 ## Code Examples
@@ -86,93 +110,139 @@ Use the disabled state when input is not yet possible. Use a brand utility color
     </Story>
 </Canvas>
 
-<br/>
+<br />
 
 <Canvas>
-    <Story name="InlineButton">
+    <Story name="Microcopy">
         {{
-            components: { ArrowPointedRight, VButton },
             template: `
               <div>
-    <label
-      for="search"
-    >
-      Inline Button
-    </label>
-<div class="inline-button">
-    <input
-      id="search"
-      name="q"
-      placeholder="placeholder text"
-      class="search-input"
-      type="search"
-    >
-    <v-button>
-      <arrow-pointed-right />
-    </v-button>
-              </div>
+                <label>With Microcopy
+                    <input
+                    type="text"
+                    placeholder="placeholder text"
+                    >
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, aliquam aliquid asperiores atque cumque dolore dolorem illo.</p>
+                </label>
               </div>
             `
         }}
     </Story>
 </Canvas>
 
-<br/>
+<br />
+
+<Canvas>
+    <Story name="Inline Button">
+        {{
+            components: {
+                ArrowPointedRight,
+                VButton
+            },
+            template: `
+              <div>
+                <label
+                  for="search"
+                >
+                  Inline Button
+                </label>
+                <div class="inline-button">
+                    <input
+                      id="search"
+                      name="q"
+                      placeholder="placeholder text"
+                      class="search-input"
+                      type="search"
+                    >
+                    <v-button>
+                      <arrow-pointed-right />
+                    </v-button>
+                </div>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br />
 
 <Canvas>
     <Story name="Required">
         {{
             template: `
               <div>
-    <label class="required">Required Input
-        <input
-        type="text"
-        placeholder="placeholder text"
-        >
-    </label>
+                <label class="required">Required Input
+                    <input
+                    type="text"
+                    placeholder="placeholder text"
+                    >
+                </label>
               </div>
             `
         }}
     </Story>
 </Canvas>
 
-<br/>
+<br />
 
 <Canvas>
     <Story name="Error">
         {{
             template: `
               <div>
-    <label class="required error">Error Input
-        <input
-        required
-        aria-required="true"
-        type="text"
-        placeholder="placeholder text"
-        >
-        <p class="error">Error text lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </label>
+                <label class="required error">Error Input
+                    <input
+                    required
+                    aria-required="true"
+                    type="text"
+                    placeholder="placeholder text"
+                    >
+                    <p class="error">Error text lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </label>
               </div>
             `
         }}
     </Story>
 </Canvas>
 
-<br/>
+<br />
+
+<Canvas>
+    <Story name="Error and Microcopy">
+        {{
+            template: `
+              <div>
+                <label class="required error">Error With Microcopy Input
+                    <input
+                    required
+                    aria-required="true"
+                    type="text"
+                    placeholder="placeholder text"
+                    >
+                    <p class="error">Error text lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, aliquam aliquid asperiores atque cumque dolore dolorem illo.</p>
+                </label>
+              </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br />
 
 <Canvas>
     <Story name="Disabled">
         {{
             template: `
               <div>
-    <label class="disabled">Disabled Input
-        <input
-        disabled
-        aria-disabled="true"
-        type="text"
-        placeholder="placeholder text"
-        >
-    </label>
+                <label class="disabled">Disabled Input
+                    <input
+                    disabled
+                    aria-disabled="true"
+                    type="text"
+                    placeholder="placeholder text"
+                    >
+                </label>
               </div>
             `
         }}
@@ -183,18 +253,18 @@ Use the disabled state when input is not yet possible. Use a brand utility color
 
 ## Accessibility
 
-**Text inputs**, when used, should clearly indicate the purpose of the input in a way that is accessible to all users. Use the length of the text input to communicate the length of the content needed. If the expected input has a character limit, use the HTML `maxlength` attribute to specify the maximum number of characters allowed in the input.
+**Text inputs **, when used, should clearly indicate the purpose of the input in a way that is accessible to all users.Use the length of the text input to communicate the length of the content needed.If the expected input has a character limit, use the HTML`maxlength` attribute to specify the maximum number of characters allowed in the input.
 
 
-Text input components should have a matching `<label>` to them.
+Text input components should have a matching`<label>` to them.
 
 
 
-Add `aria-required` for required inputs.
+Add`aria-required` for required inputs.
 
 
-If the text input is not enclosed within a label tag, then labels must have the `for` attribute matching the ID of the text input, like `<input id="unique-id-of-input" />`. This practice ensures that screen readers inform users correctly about what information to enter where. Reference to this best practice can be found [here](https://www.w3.org/TR/WCAG20-TECHS/H44.html).
+If the text input is not enclosed within a label tag, then labels must have the`for` attribute matching the ID of the text input, like`<input id="unique-id-of-input" />`.This practice ensures that screen readers inform users correctly about what information to enter where.Reference to this best practice can be found [here](https://www.w3.org/TR/WCAG20-TECHS/H44.html).
 
 ## TBD Future Notes Section
 
-Area to include notes about future iterations to this atom, quantitative or qualitative research related to the atom, or more. Fancy section name to come.
+Area to include notes about future iterations to this atom, quantitative or qualitative research related to the atom, or more.Fancy section name to come.

@@ -33,7 +33,7 @@ select,
 textarea {
   width: 100%;
   border: solid 1px RGB(var(--color-text-muted));
-  border-radius: 2px!important;
+  border-radius: 2px !important;
   appearance: none;
 
   &::placeholder {
@@ -284,11 +284,14 @@ label.error {
   textarea {
     border: solid 1px RGB(var(--color-text-error));
   }
+}
 
-  p {
-    @include typeface(body, 2);
+label p {
+  @include typeface(body, 2);
+  margin-top: var(--space-1);
+
+  &.error {
     color: RGB(var(--color-text-error));
-    margin-top: var(--space-1);
   }
 }
 
