@@ -7,15 +7,17 @@ import axe from './axe-helper'
 expect.extend(toHaveNoViolations)
 
 describe('VCounter', () => {
+  const value = '10'
   const icon = 'gallery'
   const text = 'Photos'
   const href = 'http://www.google.com'
   test('icon prop works', () => {
     const wrapper = shallowMount(VCounter, {
       propsData: {
-        icon: icon,
-        text: text,
-        href: href
+        value,
+        icon,
+        text,
+        href
       }
     })
     // check if prop works
@@ -25,9 +27,10 @@ describe('VCounter', () => {
   test('text prop works', () => {
     const wrapper = shallowMount(VCounter, {
       propsData: {
-        icon: icon,
-        text: text,
-        href: href
+        value,
+        icon,
+        text,
+        href
       }
     })
     // check if prop works
@@ -36,9 +39,10 @@ describe('VCounter', () => {
   test('href prop works', () => {
     const wrapper = shallowMount(VCounter, {
       propsData: {
-        icon: icon,
-        text: text,
-        href: href
+        value,
+        icon,
+        text,
+        href
       }
     })
     // check if prop works
@@ -48,9 +52,10 @@ describe('VCounter', () => {
   test('it passes basic accessibility tests', async () => {
     const wrapper = mount(VCounter, {
       propsData: {
-        icon: icon,
-        text: text,
-        href: href
+        value,
+        icon,
+        text,
+        href
       }
     })
     const results = await axe(wrapper.element)

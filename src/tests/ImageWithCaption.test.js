@@ -13,6 +13,8 @@ describe('ImageWithCaption', () => {
   const caption = 'i am a test caption'
   const credit = 'i am a test credit'
   const creditUrl = 'http://www.google.com'
+  const height = '300'
+  const width = '300'
   test('image prop works', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
@@ -22,6 +24,17 @@ describe('ImageWithCaption', () => {
     // check if image prop works and was rendered correctly
     const div = wrapper.find('img')
     expect(div.exists()).toBe(true)
+  })
+
+  test('image does not render if image prop is not given', () => {
+    const wrapper = mount(ImageWithCaption, {
+      propsData: {
+        caption
+      }
+    })
+    // check if prop was not rendered
+    const div = wrapper.find('img')
+    expect(div.exists()).toBe(false)
   })
 
   test('altText prop works', () => {
@@ -36,6 +49,20 @@ describe('ImageWithCaption', () => {
     expect(div.attributes('alt')).toBe(title)
   })
 
+  test('height and width props work', () => {
+    const wrapper = mount(ImageWithCaption, {
+      propsData: {
+        image,
+        height,
+        width
+      }
+    })
+    // check if altText prop works and was rendered correctly
+    const div = wrapper.find('img')
+    expect(div.attributes('height')).toBe(height)
+    expect(div.attributes('width')).toBe(width)
+  })
+
   test('caption prop works', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
@@ -48,6 +75,17 @@ describe('ImageWithCaption', () => {
     expect(div.text()).toContain(caption)
   })
 
+  test('caption does not render if caption prop is not given', () => {
+    const wrapper = mount(ImageWithCaption, {
+      propsData: {
+        image: image
+      }
+    })
+    // check if prop was not rendered
+    const div = wrapper.find('.image-with-caption-caption')
+    expect(div.exists()).toBe(false)
+  })
+
   test('credit prop works', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
@@ -58,6 +96,17 @@ describe('ImageWithCaption', () => {
     // check if credit prop works and was rendered correctly
     const div = wrapper.find('.image-with-caption-credit')
     expect(div.text()).toContain(credit)
+  })
+
+  test('credit does not render if credit prop is not given', () => {
+    const wrapper = mount(ImageWithCaption, {
+      propsData: {
+        image: image
+      }
+    })
+    // check if prop was not rendered
+    const div = wrapper.find('.image-with-caption-credit')
+    expect(div.exists()).toBe(false)
   })
 
   test('creditUrl prop works', () => {
@@ -79,5 +128,24 @@ describe('ImageWithCaption', () => {
     })
     const results = await axe(wrapper.element)
     expect(results).toHaveNoViolations()
+  })
+
+  test('toggleCaption function works', async () => {
+    const wrapper = mount(ImageWithCaption, {
+      propsData: { image, title, altText, caption, credit, creditUrl }
+    })
+    const div = wrapper.get('.image-with-caption-icons')
+    const divInfo = wrapper.find('.image-with-caption-icons-info')
+    const divClose = wrapper.find('.image-with-caption-icons-close')
+    expect(divInfo.isVisible()).toBe(true)
+    expect(divClose.isVisible()).toBe(false)
+    div.trigger('click')
+    await wrapper.vm.$nextTick()
+    expect(divInfo.isVisible()).toBe(false)
+    expect(divClose.isVisible()).toBe(true)
+    div.trigger('click')
+    await wrapper.vm.$nextTick()
+    expect(divInfo.isVisible()).toBe(true)
+    expect(divClose.isVisible()).toBe(false)
   })
 })

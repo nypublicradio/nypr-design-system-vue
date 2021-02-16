@@ -39,7 +39,7 @@ export default {
   props: {
     service: {
       type: String,
-      default: null
+      default: ''
     },
     username: {
       type: String,

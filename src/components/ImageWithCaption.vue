@@ -27,9 +27,11 @@
         @click="toggleCaption"
       >
         <info-icon
+          class="image-with-caption-icons-info"
           v-show="!captionVisible"
         />
         <close-icon
+          class="image-with-caption-icons-close"
           v-show="captionVisible"
         />
       </div>
