@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverage: true,
-  coverageDirectory: 'src/tests/__coverage__',
+  coverageDirectory: 'src/tests/coverage',
   coveragePathIgnorePatterns: ['/node_modules/'],
   setupFiles: ['jest-canvas-mock'],
   verbose: true,
