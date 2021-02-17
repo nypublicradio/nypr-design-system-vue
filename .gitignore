@@ -2,7 +2,7 @@
 node_modules
 /dist
 /storybook-static
-/src/tests/__coverage__
+/src/tests/coverage
 
 # local env files
 .env.local
