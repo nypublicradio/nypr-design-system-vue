@@ -34,7 +34,7 @@ describe('TheMenu', () => {
     expect(wrapper.vm.$data.menuOpen).toBe(true)
   })
 
-  test('primaryNav prop works', () => {
+  test('primaryNav prop works', async () => {
     const wrapper = mount(TheMenu, {
       propsData: {
         primaryNav: navigation
@@ -43,13 +43,12 @@ describe('TheMenu', () => {
     // open the menu
     wrapper.vm.$data.menuOpen = true
     // check if primaryNav prop works and was rendered correctly
-    wrapper.vm.$nextTick(() => {
-      const div = wrapper.find('.menu-primary-navigation')
-      expect(div.exists()).toBe(true)
-    })
+    await wrapper.vm.$nextTick()
+    const div = wrapper.find('.menu-primary-navigation')
+    expect(div.exists()).toBe(true)
   })
 
-  test('secondaryNav prop works', () => {
+  test('secondaryNav prop works', async () => {
     const wrapper = mount(TheMenu, {
       propsData: {
         secondaryNav: navigation
@@ -58,10 +57,9 @@ describe('TheMenu', () => {
     // open the menu
     wrapper.vm.$data.menuOpen = true
     // check if secondaryNav prop works and was rendered correctly
-    wrapper.vm.$nextTick(() => {
-      const div = wrapper.find('.menu-secondary-navigation')
-      expect(div.exists()).toBe(true)
-    })
+    await wrapper.vm.$nextTick()
+    const div = wrapper.find('.menu-secondary-navigation')
+    expect(div.exists()).toBe(true)
   })
 
   test('button slot works', () => {
@@ -78,7 +76,7 @@ describe('TheMenu', () => {
     })
   })
 
-  test('logo slot works', () => {
+  test('logo slot works', async () => {
     const wrapper = mount(TheMenu, {
       slots: {
         logo: AudioIcon
@@ -87,12 +85,11 @@ describe('TheMenu', () => {
     // open the menu
     wrapper.vm.$data.menuOpen = true
     // check if the component was successfully passed through the slot
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
-    })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
   })
 
-  test('component slot works', () => {
+  test('component slot works', async () => {
     const wrapper = mount(TheMenu, {
       slots: {
         component: AudioIcon
@@ -101,12 +98,11 @@ describe('TheMenu', () => {
     // open the menu
     wrapper.vm.$data.menuOpen = true
     // check if the component was successfully passed through the slot
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
-    })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
   })
 
-  test('search slot works', () => {
+  test('search slot works', async () => {
     const wrapper = mount(TheMenu, {
       slots: {
         search: VSearch
@@ -115,9 +111,8 @@ describe('TheMenu', () => {
     // open the menu
     wrapper.vm.$data.menuOpen = true
     // check if the component was successfully passed through the slot
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.findComponent(VSearch).exists()).toBe(true)
-    })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(VSearch).exists()).toBe(true)
   })
 
   test('social slot works', () => {
@@ -150,8 +145,7 @@ describe('TheMenu', () => {
     // open the menu
     wrapper.vm.$data.menuOpen = true
     const results = await axe(wrapper.element)
-    wrapper.vm.$nextTick(() => {
-      expect(results).toHaveNoViolations()
-    })
+    await wrapper.vm.$nextTick()
+    expect(results).toHaveNoViolations()
   })
 })

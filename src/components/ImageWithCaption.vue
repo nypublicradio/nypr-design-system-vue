@@ -28,9 +28,11 @@
       >
         <info-icon
           v-show="!captionVisible"
+          class="image-with-caption-icons-info"
         />
         <close-icon
           v-show="captionVisible"
+          class="image-with-caption-icons-close"
         />
       </div>
     </div>
