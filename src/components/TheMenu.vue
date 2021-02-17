@@ -103,7 +103,7 @@ import SecondaryNavigation from '../components/SecondaryNavigation'
 import VSpacer from '../components/VSpacer'
 
 export default {
-  name: 'VMenu',
+  name: 'TheMenu',
   components: {
     CloseIcon,
     HamburgerIcon,

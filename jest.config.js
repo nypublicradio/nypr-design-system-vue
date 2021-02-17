@@ -1,4 +1,7 @@
 module.exports = {
+  collectCoverage: true,
+  coverageDirectory: 'src/tests/__coverage__',
+  coveragePathIgnorePatterns: ['/node_modules/'],
   setupFiles: ['jest-canvas-mock'],
   verbose: true,
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node', 'vue'],
