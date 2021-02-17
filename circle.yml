@@ -29,6 +29,7 @@ jobs:
                 name: Build Storybook
                 command: |
                   [[ $CIRCLE_BRANCH = "main" ]] && RELEASE="latest" || { [[ -n $CIRCLE_BRANCH ]] && RELEASE=$CIRCLE_BRANCH || RELEASE=$CIRCLE_TAG; }
+                  npm run build
                   npm run build-storybook -- -o storybook-static/$RELEASE
                   cp index.html storybook-config.json storybook-static/
             - persist_to_workspace:
