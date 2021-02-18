@@ -27,7 +27,11 @@ Default images are shown whenever there is no image available to pull from the C
 ## Cropped & Resized Images
 Images uploaded should always adhere to the image ratios for the corresponding component. If they do not, images will appear cropped in certain components. The CMS can help specify how the cropped image will appear, but otherwise, try to make sure images abide by the current rules that are set.
 
-<img alt="Cropped Images" src="./images/Atom-Images-CroppedImages.jpg" width="300" />
+<img
+    alt="Cropped Images"
+    src="./images/Atom-Images-CroppedImages.jpg"
+    width="300"
+/>
 
 
 
@@ -78,11 +82,39 @@ For users with slow connections, progressively loading images reduces the bounce
 </Canvas>
 
 <Canvas>
+    <Story name="1:1 Ratio Horizontal Cropped To Fit">
+        {{
+            template: `
+            <div class="l-container l-container--10col">
+              <div class="u-image__1x1 u-image__crop">
+                 <img src="https://cdn.cms.demo.nypr.digital/images/dog_f1fMIoF.2e16d0ba.fill-800x533.jpg" alt="placeholder image"/>
+              </div>
+            </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
     <Story name="1:1 Ratio Vertical">
         {{
             template: `
             <div class="l-container l-container--10col">
               <div class="u-image__1x1">
+                 <img src="https://cdn.cms.demo.nypr.digital/images/hans_hemmert_06.2e16d0ba.fill-634x812.jpg" alt="placeholder image"/>
+              </div>
+            </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="1:1 Ratio Vertical Cropped To Fit">
+        {{
+            template: `
+            <div class="l-container l-container--10col">
+              <div class="u-image__1x1 u-image__crop">
                  <img src="https://cdn.cms.demo.nypr.digital/images/hans_hemmert_06.2e16d0ba.fill-634x812.jpg" alt="placeholder image"/>
               </div>
             </div>
@@ -109,11 +141,39 @@ For users with slow connections, progressively loading images reduces the bounce
 </Canvas>
 
 <Canvas>
+    <Story name="4:3 Ratio Horizontal Cropped To Fit">
+        {{
+            template: `
+            <div class="l-container l-container--10col">
+              <div class="u-image__4x3 u-image__crop">
+                 <img src="https://cdn.cms.demo.nypr.digital/images/dog_f1fMIoF.2e16d0ba.fill-800x533.jpg" alt="placeholder image"/>
+              </div>
+            </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
     <Story name="4:3 Ratio Vertical">
         {{
             template: `
             <div class="l-container l-container--10col">
               <div class="u-image__4x3">
+                 <img src="https://cdn.cms.demo.nypr.digital/images/hans_hemmert_06.2e16d0ba.fill-634x812.jpg" alt="placeholder image"/>
+              </div>
+            </div>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="4:3 Ratio Vertical Cropped To Fit">
+        {{
+            template: `
+            <div class="l-container l-container--10col">
+              <div class="u-image__4x3 u-image__crop">
                  <img src="https://cdn.cms.demo.nypr.digital/images/hans_hemmert_06.2e16d0ba.fill-634x812.jpg" alt="placeholder image"/>
               </div>
             </div>
