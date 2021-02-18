@@ -74,6 +74,19 @@ figcaption a {
   padding-top: 75%;
 }
 
+// crop to fit
+.u-image__crop {
+  img {
+    max-width: fit-content;
+    max-height: fit-content;
+    height: fit-content;
+    width: fit-content;
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+  }
+}
+
 /*------------------------------------*\
     $PRINT STYLES
 \*------------------------------------*/
