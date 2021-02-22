@@ -82,6 +82,7 @@
 
 <script>
 export default {
+  name: 'VCard',
   props: {
     image: {
       type: String,

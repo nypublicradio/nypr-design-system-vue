@@ -1,10 +1,15 @@
 <template>
-  <a
-    :href="href"
-    class="tag"
-  >
-    {{ text }}
-  </a>
+  <div class="tag">
+    <a
+      v-if="href"
+      :href="href"
+    >
+      {{ text }}
+    </a>
+    <template v-else>
+      {{ text }}
+    </template>
+  </div>
 </template>
 
 <script>
@@ -31,15 +36,21 @@ export default {
   font-weight: bold;
   background: RGB(var(--color-tag-background));
   color: RGB(var(--color-tag-text));
-  text-decoration: none;
   padding: var(--space-1);
   text-transform: uppercase;
   transition: background var(--animation-duration-standard) var(--animation-easing-standard);
 
-  &:hover {
-    background: RGBA(var(--color-tag-background), var(--opacity-hover));
+  a,
+  a:visited,
+  a:active {
     color: RGB(var(--color-tag-text));
     text-decoration: none;
+
+    &:hover {
+      background: RGBA(var(--color-tag-background), var(--opacity-hover));
+      color: RGB(var(--color-tag-text));
+      text-decoration: none;
+    }
   }
 }
 </style>
