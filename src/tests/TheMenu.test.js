@@ -62,7 +62,7 @@ describe('TheMenu', () => {
     expect(div.exists()).toBe(true)
   })
 
-  test('button slot works', () => {
+  test('button slot works', async () => {
     const wrapper = mount(TheMenu, {
       slots: {
         button: AudioIcon
@@ -71,9 +71,8 @@ describe('TheMenu', () => {
     // open the menu
     wrapper.vm.$data.menuOpen = true
     // check if the component was successfully passed through the slot
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
-    })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
   })
 
   test('logo slot works', async () => {
@@ -115,7 +114,7 @@ describe('TheMenu', () => {
     expect(wrapper.findComponent(VSearch).exists()).toBe(true)
   })
 
-  test('social slot works', () => {
+  test('social slot works', async () => {
     const wrapper = mount(TheMenu, {
       slots: {
         social: AudioIcon
@@ -124,9 +123,8 @@ describe('TheMenu', () => {
     // open the menu
     wrapper.vm.$data.menuOpen = true
     // check if the component was successfully passed through the slot
-    wrapper.vm.$nextTick(() => {
-      expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
-    })
+    await wrapper.vm.$nextTick()
+    expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
   })
 
   test('it passes basic accessibility tests', async () => {

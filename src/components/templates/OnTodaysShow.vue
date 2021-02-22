@@ -100,14 +100,14 @@
 export default {
   name: 'OnTodaysShow',
   components: {
-    ImageWithCaption: () => import('../components/ImageWithCaption'),
-    SegmentList: () => import('../components/SegmentList'),
-    SegmentListItem: () => import('../components/SegmentListItem'),
-    ShareTools: () => import('../components/ShareTools'),
-    ShareToolsItem: () => import('../components/ShareToolsItem'),
-    VButton: () => import('../components/VButton'),
-    VSpacer: () => import('../components/VSpacer'),
-    VPerson: () => import('../components/VPerson')
+    ImageWithCaption: () => import('../ImageWithCaption'),
+    SegmentList: () => import('../SegmentList'),
+    SegmentListItem: () => import('../SegmentListItem'),
+    ShareTools: () => import('../ShareTools'),
+    ShareToolsItem: () => import('../ShareToolsItem'),
+    VButton: () => import('../VButton'),
+    VSpacer: () => import('../VSpacer'),
+    VPerson: () => import('../VPerson')
   },
   data () {
     return {

@@ -143,7 +143,7 @@ export default {
       return !!this.$slots.search
     },
     hasSocialSlot () {
-      return !!this.$slots.search
+      return !!this.$slots.social
     }
   },
   methods: {

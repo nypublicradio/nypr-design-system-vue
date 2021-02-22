@@ -51,10 +51,6 @@ export default {
       type: String,
       default: null
     },
-    upNextTitle: {
-      type: String,
-      default: null
-    },
     active: {
       type: Boolean,
       default: false

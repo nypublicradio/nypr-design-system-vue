@@ -12,7 +12,8 @@ describe('VTag', () => {
   test('text prop works: null', () => {
     const wrapper = shallowMount(VTag, {
       propsData: {
-        text: text
+        text,
+        href
       }
     })
     // check if prop works
@@ -21,16 +22,23 @@ describe('VTag', () => {
 
   test('link attribute works', () => {
     const wrapper = shallowMount(VTag, {
-      attrs: {
-        href: href
+      propsData: {
+        text,
+        href
       }
     })
     // check if prop works and rendered correctly
-    expect(wrapper.attributes().href).toBe(href)
+    const div = wrapper.find('a')
+    expect(div.attributes().href).toBe(href)
   })
 
   test('it passes basic accessibility tests', async () => {
-    const wrapper = mount(VTag)
+    const wrapper = mount(VTag, {
+      propsData: {
+        text,
+        href
+      }
+    })
     const results = await axe(wrapper.element)
     expect(results).toHaveNoViolations()
   })
