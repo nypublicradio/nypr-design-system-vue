@@ -3,6 +3,7 @@ import { describe, test, expect } from '@jest/globals'
 import MainPlayer from '../components/MainPlayer'
 import { toHaveNoViolations } from 'jest-axe'
 import axe from './axe-helper'
+import 'jest-canvas-mock'
 
 expect.extend(toHaveNoViolations)
 

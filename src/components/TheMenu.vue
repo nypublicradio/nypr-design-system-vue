@@ -65,15 +65,15 @@
           <v-spacer size="triple" />
           <slot name="social" />
         </div>
-        <v-spacer size="triple" />
+        <v-spacer size="quad" />
         <div class="menu-nypr-logo">
           <nypr-logo />
         </div>
-        <v-spacer size="triple" />
+        <v-spacer size="double" />
         <p class="menu-copyright">
-          © 2020 New York Public Radio. All rights reserved.
+          © {{ currentYear }} New York Public Radio. All rights reserved.
         </p>
-        <v-spacer size="triple" />
+        <v-spacer />
         <div class="menu-terms-links l-grid l-grid--2up l-grid--2up--small">
           <a
             href="https://www.wnyc.org/terms"
@@ -103,7 +103,7 @@ import SecondaryNavigation from '../components/SecondaryNavigation'
 import VSpacer from '../components/VSpacer'
 
 export default {
-  name: 'VMenu',
+  name: 'TheMenu',
   components: {
     CloseIcon,
     HamburgerIcon,
@@ -127,6 +127,9 @@ export default {
     }
   },
   computed: {
+    currentYear () {
+      return new Date().getFullYear()
+    },
     hasButtonSlot () {
       return !!this.$slots.button
     },
@@ -140,7 +143,7 @@ export default {
       return !!this.$slots.search
     },
     hasSocialSlot () {
-      return !!this.$slots.search
+      return !!this.$slots.social
     }
   },
   methods: {
@@ -161,6 +164,8 @@ export default {
   top: 0;
   left: 0;
   cursor: pointer;
+  width: 24px;
+  height: 24px;
 }
 
 .menu.not-fixed .menu-hamburger {
@@ -198,6 +203,10 @@ export default {
   @include media(">small") {
     width: var(--menu-width);
   }
+}
+
+.menu .menu-logo {
+  margin: auto;
 }
 
 .menu .menu-search .search-bar {
@@ -240,7 +249,11 @@ export default {
 
 .menu .menu-nypr-logo {
   margin: auto;
-  width: 120px;
+  width: 100px;
+}
+
+.menu .menu-nypr-logo svg:hover {
+  opacity: 1;
 }
 
 .menu .menu-copyright {

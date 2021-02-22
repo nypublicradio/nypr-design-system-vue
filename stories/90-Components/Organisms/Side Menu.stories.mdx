@@ -1,6 +1,6 @@
 import { Meta, Preview, Story } from '@storybook/addon-docs/blocks';
 
-import VMenu from '../../../src/components/VMenu'
+import TheMenu from '../../../src/components/TheMenu'
 import WnycLogo from '../../../src/components/icons/wnyc/WnycLogo'
 import VButton from '../../../src/components/VButton'
 import VSearch from '../../../src/components/VSearch'
@@ -92,7 +92,7 @@ On mobile side menus expand to cover 100% of the width of the screen when opened
     <Story name="Side Menu">
         {{
             components: {
-                VMenu,
+                TheMenu,
                 WnycLogo,
                 VButton,
                 VSearch,
@@ -100,7 +100,7 @@ On mobile side menus expand to cover 100% of the width of the screen when opened
                 ShareToolsItem
             },
             template: `
-                <v-menu
+                <the-menu
                   class="not-fixed"
                   :primaryNav="[
                     {
@@ -166,7 +166,7 @@ On mobile side menus expand to cover 100% of the width of the screen when opened
                     />
                   </share-tools>
                 </template>
-                    </v-menu>
+                    </the-menu>
             `
         }}
     </Story>

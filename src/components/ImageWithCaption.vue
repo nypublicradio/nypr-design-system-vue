@@ -28,9 +28,11 @@
       >
         <info-icon
           v-show="!captionVisible"
+          class="image-with-caption-icons-info"
         />
         <close-icon
           v-show="captionVisible"
+          class="image-with-caption-icons-close"
         />
       </div>
     </div>
@@ -99,8 +101,12 @@ export default {
   },
   methods: {
     toggleCaption () {
-      console.log('kim')
       this.captionVisible = !this.captionVisible
+      if (this.captionVisible) {
+        this.$emit('componentEvent', 'Expanded')
+      } else {
+        this.$emit('componentEvent', 'Collapsed')
+      }
     }
   }
 }

@@ -1,20 +1,24 @@
 <template>
   <a
-    :href="link"
+    :href="username ? socialLink : link"
     class="c-share-tools__link o-icon"
     :class="service"
     :aria-label="ariaLabel"
     target="_blank"
     rel="noopener"
+    @click="$emit('componentEvent', service)"
   >
     <component :is="service" />
   </a>
 </template>
 
 <script>
+// eslint-disable-next-line import/no-duplicates
 import Email from './icons/EmailIcon'
 import Facebook from './icons/FacebookIcon'
 import Instagram from './icons/InstagramIcon'
+// eslint-disable-next-line import/no-duplicates
+import Newsletter from './icons/EmailIcon'
 import Reddit from './icons/RedditIcon'
 import Spotify from './icons/SpotifyIcon'
 import Twitter from './icons/TwitterIcon'
@@ -26,6 +30,7 @@ export default {
     Email,
     Facebook,
     Instagram,
+    Newsletter,
     Reddit,
     Spotify,
     Twitter,
@@ -34,7 +39,7 @@ export default {
   props: {
     service: {
       type: String,
-      default: null
+      default: ''
     },
     username: {
       type: String,
@@ -43,10 +48,14 @@ export default {
     label: {
       type: String,
       default: null
+    },
+    link: {
+      type: String,
+      default: null
     }
   },
   computed: {
-    link () {
+    socialLink () {
       switch (this.service) {
         case 'email': return 'mailto:' + this.username
         case 'facebook': return 'https://www.facebook.com/' + this.username

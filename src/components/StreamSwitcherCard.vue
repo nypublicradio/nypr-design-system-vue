@@ -14,7 +14,7 @@
       {{ station }}
     </div>
     <div
-      v-if="active"
+      v-if="active || !active && playing"
       class="stream-switcher-card-up-next"
     />
     <div
@@ -24,7 +24,7 @@
       on now
     </div>
     <div
-      v-if="active"
+      v-if="active || !active && playing"
       class="stream-switcher-card-title"
     />
     <div
@@ -48,10 +48,6 @@ export default {
       default: null
     },
     title: {
-      type: String,
-      default: null
-    },
-    upNextTitle: {
       type: String,
       default: null
     },
@@ -95,6 +91,7 @@ export default {
     min-width: 320px;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: flex-start;
   }
 
   // active caret
@@ -134,8 +131,6 @@ export default {
       @include typeface(body, 5);
       justify-content: left;
       height: 50px;
-      max-width: 210px;
-      min-width: 210px;
       flex-wrap: nowrap;
     }
   }
@@ -148,7 +143,7 @@ export default {
 }
 
 .stream-switcher-card .stream-switcher-card-animation {
-  flex-basis: 25px;
+  flex-basis: 33px;
   height: 25px;
   margin: 0 var(--space-3) 0 0;
   order: 1;

@@ -1,4 +1,4 @@
-# new sounds web client - built with Vue.js
+# New York Public Radio Design System
 
 ## Project setup
 If vue isn’t installed, run 
@@ -30,7 +30,7 @@ npm run storybook
 ```
 npm run build-storybook
 ```
-See Storybook at [http://radial.kimlarocca.com](http://radial.kimlarocca.com)
+See Storybook at [https://storybook.nypr.digital](https://storybook.nypr.digital)
 
 Pushing to main will trigger a [Storybook deployment on CircleCi](https://app.circleci.com/pipelines/github/nypublicradio/nypr-design-system-vue) 
 
@@ -57,7 +57,7 @@ npm link nypr-design-system-vue
 ```
 Refresh your application after changes:
 ```
-npm link nypr-design-system-vue
+npm link nypr-design-system-vue and/or npm update
 ```
 Unlink it:
 ```

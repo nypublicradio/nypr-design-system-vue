@@ -161,7 +161,7 @@ export default {
   },
   computed: {
     currentYear () {
-      return 2020
+      return new Date().getFullYear()
     },
     hasLeftComponentSlot () {
       return !!this.$slots.leftComponent
@@ -360,6 +360,10 @@ export default {
   @include media(">xlarge") {
     margin: 0 var(--space-5) 0 0;
   }
+}
+
+.c-main-footer .c-main-footer__nypr-logo svg:hover {
+  opacity: 1;
 }
 
 .c-main-footer .c-main-footer__nypr-logo path,

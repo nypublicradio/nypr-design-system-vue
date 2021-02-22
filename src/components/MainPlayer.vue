@@ -20,6 +20,8 @@
         :src="image"
         :alt="title"
         class="on-air-image"
+        width="850"
+        height="850"
       >
     </div>
     <div>
@@ -50,18 +52,16 @@
       >
         <div
           v-if="details && !detailsLink"
-        >
-          {{ details }}
-        </div>
+          v-html="details"
+        />
         <a
           v-if="details && detailsLink"
           :href="detailsLink"
           class="main-player-details-link"
           target="_blank"
           rel="noopener"
-        >
-          {{ details }}
-        </a>
+          v-html="details"
+        />
       </div>
       <slot />
     </div>
@@ -130,7 +130,6 @@ export default {
     height: auto;
     width: 100%;
     max-width: 100%;
-    cursor: pointer;
     margin: 0 auto var(--space-2);
 
     @include media(">medium") {
@@ -196,6 +195,12 @@ export default {
       grid-row-end: 4;
       line-height: 25px;
     }
+  }
+
+  .loading-icon {
+    width: 16px!important;
+    height: 16px!important;
+    margin: 0 var(--space-2) 0 0!important;
   }
 }
 </style>

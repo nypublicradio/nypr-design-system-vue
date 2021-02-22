@@ -3,7 +3,6 @@ const path = require('path');
 module.exports = {
   stories: ['../stories/**/*.stories.@(js|mdx)'],
   addons: [
-    "@storybook/addon-essentials",
     '@storybook/addon-actions',
     '@storybook/addon-links',
     '@storybook/addon-viewport/register',
@@ -14,7 +13,8 @@ module.exports = {
       options: {
         configureJSX: true,
       }
-    }
+    },
+    "@storybook/addon-essentials"
   ],
   webpackFinal: async (config, {configType}) => {
     // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'

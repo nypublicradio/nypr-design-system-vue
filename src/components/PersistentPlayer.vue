@@ -1,7 +1,6 @@
 <template>
   <div
     class="persistent-player u-color-group-dark"
-    :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded, 'is-initial': !hasPlayed}"
   >
     <div class="player-controls">
       <TrackInfo
@@ -17,8 +16,13 @@
         :duration-seconds="durationSeconds"
         @seek="seek"
       />
-      <template v-if="shouldShowCta && !hasPlayed">
-        <VolumeControl v-model.number="volume" />
+      <template v-if="shouldShowCta">
+        <VolumeControl
+          :volume="volume"
+          :is-muted="isMuted"
+          @volume-toggle-mute="$emit('volume-toggle-mute')"
+          @volume-change="$emit('volume-change', $event)"
+        />
         <button
           class="button player-cta-play-button"
           @click="togglePlay"
@@ -28,7 +32,12 @@
         </button>
       </template>
       <template v-else>
-        <VolumeControl v-model.number="volume" />
+        <VolumeControl
+          :volume="volume"
+          :is-muted="isMuted"
+          @volume-toggle-mute="$emit('volume-toggle-mute')"
+          @volume-change="$emit('volume-change', $event)"
+        />
         <a
           v-if="showSkip && !livestream"
           class="player-back-15-icon"
@@ -37,14 +46,14 @@
         >
           <back15 />
         </a>
-        <a
+        <v-button
           class="play-button"
-          :class="{'is-playing': playing, 'is-paused': !playing, 'is-loading': !loaded, 'is-initial': !hasPlayed}"
-          :aria-label="playing ? 'pause' : 'play'"
           @click="togglePlay"
         >
-          <play-icon />
-        </a>
+          <pause-icon v-show="isPlaying" />
+          <loading-icon v-show="isLoading" />
+          <play-simple v-show="!isPlaying && !isLoading" />
+        </v-button>
         <a
           v-if="showSkip && !livestream"
           class="player-ahead-15-icon"
@@ -65,19 +74,14 @@
         <download-icon />
       </a>
     </div>
-    <audio
-      ref="audioFile"
-      :loop="innerLoop"
-      :src="file"
-      preload="auto"
-      style="display: none"
-    />
   </div>
 </template>
 
 <script>
-import PlayIcon from './icons/PlayIcon'
+import VButton from './VButton'
 import PlaySimple from './icons/PlaySimple'
+import PauseIcon from './icons/wqxr/PauseIcon'
+import LoadingIcon from './animations/LoadingIcon'
 import Back15 from './icons/Back15'
 import Ahead15 from './icons/Ahead15'
 import DownloadIcon from './icons/DownloadIcon'
@@ -87,13 +91,15 @@ import TrackInfo from './TrackInfo'
 export default {
   name: 'PersistentPlayer',
   components: {
-    PlayIcon,
     PlaySimple,
     Back15,
     Ahead15,
     VolumeControl,
     DownloadIcon,
-    TrackInfo
+    TrackInfo,
+    VButton,
+    PauseIcon,
+    LoadingIcon
   },
   props: {
     autoPlay: {
@@ -117,6 +123,10 @@ export default {
       default: false
     },
     loop: {
+      type: Boolean,
+      default: false
+    },
+    isLoading: {
       type: Boolean,
       default: false
     },
@@ -155,33 +165,25 @@ export default {
     titleLink: {
       type: String,
       default: null
+    },
+    volume: {
+      type: Number,
+      default: 100
+    },
+    isMuted: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
-      audio: undefined,
       currentSeconds: 0,
       durationSeconds: 0,
       buffered: 0,
       innerLoop: false,
-      playing: this.isPlaying,
       loaded: false,
-      hasPlayed: false,
       previousVolume: 35,
-      showVolume: false,
-      volume: 100
-    }
-  },
-  watch: {
-    isPlaying (value) {
-      if (value) {
-        this.audio.play()
-        return
-      }
-      this.audio.pause()
-    },
-    volume () {
-      this.audio.volume = this.volume / 100
+      showVolume: false
     }
   },
   mounted () {
@@ -209,16 +211,6 @@ export default {
           break
       }
     })
-    this.audio = this.$refs.audioFile
-    this.audio.addEventListener('timeupdate', this.update)
-    this.audio.addEventListener('loadeddata', this.load)
-    this.audio.addEventListener('buffered', this.update)
-    this.audio.addEventListener('pause', () => {
-      this.playing = false
-    })
-    this.audio.addEventListener('play', () => {
-      this.playing = true
-    })
   },
   methods: {
     convertTime (val) {
@@ -226,45 +218,26 @@ export default {
       return hhmmss.indexOf('00:') === 0 ? hhmmss.substr(3) : hhmmss
     },
     download () {
-      this.stop()
+      // this.stop() // emit event so vue-hifi can handle
       window.open(this.file, 'download')
     },
     goAhead15 () {
-      this.audio.currentTime = this.audio.currentTime + 15
+      // emit event so vue-hifi can handle
+      // this.audio.currentTime = this.audio.currentTime + 15
     },
     goBack15 () {
-      this.audio.currentTime = this.audio.currentTime - 15
-    },
-    load () {
-      if (this.audio.readyState >= 2) {
-        this.loaded = true
-        this.durationSeconds = parseInt(this.audio.duration)
-        this.playing = this.autoPlay
-        return this.playing
-      }
-      throw new Error('Failed to load sound file.')
+      // emit event so vue-hifi can handle
+      // this.audio.currentTime = this.audio.currentTime - 15
     },
     seek (e) {
-      if (!this.loaded) return
-      const el = e.target.getBoundingClientRect()
-      const seekPos = (e.clientX - el.left) / el.width
-      this.audio.currentTime = (this.audio.duration * seekPos)
-    },
-    stop () {
-      this.playing = false
-      this.audio.currentTime = 0
+      // emit event so vue-hifi can handle
+      // if (!this.loaded) return
+      // const el = e.target.getBoundingClientRect()
+      // const seekPos = (e.clientX - el.left) / el.width
+      // this.audio.currentTime = (this.audio.duration * seekPos)
     },
     togglePlay () {
-      this.playing = !this.playing
       this.$emit('togglePlay')
-      this.hasPlayed = true
-    },
-    update () {
-      this.currentSeconds = this.audio.currentTime
-      this.buffered = 0
-      if (this.audio.buffered.length > 0) {
-        this.buffered = this.audio.buffered.end(0)
-      }
     }
   }
 }
@@ -280,7 +253,6 @@ $xlarge: 1440px;
 .persistent-player {
   bottom: 0;
   left: 0;
-  color: #FFF;
   height: 96px;
   position: fixed;
   z-index: 1200;
@@ -311,25 +283,24 @@ $xlarge: 1440px;
   fill: RGB(var(--color-text));
 }
 
-    .player-controls .player-cta-play-button {
-      margin-right: 4px;
-      @media all and (min-width: $medium) {
-        margin-right: 24px;
-      }
-    }
+.player-controls .player-cta-play-button {
+  margin-right: 4px;
+  @media all and (min-width: $medium) {
+    margin-right: 24px;
+  }
+}
 
-      .player-controls .player-cta-play-button svg {
-          min-width: 20px;
-      }
+.player-controls .player-cta-play-button svg {
+  min-width: 20px;
+}
 
-        .player-controls .player-cta-play-button svg path {
-          fill: RGB(var(--color-text));
-        }
+.player-controls .player-cta-play-button svg path {
+  fill: RGB(var(--color-text));
+}
 
-    .player-controls .play-button {
-      width: 55px;
-      min-width: 55px;
-    }
+.player-controls .play-button {
+  min-width: 55px;
+}
 
 .player-controls .back-15-icon {
   margin-right: var(--space-2);
@@ -341,5 +312,10 @@ $xlarge: 1440px;
 
 .player-controls .download-icon {
   margin-left: var(--space-2);
+}
+
+.player-controls .loading-icon {
+  width: 16px!important;
+  height: 16px!important;
 }
 </style>

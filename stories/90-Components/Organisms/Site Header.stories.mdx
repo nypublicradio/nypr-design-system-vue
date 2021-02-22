@@ -2,7 +2,7 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
 import SecondaryNavigation from '../../../src/components/SecondaryNavigation'
 import TheHeader from '../../../src/components/TheHeader'
 import SearchIcon from '../../../src/components/icons/SearchIcon'
-import VMenu from '../../../src/components/VMenu'
+import TheMenu from '../../../src/components/TheMenu'
 import VSearch from '../../../src/components/VSearch'
 import VButton from '../../../src/components/VButton'
 import WnycLogo from '../../../src/components/icons/wnyc/WnycLogo'
@@ -71,7 +71,7 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
                 ShareTools,
                 ShareToolsItem,
                 SearchIcon,
-                VMenu,
+                TheMenu,
                 VSearch,
                 VButton
             },
@@ -112,7 +112,7 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
         <search-icon />
       </template>
       <template v-slot:menu>
-        <v-menu
+        <the-menu
                   class="not-fixed"
                   :primaryNav="[
                     {
@@ -178,7 +178,7 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
                     />
                   </share-tools>
                 </template>
-                    </v-menu>
+                    </the-menu>
       </template>
     </the-header>
     </div>

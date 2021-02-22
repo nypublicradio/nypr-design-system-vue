@@ -17,6 +17,7 @@ describe('VAccordion', () => {
     // check if the component was successfully passed through the slot
     expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
   })
+
   test('content slot works', () => {
     const wrapper = shallowMount(VAccordion, {
       slots: {
@@ -26,6 +27,7 @@ describe('VAccordion', () => {
     // check if the component was successfully passed through the slot
     expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
   })
+
   test('shouldOpenOnLoad prop works', () => {
     const wrapper = shallowMount(VAccordion, {
       propsData: {
@@ -35,6 +37,46 @@ describe('VAccordion', () => {
     // check if it was rendered correctly
     const div = wrapper.find('.accordion-header-active')
     expect(div.exists()).toBe(true)
+  })
+
+  test('closedOnMobile prop works on mobile width', async () => {
+    Object.defineProperty(window, 'innerWidth', {
+      writable: true,
+      configurable: true,
+      value: 400
+    })
+    const wrapper = shallowMount(VAccordion, {
+      propsData: {
+        closedOnMobile: true,
+        shouldOpenOnLoad: true
+      }
+    })
+    // check if it was rendered correctly
+    await wrapper.vm.$nextTick()
+    const div = wrapper.find('.accordion-header-active')
+    expect(div.exists()).toBe(false)
+    expect(wrapper.vm.visible).toBe(false)
+    expect(wrapper.vm.active).toBe(false)
+  })
+
+  test('closedOnMobile prop works on desktop width', async () => {
+    Object.defineProperty(window, 'innerWidth', {
+      writable: true,
+      configurable: true,
+      value: 1024
+    })
+    const wrapper = shallowMount(VAccordion, {
+      propsData: {
+        closedOnMobile: true,
+        shouldOpenOnLoad: true
+      }
+    })
+    // check if it was rendered correctly
+    await wrapper.vm.$nextTick()
+    const div = wrapper.find('.accordion-header-active')
+    expect(div.exists()).toBe(true)
+    expect(wrapper.vm.visible).toBe(true)
+    expect(wrapper.vm.active).toBe(true)
   })
 
   test('it passes basic accessibility tests', async () => {
@@ -49,5 +91,35 @@ describe('VAccordion', () => {
     })
     const results = await axe(wrapper.element)
     expect(results).toHaveNoViolations()
+  })
+
+  test('open function works', async () => {
+    const wrapper = mount(VAccordion, {
+      slots: {
+        header: AudioIcon,
+        content: AudioIcon
+      },
+      propsData: {
+        shouldOpenOnLoad: false
+      }
+    })
+    const div = wrapper.find('.accordion-content')
+    const headerDiv = wrapper.find('.accordion-header')
+    headerDiv.trigger('click')
+    await wrapper.vm.$nextTick()
+    expect(div.isVisible()).toBe(true)
+    expect(wrapper.vm.visible).toBe(true)
+    expect(wrapper.vm.active).toBe(true)
+  })
+
+  test('close function works', async () => {
+    const wrapper = mount(VAccordion, {
+      slots: {
+        header: AudioIcon,
+        content: AudioIcon
+      }
+    })
+    wrapper.vm.close()
+    expect(wrapper.vm.active).toBe(false)
   })
 })

@@ -59,24 +59,143 @@ Radial offers four classes of buttons to help flex within a hierarchy from bold 
 
 Primary buttons are reserved for the primary or most important action on a page. An example of a primary button is Donate.
 
+<Canvas>
+    <Story name="Primary">
+        {{
+            components: { VButton },
+            template: `
+    <div class="l-grid l-grid--4up">
+    <div>
+      <v-button
+        href="http://www.google.com"
+        class="mod-small"
+        label="Small Button"
+      />
+    </div>
+    <div>
+      <v-button
+        href="http://www.google.com"
+        label="Regular Button"
+      />
+    </div>
+    <div>
+      <v-button
+        href="http://www.google.com"
+        class="mod-large"
+        label="Large Button"
+      />
+    </div>
+    <div>
+      <v-button
+        href="http://www.google.com"
+        class="mod-large"
+        label="Disabled Button"
+        disabled
+      />
+    </div>
+    </div>
+`
+        }}
+    </Story>
+</Canvas>
+
 <Heading>Primary with Icon</Heading>
+
+<Canvas>
+    <Story name="PrimaryWithIcon">
+        {{
+            components: { VButton, AudioIcon },
+            template: `
+    <v-button
+      href="http://www.google.com"
+      class="mod-large"
+      label="Button"
+    >
+      <audio-icon />
+    </v-button>
+`
+        }}
+    </Story>
+</Canvas>
 
 <Heading>Secondary</Heading>
 
 Secondary buttons are used for secondary actions within an experience. Styles for secondary buttons can vary from brand to brand, but they must be less visually engaging then the primary button treatment. The common style for this is an outlined button. An example of a secondary button is TBD (not currently in production).
 
-
+<Canvas>
+    <Story name="Secondary">
+        {{
+            components: { VButton, AudioIcon },
+            template: `
+    <v-button
+      href="http://www.google.com"
+      class="mod-secondary"
+      label="Button"
+    />
+`
+        }}
+    </Story>
+</Canvas>
 
 <Heading>Icon</Heading>
 
 What’s a primary button with an icon, but no label? It’s an icon button. You’ll see these a lot in our audio experiences. Use only when an icon's meaning is unambiguous.
 
+<Canvas>
+    <Story name="Icon">
+        {{
+            components: { VButton, AudioIcon },
+            template: `
+    <div class="sbdocs-large-container sbdocs-container-margin">
+    <div class="l-grid l-grid--3up">
+      <div>
+        <v-button
+          href="http://www.google.com"
+          class="mod-small"
+        >
+          <audio-icon />
+        </v-button>
+      </div>
+      <div>
+        <v-button
+          href="http://www.google.com"
+        >
+          <audio-icon />
+        </v-button>
+      </div>
+      <div>
+        <v-button
+          href="http://www.google.com"
+          class="mod-large"
+        >
+          <audio-icon />
+        </v-button>
+      </div>
+    </div>
+    </div>
+`
+        }}
+    </Story>
+</Canvas>
 
 <Heading>Flat</Heading>
 
 To the untrained eye, flat buttons might look like links. The difference here is that a button should always be linked to a call to action, while a link can be contextual. Flat buttons should be reserved for tertiary, less important actions. Examples of flat buttons include a call to Cancel, Show Details, or Hide. There is only one size of flat button.
 
-
+<Canvas>
+    <Story name="Flat">
+        {{
+            components: { VButton },
+            template: `
+    <v-button
+      href="http://www.google.com"
+      class="mod-flat"
+      label="Button"
+    />
+`
+        }}
+    </Story>
+</Canvas>
 
 
   ## Modifier Classes

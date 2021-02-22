@@ -8,6 +8,7 @@
         aria-hidden="true"
         role="presentation"
         tabindex="-1"
+        @click="$emit('componentEvent', titleLink)"
       >
         <img
           v-if="image"
@@ -23,12 +24,15 @@
         v-else
         class="card-image-link"
         :href="titleLink"
+        @click="$emit('componentEvent', titleLink)"
       >
         <img
           v-if="image"
           class="card-image"
           :src="image"
           :alt="alt"
+          :width="imageWidth"
+          :height="imageHeight"
         >
       </a>
     </template>
@@ -40,6 +44,8 @@
         v-if="image"
         class="card-image"
         :src="image"
+        :width="imageWidth"
+        :height="imageHeight"
         alt=""
         role="presentation"
       >
@@ -76,6 +82,7 @@
 
 <script>
 export default {
+  name: 'VCard',
   props: {
     image: {
       type: String,

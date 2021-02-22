@@ -19,7 +19,7 @@ blockquote {
 
 input[type=radio],
 input[type=checkbox] {
-  border: 2px solid RGB(var(--color-dark-gray), 0.3);
+  border: 2px solid RGBA(var(--color-dark-gray), 0.3);
   background-color: RGB(var(--color-dark-gray));
 }
 
@@ -195,7 +195,7 @@ blockquote {
 
   .c-main-footer__bottom {
     text-align: center;
-    border-top: 1px dashed RGBARGB(var(--color-text), 0.5);
+    border-top: 1px dashed RGBA(var(--color-text), 0.5);
     @include media(">xlarge") {
       text-align: left;
       justify-content: space-between;

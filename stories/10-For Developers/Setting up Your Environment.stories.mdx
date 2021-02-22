@@ -6,33 +6,54 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 ### Clone the repo
 
-```bash
-git clone git@github.com:nypublicradio/nypr-design-system.git
-cd nypr-design-system
+```
+git clone git@github.com:nypublicradio/nypr-design-system-vue.git
+cd nypr-design-system-vue
 ```
 
 ### Install dependencies
-```bash
-yarn
+
+If vue isn’t installed, run
+```
+npm install -g @vue/cli
 ```
 
-> :warning: NOTE: You may need to install watchman if your dev environment doesn't have it already 
-
-```bash
-brew install watchman
-``` 
-
-### Start ember
-```bash
-ember serve
+Then
+```
+npm install
 ```
 
-(*Storybook looks at the `/dist/` folder to find your ember components. If you're only working on documentation and not modifying ember components, you should be able to get away with only running `ember build`, but if you make any changes to ember code they won't be reflected in storybook until you build again.)
-
-### Run storybook
-While ember is still running:
-```bash
-yarn storybook
+#### Compiles and hot-reloads for development
+```
+npm run serve
 ```
 
-Storybook will open automatically in your browser. You can now edit your components and stories and see the changes live.
+#### Compiles and minifies for production
+```
+npm run build
+```
+
+#### Launches Storybook
+```
+npm run storybook
+```
+
+#### Builds Storybook
+```
+npm run build-storybook
+```
+See Storybook at [https://storybook.nypr.digital](https://storybook.nypr.digital)
+
+Pushing to main will trigger a [Storybook deployment on CircleCi](https://app.circleci.com/pipelines/github/nypublicradio/nypr-design-system-vue)
+
+#### Runs unit tests
+```
+npm run test
+```
+
+#### Lints and fixes files
+```
+npm run lint
+```
+
+See the Vue CLI [Configuration Reference](https://cli.vuejs.org/config/) for more!

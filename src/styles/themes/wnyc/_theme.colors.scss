@@ -18,12 +18,12 @@
   /* Brand Colors */
   --color-cool-white:         #{hex2rgb(#EAEFF0)};
   --color-blue:               #{hex2rgb(#203849)};
+  --color-ceramic-blue:       #{hex2rgb(#235B9C)};
   --color-dark-blue:          #{hex2rgb(#191716)};
   --color-concrete:           #{hex2rgb(#E0E2E3)};
   --color-red:                #{hex2rgb(#de1e3d)};
   --color-dark-red:           #{hex2rgb(#6a1017)};
   --color-almost-black:       #{hex2rgb(#101012)};
-
 }
 
 @mixin color-group-light {
@@ -95,10 +95,10 @@
   --color-primary-1:            var(--color-red);
   --color-primary-2:            var(--color-blue);
   --color-primary-3:            var(--color-blue);
-  --color-background:           var(--color-blue);
+  --color-background:           var(--color-almost-black);
   --color-background-muted:     rgb(var(--color-background));
   --color-background-highlight: var(--color-blue);
-  --color-text:                 var(--color-black);
+  --color-text:                 var(--color-white);
   --color-text-print:           var(--color-black);
   --color-text-muted:           var(--color-concrete);
   --color-text-error:           var(--color-red);
