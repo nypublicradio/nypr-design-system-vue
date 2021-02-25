@@ -1,5 +1,11 @@
 <template>
   <div class="menu">
+    <transition name="fade">
+      <div
+        v-if="hasOverlay && menuOpen"
+        class="menu-overlay"
+      />
+    </transition>
     <div
       class="menu-hamburger"
       @click="toggleMenu"
@@ -112,6 +118,10 @@ export default {
     VSpacer
   },
   props: {
+    hasOverlay: {
+      type: Boolean,
+      default: true
+    },
     primaryNav: {
       type: Array,
       default: null
@@ -159,6 +169,16 @@ export default {
   --menu-width: 368px;
 }
 
+.menu .menu-overlay {
+  background: RGBA(var(--color-white), .5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
 .menu .menu-hamburger {
   position: absolute;
   top: 0;
@@ -166,6 +186,7 @@ export default {
   cursor: pointer;
   width: 24px;
   height: 24px;
+  z-index: 999;
 }
 
 .menu.not-fixed .menu-hamburger {
