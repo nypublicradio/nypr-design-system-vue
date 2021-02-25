@@ -1,4 +1,5 @@
 import VSearch from '../../../src/components/VSearch'
+import SearchIcon from '../../../src/components/icons/SearchIcon'
 
 export default {
   title: 'Components/Molecules/Search'
@@ -35,5 +36,33 @@ export const WithCloseButton = () => ({
       action="http://www.google.com"
       placeholder="A custom placeholder..."
     />
+  `
+})
+
+export const GothamistHeaderExample = () => ({
+  components: {
+    VSearch,
+    SearchIcon
+  },
+  data () {
+    return {
+      searchIsActive: false
+    }
+  },
+  template: `
+    <div>
+    <search-icon
+      class="u-icon--xs"
+      @click.native="searchIsActive = true"
+    />
+    <transition name="slide-right">
+      <v-search
+        v-if="searchIsActive"
+        show-close-icon
+        action="/search"
+        @searchBarClose="searchIsActive = false"
+      />
+    </transition>
+    </div>
   `
 })
