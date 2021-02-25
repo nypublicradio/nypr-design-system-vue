@@ -334,7 +334,7 @@ label.disabled {
 }
 
 // text area styles
-textarea + p {
+textarea ~ p {
   @include typeface(body, 2);
   color: RGB(var(--color-text-muted));
   margin-top: var(--space-1);

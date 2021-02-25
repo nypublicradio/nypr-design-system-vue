@@ -152,6 +152,26 @@ Use when input is not yet possible. Use a brand utility colors for text and stro
 <br />
 
 <Canvas>
+    <Story name="Error with Character Counter">
+        {{
+            data: () => ({
+                textarea: '',
+                maxCharacters: 10,
+            }),
+            template: `
+                <label class="error">Textarea with Character Count
+                    <textarea v-model="textarea" placeholder="placeholder text"/>
+                    <p class="error">Error text lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p :class="{'error': maxCharacters-textarea.length < 0}">{{ maxCharacters-textarea.length }} Characters Remaining</p>
+                </label>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<br />
+
+<Canvas>
     <Story name="Disabled">
         {{
             template: `
