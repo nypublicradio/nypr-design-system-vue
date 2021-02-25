@@ -13,8 +13,8 @@
       {{ placeholder }}
     </label>
     <v-button
-      class="search-bar-close"
       v-if="showCloseIcon"
+      class="search-bar-close"
       @click="$emit('searchBarClose', $event);"
     >
       <close-icon />
