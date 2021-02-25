@@ -27,6 +27,7 @@
       type="search"
     >
     <v-button
+      class="search-bar-submit"
       @click="$emit('searchBarSubmit', $event);"
     >
       <search-icon />
