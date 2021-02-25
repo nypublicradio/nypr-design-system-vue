@@ -1249,6 +1249,10 @@ form .o-button:hover {
   font-weight: 700;
 }
 
+.menu .c-main-header__send-story .button-label {
+  color: RGB(var(--color-dark-gray));
+}
+
 .c-main-header .search-bar-input {
   border-radius: 0 !important;
 }
