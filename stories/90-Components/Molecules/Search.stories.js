@@ -24,3 +24,16 @@ export const CustomPlaceholder = () => ({
     />
   `
 })
+
+export const WithCloseButton = () => ({
+  components: {
+    VSearch
+  },
+  template: `
+    <v-search
+      showCloseIcon
+      action="http://www.google.com"
+      placeholder="A custom placeholder..."
+    />
+  `
+})
