@@ -21,3 +21,16 @@
   transform: translateX(-100%);
   transition: all var(--animation-duration-standard) var(--animation-easing-incoming) 0s;
 }
+
+// slide in from right to left
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: all var(--animation-duration-standard) var(--animation-easing-standard);
+}
+
+.slide-left-enter,
+.slide-left-leave-to {
+  transform: translateX(100%);
+  transition: all var(--animation-duration-standard) var(--animation-easing-incoming) 0s;
+}
