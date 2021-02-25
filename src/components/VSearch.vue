@@ -12,6 +12,9 @@
     >
       {{ placeholder }}
     </label>
+    <v-button>
+      <close-icon />
+    </v-button>
     <input
       id="search"
       name="q"
@@ -26,12 +29,14 @@
 </template>
 
 <script>
+import CloseIcon from '../components/icons/CloseIcon'
 import SearchIcon from '../components/icons/SearchIcon'
 import VButton from '../components/VButton'
 
 export default {
   name: 'VSearch',
   components: {
+    CloseIcon,
     SearchIcon,
     VButton
   },
@@ -43,6 +48,10 @@ export default {
     placeholder: {
       type: String,
       default: 'Search'
+    },
+    showCloseIcon: {
+      type: Boolean,
+      default: true
     }
   }
 }
