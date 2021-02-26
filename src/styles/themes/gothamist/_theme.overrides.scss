@@ -264,6 +264,14 @@ blockquote {
   fill: RGB(var(--color-text-inverse));
 }
 
+.c-main-footer .c-secondary-nav__list.horizontal {
+  flex-direction: row;
+  justify-content: center;
+  @include media(">medium") {
+    justify-content: left;
+  }
+}
+
 // brand group
 
 .c-main-footer .c-main-footer__nypr-logo {
@@ -1186,6 +1194,19 @@ form .o-button:hover {
 
 .menu .menu-secondary-navigation .c-secondary-nav__item {
   display: inline-block;
+}
+
+.c-main-header .menu .menu-secondary-navigation .c-secondary-nav__list {
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+}
+
+.c-main-header .menu .menu-secondary-navigation .c-secondary-nav__link {
+  @include typeface(small, 2);
+  font-size: var(--font-size-3) !important;
+  margin: 0 var(--space-4);
 }
 
 .c-main-header .menu .c-secondary-nav__icon path {
