@@ -13,7 +13,10 @@
             class="c-main-footer__nav c-main-footer__primary-nav"
             name="primaryNavFooter"
           >
-            <secondary-navigation :nav-items="primaryNav" />
+            <secondary-navigation
+              orientation="horizontal"
+              :nav-items="primaryNav"
+            />
           </div>
           <div
             v-if="hasLeftComponentSlot"
@@ -282,7 +285,7 @@ export default {
 }
 
 .c-main-footer .c-main-footer__nav .c-secondary-nav__item {
-  display: inline-block;
+  display: flex;
   margin: 0 var(--space-3) var(--space-4) 0;
 
   @include media("<=medium") {
@@ -335,7 +338,7 @@ export default {
 }
 
 .c-main-footer .c-main-footer__nav .c-secondary-nav__item {
-  display: inline-block;
+  display: flex;
   margin: 0 var(--space-3) var(--space-4) 0;
 
   @include media("<=medium") {
@@ -448,7 +451,7 @@ export default {
 }
 
 .c-main-footer .c-main-footer__secondary-nav .c-secondary-nav__item {
-  display: block;
+  display: flex;
   margin-bottom: var(--space-2);
   font-size: var(--font-size-6);
 }
