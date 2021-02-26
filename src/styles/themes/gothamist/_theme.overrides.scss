@@ -1024,36 +1024,9 @@ form .o-button:hover {
   letter-spacing: 1px;
 }
 
-.c-main-header .c-secondary-nav__item {
-  position: relative;
-
-  &:last-of-type {
-    padding-left: 20px;
-
-    a::before {
-      position: absolute;
-      top: 4px;
-      bottom: 0;
-      left: 0;
-      content: '';
-      background-color: RGB(var(--color-navigation-link));
-      -webkit-mask-image: url('/newsletter-icon.svg');
-      mask-image: url('/newsletter-icon.svg');
-      background-size: 14px 14px;
-      height: 14px;
-      width: 14px;
-    }
-  }
-
-  &:hover {
-    a {
-      color: RGB(var(--color-navigation-link-hover));
-
-      &::before {
-        background-color: RGB(var(--color-navigation-link-hover));
-      }
-    }
-  }
+.c-main-header .c-secondary-nav__icon {
+  height: 14px;
+  width: 14px;
 }
 
 .c-main-header .c-main-header__donate {
@@ -1213,6 +1186,10 @@ form .o-button:hover {
 
 .menu .menu-secondary-navigation .c-secondary-nav__item {
   display: inline-block;
+}
+
+.c-main-header .menu .c-secondary-nav__icon path {
+  fill: RGB(var(--color-banana-yellow));
 }
 
 .menu .menu-panel .menu-copyright {
