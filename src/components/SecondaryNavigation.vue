@@ -72,8 +72,11 @@ export default {
   display: flex;
 }
 
-.c-secondary-nav__list .c-secondary-nav__icon svg {
+.c-secondary-nav__list .c-secondary-nav__icon {
   margin-right: var(--space-2);
+}
+
+.c-secondary-nav__list .c-secondary-nav__icon svg {
   height: 20px;
   width: 20px;
 }
