@@ -148,7 +148,7 @@ $z-index-header: 5000;
 .c-main-header .c-primary-nav .c-secondary-nav__list {
   display: none;
   @include media(">xlarge") {
-    display: block;
+    display: flex;
   }
 }
 
