@@ -4,6 +4,7 @@
       <div
         v-if="hasOverlay && menuOpen"
         class="menu-overlay"
+        @click="menuOpen = false"
       />
     </transition>
     <div

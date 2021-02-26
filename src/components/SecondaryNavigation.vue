@@ -15,6 +15,12 @@
           rel="noopener"
           class="c-secondary-nav__link"
         >
+          <span
+            v-if="item.icon"
+            class="c-secondary-nav__icon"
+          >
+            <component :is="item.icon" />
+          </span>
           {{ item.text }}
           <span
             v-if="item.newWindow"
@@ -27,8 +33,13 @@
 </template>
 
 <script>
+import EmailIcon from '../components/icons/EmailIcon'
+
 export default {
   name: 'SecondaryNavigation',
+  components: {
+    EmailIcon
+  },
   props: {
     navItems: {
       type: Array,
@@ -43,12 +54,28 @@ export default {
 </script>
 
 <style lang="scss">
+.c-secondary-nav__list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.c-secondary-nav__list.horizontal {
+  flex-direction: row;
+}
+
 .c-secondary-nav__list .c-secondary-nav__item {
   margin-bottom: var(--space-2);
 }
 
-.c-secondary-nav__list.horizontal .c-secondary-nav__item {
-  display: inline-block;
+.c-secondary-nav__list .c-secondary-nav__link {
+  display: flex;
+}
+
+.c-secondary-nav__list .c-secondary-nav__icon svg {
+  margin-right: var(--space-2);
+  height: 20px;
+  width: 20px;
 }
 
 .c-secondary-nav__list.horizontal .c-secondary-nav__item:not(:last-child) {
@@ -56,6 +83,6 @@ export default {
 }
 
 .c-secondary-nav__list .c-secondary-nav__subheader-spacer {
-  height: var(--space-5);;
+  height: var(--space-5);
 }
 </style>
