@@ -1,4 +1,8 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import VBanner from '../../../src/components/VBanner'
+import ArticleMetadata from '../../../src/components/ArticleMetadata'
+import VByline from '../../../src/components/VByline'
+import VCounter from '../../../src/components/VCounter'
 
 <Meta title="Components/Molecules/Breaking News Banners" />
 
@@ -23,3 +27,48 @@ Required fields include:  “Breaking News” label, Headline, and Timestamp.
 
 ### Gothamist
 <img alt="examples of a Gothamist breaking news callout banner" src="./images/Molecules-Organisms-CalloutBanner-GothamistBreakingNews.png" width="1000" />
+
+
+## Code Examples
+
+<Canvas>
+    <Story name="Default">
+        {{
+            components: { VBanner },
+            template:
+            `
+            <v-banner
+                tag="Breaking News"
+                headline="Lorem Ipsum Dolor Sit Amet"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            >
+                <p><em>slot for component</em></p>
+            </v-banner>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="With Article Metadata">
+        {{
+            components: { VBanner, ArticleMetadata, VCounter, VByline },
+            template:
+            `
+            <v-banner
+                tag="Breaking News"
+                headline="Lorem Ipsum Dolor Sit Amet"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            >
+                <article-metadata
+                    publish-date="Jan 1, 2020"
+                    updated-date="Mar 2, 2020"
+                >
+                    <template v-slot:comments><v-counter icon="comment" text="Comments" value="40" href="http://www.google.com"/></template>
+                    <template v-slot:photos><v-counter icon="gallery" text="Photos" value="40" href="http://www.google.com"/></template>
+                </article-metadata>
+            </v-banner>
+            `
+        }}
+    </Story>
+</Canvas>
