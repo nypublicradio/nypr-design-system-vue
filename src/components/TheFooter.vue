@@ -90,7 +90,10 @@
           </p>
         </div>
         <div class="c-main-footer__terms-links">
-          <secondary-navigation orientation="horizontal" :nav-items="legalNav" />
+          <secondary-navigation
+            orientation="responsive"
+            :nav-items="legalNav"
+          />
         </div>
       </div>
     </div>
@@ -385,7 +388,11 @@ export default {
 
 .c-main-footer .c-main-footer__bottom p {
   @include typeface(body, 6);
-  height: 35px;
+  margin-bottom: var(--space-3);
+  @include media(">large") {
+    margin-bottom: 0;
+    height: 35px;
+  }
 }
 
 .c-main-footer .c-main-footer__copyright {
@@ -394,28 +401,8 @@ export default {
   }
 }
 
-.c-main-footer .c-main-footer__terms-links {
-  @include typeface(subheader, 5);
-  @include media(">=medium") {
-    @include typeface(subheader, 7);
-  }
-  font-weight: normal;
-
-  @include media("<=large") {
-    margin-top: var(--space-2);
-  }
-}
-
 .c-main-footer .c-main-footer__terms-links a {
   @include typeface(body, 6);
-  padding: 8px 0;
-  font-weight: normal;
-  display: block;
-
-  @include media(">large") {
-    margin: 0 var(--space-4) 0 0;
-    display: inline-block;
-  }
 }
 
 .c-main-footer .c-toggle-box__label {

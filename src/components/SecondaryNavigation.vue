@@ -49,11 +49,24 @@ export default {
   display: inline-block;
 }
 
+.c-secondary-nav__list.responsive .c-secondary-nav__item {
+  display: block;
+  @include media(">large") {
+    display: inline-block;
+  }
+}
+
 .c-secondary-nav__list.horizontal .c-secondary-nav__item:not(:last-child) {
   margin-right: var(--space-5);
 }
 
+.c-secondary-nav__list.responsive .c-secondary-nav__item:not(:last-child) {
+  @include media(">large") {
+    margin-right: var(--space-5);
+  }
+}
+
 .c-secondary-nav__list .c-secondary-nav__subheader-spacer {
-  height: var(--space-5);;
+  height: var(--space-5);
 }
 </style>
