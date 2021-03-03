@@ -97,6 +97,19 @@ describe('TheFooter', () => {
     expect(wrapper.vm.tertiaryNav[0].url).toBe(navItems[0].url)
   })
 
+  test('legalNav prop works', () => {
+    const wrapper = shallowMount(TheFooter, {
+      propsData: {
+        legalNav: navItems
+      }
+    })
+    // check if prop works
+    // no need to test the SecondaryNavigation component itself
+    // SecondaryNavigation component unit tests are found in SecondaryNavigation.test.js
+    expect(wrapper.vm.legalNav[0].text).toBe(navItems[0].text)
+    expect(wrapper.vm.legalNav[0].url).toBe(navItems[0].url)
+  })
+
   test('subheader1 prop works', () => {
     const wrapper = shallowMount(TheFooter, {
       propsData: {

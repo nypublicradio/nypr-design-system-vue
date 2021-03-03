@@ -90,33 +90,7 @@
           </p>
         </div>
         <div class="c-main-footer__terms-links">
-          <a
-            href="https://www.wnyc.org/terms"
-            class="u-font--secondary-style u-font--xs"
-            target="_blank"
-            rel="noopener"
-            name="termsFooter"
-          >
-            Terms of Use
-          </a>
-          <a
-            href="https://www.wnyc.org/privacy"
-            class="u-font--secondary-style u-font--xs"
-            target="_blank"
-            rel="noopener"
-            name="privacyFooter"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="https://media.wnyc.org/media/resources/2020/Oct/30/accessibility_policy_10.30.20.pdf"
-            class="u-font--secondary-style u-font--xs"
-            target="_blank"
-            rel="noopener"
-            name="accessibilityFooter"
-          >
-            Accessibility
-          </a>
+          <secondary-navigation orientation="horizontal" :nav-items="legalNav" />
         </div>
       </div>
     </div>
@@ -139,6 +113,10 @@ export default {
       default: null
     },
     secondaryNav: {
+      type: Array,
+      default: null
+    },
+    legalNav: {
       type: Array,
       default: null
     },
@@ -407,6 +385,7 @@ export default {
 
 .c-main-footer .c-main-footer__bottom p {
   @include typeface(body, 6);
+  height: 35px;
 }
 
 .c-main-footer .c-main-footer__copyright {
