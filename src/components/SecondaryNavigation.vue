@@ -1,29 +1,27 @@
 <template>
-  <div>
-    <ul
-      class="c-secondary-nav__list"
-      :class="orientation"
+  <ul
+    class="c-secondary-nav__list"
+    :class="orientation"
+  >
+    <li
+      v-for="(item, index) in navItems"
+      :key="index"
+      class="c-secondary-nav__item"
     >
-      <li
-        v-for="(item, index) in navItems"
-        :key="index"
-        class="c-secondary-nav__item"
+      <a
+        :href="item.url"
+        :target="item.newWindow && '_blank'"
+        rel="noopener"
+        class="c-secondary-nav__link"
       >
-        <a
-          :href="item.url"
-          :target="item.newWindow && '_blank'"
-          rel="noopener"
-          class="c-secondary-nav__link"
-        >
-          {{ item.text }}
-          <span
-            v-if="item.newWindow"
-            class="is-vishidden"
-          >(New tab)</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+        {{ item.text }}
+        <span
+          v-if="item.newWindow"
+          class="is-vishidden"
+        >(New tab)</span>
+      </a>
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -51,11 +49,24 @@ export default {
   display: inline-block;
 }
 
+.c-secondary-nav__list.responsive .c-secondary-nav__item {
+  display: block;
+  @include media(">large") {
+    display: inline-block;
+  }
+}
+
 .c-secondary-nav__list.horizontal .c-secondary-nav__item:not(:last-child) {
   margin-right: var(--space-5);
 }
 
+.c-secondary-nav__list.responsive .c-secondary-nav__item:not(:last-child) {
+  @include media(">large") {
+    margin-right: var(--space-5);
+  }
+}
+
 .c-secondary-nav__list .c-secondary-nav__subheader-spacer {
-  height: var(--space-5);;
+  height: var(--space-5);
 }
 </style>

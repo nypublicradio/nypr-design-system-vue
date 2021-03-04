@@ -90,33 +90,10 @@
           </p>
         </div>
         <div class="c-main-footer__terms-links">
-          <a
-            href="https://www.wnyc.org/terms"
-            class="u-font--secondary-style u-font--xs"
-            target="_blank"
-            rel="noopener"
-            name="termsFooter"
-          >
-            Terms of Use
-          </a>
-          <a
-            href="https://www.wnyc.org/privacy"
-            class="u-font--secondary-style u-font--xs"
-            target="_blank"
-            rel="noopener"
-            name="privacyFooter"
-          >
-            Privacy Policy
-          </a>
-          <a
-            href="https://media.wnyc.org/media/resources/2020/Oct/30/accessibility_policy_10.30.20.pdf"
-            class="u-font--secondary-style u-font--xs"
-            target="_blank"
-            rel="noopener"
-            name="accessibilityFooter"
-          >
-            Accessibility
-          </a>
+          <secondary-navigation
+            orientation="responsive"
+            :nav-items="legalNav"
+          />
         </div>
       </div>
     </div>
@@ -139,6 +116,10 @@ export default {
       default: null
     },
     secondaryNav: {
+      type: Array,
+      default: null
+    },
+    legalNav: {
       type: Array,
       default: null
     },
@@ -407,6 +388,11 @@ export default {
 
 .c-main-footer .c-main-footer__bottom p {
   @include typeface(body, 6);
+  margin-bottom: var(--space-3);
+  @include media(">large") {
+    margin-bottom: 0;
+    height: 35px;
+  }
 }
 
 .c-main-footer .c-main-footer__copyright {
@@ -415,28 +401,8 @@ export default {
   }
 }
 
-.c-main-footer .c-main-footer__terms-links {
-  @include typeface(subheader, 5);
-  @include media(">=medium") {
-    @include typeface(subheader, 7);
-  }
-  font-weight: normal;
-
-  @include media("<=large") {
-    margin-top: var(--space-2);
-  }
-}
-
 .c-main-footer .c-main-footer__terms-links a {
   @include typeface(body, 6);
-  padding: 8px 0;
-  font-weight: normal;
-  display: block;
-
-  @include media(">large") {
-    margin: 0 var(--space-4) 0 0;
-    display: inline-block;
-  }
 }
 
 .c-main-footer .c-toggle-box__label {
