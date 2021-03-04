@@ -229,6 +229,7 @@ blockquote {
 .c-main-footer .c-main-footer__bottom .c-main-footer__copyright-text {
   @include typeface(small, 3);
   text-transform: uppercase;
+  margin-top: 10px;
 }
 
 .c-secondary-nav .c-secondary-nav__link {
