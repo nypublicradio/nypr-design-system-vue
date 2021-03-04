@@ -6,9 +6,10 @@
           <div class="c-main-footer__logo u-space--double--bottom">
             <slot name="logo" />
           </div>
-          <div class="c-main-footer__slogan u-space--triple--bottom">
-            <p>{{ slogan }}</p>
-          </div>
+          <div
+            class="c-main-footer__slogan u-space--triple--bottom"
+            v-html="slogan"
+          />
           <div
             class="c-main-footer__nav c-main-footer__primary-nav"
             name="primaryNavFooter"
