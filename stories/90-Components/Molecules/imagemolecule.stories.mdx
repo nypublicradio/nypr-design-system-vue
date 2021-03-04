@@ -10,13 +10,13 @@ Our image molecule is a wrapper for images used in an editorial context, it allo
 ## Use Cases
 
 -   Displaying photos that need credit shown
-    
+
 -   Displaying photos that have a caption
-    
+
 -   Lead images in articles (ex: Gothamist)
-    
+
 -   In-article images
-    
+
 -   Gallery Images
 
 -  **Don't** use the image molecule if you *just* need an image, use the image atom instead.
@@ -42,7 +42,7 @@ Our image molecule is a wrapper for images used in an editorial context, it allo
 </Canvas>
 
  1- **Expand Button** - This icon button should launch a modal of a larger version of the image when clicked. This is an optional feature.
- 
+
  2- **Caption** - This line of text should describe the picture it’s attached to. Aim to keep the length about the same as a tweet (140 characters). This is optional.
 
 3- **Credit** - The credit line or photo credit identifies the photographer, illustrator, or copyright holder for images in a publication or on a website. These are typically formatted like [artist name] via [publication or source]. This is optional and has flexibility to be optionally hyperlinked. If used, it should always be exposed and not be hidden under the icon button.
@@ -56,7 +56,7 @@ The image size inside this component comes with an adjustable ratio variable, se
 
 
 
-## States 
+## States
 
 The WNYC variant of this component has 2 states, both related to the caption.
 
@@ -65,7 +65,7 @@ In this state, the caption is hidden. Notice the icon button in the lower right 
 
 <img alt="text" src="./images/Molecules-ImageMolcule-CaptionHidden.png" width="400" />
 
-### Caption Visable 
+### Caption Visable
 Clicking the icon button should change the inside icon from an info icon to a close icon while the caption fades from hidden to visible.
 <img alt="text" src="./images/Molecules-ImageMolcule-CaptionVisable.png" width="400" />
 
@@ -107,6 +107,22 @@ Features a custom icon left aligned to the caption.
                 alt-text="image alt text"
                 image="http://placehold.it/768x512"
                 credit="( AP Photo/Carolyn Kaster )"
+                caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+              />`,
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Image With Caption, Gothamist Variation">
+        {{
+            components: { ImageWithCaption },
+            template: `
+              <image-with-caption
+                variation="gothamist"
+                alt-text="image alt text"
+                image="http://placehold.it/768x512"
+                credit="AP Photo/Carolyn Kaster"
                 caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
               />`,
         }}
