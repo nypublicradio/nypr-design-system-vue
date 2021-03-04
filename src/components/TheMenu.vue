@@ -9,7 +9,10 @@
     </transition>
     <div
       class="menu-hamburger"
+      tabindex="0"
+      aria-label="open the menu"
       @click="toggleMenu"
+      @keypress.enter.space.prevent="toggleMenu"
     >
       <hamburger-icon />
     </div>
@@ -20,7 +23,10 @@
       >
         <div
           class="menu-close"
+          tabindex="0"
+          aria-label="close the menu"
           @click="menuOpen = false"
+          @keypress.enter.space.prevent="menuOpen = false"
         >
           <close-icon />
         </div>
