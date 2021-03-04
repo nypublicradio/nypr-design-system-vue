@@ -243,18 +243,6 @@ blockquote {
   }
 }
 
-.c-main-footer .c-main-footer__terms-links a {
-  @include typeface(small, 3);
-  margin: 0 var(--space-3);
-  padding: 8px 0;
-  text-transform: uppercase;
-  font-weight: bold;
-
-  @include media(">large") {
-    margin: 0 11px 0 var(--space-5);
-  }
-}
-
 .c-main-footer .c-main-footer__right-component {
   color: RGB(var(--color-text-inverse));
 }
