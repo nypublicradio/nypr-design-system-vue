@@ -57,3 +57,26 @@ export const Horizontal = () => ({
     </div>
   `
 })
+
+export const Responsive = () => ({
+  components: { SecondaryNavigation },
+  template: `
+    <div class="sbdocs-large-container sbdocs-container-margin">
+      <secondary-navigation orientation="responsive" :nav-items="[
+        {
+          url: 'http://www.google.com',
+          text: 'Secondary Link 1 in a New Window',
+          newWindow: true
+        },
+        {
+          url: 'http://www.google.com',
+          text: 'Secondary Link 2',
+        },
+        {
+          url: 'http://www.google.com',
+          text: 'Secondary Link 3'
+        }
+      ]" />
+    </div>
+  `
+})

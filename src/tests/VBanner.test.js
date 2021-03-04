@@ -1,0 +1,142 @@
+import { mount, shallowMount } from '@vue/test-utils'
+import VBanner from '../components/VBanner'
+import AudioIcon from '../components/icons/AudioIcon'
+import { describe, test, expect } from '@jest/globals'
+import { toHaveNoViolations } from 'jest-axe'
+import axe from './axe-helper'
+
+expect.extend(toHaveNoViolations)
+
+describe('VBanner', () => {
+  const description = 'this is a description'
+  const headline = 'this is a headline'
+  const tag = 'tagname'
+  const tagLink = 'http://www.test.com'
+  test('description prop works', () => {
+    const wrapper = shallowMount(VBanner, {
+      propsData: {
+        description,
+        headline,
+        tag,
+        tagLink,
+        showJustNow: false
+      }
+    })
+    // check if it was rendered correctly
+    const div = wrapper.find('.banner-description')
+    expect(div.text()).toBe(description)
+  })
+
+  test('headline prop works', () => {
+    const wrapper = shallowMount(VBanner, {
+      propsData: {
+        description,
+        headline,
+        tag,
+        tagLink
+      }
+    })
+    // check if it was rendered correctly
+    const div = wrapper.find('.banner-headline')
+    expect(div.text()).toBe(headline)
+  })
+
+  test('tag prop works', () => {
+    const wrapper = mount(VBanner, {
+      propsData: {
+        description,
+        headline,
+        tag,
+        tagLink
+      }
+    })
+    // check if it was rendered correctly
+    const div = wrapper.find('.banner .tag')
+    expect(div.text()).toBe(tag)
+  })
+
+  test('tagLink prop works', () => {
+    const wrapper = mount(VBanner, {
+      propsData: {
+        description,
+        headline,
+        tag,
+        tagLink
+      }
+    })
+    // check if prop works and rendered correctly
+    const div = wrapper.find('a')
+    expect(div.attributes().href).toBe(tagLink)
+  })
+
+  test('default slot works', () => {
+    const wrapper = shallowMount(VBanner, {
+      propsData: {
+        description,
+        headline,
+        tag,
+        tagLink
+      },
+      slots: {
+        default: AudioIcon
+      }
+    })
+    // check if the component was successfully passed through the slot
+    expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
+  })
+
+  test('showJustNow prop works', async () => {
+    const wrapper = shallowMount(VBanner, {
+      propsData: {
+        description,
+        headline,
+        tag,
+        tagLink
+      }
+    })
+    // check if it was rendered correctly
+    let div = wrapper.find('.banner-description-just-now')
+    expect(wrapper.vm.showJustNow).toBe(true)
+    expect(div.text()).toBe('Just Now')
+    wrapper.vm.showJustNow = false
+    await wrapper.vm.$nextTick()
+    div = wrapper.find('.banner-description-just-now')
+    expect(div.exists()).toBe(false)
+    expect(wrapper.vm.showJustNow).toBe(false)
+  })
+
+  test('it passes basic accessibility tests', async () => {
+    const wrapper = mount(VBanner, {
+      slots: {
+        default: AudioIcon
+      },
+      propsData: {
+        description,
+        headline,
+        tag,
+        tagLink
+      }
+    })
+    const results = await axe(wrapper.element)
+    expect(results).toHaveNoViolations()
+  })
+
+  test('close works', async () => {
+    const wrapper = mount(VBanner, {
+      propsData: {
+        description,
+        headline,
+        tag,
+        tagLink
+      }
+    })
+    const div = wrapper.find('.banner')
+    const divClose = wrapper.find('.banner-close')
+    expect(div.isVisible()).toBe(true)
+    expect(wrapper.vm.active).toBe(true)
+    divClose.trigger('click')
+    await wrapper.vm.$nextTick()
+    expect(div.isVisible()).toBe(false)
+    expect(wrapper.vm.active).toBe(false)
+  })
+})
