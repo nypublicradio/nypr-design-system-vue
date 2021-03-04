@@ -62,6 +62,13 @@ export default {
   flex-direction: row;
 }
 
+.c-secondary-nav__list.responsive {
+  flex-direction: column;
+  @include media(">large") {
+    flex-direction: row;
+  }
+}
+
 .c-secondary-nav__list .c-secondary-nav__item {
   margin-bottom: var(--space-2);
 }
@@ -77,13 +84,6 @@ export default {
 .c-secondary-nav__list .c-secondary-nav__icon svg {
   height: 20px;
   width: 20px;
-}
-
-.c-secondary-nav__list.responsive .c-secondary-nav__item {
-  display: block;
-  @include media(">large") {
-    display: inline-block;
-  }
 }
 
 .c-secondary-nav__list.horizontal .c-secondary-nav__item:not(:last-child) {
