@@ -271,7 +271,7 @@ export default {
   margin: 0 var(--space-3) var(--space-4) 0;
 
   @include media("<=medium") {
-    margin: 0 var(--space-3) var(--space-4) 0;
+    margin: 0 var(--space-3) 0 0;
   }
 }
 
@@ -317,25 +317,6 @@ export default {
 
 .c-main-footer .c-secondary-nav__subheader-spacer {
   height: 38px;
-}
-
-.c-main-footer .c-main-footer__nav .c-secondary-nav__item {
-  display: flex;
-  margin: 0 var(--space-3) var(--space-4) 0;
-
-  @include media("<=medium") {
-    margin: 0 var(--space-3) var(--space-4);
-  }
-}
-
-.c-main-footer .c-main-footer__nav .c-secondary-nav__item:not(:last-child) {
-  @include media(">xlarge") {
-    margin-right: var(--space-5);
-  }
-}
-
-.c-main-footer .c-main-footer__nav .c-secondary-nav__link {
-  padding: var(--space-2) 0;
 }
 
 .c-main-footer .c-main-footer__nypr-logo {
@@ -400,8 +381,16 @@ export default {
 }
 
 .c-main-footer .c-main-footer__copyright {
-  @include media(">large") {
+  @include media(">xlarge") {
     margin-right: var(--space-4);
+  }
+}
+
+.c-main-footer .c-main-footer__terms-links .c-secondary-nav__list {
+  justify-content: center;
+  align-items: center;
+  @include media(">xlarge") {
+    align-items: flex-start;
   }
 }
 

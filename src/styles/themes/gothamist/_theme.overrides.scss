@@ -593,6 +593,13 @@ form .o-button:hover {
   background-color: RGB(var(--color-dark-gray));
 }
 
+// article page
+.article .l-container {
+  @include media("<xlarge") {
+    padding: 0 var(--space-5);
+  }
+}
+
 // article page credit
 .o-caption__text > span a {
   text-decoration: none;
