@@ -995,6 +995,15 @@ form .o-button:hover {
 // new vue overrides
 
 // HEADER
+.c-main-header .c-secondary-nav__item .c-secondary-nav__link{
+  @include typeface(body, 6);
+  font-family: var(--font-family-pragati);
+  letter-spacing: 1px;
+  &:hover {
+    color: RGB(var(--color-reddish-orange));
+  }
+}
+
 .c-main-header a:hover svg {
   fill: RGB(var(--color-white));
 }
