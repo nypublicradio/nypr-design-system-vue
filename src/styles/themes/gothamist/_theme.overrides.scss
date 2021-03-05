@@ -1103,6 +1103,17 @@ form .o-button:hover {
   font-weight: bold;
 }
 
+.c-main-footer .c-main-footer__terms-links .c-secondary-nav__link {
+  padding: var(--space-1) 0;
+}
+
+.c-main-footer .c-share-tools__label {
+  margin-bottom: var(--space-2);
+  @include media(">large") {
+    margin-bottom: 0;
+  }
+}
+
 .c-main-footer .c-main-footer__nav .c-secondary-nav__item a {
   color: RGB(var(--color-white));
   @include dotted-underline(--color-white);
