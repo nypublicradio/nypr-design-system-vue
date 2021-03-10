@@ -231,13 +231,13 @@ input[type=checkbox] {
   fill: RGB(var(--color-text-inverse));
 }
 
-.c-main-footer .c-secondary-nav__list.horizontal {
-  flex-direction: row;
-  justify-content: center;
-  @include media(">medium") {
-    justify-content: left;
-  }
-}
+//.c-main-footer .c-secondary-nav__list.horizontal {
+//  flex-direction: row;
+//  justify-content: center;
+//  @include media(">medium") {
+//    justify-content: left;
+//  }
+//}
 
 // brand group
 
@@ -985,7 +985,7 @@ form .o-button:hover {
 }
 
 .c-main-header a:hover svg {
-  fill: RGB(var(--color-reddish-orange));
+  fill: RGB(var(--color-white));
 }
 
 .c-main-header .menu a:hover svg {
@@ -1104,6 +1104,20 @@ form .o-button:hover {
 .c-main-footer .c-share-tools__label {
   margin-bottom: var(--space-2);
   @include media(">large") {
+    margin-bottom: 0;
+  }
+}
+
+.c-main-footer .c-secondary-nav__list.horizontal {
+  justify-content: center;
+  @include media(">medium") {
+    justify-content: flex-start;
+  }
+}
+
+.c-main-footer .c-main-footer__nav .c-secondary-nav__item {
+  margin-bottom: var(--space-4);
+  @include media(">xlarge") {
     margin-bottom: 0;
   }
 }
