@@ -1241,6 +1241,10 @@ form .o-button:hover {
   font-family: var(--font-family-small);
   letter-spacing: var(--letter-spacing-small);
   font-weight: var(--font-weight-small);
+  &:hover {
+    color: rgb(var(--color-white));
+    background-color: rgb(var(--color-reddish-orange));
+  }
 }
 
 .menu .menu-button .button,
