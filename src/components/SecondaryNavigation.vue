@@ -1,7 +1,7 @@
 <template>
   <ul
     class="c-secondary-nav__list"
-    :class="orientation"
+    :class="[orientation, alignment]"
   >
     <li
       v-for="(item, index) in navItems"
@@ -46,6 +46,10 @@ export default {
     orientation: {
       type: String,
       default: 'vertical'
+    },
+    alignment: {
+      type: String,
+      default: 'left'
     }
   }
 }
@@ -73,10 +77,6 @@ export default {
   margin-bottom: var(--space-2);
 }
 
-.c-secondary-nav__list .c-secondary-nav__link {
-  display: flex;
-}
-
 .c-secondary-nav__list .c-secondary-nav__icon {
   margin-right: var(--space-2);
 }
@@ -88,6 +88,14 @@ export default {
 
 .c-secondary-nav__list.horizontal .c-secondary-nav__item:not(:last-child) {
   margin-right: var(--space-5);
+}
+
+.c-secondary-nav__list.center {
+  justify-content: center;
+}
+
+.c-secondary-nav__list.center .c-secondary-nav__item {
+  margin: 0 var(--space-4) var(--space-4);
 }
 
 .c-secondary-nav__list.responsive .c-secondary-nav__item:not(:last-child) {

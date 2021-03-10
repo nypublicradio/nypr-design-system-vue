@@ -48,7 +48,10 @@
           class="menu-primary-navigation"
         >
           <v-spacer size="triple" />
-          <secondary-navigation :nav-items="primaryNav" />
+          <secondary-navigation
+            alignment="center"
+            :nav-items="primaryNav"
+          />
         </div>
         <div
           v-if="hasComponentSlot"
@@ -69,7 +72,10 @@
           class="menu-secondary-navigation"
         >
           <v-spacer size="triple" />
-          <secondary-navigation :nav-items="secondaryNav" />
+          <secondary-navigation
+            alignment="center"
+            :nav-items="secondaryNav"
+          />
         </div>
         <div
           v-if="hasSocialSlot"
@@ -87,21 +93,12 @@
           © {{ currentYear }} New York Public Radio. All rights reserved.
         </p>
         <v-spacer />
-        <div class="menu-terms-links l-grid l-grid--2up l-grid--2up--small">
-          <a
-            href="https://www.wnyc.org/terms"
-            target="_blank"
-            rel="noopener"
-          >
-            <strong>Terms of Use</strong>
-          </a>
-          <a
-            href="https://www.wnyc.org/privacy"
-            target="_blank"
-            rel="noopener"
-          >
-            <strong>Privacy Policy</strong>
-          </a>
+        <div class="menu-terms-links">
+          <secondary-navigation
+            alignment="center"
+            orientation="horizontal"
+            :nav-items="legalNav"
+          />
         </div>
       </nav>
     </transition>
@@ -134,6 +131,10 @@ export default {
       default: null
     },
     secondaryNav: {
+      type: Array,
+      default: null
+    },
+    legalNav: {
       type: Array,
       default: null
     }
@@ -291,12 +292,12 @@ export default {
 
 .menu .menu-terms-links {
   @include typeface(body, 3);
-  text-align: center;
   text-transform: uppercase;
 }
 
 .menu .menu-terms-links a {
   text-decoration: none;
+  font-weight: bold;
   color: RGB(var(--color-text));
 }
 </style>
