@@ -1,5 +1,8 @@
 <template>
-  <figure class="image-with-caption">
+  <figure
+    class="image-with-caption"
+    :class="variation"
+  >
     <div class="image-with-caption-wrapper">
       <div class="image-with-caption-image">
         <img
@@ -22,7 +25,7 @@
         </div>
       </div>
       <div
-        v-if="caption"
+        v-if="caption && !gothamistVariation"
         class="image-with-caption-icons"
         @click="toggleCaption"
       >
@@ -37,19 +40,30 @@
       </div>
     </div>
     <figcaption
-      v-if="credit"
+      v-if="credit || (caption && gothamistVariation)"
       class="image-with-caption-credit"
     >
+      <div
+        v-if="caption && gothamistVariation"
+        class="gothamist-caption"
+      >
+        <gothamist-arrow />
+        {{ caption }}
+      </div>
       <a
         v-if="creditUrl"
         :href="creditUrl"
         rel="noopener"
+        class="image-with-caption-credit-link"
       >
         {{ credit }}
       </a>
-      <template v-else>
+      <span
+        v-else
+        class="image-with-caption-credit-link"
+      >
         {{ credit }}
-      </template>
+      </span>
     </figcaption>
   </figure>
 </template>
@@ -57,12 +71,14 @@
 <script>
 import CloseIcon from '../components/icons/CloseIcon'
 import InfoIcon from '../components/icons/InfoIcon'
+import GothamistArrow from '../components/icons/gothamist/GothamistArrow'
 
 export default {
   name: 'ImageWithCaption',
   components: {
     CloseIcon,
-    InfoIcon
+    InfoIcon,
+    GothamistArrow
   },
   props: {
     altText: {
@@ -85,6 +101,10 @@ export default {
       default: null,
       type: String
     },
+    variation: {
+      default: null,
+      type: String
+    },
     image: {
       default: null,
       type: String
@@ -97,6 +117,11 @@ export default {
   data () {
     return {
       captionVisible: false
+    }
+  },
+  computed: {
+    gothamistVariation () {
+      return this.variation === 'gothamist'
     }
   },
   methods: {
@@ -146,6 +171,19 @@ export default {
   text-align: right;
 }
 
+.image-with-caption.gothamist .image-with-caption-credit {
+  margin-top: var(--space-1);
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.image-with-caption.gothamist .image-with-caption-credit-link {
+  margin-left: var(--space-2);
+  text-transform: uppercase;
+}
+
 .image-with-caption .image-with-caption-icons {
   cursor: pointer;
   margin: 0 0 0 auto;
@@ -177,5 +215,19 @@ export default {
 
 .image-with-caption .info-icon-bg {
   fill: RGB(var(--color-dark-gray));
+}
+
+.image-with-caption .gothamist-caption {
+  display: flex;
+  align-items: center;
+}
+
+.image-with-caption .o-gothamist-arrow-icon {
+  width: 20px;
+  margin-right: var(--space-2);
+
+  path {
+    fill: RGB(var(--color-reddish-orange));
+  }
 }
 </style>

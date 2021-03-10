@@ -1,8 +1,18 @@
 <template>
   <div class="menu">
+    <transition name="fade">
+      <div
+        v-if="hasOverlay && menuOpen"
+        class="menu-overlay"
+        @click="menuOpen = false"
+      />
+    </transition>
     <div
       class="menu-hamburger"
+      tabindex="0"
+      aria-label="open the menu"
       @click="toggleMenu"
+      @keypress.enter.space.prevent="toggleMenu"
     >
       <hamburger-icon />
     </div>
@@ -13,7 +23,10 @@
       >
         <div
           class="menu-close"
+          tabindex="0"
+          aria-label="close the menu"
           @click="menuOpen = false"
+          @keypress.enter.space.prevent="menuOpen = false"
         >
           <close-icon />
         </div>
@@ -35,7 +48,10 @@
           class="menu-primary-navigation"
         >
           <v-spacer size="triple" />
-          <secondary-navigation :nav-items="primaryNav" />
+          <secondary-navigation
+            alignment="center"
+            :nav-items="primaryNav"
+          />
         </div>
         <div
           v-if="hasComponentSlot"
@@ -56,7 +72,10 @@
           class="menu-secondary-navigation"
         >
           <v-spacer size="triple" />
-          <secondary-navigation :nav-items="secondaryNav" />
+          <secondary-navigation
+            alignment="center"
+            :nav-items="secondaryNav"
+          />
         </div>
         <div
           v-if="hasSocialSlot"
@@ -74,21 +93,12 @@
           © {{ currentYear }} New York Public Radio. All rights reserved.
         </p>
         <v-spacer />
-        <div class="menu-terms-links l-grid l-grid--2up l-grid--2up--small">
-          <a
-            href="https://www.wnyc.org/terms"
-            target="_blank"
-            rel="noopener"
-          >
-            <strong>Terms of Use</strong>
-          </a>
-          <a
-            href="https://www.wnyc.org/privacy"
-            target="_blank"
-            rel="noopener"
-          >
-            <strong>Privacy Policy</strong>
-          </a>
+        <div class="menu-terms-links">
+          <secondary-navigation
+            alignment="center"
+            orientation="horizontal"
+            :nav-items="legalNav"
+          />
         </div>
       </nav>
     </transition>
@@ -112,11 +122,19 @@ export default {
     VSpacer
   },
   props: {
+    hasOverlay: {
+      type: Boolean,
+      default: true
+    },
     primaryNav: {
       type: Array,
       default: null
     },
     secondaryNav: {
+      type: Array,
+      default: null
+    },
+    legalNav: {
       type: Array,
       default: null
     }
@@ -159,6 +177,16 @@ export default {
   --menu-width: 368px;
 }
 
+.menu .menu-overlay {
+  background: RGBA(var(--color-white), .5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
 .menu .menu-hamburger {
   position: absolute;
   top: 0;
@@ -166,6 +194,7 @@ export default {
   cursor: pointer;
   width: 24px;
   height: 24px;
+  z-index: 999;
 }
 
 .menu.not-fixed .menu-hamburger {
@@ -263,12 +292,12 @@ export default {
 
 .menu .menu-terms-links {
   @include typeface(body, 3);
-  text-align: center;
   text-transform: uppercase;
 }
 
 .menu .menu-terms-links a {
   text-decoration: none;
+  font-weight: bold;
   color: RGB(var(--color-text));
 }
 </style>

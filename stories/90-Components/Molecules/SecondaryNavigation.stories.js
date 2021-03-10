@@ -9,10 +9,11 @@ export const Vertical = () => ({
   components: { SecondaryNavigation },
   template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
-      <secondary-navigation :nav-items="[
+    <secondary-navigation
+      :nav-items="[
         {
           url: 'http://www.google.com',
-          text: 'Secondary Link 1 in a New Window!',
+          text: 'Secondary Link 1 in a New Window with a really long name',
           newWindow: true
         },
         {
@@ -22,8 +23,10 @@ export const Vertical = () => ({
         {
           url: 'http://www.google.com',
           text: 'Secondary Link 3',
+          icon: 'EmailIcon'
         }
-      ]" />
+      ]"
+    />
     </div>
   `
 })
@@ -32,7 +35,9 @@ export const Horizontal = () => ({
   components: { SecondaryNavigation },
   template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
-      <secondary-navigation orientation="horizontal" :nav-items="[
+    <secondary-navigation
+      orientation="horizontal"
+      :nav-items="[
         {
           url: 'http://www.google.com',
           text: 'Secondary Link 1 in a New Window',
@@ -44,9 +49,11 @@ export const Horizontal = () => ({
         },
         {
           url: 'http://www.google.com',
-          text: 'Secondary Link 3'
+          text: 'Secondary Link 3',
+          icon: 'EmailIcon'
         }
-      ]" />
+      ]"
+    />
     </div>
   `
 })

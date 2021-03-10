@@ -12,17 +12,24 @@
     >
       {{ placeholder }}
     </label>
-    <v-button>
+    <v-button
+      v-if="showCloseIcon"
+      class="search-bar-close"
+      @click="$emit('searchBarClose', $event);"
+    >
       <close-icon />
     </v-button>
     <input
       id="search"
       name="q"
       :placeholder="placeholder"
-      class="search-input"
+      class="search-bar-input"
       type="search"
     >
-    <v-button>
+    <v-button
+      class="search-bar-submit"
+      @click="$emit('searchBarSubmit', $event);"
+    >
       <search-icon />
     </v-button>
   </form>
@@ -51,7 +58,7 @@ export default {
     },
     showCloseIcon: {
       type: Boolean,
-      default: true
+      default: false
     }
   }
 }
@@ -64,7 +71,7 @@ export default {
   width: 250px;
 }
 
-.search-bar .search-input {
+.search-bar .search-bar-input {
   border: solid 1px RGB(var(--color-button));
   height: var(--search-height);
   line-height: var(--search-height);
@@ -77,5 +84,20 @@ export default {
 .search-bar .button {
   width: var(--search-height);
   height: var(--search-height);
+}
+
+.search-bar .search-bar-close {
+  background: RGB(var(--color-background));
+  border: solid 1px RGB(var(--color-button));
+  border-right: none;
+  padding: 18px 0 18px 8px;
+}
+
+.search-bar .search-bar-close path {
+  fill: RGB(var(--color-button));
+}
+
+.search-bar-close + .search-bar-input {
+  border-left: none;
 }
 </style>

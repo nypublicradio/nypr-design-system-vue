@@ -92,4 +92,12 @@ export default {
   display: flex;
   align-items: center;
 }
+
+.c-share-tools.column .c-share-tools__group {
+  flex-direction: column;
+}
+
+.c-share-tools.column .c-share-tools__group .c-share-tools__link {
+  margin-bottom: var(--space-2);
+}
 </style>
