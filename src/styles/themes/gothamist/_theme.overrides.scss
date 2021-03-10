@@ -1242,8 +1242,8 @@ form .o-button:hover {
   letter-spacing: var(--letter-spacing-small);
   font-weight: var(--font-weight-small);
   &:hover {
-    color: rgb(var(--color-white));
-    background-color: rgb(var(--color-reddish-orange));
+    color: RGB(var(--color-white));
+    background-color: RGB(var(--color-reddish-orange));
   }
 }
 
