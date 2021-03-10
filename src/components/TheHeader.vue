@@ -186,6 +186,7 @@ $z-index-header: 5000;
   margin: var(--space-2) 0 var(--space-2) var(--space-2);
   width: 40%;
   height: 40%;
+  cursor: pointer;
   @include media("<medium") {
     display: none;
   }

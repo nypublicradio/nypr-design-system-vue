@@ -23,28 +23,6 @@ input[type=checkbox] {
   background-color: RGB(var(--color-dark-gray));
 }
 
-
-/* articles */
-
-.c-article__header .u-has-accent,
-.c-article__body a,
-.c-article__body .u-has-accent,
-.c-article__body .u-has-accent--neutral,
-.c-article__footer .o-rte-text a {
-  &:hover {
-    background-color: RGB(var(--color-reddish-orange));
-  }
-}
-
-
-blockquote {
-  @include border-accent(bottom, left);
-}
-
-.c-article__body blockquote {
-  border: none;
-}
-
 .c-main-header {
   // Header uses the dark color group
   @include color-group-dark;
@@ -999,6 +977,8 @@ form .o-button:hover {
   @include typeface(body, 6);
   font-family: var(--font-family-pragati);
   letter-spacing: 1px;
+  color: RGB(var(--color-white));
+
   &:hover {
     color: RGB(var(--color-reddish-orange));
   }
@@ -1007,7 +987,12 @@ form .o-button:hover {
 .c-main-header a:hover svg {
   fill: RGB(var(--color-reddish-orange));
 }
-.c-main-header .c-secondary-nav__item {
+
+.c-main-header .menu a:hover svg {
+  fill: RGB(var(--color-reddish-orange));
+}
+
+.c-main-header .c-primary-nav .c-secondary-nav__item {
   position: relative;
 
   &::after {
@@ -1241,6 +1226,7 @@ form .o-button:hover {
   font-family: var(--font-family-small);
   letter-spacing: var(--letter-spacing-small);
   font-weight: bold;
+
   &:hover {
     color: RGB(var(--color-white));
     background-color: RGB(var(--color-reddish-orange));
