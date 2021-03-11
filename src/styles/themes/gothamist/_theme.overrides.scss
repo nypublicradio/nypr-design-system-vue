@@ -1330,3 +1330,13 @@ form .o-button:hover {
   height: 60px;
   width: 60px;
 }
+
+.c-main-header .menu .menu-panel {
+  width: 500px;
+}
+.c-main-header .menu .menu-secondary-navigation .c-secondary-nav__list {
+  flex-direction: row;
+}
+.c-main-header .search-bar .search-bar-close:hover svg path {
+  fill: RGB(var(--color-reddish-orange));
+}

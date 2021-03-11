@@ -15,7 +15,9 @@
     <v-button
       v-if="showCloseIcon"
       class="search-bar-close"
+      tabindex="0"
       @click="$emit('searchBarClose', $event);"
+      @keypress.enter.space.prevent="$emit('searchBarClose', $event);"
     >
       <close-icon />
     </v-button>
@@ -28,7 +30,9 @@
     >
     <v-button
       class="search-bar-submit"
+      tabindex="0"
       @click="$emit('searchBarSubmit', $event);"
+      @keypress.enter.space.prevent="$emit('searchBarSubmit', $event);"
     >
       <search-icon />
     </v-button>
