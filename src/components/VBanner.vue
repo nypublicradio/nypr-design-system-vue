@@ -10,27 +10,41 @@
       :href="tagLink"
     />
     <div
+      v-if="showCloseButton"
       class="banner-close"
       @click="active=false"
     >
       <close-icon />
     </div>
-    <div
-      v-if="headline"
-      class="banner-headline"
-    >
-      {{ headline }}
+    <div class="banner-content">
+      <div
+        v-if="thumbnail"
+        class="banner-thumbnail"
+      >
+        <img
+          :src="thumbnail"
+          :alt="thumbnailAltText"
+        >
+      </div>
+      <div>
+        <div
+          v-if="headline"
+          class="banner-headline"
+        >
+          {{ headline }}
+        </div>
+        <div
+          v-if="description"
+          class="banner-description"
+        >
+          <span
+            v-if="showJustNow"
+            class="banner-description-just-now"
+          >Just Now</span>{{ description }}
+        </div>
+        <slot />
+      </div>
     </div>
-    <div
-      v-if="description"
-      class="banner-description"
-    >
-      <span
-        v-if="showJustNow"
-        class="banner-description-just-now"
-      >Just Now</span>{{ description }}
-    </div>
-    <slot />
   </div>
 </template>
 
@@ -53,6 +67,10 @@ export default {
       type: String,
       default: null
     },
+    showCloseButton: {
+      type: Boolean,
+      default: false
+    },
     showJustNow: {
       type: Boolean,
       default: true
@@ -62,6 +80,14 @@ export default {
       default: null
     },
     tagLink: {
+      type: String,
+      default: null
+    },
+    thumbnail: {
+      type: String,
+      default: null
+    },
+    thumbnailAltText: {
       type: String,
       default: null
     }
@@ -101,6 +127,14 @@ export default {
   margin-bottom: var(--space-3);
 }
 
+.banner .banner-content {
+  display: flex;
+  flex-direction: column;
+  @include media(">medium") {
+    flex-direction: row;
+  }
+}
+
 .banner-headline {
   margin-bottom: var(--space-3);
   @include typeface(header, 8);
@@ -116,5 +150,17 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   margin-right: var(--space-2);
+}
+
+.banner-thumbnail {
+  flex-basis: 100%;
+  width: 275px;
+  max-width: 100%;
+  margin-bottom: var(--space-4);
+  @include media(">medium") {
+    flex-basis: 275px;
+    min-width: 275px;
+    margin-right: var(--space-4);
+  }
 }
 </style>
