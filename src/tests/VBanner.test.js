@@ -12,6 +12,8 @@ describe('VBanner', () => {
   const headline = 'this is a headline'
   const tag = 'tagname'
   const tagLink = 'http://www.test.com'
+  const thumbnail = 'http://placehold.it/275x275'
+  const thumbnailAltText = 'Breaking News alt text'
   test('description prop works', () => {
     const wrapper = shallowMount(VBanner, {
       propsData: {
@@ -69,6 +71,23 @@ describe('VBanner', () => {
     expect(div.attributes().href).toBe(tagLink)
   })
 
+  test('thumbnail and thumbnailAltText props work', () => {
+    const wrapper = mount(VBanner, {
+      propsData: {
+        description,
+        headline,
+        tag,
+        tagLink,
+        thumbnail,
+        thumbnailAltText
+      }
+    })
+    // check if prop works and rendered correctly
+    const div = wrapper.find('.banner-thumbnail img')
+    expect(div.attributes().src).toBe(thumbnail)
+    expect(div.attributes().alt).toBe(thumbnailAltText)
+  })
+
   test('default slot works', () => {
     const wrapper = shallowMount(VBanner, {
       propsData: {
@@ -121,13 +140,14 @@ describe('VBanner', () => {
     expect(results).toHaveNoViolations()
   })
 
-  test('close works', async () => {
+  test('showCloseButton prop and close functionality work', async () => {
     const wrapper = mount(VBanner, {
       propsData: {
         description,
         headline,
         tag,
-        tagLink
+        tagLink,
+        showCloseButton: true
       }
     })
     const div = wrapper.find('.banner')
