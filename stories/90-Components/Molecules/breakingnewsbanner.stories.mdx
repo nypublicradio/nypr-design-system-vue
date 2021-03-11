@@ -50,7 +50,7 @@ Required fields include:  “Breaking News” label, Headline, and Timestamp.
 </Canvas>
 
 <Canvas>
-    <Story name="With Article Metadata">
+    <Story name="With Article Metadata In The Slot">
         {{
             components: { VBanner, ArticleMetadata, VCounter, VByline },
             template:
@@ -68,6 +68,23 @@ Required fields include:  “Breaking News” label, Headline, and Timestamp.
                     <template v-slot:photos><v-counter icon="gallery" text="Photos" value="40" href="http://www.google.com"/></template>
                 </article-metadata>
             </v-banner>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="With A Close Button">
+        {{
+            components: { VBanner },
+            template:
+                `
+            <v-banner
+                :show-close-button="true"
+                tag="Breaking News"
+                headline="Lorem Ipsum Dolor Sit Amet"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            />
             `
         }}
     </Story>
