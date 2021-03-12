@@ -95,7 +95,7 @@ export default {
 }
 
 .c-secondary-nav__list.center .c-secondary-nav__item {
-  margin: 0 var(--space-4) var(--space-4);
+  margin: 0 var(--space-3) var(--space-3);
 }
 
 .c-secondary-nav__list.responsive .c-secondary-nav__item:not(:last-child) {

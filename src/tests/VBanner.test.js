@@ -104,26 +104,6 @@ describe('VBanner', () => {
     expect(wrapper.findComponent(AudioIcon).exists()).toBe(true)
   })
 
-  test('showJustNow prop works', async () => {
-    const wrapper = shallowMount(VBanner, {
-      propsData: {
-        description,
-        headline,
-        tag,
-        tagLink
-      }
-    })
-    // check if it was rendered correctly
-    let div = wrapper.find('.banner-description-just-now')
-    expect(wrapper.vm.showJustNow).toBe(true)
-    expect(div.text()).toBe('Just Now')
-    wrapper.vm.showJustNow = false
-    await wrapper.vm.$nextTick()
-    div = wrapper.find('.banner-description-just-now')
-    expect(div.exists()).toBe(false)
-    expect(wrapper.vm.showJustNow).toBe(false)
-  })
-
   test('it passes basic accessibility tests', async () => {
     const wrapper = mount(VBanner, {
       slots: {

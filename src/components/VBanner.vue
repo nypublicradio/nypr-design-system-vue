@@ -38,11 +38,10 @@
           class="banner-description"
         >
           <span
-            v-if="showJustNow"
-            class="banner-description-just-now"
-          >Just Now</span>{{ description }}
+            v-if="$slots.default"
+            class="banner-description-timestamp"
+          ><slot /></span>{{ description }}
         </div>
-        <slot />
       </div>
     </div>
   </div>
@@ -70,10 +69,6 @@ export default {
     showCloseButton: {
       type: Boolean,
       default: false
-    },
-    showJustNow: {
-      type: Boolean,
-      default: true
     },
     tag: {
       type: String,
@@ -145,11 +140,9 @@ export default {
   margin-bottom: var(--space-3);
 }
 
-.banner-description-just-now {
-  @include typeface(small, 1);
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-right: var(--space-2);
+.banner-description-timestamp {
+  margin-right: var(--space-1);
+  display: inline-block;
 }
 
 .banner-thumbnail {
