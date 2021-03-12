@@ -34,7 +34,7 @@ Required fields include:  “Breaking News” label, Headline, and Timestamp.
 <Canvas>
     <Story name="Default">
         {{
-            components: { VBanner },
+            components: { VBanner, ArticleMetadata },
             template:
             `
             <v-banner
@@ -42,7 +42,9 @@ Required fields include:  “Breaking News” label, Headline, and Timestamp.
                 headline="Lorem Ipsum Dolor Sit Amet"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             >
-                <p><em>slot for component</em></p>
+                <article-metadata
+                    publish-date="JUST NOW"
+                />
             </v-banner>
             `
         }}
