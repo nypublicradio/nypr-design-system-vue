@@ -1340,3 +1340,14 @@ form .o-button:hover {
 .c-main-header .search-bar .search-bar-close:hover svg path {
   fill: RGB(var(--color-reddish-orange));
 }
+
+.c-newsletter-form .c-newsletter-form__inner .c-newsletter-form__text {
+  @include media("<medium") {
+    margin-left: 100px;
+  }
+}
+.c-newsletter-form .c-newsletter-form__graphic {
+  @include media("<medium") {
+    top: -10px;
+  }
+}

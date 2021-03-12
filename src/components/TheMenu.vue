@@ -228,6 +228,7 @@ export default {
   z-index: 9999;
   padding: var(--space-4);
   width: 100%;
+  max-width: 100%;
 
   @include media(">small") {
     width: var(--menu-width);
