@@ -1065,10 +1065,12 @@ form .o-button:hover {
   color: RGB(var(--color-white));
 }
 
-.c-main-header .search svg {
-  width: 16px;
-  height: 16px;
-  margin-top: 4px;
+.c-main-header .search {
+  margin: 0 0 0 var(--space-4) !important;
+}
+
+.c-main-header .header-search-bar svg {
+  right: 0;
 }
 
 // FOOTER
