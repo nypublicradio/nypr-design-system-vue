@@ -183,7 +183,7 @@ $z-index-header: 5000;
 }
 
 .c-main-header .search {
-  margin: var(--space-2) 0 var(--space-2) var(--space-2);
+  margin: var(--space-2) 0;
   width: 40%;
   height: 40%;
   cursor: pointer;

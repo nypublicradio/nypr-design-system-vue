@@ -1066,7 +1066,8 @@ form .o-button:hover {
 }
 
 .c-main-header .search {
-  margin-left: var(--space-4) !important;
+  min-width: 48px;
+  margin: 0 !important;
 }
 
 .c-main-header .header-search-bar svg {

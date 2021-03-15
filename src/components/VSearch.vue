@@ -166,6 +166,7 @@ export default {
   --search-width: 300px;
   position: relative;
   height: var(--search-height);
+  min-width: var(--search-height);
 }
 
 .search-bar .search-bar-search-icon {
