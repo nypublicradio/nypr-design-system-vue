@@ -150,9 +150,6 @@ export default {
     },
     open () {
       this.searchIsActive = true
-      this.$nextTick(() => {
-        this.$refs.searchInput.focus()
-      })
     },
     submit (e) {
       this.$emit('searchBarSubmit', e)
