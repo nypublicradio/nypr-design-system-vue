@@ -2,7 +2,7 @@
   <svg
     role="img"
     :aria-label="title"
-    class="o-icon o-arrow-pointed-down-icon"
+    class="o-icon o-search-icon"
     viewBox="3 3 18 18"
     width="40"
     height="40"
