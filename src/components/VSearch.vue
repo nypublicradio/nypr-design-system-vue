@@ -15,6 +15,7 @@
         class="search-bar-form-wrapper"
       >
         <form
+          ref="searchForm"
           class="search-bar-form"
           aria-hidden="true"
           role="search"
@@ -46,8 +47,8 @@
           <v-button
             class="search-bar-submit"
             tabindex="0"
-            @click="$emit('searchBarSubmit', $event);"
-            @keypress.enter.space.prevent="$emit('searchBarSubmit', $event);"
+            @click="submit"
+            @keypress.enter.space.prevent="submit"
           >
             <search-icon />
           </v-button>
@@ -146,6 +147,10 @@ export default {
     },
     open () {
       this.searchIsActive = true
+    },
+    submit (e) {
+      this.$emit('searchBarSubmit', e)
+      this.$refs.searchForm.submit()
     }
   }
 }
