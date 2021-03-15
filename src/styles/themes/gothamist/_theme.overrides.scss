@@ -1066,11 +1066,12 @@ form .o-button:hover {
 }
 
 .c-main-header .search {
-  margin: 0 0 0 var(--space-4) !important;
+  margin-left: var(--space-4) !important;
 }
 
 .c-main-header .header-search-bar svg {
   right: 0;
+  top: 4px;
 }
 
 // FOOTER

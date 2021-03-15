@@ -154,7 +154,7 @@ export default {
 <style lang="scss">
 .search-bar {
   --search-height: 48px;
-  --search-width: 250px;
+  --search-width: 300px;
   position: relative;
   width: var(--search-width);
   height: var(--search-height);
