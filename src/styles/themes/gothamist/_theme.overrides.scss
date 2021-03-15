@@ -1025,7 +1025,6 @@ form .o-button:hover {
 .c-main-header .c-main-header__donate {
   background-color: RGB(var(--color-reddish-orange));
   border: 0;
-  margin-right: var(--space-3);
   height: 43px;
 
   @include media(">large") {
@@ -1258,6 +1257,10 @@ form .o-button:hover {
 
 .menu .c-main-header__send-story .button-label {
   color: RGB(var(--color-dark-gray));
+}
+
+.c-main-header .search-bar .search-bar-form-wrapper {
+  right: 0;
 }
 
 .c-main-header .search-bar-input {
