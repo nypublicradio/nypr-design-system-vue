@@ -3,14 +3,16 @@
     v-click-outside="close"
     class="search-bar"
   >
-    <search-icon
+    <v-button
       v-if="showSearchIcon"
       ref="searchButton"
       tabindex="0"
       class="search-bar-search-icon u-icon--xs"
       @click.native="open"
       @keypress.enter.space.native.prevent="open"
-    />
+    >
+      <search-icon />
+    </v-button>
     <transition :name="transition">
       <div
         v-if="searchIsActive"
