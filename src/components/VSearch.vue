@@ -6,8 +6,10 @@
     <search-icon
       v-if="showSearchIcon"
       ref="searchButton"
+      tabindex="0"
       class="search-bar-search-icon u-icon--xs"
       @click.native="open"
+      @keypress.enter.space.native.prevent="open"
     />
     <transition :name="transition">
       <div
@@ -33,12 +35,13 @@
             class="search-bar-close"
             tabindex="0"
             @click="close"
-            @keypress.enter.space.prevent="close"
+            @keypress.native.enter.space.prevent="close"
           >
             <close-icon />
           </v-button>
           <input
             id="search"
+            ref="searchInput"
             name="q"
             :placeholder="placeholder"
             class="search-bar-input"
@@ -48,7 +51,7 @@
             class="search-bar-submit"
             tabindex="0"
             @click="submit"
-            @keypress.enter.space.prevent="submit"
+            @keypress.native.enter.space.prevent="submit"
           >
             <search-icon />
           </v-button>
@@ -141,12 +144,13 @@ export default {
   },
   methods: {
     close () {
-      if (this.showSearchIcon) {
-        this.searchIsActive = false
-      }
+      this.searchIsActive = false
     },
     open () {
       this.searchIsActive = true
+      this.$nextTick(() => {
+        this.$refs.searchInput.focus()
+      })
     },
     submit (e) {
       this.$emit('searchBarSubmit', e)
@@ -161,14 +165,16 @@ export default {
   --search-height: 48px;
   --search-width: 300px;
   position: relative;
-  width: var(--search-width);
   height: var(--search-height);
 }
 
 .search-bar .search-bar-search-icon {
   position: absolute;
-  top: 16px;
+  cursor: pointer;
   z-index: 1;
+  padding: 14px;
+  width: var(--search-height);
+  height: var(--search-height);
 }
 
 .search-bar .search-bar-form-wrapper {
@@ -214,5 +220,9 @@ export default {
 
 .search-bar-close + .search-bar-input {
   border-left: none;
+}
+
+.search-bar .search-bar-submit {
+  min-width: var(--search-height);
 }
 </style>
