@@ -47,7 +47,15 @@
       <article-metadata
         publish-date="Jan 1, 2020 1:25PM"
         updated-date="Mar 2, 2020 10:08AM"
-      />
+      >
+        <template v-slot:comments>
+          <v-counter
+            icon="comment"
+            value="40"
+            href="http://www.google.com"
+          />
+        </template>
+      </article-metadata>
     </v-card>
     <v-spacer size="quad" />
   </div>
@@ -60,6 +68,7 @@ export default {
     ImageWithCaption: () => import('../components/ImageWithCaption'),
     ArticleMetadata: () => import('../components/ArticleMetadata'),
     VCard: () => import('../components/VCard'),
+    VCounter: () => import('../components/VCounter'),
     VSpacer: () => import('../components/VSpacer')
   },
   props: {
