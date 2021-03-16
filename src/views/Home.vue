@@ -90,7 +90,7 @@
           closed-on-load
           :search-is-active="false"
           transition="slide-left"
-          donateUrl="http://www.bing.com"
+          donate-url="http://www.bing.com"
         />
       </template>
     </the-header>
