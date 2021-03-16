@@ -94,6 +94,12 @@
         />
       </template>
     </the-header>
+    <v-spacer size="quad" />
+    <header class="c-basic__header">
+      <h1 class="c-basic__heading o-3d-heading">
+        Contact Us
+      </h1>
+    </header>
   </div>
 </template>
 
@@ -107,6 +113,7 @@ export default {
     VSearch: () => import('../components/VSearch'),
     TheMenu: () => import('../components/TheMenu'),
     VButton: () => import('../components/VButton'),
+    VSpacer: () => import('../components/VSpacer'),
     ShareTools: () => import('../components/ShareTools'),
     ShareToolsItem: () => import('../components/ShareToolsItem')
   },

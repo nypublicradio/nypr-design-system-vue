@@ -63,19 +63,19 @@
 }
 
 .o-rte-text a {
-  color: (var(--color-link));
+  color: RGB(var(--color-link));
   border-bottom: 2px dotted (var(--color-link));
   text-decoration: none;
   transition: all 0.15s ease-in-out;
 }
 
 .o-rte-text a:hover {
-  color: (var(--color-link-hover) var(--opacity-link-hover));
+  color: RGBA(var(--color-link-hover) var(--opacity-link-hover));
   text-decoration: none;
 }
 
 .o-rte-text a:visited {
-  color: (var(--color-link));
+  color: RGB(var(--color-link));
 }
 
 .o-rte-text > h1,
@@ -179,13 +179,13 @@
   top: .75em;
   width: 7px;
   height: 7px;
-  background-color: (var(--color-link));
+  background-color: RGB(var(--color-link));
   border-radius: 50%;
 }
 
 .o-rte-text > ul li li:before {
   background-color: transparent;
-  border: 2px solid (var(--color-link));
+  border: 2px solid RGB(var(--color-link));
   width: 4px;
   height: 4px;
 }
@@ -198,7 +198,7 @@
   @include typeface(small, 11);
   counter-increment: counter;
   content: counter(counter);
-  color: (var(--color-text));
+  color: RGB(var(--color-text));
   position: absolute;
   left: -58px;
   top: -.4em;
@@ -282,7 +282,7 @@
 }
 
 .o-pullquote__author {
-  color: (var(--color-text-muted));
+  color: RGB(var(--color-text-muted));
   @include typeface(small, 1);
   @include media(">=medium") {
     @include typeface(small, 3);
@@ -296,7 +296,7 @@
  * Text background accent
  */
 .o-bg-text-accent {
-  background-image: linear-gradient((var(--color-text-muted), .2), (var(--color-text-muted), .2));
+  background-image: linear-gradient(RGB(var(--color-text-muted), .2), RGB(var(--color-text-muted), .2));
   background-position: center bottom .2em;
   background-size: 100% .55em;
   background-repeat: no-repeat;
@@ -306,7 +306,7 @@
 }
 
 .o-bg-text-accent--senary {
-  background-image: linear-gradient((var(--color-background-highlight), .2), (var(--color-background-highlight), .2)); //dark
+  background-image: linear-gradient(RGB(var(--color-background-highlight), .2), RGB(var(--color-background-highlight), .2)); //dark
 }
 
 
@@ -323,12 +323,12 @@
     line-height: var(--line-height-3);
     font-weight: bold;
   }
-  background-color: (var(--color-tag-background));
+  background-color: RGB(var(--color-tag-background));
   padding: 2px 6px 3px;
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 1px;
-  color: (var(--color-tag-text));
+  color: RGB(var(--color-tag-text));
   font-weight: bold;
 }
 
@@ -349,8 +349,8 @@ a.o-breadcrumb {
 a.o-kicker:hover,
 .o-tag:hover,
 a.o-breadcrumb:hover {
-  color: (var(--color-tag-hover-text));
-  background-color: (var(--color-tag-hover-background));
+  color: RGB(var(--color-tag-hover-text));
+  background-color: RGB(var(--color-tag-hover-background));
   opacity: var(--opacity-tag-hover);
   text-decoration: none;
 }
@@ -368,7 +368,7 @@ a.o-breadcrumb:hover {
 
 .o-caption .o-icon--dashed-arrow {
   margin-right: var(--space-2);
-  fill: (var(--color-primary-2));
+  fill: RGB(var(--color-primary-2));
   transform: translateY(1px);
   float: left;
 }
@@ -412,7 +412,7 @@ a.o-breadcrumb:hover {
 /* Temporary until i can get the real icon*/
 .o-to-top .o-icon--up-arrow {
   margin-right: var(--space-2);
-  fill: (var(--color-link));
+  fill: RGB(var(--color-link));
 }
 
 .o-to-top svg {
@@ -462,13 +462,13 @@ a.o-breadcrumb:hover {
 }
 
 .o-back-to-link .u-path-fill--white svg * {
-  fill: (var(--color-text-inverse)); //no fill
+  fill: RGB(var(--color-text-inverse)); //no fill
 }
 
 .o-back-to-link .u-has-accent {
   line-height: 1.6;
   display: inline;
-  background-image: linear-gradient(to right, transparent 55%, (var(--color-background)) 45%);
+  background-image: linear-gradient(to right, transparent 55%, RGB(var(--color-background)) 45%);
   background-position: left bottom 2px;
   background-repeat: repeat-x;
   background-size: 4px 2px;
@@ -492,7 +492,7 @@ a.o-breadcrumb:hover {
 /* Temporary until i can get the real icon*/
 .o-end-label .o-icon--down-arrow {
   transform: rotate(90deg);
-  fill: (var(--color-high-contrast), 0.358);
+  fill: RGB(var(--color-high-contrast), 0.358);
   margin-bottom: var(--space-2);
 }
 
@@ -508,12 +508,6 @@ a.o-breadcrumb:hover {
   display: block;
   margin: 0 auto var(--space-2);
 }
-
-/* Quinary background color*/
-.o-3d-heading--quinary:after {
-  background-color: (var(--color-background-highlight))
-}
-
 
 /**
  * Border accents

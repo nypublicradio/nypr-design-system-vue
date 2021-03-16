@@ -48,9 +48,21 @@
         publish-date="Jan 1, 2020 1:25PM"
         updated-date="Mar 2, 2020 10:08AM"
       >
+        <template v-slot:authors>
+          <v-byline :authors="authors" />
+        </template>
         <template v-slot:comments>
           <v-counter
             icon="comment"
+            text="Comments"
+            value="40"
+            href="http://www.google.com"
+          />
+        </template>
+        <template v-slot:photos>
+          <v-counter
+            icon="gallery"
+            text="Photos"
             value="40"
             href="http://www.google.com"
           />
@@ -68,6 +80,7 @@ export default {
     ImageWithCaption: () => import('../components/ImageWithCaption'),
     ArticleMetadata: () => import('../components/ArticleMetadata'),
     VCard: () => import('../components/VCard'),
+    VByline: () => import('../components/VByline'),
     VCounter: () => import('../components/VCounter'),
     VSpacer: () => import('../components/VSpacer')
   },
