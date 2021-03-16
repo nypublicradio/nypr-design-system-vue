@@ -28,7 +28,7 @@ Gothamist.com makes use of "tags" atoms as a way to describe content to a reader
     <Story name="Default">
         {{
             components: { VTag },
-            template: `<div><v-tag text="news" href="http://www.google.com" /><v-tag text="we the commuters" href="http://www.bing.com" /><v-tag text="food" href="http://www.food.com" /></div>`
+            template: `<div><v-tag name="news" slug="news" /><v-tag name="we the commuters" slug="we-the-commuters" /><v-tag name="food" slug="food" /></div>`
         }}
     </Story>
 </Canvas>
@@ -39,7 +39,7 @@ Tags are most often created by the editorial team, so best practices around leng
 
 -   When writing text for tags, aim for brevity.
 
--   Use title case and capitalize prepositions of four letters or more (Tags display text in all-caps by default, but this can modified for another brand). 
+-   Use title case and capitalize prepositions of four letters or more (Tags display text in all-caps by default, but this can modified for another brand).
 
 -   Avoid phrases longer than three to five words.
 

@@ -55,6 +55,17 @@
       class="card-details"
     >
       <div
+        v-if="tags"
+        class="card-tag"
+      >
+        <v-tag
+          v-for="(tag, index) in tags"
+          :key="index"
+          :name="tag.name"
+          :slug="tag.slug"
+        />
+      </div>
+      <div
         v-if="title"
         class="card-title"
       >
@@ -81,8 +92,13 @@
 </template>
 
 <script>
+import VTag from '../components/VTag'
+
 export default {
   name: 'VCard',
+  components: {
+    VTag
+  },
   props: {
     image: {
       type: String,
@@ -98,6 +114,10 @@ export default {
     },
     alt: {
       type: String,
+      default: null
+    },
+    tags: {
+      type: Array,
       default: null
     },
     title: {
@@ -135,67 +155,70 @@ export default {
   width: 544px;
 }
 
-  .card-image {
-    flex: 1 0 var(--card-image-width);
-    width: var(--card-image-width);
-    min-width: var(--card-image-width);
-    max-width: var(--card-image-width);
-    max-height: var(--card-image-height);
-    height: var(--card-image-height);
-    object-fit: cover;
-  }
+.card-image {
+  flex: 1 0 var(--card-image-width);
+  width: var(--card-image-width);
+  min-width: var(--card-image-width);
+  max-width: var(--card-image-width);
+  max-height: var(--card-image-height);
+  height: var(--card-image-height);
+  object-fit: cover;
+}
 
-  .card-details {
-    flex: 1;
-    padding: var(--space-3);
-  }
+.card-details {
+  flex: 1;
+  padding: var(--space-3);
+}
 
-  .card-title {
-    font-family: var(--font-family-header);
-    font-size: var(--font-size-7);
-  }
+.card-tag {
+  margin-bottom: var(--space-2);
+}
 
-  .card-title-link {
-    color: RGB(var(--color-text));
-    text-decoration: none;
-  }
+.card-title {
+  font-family: var(--font-family-header);
+  font-size: var(--font-size-7);
+}
 
-  .card-title-link:hover {
-    color: RGB(var(--color-text));
-    opacity: var(--opacity-link-hover);
-    text-decoration: none;
-  }
+.card-title-link {
+  color: RGB(var(--color-text));
+  text-decoration: none;
+}
 
-  .card-subtitle {
-    font-family: var(--font-family-subheader);
-    font-size: var(--font-size-4);
-  }
+.card-title-link:hover {
+  color: RGB(var(--color-text));
+  opacity: var(--opacity-link-hover);
+  text-decoration: none;
+}
 
-  .card.mod-vertical {
-    flex-direction: column;
-    --card-image-width: 300px;
-    --card-image-height: 200px;
-    width: 300px;
-  }
+.card-subtitle {
+  font-family: var(--font-family-subheader);
+  font-size: var(--font-size-4);
+}
 
-  .card.mod-large {
-    --card-image-width: 360px;
-    --card-image-height: 306px;
-    width: 879px;
-  }
+.card.mod-vertical {
+  flex-direction: column;
+  --card-image-width: 300px;
+  --card-image-height: 200px;
+  width: 300px;
+}
 
-    .card.mod-large .card-title {
-      font-size: var(--font-size-10);
-    }
+.card.mod-large {
+  --card-image-width: 360px;
+  --card-image-height: 306px;
+  width: 879px;
+}
 
-    .card.mod-large .card-subtitle {
-      font-size: var(--font-size-7);
-    }
+.card.mod-large .card-title {
+  font-size: var(--font-size-10);
+}
 
-  .card.mod-vertical.card.mod-large {
-    --card-image-width: 620px;
-    --card-image-height: 413px;
-    width: 620px;
-  }
+.card.mod-large .card-subtitle {
+  font-size: var(--font-size-7);
+}
 
+.card.mod-vertical.card.mod-large {
+  --card-image-width: 620px;
+  --card-image-height: 413px;
+  width: 620px;
+}
 </style>

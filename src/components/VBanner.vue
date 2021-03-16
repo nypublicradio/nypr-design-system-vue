@@ -6,8 +6,8 @@
   >
     <v-tag
       v-if="tag"
-      :text="tag"
-      :href="tagLink"
+      :name="tag"
+      :slug="tagLink"
     />
     <div
       v-if="showCloseButton"

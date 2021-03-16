@@ -259,12 +259,7 @@ input[type=checkbox] {
 }
 
 /* sponsored tags */
-.o-tag--sponsored {
-  font-weight: normal;
-}
-
-.o-tag--sponsored,
-.o-kicker--sponsored {
+.tag.sponsored {
   color: RGB(var(--color-white));
   background-color: RGB(var(--color-purple));
 }
@@ -796,8 +791,8 @@ form .o-button:hover {
   margin-right: var(--space-3);
 }
 
-.o-3d-heading:before,
-.o-3d-heading:after {
+.o-3d-heading::before,
+.o-3d-heading::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -808,19 +803,32 @@ form .o-button:hover {
   background-color: transparent;
 }
 
-.o-3d-heading:before {
+.o-3d-heading::before {
   z-index: -2;
   left: -10px;
   top: 10px;
 }
 
-.o-3d-heading:after {
+.o-3d-heading::after {
   z-index: -1;
   background-color: RGB(var(--color-white));
 }
 
 .o-3d-heading--quinary:after {
   background-color: RGB(var(--color-background-highlight));
+}
+
+/**
+ * Text background accent
+ */
+.o-bg-text-accent {
+  background-image: linear-gradient(RGB(var(--color-text-muted), .2), RGB(var(--color-text-muted), .2));
+  background-position: center bottom .2em;
+  background-size: 100% .55em;
+  background-repeat: no-repeat;
+  padding: 0 var(--space-2);
+  box-decoration-break: clone;
+  margin-left: calc(var(--space-2) * -1);
 }
 
 // Read more nav
@@ -1342,9 +1350,11 @@ form .o-button:hover {
 .c-main-header .menu .menu-panel {
   width: 500px;
 }
+
 .c-main-header .menu .menu-secondary-navigation .c-secondary-nav__list {
   flex-direction: row;
 }
+
 .c-main-header .search-bar .search-bar-close:hover svg path {
   fill: RGB(var(--color-reddish-orange));
 }
@@ -1354,6 +1364,7 @@ form .o-button:hover {
     margin-left: 100px;
   }
 }
+
 .c-newsletter-form .c-newsletter-form__graphic {
   @include media("<medium") {
     top: -10px;
@@ -1361,16 +1372,68 @@ form .o-button:hover {
 }
 
 .c-main-header .header-search-bar .search-bar-search-icon {
-  background: none!important;
+  background: none !important;
   position: absolute;
   right: 0;
   top: 4px;
+
   &:hover {
-    background: none!important;
+    background: none !important;
     transform: none;
   }
+
   &::before,
   &::after {
     display: none;
   }
+}
+
+// CARDS
+
+.card.gothamist {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.card.gothamist.mod-small {
+  --card-image-width: 150px;
+  --card-image-height: 150px;
+  width: 100%;
+}
+
+.card.gothamist .card-details {
+  padding: 0 var(--space-3);
+}
+
+.card.gothamist .card-title {
+  @include typeface(header, 8);
+}
+
+.card.gothamist .card-title-link:hover {
+  color: RGB(var(--color-reddish-orange));
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.card.gothamist .article-metadata {
+  margin-top: var(--space-3);
+  @include typeface(small, 1);
+}
+
+// Article Metadata Counter
+.article-metadata-comments .counter,
+.article-metadata-comments .counter .counter-text,
+.article-metadata-comments .counter path {
+  color: RGB(var(--color-text));
+  font-size: var(--font-size-1);
+  font-family: var(--font-family-small);
+  text-decoration: none;
+}
+
+.article-metadata-comments .counter {
+  width: 34px;
+}
+
+.article-metadata-comments .counter path {
+  fill: RGB(var(--color-text)) !important;
 }
