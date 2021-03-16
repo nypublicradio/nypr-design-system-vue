@@ -796,8 +796,8 @@ form .o-button:hover {
   margin-right: var(--space-3);
 }
 
-.o-3d-heading:before,
-.o-3d-heading:after {
+.o-3d-heading::before,
+.o-3d-heading::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -808,13 +808,13 @@ form .o-button:hover {
   background-color: transparent;
 }
 
-.o-3d-heading:before {
+.o-3d-heading::before {
   z-index: -2;
   left: -10px;
   top: 10px;
 }
 
-.o-3d-heading:after {
+.o-3d-heading::after {
   z-index: -1;
   background-color: RGB(var(--color-white));
 }
