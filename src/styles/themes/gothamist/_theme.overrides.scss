@@ -823,6 +823,19 @@ form .o-button:hover {
   background-color: RGB(var(--color-background-highlight));
 }
 
+/**
+ * Text background accent
+ */
+.o-bg-text-accent {
+  background-image: linear-gradient(RGB(var(--color-text-muted), .2), RGB(var(--color-text-muted), .2));
+  background-position: center bottom .2em;
+  background-size: 100% .55em;
+  background-repeat: no-repeat;
+  padding: 0 var(--space-2);
+  box-decoration-break: clone;
+  margin-left: calc(var(--space-2) * -1);
+}
+
 // Read more nav
 .c-read-more-nav {
   border-top: 2px dashed RGB(var(--color-border-subtle));
@@ -1373,4 +1386,36 @@ form .o-button:hover {
   &::after {
     display: none;
   }
+}
+
+// CARDS
+
+.card.gothamist {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.card.gothamist.mod-small {
+  --card-image-width: 150px;
+  --card-image-height: 150px;
+  width: 100%;
+}
+
+.card.gothamist .card-details {
+  padding: 0 var(--space-3);
+}
+
+.card.gothamist .card-title {
+  @include typeface(header, 8);
+}
+
+.card.gothamist .card-title-link:hover {
+  color: RGB(var(--color-reddish-orange));
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.card.gothamist .article-metadata {
+  margin-top: var(--space-3);
+  @include typeface(small, 1);
 }

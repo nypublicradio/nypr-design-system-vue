@@ -1,5 +1,5 @@
 <template>
-  <div class="tag">
+  <div class="tag" :class="text">
     <a
       v-if="href"
       :href="href"

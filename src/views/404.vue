@@ -31,6 +31,25 @@
       for what you're looking for.
     </p>
     <v-spacer size="quad" />
+    <h2 class="o-section__heading o-bg-text-accent">
+      Recent Stories
+    </h2>
+    <v-spacer />
+    <v-card
+      class="gothamist mod-small"
+      image="http://placehold.it/150x150"
+      :image-height="150"
+      :image-width="150"
+      title="'What’s The Point?': A Year After COVID Shut Down NYC Schools, Many Students Struggle To Cope"
+      title-link="http://www.google.com"
+      :tags="[{text: 'news',href: '/news'},{text: 'opinion',href: '/opinion'}]"
+    >
+      <article-metadata
+        publish-date="Jan 1, 2020 1:25PM"
+        updated-date="Mar 2, 2020 10:08AM"
+      />
+    </v-card>
+    <v-spacer size="quad" />
   </div>
 </template>
 
@@ -39,6 +58,8 @@ export default {
   name: 'ErrorPage',
   components: {
     ImageWithCaption: () => import('../components/ImageWithCaption'),
+    ArticleMetadata: () => import('../components/ArticleMetadata'),
+    VCard: () => import('../components/VCard'),
     VSpacer: () => import('../components/VSpacer')
   },
   props: {
