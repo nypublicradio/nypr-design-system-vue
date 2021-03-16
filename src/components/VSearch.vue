@@ -1,42 +1,77 @@
 <template>
-  <form
-    aria-hidden="true"
-    role="search"
+  <div
     class="search-bar"
-    :action="action"
-    method="get"
   >
-    <label
-      for="search"
-      class="is-vishidden"
-    >
-      {{ placeholder }}
-    </label>
     <v-button
-      v-if="showCloseIcon"
-      class="search-bar-close"
+      v-if="showSearchIcon"
+      ref="searchButton"
       tabindex="0"
-      @click="$emit('searchBarClose', $event);"
-      @keypress.enter.space.prevent="$emit('searchBarClose', $event);"
-    >
-      <close-icon />
-    </v-button>
-    <input
-      id="search"
-      name="q"
-      :placeholder="placeholder"
-      class="search-bar-input"
-      type="search"
-    >
-    <v-button
-      class="search-bar-submit"
-      tabindex="0"
-      @click="$emit('searchBarSubmit', $event);"
-      @keypress.enter.space.prevent="$emit('searchBarSubmit', $event);"
+      class="search-bar-search-icon u-icon--xs"
+      @click.native="open"
+      @keypress.enter.space.native.prevent="open"
     >
       <search-icon />
     </v-button>
-  </form>
+    <transition :name="transition">
+      <div
+        v-if="searchIsOpen"
+        class="search-bar-form-wrapper"
+      >
+        <v-button
+          v-if="donateUrl"
+          class="c-main-header__donate search-bar-donate"
+          label="Donate"
+          :href="donateUrl"
+          target="_blank"
+          rel="noopener"
+          data-category="Click Tracking"
+          data-action="Header"
+          data-label="Donate Button"
+          @click="$emit('componentEvent', donateUrl)"
+        />
+        <form
+          ref="searchForm"
+          class="search-bar-form"
+          aria-hidden="true"
+          role="search"
+          :action="action"
+          method="get"
+        >
+          <label
+            for="search"
+            class="is-vishidden"
+          >
+            {{ placeholder }}
+          </label>
+          <v-button
+            v-if="showCloseIcon"
+            class="search-bar-close"
+            tabindex="0"
+            @click="close"
+            @keypress.native.enter.space.prevent="close"
+          >
+            <close-icon />
+          </v-button>
+          <input
+            id="search"
+            ref="searchInput"
+            name="q"
+            :placeholder="placeholder"
+            class="search-bar-input"
+            type="search"
+          >
+          <v-button
+            class="search-bar-submit"
+            tabindex="0"
+            @click="submit"
+            @keypress.native.enter.space.prevent="submit"
+          >
+            <search-icon />
+          </v-button>
+        </form>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -56,6 +91,14 @@ export default {
       type: String,
       default: null
     },
+    closedOnLoad: {
+      type: Boolean,
+      default: false
+    },
+    donateUrl: {
+      type: String,
+      default: null
+    },
     placeholder: {
       type: String,
       default: 'Search'
@@ -63,6 +106,39 @@ export default {
     showCloseIcon: {
       type: Boolean,
       default: false
+    },
+    showSearchIcon: {
+      type: Boolean,
+      default: false
+    },
+    transition: {
+      type: String,
+      default: 'slide-right'
+    }
+  },
+  data () {
+    return {
+      searchIsOpen: true
+    }
+  },
+  beforeMount () {
+    if (this.closedOnLoad) {
+      this.close()
+    }
+  },
+  methods: {
+    close () {
+      this.searchIsOpen = false
+    },
+    open () {
+      this.searchIsOpen = true
+      this.$nextTick(() => {
+        this.$refs.searchButton.$el.blur()
+      })
+    },
+    submit (e) {
+      this.$emit('searchBarSubmit', e)
+      this.$refs.searchForm.submit()
     }
   }
 }
@@ -71,21 +147,57 @@ export default {
 <style lang="scss">
 .search-bar {
   --search-height: 48px;
+  --search-width: 300px;
+  position: relative;
+  height: var(--search-height);
+  min-width: var(--search-height);
+  justify-content: center;
   display: flex;
-  width: 250px;
+}
+
+.search-bar .search-bar-search-icon {
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  padding: 14px;
+  width: var(--search-height);
+  height: var(--search-height);
+  background: none;
+
+  svg path {
+    fill: RGB(var(--color-text));
+  }
+}
+
+.search-bar .search-bar-form-wrapper {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+}
+
+.search-bar .search-bar-form-wrapper .search-bar-donate {
+  margin-right: var(--space-3);
+  height: var(--search-height);
+}
+
+.search-bar .search-bar-form {
+  display: flex;
+  width: var(--search-width);
 }
 
 .search-bar .search-bar-input {
   border: solid 1px RGB(var(--color-button));
   height: var(--search-height);
   line-height: var(--search-height);
+  border-radius: 0 !important;
 
   &::placeholder {
     color: RGB(var(--color-gray));
   }
 }
 
-.search-bar .button {
+.search-bar .search-bar-close,
+.search-bar .search-bar-submit {
   width: var(--search-height);
   height: var(--search-height);
 }
@@ -95,6 +207,10 @@ export default {
   border: solid 1px RGB(var(--color-button));
   border-right: none;
   padding: 18px 0 18px 8px;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .search-bar .search-bar-close path {
@@ -103,5 +219,9 @@ export default {
 
 .search-bar-close + .search-bar-input {
   border-left: none;
+}
+
+.search-bar .search-bar-submit {
+  min-width: var(--search-height);
 }
 </style>

@@ -1025,7 +1025,6 @@ form .o-button:hover {
 .c-main-header .c-main-header__donate {
   background-color: RGB(var(--color-reddish-orange));
   border: 0;
-  margin-right: var(--space-3);
   height: 43px;
 
   @include media(">large") {
@@ -1065,10 +1064,14 @@ form .o-button:hover {
   color: RGB(var(--color-white));
 }
 
-.c-main-header .search svg {
-  width: 16px;
-  height: 16px;
-  margin-top: 4px;
+.c-main-header .search {
+  min-width: 48px;
+  margin: 0 !important;
+}
+
+.c-main-header .header-search-bar svg {
+  right: 0;
+  top: 4px;
 }
 
 // FOOTER
@@ -1256,6 +1259,10 @@ form .o-button:hover {
   color: RGB(var(--color-dark-gray));
 }
 
+.c-main-header .search-bar.header-search-bar .search-bar-form-wrapper {
+  right: 0;
+}
+
 .c-main-header .search-bar-input {
   border-radius: 0 !important;
 }
@@ -1265,8 +1272,8 @@ form .o-button:hover {
   margin: 0 auto var(--space-4) !important;
 }
 
-.c-main-header .search-bar .button,
-.menu .menu-panel .search-bar .button {
+.c-main-header .search-bar .search-bar-submit,
+.menu .menu-panel .search-bar .search-bar-submit {
   background-color: RGB(var(--color-banana-yellow));
 
   &:hover {
@@ -1292,6 +1299,7 @@ form .o-button:hover {
 
   &:hover {
     background-color: RGB(var(--color-white));
+    transform: none;
 
     path {
       fill: RGB(var(--color-reddish-orange));
@@ -1349,5 +1357,20 @@ form .o-button:hover {
 .c-newsletter-form .c-newsletter-form__graphic {
   @include media("<medium") {
     top: -10px;
+  }
+}
+
+.c-main-header .header-search-bar .search-bar-search-icon {
+  background: none!important;
+  position: absolute;
+  right: 0;
+  top: 4px;
+  &:hover {
+    background: none!important;
+    transform: none;
+  }
+  &::before,
+  &::after {
+    display: none;
   }
 }

@@ -54,10 +54,6 @@ export default {
   outline: none;
 }
 
-.button:focus:not(:focus-visible) {
-  outline: none;
-}
-
 .button:hover {
   text-decoration: none;
 }

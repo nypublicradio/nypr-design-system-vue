@@ -1,5 +1,4 @@
 import VSearch from '../../../src/components/VSearch'
-import SearchIcon from '../../../src/components/icons/SearchIcon'
 
 export default {
   title: 'Components/Molecules/Search'
@@ -26,43 +25,49 @@ export const CustomPlaceholder = () => ({
   `
 })
 
-export const WithCloseButton = () => ({
+export const WithSearchIcon = () => ({
   components: {
     VSearch
   },
   template: `
     <v-search
-      showCloseIcon
+      show-search-icon
+      show-close-icon
+      closed-on-load
       action="http://www.google.com"
       placeholder="A custom placeholder..."
     />
   `
 })
 
-export const GothamistHeaderExample = () => ({
+export const WithSearchIconAndSlideLeftTransition = () => ({
   components: {
-    VSearch,
-    SearchIcon
-  },
-  data () {
-    return {
-      searchIsActive: false
-    }
+    VSearch
   },
   template: `
-    <div>
-    <search-icon
-      class="u-icon--xs"
-      @click.native="searchIsActive = true"
+    <v-search
+      show-search-icon
+      show-close-icon
+      closed-on-load
+      action="http://www.google.com"
+      placeholder="A custom placeholder..."
+      transition="slide-left"
     />
-    <transition name="slide-right">
-      <v-search
-        v-if="searchIsActive"
-        show-close-icon
-        action="/search"
-        @searchBarClose="searchIsActive = false"
-      />
-    </transition>
-    </div>
+  `
+})
+
+export const WithSearchIconAndDonateButton = () => ({
+  components: {
+    VSearch
+  },
+  template: `
+    <v-search
+      show-search-icon
+      show-close-icon
+      closed-on-load
+      action="http://www.google.com"
+      placeholder="A custom placeholder..."
+      donateUrl="http://www.bing.com"
+    />
   `
 })

@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import NotFound from '../views/404.vue'
 import Home from '../views/Home.vue'
-import WNYC from '../views/WNYC.vue'
 
 Vue.use(VueRouter)
 
@@ -16,12 +15,6 @@ const routes = [
     name: 'Home',
     meta: { layout: 'default' },
     component: Home
-  },
-  {
-    path: '/WNYC',
-    name: 'WNYC',
-    meta: { layout: 'default' },
-    component: WNYC
   }
 ]
 
