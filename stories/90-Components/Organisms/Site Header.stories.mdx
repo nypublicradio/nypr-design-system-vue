@@ -70,7 +70,6 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
                 WnycLogo,
                 ShareTools,
                 ShareToolsItem,
-                SearchIcon,
                 TheMenu,
                 VSearch,
                 VButton
@@ -109,7 +108,15 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
       </share-tools>
       </template>
       <template v-slot:search>
-        <search-icon />
+          <v-search
+          show-search-icon
+          show-close-icon
+          closed-on-load
+          action="http://www.google.com"
+          placeholder="A custom placeholder..."
+          transition="slide-left"
+          donateUrl="http://www.bing.com"
+          />
       </template>
       <template v-slot:menu>
         <the-menu
@@ -156,7 +163,11 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
                   <p class="u-align--center"><em>slot for component</em></p>
                 </template>
                 <template v-slot:search>
-                  <v-search action="/search" />
+                  <v-search
+                  action="http://www.google.com"
+                  placeholder="Search"
+                  transition="slide-left"
+                  />
                 </template>
                 <template v-slot:social>
                   <share-tools label="Connect">
@@ -196,7 +207,7 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
                 WnycLogo,
                 ShareTools,
                 ShareToolsItem,
-                SearchIcon
+                VSearch
             },
             template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
@@ -215,8 +226,16 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
       </share-tools>
       </template>
       <template v-slot:search>
-      <search-icon />
-    </template>
+          <v-search
+          show-search-icon
+          show-close-icon
+          closed-on-load
+          action="http://www.google.com"
+          donateUrl="http://www.bing.com"
+          placeholder="Search"
+          transition="slide-left"
+          />
+      </template>
     </the-header>
     </div>
   `
@@ -231,7 +250,7 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
                 SecondaryNavigation,
                 TheHeader,
                 WnycLogo,
-                SearchIcon
+                VSearch
             },
             template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
@@ -259,8 +278,16 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
         />
       </template>
       <template v-slot:search>
-      <search-icon />
-    </template>
+          <v-search
+          show-search-icon
+          show-close-icon
+          closed-on-load
+          action="http://www.google.com"
+          placeholder="A custom placeholder..."
+          transition="slide-left"
+          donateUrl="http://www.bing.com"
+          />
+      </template>
     </the-header>
     </div>
   `
@@ -275,7 +302,7 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
                 SecondaryNavigation,
                 TheHeader,
                 WnycLogo,
-                SearchIcon
+                VSearch
             },
             template: `
     <div class="sbdocs-large-container sbdocs-container-margin">
@@ -284,8 +311,16 @@ On mobile, the majority of components in the Site Header will be hidden as to fi
         <wnyc-logo />
       </template>
       <template v-slot:search>
-      <search-icon />
-    </template>
+          <v-search
+          show-search-icon
+          show-close-icon
+          closed-on-load
+          action="http://www.google.com"
+          placeholder="A custom placeholder..."
+          transition="slide-left"
+          donateUrl="http://www.bing.com"
+          />
+      </template>
     </the-header>
     </div>
   `

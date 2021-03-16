@@ -1,6 +1,5 @@
 <template>
   <div
-    v-click-outside="close"
     class="search-bar"
   >
     <v-button
@@ -15,9 +14,21 @@
     </v-button>
     <transition :name="transition">
       <div
-        v-if="searchIsActive"
+        v-if="searchIsOpen"
         class="search-bar-form-wrapper"
       >
+        <v-button
+          v-if="donateUrl"
+          class="c-main-header__donate search-bar-donate"
+          label="Donate"
+          :href="donateUrl"
+          target="_blank"
+          rel="noopener"
+          data-category="Click Tracking"
+          data-action="Header"
+          data-label="Donate Button"
+          @click="$emit('componentEvent', donateUrl)"
+        />
         <form
           ref="searchForm"
           class="search-bar-form"
@@ -75,45 +86,16 @@ export default {
     SearchIcon,
     VButton
   },
-  directives: {
-    'click-outside': {
-      bind: function (el, binding, vNode) {
-        // Provided expression must evaluate to a function.
-        if (typeof binding.value !== 'function') {
-          const compName = vNode.context.name
-          let warn = `[Vue-click-outside:] provided expression '${binding.expression}' is not a function, but has to be`
-          if (compName) {
-            warn += `Found in component '${compName}'`
-          }
-
-          console.warn(warn)
-        }
-        // console.log('clickedOnExcludedElement')
-        // console.log(clickedOnExcludedElement)
-        // Define Handler and cache it on the element
-        const bubble = binding.modifiers.bubble
-        // See if this excluded element
-        // is the same element the user just clicked on
-        const handler = (e) => {
-          if (bubble || (!el.contains(e.target) && el !== e.target)) {
-            binding.value(e)
-          }
-        }
-        el.__vueClickOutside__ = handler
-
-        // add Event Listeners
-        document.addEventListener('click', handler)
-      },
-
-      unbind: function (el, binding) {
-        // Remove Event Listeners
-        document.removeEventListener('click', el.__vueClickOutside__)
-        el.__vueClickOutside__ = null
-      }
-    }
-  },
   props: {
     action: {
+      type: String,
+      default: null
+    },
+    closedOnLoad: {
+      type: Boolean,
+      default: false
+    },
+    donateUrl: {
       type: String,
       default: null
     },
@@ -136,20 +118,23 @@ export default {
   },
   data () {
     return {
-      searchIsActive: true
+      searchIsOpen: true
     }
   },
   beforeMount () {
-    if (this.showSearchIcon) {
-      this.searchIsActive = false
+    if (this.closedOnLoad) {
+      this.close()
     }
   },
   methods: {
     close () {
-      this.searchIsActive = false
+      this.searchIsOpen = false
     },
     open () {
-      this.searchIsActive = true
+      this.searchIsOpen = true
+      this.$nextTick(() => {
+        this.$refs.searchButton.$el.blur()
+      })
     },
     submit (e) {
       this.$emit('searchBarSubmit', e)
@@ -166,6 +151,8 @@ export default {
   position: relative;
   height: var(--search-height);
   min-width: var(--search-height);
+  justify-content: center;
+  display: flex;
 }
 
 .search-bar .search-bar-search-icon {
@@ -175,11 +162,22 @@ export default {
   padding: 14px;
   width: var(--search-height);
   height: var(--search-height);
+  background: none;
+
+  svg path {
+    fill: RGB(var(--color-text));
+  }
 }
 
 .search-bar .search-bar-form-wrapper {
   position: absolute;
   z-index: 2;
+  display: flex;
+}
+
+.search-bar .search-bar-form-wrapper .search-bar-donate {
+  margin-right: var(--space-3);
+  height: var(--search-height);
 }
 
 .search-bar .search-bar-form {
@@ -198,7 +196,8 @@ export default {
   }
 }
 
-.search-bar .button {
+.search-bar .search-bar-close,
+.search-bar .search-bar-submit {
   width: var(--search-height);
   height: var(--search-height);
 }

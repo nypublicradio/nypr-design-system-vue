@@ -1,0 +1,6 @@
+// import any mixins or variables the vue components use first
+@import "_library/_base.media.scss";
+@import "_library/_base.mixins.scss";
+
+//import the theme
+@import "gothamist";

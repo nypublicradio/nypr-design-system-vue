@@ -182,14 +182,20 @@ $z-index-header: 5000;
   font-size: var(--font-size-5);
 }
 
-.c-main-header .search {
-  margin: var(--space-2) 0;
-  width: 40%;
-  height: 40%;
+.c-main-header .c-main-header__right .search {
   cursor: pointer;
   @include media("<medium") {
     display: none;
   }
+}
+
+.c-main-header .c-main-header__right .search .search-bar-form-wrapper {
+  right: 0;
+  z-index: 99;
+}
+
+.c-main-header .c-main-header__right .search .search-bar-close {
+  background: RGB(var(--color-white));
 }
 
 .c-main-header .menu-hamburger {

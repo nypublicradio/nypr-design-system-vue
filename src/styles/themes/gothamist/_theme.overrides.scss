@@ -1272,8 +1272,8 @@ form .o-button:hover {
   margin: 0 auto var(--space-4) !important;
 }
 
-.c-main-header .search-bar .button,
-.menu .menu-panel .search-bar .button {
+.c-main-header .search-bar .search-bar-submit,
+.menu .menu-panel .search-bar .search-bar-submit {
   background-color: RGB(var(--color-banana-yellow));
 
   &:hover {
@@ -1299,6 +1299,7 @@ form .o-button:hover {
 
   &:hover {
     background-color: RGB(var(--color-white));
+    transform: none;
 
     path {
       fill: RGB(var(--color-reddish-orange));
@@ -1356,5 +1357,20 @@ form .o-button:hover {
 .c-newsletter-form .c-newsletter-form__graphic {
   @include media("<medium") {
     top: -10px;
+  }
+}
+
+.c-main-header .header-search-bar .search-bar-search-icon {
+  background: none!important;
+  position: absolute;
+  right: 0;
+  top: 4px;
+  &:hover {
+    background: none!important;
+    transform: none;
+  }
+  &::before,
+  &::after {
+    display: none;
   }
 }

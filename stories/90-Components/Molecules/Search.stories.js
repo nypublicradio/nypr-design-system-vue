@@ -33,7 +33,7 @@ export const WithSearchIcon = () => ({
     <v-search
       show-search-icon
       show-close-icon
-      :search-is-active="false"
+      closed-on-load
       action="http://www.google.com"
       placeholder="A custom placeholder..."
     />
@@ -48,10 +48,26 @@ export const WithSearchIconAndSlideLeftTransition = () => ({
     <v-search
       show-search-icon
       show-close-icon
-      :search-is-active="false"
+      closed-on-load
       action="http://www.google.com"
       placeholder="A custom placeholder..."
       transition="slide-left"
+    />
+  `
+})
+
+export const WithSearchIconAndDonateButton = () => ({
+  components: {
+    VSearch
+  },
+  template: `
+    <v-search
+      show-search-icon
+      show-close-icon
+      closed-on-load
+      action="http://www.google.com"
+      placeholder="A custom placeholder..."
+      donateUrl="http://www.bing.com"
     />
   `
 })
