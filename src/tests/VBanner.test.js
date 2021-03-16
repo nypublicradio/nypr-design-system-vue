@@ -11,7 +11,7 @@ describe('VBanner', () => {
   const description = 'this is a description'
   const headline = 'this is a headline'
   const tag = 'tagname'
-  const tagLink = 'http://www.test.com'
+  const tagLink = 'test'
   const thumbnail = 'http://placehold.it/275x275'
   const thumbnailAltText = 'Breaking News alt text'
   test('description prop works', () => {
@@ -68,7 +68,7 @@ describe('VBanner', () => {
     })
     // check if prop works and rendered correctly
     const div = wrapper.find('a')
-    expect(div.attributes().href).toBe(tagLink)
+    expect(div.attributes().href).toBe('/tags/' + tagLink)
   })
 
   test('thumbnail and thumbnailAltText props work', () => {

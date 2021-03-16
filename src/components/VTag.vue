@@ -1,16 +1,16 @@
 <template>
   <div
     class="tag"
-    :class="text"
+    :class="name"
   >
     <a
-      v-if="href"
-      :href="href"
+      v-if="slug"
+      :href="'/tags/' + slug"
     >
-      {{ text }}
+      {{ name }}
     </a>
     <template v-else>
-      {{ text }}
+      {{ name }}
     </template>
   </div>
 </template>
@@ -19,11 +19,11 @@
 export default {
   name: 'VTag',
   props: {
-    href: {
+    slug: {
       type: String,
       default: null
     },
-    text: {
+    name: {
       type: String,
       default: null
     }

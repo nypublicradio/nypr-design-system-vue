@@ -7,36 +7,36 @@ import axe from './axe-helper'
 expect.extend(toHaveNoViolations)
 
 describe('VTag', () => {
-  const text = 'news'
-  const href = 'http://www.foo.com'
+  const name = 'news'
+  const slug = 'news'
   test('text prop works: null', () => {
     const wrapper = shallowMount(VTag, {
       propsData: {
-        text,
-        href
+        name,
+        slug
       }
     })
     // check if prop works
-    expect(wrapper.text()).toBe(text)
+    expect(wrapper.text()).toBe(name)
   })
 
   test('link attribute works', () => {
     const wrapper = shallowMount(VTag, {
       propsData: {
-        text,
-        href
+        name,
+        slug
       }
     })
     // check if prop works and rendered correctly
     const div = wrapper.find('a')
-    expect(div.attributes().href).toBe(href)
+    expect(div.attributes().href).toBe('/tags/' + slug)
   })
 
   test('it passes basic accessibility tests', async () => {
     const wrapper = mount(VTag, {
       propsData: {
-        text,
-        href
+        name,
+        slug
       }
     })
     const results = await axe(wrapper.element)
