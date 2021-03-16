@@ -259,12 +259,7 @@ input[type=checkbox] {
 }
 
 /* sponsored tags */
-.o-tag--sponsored {
-  font-weight: normal;
-}
-
-.o-tag--sponsored,
-.o-kicker--sponsored {
+.tag.sponsored {
   color: RGB(var(--color-white));
   background-color: RGB(var(--color-purple));
 }
