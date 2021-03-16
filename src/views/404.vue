@@ -42,7 +42,7 @@
       :image-width="150"
       title="'What’s The Point?': A Year After COVID Shut Down NYC Schools, Many Students Struggle To Cope"
       title-link="http://www.google.com"
-      :tags="[{text: 'news',href: '/news'},{text: 'sponsored',href: ''}]"
+      :tags="[{'name': 'news','slug': 'news'},{'name': 'sponsored','slug': ''}]"
     >
       <article-metadata
         publish-date="Jan 1, 2020 1:25PM"

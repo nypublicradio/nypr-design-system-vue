@@ -61,8 +61,8 @@
         <v-tag
           v-for="(tag, index) in tags"
           :key="index"
-          :text="tag.text"
-          :href="tag.href"
+          :name="tag.name"
+          :slug="tag.slug"
         />
       </div>
       <div
