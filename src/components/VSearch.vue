@@ -3,7 +3,7 @@
     class="search-bar"
   >
     <v-button
-      v-if="showSearchIcon"
+      v-if="closedOnLoad"
       ref="searchButton"
       tabindex="0"
       class="search-bar-search-icon u-icon--xs"
@@ -17,18 +17,6 @@
         v-if="searchIsOpen"
         class="search-bar-form-wrapper"
       >
-        <v-button
-          v-if="donateUrl"
-          class="c-main-header__donate search-bar-donate"
-          label="Donate"
-          :href="donateUrl"
-          target="_blank"
-          rel="noopener"
-          data-category="Click Tracking"
-          data-action="Header"
-          data-label="Donate Button"
-          @click="$emit('componentEvent', donateUrl)"
-        />
         <form
           ref="searchForm"
           class="search-bar-form"
@@ -55,10 +43,12 @@
           <input
             id="search"
             ref="searchInput"
+            v-model="search"
             name="q"
             :placeholder="placeholder"
             class="search-bar-input"
             type="search"
+            @keypress="listenToInput"
           >
           <v-button
             class="search-bar-submit"
@@ -79,6 +69,8 @@ import CloseIcon from '../components/icons/CloseIcon'
 import SearchIcon from '../components/icons/SearchIcon'
 import VButton from '../components/VButton'
 
+let timeout
+
 export default {
   name: 'VSearch',
   components: {
@@ -95,19 +87,11 @@ export default {
       type: Boolean,
       default: false
     },
-    donateUrl: {
-      type: String,
-      default: null
-    },
     placeholder: {
       type: String,
       default: 'Search'
     },
     showCloseIcon: {
-      type: Boolean,
-      default: false
-    },
-    showSearchIcon: {
       type: Boolean,
       default: false
     },
@@ -118,7 +102,8 @@ export default {
   },
   data () {
     return {
-      searchIsOpen: true
+      searchIsOpen: true,
+      search: ''
     }
   },
   beforeMount () {
@@ -128,12 +113,21 @@ export default {
   },
   methods: {
     close () {
-      this.searchIsOpen = false
+      if (this.closedOnLoad) {
+        this.searchIsOpen = false
+      }
+    },
+    listenToInput () {
+      // close the search bar if nothing is typed for 3 seconds
+      clearTimeout(timeout)
+      setTimeout(() => {
+        this.close()
+      }, 3000)
     },
     open () {
       this.searchIsOpen = true
       this.$nextTick(() => {
-        this.$refs.searchButton.$el.blur()
+        this.$refs.searchInput.focus()
       })
     },
     submit (e) {
