@@ -31,7 +31,12 @@
       for what you're looking for.
     </p>
     <v-spacer size="quad" />
-    <div class="o-breadcrumbs"><a href="/news" class="o-breadcrumb">News</a></div>
+    <div class="o-breadcrumbs">
+      <a
+        href="/news"
+        class="o-breadcrumb"
+      >News</a>
+    </div>
     <v-spacer size="quad" />
     <h2 class="o-section__heading o-bg-text-accent">
       Recent Stories
