@@ -9,9 +9,9 @@
     >
       {{ name }}
     </a>
-    <template v-else>
+    <span v-else>
       {{ name }}
-    </template>
+    </span>
   </div>
 </template>
 
@@ -37,23 +37,28 @@ export default {
   margin-right: var(--space-2);
   @include typeface(small, 1);
   font-weight: bold;
-  background: RGB(var(--color-tag-background));
   color: RGB(var(--color-tag-text));
-  padding: var(--space-1);
   text-transform: uppercase;
-  transition: background var(--animation-duration-standard) var(--animation-easing-standard);
 
   a,
   a:visited,
   a:active {
     color: RGB(var(--color-tag-text));
     text-decoration: none;
+    background: RGB(var(--color-tag-background));
+    padding: var(--space-1);
+    transition: background var(--animation-duration-standard) var(--animation-easing-standard);
 
     &:hover {
-      background: RGBA(var(--color-tag-background), var(--opacity-hover));
+      background: RGB(var(--color-tag-background));
       color: RGB(var(--color-tag-text));
       text-decoration: none;
     }
+  }
+
+  span {
+    background: RGB(var(--color-tag-background));
+    padding: var(--space-1);
   }
 }
 </style>
