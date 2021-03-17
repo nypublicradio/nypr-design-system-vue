@@ -18,6 +18,7 @@
           :width="imageWidth"
           :height="imageHeight"
           role="presentation"
+          loading="lazy"
         >
       </a>
       <a

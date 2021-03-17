@@ -11,6 +11,12 @@ blockquote {
   border: 1px solid RGB(var(--color-brown-grey));
 }
 
+.l-container {
+  @include media("<xlarge") {
+    padding: 0 var(--space-5);
+  }
+}
+
 .o-list--numbered li::before {
   background-color: RGB(var(--color-black));
 }
@@ -566,13 +572,6 @@ form .o-button:hover {
   background-color: RGB(var(--color-dark-gray));
 }
 
-// article page
-.article .l-container {
-  @include media("<xlarge") {
-    padding: 0 var(--space-5);
-  }
-}
-
 // article page credit
 .o-caption__text > span a {
   text-decoration: none;
@@ -865,6 +864,10 @@ form .o-button:hover {
 }
 
 // Breadcrumbs
+.o-breadcrumbs {
+  position: relative;
+}
+
 .o-breadcrumbs:before {
   content: "";
   height: 1px;
@@ -873,6 +876,7 @@ form .o-button:hover {
   left: -4px;
   top: calc(50% + 1px);
   @include border-accent;
+  background-image: linear-gradient(to right, transparent 50%, RGB(var(--color-gray)) 50%);
 }
 
 // Typography
@@ -1396,9 +1400,13 @@ form .o-button:hover {
 }
 
 .card.gothamist.mod-small {
-  --card-image-width: 150px;
-  --card-image-height: 150px;
+  --card-image-width: 100px;
+  --card-image-height: 100px;
   width: 100%;
+  @include media(">medium") {
+    --card-image-width: 150px;
+    --card-image-height: 150px;
+  }
 }
 
 .card.gothamist .card-details {
@@ -1420,18 +1428,38 @@ form .o-button:hover {
   @include typeface(small, 1);
 }
 
-// Article Metadata Counter
+// Article Metadata
+.article-metadata {
+  text-transform: uppercase;
+}
+
+.article-metadata-comments .counter:hover {
+  color: RGB(var(--color-link));
+}
+
+.article-metadata-authors .byline,
+.article-metadata-photos .counter .counter-text,
+.article-metadata-photos .counter path,
+.article-metadata-photos .counter,
 .article-metadata-comments .counter,
 .article-metadata-comments .counter .counter-text,
 .article-metadata-comments .counter path {
   color: RGB(var(--color-text));
   font-size: var(--font-size-1);
   font-family: var(--font-family-small);
-  text-decoration: none;
 }
 
-.article-metadata-comments .counter {
-  width: 34px;
+.article-metadata-photos a.counter .counter-text,
+.article-metadata-comments a.counter .counter-text,
+.article-metadata-authors .byline a {
+  &:hover {
+    text-decoration: underline;
+    color: RGB(var(--color-link));
+  }
+}
+
+.article-metadata .counter .o-icon {
+  height: 14px;
 }
 
 .article-metadata-comments .counter path {

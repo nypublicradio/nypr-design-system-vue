@@ -12,8 +12,6 @@
   --color-light-gray:          #{hex2(#f3f3f3)}; //4.8%
   --color-white:               #{hex2(#ffffff)};
 
-
-
   /* Forms */
   --color-valid:               #{hex2(#089E00)};
 
@@ -52,7 +50,8 @@
   --color-link:                  var(--color-brick-red);
   --text-decoration-link:        underline;
   --color-link-hover:            var(--color-white);
-  --text-decoration-link-hover:  underline;
+  --color-link-hover-background: var(--color-reddish-orange);
+  --text-decoration-link-hover:  none;
   --opacity-link-hover:          var(--opacity-hover);
 
   /* Navigation Links */
@@ -108,7 +107,8 @@
   --color-link:                 var(--color-white);
   --text-decoration-link:       underline;
   --color-link-hover:           var(--color-white);
-  --text-decoration-link-hover: underline;
+  --color-link-hover-background:var(--color-reddish-orange);
+  --text-decoration-link-hover: none;
   --opacity-link-hover:         var(--opacity-hover);
 
   /* Navigation Links */

@@ -11,6 +11,7 @@
           :alt="altText"
           :width="width"
           :height="height"
+          loading="lazy"
         >
         <div
           v-if="caption"
