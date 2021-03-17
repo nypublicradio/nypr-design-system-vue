@@ -19,7 +19,7 @@
       caption="Realize the key to Zubaz is wearing them high. No need to rock these low. They do the work for you."
     />
     <v-spacer size="double" />
-    <p>
+    <p class="o-rte-text">
       Welcome! The Gothamist page you're looking for doesn't appear to exist. Would you like to visit our
       <router-link to="/">
         Homepage
@@ -30,6 +30,13 @@
       </router-link>
       for what you're looking for.
     </p>
+    <v-spacer size="quad" />
+    <div class="o-breadcrumbs">
+      <a
+        href="/news"
+        class="o-breadcrumb"
+      >News</a>
+    </div>
     <v-spacer size="quad" />
     <h2 class="o-section__heading o-bg-text-accent">
       Recent Stories
@@ -49,7 +56,7 @@
         updated-date="Mar 2, 2020 10:08AM"
       >
         <template v-slot:authors>
-          <v-byline :authors="authors" />
+          <v-byline :authors="[{firstName: 'Jen',lastName: 'Chung',url: 'http://www.google.com',organization: 'Gothamist',organizationUrl: 'http://www.gothamist.com'}]" />
         </template>
         <template v-slot:comments>
           <v-counter

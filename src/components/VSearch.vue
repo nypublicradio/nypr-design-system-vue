@@ -122,10 +122,11 @@ export default {
       clearTimeout(timeout)
       setTimeout(() => {
         this.close()
-      }, 3000)
+      }, 6000)
     },
     open () {
       this.searchIsOpen = true
+      this.listenToInput()
       this.$nextTick(() => {
         this.$refs.searchInput.focus()
       })
