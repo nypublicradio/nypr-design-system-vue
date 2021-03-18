@@ -1487,3 +1487,8 @@ form .o-button:hover {
 .article-metadata-comments .counter path {
   fill: RGB(var(--color-text)) !important;
 }
+
+// gallery preview
+.gallery-preview {
+  --gallery-preview-active-color: RGB(var(--color-reddish-orange));
+}
