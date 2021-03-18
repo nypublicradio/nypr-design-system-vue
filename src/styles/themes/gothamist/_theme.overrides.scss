@@ -1406,6 +1406,14 @@ form .o-button:hover {
   margin-top: var(--space-3);
 }
 
+.card.gothamist .card-title .o-gallery-icon {
+  margin-bottom: -5px;
+}
+
+.card.gothamist .card-title .o-gallery-icon path {
+  fill: RGB(var(--color-reddish-orange));
+}
+
 .card.gothamist .card-subtitle {
   @include typeface(body, 6);
   margin-top: var(--space-2);

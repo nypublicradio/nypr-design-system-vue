@@ -75,10 +75,10 @@
           class="card-title-link"
           :href="titleLink"
         >
-          {{ title }}
+          {{ title }}<gallery-icon v-if="showGalleryIcon" />
         </a>
         <template v-else>
-          {{ title }}
+          {{ title }}<gallery-icon v-if="showGalleryIcon" />
         </template>
       </div>
       <div
@@ -94,13 +94,19 @@
 
 <script>
 import VTag from '../components/VTag'
+import GalleryIcon from '../components/icons/GalleryIcon'
 
 export default {
   name: 'VCard',
   components: {
+    GalleryIcon,
     VTag
   },
   props: {
+    alt: {
+      type: String,
+      default: null
+    },
     image: {
       type: String,
       default: null
@@ -113,7 +119,11 @@ export default {
       type: Number,
       default: null
     },
-    alt: {
+    showGalleryIcon: {
+      type: Boolean,
+      default: false
+    },
+    subtitle: {
       type: String,
       default: null
     },
@@ -126,10 +136,6 @@ export default {
       default: null
     },
     titleLink: {
-      type: String,
-      default: null
-    },
-    subtitle: {
       type: String,
       default: null
     }
@@ -178,6 +184,21 @@ export default {
 .card-title {
   font-family: var(--font-family-header);
   font-size: var(--font-size-7);
+  display: flex;
+  align-items: center;
+}
+
+.card .o-gallery-icon {
+  width: 20px;
+  height: 25px;
+  margin-left: var(--space-2);
+  margin-bottom: 2px;
+}
+
+.card.mod-large .o-gallery-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 3px;
 }
 
 .card-title-link {
