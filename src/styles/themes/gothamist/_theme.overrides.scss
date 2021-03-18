@@ -863,23 +863,6 @@ form .o-button:hover {
   z-index: 0;
 }
 
-// Breadcrumbs
-.o-breadcrumbs {
-  position: relative;
-}
-
-.o-breadcrumbs:before {
-  content: "";
-  z-index: -1;
-  height: 1px;
-  width: 100%;
-  position: absolute;
-  left: -4px;
-  top: calc(50% + 1px);
-  @include border-accent;
-  background-image: linear-gradient(to right, transparent 50%, RGB(var(--color-gray)) 50%);
-}
-
 // Typography
 
 .o-rte-text > h1,
@@ -1414,8 +1397,22 @@ form .o-button:hover {
   padding: 0 var(--space-3);
 }
 
+.card.gothamist.mod-vertical .card-details {
+  padding: var(--space-3) 0;
+}
+
 .card.gothamist .card-title {
   @include typeface(header, 8);
+  margin-top: var(--space-3);
+}
+
+.card.gothamist .card-subtitle {
+  @include typeface(body, 6);
+  margin-top: var(--space-2);
+}
+
+.card.gothamist.mod-large .card-title {
+  @include typeface(header, 10);
 }
 
 .card.gothamist .card-title-link:hover {
