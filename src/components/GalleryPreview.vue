@@ -1,38 +1,31 @@
 <template>
-  <div
-    class="byline"
-  >
-    by
-    <span
-      v-for="(author, index) in authors"
+  <div class="gallery-preview">
+    <div
+      v-for="(photo, index) in photos"
       :key="index"
-      class="byline-author"
+      class="gallery-preview-image"
     >
-      <a
-        v-if="author.url"
-        :href="author.url"
-        target="_blank"
-        rel="nofollow"
-      >{{ author.firstName }}&nbsp;{{ author.lastName }}</a>
-      <template v-else>{{ author.firstName }}&nbsp;{{ author.lastName }}</template>
-      <template
-        v-if="author.organization && author.organizationUrl"
-      >(<a
-        :href="author.organizationUrl"
-        target="_blank"
-        rel="nofollow"
-      >{{ author.organization }}</a>)</template><template v-if="index < authors.length-2">,</template>
-      <template v-if="author.organization && !author.organizationUrl">({{ author.organization }})<template v-if="index < authors.length-2">, </template></template>
-      <template v-if="index === authors.length-2"> and </template>
-    </span>
+      <img
+        :src="photo.url"
+        :alt="photo.alt"
+      >
+    </div>
+    <div class="gallery-preview-view-all">
+      <span>View All</span>
+      <span>{{ count }}</span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'VByline',
+  name: 'GalleryPreview',
   props: {
-    authors: {
+    count: {
+      type: Number,
+      default: null
+    },
+    photos: {
       type: Array,
       default: null
     }
@@ -41,17 +34,14 @@ export default {
 </script>
 
 <style lang="scss">
-.byline {
-  @include typeface(body, 4);
-  line-height: 16px;
-
-  a,
-  a:visited,
-  a:active {
-    color: RGB(var(--color-text));
-    &:hover {
-      color: RGB(var(--color-link-hover));
-    }
-  }
+.gallery-preview {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  justify-content: center;
+}
+.gallery-preview-view-all {
+  width: 150px;
+  height: 150px;
 }
 </style>

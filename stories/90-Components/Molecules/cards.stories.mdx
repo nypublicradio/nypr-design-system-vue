@@ -72,10 +72,26 @@ Radial uses two different card layouts, Horizontal and Vertical, to provide flex
         {{
             components: { VCard },
             template: `
-<v-card 
+<v-card
     image="http://placehold.it/200x200"
     title="Title"
     subtitle="Subtitle"
+>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Horizontal Small with Gallery Icon">
+        {{
+            components: { VCard },
+            template: `
+<v-card
+    image="http://placehold.it/200x200"
+    title="Title"
+    subtitle="Subtitle"
+    show-gallery-icon
 >
 `
         }}
@@ -87,7 +103,7 @@ Radial uses two different card layouts, Horizontal and Vertical, to provide flex
         {{
             components: { VCard },
             template: `
-<v-card 
+<v-card
     class="mod-large"
     image="http://placehold.it/500x500"
     title="Title"
@@ -103,7 +119,7 @@ Radial uses two different card layouts, Horizontal and Vertical, to provide flex
         {{
             components: { VCard },
             template: `
-<v-card 
+<v-card
     class="mod-vertical"
     image="http://placehold.it/200x200"
     title="Title"
@@ -119,11 +135,28 @@ Radial uses two different card layouts, Horizontal and Vertical, to provide flex
         {{
             components: { VCard },
             template: `
-<v-card 
+<v-card
     class="mod-vertical mod-large"
     image="http://placehold.it/500x500"
     title="Title"
     subtitle="Subtitle"
+>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Vertical Large with Gallery Icon">
+        {{
+            components: { VCard },
+            template: `
+<v-card
+    class="mod-vertical mod-large"
+    image="http://placehold.it/500x500"
+    title="Title"
+    subtitle="Subtitle"
+    show-gallery-icon
 >
 `
         }}
