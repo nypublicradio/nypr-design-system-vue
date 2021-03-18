@@ -17,7 +17,7 @@ export default {
       type: String,
       default: null
     },
-    attribution: {
+    author: {
       type: String,
       default: null
     }
