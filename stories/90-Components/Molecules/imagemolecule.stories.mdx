@@ -114,7 +114,7 @@ Features a custom icon left aligned to the caption.
 </Canvas>
 
 <Canvas>
-    <Story name="Image With Caption, Gothamist Variation">
+    <Story name="Image With Caption: Gothamist Variation">
         {{
             components: { ImageWithCaption },
             template: `
@@ -124,6 +124,24 @@ Features a custom icon left aligned to the caption.
                 image="http://placehold.it/768x512"
                 credit="AP Photo/Carolyn Kaster"
                 caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+              />`,
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Image With Caption, Title and Description: Gothamist Variation">
+        {{
+            components: { ImageWithCaption },
+            template: `
+              <image-with-caption
+                variation="gothamist"
+                alt-text="image alt text"
+                image="http://placehold.it/768x512"
+                credit="AP Photo/Carolyn Kaster"
+                caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                title="Title of Slide"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
               />`,
         }}
     </Story>

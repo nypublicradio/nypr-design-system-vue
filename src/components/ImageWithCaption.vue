@@ -42,29 +42,42 @@
     </div>
     <figcaption
       v-if="credit || (caption && gothamistVariation)"
-      class="image-with-caption-credit"
     >
-      <div
-        v-if="caption && gothamistVariation"
-        class="gothamist-caption"
-      >
-        <gothamist-arrow />
-        {{ caption }}
+      <div class="image-with-caption-credit">
+        <div
+          v-if="caption && gothamistVariation"
+          class="gothamist-caption"
+        >
+          <gothamist-arrow />
+          {{ caption }}
+        </div>
+        <a
+          v-if="creditUrl"
+          :href="creditUrl"
+          rel="noopener"
+          class="image-with-caption-credit-link"
+        >
+          {{ credit }}
+        </a>
+        <span
+          v-else
+          class="image-with-caption-credit-link"
+        >
+          {{ credit }}
+        </span>
       </div>
-      <a
-        v-if="creditUrl"
-        :href="creditUrl"
-        rel="noopener"
-        class="image-with-caption-credit-link"
+      <div
+        v-if="title"
+        class="image-with-caption-title"
       >
-        {{ credit }}
-      </a>
-      <span
-        v-else
-        class="image-with-caption-credit-link"
+        {{ title }}
+      </div>
+      <div
+        v-if="description"
+        class="image-with-caption-description"
       >
-        {{ credit }}
-      </span>
+        {{ description }}
+      </div>
     </figcaption>
   </figure>
 </template>
@@ -98,6 +111,10 @@ export default {
       default: null,
       type: String
     },
+    description: {
+      default: null,
+      type: String
+    },
     height: {
       default: null,
       type: String
@@ -107,6 +124,10 @@ export default {
       type: String
     },
     image: {
+      default: null,
+      type: String
+    },
+    title: {
       default: null,
       type: String
     },
@@ -230,5 +251,14 @@ export default {
   path {
     fill: RGB(var(--color-reddish-orange));
   }
+}
+
+.image-with-caption .image-with-caption-title {
+  @include typeface(header, 8);
+  margin: var(--space-2) 0;
+}
+
+.image-with-caption .image-with-caption-description {
+  margin: var(--space-2) 0;
 }
 </style>

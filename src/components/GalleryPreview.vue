@@ -8,6 +8,8 @@
       :credit="activeImage.credit"
       :credit-url="activeImage.creditUrl"
       :caption="activeImage.caption"
+      :title="activeImage.title"
+      :description="activeImage.description"
     />
     <div class="gallery-preview-images">
       <img
