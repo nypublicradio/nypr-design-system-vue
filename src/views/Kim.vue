@@ -7,12 +7,23 @@
       </h1>
     </header>
     <v-spacer size="quad" />
-    <div class="c-article__contact" data-test-article-footer-contact="">
-
+    <div
+      class="c-article__contact"
+      data-test-article-footer-contact=""
+    >
       <!---->
 
-      <div id="ember152" class="c-contact-tout o-rte-text u-reversed-out o-3d-heading ember-view">
-        <p><strong>Do you know the scoop?</strong> &nbsp; <a href="#comments">Comment</a> below or <a href="mailto:tips@gothamist.com" target="_blank" rel="noopener">Send us a Tip</a></p>
+      <div
+        id="ember152"
+        class="c-contact-tout o-rte-text u-reversed-out o-3d-heading ember-view"
+      >
+        <p>
+          <strong>Do you know the scoop?</strong> &nbsp; <a href="#comments">Comment</a> below or <a
+            href="mailto:tips@gothamist.com"
+            target="_blank"
+            rel="noopener"
+          >Send us a Tip</a>
+        </p>
       </div>
     </div>
     <v-spacer size="quad" />
