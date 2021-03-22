@@ -159,17 +159,16 @@ export default {
   -webkit-box-shadow: 0px 3px 24px RGBA(0, 0, 0, 0.15);
   border-radius: 8px;
   overflow: hidden;
-  width: 544px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .card-image {
   flex: 1 0 var(--card-image-width);
   width: var(--card-image-width);
-  min-width: var(--card-image-width);
-  max-width: var(--card-image-width);
+  max-width: 100%;
   max-height: var(--card-image-height);
-  height: var(--card-image-height);
-  object-fit: cover;
+  height: auto;
 }
 
 .card-details {

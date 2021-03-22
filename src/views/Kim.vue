@@ -9,21 +9,15 @@
     <v-spacer size="quad" />
     <div
       class="c-article__contact"
-      data-test-article-footer-contact=""
     >
-      <!---->
-
-      <div
-        id="ember152"
-        class="c-contact-tout o-rte-text u-reversed-out o-3d-heading ember-view"
-      >
-        <p>
-          <strong>Do you know the scoop?</strong> &nbsp; <a href="#comments">Comment</a> below or <a
-            href="mailto:tips@gothamist.com"
-            target="_blank"
-            rel="noopener"
-          >Send us a Tip</a>
-        </p>
+      <div class="do-you-know-the-scoop u-reversed-out o-3d-heading">
+        <strong>Do you know the scoop?</strong>
+        <a href="#comments">Comment</a> below or
+        <a
+          href="mailto:tips@gothamist.com"
+          target="_blank"
+          rel="noopener"
+        >Send us a Tip</a>
       </div>
     </div>
     <v-spacer size="quad" />
@@ -167,5 +161,17 @@ export default {
 </script>
 
 <style lang="scss">
+.do-you-know-the-scoop {
+  width: 100%;
+  padding: var(--space-4) !important;
+  @include typeface(body, 6);
+}
 
+.do-you-know-the-scoop strong {
+  margin-right: var(--space-2);
+}
+
+.do-you-know-the-scoop a:hover {
+  text-decoration: underline;
+}
 </style>
