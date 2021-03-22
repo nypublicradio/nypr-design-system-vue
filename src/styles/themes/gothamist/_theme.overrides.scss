@@ -888,11 +888,6 @@ form .o-button:hover {
   background-color: RGB(var(--color-primary-1));
 }
 
-.c-contact-tout {
-  padding: var(--space-4);
-  width: 100%;
-}
-
 .u-reversed-out:after {
   background-color: RGB(var(--color-background));
 }
@@ -1486,4 +1481,9 @@ form .o-button:hover {
 
 .article-metadata-comments .counter path {
   fill: RGB(var(--color-text)) !important;
+}
+
+// gallery preview
+.gallery-preview {
+  --gallery-preview-active-color: RGB(var(--color-reddish-orange));
 }

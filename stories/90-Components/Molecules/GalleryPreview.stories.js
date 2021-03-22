@@ -1,7 +1,7 @@
 import GalleryPreview from '../../../src/components/GalleryPreview'
 
 export default {
-  title: 'Components/Molecules/GalleryPreview'
+  title: 'Components/Organisms/Gallery Preview'
 }
 
 export const Default = () => ({
@@ -9,19 +9,59 @@ export const Default = () => ({
     GalleryPreview
   },
   template: `
-    <div style="width: 640px">
     <gallery-preview
       :count="19"
-      :photos="
+      gallery-url="http://www.google.com"
+      :images="
         [
-          {url:'https://cdn.cms.prod.nypr.digital/images/51037144548_69c8fe61a6_k.2e16d0ba.fill-661x496.jpg', alt:'alt 0'},
-          {url:'https://cdn.cms.prod.nypr.digital/images/51037144548_69c8fe61a6_k.2e16d0ba.fill-661x496.jpg', alt:'alt 1'},
-          {url:'https://cdn.cms.prod.nypr.digital/images/shutterstock_editorial_11799914ac.2e16d0ba.fill-661x496.jpg', alt:'alt 2'},
-          {url:'https://cdn.cms.prod.nypr.digital/images/shutterstock_editorial_11799914x.2e16d0ba.fill-661x496.jpg', alt:'alt 3'},
-          {url:'https://cdn.cms.prod.nypr.digital/images/shutterstock_editorial_11800031g.2e16d0ba.fill-661x496.jpg', alt:'alt 4'}
+          {url:'http://placehold.it/640x500?text=1', thumbnail:'http://placehold.it/150x150?text=1', alt:'alt 1',caption:'caption 1',credit:'1 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {url:'http://placehold.it/640x500?text=2', thumbnail:'http://placehold.it/150x150?text=2', alt:'alt 2',caption:'caption 2',credit:'2 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {url:'http://placehold.it/640x500?text=3', thumbnail:'http://placehold.it/150x150?text=3', alt:'alt 3',caption:'caption 3',credit:'3 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {url:'http://placehold.it/640x500?text=4', thumbnail:'http://placehold.it/150x150?text=4', alt:'alt 4',caption:'caption 4',credit:'4 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'}
         ]
       "
     />
-    </div>
+  `
+})
+
+export const GothamistVariation = () => ({
+  components: {
+    GalleryPreview
+  },
+  template: `
+    <gallery-preview
+      variation="gothamist"
+      :count="19"
+      gallery-url="http://www.google.com"
+      :images="
+        [
+          {url:'http://placehold.it/640x500?text=1', thumbnail:'http://placehold.it/150x150?text=1', alt:'alt 1',caption:'caption 1',credit:'1 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {url:'http://placehold.it/640x500?text=2', thumbnail:'http://placehold.it/150x150?text=2', alt:'alt 2',caption:'caption 2',credit:'2 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {url:'http://placehold.it/640x500?text=3', thumbnail:'http://placehold.it/150x150?text=3', alt:'alt 3',caption:'caption 3',credit:'3 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {url:'http://placehold.it/640x500?text=4', thumbnail:'http://placehold.it/150x150?text=4', alt:'alt 4',caption:'caption 4',credit:'4 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'}
+        ]
+      "
+    />
+  `
+})
+
+export const GothamistVariationWithTitlesAndDescriptions = () => ({
+  components: {
+    GalleryPreview
+  },
+  template: `
+    <gallery-preview
+      variation="gothamist"
+      :count="19"
+      gallery-url="http://www.google.com"
+      :images="
+        [
+          {url:'http://placehold.it/640x500?text=1', thumbnail:'http://placehold.it/150x150?text=1', alt:'alt 1',caption:'caption 1',credit:'1 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com',title:'Title of Slide 1',description: 'Description 1 lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'},
+          {url:'http://placehold.it/640x500?text=2', thumbnail:'http://placehold.it/150x150?text=2', alt:'alt 2',caption:'caption 2',credit:'2 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com',title:'Title of Slide 2',description: 'Description 2 lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'},
+          {url:'http://placehold.it/640x500?text=3', thumbnail:'http://placehold.it/150x150?text=3', alt:'alt 3',caption:'caption 3',credit:'3 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com',title:'Title of Slide 3',description: 'Description 3 lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'},
+          {url:'http://placehold.it/640x500?text=4', thumbnail:'http://placehold.it/150x150?text=4', alt:'alt 4',caption:'caption 4',credit:'4 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com',title:'Title of Slide 4',description: 'Description 4 lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}
+        ]
+      "
+    />
   `
 })
