@@ -1049,9 +1049,9 @@ form .o-button:hover {
 
 .c-main-header .c-main-header__donate .button-label,
 .c-main-header .c-main-header__send-story .button-label {
-  font-weight: 700;
+  font-weight: bold !important;
+  font-size: 18px !important;
   letter-spacing: 2px;
-  font-size: var(--font-size-6);
   color: RGB(var(--color-white));
 }
 
@@ -1328,6 +1328,22 @@ form .o-button:hover {
 .menu .menu-panel .search-bar .button {
   height: 60px;
   width: 60px;
+}
+
+.c-main-header .header-search-bar .search-bar-search-icon {
+  background: none !important;
+  position: absolute;
+  right: 0;
+  top: 4px;
+
+  &:hover {
+    background: none !important;
+  }
+
+  &::before,
+  &::after {
+    display: none;
+  }
 }
 
 .c-main-header .menu .menu-panel {
