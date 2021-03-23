@@ -109,6 +109,12 @@ $gallery-preview-max-width: 640px;
   min-width: calc(33% - var(--space-3));
   max-width: calc(33% - var(--space-3));
   flex-basis: calc(33% - var(--space-3));
+  transition: var(--animation-easing-standard);
+
+  &:hover {
+    opacity: var(--opacity-hover);
+    cursor: pointer;
+  }
 
   @include media(">small") {
     min-width: calc(25% - var(--space-3));
