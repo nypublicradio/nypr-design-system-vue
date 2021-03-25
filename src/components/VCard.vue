@@ -75,10 +75,10 @@
           class="card-title-link"
           :href="titleLink"
         >
-          {{ title }}<gallery-icon v-if="showGalleryIcon" />
+          <span v-html="title" /><gallery-icon v-if="showGalleryIcon" />
         </a>
         <template v-else>
-          {{ title }}<gallery-icon v-if="showGalleryIcon" />
+          <span v-html="title" /><gallery-icon v-if="showGalleryIcon" />
         </template>
       </div>
       <div
