@@ -1470,6 +1470,8 @@ form .o-button:hover {
   color: RGB(var(--color-link));
 }
 
+.article-metadata-publish-date,
+.article-metadata-updated-date,
 .article-metadata-authors .byline,
 .article-metadata-photos .counter .counter-text,
 .article-metadata-photos .counter path,
@@ -1497,6 +1499,19 @@ form .o-button:hover {
 
 .article-metadata-comments .counter path {
   fill: RGB(var(--color-text)) !important;
+}
+
+// article header area
+.c-article__share {
+  width: 48.5px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: -61px;
+}
+
+.c-share-tools .c-share-tools__link:hover path {
+  fill: RGB(var(--color-reddish-orange)) !important;
 }
 
 // gallery preview
