@@ -100,4 +100,8 @@ export default {
 .c-share-tools.column .c-share-tools__group .c-share-tools__link {
   margin-bottom: var(--space-2);
 }
+
+.c-share-tools.column .c-share-tools__group .c-share-tools__link:last-of-type {
+  margin-bottom: 0;
+}
 </style>
