@@ -6,6 +6,13 @@ main {
   margin-top: 70px;
 }
 
+p {
+  @include typeface(body, 6);
+  @include media(">=medium") {
+    @include typeface(body, 6);
+  }
+}
+
 pre,
 blockquote {
   border: 1px solid RGB(var(--color-brown-grey));
@@ -149,7 +156,7 @@ input[type=checkbox] {
   background-image: linear-gradient(to bottom, white 0, (RGB(var(--color-background))) 0%);
   background-position: 100% 142px;
   background-repeat: repeat-x;
-  padding: var(--space-5);
+  padding: var(--space-5) var(--space-2);
   @include media(">xlarge") {
     padding: var(--space-5) 0;
   }
@@ -1517,4 +1524,11 @@ form .o-button:hover {
 // gallery preview
 .gallery-preview {
   --gallery-preview-active-color: RGB(var(--color-reddish-orange));
+}
+
+// streamfield styles
+
+.streamfield h2,
+.streamfield h3 {
+  font-family: var(--font-family-pragati);
 }

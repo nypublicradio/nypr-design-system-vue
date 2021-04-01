@@ -6,7 +6,7 @@
  * Text-Related Elements
  */
 p {
-  @include typeface(body, 4);
+  @include typeface(body, 5);
   @include media(">=medium") {
     @include typeface(body, 6);
   }

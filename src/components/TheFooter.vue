@@ -162,7 +162,7 @@ export default {
   lang="scss"
 >
 .c-main-footer {
-  padding: var(--space-5);
+  padding: var(--space-5) var(--space-2);
   background-color: RGB(var(--color-background));
   color: RGB(var(--color-text));
 
