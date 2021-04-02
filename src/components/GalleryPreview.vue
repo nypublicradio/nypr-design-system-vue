@@ -24,7 +24,7 @@
         :class="{ active: activeIndex === index }"
         @click="setActiveImage(index)"
         @keypress.enter.space.prevent="setActiveImage(index)"
-      >
+      />
       <a
         :href="galleryUrl"
         class="gallery-preview-view-all"
