@@ -56,6 +56,7 @@ export default {
 <style lang="scss">
 .article-metadata {
   @include typeface(body, 4);
+  line-height: 19px;
 }
 
 .article-metadata .article-metadata-line-one {
@@ -68,10 +69,10 @@ export default {
   align-items: center;
 }
 
-.article-metadata .article-metadata-line-two > div {
+.article-metadata .article-metadata-line-two div {
   &::after {
     content: '\2022';
-    margin: 0 var(--space-2);
+    margin-right: var(--space-2);
   }
 
   &:last-of-type {
@@ -85,6 +86,7 @@ export default {
 .article-metadata .article-metadata-photos {
   display: flex;
   height: 19px;
+  line-height: 19px;
 }
 
 .article-metadata .counter .o-icon {
