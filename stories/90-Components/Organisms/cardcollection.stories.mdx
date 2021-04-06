@@ -11,7 +11,9 @@ Similar to lists or grids, card collections allow for a grouping of content item
 ## What’s Inside
 Radial card collections can hold one to five story cards for promotion across various templates onsite, including homepage, section page, and curated topic page templates. The card collection can also support an optional title. This component currently leverages various combinations of the 1 across and 2 across card treatments in order to create layouts for multiple content items, with a maximum number of cards set to 5. As of now, this module will be planned for use on Gothamist homepage as 4 up, section page as 2 up, and curated topic page with flexibility for 1-5.
 
+<br/>
 
+<img alt="Card Collection list anatomy" src="./images/Organisms-CardCollection-anatomy.png" width="500" />
 
 1- **Optional Title** - Collection title/label. This is optional.
 
@@ -28,8 +30,8 @@ List Configurations are typically a maximum of 12 columns wide on desktop, 8 col
 | block list with featured block ("block list group 1col with heading block") | 1 lg card, 4 sm cards | <img alt="List" src="./images/Foundations-Layout-1Col-2.jpg" width="100" /> |
 | block list with multiple featured blocks ("block list group")| 2 lg cards, 4 sm cards | <img alt="List" src="./images/Foundations-Layout-1Col-3.jpg" width="100" /> |
 
-### **7 Column Configuration**
-Not a typical layout, this is used whenever a traditional right-rail is needed to only show Ads. When possible on mobile, 7col layouts will stack left over right.
+### **Right Rail Configuration**
+Not a typical layout, this is used whenever a traditional right-rail is needed to only show ADs. This is reflected similarly to a list layout, but with a fixed 300px column on the right. When possible on mobile, Right Rail layouts will stack left over right.
 
 | Example Name  | Contents | Wireframe |
 |--|--|--|
@@ -69,7 +71,7 @@ Not a typical layout, this is used whenever a traditional right-rail is needed t
             </v-card>
         </div>
         <div class="l-grid--order-2-large">
-          <img alt="List" src="./images/Placeholder-Image-Ad.png" alt="placeholder image"/>
+          <img alt="List" src="./images/Placeholder-Image-Ad-300px.png" alt="placeholder image"/>
         </div>
       </div>
     </div>
@@ -78,8 +80,8 @@ Not a typical layout, this is used whenever a traditional right-rail is needed t
     </Story>
 </Canvas>
 
-### **6x6 Two Column**
-This layout is used when two items or groups of items are given equal horizonal weight. On mobile, 6x6 layouts will stack left over right.
+### **1:1 Two Column**
+This layout is used when two items or groups of items are given equal horizonal weight. On mobile, 1:1 layouts will stack left over right.
 
 | Example Name | Contents | Wireframe |
 |--|--|--|
@@ -112,11 +114,11 @@ This layout is used when two items or groups of items are given equal horizonal 
     </Story>
 </Canvas>
 
-## Responsive Sizing
+  ## Responsive Sizing
+It is general heuristic that all Card Collection configurations spanning more then two separate columns stack horizontally on mobile.
 
 
-
-## Accessibility
+  ## Accessibility
 
 
 
