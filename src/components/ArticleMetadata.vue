@@ -12,19 +12,27 @@
       <div
         v-if="publishDate"
         class="article-metadata-publish-date"
-      >{{ publishDate }}</div>
+      >
+        {{ publishDate }}
+      </div>
       <div
         v-if="updatedDate"
         class="article-metadata-updated-date"
-      >Updated:&nbsp;{{ updatedDate }}</div>
+      >
+        Updated:&nbsp;{{ updatedDate }}
+      </div>
       <div
         v-if="$slots.comments"
         class="article-metadata-comments"
-      ><slot name="comments" /></div>
+      >
+        <slot name="comments" />
+      </div>
       <div
         v-if="$slots.photos"
         class="article-metadata-photos"
-      ><slot name="photos" /></div>
+      >
+        <slot name="photos" />
+      </div>
     </div>
   </div>
 </template>
