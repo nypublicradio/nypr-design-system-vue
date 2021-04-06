@@ -6,6 +6,13 @@ main {
   margin-top: 70px;
 }
 
+p {
+  @include typeface(body, 6);
+  @include media(">=medium") {
+    @include typeface(body, 6);
+  }
+}
+
 pre,
 blockquote {
   border: 1px solid RGB(var(--color-brown-grey));
@@ -149,7 +156,7 @@ input[type=checkbox] {
   background-image: linear-gradient(to bottom, white 0, (RGB(var(--color-background))) 0%);
   background-position: 100% 142px;
   background-repeat: repeat-x;
-  padding: var(--space-5);
+  padding: var(--space-5) var(--space-2);
   @include media(">xlarge") {
     padding: var(--space-5) 0;
   }
@@ -1489,8 +1496,17 @@ form .o-button:hover {
 .article-metadata-authors .byline a {
   &:hover {
     text-decoration: underline;
-    color: RGB(var(--color-link));
+    color: RGB(var(--color-white));
+    background-color: RGB(var(--color-reddish-orange));
   }
+}
+
+.article-metadata-authors .byline a {
+  padding: 0 0 var(--space-1) 0;
+}
+
+.article-metadata .counter {
+  margin-right: var(--space-2);
 }
 
 .article-metadata .counter .o-icon {
@@ -1499,6 +1515,12 @@ form .o-button:hover {
 
 .article-metadata-comments .counter path {
   fill: RGB(var(--color-text)) !important;
+}
+
+.article-metadata .article-metadata-line-two div {
+  &::after {
+    margin: 0 var(--space-2) 0 0;
+  }
 }
 
 // article header area
@@ -1517,4 +1539,21 @@ form .o-button:hover {
 // gallery preview
 .gallery-preview {
   --gallery-preview-active-color: RGB(var(--color-reddish-orange));
+}
+
+// streamfield styles
+
+.streamfield {
+  color: RGB(var(--color-text));
+}
+
+.streamfield a:hover {
+  color: RGB(var(--color-white));
+  background-color: RGB(var(--color-reddish-orange));
+}
+
+.streamfield h2,
+.streamfield h3 {
+  font-family: var(--font-family-pragati);
+  font-size: var(--font-size-11);
 }

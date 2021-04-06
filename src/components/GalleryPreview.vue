@@ -55,7 +55,7 @@ export default {
     },
     images: {
       type: Array,
-      default: null
+      default: () => []
     },
     variation: {
       type: String,
@@ -142,6 +142,7 @@ $gallery-preview-max-width: 640px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   text-decoration: none;
   @include typeface(small, 3);
   text-transform: uppercase;

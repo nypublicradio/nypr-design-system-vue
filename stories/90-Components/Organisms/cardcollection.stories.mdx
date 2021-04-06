@@ -1,4 +1,5 @@
 import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import VCard from '../../../src/components/VCard'
 
 <Meta title="Components/Organisms/Card Collection" />
 
@@ -40,12 +41,29 @@ Not a typical layout, this is used whenever a traditional right-rail is needed t
 <Canvas>
     <Story name="Right Rail">
         {{
+            components: { VCard },
             template: `
     <div class="u-padding">
-      <div class="l-grid l-grid--right-rail l-grid--top">
-        <div class="l-grid--order-1-large u-background-color--cool-white u-padding--half">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-         </div>
+      <div class="l-grid l-grid--right-rail l-grid--top l-grid--large-gutters">
+        <div class="l-grid--order-1-large">
+            <v-card
+                class="u-space--bottom"
+                image="http://placehold.it/200x200"
+                title="Title with some <em>HTML</em>"
+                subtitle="Subtitle"
+            />
+            <v-card
+                class="u-space--bottom"
+                image="http://placehold.it/200x200"
+                title="Title with some <em>HTML</em>"
+                subtitle="Subtitle"
+            />
+            <v-card
+                image="http://placehold.it/200x200"
+                title="Title with some <em>HTML</em>"
+                subtitle="Subtitle"
+            />
+        </div>
         <div class="l-grid--order-2-large">
           <img alt="List" src="./images/Placeholder-Image-Ad-300px.png" alt="placeholder image"/>
         </div>
@@ -59,14 +77,14 @@ Not a typical layout, this is used whenever a traditional right-rail is needed t
 ### **1:1 Two Column**
 This layout is used when two items or groups of items are given equal horizonal weight. On mobile, 1:1 layouts will stack left over right.
 
-| Example Name | Contents | Wireframe |  
-|--|--|--|  
-| block group 1up | 1 lg card | <img alt="List" src="./images/Foundations-Layout-2Col5050-1up.png" width="200" /> |  
-| block group 2up | 2 sm cards | <img alt="List" src="./images/Foundations-Layout-2Col5050-2up.png" width="200" /> |  
-| block group 3up | 1 lg card, 2 sm cards | <img alt="List" src="./images/Foundations-Layout-2Col5050-3up.png" width="200" /> |  
-| block group 4up | 4 sm cards | <img alt="List" src="./images/Foundations-Layout-2Col5050-4up.png" width="200" /> |  
-| block group 5up | 1 lg card, 4 sm cards | <img alt="List" src="./images/Foundations-Layout-2Col5050-5up.png" width="200" /> |  
-| Featured Block List | Section Title, 3 sm cards, 1 lg card  | <img alt="List" src="./images/Foundations-Layout-2Col5050-2.jpg" width="200" /> |  
+| Example Name | Contents | Wireframe |
+|--|--|--|
+| block group 1up | 1 lg card | <img alt="List" src="./images/Foundations-Layout-2Col5050-1up.png" width="200" /> |
+| block group 2up | 2 sm cards | <img alt="List" src="./images/Foundations-Layout-2Col5050-2up.png" width="200" /> |
+| block group 3up | 1 lg card, 2 sm cards | <img alt="List" src="./images/Foundations-Layout-2Col5050-3up.png" width="200" /> |
+| block group 4up | 4 sm cards | <img alt="List" src="./images/Foundations-Layout-2Col5050-4up.png" width="200" /> |
+| block group 5up | 1 lg card, 4 sm cards | <img alt="List" src="./images/Foundations-Layout-2Col5050-5up.png" width="200" /> |
+| Featured Block List | Section Title, 3 sm cards, 1 lg card  | <img alt="List" src="./images/Foundations-Layout-2Col5050-2.jpg" width="200" /> |
 | Featured Block List Secondary | Section Title, 3 sm cards, 1 lg card, 1 button | <img alt="List" src="./images/Foundations-Layout-2Col5050-3.jpg" width="200" /> |
 
 <Canvas>
@@ -95,7 +113,7 @@ It is general heuristic that all Card Collection configurations spanning more th
 
 
   ## Accessibility
-  
-  
-  
+
+
+
   ## Testing + Learnings

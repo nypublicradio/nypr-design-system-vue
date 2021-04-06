@@ -172,7 +172,7 @@ $z-index-header: 5000;
   }
 }
 
-.c-main-header .c-share-tools__group {
+.c-main-header .c-main-header__right .c-share-tools__group {
   @include media("<medium") {
     display: none;
   }
