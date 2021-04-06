@@ -1547,6 +1547,11 @@ form .o-button:hover {
   color: RGB(var(--color-text));
 }
 
+.streamfield a:hover {
+  color: RGB(var(--color-white));
+  background-color: RGB(var(--color-reddish-orange));
+}
+
 .streamfield h2,
 .streamfield h3 {
   font-family: var(--font-family-pragati);
