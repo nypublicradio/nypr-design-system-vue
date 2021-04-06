@@ -69,10 +69,10 @@ export default {
   align-items: center;
 }
 
-.article-metadata .article-metadata-line-two div {
+.article-metadata .article-metadata-line-two > div {
   &::after {
     content: '\2022';
-    margin-right: var(--space-2);
+    margin: 0 var(--space-2);
   }
 
   &:last-of-type {

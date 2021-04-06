@@ -1505,12 +1505,22 @@ form .o-button:hover {
   padding: 0 0 var(--space-1) 0;
 }
 
+.article-metadata .counter {
+  margin-right: var(--space-2);
+}
+
 .article-metadata .counter .o-icon {
   height: 14px;
 }
 
 .article-metadata-comments .counter path {
   fill: RGB(var(--color-text)) !important;
+}
+
+.article-metadata .article-metadata-line-two div {
+  &::after {
+    margin: 0 var(--space-2) 0 0;
+  }
 }
 
 // article header area
