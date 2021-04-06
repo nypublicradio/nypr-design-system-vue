@@ -1496,8 +1496,13 @@ form .o-button:hover {
 .article-metadata-authors .byline a {
   &:hover {
     text-decoration: underline;
-    color: RGB(var(--color-link));
+    color: RGB(var(--color-white));
+    background-color: RGB(var(--color-reddish-orange));
   }
+}
+
+.article-metadata-authors .byline a {
+  padding: 0 0 var(--space-1) 0;
 }
 
 .article-metadata .counter .o-icon {
@@ -1527,6 +1532,10 @@ form .o-button:hover {
 }
 
 // streamfield styles
+
+.streamfield {
+  color: RGB(var(--color-text));
+}
 
 .streamfield h2,
 .streamfield h3 {

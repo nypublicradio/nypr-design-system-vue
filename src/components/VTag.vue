@@ -34,7 +34,7 @@ export default {
 <style lang="scss">
 .tag {
   display: inline-block;
-  margin-right: var(--space-2);
+  margin: 0 var(--space-2) var(--space-2) 0;
   @include typeface(small, 1);
   font-weight: bold;
   color: RGB(var(--color-tag-text));
