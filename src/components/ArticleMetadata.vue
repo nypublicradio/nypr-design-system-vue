@@ -9,22 +9,22 @@
       </div>
     </div>
     <div class="article-metadata-line-two">
-      <span
+      <div
         v-if="publishDate"
         class="article-metadata-publish-date"
-      >{{ publishDate }}</span>
-      <span
+      >{{ publishDate }}</div>
+      <div
         v-if="updatedDate"
         class="article-metadata-updated-date"
-      >Updated:&nbsp;{{ updatedDate }}</span>
-      <span
+      >Updated:&nbsp;{{ updatedDate }}</div>
+      <div
         v-if="$slots.comments"
         class="article-metadata-comments"
-      ><slot name="comments" /></span>
-      <span
+      ><slot name="comments" /></div>
+      <div
         v-if="$slots.photos"
         class="article-metadata-photos"
-      ><slot name="photos" /></span>
+      ><slot name="photos" /></div>
     </div>
   </div>
 </template>
@@ -60,7 +60,7 @@ export default {
   align-items: center;
 }
 
-.article-metadata .article-metadata-line-two > span {
+.article-metadata .article-metadata-line-two > div {
   &::after {
     content: '\2022';
     margin: 0 var(--space-2);
