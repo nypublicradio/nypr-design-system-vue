@@ -1,4 +1,5 @@
 import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
+import VButton from '../../../src/components/VButton'
 import VCard from '../../../src/components/VCard'
 
 <Meta title="Components/Organisms/Card Collection" />
@@ -30,6 +31,75 @@ List Configurations are typically a maximum of 12 columns wide on desktop, 8 col
 | block list with featured block ("block list group 1col with heading block") | 1 lg card, 4 sm cards | <img alt="List" src="./images/Foundations-Layout-1Col-2.jpg" width="100" /> |
 | block list with multiple featured blocks ("block list group")| 2 lg cards, 4 sm cards | <img alt="List" src="./images/Foundations-Layout-1Col-3.jpg" width="100" /> |
 
+<Canvas>
+    <Story name="Block List">
+        {{
+            components: { VButton, VCard },
+            template: `
+        <div class="u-padding l-container--10col">
+          <h2 class="u-space--bottom u-font-style--header">Card Collection Title</h2>
+            <v-card
+                imageHeight="250"
+                imageWidth="250"
+                class="u-space--quad--bottom mod-vertical mod-large"
+                image="./images/Placeholder-Image-4_3.png"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                :tags="[{'name': 'tag','slug': 'tag'}]"
+            >
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
+            </v-card>
+            <v-card
+                imageHeight="150"
+                imageWidth="150"
+                class="u-space--double--bottom"
+                image="./images/Placeholder-Image-1_1.png"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                :tags="[{'name': 'tag','slug': 'tag'}]"
+            >
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
+            </v-card>
+            <v-card
+                imageHeight="150"
+                imageWidth="150"
+                class="u-space--double--bottom"
+                image="./images/Placeholder-Image-1_1.png"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                :tags="[{'name': 'tag','slug': 'tag'}]"
+            >
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
+            </v-card>
+            <v-card
+                imageHeight="150"
+                imageWidth="150"
+                class="u-space--bottom"
+                image="./images/Placeholder-Image-1_1.png"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                :tags="[{'name': 'tag','slug': 'tag'}]"
+            >
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
+            </v-card>
+        </div>
+`,
+        }}
+    </Story>
+</Canvas>
+
 ### **Right Rail Configuration**
 Not a typical layout, this is used whenever a traditional right-rail is needed to only show ADs. This is reflected similarly to a list layout, but with a fixed 300px column on the right. When possible on mobile, Right Rail layouts will stack left over right.
 
@@ -41,33 +111,50 @@ Not a typical layout, this is used whenever a traditional right-rail is needed t
 <Canvas>
     <Story name="Right Rail">
         {{
-            components: { VCard },
+            components: { VButton, VCard },
             template: `
     <div class="u-padding">
+      <h2 class="u-space--bottom u-font-style--header">Card Collection Title</h2>
       <div class="l-grid l-grid--right-rail l-grid--top l-grid--large-gutters">
         <div class="l-grid--order-1-large">
             <v-card
-                class="u-space--bottom"
+                :image-height="150"
+                :image-width="150"
+                class="u-space--double--bottom"
                 image="./images/Placeholder-Image-1_1.png"
-                title="Lorem Ipsum Dolor Sit Amet"
-                subtitle="A really cool subtitle can go here"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             >
-              <p><em>slot for component</em></p>
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
             </v-card>
             <v-card
-                class="u-space--bottom"
+                :image-height="150"
+                :image-width="150"
+                class="u-space--double--bottom"
                 image="./images/Placeholder-Image-1_1.png"
-                title="Lorem Ipsum Dolor Sit Amet"
-                subtitle="A really cool subtitle can go here"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             >
-              <p><em>slot for component</em></p>
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
             </v-card>
             <v-card
+                :image-height="150"
+                :image-width="150"
+                class="u-space--bottom"
                 image="./images/Placeholder-Image-1_1.png"
-                title="Lorem Ipsum Dolor Sit Amet"
-                subtitle="A really cool subtitle can go here"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
             >
-              <p><em>slot for component</em></p>
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
             </v-card>
         </div>
         <div class="l-grid--order-2-large">
@@ -92,27 +179,6 @@ This layout is used when two items or groups of items are given equal horizonal 
 | block group 5up | 1 lg card, 4 sm cards | <img alt="List" src="./images/Foundations-Layout-2Col5050-5up.png" width="200" /> |
 | Featured Block List | Section Title, 3 sm cards, 1 lg card  | <img alt="List" src="./images/Foundations-Layout-2Col5050-2.jpg" width="200" /> |
 | Featured Block List Secondary | Section Title, 3 sm cards, 1 lg card, 1 button | <img alt="List" src="./images/Foundations-Layout-2Col5050-3.jpg" width="200" /> |
-
-<Canvas>
-    <Story name="6x6">
-        {{
-            template: `
-   <div class="u-padding">
-     <div class="l-grid l-grid--2up l-grid--middle">
-       <div class="u-space--bottom u-padding--bottom u-background-color--cool-white">
-        <img alt="List" src="./images/Placeholder-Image-4_3.png" alt="placeholder image"/>
-         <p class="u-padding--half">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-       </div>
-       <div class="u-space--bottom u-padding--bottom u-background-color--cool-white">
-        <img alt="List" src="./images/Placeholder-Image-4_3.png" alt="placeholder image"/>
-         <p class="u-padding--half">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-       </div>
-     </div>
-   </div>
-`,
-        }}
-    </Story>
-</Canvas>
 
   ## Responsive Sizing
 It is general heuristic that all Card Collection configurations spanning more then two separate columns stack horizontally on mobile.

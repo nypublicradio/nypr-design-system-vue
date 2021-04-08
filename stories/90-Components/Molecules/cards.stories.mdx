@@ -22,7 +22,7 @@ Radial allows for flexible card functionality with elements that can be switched
 
 
  <img alt="card anatomy" src="./images/Molecules-Cards-card-anatomy.png" width="400" />
- 
+
 
 1- **Image** - This should relate to the information in the card. Follow your brand’s size guidelines.
 
@@ -84,22 +84,6 @@ Radial uses two different card layouts, Horizontal and Vertical, to provide flex
 </Canvas>
 
 <Canvas>
-    <Story name="Horizontal Small with Gallery Icon">
-        {{
-            components: { VCard },
-            template: `
-<v-card
-    image="http://placehold.it/200x200"
-    title="Title"
-    subtitle="Subtitle"
-    show-gallery-icon
->
-`
-        }}
-    </Story>
-</Canvas>
-
-<Canvas>
     <Story name="Horizontal Large">
         {{
             components: { VCard },
@@ -148,7 +132,7 @@ Radial uses two different card layouts, Horizontal and Vertical, to provide flex
 </Canvas>
 
 <Canvas>
-    <Story name="Vertical Large with Gallery Icon">
+    <Story name="With Gallery Icon">
         {{
             components: { VCard },
             template: `
@@ -158,7 +142,24 @@ Radial uses two different card layouts, Horizontal and Vertical, to provide flex
     title="Title"
     subtitle="Subtitle"
     show-gallery-icon
->
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="With Tags">
+        {{
+            components: { VCard },
+            template: `
+<v-card
+    class="mod-vertical mod-large"
+    image="http://placehold.it/500x500"
+    title="Title"
+    subtitle="Subtitle"
+    :tags="[{'name': 'news','slug': 'news'},{'name': 'sponsored','slug': ''}]"
+/>
 `
         }}
     </Story>

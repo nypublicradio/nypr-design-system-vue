@@ -303,6 +303,7 @@ input[type=checkbox] {
 .button {
   color: RGB(var(--color-dark-gray));
   font-weight: bold;
+  font-family: var(--font-family-b612);
   transition: all var(--animation-duration-standard) var(--animation-easing-standard);
   text-transform: uppercase;
 }

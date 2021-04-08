@@ -3,10 +3,10 @@
 \*------------------------------------*/
 
 body {
-  background: (var(--color-background));
+  background: RGB(var(--color-background));
   @include typeface(body, 5);
   -webkit-text-size-adjust: 100%;
-  color: (var(--color-text));
+  color: RGB(var(--color-text));
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

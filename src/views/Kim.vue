@@ -1,6 +1,8 @@
 <template>
   <div class="l-container">
     <v-spacer />
+    <p>this is a test paragraph</p>
+    <v-spacer />
     <header class="c-basic__header">
       <h1 class="c-basic__heading o-3d-heading">
         Contact Us
@@ -86,6 +88,21 @@
       </div>
     </div>
     <v-spacer size="quad" />
+    <v-spacer size="quad" />
+    <v-card
+      :image-width="640"
+      :image-height="430"
+      class="u-space--double--bottom mod-vertical mod-large"
+      image="http://placehold.it/640x430"
+      title="Card Title"
+      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      :tags="[{'name': 'tag','slug': 'tag'}]"
+    >
+      <v-button
+        href="http://www.google.com"
+        label="Button"
+      />
+    </v-card>
     <v-spacer size="quad" />
     <v-spacer size="quad" />
     <v-card
@@ -207,6 +224,7 @@ export default {
     GalleryPreview: () => import('../components/GalleryPreview'),
     ShareTools: () => import('../components/ShareTools'),
     ShareToolsItem: () => import('../components/ShareToolsItem'),
+    VButton: () => import('../components/VButton'),
     VCard: () => import('../components/VCard'),
     VCounter: () => import('../components/VCounter'),
     VByline: () => import('../components/VByline'),
