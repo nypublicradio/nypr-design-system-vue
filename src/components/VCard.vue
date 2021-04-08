@@ -75,10 +75,12 @@
           class="card-title-link"
           :href="titleLink"
         >
-          <span v-html="title" /><gallery-icon v-if="showGalleryIcon" />
+          <span v-html="title" />
+          <gallery-icon v-if="showGalleryIcon" />
         </a>
         <template v-else>
-          <span v-html="title" /><gallery-icon v-if="showGalleryIcon" />
+          <span v-html="title" />
+          <gallery-icon v-if="showGalleryIcon" />
         </template>
       </div>
       <div
@@ -87,7 +89,12 @@
       >
         {{ subtitle }}
       </div>
-      <slot />
+      <div
+        v-if="$slots.default"
+        class="card-slot"
+      >
+        <slot />
+      </div>
     </div>
   </div>
 </template>
@@ -176,10 +183,6 @@ export default {
   padding: var(--space-3);
 }
 
-.card-tag {
-  margin-bottom: var(--space-2);
-}
-
 .card-title {
   font-family: var(--font-family-header);
   font-size: var(--font-size-7);
@@ -241,5 +244,9 @@ export default {
   --card-image-width: 620px;
   --card-image-height: 413px;
   width: 620px;
+}
+
+.card .card-slot {
+  margin-top: var(--space-3);
 }
 </style>
