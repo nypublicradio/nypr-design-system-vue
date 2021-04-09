@@ -124,8 +124,8 @@ export default {
         this.close()
       }, 6000)
     },
-    open () {
-      this.$emit('searchOpened')
+    open (e) {
+      this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
       this.listenToInput()
       this.$nextTick(() => {
@@ -133,7 +133,6 @@ export default {
       })
     },
     submit (e) {
-      this.$emit('searchSubmitted')
       this.$emit('searchBarSubmit', e)
       this.$refs.searchForm.submit()
     }
