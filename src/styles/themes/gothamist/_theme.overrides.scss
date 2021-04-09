@@ -330,6 +330,10 @@ input[type=checkbox] {
   transform: translate(-10px, 10px);
 }
 
+.button .button-label {
+  font-family: var(--font-family-b612);
+}
+
 .button.mod-donate {
   color: RGB(var(--color-white));
   background-color: RGB(var(--color-reddish-orange));
