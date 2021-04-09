@@ -13,7 +13,7 @@
         :target="item.newWindow && '_blank'"
         rel="noopener"
         class="c-secondary-nav__link"
-        @click="$emit('componentEvent', item.url)"
+        @click="$emit('componentEvent', item.text)"
       >
         <span
           v-if="item.icon"
