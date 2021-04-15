@@ -4,8 +4,8 @@
 
 .c-main-footer {
   padding: var(--space-5);
-  background-color: (var(--color-background));
-  color: (var(--color-text));
+  background-color: RGB(var(--color-background));
+  color: RGB(var(--color-text));
 
   @include media(">xlarge") {
     padding: var(--space-5) 0;
@@ -15,11 +15,11 @@
 .c-main-footer a,
 .c-main-footer a:visited,
 .c-main-footer a:active {
-  color: (var(--color-link));
+  color: RGB(var(--color-link));
   text-decoration: var(--text-decoration-navigation-link);
 
   &:hover {
-    color: (var(--color-link-hover), var(--opacity-link-hover));
+    color: RGB(var(--color-link-hover), var(--opacity-link-hover));
     text-decoration: var(--text-decoration-navigation-link-hover);
   }
 }
@@ -51,15 +51,15 @@
 }
 
 .c-main-footer svg {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 .c-main-footer a svg {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 .c-main-footer a:hover svg {
-  fill: (var(--color-navigation-link-hover), var(--opacity-navigation-link-hover));
+  fill: RGB(var(--color-navigation-link-hover), var(--opacity-navigation-link-hover));
 }
 
 
@@ -155,7 +155,7 @@
 
 .c-main-footer__nypr-logo path,
 .c-main-footer__nypr-logo polygon {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 .c-main-footer__brand-group {

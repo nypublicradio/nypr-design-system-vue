@@ -24,7 +24,7 @@
   display: block;
   text-align: right;
   width: 100%;
-  color: (var(--color-text));
+  color: RGB(var(--color-text));
   @include typeface(small, 1);
 }
 
@@ -87,8 +87,8 @@
 }
 
 .annotation-tip {
-  color: (var(--color-tag-hover-text));
-  background-color: (var(--color-tag-hover-background));
+  color: RGB(var(--color-tag-hover-text));
+  background-color: RGB(var(--color-tag-hover-background));
   padding: 3px;
   border-radius: 50%;
   text-align: center;
@@ -143,15 +143,15 @@
   display: inline-block;
   padding: 0 4px;
   line-height: 1;
-  color: (var(--color-text-metadata));
+  color: RGB(var(--color-text-metadata));
 }
 
 .c-swatch-a11y__letter--bg {
-  background-color: (var(--color-text-metadata));
+  background-color: RGB(var(--color-text-metadata));
 }
 
 .c-swatch-a11y__check {
-  background-color: (var(--color-text-metadata));
+  background-color: RGB(var(--color-text-metadata));
   display: inline-block;
   width: 12px;
   height: 12px;
@@ -165,7 +165,7 @@
   bottom: 1px;
   display: block;
   position: absolute;
-  fill: (var(--color-text-inverse));
+  fill: RGB(var(--color-text-inverse));
 }
 
 .c-swatch__details {

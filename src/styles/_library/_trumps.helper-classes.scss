@@ -32,17 +32,17 @@
  */
 .u-reversed-out {
   @include color-group-dark;
-  background-color: (var(--color-background)); //dark
+  background-color: RGB(var(--color-background)); //dark
   @include reversed-out-text;
 }
 
 .u-reversed-out:after {
-  background-color: (var(--color-background));
+  background-color: RGB(var(--color-background));
 }
 
 .u-reversed-out input[type=radio]:checked,
 .u-reversed-out input[type=checkbox]:checked {
-  border: 2px solid (var(--color-high-contrast), 0.095);
+  border: 2px solid RGB(var(--color-high-contrast), 0.095);
 }
 
 .u-align-center {

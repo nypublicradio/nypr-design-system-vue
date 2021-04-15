@@ -98,7 +98,7 @@ figcaption a {
   *:first-letter,
   *:first-line {
     background: transparent !important;
-    color: (var(--color-text-print)) !important;
+    color: RGB(var(--color-text-print)) !important;
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -126,7 +126,7 @@ figcaption a {
 
   pre,
   blockquote {
-    border: 1px solid (var(--color-border-standard));
+    border: 1px solid RGB(var(--color-border-standard));
     page-break-inside: avoid;
   }
 
