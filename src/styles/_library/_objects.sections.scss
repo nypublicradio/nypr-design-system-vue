@@ -157,7 +157,7 @@
   top: -0.6em;
   @include typeface(header, 10);
   right: var(--space-9);
-  background-color: (var(--color-background));
+  background-color: RGB(var(--color-background));
   padding: 0 var(--space-2);
 }
 .c-featured-blocks__heading--wnyc {
