@@ -64,7 +64,7 @@
 
 .o-rte-text a {
   color: RGB(var(--color-link));
-  border-bottom: 2px dotted (var(--color-link));
+  border-bottom: 2px dotted RGB(var(--color-link));
   text-decoration: none;
   transition: all 0.15s ease-in-out;
 }
@@ -420,7 +420,7 @@ a.o-breadcrumb:hover {
 }
 
 .o-to-top:hover {
-  color: (var(--color-link));
+  color: RGB(var(--color-link));
 }
 
 .o-to-top:hover .o-icon--up-arrow {

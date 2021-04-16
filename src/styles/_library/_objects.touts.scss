@@ -15,7 +15,7 @@
  */
 .c-donate-tout {
   padding: var(--space-5);
-  background-color: (var(--color-background-highlight));
+  background-color: RGB(var(--color-background-highlight));
   width: 100%;
   max-width: 980px;
   margin: 70px 0 0 auto;
@@ -36,7 +36,7 @@
 .c-donate-tout:before {
   content: "";
   position: absolute;
-  background-color: (var(--color-background-highlight));
+  background-color: RGB(var(--color-background-highlight));
   left: -3px;
   top: -3px;
   width: 120px;
@@ -96,7 +96,7 @@
 }
 
 .c-donate-tout__graphic path {
-  fill: (var(--color-background-highlight)); //dark
+  fill: RGB(var(--color-background-highlight)); //dark
 }
 
 .c-donate-tout__close {
@@ -154,7 +154,7 @@
 .c-donate-tout--static .c-donate-tout__graphic:before {
   content: "";
   position: absolute;
-  background-color: (var(--color-background-highlight));
+  background-color: RGB(var(--color-background-highlight));
   left: -3px;
   top: 70px;
   width: 120px;
@@ -179,7 +179,7 @@
 .c-sponsored-tout {
   width: 100%;
   padding: var(--space-7) var(--space-9);
-  background-color: (var(--color-background-muted)); //light
+  background-color: RGB(var(--color-background-muted)); //light
   position: relative;
 
   @include media("<=medium") {
@@ -198,7 +198,7 @@
   position: absolute;
   top: -0.6em;
   left: var(--space-3);
-  background-color: (var(--color-background));
+  background-color: RGB(var(--color-background));
   padding: 0 var(--space-2);
 }
 
@@ -210,8 +210,8 @@
 }
 
 .c-sponsored-tout .o-kicker {
-  background-color: (var(--color-primary-3));
-  color: (var(--color-background));
+  background-color: RGB(var(--color-primary-3));
+  color: RGB(var(--color-background));
 }
 
 .c-sponsored-tout .c-block__media {
@@ -287,7 +287,7 @@
   @include typeface(small, 5);
 
   a {
-    border-bottom: 2px dotted (var(--color-text-inverse));
+    border-bottom: 2px dotted RGB(var(--color-text-inverse));
   }
 }
 

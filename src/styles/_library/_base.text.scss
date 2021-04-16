@@ -43,7 +43,7 @@ blockquote p {
 hr {
   height: 1px;
   border: none;
-  background-color: (var(--color-border-bold));
+  background-color: RGB(var(--color-border-bold));
   margin: 0 auto;
 }
 
@@ -51,6 +51,6 @@ hr {
  * Abbreviation
  */
 abbr {
-  border-bottom: 1px dotted var(--color-border-standard);
+  border-bottom: 1px dotted RGB(var(--color-border-standard));
   cursor: help;
 }

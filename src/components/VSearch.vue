@@ -124,7 +124,8 @@ export default {
         this.close()
       }, 6000)
     },
-    open () {
+    open (e) {
+      this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
       this.listenToInput()
       this.$nextTick(() => {

@@ -157,7 +157,7 @@
   top: -0.6em;
   @include typeface(header, 10);
   right: var(--space-9);
-  background-color: (var(--color-background));
+  background-color: RGB(var(--color-background));
   padding: 0 var(--space-2);
 }
 .c-featured-blocks__heading--wnyc {
@@ -196,7 +196,7 @@
 }
 .c-featured-blocks__col1 {
   margin-bottom: var(--space-5);
-  background-color: (var(--color-background));
+  background-color: RGB(var(--color-background));
 
   @include media(">medium") {
     max-width: 620px;
@@ -264,7 +264,7 @@
   @include typeface(header, 13);
   display: inline-block;
   margin: var(--space-2) 0;
-  color: (var(--color-text));
+  color: RGB(var(--color-text));
   text-transform: capitalize;
 }
 
@@ -301,7 +301,7 @@
 }
 .c-search-results__form .c-search__button:hover {
   background-color: transparent;
-  fill: (var(--color-primary-2));
+  fill: RGB(var(--color-primary-2));
 }
 .c-search-results__form .c-search__icon {
   width: 20px;

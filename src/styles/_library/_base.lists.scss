@@ -57,10 +57,10 @@ dd {
 .o-list--numbered li::before {
   content: counter(item);
   counter-increment: item;
-  color: (var(--color-background));
+  color: RGB(var(--color-background));
   padding: 10px 15px;
   border-radius: 3px;
-  background-color: (var(--color-text));
+  background-color: RGB(var(--color-text));
   font-weight: bold;
   margin-right: var(--space-3);
   float: left;

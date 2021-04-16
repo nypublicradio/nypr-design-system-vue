@@ -10,20 +10,20 @@
 }
 
 .c-main-header svg {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 .c-main-header a svg {
-  fill: (var(--color-navigation-link));
+  fill: RGB(var(--color-navigation-link));
 }
 
 .c-main-header a:hover svg {
-  fill: (var(--color-navigation-link-hover), var(--opacity-navigation-link-hover));
+  fill: RGB(var(--color-navigation-link-hover), var(--opacity-navigation-link-hover));
 }
 
 .c-main-header__ad-unit {
   position: relative;
-  background-color: (var(--color-background));
+  background-color: RGB(var(--color-background));
   text-align: center;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .c-main-header .o-ad__label {
-  color: (var(--color-text-muted));
+  color: RGB(var(--color-text-muted));
 
   @include media("<=small") {
     display: none;
@@ -46,7 +46,7 @@
 }
 
 .c-main-header__inner {
-  background-color: (var(--color-background));
+  background-color: RGB(var(--color-background));
   padding: var(--space-2) var(--space-2) var(--space-2) var(--space-5);
   display: flex;
   align-items: center;
@@ -102,11 +102,11 @@
 .c-main-header .c-main-header__close {
   width: 17px;
   height: 17px;
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 .c-main-header .c-main-header__close path {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 .c-main-header__title {
@@ -116,7 +116,7 @@
   padding: 0 var(--space-5) 0 var(--space-3);
   padding-right: 50px;
   padding-left: var(--space-4);
-  color: (var(--color-text));
+  color: RGB(var(--color-text));
 
   @include media(">=large") {
     display: block;
@@ -180,11 +180,11 @@
 }
 
 .c-main-header__share .c-share-tools__link:hover path {
-  fill: (var(--color-text, --opacity-hover));
+  fill: RGB(var(--color-text, --opacity-hover));
 }
 
 .c-main-header__share .c-share-tools__link path {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 /* Gallery and Article floating header specific styles*/
@@ -247,11 +247,11 @@
 }
 
 .c-search-toggle:hover path {
-  fill: (var(--color-text, --opacity-hover));
+  fill: RGB(var(--color-text, --opacity-hover));
 }
 
 .c-search-toggle__icon path {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
   transition: var(--animation-duration-standard) var(--animation-easing-standard);
 }
 
@@ -281,8 +281,8 @@
 .c-side-menu {
   position: fixed;
   width: 100%;
-  color: (var(--color-text));
-  background-color: (var(--color-background));
+  color: RGB(var(--color-text));
+  background-color: RGB(var(--color-background));
   left: -100%;
   top: 0;
   z-index: $z-index-side-menu;
@@ -311,7 +311,7 @@
 }
 
 .c-side-menu .c-search__button:hover {
-  background-color: (var(--color-button-primary));
+  background-color: RGB(var(--color-button-primary));
   opacity: var(--opacity-hover);
 }
 
@@ -325,7 +325,7 @@
 }
 
 .c-side-menu__group:not(:last-child) {
-  @include border-accent(right, center, (var(--color-border-subtle), 0.2));
+  @include border-accent(right, center, RGB(var(--color-border-subtle), 0.2));
 }
 
 .c-side-menu__branding {
@@ -334,7 +334,7 @@
 }
 
 .c-side-menu__social .c-share-tools {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
   justify-content: center;
 }
 
@@ -388,7 +388,7 @@
 
 .c-side-menu__nypr-logo path,
 .c-side-menu__nypr-logo polygon {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 
 .c-side-menu .c-nypr-nav__list {

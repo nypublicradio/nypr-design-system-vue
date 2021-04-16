@@ -16,7 +16,7 @@
   top: 25px;
   right: -4px;
   position: absolute;
-  background-color: (var(--color-text));
+  background-color: RGB(var(--color-text));
   opacity: 0;
   transform: rotate(-45deg);
   width: 0;
@@ -33,7 +33,7 @@
   right: calc(var(--space-2) * -1);
   top: var(--space-5);
   padding: var(--space-3);
-  background-color: (var(--color-background));
+  background-color: RGB(var(--color-background));
   opacity: 0;
   z-index: $z-index-vanish;
   transform: scale(0.85);
@@ -47,10 +47,10 @@
   }
 }
 .c-toggle-box .c-toggle-box__label {
-  color: (var(--color-text));
+  color: RGB(var(--color-text));
 }
 .c-toggle-box .o-icon--caret path {
-  fill: (var(--color-text));
+  fill: RGB(var(--color-text));
 }
 /* Open*/
 .c-toggle-box.this-is-active .c-toggle-box__label:before {
@@ -108,18 +108,18 @@
   height: var(--space-2);
   appearance: none;
   border: none;
-  background-color: (var(--color-high-contrast), 0.048);
-  color: (var(--color-primary-1));
+  background-color: RGB(var(--color-high-contrast), 0.048);
+  color: RGB(var(--color-primary-1));
   z-index: $z-index-progress-bar;
 }
 .o-progress::-webkit-progress-bar {
-  background-color: (var(--color-high-contrast), 0.048);
+  background-color: RGB(var(--color-high-contrast), 0.048);
 }
 .o-progress::-webkit-progress-value {
-  background-color: (var(--color-primary-1));
+  background-color: RGB(var(--color-primary-1));
 }
 .o-progress::-moz-progress-bar {
-  background-color: (var(--color-primary-1));
+  background-color: RGB(var(--color-primary-1));
 }
 
 .c-share-tools {
@@ -180,7 +180,7 @@
 }
 
 .c-share-tools__link:hover path {
-  fill: (var(--color-primary-2));
+  fill: RGB(var(--color-primary-2));
 }
 
 .c-share-tools--vertical .c-share-tools__group {
@@ -195,7 +195,7 @@
 .c-share-tools--vertical .c-share-tools__link--print {
   @include media(">medium") {
     margin-bottom: 10px;
-    background-image: linear-gradient(to right, transparent 50%, (var(--color-high-contrast), 0.358) 50%);
+    background-image: linear-gradient(to right, transparent 50%, RGB(var(--color-high-contrast), 0.358) 50%);
     background-position: center top;
     background-size: 16px 1px;
     background-repeat: repeat-x;

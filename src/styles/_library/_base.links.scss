@@ -29,7 +29,7 @@ a > span {
 .o-rte-text .u-has-accent {
   display: inline-block;
   padding-bottom: 2px;
-  border-bottom: 2px dotted (var(--color-border-standard));
+  border-bottom: 2px dotted RGB(var(--color-border-standard));
   text-decoration: none;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -61,7 +61,7 @@ a > span {
 .u-has-accent--secondary,
 .o-rte-text .u-has-accent--secondary {
   color: RGB(var(--color-link));
-  border-bottom-color: (var(--color-link));
+  border-bottom-color: RGB(var(--color-link));
 }
 
 .u-has-accent--secondary path {
