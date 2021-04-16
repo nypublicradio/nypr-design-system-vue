@@ -7,7 +7,6 @@ import axe from './axe-helper'
 expect.extend(toHaveNoViolations)
 
 describe('ProgressBar', () => {
-
   test('percent prop works: double', () => {
     const wrapper = mount(ProgressBar, {
       propsData: {
