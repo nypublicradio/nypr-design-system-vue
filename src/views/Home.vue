@@ -133,16 +133,19 @@ export default {
       ],
       headerNav: [
         {
-          url: 'http://www.google.com',
-          text: 'Primary Link 1'
+          url: '/kim/',
+          text: 'Kim Test Page',
+          type: 'cms_page'
         },
         {
           url: 'http://www.google.com',
-          text: 'Primary Link 2'
+          text: 'Google Link 2',
+          type: 'external_link'
         },
         {
           url: 'http://www.google.com',
-          text: 'Primary Link 3'
+          text: 'Google Link 3',
+          type: 'external_link'
         }
       ],
       legalNav: [

@@ -40,7 +40,7 @@
       <div class="on-todays-show-right l-grid--order-2-large">
         <image-with-caption
           alt-text="image alt text"
-          image="https://placehold.it/506x327"
+          image="./images/Placeholder-Image-4_3.png"
           width="506"
           height="327"
           caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elitlorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -166,19 +166,19 @@ export default {
       segmentsToShow: 3,
       people: [
         {
-          image: 'https://placehold.it/120x120',
+          image: './images/Placeholder-Image-1_1.png',
           name: 'Alison Stewart',
           nameLink: 'http://example.com',
           role: 'Host'
         },
         {
-          image: 'https://placehold.it/120x120',
+          image: './images/Placeholder-Image-1_1.png',
           name: 'Andrew Cuomo',
           nameLink: 'http://example.com',
           role: 'Guest'
         },
         {
-          image: 'https://placehold.it/120x120',
+          image: './images/Placeholder-Image-1_1.png',
           name: 'Andrew Cuomo',
           nameLink: 'http://example.com',
           role: 'Guest'

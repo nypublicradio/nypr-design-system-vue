@@ -172,8 +172,8 @@ export default {
 
 .card-image {
   flex: 1 0 var(--card-image-width);
-  width: var(--card-image-width);
-  max-width: 100%;
+  width: 100%;
+  max-width: var(--card-image-width);
   max-height: var(--card-image-height);
   height: auto;
 }
@@ -223,13 +223,12 @@ export default {
   flex-direction: column;
   --card-image-width: 300px;
   --card-image-height: 200px;
-  width: 300px;
+  max-width: var(--card-image-width);
 }
 
 .card.mod-large {
   --card-image-width: 360px;
   --card-image-height: 306px;
-  width: 879px;
 }
 
 .card.mod-large .card-title {
@@ -243,7 +242,6 @@ export default {
 .card.mod-vertical.card.mod-large {
   --card-image-width: 620px;
   --card-image-height: 413px;
-  width: 620px;
 }
 
 .card .card-slot {
