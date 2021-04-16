@@ -1,0 +1,34 @@
+import { Meta, Title, Subtitle, Description, Props, Preview, Story, Heading } from '@storybook/addon-docs/blocks';
+import ProgressBar from '../../../src/components/ProgressBar'
+
+<Meta title="Components/Atoms/Progress Bar" />
+
+# ProgressBar
+
+## Code Example: 50%
+
+<Canvas>
+    <Story name="50%">
+        {{
+            components: { ProgressBar },
+            template: `<progress-bar :percent="50" />`
+        }}
+    </Story>
+</Canvas>
+
+## Code Example: 100%
+
+<Canvas>
+    <Story name="100%">
+        {{
+            components: { ProgressBar },
+            template: `<progress-bar :percent="100" />`
+        }}
+    </Story>
+</Canvas>
+
+## Props
+
+| Prop | Type | Usage |
+|-------|---------|---------|
+| `percent` | Number | Sets the width of the progress bar |
