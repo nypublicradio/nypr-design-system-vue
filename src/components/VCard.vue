@@ -2,78 +2,78 @@
   <div class="card">
     <template v-if="titleLink">
       <a
-          v-if="title"
-          class="card-image-link"
-          :href="titleLink"
-          aria-hidden="true"
-          role="presentation"
-          tabindex="-1"
-          @click="$emit('componentEvent', titleLink)"
+        v-if="title"
+        class="card-image-link"
+        :href="titleLink"
+        aria-hidden="true"
+        role="presentation"
+        tabindex="-1"
+        @click="$emit('componentEvent', titleLink)"
       >
         <img
-            v-if="image"
-            class="card-image"
-            :src="image"
-            :alt="title"
-            :width="imageWidth"
-            :height="imageHeight"
-            role="presentation"
-            loading="lazy"
+          v-if="image"
+          class="card-image"
+          :src="image"
+          :alt="title"
+          :width="imageWidth"
+          :height="imageHeight"
+          role="presentation"
+          loading="lazy"
         >
       </a>
       <a
-          v-else
-          class="card-image-link"
-          :href="titleLink"
-          @click="$emit('componentEvent', titleLink)"
+        v-else
+        class="card-image-link"
+        :href="titleLink"
+        @click="$emit('componentEvent', titleLink)"
       >
         <img
-            v-if="image"
-            class="card-image"
-            :src="image"
-            :alt="alt"
-            :width="imageWidth"
-            :height="imageHeight"
+          v-if="image"
+          class="card-image"
+          :src="image"
+          :alt="alt"
+          :width="imageWidth"
+          :height="imageHeight"
         >
       </a>
     </template>
     <span
-        v-else
-        class="card-image-wrapper"
+      v-else
+      class="card-image-wrapper"
     >
       <img
-          v-if="image"
-          class="card-image"
-          :src="image"
-          :width="imageWidth"
-          :height="imageHeight"
-          alt=""
-          role="presentation"
+        v-if="image"
+        class="card-image"
+        :src="image"
+        :width="imageWidth"
+        :height="imageHeight"
+        alt=""
+        role="presentation"
       >
     </span>
     <div
-        v-if="hasDetails"
-        class="card-details"
+      v-if="hasDetails"
+      class="card-details"
     >
       <div
-          v-if="tags"
-          class="card-tag"
+        v-if="tags"
+        class="card-tag"
       >
         <v-tag
-            v-for="(tag, index) in tags"
-            :key="index"
-            :name="tag.name"
-            :slug="tag.slug"
+          v-for="(tag, index) in tags"
+          :key="index"
+          :name="tag.name"
+          :slug="tag.slug"
         />
       </div>
       <div
-          v-if="title"
-          class="card-title"
+        v-if="title"
+        class="card-title"
       >
         <a
-            v-if="titleLink"
-            class="card-title-link"
-            :href="titleLink"
+          v-if="titleLink"
+          class="card-title-link"
+          :href="titleLink"
         >
           <span v-html="title" />
           <gallery-icon v-if="showGalleryIcon" />
@@ -84,14 +84,14 @@
         </template>
       </div>
       <div
-          v-if="subtitle"
-          class="card-subtitle"
+        v-if="subtitle"
+        class="card-subtitle"
       >
         {{ subtitle }}
       </div>
       <div
-          v-if="$slots.default"
-          class="card-slot"
+        v-if="$slots.default"
+        class="card-slot"
       >
         <slot />
       </div>
