@@ -11,7 +11,8 @@ describe('SecondaryNavigation', () => {
   const navItems = [
     {
       url: 'http://www.google.com',
-      text: 'Secondary Link 1'
+      text: 'Secondary Link 1',
+      type: 'external_link'
     }
   ]
   test('orientation prop works', () => {
