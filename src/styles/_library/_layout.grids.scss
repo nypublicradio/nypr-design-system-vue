@@ -6,6 +6,8 @@
   display: grid;
   grid-template-rows: auto;
   grid-gap: var(--grid-gutter);
+  min-height: 0;
+  min-width: 0;
 }
 
 .l-grid--large-gutters {
@@ -18,49 +20,49 @@
 
 .l-grid--1up--small {
   @include media("<medium") {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
 .l-grid--1up--medium {
   @include media("<large") {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
 .l-grid--1up--large {
   @include media("<xlarge") {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
 .l-grid--2up {
   @include media(">medium") {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 .l-grid--2up--small {
   @media all and (max-width: $medium) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 .l-grid--2up--xlarge {
   @media all and (min-width: $xlarge) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 .l-grid--3up {
   @include media(">medium") {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 .l-grid--4up {
   @include media(">medium") {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   @include media(">large") {
@@ -70,7 +72,7 @@
 
 .l-grid--5up {
   @include media(">large") {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
 

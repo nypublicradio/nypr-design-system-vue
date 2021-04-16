@@ -180,6 +180,123 @@ This layout is used when two items or groups of items are given equal horizonal 
 | Featured Block List | Section Title, 3 sm cards, 1 lg card  | <img alt="List" src="./images/Foundations-Layout-2Col5050-2.jpg" width="200" /> |
 | Featured Block List Secondary | Section Title, 3 sm cards, 1 lg card, 1 button | <img alt="List" src="./images/Foundations-Layout-2Col5050-3.jpg" width="200" /> |
 
+<Canvas>
+    <Story name="1:1 Two Column">
+        {{
+            components: { VButton, VCard },
+            template: `
+<div class="u-padding l-container l-container--xl">
+    <div class="l-container l-grid l-grid--2up l-grid--large-gutters">
+        <div>
+          <v-card
+                imageHeight="250"
+                imageWidth="250"
+                class="u-space--quad--bottom mod-vertical mod-large"
+                image="./images/Placeholder-Image-4_3.png"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                :tags="[{'name': 'tag','slug': 'tag'}]"
+            >
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
+            </v-card>
+        </div>
+        <div>
+          <v-card
+                imageHeight="250"
+                imageWidth="250"
+                class="u-space--quad--bottom mod-vertical mod-large"
+                image="./images/Placeholder-Image-4_3.png"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                :tags="[{'name': 'tag','slug': 'tag'}]"
+            >
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
+            </v-card>
+        </div>
+    </div>
+</div>
+`,
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Featured List Block">
+        {{
+            components: { VButton, VCard },
+            template: `
+<div class="u-padding l-container l-container--xl">
+    <div class="l-container l-grid l-grid--2up l-grid--large-gutters">
+        <div>
+          <v-card
+                imageHeight="250"
+                imageWidth="250"
+                class="u-space--quad--bottom mod-vertical mod-large"
+                image="./images/Placeholder-Image-4_3.png"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                :tags="[{'name': 'tag','slug': 'tag'}]"
+            >
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
+            </v-card>
+        </div>
+        <div>
+            <v-card
+                :image-height="150"
+                :image-width="150"
+                class="u-space--bottom"
+                image="./images/Placeholder-Image-1_1.png"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet"
+            >
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
+            </v-card>
+            <v-card
+                :image-height="150"
+                :image-width="150"
+                class="u-space--bottom"
+                image="./images/Placeholder-Image-1_1.png"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet"
+            >
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
+            </v-card>
+            <v-card
+                :image-height="150"
+                :image-width="150"
+                class="u-space--bottom"
+                image="./images/Placeholder-Image-1_1.png"
+                title="Card Title"
+                subtitle="Lorem ipsum dolor sit amet"
+            >
+              <v-button
+                href="http://www.google.com"
+                label="Button"
+              />
+            </v-card>
+        </div>
+    </div>
+</div>
+`,
+        }}
+    </Story>
+</Canvas>
+
   ## Responsive Sizing
 It is general heuristic that all Card Collection configurations spanning more then two separate columns stack horizontally on mobile.
 

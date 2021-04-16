@@ -2,78 +2,78 @@
   <div class="card">
     <template v-if="titleLink">
       <a
-        v-if="title"
-        class="card-image-link"
-        :href="titleLink"
-        aria-hidden="true"
-        role="presentation"
-        tabindex="-1"
-        @click="$emit('componentEvent', titleLink)"
+          v-if="title"
+          class="card-image-link"
+          :href="titleLink"
+          aria-hidden="true"
+          role="presentation"
+          tabindex="-1"
+          @click="$emit('componentEvent', titleLink)"
       >
         <img
-          v-if="image"
-          class="card-image"
-          :src="image"
-          :alt="title"
-          :width="imageWidth"
-          :height="imageHeight"
-          role="presentation"
-          loading="lazy"
+            v-if="image"
+            class="card-image"
+            :src="image"
+            :alt="title"
+            :width="imageWidth"
+            :height="imageHeight"
+            role="presentation"
+            loading="lazy"
         >
       </a>
       <a
-        v-else
-        class="card-image-link"
-        :href="titleLink"
-        @click="$emit('componentEvent', titleLink)"
+          v-else
+          class="card-image-link"
+          :href="titleLink"
+          @click="$emit('componentEvent', titleLink)"
       >
         <img
-          v-if="image"
-          class="card-image"
-          :src="image"
-          :alt="alt"
-          :width="imageWidth"
-          :height="imageHeight"
+            v-if="image"
+            class="card-image"
+            :src="image"
+            :alt="alt"
+            :width="imageWidth"
+            :height="imageHeight"
         >
       </a>
     </template>
     <span
-      v-else
-      class="card-image-wrapper"
+        v-else
+        class="card-image-wrapper"
     >
       <img
-        v-if="image"
-        class="card-image"
-        :src="image"
-        :width="imageWidth"
-        :height="imageHeight"
-        alt=""
-        role="presentation"
+          v-if="image"
+          class="card-image"
+          :src="image"
+          :width="imageWidth"
+          :height="imageHeight"
+          alt=""
+          role="presentation"
       >
     </span>
     <div
-      v-if="hasDetails"
-      class="card-details"
+        v-if="hasDetails"
+        class="card-details"
     >
       <div
-        v-if="tags"
-        class="card-tag"
+          v-if="tags"
+          class="card-tag"
       >
         <v-tag
-          v-for="(tag, index) in tags"
-          :key="index"
-          :name="tag.name"
-          :slug="tag.slug"
+            v-for="(tag, index) in tags"
+            :key="index"
+            :name="tag.name"
+            :slug="tag.slug"
         />
       </div>
       <div
-        v-if="title"
-        class="card-title"
+          v-if="title"
+          class="card-title"
       >
         <a
-          v-if="titleLink"
-          class="card-title-link"
-          :href="titleLink"
+            v-if="titleLink"
+            class="card-title-link"
+            :href="titleLink"
         >
           <span v-html="title" />
           <gallery-icon v-if="showGalleryIcon" />
@@ -84,14 +84,14 @@
         </template>
       </div>
       <div
-        v-if="subtitle"
-        class="card-subtitle"
+          v-if="subtitle"
+          class="card-subtitle"
       >
         {{ subtitle }}
       </div>
       <div
-        v-if="$slots.default"
-        class="card-slot"
+          v-if="$slots.default"
+          class="card-slot"
       >
         <slot />
       </div>
@@ -172,8 +172,8 @@ export default {
 
 .card-image {
   flex: 1 0 var(--card-image-width);
-  width: var(--card-image-width);
-  max-width: 100%;
+  width: 100%;
+  max-width: var(--card-image-width);
   max-height: var(--card-image-height);
   height: auto;
 }
@@ -223,13 +223,12 @@ export default {
   flex-direction: column;
   --card-image-width: 300px;
   --card-image-height: 200px;
-  width: 300px;
+  max-width: var(--card-image-width);
 }
 
 .card.mod-large {
   --card-image-width: 360px;
   --card-image-height: 306px;
-  width: 879px;
 }
 
 .card.mod-large .card-title {
@@ -243,7 +242,6 @@ export default {
 .card.mod-vertical.card.mod-large {
   --card-image-width: 620px;
   --card-image-height: 413px;
-  width: 620px;
 }
 
 .card .card-slot {
