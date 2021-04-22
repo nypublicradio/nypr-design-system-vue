@@ -18,12 +18,6 @@ blockquote {
   border: 1px solid RGB(var(--color-brown-grey));
 }
 
-.l-container {
-  @include media("<xlarge") {
-    padding: 0 var(--space-3);
-  }
-}
-
 .o-list--numbered li::before {
   background-color: RGB(var(--color-black));
 }
@@ -156,7 +150,7 @@ input[type=checkbox] {
   background-image: linear-gradient(to bottom, white 0, (RGB(var(--color-background))) 0%);
   background-position: 100% 142px;
   background-repeat: repeat-x;
-  padding: var(--space-5) var(--space-2);
+  padding: var(--space-5);
   @include media(">xlarge") {
     padding: var(--space-5) 0;
   }
