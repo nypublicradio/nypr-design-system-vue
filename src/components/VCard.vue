@@ -245,6 +245,6 @@ export default {
 }
 
 .card .card-slot {
-  margin-top: var(--space-3);
+  margin-top: var(--space-2);
 }
 </style>
