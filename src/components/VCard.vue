@@ -56,7 +56,7 @@
       class="card-details"
     >
       <div
-        v-if="tags"
+        v-if="tags || sponsored"
         class="card-tag"
       >
         <v-tag
@@ -64,6 +64,10 @@
           :key="index"
           :name="tag.name"
           :slug="tag.slug"
+        />
+        <v-tag
+          v-if="sponsored"
+          name="sponsored"
         />
       </div>
       <div
@@ -127,6 +131,10 @@ export default {
       default: null
     },
     showGalleryIcon: {
+      type: Boolean,
+      default: false
+    },
+    sponsored: {
       type: Boolean,
       default: false
     },
