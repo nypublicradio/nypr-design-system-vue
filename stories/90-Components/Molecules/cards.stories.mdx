@@ -21,7 +21,11 @@ Radial allows for flexible card functionality with elements that can be switched
 
 
 
- <img alt="card anatomy" src="./images/Molecules-Cards-card-anatomy.png" width="400" />
+<img
+    alt="card anatomy"
+    src="./images/Molecules-Cards-card-anatomy.png"
+    width="400"
+/>
 
 
 1- **Image** - This should relate to the information in the card. Follow your brand’s size guidelines.
@@ -51,7 +55,11 @@ Cards use flexible layouts, spanning a max-width of 10 columns and min-width of 
 
 
 
- <img alt="example of cards sizes large and small" src="./images/Molecules-Cards-sizes.png" width="400" />
+<img
+    alt="example of cards sizes large and small"
+    src="./images/Molecules-Cards-sizes.png"
+    width="400"
+/>
 
 
 ## Horizontal vs. Vertical Cards
@@ -158,7 +166,25 @@ Radial uses two different card layouts, Horizontal and Vertical, to provide flex
     image="./images/Placeholder-Image-4_3.png"
     title="Title"
     subtitle="Subtitle"
-    :tags="[{'name': 'news','slug': 'news'},{'name': 'sponsored','slug': ''}]"
+    :tags="[{'name': 'news','slug': 'news'},{'name': 'food','food': ''}]"
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="With Sponsored Tag">
+        {{
+            components: { VCard },
+            template: `
+<v-card
+    class="mod-vertical mod-large"
+    image="./images/Placeholder-Image-4_3.png"
+    title="Title"
+    :sponsored="true"
+    subtitle="Subtitle"
+    :tags="[{'name': 'news','slug': 'news'},{'name': 'food','food': ''}]"
 />
 `
         }}

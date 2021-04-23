@@ -1427,7 +1427,7 @@ form .o-button:hover {
 
 .card.gothamist .card-title {
   @include typeface(header, 8);
-  margin-top: var(--space-3);
+  margin-top: var(--space-1);
 }
 
 .card.gothamist .card-title .o-gallery-icon {
@@ -1495,6 +1495,7 @@ form .o-button:hover {
   color: RGB(var(--color-text));
   font-size: var(--font-size-1);
   font-family: var(--font-family-small);
+  text-decoration: none;
 }
 
 .article-metadata-photos a.counter .counter-text,
@@ -1517,6 +1518,7 @@ form .o-button:hover {
 
 .article-metadata .counter .o-icon {
   height: 14px;
+  margin-right: var(--space-1);
 }
 
 .article-metadata-comments .counter path {
