@@ -16,7 +16,7 @@
           :width-on-screen="widthInViewport || 100"
           :width-on-screen-tablet="widthInViewportTablet || widthInViewport || 100"
           :width-on-screen-smartphone="100"
-          :max-width="max-width"
+          :max-width="maxWidth"
         />
         <div
           v-if="caption"
