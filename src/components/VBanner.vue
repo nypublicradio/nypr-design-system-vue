@@ -27,12 +27,13 @@
         >
       </div>
       <div>
-        <div
+        <a
           v-if="headline"
+          :href="headlineLink"
           class="banner-headline"
         >
           {{ headline }}
-        </div>
+        </a>
         <div
           v-if="description"
           class="banner-description"
@@ -40,7 +41,8 @@
           <span
             v-if="$slots.default"
             class="banner-description-timestamp"
-          ><slot /></span>{{ description }}
+          ><slot /></span>
+          <span v-html="description" />
         </div>
       </div>
     </div>
@@ -63,6 +65,10 @@ export default {
       default: null
     },
     headline: {
+      type: String,
+      default: null
+    },
+    headlineLink: {
       type: String,
       default: null
     },
@@ -119,6 +125,7 @@ export default {
 }
 
 .banner .tag {
+  display: inline-flex;
   margin-bottom: var(--space-3);
 }
 
@@ -134,6 +141,12 @@ export default {
   margin-bottom: var(--space-3);
   @include typeface(header, 8);
   font-weight: normal;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .banner-description {
