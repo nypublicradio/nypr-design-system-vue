@@ -3,6 +3,12 @@
     <v-spacer />
     <p>this is a test paragraph</p>
     <v-spacer />
+    <v-banner
+      tag="Breaking News"
+      headline="Red Hook Tavern Is A Cozy Neighborhood Gathering Spot (With $22 Burgers)"
+      description="<p>full description test with more text that <a href='http://www.google.com'>links</a> and has <i>other</i> <b>formatting.</b></p>"
+    />
+    <v-spacer />
     <header class="c-basic__header">
       <h1 class="c-basic__heading o-3d-heading">
         Contact Us
@@ -25,7 +31,7 @@
           <template v-slot:comments>
             <v-counter
               text="comments"
-              value="40"
+              :value="40"
               href="http://www.google.com"
             />
           </template>
@@ -127,7 +133,7 @@
           <v-counter
             icon="comment"
             text="Comments"
-            value="40"
+            :value="40"
             href="http://www.google.com"
           />
         </template>
@@ -135,7 +141,7 @@
           <v-counter
             icon="gallery"
             text="Photos"
-            value="40"
+            :value="40"
             href="http://www.google.com"
           />
         </template>
@@ -163,7 +169,7 @@
           <v-counter
             icon="comment"
             text="Comments"
-            value="40"
+            :value="40"
             href="http://www.google.com"
           />
         </template>
@@ -171,7 +177,7 @@
           <v-counter
             icon="gallery"
             text="Photos"
-            value="40"
+            :value="40"
             href="http://www.google.com"
           />
         </template>
@@ -199,7 +205,7 @@
           <v-counter
             icon="comment"
             text="Comments"
-            value="40"
+            :value="40"
             href="http://www.google.com"
           />
         </template>
@@ -207,7 +213,7 @@
           <v-counter
             icon="gallery"
             text="Photos"
-            value="40"
+            :value="40"
             href="http://www.google.com"
           />
         </template>
@@ -224,6 +230,7 @@ export default {
     GalleryPreview: () => import('../components/GalleryPreview'),
     ShareTools: () => import('../components/ShareTools'),
     ShareToolsItem: () => import('../components/ShareToolsItem'),
+    VBanner: () => import('../components/VBanner'),
     VButton: () => import('../components/VButton'),
     VCard: () => import('../components/VCard'),
     VCounter: () => import('../components/VCounter'),

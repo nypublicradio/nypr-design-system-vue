@@ -40,12 +40,30 @@ Required fields include:  “Breaking News” label, Headline, and Timestamp.
             <v-banner
                 tag="Breaking News"
                 headline="Lorem Ipsum Dolor Sit Amet"
+                headline-link="https://www.google.com"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             >
                 <article-metadata
                     publish-date="JUST NOW"
                 />
             </v-banner>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="With HTML In the Description">
+        {{
+            components: { VBanner, ArticleMetadata, VCounter, VByline },
+            template:
+                `
+            <v-banner
+                tag="Breaking News"
+                headline="Lorem Ipsum Dolor Sit Amet"
+                headline-link="https://www.google.com"
+                description="<p>full description test with more text that <a href='http://www.google.com'>links</a> and has <i>other</i> <b>formatting.</b></p>"
+            />
             `
         }}
     </Story>
@@ -60,6 +78,7 @@ Required fields include:  “Breaking News” label, Headline, and Timestamp.
             <v-banner
                 tag="Breaking News"
                 headline="Lorem Ipsum Dolor Sit Amet"
+                headline-link="https://www.google.com"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             >
                 <article-metadata
@@ -85,6 +104,7 @@ Required fields include:  “Breaking News” label, Headline, and Timestamp.
                 :show-close-button="true"
                 tag="Breaking News"
                 headline="Lorem Ipsum Dolor Sit Amet"
+                headline-link="https://www.google.com"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             />
             `
@@ -103,6 +123,7 @@ Required fields include:  “Breaking News” label, Headline, and Timestamp.
                 thumbnail-alt-text="Breaking News alt text"
                 tag="Breaking News"
                 headline="Lorem Ipsum Dolor Sit Amet"
+                headline-link="https://www.google.com"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
             >
                 <article-metadata

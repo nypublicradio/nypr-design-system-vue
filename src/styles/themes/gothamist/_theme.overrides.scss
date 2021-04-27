@@ -1427,7 +1427,7 @@ form .o-button:hover {
 
 .card.gothamist .card-title {
   @include typeface(header, 8);
-  margin-top: var(--space-1);
+  margin-top: var(--space-2);
 }
 
 .card.gothamist .card-title .o-gallery-icon {
@@ -1564,4 +1564,35 @@ form .o-button:hover {
 .streamfield h3 {
   font-family: var(--font-family-pragati);
   font-size: var(--font-size-11);
+}
+
+// breaking news banner
+.banner {
+  background: RGB(var(--color-background));
+  padding: 0;
+}
+
+.banner .tag span {
+  color: RGB(var(--color-white));
+  background: RGB(var(--color-dark-gray));
+}
+
+.banner .banner-headline {
+  color: RGB(var(--color-brick-red));
+  @include typeface(header, 11);
+
+  &:hover {
+    color: RGB(var(--color-brick-red));
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+}
+
+.banner .banner-description a {
+  text-decoration: none;
+  border-bottom: 2px dotted RGB(var(--color-link));
+
+  &:hover {
+    background-color: RGB(var(--color-reddish-orange));
+  }
 }
