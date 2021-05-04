@@ -20,7 +20,7 @@ blockquote {
 
 .l-container {
   @include media("<xlarge") {
-    padding: 0 var(--space-5);
+    padding: 0 var(--space-3);
   }
 }
 
