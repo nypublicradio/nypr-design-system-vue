@@ -6,12 +6,8 @@
     <a
       v-if="slug"
       :href="'/tags/' + slug"
-    >
-      {{ name }}
-    </a>
-    <span v-else>
-      {{ name }}
-    </span>
+    >{{ name }}</a>
+    <span v-else>{{ name }}</span>
   </div>
 </template>
 

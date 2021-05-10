@@ -242,6 +242,7 @@ export default {
 .image-with-caption .gothamist-caption {
   display: flex;
   align-items: center;
+  font-size: var(--font-size-4);
 }
 
 .image-with-caption .o-gothamist-arrow-icon {
