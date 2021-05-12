@@ -9,7 +9,6 @@ expect.extend(toHaveNoViolations)
 
 describe('ShareTools', () => {
   const label = 'The Label'
-  const layout = 'horizontal'
   test('label prop works', () => {
     const wrapper = mount(ShareTools, {
       propsData: {
@@ -21,17 +20,6 @@ describe('ShareTools', () => {
     // check if it was rendered correctly
     const div = wrapper.find('.c-share-tools__label')
     expect(div.text()).toContain('The Label')
-  })
-
-  test('layout prop works', () => {
-    const wrapper = shallowMount(ShareTools, {
-      propsData: {
-        layout
-      }
-    })
-    // check if prop was passed correctly
-    const div = wrapper.find('.c-share-tools')
-    expect(div.attributes('class')).toContain(layout)
   })
 
   test('slot works', () => {
