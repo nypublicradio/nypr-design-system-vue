@@ -69,7 +69,7 @@ export default {
       numberOfImages: 4
     }
   },
-  beforeMount () {
+  created () {
     this.activeImage = this.images[0]
   },
   mounted () {

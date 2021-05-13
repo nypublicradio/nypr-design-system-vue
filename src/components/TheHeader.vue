@@ -47,6 +47,9 @@
         </div>
       </div>
     </div>
+    <div class="main-header-bottom">
+      <slot name="bottom" />
+    </div>
   </header>
 </template>
 
@@ -206,4 +209,11 @@ $z-index-header: 5000;
     opacity: var(--opacity-hover);
   }
 }
+
+.main-header-bottom {
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
 </style>

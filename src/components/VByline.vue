@@ -2,7 +2,7 @@
   <div
     class="byline"
   >
-    by
+    {{ prefix }}
     <span
       v-for="(author, index) in authors"
       :key="index"
@@ -35,6 +35,10 @@ export default {
     authors: {
       type: Array,
       default: null
+    },
+    prefix: {
+      type: String,
+      default: 'by '
     }
   }
 }
