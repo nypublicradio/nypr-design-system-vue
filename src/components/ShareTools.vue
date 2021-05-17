@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="c-share-tools"
-    :class="layout"
-  >
+  <div class="c-share-tools">
     <span
       v-if="label"
       class="c-share-tools__label u-font--secondary-style u-font--xs u-color--white"
@@ -22,10 +19,6 @@ export default {
     label: {
       type: String,
       default: null
-    },
-    layout: {
-      type: String,
-      default: 'horizontal'
     }
   }
 }
@@ -40,7 +33,7 @@ export default {
     flex-wrap: wrap;
   }
 
-  &.vertical {
+  &.mod-vertical {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -63,6 +56,7 @@ export default {
     }
   }
 
+  .share-tools-button,
   .c-share-tools__link {
     margin: 0;
   }
@@ -77,9 +71,9 @@ export default {
   margin-right: var(--space-2);
 }
 
-.c-share-tools.vertical .c-share-tools__label {
+.c-share-tools.mod-vertical .c-share-tools__label {
   margin-bottom: var(--space-1);
-
+  + .c-share-tools__group > .share-tools-button:first-of-type,
   + .c-share-tools__group > .c-share-tools__link:first-of-type {
     margin-left: -14px; /* align first icon with label if present*/
     @include media("<=small") {
@@ -93,15 +87,17 @@ export default {
   align-items: center;
 }
 
-.c-share-tools.column .c-share-tools__group {
+.c-share-tools.mod-vertical .c-share-tools__group {
   flex-direction: column;
 }
 
-.c-share-tools.column .c-share-tools__group .c-share-tools__link {
+.c-share-tools.mod-vertical .c-share-tools__group .share-tools-button,
+.c-share-tools.mod-vertical .c-share-tools__group .c-share-tools__link {
   margin-bottom: var(--space-2);
 }
 
-.c-share-tools.column .c-share-tools__group .c-share-tools__link:last-of-type {
+.c-share-tools.mod-vertical .c-share-tools__group .share-tools-button:last-of-type,
+.c-share-tools.mod-vertical .c-share-tools__group .c-share-tools__link:last-of-type {
   margin-bottom: 0;
 }
 </style>

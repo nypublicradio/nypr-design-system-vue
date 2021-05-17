@@ -5,14 +5,19 @@
   >
     <div class="image-with-caption-wrapper">
       <div class="image-with-caption-image">
-        <img
-          v-if="image"
-          :src="image"
+        <responsive-image
+          v-if="image || urlTemplate"
+          :image-url="image || urlTemplate"
           :alt="altText"
           :width="width"
           :height="height"
           loading="lazy"
-        >
+          :image-ratio="aspectRatio || width / height || 16/9"
+          :width-on-screen="widthInViewport || 100"
+          :width-on-screen-tablet="widthInViewportTablet || widthInViewport || 100"
+          :width-on-screen-smartphone="100"
+          :max-width="maxWidth"
+        />
         <div
           v-if="caption"
           class="image-with-caption-caption"
@@ -86,18 +91,24 @@
 import CloseIcon from '../components/icons/CloseIcon'
 import InfoIcon from '../components/icons/InfoIcon'
 import GothamistArrow from '../components/icons/gothamist/GothamistArrow'
+import ResponsiveImage from '../components/ResponsiveImage'
 
 export default {
   name: 'ImageWithCaption',
   components: {
     CloseIcon,
     InfoIcon,
-    GothamistArrow
+    GothamistArrow,
+    ResponsiveImage
   },
   props: {
     altText: {
       default: null,
       type: String
+    },
+    aspectRatio: {
+      default: null,
+      type: Number
     },
     caption: {
       default: null,
@@ -119,9 +130,25 @@ export default {
       default: null,
       type: String
     },
+    urlTemplate: {
+      default: null,
+      type: String
+    },
     variation: {
       default: null,
       type: String
+    },
+    width: {
+      default: '',
+      type: String
+    },
+    widthInViewport: {
+      default: null,
+      type: Number
+    },
+    widthInViewportTablet: {
+      default: null,
+      type: Number
     },
     image: {
       default: null,
@@ -131,9 +158,9 @@ export default {
       default: null,
       type: String
     },
-    width: {
+    maxWidth: {
       default: null,
-      type: String
+      type: Number
     }
   },
   data () {
@@ -160,6 +187,10 @@ export default {
 </script>
 
 <style lang="scss">
+.image-with-caption {
+  width: 100%;
+}
+
 .image-with-caption .image-with-caption-image,
 .image-with-caption .image-with-caption-wrapper {
   position: relative;
@@ -189,6 +220,10 @@ export default {
 }
 
 .image-with-caption .image-with-caption-credit {
+  margin-left: var(--space-3);
+  @media all and (min-width: $medium) {
+    margin-left: 0;
+  }
   margin-top: var(--space-1);
   text-align: right;
 }

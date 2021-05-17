@@ -55,8 +55,13 @@ export default {
 
 <style lang="scss">
 .article-metadata {
-  @include typeface(body, 4);
+  @include typeface(small, 4);
   line-height: 19px;
+}
+
+.article-metadata a {
+  letter-spacing: var(--letter-spacing-small);
+  text-underline-position: under;
 }
 
 .article-metadata .article-metadata-line-one {
