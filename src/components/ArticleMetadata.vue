@@ -56,7 +56,7 @@ export default {
 <style lang="scss">
 .article-metadata {
   @include typeface(small, 4);
-  line-height: 19px;
+  line-height: 25px;
 }
 
 .article-metadata a {
@@ -90,8 +90,8 @@ export default {
 .article-metadata .article-metadata-comments,
 .article-metadata .article-metadata-photos {
   display: flex;
-  height: 19px;
-  line-height: 19px;
+  height: 25px;
+  line-height: 25px;
 }
 
 .article-metadata .counter .o-icon {
