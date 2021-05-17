@@ -77,7 +77,7 @@ export default {
 .article-metadata .article-metadata-line-two > div {
   &::after {
     content: '\2022';
-    margin: 0 var(--space-2);
+    margin: calc(-1 * var(--space-1)) var(--space-2) 0;
   }
 
   &:last-of-type {
@@ -92,6 +92,7 @@ export default {
   display: flex;
   height: 25px;
   line-height: 25px;
+  margin-top: 6px;
 }
 
 .article-metadata .counter .o-icon {
