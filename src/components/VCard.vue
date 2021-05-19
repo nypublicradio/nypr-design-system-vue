@@ -182,14 +182,14 @@ export default {
   display: flex;
   align-items: center;
   overflow: hidden;
-  max-height: var(--card-image-height);
+  width: var(--card-image-width);
+  height: var(--card-image-height);
 }
 
 .card-image {
-  flex: 1 0 var(--card-image-width);
-  width: 100%;
-  height: auto;
-  max-width: var(--card-image-width);
+  object-fit: cover;
+  width: var(--card-image-width);
+  height: var(--card-image-height);
 }
 
 .card-details {
