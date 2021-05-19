@@ -3,7 +3,7 @@
     <template v-if="titleLink">
       <a
         v-if="title"
-        class="card-image-link"
+        class="card-image-link card-image-wrapper"
         :href="titleLink"
         aria-hidden="true"
         role="presentation"
@@ -178,12 +178,18 @@ export default {
   max-width: 100%;
 }
 
+.card-image-wrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  max-height: var(--card-image-height);
+}
+
 .card-image {
   flex: 1 0 var(--card-image-width);
   width: 100%;
-  max-width: var(--card-image-width);
-  max-height: var(--card-image-height);
   height: auto;
+  max-width: var(--card-image-width);
 }
 
 .card-details {
