@@ -183,6 +183,7 @@ export default {
   align-items: center;
   overflow: hidden;
   width: var(--card-image-width);
+  min-width: var(--card-image-width);
   height: var(--card-image-height);
 }
 
