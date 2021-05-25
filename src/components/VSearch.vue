@@ -24,6 +24,7 @@
           role="search"
           :action="action"
           method="get"
+          @keypress="listenToInput"
         >
           <label
             for="search"
@@ -69,8 +70,6 @@ import CloseIcon from '../components/icons/CloseIcon'
 import SearchIcon from '../components/icons/SearchIcon'
 import VButton from '../components/VButton'
 
-let timeout
-
 export default {
   name: 'VSearch',
   components: {
@@ -103,7 +102,8 @@ export default {
   data () {
     return {
       searchIsOpen: true,
-      search: ''
+      search: '',
+      timeoutHandler: null
     }
   },
   beforeMount () {
@@ -119,17 +119,19 @@ export default {
     },
     listenToInput () {
       // close the search bar if nothing is typed for 3 seconds
-      clearTimeout(timeout)
-      setTimeout(() => {
+      // eslint-disable-next-line prefer-const
+      window.clearTimeout(this.timeoutHandler)
+      this.timeoutHandler = setTimeout(() => {
         this.close()
+        window.clearTimeout(this.timeoutHandler)
       }, 6000)
     },
     open (e) {
       this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
-      this.listenToInput()
       this.$nextTick(() => {
         this.$refs.searchInput.focus()
+        this.listenToInput()
       })
     },
     submit (e) {
