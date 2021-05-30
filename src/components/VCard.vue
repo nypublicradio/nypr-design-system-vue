@@ -254,6 +254,15 @@ export default {
   font-size: var(--font-size-7);
 }
 
+.card.mod-large .card-image-wrapper,
+.card.mod-large .card-image {
+  @include media("<medium") {
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+  }
+}
+
 .card.mod-vertical.card.mod-large {
   --card-image-width: 620px;
   --card-image-height: 413px;
