@@ -6,9 +6,7 @@
     <nuxt-link
       v-if="slug"
       :to="slug"
-    >
-      {{ name }}
-    </nuxt-link>
+    >{{ name }}</nuxt-link>
     <span v-else>{{ name }}</span>
   </div>
 </template>
