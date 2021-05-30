@@ -30,7 +30,7 @@ describe('VTag', () => {
     })
     // check if prop works and rendered correctly
     const div = wrapper.find('a')
-    expect(div.attributes().to).toBe('/tags/' + slug)
+    expect(div.attributes().to).toBe(slug)
   })
 
   test('it passes basic accessibility tests', async () => {

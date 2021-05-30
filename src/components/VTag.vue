@@ -5,7 +5,7 @@
   >
     <nuxt-link
       v-if="slug"
-      :to="'/tags/' + slug"
+      :to="slug"
     >
       {{ name }}
     </nuxt-link>
