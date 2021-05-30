@@ -3,10 +3,8 @@
     class="tag"
     :class="name"
   >
-    <nuxt-link
-      v-if="slug"
-      :to="slug"
-    >{{ name }}</nuxt-link>
+    <!-- eslint-disable-next-line -->
+    <nuxt-link v-if="slug" :to="slug">{{ name }}</nuxt-link>
     <span v-else>{{ name }}</span>
   </div>
 </template>
