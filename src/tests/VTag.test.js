@@ -20,6 +20,7 @@ describe('VTag', () => {
     expect(wrapper.text()).toBe(name)
   })
 
+  // this is using nuxt-link, so we need to find the "to" attribute instead of "href"
   test('link attribute works', () => {
     const wrapper = shallowMount(VTag, {
       propsData: {
@@ -29,7 +30,7 @@ describe('VTag', () => {
     })
     // check if prop works and rendered correctly
     const div = wrapper.find('a')
-    expect(div.attributes().href).toBe('/tags/' + slug)
+    expect(div.attributes().to).toBe('/tags/' + slug)
   })
 
   test('it passes basic accessibility tests', async () => {

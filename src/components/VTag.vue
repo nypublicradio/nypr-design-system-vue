@@ -3,10 +3,12 @@
     class="tag"
     :class="name"
   >
-    <a
+    <nuxt-link
       v-if="slug"
-      :href="'/tags/' + slug"
-    >{{ name }}</a>
+      :to="'/tags/' + slug"
+    >
+      {{ name }}
+    </nuxt-link>
     <span v-else>{{ name }}</span>
   </div>
 </template>
