@@ -360,6 +360,10 @@ input[type=checkbox] {
   }
 }
 
+.button.more-results.disabled {
+  color: RGB(var(--color-text));
+}
+
 // Link styles
 @mixin dotted-underline($color) {
   display: inline-block;
