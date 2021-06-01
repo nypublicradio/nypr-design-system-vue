@@ -1453,6 +1453,7 @@ form .o-button:hover {
 
 .card.gothamist .card-subtitle {
   @include typeface(body, 6);
+  line-height: var(--line-height-4);
   margin-top: var(--space-2);
 }
 
@@ -1474,15 +1475,11 @@ form .o-button:hover {
 .card.gothamist.mod-large .card-image-wrapper {
   align-items: flex-start;
   width: 100px;
-  height: 100px;
+  height: auto;
   @include media(">large") {
     width: fit-content;
     height: 240px;
   }
-}
-
-.card.gothamist .card-subtitle {
-  line-height: var(--line-height-4) !important;
 }
 
 // Tags
