@@ -128,7 +128,7 @@ export default {
     },
     height: {
       default: null,
-      type: String
+      type: Number
     },
     urlTemplate: {
       default: null,
@@ -139,8 +139,8 @@ export default {
       type: String
     },
     width: {
-      default: '',
-      type: String
+      default: null,
+      type: Number
     },
     widthInViewport: {
       default: null,

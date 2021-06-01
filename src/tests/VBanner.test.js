@@ -68,7 +68,8 @@ describe('VBanner', () => {
     })
     // check if prop works and rendered correctly
     const div = wrapper.find('a')
-    expect(div.attributes().href).toBe('/tags/' + tagLink)
+    // this is using nuxt-link, so we need to find the "to" attribute instead of "href"
+    expect(div.attributes().to).toBe(tagLink)
   })
 
   test('thumbnail and thumbnailAltText props work', () => {

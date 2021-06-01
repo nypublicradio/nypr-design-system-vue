@@ -345,6 +345,25 @@ input[type=checkbox] {
   border: 3px solid RGB(var(--color-reddish-orange));
 }
 
+.button.more-results {
+  background-color: RGB(var(--color-banana-yellow));
+  max-width: 310px;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  font-size: var(--font-size-6);
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  &:hover {
+    background-color: RGB(var(--color-banana-yellow));
+  }
+}
+
+.button.more-results.disabled {
+  color: RGB(var(--color-text));
+}
+
 // Link styles
 @mixin dotted-underline($color) {
   display: inline-block;
@@ -1434,6 +1453,7 @@ form .o-button:hover {
 
 .card.gothamist .card-subtitle {
   @include typeface(body, 6);
+  line-height: var(--line-height-4);
   margin-top: var(--space-2);
 }
 
@@ -1450,6 +1470,16 @@ form .o-button:hover {
 .card.gothamist .article-metadata {
   margin-top: var(--space-3);
   @include typeface(small, 1);
+}
+
+.card.gothamist.mod-large .card-image-wrapper {
+  align-items: flex-start;
+  width: 100px;
+  height: auto;
+  @include media(">medium") {
+    width: fit-content;
+    height: 240px;
+  }
 }
 
 // Tags
@@ -1478,6 +1508,7 @@ form .o-button:hover {
 }
 
 .article-metadata-publish-date,
+.article-metadata-publish-date,
 .article-metadata-updated-date,
 .article-metadata-authors .byline,
 .article-metadata-photos .counter .counter-text,
@@ -1496,7 +1527,7 @@ form .o-button:hover {
 .article-metadata-comments a.counter .counter-text,
 .article-metadata-authors .byline a {
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: RGB(var(--color-white));
     background-color: RGB(var(--color-reddish-orange));
   }
@@ -1523,6 +1554,11 @@ form .o-button:hover {
   &::after {
     margin: 0 var(--space-2) 0 0;
   }
+}
+
+.article-metadata .article-metadata-comments, .article-metadata .article-metadata-photos {
+  margin-top: -3px;
+  align-items: center;
 }
 
 // article header area

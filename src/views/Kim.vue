@@ -99,7 +99,7 @@
       :image-width="640"
       :image-height="430"
       class="u-space--double--bottom mod-vertical mod-large"
-      image="http://placehold.it/640x430"
+      image="https://cdn.cms.demo.nypr.digital/original_images/vodka-martini-recipe-720x720.jpg"
       title="Card Title"
       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
       :tags="[{'name': 'tag','slug': 'tag'}]"
@@ -114,7 +114,7 @@
     <v-card
       show-gallery-icon
       class="gothamist mod-vertical mod-large"
-      image="http://placehold.it/640x430"
+      image="https://cdn.cms.demo.nypr.digital/original_images/vodka-martini-recipe-720x720.jpg"
       :image-height="150"
       :image-width="150"
       title="'What’s The Point?': A Year After COVID Shut Down NYC Schools, Many Students Struggle To Cope"
@@ -151,7 +151,7 @@
     <v-card
       show-gallery-icon
       class="gothamist mod-small"
-      image="http://placehold.it/150x150"
+      image="https://cdn.cms.demo.nypr.digital/original_images/vodka-martini-recipe-720x720.jpg"
       :image-height="150"
       :image-width="150"
       title="'What’s The Point?': A Year After COVID Shut Down NYC Schools, Many Students Struggle To Cope"
@@ -187,7 +187,7 @@
     <v-card
       show-gallery-icon
       class="gothamist mod-small"
-      image="http://placehold.it/150x150"
+      image="https://cdn.cms.demo.nypr.digital/original_images/vodka-martini-recipe-720x720.jpg"
       :image-height="150"
       :image-width="150"
       title="'What’s The Point?'"

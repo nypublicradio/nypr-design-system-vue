@@ -50,7 +50,7 @@ export default {
       default: null
     },
     value: {
-      type: Number,
+      type: [String, Number],
       default: null,
       required: true
     }

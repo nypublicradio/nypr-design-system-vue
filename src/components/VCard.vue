@@ -3,7 +3,7 @@
     <template v-if="titleLink">
       <a
         v-if="title"
-        class="card-image-link"
+        class="card-image-link card-image-wrapper"
         :href="titleLink"
         aria-hidden="true"
         role="presentation"
@@ -178,12 +178,19 @@ export default {
   max-width: 100%;
 }
 
+.card-image-wrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: var(--card-image-width);
+  min-width: var(--card-image-width);
+  height: var(--card-image-height);
+}
+
 .card-image {
-  flex: 1 0 var(--card-image-width);
-  width: 100%;
-  max-width: var(--card-image-width);
-  max-height: var(--card-image-height);
-  height: auto;
+  object-fit: cover;
+  width: var(--card-image-width);
+  height: var(--card-image-height);
 }
 
 .card-details {
@@ -245,6 +252,15 @@ export default {
 
 .card.mod-large .card-subtitle {
   font-size: var(--font-size-7);
+}
+
+.card.mod-large .card-image-wrapper,
+.card.mod-large .card-image {
+  @include media("<medium") {
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .card.mod-vertical.card.mod-large {
