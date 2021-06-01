@@ -1471,6 +1471,22 @@ form .o-button:hover {
   @include typeface(small, 1);
 }
 
+.card.gothamist.mod-large .card-image-wrapper {
+  width: 100%;
+  min-width: 100%;
+  @include media("<large") {
+    height: 300px;
+  }
+  @include media(">large") {
+    width: 560px;
+    max-width: 100%;
+  }
+}
+
+.card.gothamist .card-subtitle {
+  line-height: var(--line-height-4) !important;
+}
+
 // Tags
 .tag:hover {
   background: RGB(var(--color-reddish-orange));
