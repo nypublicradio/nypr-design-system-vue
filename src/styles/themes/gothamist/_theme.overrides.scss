@@ -1493,6 +1493,7 @@ form .o-button:hover {
 }
 
 .article-metadata-publish-date,
+.article-metadata-publish-date,
 .article-metadata-updated-date,
 .article-metadata-authors .byline,
 .article-metadata-photos .counter .counter-text,
@@ -1511,7 +1512,7 @@ form .o-button:hover {
 .article-metadata-comments a.counter .counter-text,
 .article-metadata-authors .byline a {
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: RGB(var(--color-white));
     background-color: RGB(var(--color-reddish-orange));
   }
@@ -1538,6 +1539,11 @@ form .o-button:hover {
   &::after {
     margin: 0 var(--space-2) 0 0;
   }
+}
+
+.article-metadata .article-metadata-comments, .article-metadata .article-metadata-photos {
+  margin-top: -3px;
+  align-items: center;
 }
 
 // article header area
