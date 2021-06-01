@@ -1473,7 +1473,7 @@ form .o-button:hover {
 
 .card.gothamist.mod-large .card-image-wrapper {
   width: 100%;
-  min-width: 100%;
+  min-width: fit-content;
   @include media("<large") {
     height: 300px;
   }
