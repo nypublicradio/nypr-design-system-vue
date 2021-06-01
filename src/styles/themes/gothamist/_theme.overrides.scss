@@ -1476,7 +1476,7 @@ form .o-button:hover {
   align-items: flex-start;
   width: 100px;
   height: auto;
-  @include media(">large") {
+  @include media(">medium") {
     width: fit-content;
     height: 240px;
   }
