@@ -1473,9 +1473,10 @@ form .o-button:hover {
 
 .card.gothamist.mod-large .card-image-wrapper {
   align-items: flex-start;
-  width: fit-content;
+  width: 100px;
   height: 100px;
   @include media(">large") {
+    width: fit-content;
     height: 240px;
   }
 }
