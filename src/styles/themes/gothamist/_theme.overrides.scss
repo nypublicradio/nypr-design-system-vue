@@ -723,12 +723,7 @@ form .o-button:hover {
   }
 }
 
-// article page image caption arrow icon
-.image-none i {
-  font-family: var(--font-family-barlow);
-  line-height: var(--line-height-2);
-}
-
+// article page image caption arrow icon for
 // legacy moveable type images embedded in article content
 .image-none {
   i {
@@ -736,7 +731,8 @@ form .o-button:hover {
     align-items: center;
     font-style: normal; // this should be decorated with emphasis
     margin-top: -28px; // offset embedded <br/>
-    font-family: "Pragati Narrow", Helvetica, sans-serif;
+    font-family: var(--font-family-barlow);
+    line-height: var(--line-height-2);
     font-size: 16px;
 
     &:before {
