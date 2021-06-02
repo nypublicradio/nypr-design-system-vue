@@ -1472,7 +1472,7 @@ form .o-button:hover {
   @include typeface(small, 1);
 }
 
-.card.gothamist.mod-large .card-image-wrapper {
+.card.gothamist.mod-large:not(.mod-vertical) .card-image-wrapper {
   align-items: flex-start;
   width: 100px;
   height: auto;

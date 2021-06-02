@@ -254,8 +254,8 @@ export default {
   font-size: var(--font-size-7);
 }
 
-.card.mod-large .card-image-wrapper,
-.card.mod-large .card-image {
+.card.mod-large:not(.mod-vertical) .card-image-wrapper,
+.card.mod-large:not(.mod-vertical) .card-image {
   @include media("<medium") {
     min-width: 100px;
     width: 100px;
