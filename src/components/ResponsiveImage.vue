@@ -94,11 +94,11 @@ export default {
     // the maximum width to consider for the image, if it is not possible to generate an image wider
     // than a specific width
     width: {
-      type: String,
+      type: [String, Number],
       default: ''
     },
     height: {
-      type: String,
+      type: [String, Number],
       default: ''
     },
     maxWidth: {
