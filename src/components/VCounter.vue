@@ -1,5 +1,6 @@
 <template>
   <a
+    v-if="value && value > 0"
     :href="href"
     class="counter"
   >
@@ -50,7 +51,7 @@ export default {
       default: null
     },
     value: {
-      type: [String, Number],
+      type: [String, Number, null],
       default: null,
       required: true
     }
