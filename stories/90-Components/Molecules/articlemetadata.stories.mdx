@@ -94,12 +94,41 @@ updated-date="Mar 2, 2020 10:08AM"
 </Canvas>
 
 <Canvas>
-    <Story name="JustADate">
+    <Story name="JustAPublishDate">
         {{
             components: { ArticleMetadata },
             template: `
 <article-metadata
 publish-date="Jan 1, 2020"
+>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="JustDates">
+        {{
+            components: { ArticleMetadata },
+            template: `
+<article-metadata
+publish-date="Jan 1, 2020"
+updated-date="Jan 1, 2020"
+>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="JustAnUpdatedDate">
+        {{
+            components: { ArticleMetadata },
+            template: `
+<article-metadata
+updated-date="Jan 1, 2020"
 >
 </article-metadata>
 `
