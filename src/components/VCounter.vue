@@ -61,11 +61,12 @@ export default {
 
 <style lang="scss">
 .counter {
-  display: flex;
+  position: relative;
 }
 
 .counter .o-icon {
-  margin: -3px var(--space-2) 0 0;
+  top: 0;
+  position: absolute;
 
   &:hover {
     opacity: 1;
@@ -78,6 +79,6 @@ export default {
 
 .counter .counter-text {
   @include typeface(body, 4);
-  line-height: 16px;
+  margin-left: 24px;
 }
 </style>

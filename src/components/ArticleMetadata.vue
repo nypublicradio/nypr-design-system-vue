@@ -16,17 +16,29 @@
         {{ publishDate }}
       </div>
       <div
+        v-if="publishDate"
+        class="article-metadata-separator"
+      />
+      <div
         v-if="updatedDate"
         class="article-metadata-updated-date"
       >
         Updated:&nbsp;{{ updatedDate }}
       </div>
       <div
+        v-if="updatedDate && (commentsExist || $slots.photos)"
+        class="article-metadata-separator"
+      />
+      <div
         v-if="$slots.comments"
         class="article-metadata-comments"
       >
         <slot name="comments" />
       </div>
+      <div
+        v-if="$slots.comments && commentsExist && $slots.photos"
+        class="article-metadata-separator"
+      />
       <div
         v-if="$slots.photos"
         class="article-metadata-photos"
@@ -49,6 +61,16 @@ export default {
       type: String,
       default: null
     }
+  },
+  computed: {
+    // check if comment count in comments slot is greater than 0
+    commentsExist () {
+      if (this.$slots.comments) {
+        return this.$slots.comments[0].componentOptions.propsData.value > 0
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>
@@ -69,33 +91,18 @@ export default {
 }
 
 .article-metadata .article-metadata-line-two {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  line-height: 25px;
 }
 
-.article-metadata .article-metadata-line-two > div {
+.article-metadata .article-metadata-line-two div {
+  display: inline-block;
+}
+
+.article-metadata .article-metadata-separator {
+  line-height: 25px;
   &::after {
     content: '\2022';
     margin: calc(-1 * var(--space-1)) var(--space-2) 0;
   }
-
-  &:last-of-type {
-    &::after {
-      content: '';
-    }
-  }
-}
-
-.article-metadata .article-metadata-comments,
-.article-metadata .article-metadata-photos {
-  display: flex;
-  height: 25px;
-  line-height: 25px;
-  margin-top: 6px;
-}
-
-.article-metadata .counter .o-icon {
-  margin-top: 0;
 }
 </style>
