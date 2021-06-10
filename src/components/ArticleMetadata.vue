@@ -95,7 +95,7 @@ export default {
 }
 
 .article-metadata .article-metadata-line-two div {
-  display: inline-block;
+  display: inline;
 }
 
 .article-metadata .article-metadata-separator {

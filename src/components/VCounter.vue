@@ -62,10 +62,11 @@ export default {
 <style lang="scss">
 .counter {
   position: relative;
+  display: inline-block;
 }
 
 .counter .o-icon {
-  top: 0;
+  top: 2px;
   position: absolute;
 
   &:hover {
