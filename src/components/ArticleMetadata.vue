@@ -102,7 +102,7 @@ export default {
   line-height: 25px;
   &::after {
     content: '\2022';
-    margin: calc(-1 * var(--space-1)) var(--space-2) 0;
+    margin: 0 var(--space-2);
   }
 }
 </style>
