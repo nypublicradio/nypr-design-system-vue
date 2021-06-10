@@ -16,7 +16,7 @@
         {{ publishDate }}
       </div>
       <div
-        v-if="publishDate"
+        v-if="publishDate && (updatedDate || commentsExist  || $slots.photos)"
         class="article-metadata-separator"
       />
       <div

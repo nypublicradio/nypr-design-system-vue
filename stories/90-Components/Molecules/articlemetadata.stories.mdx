@@ -94,6 +94,20 @@ updated-date="Mar 2, 2020 10:08AM"
 </Canvas>
 
 <Canvas>
+    <Story name="JustADate">
+        {{
+            components: { ArticleMetadata },
+            template: `
+<article-metadata
+publish-date="Jan 1, 2020"
+>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
     <Story name="WithoutAuthors">
         {{
             components: { ArticleMetadata, VCounter, VByline },
