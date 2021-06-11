@@ -58,6 +58,9 @@ export default {
     value () {
       this.$emit('componentEvent', this.value)
     }
+  },
+  mounted () {
+    this.$emit('componentEvent', this.value)
   }
 }
 </script>

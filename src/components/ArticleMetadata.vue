@@ -30,7 +30,10 @@
         class="article-metadata-comments"
       >
         <div class="article-metadata-separator" />
-        <slot name="comments" />
+        <slot
+          name="comments"
+          @componentEvent="checkComments"
+        />
       </div>
       <div
         v-if="$slots.photos"
@@ -70,9 +73,6 @@ export default {
   methods: {
     // check if comment count in comments slot is greater than 0
     checkComments () {
-      this.commentsExist = this.$slots.comments && this.$slots.comments[0].componentOptions.propsData.value <= 0
-    },
-    componentEvent () {
       this.commentsExist = this.$slots.comments && this.$slots.comments[0].componentOptions.propsData.value <= 0
     }
   }
