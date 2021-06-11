@@ -30,7 +30,7 @@
         class="article-metadata-separator"
       />
       <div
-        v-if="$slots.comments"
+        v-if="commentsExist"
         class="article-metadata-comments"
       >
         <slot name="comments" />
@@ -63,13 +63,14 @@ export default {
     }
   },
   computed: {
-    // check if comment count in comments slot is greater than 0
     commentsExist () {
-      if (this.$slots.comments) {
-        return this.$slots.comments[0].componentOptions.propsData.value > 0
-      } else {
-        return false
-      }
+      return !!this.checkCommentSlot
+    }
+  },
+  methods: {
+    // check if comment count in comments slot is greater than 0
+    checkCommentSlot () {
+      return this.$slots.comments[0].componentOptions.propsData.value > 0
     }
   }
 }
