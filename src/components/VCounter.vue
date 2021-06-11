@@ -50,7 +50,7 @@ export default {
     },
     value: {
       type: [String, Number],
-      default: null,
+      default: 0,
       required: true
     }
   }
