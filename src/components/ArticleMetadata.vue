@@ -64,9 +64,15 @@ export default {
   mounted () {
     this.checkComments()
   },
+  updated () {
+    this.checkComments()
+  },
   methods: {
     // check if comment count in comments slot is greater than 0
     checkComments () {
+      this.commentsExist = this.$slots.comments && this.$slots.comments[0].componentOptions.propsData.value <= 0
+    },
+    componentEvent () {
       this.commentsExist = this.$slots.comments && this.$slots.comments[0].componentOptions.propsData.value <= 0
     }
   }

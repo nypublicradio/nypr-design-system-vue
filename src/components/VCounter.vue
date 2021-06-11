@@ -53,6 +53,11 @@ export default {
       default: 0,
       required: true
     }
+  },
+  watch: {
+    value () {
+      this.$emit('componentEvent', this.value)
+    }
   }
 }
 </script>
