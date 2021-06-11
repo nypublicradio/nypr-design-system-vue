@@ -36,7 +36,7 @@
         <slot name="comments" />
       </div>
       <div
-        v-if="$slots.comments && commentsExist && $slots.photos"
+        v-if="commentsExist && $slots.photos"
         class="article-metadata-separator"
       />
       <div
@@ -104,5 +104,9 @@ export default {
     content: '\2022';
     margin: 0 var(--space-2);
   }
+}
+
+.article-metadata .o-gallery-icon {
+  margin-left: 0!important;
 }
 </style>

@@ -20,9 +20,7 @@
     <div
       class="counter-text"
       aria-hidden="true"
-    >
-      {{ value }} {{ text }}
-    </div>
+    >{{ value }} {{ text }}</div>
   </a>
 </template>
 
@@ -62,15 +60,19 @@ export default {
 <style lang="scss">
 .counter {
   position: relative;
-  display: inline-block;
 }
 
 .counter .o-icon {
-  top: 2px;
-  position: absolute;
+  position: relative;
+  margin-right: var(--space-1);
 
   &:hover {
     opacity: 1;
+  }
+
+  svg {
+    position: absolute;
+    top: 3px;
   }
 
   path {
@@ -80,6 +82,5 @@ export default {
 
 .counter .counter-text {
   @include typeface(body, 4);
-  margin-left: 24px;
 }
 </style>

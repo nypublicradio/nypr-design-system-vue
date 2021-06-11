@@ -132,15 +132,6 @@
         <template v-slot:comments>
           <v-counter
             icon="comment"
-            text="Comments"
-            :value="40"
-            href="http://www.google.com"
-          />
-        </template>
-        <template v-slot:photos>
-          <v-counter
-            icon="gallery"
-            text="Photos"
             :value="40"
             href="http://www.google.com"
           />
