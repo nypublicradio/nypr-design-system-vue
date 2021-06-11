@@ -16,7 +16,7 @@
         {{ publishDate }}
       </div>
       <div
-        v-if="publishDate && (updatedDate || commentsExist || $slots.photos)"
+        v-if="publishDate && updatedDate"
         class="article-metadata-separator"
       />
       <div
@@ -26,23 +26,17 @@
         Updated:&nbsp;{{ updatedDate }}
       </div>
       <div
-        v-if="updatedDate && (commentsExist || $slots.photos)"
-        class="article-metadata-separator"
-      />
-      <div
         v-if="commentsExist"
         class="article-metadata-comments"
       >
+        <div class="article-metadata-separator" />
         <slot name="comments" />
       </div>
-      <div
-        v-if="commentsExist && $slots.photos"
-        class="article-metadata-separator"
-      />
       <div
         v-if="$slots.photos"
         class="article-metadata-photos"
       >
+        <div class="article-metadata-separator" />
         <slot name="photos" />
       </div>
     </div>
@@ -62,15 +56,18 @@ export default {
       default: null
     }
   },
-  computed: {
-    commentsExist () {
-      return !!this.checkCommentSlot
+  data () {
+    return {
+      commentsExist: false
     }
+  },
+  mounted () {
+    this.checkComments()
   },
   methods: {
     // check if comment count in comments slot is greater than 0
-    checkCommentSlot () {
-      return this.$slots.comments[0].componentOptions.propsData.value > 0
+    checkComments () {
+      this.commentsExist = this.$slots.comments && this.$slots.comments[0].componentOptions.propsData.value <= 0
     }
   }
 }
