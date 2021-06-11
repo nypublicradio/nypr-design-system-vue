@@ -1478,8 +1478,8 @@ form .o-button:hover {
   width: 100px;
   height: auto;
   @include media(">medium") {
-    width: fit-content;
-    max-height: 240px;
+    width: auto;
+    height: 240px;
   }
 }
 
