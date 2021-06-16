@@ -10,16 +10,18 @@
         tabindex="-1"
         @click="$emit('componentEvent', titleLink)"
       >
-        <img
+        <simple-responsive-image
           v-if="image"
           class="card-image"
           :src="image"
-          :alt="title"
           :width="imageWidth"
           :height="imageHeight"
+          :max-width="imageMaxWidth"
+          :max-height="imageMaxHeight"
+          :alt="title"
           role="presentation"
           loading="lazy"
-        >
+        />
       </a>
       <a
         v-else
@@ -27,29 +29,33 @@
         :href="titleLink"
         @click="$emit('componentEvent', titleLink)"
       >
-        <img
+        <simple-responsive-image
           v-if="image"
           class="card-image"
           :src="image"
           :alt="alt"
           :width="imageWidth"
           :height="imageHeight"
-        >
+          :max-width="imageMaxWidth"
+          :max-height="imageMaxHeight"
+        />
       </a>
     </template>
     <span
       v-else
       class="card-image-wrapper"
     >
-      <img
+      <simple-responsive-image
         v-if="image"
         class="card-image"
         :src="image"
         :width="imageWidth"
         :height="imageHeight"
+        :max-width="imageMaxWidth"
+        :max-height="imageMaxHeight"
         alt=""
         role="presentation"
-      >
+      />
     </span>
     <div
       v-if="hasDetails"
@@ -105,12 +111,14 @@
 
 <script>
 import VTag from '../components/VTag'
+import SimpleResponsiveImage from '../components/SimpleResponsiveImage'
 import GalleryIcon from '../components/icons/GalleryIcon'
 
 export default {
   name: 'VCard',
   components: {
     GalleryIcon,
+    SimpleResponsiveImage,
     VTag
   },
   props: {
@@ -153,6 +161,14 @@ export default {
     titleLink: {
       type: String,
       default: null
+    },
+    imageMaxHeight: {
+      type: Number,
+      default: Infinity
+    },
+    imageMaxWidth: {
+      type: Number,
+      default: Infinity
     }
   },
   computed: {

@@ -4,18 +4,26 @@
       v-if="activeImage"
       :variation="variation"
       :alt-text="activeImage.alt"
-      :image="activeImage.url"
+      :image="activeImage.template"
       :credit="activeImage.credit"
       :credit-url="activeImage.creditUrl"
       :caption="activeImage.caption"
       :title="activeImage.title"
       :description="activeImage.description"
+      :width="661"
+      :height="496"
+      :max-width="activeImage.width"
+      :max-height="activeImage.height"
     />
     <div class="gallery-preview-images">
-      <img
-        v-for="(image, index) in images.slice(0,numberOfImages)"
+      <simple-responsive-image
+        v-for="(image, index) in images.slice(0, numberOfImages)"
         :key="index"
-        :src="image.thumbnail"
+        :src="image.template"
+        :width="106"
+        :height="106"
+        :max-width="image.width"
+        :max-height="image.height"
         :alt="image.alt"
         loading="lazy"
         tabindex="0"
@@ -24,7 +32,7 @@
         :class="{ active: activeIndex === index }"
         @click="setActiveImage(index)"
         @keypress.enter.space.prevent="setActiveImage(index)"
-      >
+      />
       <a
         :href="galleryUrl"
         class="gallery-preview-view-all"
@@ -38,11 +46,13 @@
 
 <script>
 import ImageWithCaption from '../components/ImageWithCaption'
+import SimpleResponsiveImage from '../components/SimpleResponsiveImage'
 
 export default {
   name: 'GalleryPreview',
   components: {
-    ImageWithCaption
+    ImageWithCaption,
+    SimpleResponsiveImage
   },
   props: {
     count: {

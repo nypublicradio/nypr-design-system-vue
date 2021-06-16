@@ -13,6 +13,7 @@ describe('GalleryPreview', () => {
   const images = [
     {
       url: 'http://placehold.it/640x500?text=1',
+      template: 'http://placehold.it/%width%x%height%?text=1',
       thumbnail: 'http://placehold.it/150x150?text=1',
       alt: 'alt 1',
       caption: 'caption 1',
@@ -21,6 +22,7 @@ describe('GalleryPreview', () => {
     },
     {
       url: 'http://placehold.it/640x500?text=2',
+      template: 'http://placehold.it/%width%x%height%?text=2',
       thumbnail: 'http://placehold.it/150x150?text=2',
       alt: 'alt 2',
       caption: 'caption 2',
@@ -50,8 +52,8 @@ describe('GalleryPreview', () => {
       }
     })
     // check if prop works and was rendered correctly
-    expect(wrapper.find('.image-with-caption img').attributes().src).toBe(images[0].url)
-    expect(wrapper.find('.gallery-preview-image').attributes().src).toBe(images[0].thumbnail)
+    expect(wrapper.find('.image-with-caption img').attributes().src).toBe(images[0].template.replace('%width%', '661').replace('%height%', '496'))
+    expect(wrapper.find('.gallery-preview-image').attributes().src).toBe(images[0].template.replace('%width%', '106').replace('%height%', '106'))
     expect(wrapper.find('.gallery-preview-image').attributes().alt).toBe(images[0].alt)
     expect(wrapper.find('.image-with-caption img').attributes().alt).toBe(images[0].alt)
     expect(wrapper.find('.image-with-caption-caption').text()).toBe(images[0].caption)
