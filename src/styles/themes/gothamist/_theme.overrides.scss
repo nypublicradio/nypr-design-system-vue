@@ -345,7 +345,8 @@ input[type=checkbox] {
   border: 3px solid RGB(var(--color-reddish-orange));
 }
 
-.button.more-results {
+.button.more-results,
+.button.back-to-article {
   background-color: RGB(var(--color-banana-yellow));
   max-width: 310px;
   width: 100%;
@@ -354,6 +355,7 @@ input[type=checkbox] {
   font-size: var(--font-size-6);
   font-weight: 700;
   letter-spacing: 2px;
+  text-decoration: none;
 
   &:hover {
     background-color: RGB(var(--color-banana-yellow));
