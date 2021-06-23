@@ -47,7 +47,7 @@ export default {
 <style lang="scss">
 .byline {
   @include typeface(body, 4);
-  line-height: 16px;
+  line-height: 25px;
 
   a,
   a:visited,

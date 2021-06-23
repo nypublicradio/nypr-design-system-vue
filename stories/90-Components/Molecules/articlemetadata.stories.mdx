@@ -111,6 +111,49 @@ updated-date="Mar 2, 2020"
 </Canvas>
 
 <Canvas>
+    <Story name="JustAPublishDate">
+        {{
+            components: { ArticleMetadata },
+            template: `
+<article-metadata
+publish-date="Jan 1, 2020"
+>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="JustDates">
+        {{
+            components: { ArticleMetadata },
+            template: `
+<article-metadata
+publish-date="Jan 1, 2020"
+updated-date="Jan 1, 2020"
+>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="JustAnUpdatedDate">
+        {{
+            components: { ArticleMetadata },
+            template: `
+<article-metadata
+updated-date="Jan 1, 2020"
+>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
     <Story name="WithoutComments">
         {{
             components: { ArticleMetadata, VCounter, VByline },
@@ -127,7 +170,37 @@ updated-date="Mar 2, 2020"
 </Canvas>
 
 <Canvas>
-    <Story name="WithoutPhotos">
+    <Story name="PublishDateWithoutPhotos">
+        {{
+            components: { ArticleMetadata, VCounter, VByline },
+            template: `
+<article-metadata
+publish-date="Jan 1, 2020"
+>
+<template v-slot:comments><v-counter icon="comment" text="Comments" value="40" href="http://www.google.com"/></template>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="UpdatedDateWithoutPhotos">
+        {{
+            components: { ArticleMetadata, VCounter, VByline },
+            template: `
+<article-metadata
+updated-date="Mar 2, 2020"
+>
+<template v-slot:comments><v-counter icon="comment" value="40" href="http://www.google.com"/></template>
+</article-metadata>
+`
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="BothDatesWithoutPhotos">
         {{
             components: { ArticleMetadata, VCounter, VByline },
             template: `

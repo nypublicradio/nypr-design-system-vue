@@ -1,5 +1,6 @@
 <template>
   <a
+    v-if="value && value > 0"
     :href="href"
     class="counter"
   >
@@ -19,9 +20,7 @@
     <div
       class="counter-text"
       aria-hidden="true"
-    >
-      {{ value }} {{ text }}
-    </div>
+    >{{ value }} {{ text }}</div>
   </a>
 </template>
 
@@ -51,23 +50,37 @@ export default {
     },
     value: {
       type: [String, Number],
-      default: null,
+      default: 0,
       required: true
     }
+  },
+  watch: {
+    value () {
+      this.$emit('componentEvent', this.value)
+    }
+  },
+  mounted () {
+    this.$emit('componentEvent', this.value)
   }
 }
 </script>
 
 <style lang="scss">
 .counter {
-  display: flex;
+  position: relative;
 }
 
 .counter .o-icon {
-  margin: -3px var(--space-2) 0 0;
+  position: relative;
+  margin-right: var(--space-1);
 
   &:hover {
     opacity: 1;
+  }
+
+  svg {
+    position: absolute;
+    top: 3px;
   }
 
   path {
@@ -77,6 +90,5 @@ export default {
 
 .counter .counter-text {
   @include typeface(body, 4);
-  line-height: 16px;
 }
 </style>

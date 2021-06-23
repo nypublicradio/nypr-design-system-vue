@@ -6,7 +6,7 @@
     <v-banner
       tag="Breaking News"
       headline="Red Hook Tavern Is A Cozy Neighborhood Gathering Spot (With $22 Burgers)"
-      description="<p>full description test with more text that <a href='http://www.google.com'>links</a> and has <i>other</i> <b>formatting.</b></p>"
+      description="<p>full description test with more text that <a href='https://www.google.com'>links</a> and has <i>other</i> <b>formatting.</b></p>"
     />
     <v-spacer />
     <header class="c-basic__header">
@@ -26,13 +26,13 @@
           updated-date="Mar 2, 2020 10:08AM"
         >
           <template v-slot:authors>
-            <v-byline :authors="[{firstName: 'Brian',lastName: 'Lehrer',url: 'http://www.google.com'}]" />
+            <v-byline :authors="[{firstName: 'Brian',lastName: 'Lehrer',url: 'https://www.google.com'}]" />
           </template>
           <template v-slot:comments>
             <v-counter
               text="comments"
               :value="40"
-              href="http://www.google.com"
+              href="https://www.google.com"
             />
           </template>
         </article-metadata>
@@ -66,13 +66,13 @@
           <gallery-preview
             variation="gothamist"
             :count="19"
-            gallery-url="http://www.google.com"
+            gallery-url="https://www.google.com"
             :images="
               [
-                {url:'http://placehold.it/640x500?text=1', thumbnail:'http://placehold.it/150x150?text=1', alt:'alt 1',caption:'caption 1',credit:'1 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
-                {url:'http://placehold.it/640x500?text=2', thumbnail:'http://placehold.it/150x150?text=2', alt:'alt 2',caption:'caption 2',credit:'2 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
-                {url:'http://placehold.it/640x500?text=3', thumbnail:'http://placehold.it/150x150?text=3', alt:'alt 3',caption:'caption 3',credit:'3 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
-                {url:'http://placehold.it/640x500?text=4', thumbnail:'http://placehold.it/150x150?text=4', alt:'alt 4',caption:'caption 4',credit:'4 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'}
+                {url:'https://placehold.it/640x500?text=1', thumbnail:'https://placehold.it/150x150?text=1', alt:'alt 1',caption:'caption 1',credit:'1 ( AP Photo/Carolyn Kaster )',creditUrl: 'https:///www.google.com'},
+                {url:'https://placehold.it/640x500?text=2', thumbnail:'https://placehold.it/150x150?text=2', alt:'alt 2',caption:'caption 2',credit:'2 ( AP Photo/Carolyn Kaster )',creditUrl: 'https:///www.google.com'},
+                {url:'https://placehold.it/640x500?text=3', thumbnail:'https://placehold.it/150x150?text=3', alt:'alt 3',caption:'caption 3',credit:'3 ( AP Photo/Carolyn Kaster )',creditUrl: 'https:///www.google.com'},
+                {url:'https://placehold.it/640x500?text=4', thumbnail:'https://placehold.it/150x150?text=4', alt:'alt 4',caption:'caption 4',credit:'4 ( AP Photo/Carolyn Kaster )',creditUrl: 'https:///www.google.com'}
               ]
             "
           />
@@ -85,7 +85,7 @@
     >
       <div class="do-you-know-the-scoop u-reversed-out o-3d-heading">
         <strong>Do you know the scoop?</strong>
-        <a href="#comments">Comment</a> below or
+        <a href="#">Comment</a> below or
         <a
           href="mailto:tips@gothamist.com"
           target="_blank"
@@ -105,7 +105,7 @@
       :tags="[{'name': 'tag','slug': 'tag'}]"
     >
       <v-button
-        href="http://www.google.com"
+        href="https://www.google.com"
         label="Button"
       />
     </v-card>
@@ -118,7 +118,7 @@
       :image-height="150"
       :image-width="150"
       title="'What’s The Point?': A Year After COVID Shut Down NYC Schools, Many Students Struggle To Cope"
-      title-link="http://www.google.com"
+      title-link="https://www.google.com"
       subtitle="Here's what the latest Campaign Finance Board filings tell us."
       :tags="[{'name': 'news','slug': 'news'},{'name': 'sponsored','slug': ''}]"
     >
@@ -127,22 +127,13 @@
         updated-date="Mar 2, 2020 10:08AM"
       >
         <template v-slot:authors>
-          <v-byline :authors="[{firstName: 'Jen',lastName: 'Chung',url: 'http://www.google.com',organization: 'Gothamist',organizationUrl: 'http://www.gothamist.com'}]" />
+          <v-byline :authors="[{firstName: 'Jen',lastName: 'Chung',url: 'https://www.google.com',organization: 'Gothamist',organizationUrl: 'https://www.gothamist.com'}]" />
         </template>
         <template v-slot:comments>
           <v-counter
             icon="comment"
-            text="Comments"
             :value="40"
-            href="http://www.google.com"
-          />
-        </template>
-        <template v-slot:photos>
-          <v-counter
-            icon="gallery"
-            text="Photos"
-            :value="40"
-            href="http://www.google.com"
+            href="https://www.google.com"
           />
         </template>
       </article-metadata>
@@ -155,7 +146,7 @@
       :image-height="150"
       :image-width="150"
       title="'What’s The Point?': A Year After COVID Shut Down NYC Schools, Many Students Struggle To Cope"
-      title-link="http://www.google.com"
+      title-link="https://www.google.com"
       :tags="[{'name': 'news','slug': 'news'},{'name': 'sponsored','slug': ''}]"
     >
       <article-metadata
@@ -163,14 +154,14 @@
         updated-date="Mar 2, 2020 10:08AM"
       >
         <template v-slot:authors>
-          <v-byline :authors="[{firstName: 'Jen',lastName: 'Chung',url: 'http://www.google.com',organization: 'Gothamist',organizationUrl: 'http://www.gothamist.com'}]" />
+          <v-byline :authors="[{firstName: 'Jen',lastName: 'Chung',url: 'https://www.google.com',organization: 'Gothamist',organizationUrl: 'https://www.gothamist.com'}]" />
         </template>
         <template v-slot:comments>
           <v-counter
             icon="comment"
             text="Comments"
             :value="40"
-            href="http://www.google.com"
+            href="https://www.google.com"
           />
         </template>
         <template v-slot:photos>
@@ -178,7 +169,7 @@
             icon="gallery"
             text="Photos"
             :value="40"
-            href="http://www.google.com"
+            href="https://www.google.com"
           />
         </template>
       </article-metadata>
@@ -191,7 +182,7 @@
       :image-height="150"
       :image-width="150"
       title="'What’s The Point?'"
-      title-link="http://www.google.com"
+      title-link="https://www.google.com"
       :tags="[{'name': 'news','slug': 'news'},{'name': 'sponsored','slug': ''}]"
     >
       <article-metadata
@@ -199,26 +190,29 @@
         updated-date="Mar 2, 2020 10:08AM"
       >
         <template v-slot:authors>
-          <v-byline :authors="[{firstName: 'Jen',lastName: 'Chung',url: 'http://www.google.com',organization: 'Gothamist',organizationUrl: 'http://www.gothamist.com'}]" />
+          <v-byline :authors="[{firstName: 'Jen',lastName: 'Chung',url: 'https://www.google.com',organization: 'Gothamist',organizationUrl: 'https://www.gothamist.com'}]" />
         </template>
         <template v-slot:comments>
           <v-counter
             icon="comment"
             text="Comments"
             :value="40"
-            href="http://www.google.com"
+            href="https://www.google.com"
           />
         </template>
         <template v-slot:photos>
           <v-counter
             icon="gallery"
             text="Photos"
-            :value="40"
-            href="http://www.google.com"
+            :value="commentCount"
+            href="https://www.google.com"
           />
         </template>
       </article-metadata>
     </v-card>
+    <v-spacer />
+    <a @click="commentCount = 50">click me</a>
+    <v-spacer />
   </div>
 </template>
 
@@ -236,6 +230,11 @@ export default {
     VCounter: () => import('../components/VCounter'),
     VByline: () => import('../components/VByline'),
     VSpacer: () => import('../components/VSpacer')
+  },
+  data () {
+    return {
+      commentCount: 30
+    }
   }
 }
 </script>

@@ -16,21 +16,30 @@
         {{ publishDate }}
       </div>
       <div
+        v-if="publishDate && updatedDate"
+        class="article-metadata-separator"
+      />
+      <div
         v-if="updatedDate"
         class="article-metadata-updated-date"
       >
         Updated:&nbsp;{{ updatedDate }}
       </div>
       <div
-        v-if="$slots.comments"
+        v-if="commentsExist"
         class="article-metadata-comments"
       >
-        <slot name="comments" />
+        <div class="article-metadata-separator" />
+        <slot
+          name="comments"
+          @componentEvent="checkComments"
+        />
       </div>
       <div
         v-if="$slots.photos"
         class="article-metadata-photos"
       >
+        <div class="article-metadata-separator" />
         <slot name="photos" />
       </div>
     </div>
@@ -48,6 +57,23 @@ export default {
     updatedDate: {
       type: String,
       default: null
+    }
+  },
+  data () {
+    return {
+      commentsExist: false
+    }
+  },
+  mounted () {
+    this.checkComments()
+  },
+  updated () {
+    this.checkComments()
+  },
+  methods: {
+    // check if comment count in comments slot is greater than 0
+    checkComments () {
+      this.commentsExist = this.$slots.comments && this.$slots.comments[0].componentOptions.propsData.value <= 0
     }
   }
 }
@@ -69,33 +95,22 @@ export default {
 }
 
 .article-metadata .article-metadata-line-two {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  line-height: 25px;
 }
 
-.article-metadata .article-metadata-line-two > div {
+.article-metadata .article-metadata-line-two div {
+  display: inline;
+}
+
+.article-metadata .article-metadata-separator {
+  line-height: 25px;
   &::after {
     content: '\2022';
-    margin: calc(-1 * var(--space-1)) var(--space-2) 0;
-  }
-
-  &:last-of-type {
-    &::after {
-      content: '';
-    }
+    margin: 0 var(--space-2);
   }
 }
 
-.article-metadata .article-metadata-comments,
-.article-metadata .article-metadata-photos {
-  display: flex;
-  height: 25px;
-  line-height: 25px;
-  margin-top: 6px;
-}
-
-.article-metadata .counter .o-icon {
-  margin-top: 0;
+.article-metadata .o-gallery-icon {
+  margin-left: 0!important;
 }
 </style>

@@ -48,12 +48,12 @@
     <figcaption
       v-if="credit || (caption && gothamistVariation)"
     >
+      <gothamist-arrow v-if="caption && gothamistVariation" />
       <div class="image-with-caption-credit">
         <div
           v-if="caption && gothamistVariation"
           class="gothamist-caption"
         >
-          <gothamist-arrow />
           {{ caption }}
         </div>
         <a
@@ -128,7 +128,7 @@ export default {
     },
     height: {
       default: null,
-      type: Number
+      type: [String, Number]
     },
     urlTemplate: {
       default: null,
@@ -140,7 +140,7 @@ export default {
     },
     width: {
       default: null,
-      type: Number
+      type: [String, Number]
     },
     widthInViewport: {
       default: null,
@@ -237,8 +237,8 @@ export default {
 }
 
 .image-with-caption.gothamist .image-with-caption-credit-link {
-  margin-left: var(--space-2);
   text-transform: uppercase;
+  line-height: 20px;
 }
 
 .image-with-caption .image-with-caption-icons {
@@ -278,11 +278,14 @@ export default {
   display: flex;
   align-items: center;
   font-size: var(--font-size-4);
+  margin-right: var(--space-2);
 }
 
 .image-with-caption .o-gothamist-arrow-icon {
   width: 20px;
+  margin-top: -11px;
   margin-right: var(--space-2);
+  float: left;
 
   path {
     fill: RGB(var(--color-reddish-orange));
@@ -292,6 +295,7 @@ export default {
 .image-with-caption .image-with-caption-title {
   @include typeface(header, 8);
   margin: var(--space-2) 0;
+  clear: both;
 }
 
 .image-with-caption .image-with-caption-description {

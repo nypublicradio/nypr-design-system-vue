@@ -345,7 +345,8 @@ input[type=checkbox] {
   border: 3px solid RGB(var(--color-reddish-orange));
 }
 
-.button.more-results {
+.button.more-results,
+.button.back-to-article {
   background-color: RGB(var(--color-banana-yellow));
   max-width: 310px;
   width: 100%;
@@ -354,6 +355,7 @@ input[type=checkbox] {
   font-size: var(--font-size-6);
   font-weight: 700;
   letter-spacing: 2px;
+  text-decoration: none;
 
   &:hover {
     background-color: RGB(var(--color-banana-yellow));
@@ -669,6 +671,7 @@ form .o-button:hover {
 .c-slide__count {
   font-family: var(--font-family-b612);
   text-transform: uppercase;
+  text-align: right;
 }
 
 // gallery
@@ -1465,10 +1468,11 @@ form .o-button:hover {
   color: RGB(var(--color-reddish-orange));
   text-decoration: underline;
   text-decoration-style: dotted;
+  background: none;
 }
 
 .card.gothamist .article-metadata {
-  margin-top: var(--space-3);
+  //margin-top: var(--space-3);
   @include typeface(small, 1);
 }
 
@@ -1537,29 +1541,29 @@ form .o-button:hover {
   padding: 0 0 var(--space-1) 0;
 }
 
-.article-metadata .counter {
-  margin-right: var(--space-2);
-}
-
-.article-metadata .counter .o-icon {
-  height: 14px;
-  margin-right: var(--space-1);
-}
+//.article-metadata .counter {
+//  margin-right: var(--space-2);
+//}
+//
+//.article-metadata .counter .o-icon {
+//  height: 14px;
+//  margin-right: var(--space-1);
+//}
 
 .article-metadata-comments .counter path {
   fill: RGB(var(--color-text)) !important;
 }
 
-.article-metadata .article-metadata-line-two div {
-  &::after {
-    margin: 0 var(--space-2) 0 0;
-  }
-}
+//.article-metadata .article-metadata-line-two div {
+//  &::after {
+//    margin: 0 var(--space-2) 0 0;
+//  }
+//}
 
-.article-metadata .article-metadata-comments, .article-metadata .article-metadata-photos {
-  margin-top: -3px;
-  align-items: center;
-}
+//.article-metadata .article-metadata-comments, .article-metadata .article-metadata-photos {
+//  margin-top: -3px;
+//  align-items: center;
+//}
 
 // article header area
 .c-article__share {
