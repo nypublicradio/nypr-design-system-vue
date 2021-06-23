@@ -238,6 +238,7 @@ export default {
 
 .image-with-caption.gothamist .image-with-caption-credit-link {
   text-transform: uppercase;
+  line-height: 20px;
 }
 
 .image-with-caption .image-with-caption-icons {
