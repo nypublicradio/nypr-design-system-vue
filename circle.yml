@@ -11,9 +11,9 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm rebuild node-sass
             - run: npm cache clean --force
             - run: npm install
+            - run: npm rebuild node-sass
             - run: npm run build
             - run: npm run build-storybook
 
