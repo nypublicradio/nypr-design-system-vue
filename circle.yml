@@ -12,9 +12,10 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm cache clean --force
+            - run: rm -rf node_modules/ package-lock.json
             - run: npm install node-sass cross-env --unsafe-perm=true eslint
             - run: npm install
-            - run: npm rebuild node-sass
+            - run: npm rebuild node-sass --force
             - run: npm run build
             - run: npm run build-storybook
 
