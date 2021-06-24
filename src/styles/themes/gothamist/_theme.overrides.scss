@@ -15,7 +15,7 @@ p {
 
 pre,
 blockquote {
-  border: 1px solid RGB(var(--color-brown-grey));
+  border: 1px solid RGB(var(--color-brown-gray));
 }
 
 .o-list--numbered li::before {
@@ -1021,6 +1021,10 @@ form .o-button:hover {
 // new vue overrides
 
 // HEADER
+.c-main-header {
+  position: relative;
+}
+
 .c-main-header .c-primary-nav .c-secondary-nav__item .c-secondary-nav__link {
   @include typeface(body, 6);
   font-family: var(--font-family-pragati);
