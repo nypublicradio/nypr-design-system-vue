@@ -36,7 +36,6 @@
     "@babel/plugin-transform-react-jsx-source": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@jest/environment": "^26.6.2",
-    "@panosvoudouris/addon-versions": "^1.0.1",
     "@storybook/addon-a11y": "^6.1.15",
     "@storybook/addon-actions": "^6.1.15",
     "@storybook/addon-docs": "^6.2.9",
