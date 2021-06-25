@@ -9,36 +9,69 @@
   >
 </template>
 <script>
+/**
+ * Responsive image component, generates a srcset with multiple image sizes for different display densities.
+ */
 export default {
 props: {
+    /**
+     * An image url template string with tokens to replace for width and height
+     * e.g. "https://source.unsplash.com/random/%width%x%height%"
+     * A plain image url here will also 'work' but you won't get additional sizes
+     */
     src: {
       type: String,
       default: null
     },
+    /**
+     * The desired width for the 1x sized image.
+     * this will also be added as an attribute to the image tag
+     */
     width: {
       type: Number,
       default: null
     },
+    /**
+     * The desired height for the 1x sized image.
+     * this will also be added as an attribute to the image tag
+     */
     height: {
       type: Number,
       default: null
     },
+    /**
+     * Maximum width for the image. Generated sizes will be clipped to fit the max dimensions.
+     * If you know the width of the original, full-sized image, use it here.
+     */
     maxWidth: {
       type: Number,
       default: Infinity
     },
+    /**
+     * Maximum height for the image. Generated sizes will be clipped to fit the max dimensions.
+     * If you know the height of the original, full-sized image, use it here.
+     */
     maxHeight: {
       type: Number,
       default: Infinity
     },
+    /**
+     * Substring or regex within the urlto be replaced with width values.
+     */
     widthToken: {
       type: [String, RegExp],
       default: '%width%'
     },
+    /**
+     * Substring or regex within the url to be replaced with height values.
+     */
     heightToken: {
       type: [String, RegExp],
       default: '%height%'
     },
+    /**
+     * List of display densities to generate sizes for in the srcset
+     */
     sizes: {
       type: Array,
       default () {
