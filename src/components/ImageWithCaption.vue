@@ -5,18 +5,15 @@
   >
     <div class="image-with-caption-wrapper">
       <div class="image-with-caption-image">
-        <responsive-image
-          v-if="image || urlTemplate"
-          :image-url="image || urlTemplate"
+        <simple-responsive-image
+          v-if="image"
+          :src="image"
           :alt="altText"
           :width="width"
           :height="height"
+          :max-width="maxWidth || Infinity"
+          :max-height="maxHeight || Infinity"
           loading="lazy"
-          :image-ratio="aspectRatio || width / height || 16/9"
-          :width-on-screen="widthInViewport || 100"
-          :width-on-screen-tablet="widthInViewportTablet || widthInViewport || 100"
-          :width-on-screen-smartphone="100"
-          :max-width="maxWidth"
         />
         <div
           v-if="caption"
@@ -91,7 +88,7 @@
 import CloseIcon from '../components/icons/CloseIcon'
 import InfoIcon from '../components/icons/InfoIcon'
 import GothamistArrow from '../components/icons/gothamist/GothamistArrow'
-import ResponsiveImage from '../components/ResponsiveImage'
+import SimpleResponsiveImage from '../components/SimpleResponsiveImage'
 
 export default {
   name: 'ImageWithCaption',
@@ -99,16 +96,12 @@ export default {
     CloseIcon,
     InfoIcon,
     GothamistArrow,
-    ResponsiveImage
+    SimpleResponsiveImage
   },
   props: {
     altText: {
       default: null,
       type: String
-    },
-    aspectRatio: {
-      default: null,
-      type: Number
     },
     caption: {
       default: null,
@@ -157,6 +150,10 @@ export default {
     title: {
       default: null,
       type: String
+    },
+    maxHeight: {
+      default: null,
+      type: Number
     },
     maxWidth: {
       default: null,
