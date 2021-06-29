@@ -1,10 +1,6 @@
 /*------------------------------------*\
     $SITE MAIN
 \*------------------------------------*/
-html {
-  overflow-y: scroll;
-}
-
 body {
   background: RGB(var(--color-background));
   @include typeface(body, 5);
