@@ -10,7 +10,7 @@
 }
 
 @mixin text_transparent {
-  color: $dark-grey;
+  color: $dark-gray;
 }
 
 @mixin text_bright-link {
@@ -154,7 +154,7 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 1.67;
-  color: $dark-grey;
+  color: $dark-gray;
   a {
     @include text_dark-link;
   }

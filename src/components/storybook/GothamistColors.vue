@@ -15,8 +15,8 @@
     <div class="u-background-color--dusk-blue">
       <span>dusk-blue</span>
     </div>
-    <div class="u-background-color--brown-grey">
-      <span>brown-grey</span>
+    <div class="u-background-color--brown-gray">
+      <span>brown-gray</span>
     </div>
     <div class="u-background-color--dirty-salmon">
       <span>dirty-salmon</span>
@@ -79,8 +79,8 @@ export default {
   background: RGB(var(--color-dusk-blue));
 }
 
-.u-background-color--brown-grey {
-  background: RGB(var(--color-brown-grey));
+.u-background-color--brown-gray {
+  background: RGB(var(--color-brown-gray));
 }
 
 .u-background-color--dirty-salmon {
