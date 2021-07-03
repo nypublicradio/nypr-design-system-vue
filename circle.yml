@@ -31,6 +31,8 @@ jobs:
                 name: Build Storybook
                 command: |
                   [[ $CIRCLE_BRANCH = "main" ]] && RELEASE="latest" || { [[ -n $CIRCLE_BRANCH ]] && RELEASE=$CIRCLE_BRANCH || RELEASE=$CIRCLE_TAG; }
+                  rm -rf node_modules/ package-lock.json
+                  npm install
                   npm rebuild node-sass --force
                   npm run build
                   npm run build-storybook -- -o storybook-static/$RELEASE
