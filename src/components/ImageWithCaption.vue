@@ -61,10 +61,7 @@
         >
           {{ credit }}
         </a>
-        <span
-          v-else
-          class="image-with-caption-credit-link"
-        >
+        <span v-else>
           {{ credit }}
         </span>
       </div>
