@@ -219,6 +219,7 @@ export default {
   font-size: var(--font-size-7);
   display: flex;
   align-items: center;
+  overflow-wrap: anywhere;
 }
 
 .card .o-gallery-icon {
