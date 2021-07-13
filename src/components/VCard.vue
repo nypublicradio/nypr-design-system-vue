@@ -198,8 +198,7 @@ export default {
   display: flex;
   align-items: center;
   overflow: hidden;
-  width: var(--card-image-width);
-  min-width: var(--card-image-width);
+  max-width: var(--card-image-width);
   height: var(--card-image-height);
 }
 
