@@ -211,6 +211,7 @@ export default {
 .card-details {
   flex: 1;
   padding: var(--space-3);
+  overflow: hidden;
 }
 
 .card-title {
