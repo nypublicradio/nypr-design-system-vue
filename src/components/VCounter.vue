@@ -60,11 +60,12 @@ export default {
 <style lang="scss">
 .counter {
   position: relative;
+  display: flex;
 }
 
 .counter .o-icon {
   position: relative;
-  margin-right: var(--space-1);
+  margin-right: var(--space-2);
 
   &:hover {
     opacity: 1;

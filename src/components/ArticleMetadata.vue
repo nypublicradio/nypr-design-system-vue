@@ -26,6 +26,7 @@
         Updated:&nbsp;{{ updatedDate }}
       </div>
       <div
+        v-if="$slots.comments"
         class="article-metadata-comments"
       >
         <div class="article-metadata-separator" />
@@ -87,6 +88,10 @@ export default {
     content: '\2022';
     margin: 0 var(--space-2);
   }
+}
+
+.article-metadata .counter {
+  display: inline-block;
 }
 
 .article-metadata .o-gallery-icon {
