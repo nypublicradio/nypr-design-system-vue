@@ -49,18 +49,10 @@ export default {
       default: null
     },
     value: {
-      type: [String, Number],
+      type: Number,
       default: 0,
       required: true
     }
-  },
-  watch: {
-    value () {
-      this.$emit('componentEvent', this.value)
-    }
-  },
-  mounted () {
-    this.$emit('componentEvent', this.value)
   }
 }
 </script>

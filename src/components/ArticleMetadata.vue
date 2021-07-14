@@ -26,14 +26,10 @@
         Updated:&nbsp;{{ updatedDate }}
       </div>
       <div
-        v-if="commentsExist"
         class="article-metadata-comments"
       >
         <div class="article-metadata-separator" />
-        <slot
-          name="comments"
-          @componentEvent="checkComments"
-        />
+        <slot name="comments" />
       </div>
       <div
         v-if="$slots.photos"
@@ -57,23 +53,6 @@ export default {
     updatedDate: {
       type: String,
       default: null
-    }
-  },
-  data () {
-    return {
-      commentsExist: false
-    }
-  },
-  mounted () {
-    this.checkComments()
-  },
-  updated () {
-    this.checkComments()
-  },
-  methods: {
-    // check if comment count in comments slot is greater than 0
-    checkComments () {
-      this.commentsExist = this.$slots.comments && this.$slots.comments[0].componentOptions.propsData.value <= 0
     }
   }
 }
