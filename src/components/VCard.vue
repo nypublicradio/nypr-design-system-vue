@@ -220,6 +220,7 @@ export default {
   display: flex;
   align-items: center;
   overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .card .o-gallery-icon {
