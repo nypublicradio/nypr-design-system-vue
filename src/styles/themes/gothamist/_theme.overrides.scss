@@ -1673,7 +1673,7 @@ form .o-button:hover {
 
 .c-featured-blocks .featured-grid {
   grid-template-columns: 1fr;
-  @media all and (min-width: 1100px) {
+  @media all and (min-width: 1024px) {
     grid-gap: 50px;
     grid-template-columns: 1fr 400px;
   }
