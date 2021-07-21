@@ -164,6 +164,12 @@ export default {
       return !!this.$slots.social
     }
   },
+  watch: {
+    $route (to, from) {
+      // close the menu when the route changes
+      this.menuOpen = false
+    }
+  },
   methods: {
     toggleMenu () {
       this.menuOpen = !this.menuOpen
