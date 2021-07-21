@@ -170,9 +170,11 @@ export default {
     }
   },
   beforeRouteLeave (to, from, next) {
-    console.log('route changed')
-    // close the menu when the route changes
+    // close the menu
+    console.log('route change')
     this.menuOpen = false
+    // go to the next route
+    next()
   }
 }
 </script>
