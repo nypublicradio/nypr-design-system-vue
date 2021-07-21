@@ -164,6 +164,12 @@ export default {
       return !!this.$slots.social
     }
   },
+  watch: {
+    '$route' (to, from) {
+      console.log('watch route')
+      this.menuOpen = false
+    }
+  },
   methods: {
     toggleMenu () {
       this.menuOpen = !this.menuOpen
@@ -171,7 +177,7 @@ export default {
   },
   beforeRouteLeave (to, from, next) {
     // close the menu
-    console.log('route change')
+    console.log('beforeRouteLeave route')
     this.menuOpen = false
     // go to the next route
     next()
