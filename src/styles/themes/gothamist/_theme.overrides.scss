@@ -1749,3 +1749,18 @@ form .o-button:hover {
   background: none;
   margin-bottom: 0;
 }
+
+.c-featured-blocks.l-wrap {
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
+
+.c-featured-blocks__wrapper {
+  @include media(">medium") {
+    margin: 0 auto;
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+    width: 100%;
+    position: relative;
+  }
+}
