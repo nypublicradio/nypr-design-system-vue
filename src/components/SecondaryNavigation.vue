@@ -8,12 +8,12 @@
       :key="index"
       class="c-secondary-nav__item"
     >
-      <nuxt-link
+      <router-link
         v-if="item.type !== 'external_link'"
         :to="item.url"
+        :target="item.newWindow && '_blank'"
         rel="noopener"
         class="c-secondary-nav__link"
-        @click="$emit('componentEvent', item.text)"
       >
         <span
           v-if="item.icon"
@@ -21,12 +21,14 @@
         >
           <component :is="item.icon" />
         </span>
-        {{ item.text }}
+        <span @click="$emit('componentEvent', item.text)">
+          {{ item.text }}
+        </span>
         <span
           v-if="item.newWindow"
           class="is-vishidden"
         >(New tab)</span>
-      </nuxt-link>
+      </router-link>
       <a
         v-else
         :href="item.url"

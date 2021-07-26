@@ -12,12 +12,7 @@
           :legal-nav="legalNav"
         >
           <template v-slot:logo>
-            <nuxt-link
-              to="/"
-              aria-label="gothamist home page"
-            >
-              <gothamist-logo />
-            </nuxt-link>
+            <gothamist-logo />
           </template>
           <template v-slot:button>
             <div>
@@ -67,13 +62,7 @@
         </the-menu>
       </template>
       <template v-slot:logo>
-        <nuxt-link
-          to="/"
-          class="c-main-header__logo"
-          aria-label="gothamist home page"
-        >
-          <gothamist-logo title="Gothamist" />
-        </nuxt-link>
+        <gothamist-logo title="Gothamist" />
       </template>
       <template v-slot:navigation>
         <secondary-navigation
@@ -121,15 +110,21 @@ export default {
       footerNav: [
         {
           url: 'http://www.google.com',
-          text: 'Secondary Link 1'
+          text: 'Secondary Link 1',
+          type: 'external_link',
+          newWindow: true
         },
         {
           url: 'http://www.google.com',
-          text: 'Secondary Link 2'
+          text: 'Secondary Link 2',
+          type: 'external_link',
+          newWindow: true
         },
         {
           url: 'http://www.google.com',
-          text: 'Secondary Link 3'
+          text: 'Secondary Link 3',
+          type: 'external_link',
+          newWindow: true
         }
       ],
       headerNav: [
@@ -146,26 +141,31 @@ export default {
         {
           url: 'http://www.google.com',
           text: 'Google Link 2',
-          type: 'external_link'
+          type: 'external_link',
+          newWindow: true
         },
         {
           url: 'http://www.google.com',
           text: 'Google Link 3',
-          type: 'external_link'
+          type: 'external_link',
+          newWindow: true
         }
       ],
       legalNav: [
         {
           url: 'http://www.google.com',
-          text: 'Legal Link 1'
+          text: 'Legal Link 1',
+          type: 'external_link'
         },
         {
           url: 'http://www.google.com',
-          text: 'Legal Link 2'
+          text: 'Legal Link 2',
+          type: 'external_link'
         },
         {
           url: 'http://www.google.com',
-          text: 'Legal Link 3'
+          text: 'Legal Link 3',
+          type: 'external_link'
         }
       ]
     }

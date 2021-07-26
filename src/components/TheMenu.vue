@@ -169,7 +169,6 @@ export default {
   },
   methods: {
     closeMenu () {
-      console.log('closeMenu')
       this.menuOpen = false
     },
     toggleMenu () {
