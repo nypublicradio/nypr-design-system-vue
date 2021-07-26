@@ -42,6 +42,7 @@
             v-if="$slots.default"
             class="banner-description-timestamp"
           ><slot /></span>
+          <!-- eslint-disable-next-line -->
           <span v-html="description" />
         </div>
       </div>

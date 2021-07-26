@@ -85,10 +85,12 @@
           class="card-title-link"
           :href="titleLink"
         >
+          <!-- eslint-disable-next-line -->
           <span v-html="title" />
           <gallery-icon v-if="showGalleryIcon" />
         </a>
         <template v-else>
+          <!-- eslint-disable-next-line -->
           <span v-html="title" />
           <gallery-icon v-if="showGalleryIcon" />
         </template>
@@ -186,8 +188,8 @@ export default {
   display: flex;
   background: RGB(var(--color-background));
   color: RGB(var(--color-text));
-  box-shadow: 0px 3px 24px RGBA(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0px 3px 24px RGBA(0, 0, 0, 0.15);
+  box-shadow: 0 3px 24px RGBA(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 3px 24px RGBA(0, 0, 0, 0.15);
   border-radius: 8px;
   overflow: hidden;
   width: 100%;

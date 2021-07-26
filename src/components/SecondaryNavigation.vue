@@ -71,6 +71,14 @@ export default {
     alignment: {
       type: String,
       default: 'left'
+    },
+    type: {
+      type: String,
+      default: null
+    },
+    newWindow: {
+      type: Boolean,
+      default: false
     }
   }
 }

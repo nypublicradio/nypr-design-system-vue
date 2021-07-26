@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import NotFound from '../views/404.vue'
 import Home from '../views/Home.vue'
 import Kim from '../views/Kim.vue'
+import Test from '../views/Test.vue'
 
 Vue.use(VueRouter)
 
@@ -22,6 +23,12 @@ const routes = [
     name: 'Kim',
     meta: { layout: 'default' },
     component: Kim
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    meta: { layout: 'default' },
+    component: Test
   }
 ]
 

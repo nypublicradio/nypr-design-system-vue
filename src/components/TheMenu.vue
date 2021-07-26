@@ -51,6 +51,7 @@
           <secondary-navigation
             alignment="center"
             :nav-items="primaryNav"
+            @componentEvent="closeMenu"
           />
         </div>
         <div
@@ -75,6 +76,7 @@
           <secondary-navigation
             alignment="center"
             :nav-items="secondaryNav"
+            @componentEvent="closeMenu"
           />
         </div>
         <div
@@ -98,6 +100,7 @@
             alignment="center"
             orientation="horizontal"
             :nav-items="legalNav"
+            @componentEvent="closeMenu"
           />
         </div>
       </nav>
@@ -164,15 +167,12 @@ export default {
       return !!this.$slots.social
     }
   },
-  watch: {
-    '$route' (to, from) {
-      console.log('watch route')
-      this.menuOpen = false
-    }
-  },
   methods: {
+    closeMenu () {
+      console.log('closeMenu')
+      this.menuOpen = false
+    },
     toggleMenu () {
-      console.log('toggle menu')
       this.menuOpen = !this.menuOpen
     }
   },
