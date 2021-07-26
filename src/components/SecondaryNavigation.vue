@@ -8,7 +8,7 @@
       :key="index"
       class="c-secondary-nav__item"
     >
-      <router-link
+      <nuxt-link
         v-if="item.type !== 'external_link'"
         :to="item.url"
         :target="item.newWindow && '_blank'"
@@ -28,7 +28,7 @@
           v-if="item.newWindow"
           class="is-vishidden"
         >(New tab)</span>
-      </router-link>
+      </nuxt-link>
       <a
         v-else
         :href="item.url"
