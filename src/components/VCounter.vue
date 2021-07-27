@@ -1,7 +1,7 @@
 <template>
-  <a
+  <nuxt-link
     v-if="value && value > 0"
-    :href="href"
+    :to="href"
     class="counter"
   >
     <span
@@ -21,7 +21,7 @@
       class="counter-text"
       aria-hidden="true"
     >{{ value }} {{ text }}</div>
-  </a>
+  </nuxt-link>
 </template>
 
 <script>

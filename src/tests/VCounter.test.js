@@ -10,7 +10,7 @@ describe('VCounter', () => {
   const value = '10'
   const icon = 'gallery'
   const text = 'Photos'
-  const href = 'http://www.google.com'
+  const href = 'https://www.google.com'
   test('icon prop works', () => {
     const wrapper = shallowMount(VCounter, {
       propsData: {
@@ -24,6 +24,7 @@ describe('VCounter', () => {
     const div = wrapper.find('.o-icon')
     expect(div.exists()).toBe(true)
   })
+
   test('text prop works', () => {
     const wrapper = shallowMount(VCounter, {
       propsData: {
@@ -36,6 +37,7 @@ describe('VCounter', () => {
     // check if prop works
     expect(wrapper.text()).toContain(text)
   })
+
   test('href prop works', () => {
     const wrapper = shallowMount(VCounter, {
       propsData: {
@@ -43,12 +45,14 @@ describe('VCounter', () => {
         icon,
         text,
         href
-      }
+      },
+      stubs: ['nuxt-link']
     })
     // check if prop works
-    const div = wrapper.find('a')
-    expect(div.attributes().href).toBe(href)
+    const div = wrapper.find('.counter')
+    expect(div.attributes('to')).toBe(href)
   })
+
   test('it passes basic accessibility tests', async () => {
     const wrapper = mount(VCounter, {
       propsData: {
