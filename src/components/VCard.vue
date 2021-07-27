@@ -1,10 +1,10 @@
 <template>
   <div class="card">
     <template v-if="titleLink">
-      <a
+      <nuxt-link
         v-if="title"
         class="card-image-link card-image-wrapper"
-        :href="titleLink"
+        :to="titleLink"
         aria-hidden="true"
         role="presentation"
         tabindex="-1"
@@ -22,11 +22,11 @@
           role="presentation"
           loading="lazy"
         />
-      </a>
-      <a
+      </nuxt-link>
+      <nuxt-link
         v-else
         class="card-image-link"
-        :href="titleLink"
+        :to="titleLink"
         @click="$emit('componentEvent', titleLink)"
       >
         <simple-responsive-image
@@ -39,7 +39,7 @@
           :max-width="imageMaxWidth"
           :max-height="imageMaxHeight"
         />
-      </a>
+      </nuxt-link>
     </template>
     <span
       v-else
@@ -79,16 +79,18 @@
       <div
         v-if="title"
         class="card-title"
+        role="heading"
+        aria-level="3"
       >
-        <a
+        <nuxt-link
           v-if="titleLink"
           class="card-title-link"
-          :href="titleLink"
+          :to="titleLink"
         >
           <!-- eslint-disable-next-line -->
           <span v-html="title" />
           <gallery-icon v-if="showGalleryIcon" />
-        </a>
+        </nuxt-link>
         <template v-else>
           <!-- eslint-disable-next-line -->
           <span v-html="title" />
