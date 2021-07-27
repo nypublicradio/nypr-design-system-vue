@@ -17,10 +17,8 @@
         :aria-label="value + ' photos'"
       />
     </span>
-    <div
-      class="counter-text"
-      aria-hidden="true"
-    >{{ value }} {{ text }}</div>
+    <!-- eslint-disable-next-line -->
+    <div class="counter-text" aria-hidden="true">{{ value }} {{ text }}</div>
   </nuxt-link>
 </template>
 
