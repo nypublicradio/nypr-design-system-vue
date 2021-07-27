@@ -174,13 +174,6 @@ export default {
     toggleMenu () {
       this.menuOpen = !this.menuOpen
     }
-  },
-  beforeRouteLeave (to, from, next) {
-    // close the menu
-    console.log('beforeRouteLeave route')
-    this.menuOpen = false
-    // go to the next route
-    next()
   }
 }
 </script>
