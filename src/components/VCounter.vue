@@ -49,18 +49,10 @@ export default {
       default: null
     },
     value: {
-      type: [String, Number],
+      type: Number,
       default: 0,
       required: true
     }
-  },
-  watch: {
-    value () {
-      this.$emit('componentEvent', this.value)
-    }
-  },
-  mounted () {
-    this.$emit('componentEvent', this.value)
   }
 }
 </script>
@@ -68,11 +60,12 @@ export default {
 <style lang="scss">
 .counter {
   position: relative;
+  display: flex;
 }
 
 .counter .o-icon {
   position: relative;
-  margin-right: var(--space-1);
+  margin-right: var(--space-2);
 
   &:hover {
     opacity: 1;

@@ -10,7 +10,7 @@ describe('SecondaryNavigation', () => {
   const orientation = 'horizontal'
   const navItems = [
     {
-      url: 'http://www.google.com',
+      url: 'https://www.google.com',
       text: 'Secondary Link 1',
       type: 'external_link'
     }

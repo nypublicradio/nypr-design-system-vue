@@ -1663,3 +1663,104 @@ form .o-button:hover {
     background-color: RGB(var(--color-reddish-orange));
   }
 }
+
+.c-featured-blocks {
+  padding: var(--space-7) 0 0;
+  @include media(">medium") {
+    padding: var(--space-7) var(--space-7) 0;
+  }
+}
+
+.c-featured-blocks .featured-grid {
+  grid-template-columns: 1fr;
+  @include media(">medium") {
+    grid-template-columns: 1fr 300px;
+  }
+  @include media(">xlarge") {
+    grid-gap: 50px;
+    grid-template-columns: 1fr 330px;
+  }
+  @include media(">xxlarge") {
+    grid-template-columns: 1fr 400px;
+  }
+}
+
+.c-featured-blocks .featured-grid .card.featured-grid-col1 {
+  @include media(">xlarge") {
+    width: 590px;
+    max-width: 590px;
+  }
+}
+
+.home-page .card.gothamist.mod-large .card-image-wrapper {
+  //width: 100%;
+  //min-width: 100%;
+  @include media("<large") {
+    height: 300px;
+  }
+  @include media(">large") {
+    width: 560px;
+    max-width: 100%;
+  }
+}
+
+.home-page .card.gothamist .card-subtitle {
+  line-height: var(--line-height-4) !important;
+}
+
+.home-page .featured-grid .card.gothamist.mod-large .card-title .o-gallery-icon {
+  height: 20px;
+  margin: 0 0 -2px;
+}
+
+.ad-container {
+  padding: var(--space-4);
+  font-style: italic;
+}
+
+.home-page .ad-container {
+  display: none;
+  @include media(">large") {
+    display: block;
+  }
+}
+
+.home-page .loading-icon {
+  width: 75px !important;
+  margin: 0;
+}
+
+.home-page .loading-icon path {
+  stroke: RGB(var(--color-gray));
+}
+
+.home-page .button .loading-icon path {
+  stroke: RGB(var(--color-text));
+}
+
+.home-page .c-sponsored-tout {
+  margin-top: var(--space-4);
+  @include media(">large") {
+    margin-top: 0;
+  }
+}
+
+.home-page .c-sponsored-tout .card.gothamist {
+  background: none;
+  margin-bottom: 0;
+}
+
+.c-featured-blocks.l-wrap {
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
+
+.c-featured-blocks__wrapper {
+  @include media(">medium") {
+    margin: 0 auto;
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+    width: 100%;
+    position: relative;
+  }
+}

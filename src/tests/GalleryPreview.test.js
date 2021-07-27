@@ -8,26 +8,26 @@ expect.extend(toHaveNoViolations)
 
 describe('GalleryPreview', () => {
   const count = 19
-  const galleryUrl = 'http://www.google.com'
+  const galleryUrl = 'https://www.google.com'
   const variation = 'gothamist'
   const images = [
     {
-      url: 'http://placehold.it/640x500?text=1',
-      template: 'http://placehold.it/%width%x%height%?text=1',
-      thumbnail: 'http://placehold.it/150x150?text=1',
+      url: 'https://placehold.it/640x500?text=1',
+      template: 'https://placehold.it/%width%x%height%?text=1',
+      thumbnail: 'https://placehold.it/150x150?text=1',
       alt: 'alt 1',
       caption: 'caption 1',
       credit: '1 ( AP Photo/Carolyn Kaster )',
-      creditUrl: 'http:///www.google.com'
+      creditUrl: 'https:///www.google.com'
     },
     {
-      url: 'http://placehold.it/640x500?text=2',
-      template: 'http://placehold.it/%width%x%height%?text=2',
-      thumbnail: 'http://placehold.it/150x150?text=2',
+      url: 'https://placehold.it/640x500?text=2',
+      template: 'https://placehold.it/%width%x%height%?text=2',
+      thumbnail: 'https://placehold.it/150x150?text=2',
       alt: 'alt 2',
       caption: 'caption 2',
       credit: '2 ( AP Photo/Carolyn Kaster )',
-      creditUrl: 'http:///www.google2.com'
+      creditUrl: 'https:///www.google2.com'
     }
   ]
   test('count prop works', () => {
@@ -61,6 +61,18 @@ describe('GalleryPreview', () => {
     expect(wrapper.find('.image-with-caption a').attributes().href).toBe(images[0].creditUrl)
   })
 
+  test('everything works even if no images are provided', () => {
+    const wrapper = mount(GalleryPreview, {
+      propsData: {
+        count,
+        galleryUrl
+      }
+    })
+    // check if prop works and was rendered correctly
+    const div = wrapper.find('.gallery-preview-view-all-count')
+    expect(div.text()).toContain(count)
+  })
+
   test('variation prop works', () => {
     const wrapper = mount(GalleryPreview, {
       propsData: {
@@ -77,7 +89,7 @@ describe('GalleryPreview', () => {
 
   test('link attribute works', () => {
     const wrapper = shallowMount(GalleryPreview, {
-      attrs: {
+      propsData: {
         count,
         galleryUrl,
         images

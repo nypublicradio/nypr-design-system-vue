@@ -11,15 +11,15 @@ expect.extend(toHaveNoViolations)
 describe('TheMenu', () => {
   const navigation = [
     {
-      url: 'http://www.google.com',
+      url: 'https://www.google.com',
       text: 'Primary Link 1'
     },
     {
-      url: 'http://www.google.com',
+      url: 'https://www.google.com',
       text: 'Primary Link 2'
     },
     {
-      url: 'http://www.google.com',
+      url: 'https://www.google.com',
       text: 'Primary Link 3'
     }
   ]
@@ -145,5 +145,29 @@ describe('TheMenu', () => {
     const results = await axe(wrapper.element)
     await wrapper.vm.$nextTick()
     expect(results).toHaveNoViolations()
+  })
+
+  test('closeMenu functions works', async () => {
+    const wrapper = mount(TheMenu, {
+      propsData: {
+        primaryNav,
+        secondaryNav
+      },
+      slots: {
+        social: AudioIcon,
+        search: VSearch,
+        logo: AudioIcon,
+        component: AudioIcon
+      }
+    })
+    // open the menu
+    wrapper.vm.$data.menuOpen = true
+    await wrapper.vm.$nextTick()
+    // close the menu
+    wrapper.vm.closeMenu()
+    await wrapper.vm.$nextTick()
+    // check if menu is not visible
+    const div = wrapper.find('.menu-panel')
+    expect(div.exists()).toBe(false)
   })
 })

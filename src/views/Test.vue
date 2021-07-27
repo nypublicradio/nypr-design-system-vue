@@ -84,7 +84,7 @@
       </template>
     </the-header>
     <v-spacer size="quad" />
-    <p>home page</p>
+    <p>test page</p>
   </div>
 </template>
 
