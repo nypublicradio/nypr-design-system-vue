@@ -1664,10 +1664,9 @@ form .o-button:hover {
   }
 }
 
-.c-featured-blocks {
-  padding: var(--space-7) 0 0;
+.c-featured-blocks.l-wrap {
   @include media(">medium") {
-    padding: var(--space-7) var(--space-7) 0;
+    padding: var(--space-7) var(--space-7) var(--space-3) var(--space-7);
   }
 }
 
@@ -1677,11 +1676,11 @@ form .o-button:hover {
     grid-template-columns: 1fr 300px;
   }
   @include media(">xlarge") {
-    grid-gap: 50px;
-    grid-template-columns: 1fr 330px;
+    grid-gap: 35px;
+    grid-template-columns: 1fr 370px;
   }
   @include media(">xxlarge") {
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 1fr 370px;
   }
 }
 
