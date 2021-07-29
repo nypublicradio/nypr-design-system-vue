@@ -1664,6 +1664,13 @@ form .o-button:hover {
   }
 }
 
+.c-featured-blocks {
+  padding: var(--space-7) 0 0;
+  @include media(">medium") {
+    padding: var(--space-7) var(--space-7) 0;
+  }
+}
+
 .c-featured-blocks.l-wrap {
   @include media(">medium") {
     padding: var(--space-7) var(--space-7) var(--space-3) var(--space-7);
@@ -1762,4 +1769,47 @@ form .o-button:hover {
     width: 100%;
     position: relative;
   }
+}
+
+.c-search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-search__input {
+  font-family: var(--font-family-body);
+  letter-spacing: var(--letter-spacing-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.c-search-results__form .c-search__button {
+  padding: var(--space-2);
+  background-color: transparent;
+  height: auto;
+  width: 40px;
+  display: inline-flex;
+  justify-content: center;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  @include media(">medium") {
+    width: 60px;
+  }
+}
+
+.search .loading-icon {
+  width: 75px !important;
+  margin: 0;
+}
+
+.search .loading-icon path {
+  stroke: RGB(var(--color-gray));
+}
+
+.search .button .loading-icon path {
+  stroke: RGB(var(--color-text));
 }
