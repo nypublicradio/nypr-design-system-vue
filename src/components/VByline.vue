@@ -8,20 +8,16 @@
       :key="index"
       class="byline-author"
     >
-      <a
+      <nuxt-link
         v-if="author.url"
-        :href="author.url"
-        target="_blank"
-        rel="nofollow"
-      >{{ author.firstName }}&nbsp;{{ author.lastName }}</a>
+        :to="author.url"
+      >{{ author.firstName }}&nbsp;{{ author.lastName }}</nuxt-link>
       <template v-else>{{ author.firstName }}&nbsp;{{ author.lastName }}</template>
       <template
         v-if="author.organization && author.organizationUrl"
-      >(<a
-        :href="author.organizationUrl"
-        target="_blank"
-        rel="nofollow"
-      >{{ author.organization }}</a>)</template><template v-if="index < authors.length-2">,</template>
+      >(<nuxt-link
+        :to="author.organizationUrl"
+      >{{ author.organization }}</nuxt-link>)</template><template v-if="index < authors.length-2">,</template>
       <template v-if="author.organization && !author.organizationUrl">({{ author.organization }})<template v-if="index < authors.length-2">, </template></template>
       <template v-if="index === authors.length-2"> and </template>
     </span>
