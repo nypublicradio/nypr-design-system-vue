@@ -10,6 +10,7 @@
     >
       <nuxt-link
         v-if="author.url"
+        target="_self"
         :to="author.url"
       >{{ author.firstName }}&nbsp;{{ author.lastName }}</nuxt-link>
       <template v-else>{{ author.firstName }}&nbsp;{{ author.lastName }}</template>
