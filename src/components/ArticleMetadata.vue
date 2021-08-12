@@ -70,10 +70,6 @@ export default {
   text-underline-position: under;
 }
 
-.article-metadata .article-metadata-line-one {
-  margin-bottom: var(--space-2);
-}
-
 .article-metadata .article-metadata-line-two {
   line-height: 25px;
 }
@@ -84,6 +80,7 @@ export default {
 
 .article-metadata .article-metadata-separator {
   line-height: 25px;
+  font-size: var(--font-size-1);
   &::after {
     content: '\2022';
     margin: 0 var(--space-2);
