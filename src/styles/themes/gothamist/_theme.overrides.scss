@@ -1831,3 +1831,17 @@ form .o-button:hover {
     position: relative;
   }
 }
+
+.streamfield-block-quote blockquote {
+  border: none;
+  background-image: linear-gradient(to bottom, transparent 50%, RGB(var(--color-gray)) 50%);
+  background-position: left bottom;
+  background-repeat: repeat-y;
+  background-size: 1px 16px;
+  margin-left: var(--space-5);
+
+  p {
+    margin: var(--space-5) 0;
+    padding: var(--space-2) var(--space-4);
+  }
+}
