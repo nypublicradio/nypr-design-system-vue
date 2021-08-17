@@ -83,7 +83,7 @@ export default {
   font-size: var(--font-size-1);
   &::after {
     content: '\2022';
-    margin: 0 var(--space-2);
+    margin: 0 var(--space-1);
   }
 }
 
