@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="fact-box"
-    :class="variation === 'gothamist' ? 'o-border-accent' : ''"
-  >
+  <div class="fact-box">
     <div
       v-if="title"
       class="fact-box-title"
