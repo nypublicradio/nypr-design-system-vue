@@ -1,4 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import FactBox from '../../../src/components/FactBox'
+import ImageWithCaption from '../../../src/components/ImageWithCaption'
 
 <Meta title="Components/Molecules/Factboxes" />
 
@@ -61,3 +63,122 @@ Though the order of content in a factbox is flexible, four examples of how a fac
 
 4. Factbox with Text Only
 <img alt="Whitelabel factbox with text only" src="./images/Molecules-Factboxes-Text-Gothamist.png" width="200" />
+
+
+### Code Examples
+
+<Canvas>
+    <Story name="Unordered List">
+        {{
+            components: { FactBox, ImageWithCaption },
+            template: `
+              <fact-box
+                title="What You Need To Know"
+                :list-items="[
+                  {text: '<strong>list item 1 with html</strong>'},
+                  {text: 'list item 2'},
+                  {text: 'list item 3'}
+                ]"
+                text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+              >
+                <image-with-caption
+                  alt-text="image alt text"
+                  image="./images/Placeholder-Image-4_3.png"
+                  credit="( AP Photo/Carolyn Kaster )"
+                  credit-url="http:///www.google.com"
+                  caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                />
+              </fact-box>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Ordered List">
+        {{
+            components: { FactBox, ImageWithCaption },
+            template: `
+              <fact-box
+                title="What You Need To Know"
+                list-type="ordered"
+                :list-items="[
+                  {text: '<strong>list item 1 with html</strong>'},
+                  {text: 'list item 2'},
+                  {text: 'list item 3'}
+                ]"
+                text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+              >
+                <image-with-caption
+                  alt-text="image alt text"
+                  image="./images/Placeholder-Image-4_3.png"
+                  credit="( AP Photo/Carolyn Kaster )"
+                  credit-url="http:///www.google.com"
+                  caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                />
+              </fact-box>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="Timeline List">
+        {{
+            components: { FactBox, ImageWithCaption },
+            template: `
+              <fact-box
+                title="What You Need To Know"
+                list-type="timeline"
+                :list-items="[
+                  {text: 'list item 1', time: '3 PM'},
+                  {text: 'list item 2', time: '4 PM'},
+                  {text: 'list item 3', time: '5 PM'}
+                ]"
+                text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+              >
+                <image-with-caption
+                  alt-text="image alt text"
+                  image="./images/Placeholder-Image-4_3.png"
+                  credit="( AP Photo/Carolyn Kaster )"
+                  credit-url="http:///www.google.com"
+                  caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                />
+              </fact-box>
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="With No Image">
+        {{
+            components: { FactBox },
+            template: `
+              <fact-box
+                title="What You Need To Know"
+                :list-items="[
+                  {text: '<strong>list item 1 with html</strong>'},
+                  {text: 'list item 2'},
+                  {text: 'list item 2'}
+                ]"
+                text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+              />
+            `
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story name="With Text Only">
+        {{
+            components: { FactBox },
+            template: `
+              <fact-box
+                title="What You Need To Know"
+                text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+              />
+            `
+        }}
+    </Story>
+</Canvas>
