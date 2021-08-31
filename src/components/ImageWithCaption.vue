@@ -233,6 +233,11 @@ export default {
 .image-with-caption.gothamist .image-with-caption-credit-link {
   text-transform: uppercase;
   line-height: 20px;
+
+  &:hover {
+    background-color: RGB(var(--color-reddish-orange));
+    color: RGB(var(--color-white));
+  }
 }
 
 .image-with-caption .image-with-caption-icons {
