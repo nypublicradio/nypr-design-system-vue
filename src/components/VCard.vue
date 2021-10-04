@@ -36,8 +36,8 @@
           :alt="alt"
           :width="imageWidth"
           :height="imageHeight"
-          :max-width="imageMaxWidth"
-          :max-height="imageMaxHeight"
+          :max-width="imageMaxWidth || Infinity"
+          :max-height="imageMaxHeight || Infinity"
         />
       </nuxt-link>
     </template>
@@ -51,8 +51,8 @@
         :src="image"
         :width="imageWidth"
         :height="imageHeight"
-        :max-width="imageMaxWidth"
-        :max-height="imageMaxHeight"
+        :max-width="imageMaxWidth || Infinity"
+        :max-height="imageMaxHeight || Infinity"
         alt=""
         role="presentation"
       />
