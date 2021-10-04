@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import VCard from '../../../src/components/VCard'
 
 <Meta title="Components/Molecules/Cards" />
@@ -86,7 +86,11 @@ Radial uses two different card layouts, Horizontal and Vertical, to provide flex
     title="Title with some <em>HTML</em>"
     titleLink="https://www.google.com"
     subtitle="Subtitle"
->
+    :image-width="661"
+    :image-height="496"
+    :image-max-width="661 || Infinity"
+    :image-max-height="496 || Infinity"
+/>
 `
         }}
     </Story>
