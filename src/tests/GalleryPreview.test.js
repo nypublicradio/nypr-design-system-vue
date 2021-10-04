@@ -36,7 +36,8 @@ describe('GalleryPreview', () => {
         count,
         galleryUrl,
         images
-      }
+      },
+      stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
     const div = wrapper.find('.gallery-preview-view-all-count')
@@ -49,7 +50,8 @@ describe('GalleryPreview', () => {
         count,
         galleryUrl,
         images
-      }
+      },
+      stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
     expect(wrapper.find('.image-with-caption img').attributes().src).toBe(images[0].template.replace('%width%', '661').replace('%height%', '496'))
@@ -80,7 +82,8 @@ describe('GalleryPreview', () => {
         galleryUrl,
         images,
         variation
-      }
+      },
+      stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
     const div = wrapper.find('.' + variation)
@@ -93,10 +96,11 @@ describe('GalleryPreview', () => {
         count,
         galleryUrl,
         images
-      }
+      },
+      stubs: ['nuxt-link']
     })
     // check if prop works and rendered correctly
-    expect(wrapper.find('.gallery-preview-view-all').attributes().href).toBe(galleryUrl)
+    expect(wrapper.find('.gallery-preview-view-all').attributes('to')).toBe(galleryUrl)
   })
 
   test('it passes basic accessibility tests', async () => {

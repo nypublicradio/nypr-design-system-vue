@@ -227,7 +227,7 @@ export default {
   text-align: left;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
 }
 
 .image-with-caption.gothamist .image-with-caption-credit-link {
@@ -238,6 +238,12 @@ export default {
     background-color: RGB(var(--color-reddish-orange));
     color: RGB(var(--color-white));
   }
+}
+
+.image-with-caption.gothamist .image-with-caption-credit span {
+  @include typeface(small, 1);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .image-with-caption .image-with-caption-icons {

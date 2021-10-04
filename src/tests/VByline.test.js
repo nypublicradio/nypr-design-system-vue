@@ -27,8 +27,8 @@ describe('VByline', () => {
     expect(wrapper.text()).toContain(authors[0].firstName)
     expect(wrapper.text()).toContain(authors[0].organization)
     const div = wrapper.findAll('a')
-    expect(div.at(0).attributes().href).toBe(authors[0].url)
-    expect(div.at(1).attributes().href).toBe(authors[0].organizationUrl)
+    expect(div.at(0).attributes().to).toBe(authors[0].url)
+    expect(div.at(1).attributes().to).toBe(authors[0].organizationUrl)
   })
 
   test('it passes basic accessibility tests', async () => {

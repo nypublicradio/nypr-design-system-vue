@@ -1560,6 +1560,10 @@ form .o-button:hover {
   text-decoration: none;
 }
 
+.article-metadata-authors .byline .byline-author {
+  letter-spacing: 1px;
+}
+
 .article-metadata-photos a.counter .counter-text,
 .article-metadata-comments a.counter .counter-text,
 .article-metadata-authors .byline a {
@@ -1671,18 +1675,85 @@ form .o-button:hover {
   }
 }
 
+.c-featured-blocks.l-wrap {
+  padding: var(--space-7) var(--space-3) 0;
+  @include media(">medium") {
+    padding: var(--space-7) var(--space-7) 0;
+  }
+}
+
+.c-featured-blocks__wrapper {
+  @include media(">medium") {
+    margin: 0 auto;
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+    width: 100%;
+    position: relative;
+  }
+}
+
 .c-featured-blocks .featured-grid {
   grid-template-columns: 1fr;
   @include media(">medium") {
     grid-template-columns: 1fr 300px;
   }
   @include media(">xlarge") {
-    grid-gap: 50px;
-    grid-template-columns: 1fr 330px;
+    grid-gap: 35px;
+    grid-template-columns: 1fr 370px;
   }
   @include media(">xxlarge") {
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 1fr 370px;
   }
+}
+
+.c-featured-blocks .featured-grid .card.featured-grid-col1 {
+  @include media(">xlarge") {
+    width: 590px;
+    max-width: 590px;
+  }
+}
+
+.c-search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-search__input {
+  font-family: var(--font-family-body);
+  letter-spacing: var(--letter-spacing-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.c-search-results__form .c-search__button {
+  padding: var(--space-2);
+  background-color: transparent;
+  height: auto;
+  width: 40px;
+  display: inline-flex;
+  justify-content: center;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  @include media(">medium") {
+    width: 60px;
+  }
+}
+
+.search .loading-icon {
+  width: 75px !important;
+  margin: 0;
+}
+
+.search .loading-icon path {
+  stroke: RGB(var(--color-gray));
+}
+
+.search .button .loading-icon path {
+  stroke: RGB(var(--color-text));
 }
 
 .c-featured-blocks .featured-grid .card.featured-grid-col1 {
@@ -1762,5 +1833,19 @@ form .o-button:hover {
     padding-right: var(--space-3);
     width: 100%;
     position: relative;
+  }
+}
+
+.streamfield-block-quote blockquote {
+  border: none;
+  background-image: linear-gradient(to bottom, transparent 50%, RGB(var(--color-gray)) 50%);
+  background-position: left bottom;
+  background-repeat: repeat-y;
+  background-size: 1px 16px;
+  margin-left: var(--space-5);
+
+  p {
+    margin: var(--space-5) 0;
+    padding: var(--space-2) var(--space-4);
   }
 }

@@ -33,13 +33,13 @@
         @click="setActiveImage(index)"
         @keypress.enter.space.prevent="setActiveImage(index)"
       />
-      <a
-        :href="galleryUrl"
+      <nuxt-link
+        :to="galleryUrl"
         class="gallery-preview-view-all"
       >
         <span>View All</span>
         <span class="gallery-preview-view-all-count">{{ count }}</span>
-      </a>
+      </nuxt-link>
     </div>
   </div>
 </template>
