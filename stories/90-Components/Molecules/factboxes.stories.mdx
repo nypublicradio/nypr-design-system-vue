@@ -17,7 +17,7 @@ You can find the instructions for populating these elements in the CMS here:
 
 1- **Title** - This should relate to the information in the factbox. Follow your brand’s size guidelines.
 
-2- [**Image Molecule**](https://storybook.nypr.digital/latest/index.html?path=/docs/components-molecules-image-molecule--image-with-caption-credit-and-credit-link) - Standard 4:3 image molecule with credit and caption
+2- [**Image Molecule**](https://storybook.nypr.digital/latest/index.html?path=/docs/components-molecules-image-molecule--image-with-caption-credit-and-credit-link) - Standard 4:3 image molecule with credit and caption.
 
 3- **Text List** - Flexible list to be used as needed, can be bulleted, numbered, or shown as a timeline.
 
@@ -25,30 +25,142 @@ You can find the instructions for populating these elements in the CMS here:
 
 
 ## Rules
-The content of a factbox can be formatted using a variety of content options: an image, a numbered list, a bulleted list, a timeline, and a paragraph can be used individually or as a mix-and-match group. Images are always captioned with a description and source.
+The content of a factbox can be formatted using a variety of content options: an image, a numbered list, a bulleted list, a timeline, and a paragraph can be used individually or as a mix-and-match group. Images are always captioned with a description and source. The image molecule retains its ability to show or hide the credit and/or caption.
 
 If used, an image will always be displayed as the first item in the factbox, under the headline and before any text. Text-based formats (numbered lists, bulleted lists, timelines, and paragraphs) can be ordered in the factbox in whatever way best suits the content.
 
 Though the order of content in a factbox is flexible, four examples of how a factbox can be formatted are shown below.
 
-## Brand Examples
-### Whitelabel
-1. Factbox with Image & List
-<img alt="Whitelabel factbox with image & list" src="./images/Molecules-Factboxes-ImgAndList-Whitelabel.png" width="200" />
-<br/>
+## Code Examples
 
-2. Factbox with Numbered List
-<img alt="Whitelabel factbox with numbered list" src="./images/Molecules-Factboxes-List-Whitelabel.png" width="200" />
-<br/>
+### Factbox with Image & List
 
-3. Factbox with Timeline List
-<img alt="Whitelabel factbox with timeline list" src="./images/Molecules-Factboxes-Timeline-Whitelabel.png" width="200" />
-<br/>
+<Canvas>
+    <Story name="Unordered List">
+        {{
+            components: { FactBox, ImageWithCaption },
+            template: `
+              <fact-box
+                title="What You Need To Know"
+                :list-items="[
+                  {text: '<strong>list item 1 with html</strong>'},
+                  {text: 'list item 2'},
+                  {text: 'list item 3'}
+                ]"
+                text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+              >
+                <image-with-caption
+                  alt-text="image alt text"
+                  image="./images/Placeholder-Image-4_3.png"
+                  credit="( AP Photo/Carolyn Kaster )"
+                  credit-url="http:///www.google.com"
+                  caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                />
+              </fact-box>
+            `
+        }}
+    </Story>
+</Canvas>
 
-4. Factbox with Text Only
-<img alt="Whitelabel factbox with text only" src="./images/Molecules-Factboxes-Text-Whitelabel.png" width="200" />
+### Factbox with Numbered List
 
-### Gothamist
+<Canvas>
+    <Story name="Ordered List">
+        {{
+            components: { FactBox, ImageWithCaption },
+            template: `
+              <fact-box
+                title="What You Need To Know"
+                list-type="ordered"
+                :list-items="[
+                  {text: '<strong>list item 1 with html</strong>'},
+                  {text: 'list item 2'},
+                  {text: 'list item 3'}
+                ]"
+                text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+              >
+                <image-with-caption
+                  alt-text="image alt text"
+                  image="./images/Placeholder-Image-4_3.png"
+                  credit="( AP Photo/Carolyn Kaster )"
+                  credit-url="http:///www.google.com"
+                  caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                />
+              </fact-box>
+            `
+        }}
+    </Story>
+</Canvas>
+
+### Factbox with Timeline List
+
+<Canvas>
+    <Story name="Timeline List">
+        {{
+            components: { FactBox, ImageWithCaption },
+            template: `
+              <fact-box
+                title="What You Need To Know"
+                list-type="timeline"
+                :list-items="[
+                  {text: 'list item 1', time: '3:45 PM'},
+                  {text: 'list item 2', time: '4:30 PM'},
+                  {text: 'list item 3', time: '5:15 PM'}
+                ]"
+                text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+              >
+                <image-with-caption
+                  alt-text="image alt text"
+                  image="./images/Placeholder-Image-4_3.png"
+                  credit="( AP Photo/Carolyn Kaster )"
+                  credit-url="http:///www.google.com"
+                  caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                />
+              </fact-box>
+            `
+        }}
+    </Story>
+</Canvas>
+
+### Factbox with No Image
+
+<Canvas>
+    <Story name="With No Image">
+        {{
+            components: { FactBox },
+            template: `
+              <fact-box
+                title="What You Need To Know"
+                :list-items="[
+                  {text: '<strong>list item 1 with html</strong>'},
+                  {text: 'list item 2'},
+                  {text: 'list item 2'}
+                ]"
+                text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+              />
+            `
+        }}
+    </Story>
+</Canvas>
+
+### Factbox with Text Only
+
+<Canvas>
+    <Story name="With Text Only">
+        {{
+            components: { FactBox },
+            template: `
+              <fact-box
+                title="What You Need To Know"
+                text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+              />
+            `
+        }}
+    </Story>
+</Canvas>
+
+
+### Gothamist Variations
 1. Factbox with Image & List
 <img alt="Whitelabel factbox with image & list" src="./images/Molecules-Factboxes-ImgAndList-Gothamist.png" width="200" />
 <br/>

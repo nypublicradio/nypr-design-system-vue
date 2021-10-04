@@ -3,6 +3,26 @@
     <v-spacer />
     <p>this is a test paragraph</p>
     <v-spacer />
+    <fact-box
+      variation="gothamist"
+      title="What You Need To Know"
+      :list-items="[
+        {text: '<strong>list item 1 with html</strong>'},
+        {text: 'list item 2'},
+        {text: 'list item 3'}
+      ]"
+      text-block="Local and state hotlines for more information:<br>Hotline: 800-222-1222<br><strong>some HTML</strong>"
+    >
+      <image-with-caption
+        variation="gothamist"
+        alt-text="image alt text"
+        image="https://cdn.cms.demo.nypr.digital/original_images/vodka-martini-recipe-720x720.jpg"
+        credit="( AP Photo/Carolyn Kaster )"
+        credit-url="https:///www.google.com"
+        caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      />
+    </fact-box>
+    <v-spacer />
     <v-banner
       tag="Breaking News"
       headline="Red Hook Tavern Is A Cozy Neighborhood Gathering Spot (With $22 Burgers)"
@@ -222,6 +242,8 @@ export default {
   components: {
     ArticleMetadata: () => import('../components/ArticleMetadata'),
     GalleryPreview: () => import('../components/GalleryPreview'),
+    FactBox: () => import('../components/FactBox'),
+    ImageWithCaption: () => import('../components/ImageWithCaption'),
     ShareTools: () => import('../components/ShareTools'),
     ShareToolsItem: () => import('../components/ShareToolsItem'),
     VBanner: () => import('../components/VBanner'),
