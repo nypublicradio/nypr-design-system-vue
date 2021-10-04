@@ -7,6 +7,7 @@ jobs:
   build:
     executor:
       name: node/default
+      tag: '14.17.0'
     steps:
       - checkout
       - node/with-cache:
@@ -22,6 +23,7 @@ jobs:
   build-storybook:
     executor:
       name: node/default
+      tag: '14.17.0'
     steps:
       - checkout
       - node/with-cache:
@@ -30,6 +32,9 @@ jobs:
                 name: Build Storybook
                 command: |
                   [[ $CIRCLE_BRANCH = "main" ]] && RELEASE="latest" || { [[ -n $CIRCLE_BRANCH ]] && RELEASE=$CIRCLE_BRANCH || RELEASE=$CIRCLE_TAG; }
+                  rm -rf node_modules/ package-lock.json
+                  npm install
+                  npm rebuild node-sass --force
                   npm run build
                   npm run build-storybook -- -o storybook-static/$RELEASE
                   cp index.html storybook-config.json storybook-static/
