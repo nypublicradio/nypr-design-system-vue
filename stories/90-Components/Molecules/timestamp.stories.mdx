@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story, Subtitle, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, Subtitle, ArgsTable } from '@storybook/addon-docs';
 import TimeStamp from '../../../src/components/TimeStamp'
 const component = TimeStamp;
 
@@ -8,10 +8,10 @@ const component = TimeStamp;
 # Timestamp
 
 
-Timestamp displays information related to the date or time. Current usage includes, but is not limited to, time metadata in the [Article Metadata](https://nypublicradio.github.io/nypr-design-system/?path=/docs/components-molecules-article-metadata--page) and [Card](https://nypublicradio.github.io/nypr-design-system/?path=/docs/components-molecules-cards--page) components. 
+Timestamp displays information related to the date or time. Current usage includes, but is not limited to, time metadata in the [Article Metadata](https://nypublicradio.github.io/nypr-design-system/?path=/docs/components-molecules-article-metadata--page) and [Card](https://nypublicradio.github.io/nypr-design-system/?path=/docs/components-molecules-cards--page) components.
 
 
-  
+
 
 ## Fields
 This component includes optional description text, which can be used to help contextualize time in relation to a piece of content to the user. On a news story, publish date and updated date labels are examples of how this might be used. This descriptor text is flexible to be relevant to the organism/context it is used within.
@@ -34,7 +34,7 @@ This component includes optional description text, which can be used to help con
 
 **Updated Date** - Time when the content was last updated.
 
-  
+
 
 ## Formatting Time
 Timestamps follow a 12-hour clock and should include an “am” or “pm” to ensure that times of day are clearly communicated. Capitalization of "am" or "pm" is left to the discretion of the brand. When seen onsite, time is displayed according to the user's timezone. This variable calculation is handled by Aviary.
@@ -113,7 +113,7 @@ Jan, Feb, March, April, May, June, July, Aug, Sept, Oct, Nov, Dec
 </Canvas>
 
 
-### Time Ago 
+### Time Ago
 <Canvas>
     <Story name="Time Ago">
         {{
