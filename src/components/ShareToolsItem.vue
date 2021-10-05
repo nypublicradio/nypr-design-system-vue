@@ -210,7 +210,8 @@ export default {
   fill: RGB(var(--color-primary-2));
 }
 
-.share-tools-button > * {
+.share-tools-button > *,
+.c-share-tools__link > * {
   pointer-events: none;
 }
 
