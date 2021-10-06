@@ -7,7 +7,7 @@
     :aria-label="ariaLabel"
     target="_blank"
     rel="noopener"
-    @click="$emit('componentEvent', service)"
+    @click="$emit('follow', service)"
   >
     <component :is="service" />
   </a>
