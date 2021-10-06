@@ -157,6 +157,9 @@ export default {
       if (!this.service) {
         return
       }
+
+      this.$emit('share', this.service)
+
       function getPopupPosition () {
         const screenLeft = screen.availLeft
         const screenTop = screen.availTop
