@@ -141,7 +141,9 @@
 }
 
 .o-rte-text > ul,
-.o-rte-text > ol {
+.o-rte-text > ol,
+ul.o-rte-text,
+ol.o-rte-text {
   position: relative;
   list-style: none;
   padding-left: 35px;
