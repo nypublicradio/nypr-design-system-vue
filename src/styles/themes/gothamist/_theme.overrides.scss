@@ -1636,7 +1636,15 @@ ul.o-rte-text li li:before,
 .streamfield h2,
 .streamfield h3 {
   font-family: var(--font-family-pragati);
-  font-size: var(--font-size-11);
+  font-size: var(--font-size-10);
+}
+
+.streamfield h4 {
+  font-size: var(--font-size-9);
+}
+
+.streamfield h5 {
+  font-weight: bold;
 }
 
 // breaking news banner
