@@ -701,10 +701,12 @@ form .o-button:hover {
   font-weight: normal;
 }
 
+ul.o-rte-text li:before,
 .o-rte-text > ul li:before {
   background-color: RGB(var(--color-brick-red));
 }
 
+ul.o-rte-text li li:before,
 .o-rte-text > ul li li:before {
   border: 2px solid RGB(var(--color-brick-red));
 }
