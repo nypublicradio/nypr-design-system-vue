@@ -6,7 +6,7 @@ const component = VPerson;
 
 # Person
 
-Our person component displays a visual depiction of an author or host along with text fields for name and role.
+Our person component displays a visual depiction of an author or host along with fields for name, role, bio, and social links.
 
 ## Use Cases
 
@@ -38,6 +38,12 @@ Our person component displays a visual depiction of an author or host along with
 
 3- **Role** - Role or subtitle, optional. In the case of Gothamist’s “Contributing Organization” authors, the organization can be listed here concluding or replacing the role. ex: Jess Fisher, Writer (NYT) or  Jess Fisher, NYT
 
+4- **Bio** - A paragraph or so about the author, their credentials, and other information they wish to share with readers, optional.
+
+5- **[Social Follow](https://storybook.nypr.digital/latest/index.html?path=/docs/components-molecules-social-follow--horizontal)** - Social media links to the persons social accounts.
+
+6- **Optional Link** - Can be used to as an external or internal link as needed, optional. 
+
 
 ## Cropping
 
@@ -51,6 +57,12 @@ It is recommended that square profile pictures are used, with the subject center
 <img alt="text" src="./images/Molecules-Person-WNYC.png" width="300" />
 
 The WNYC variant is used to display show hosts and guests using our WNYC theme fonts and colors.
+
+### **Gothamist**
+<img alt="text" src="./images/Molecules-Person-Gothamist.png" width="531" />
+
+The Gothamist variant is used to display authors, reporters, and staff, optionally including their bio and social media links.
+
 
 ## Configurations
 The person component can be arranged horizontally or vertically. Horizontal is the preferred and default configuration, but vertical is useful on mobile or when listing many people.
