@@ -18,19 +18,18 @@ Our person component displays a visual depiction of an author or host along with
 ## What’s Inside
 
 <Canvas>
-    <Story name="Person">
+    <Story name="Person default">
         {{
             components: { VPerson },
             template: `
 <v-person
     image="./images/Placeholder-Image-1_1.png"
-    name='Firstname Lastname'
-    role='Host'
 />
 `
         }}
     </Story>
 </Canvas>
+
 
 1- **Image** - An image of the person, or a placeholder image if none is provided. Can be made a clickable link out to a relevant page (eg. twitter profile, bio, author page).
 
@@ -82,53 +81,28 @@ In the future when the person component gets integrated with Gothamist, the comp
 
 ## Stories
 
-
-### Person With Link
-
+### Person Image only
 <Canvas>
-    <Story name="Person with Link">
+    <Story name="Person image only">
         {{
             components: { VPerson },
             template: `
 <v-person
     image="./images/Placeholder-Image-1_1.png"
-    name='Firstname Lastname'
-    nameLink='http://example.com'
-    role='Host'
 />
 `
         }}
     </Story>
 </Canvas>
 
-### Person With No Image
-
+### Person Image only with link
 <Canvas>
-    <Story name="Person With No Image">
-        {{
-            components: { VPerson },
-            template: `
-<v-person
-    name="Firstname Lastname"
-    nameLink='http://example.com'
-    role="Host"
-/>
-`
-        }}
-    </Story>
-</Canvas>
-
-### Person With Image Only
-
-
-<Canvas>
-    <Story name="Person With Image Only">
+    <Story name="Person image only with link">
         {{
             components: { VPerson },
             template: `
 <v-person
     image="./images/Placeholder-Image-1_1.png"
-    alt='Firstname Lastname'
     nameLink='http://example.com'
 />
 `
@@ -136,40 +110,151 @@ In the future when the person component gets integrated with Gothamist, the comp
     </Story>
 </Canvas>
 
-### Person Vertical
+### Person details
 
 <Canvas>
-    <Story name="Person Vertical">
+    <Story name="Person details">
         {{
             components: { VPerson },
             template: `
 <v-person
-    class="mod-vertical-desktop"
     image="./images/Placeholder-Image-1_1.png"
-    name='Firstname Lastname'
+    name='Jen Chung'
     nameLink='http://example.com'
-    role='Host'
+    role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    
 />
 `
         }}
     </Story>
 </Canvas>
 
-### Person Horizontal (even in mobile)
+
+### Person details circle image
 
 <Canvas>
-    <Story name="Person Horizontal">
+    <Story name="Person details circle image">
         {{
             components: { VPerson },
             template: `
 <v-person
-    class="mod-horizontal-mobile"
     image="./images/Placeholder-Image-1_1.png"
-    name='Firstname Lastname'
+    circle
+    name='Jen Chung'
     nameLink='http://example.com'
-    role='Host'
+    role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    
 />
 `
         }}
     </Story>
 </Canvas>
+
+### Person details with no image
+
+<Canvas>
+    <Story name="Person details no image">
+        {{
+            components: { VPerson },
+            template: `
+<v-person
+    name='Jen Chung'
+    nameLink='http://example.com'
+    role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+
+### Person details vertical
+
+<Canvas>
+    <Story name="Person vertical">
+        {{
+            components: { VPerson },
+            template: `
+<v-person
+    vertical
+    image="./images/Placeholder-Image-1_1.png"
+    name='Jen Chung'
+    nameLink='http://example.com'
+    role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+
+### Person details vertical at breakpoint
+
+<Canvas>
+    <Story name="Person vertical at breakpoint">
+        {{
+            components: { VPerson },
+            template: `
+<v-person
+    vertical="medium"
+    image="./images/Placeholder-Image-1_1.png"
+    name='Jen Chung'
+    nameLink='http://example.com'
+    role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+### Person details vertical with image size percentage
+
+<Canvas>
+    <Story name="Person vertical with image size percentage">
+        {{
+            components: { VPerson },
+            template: `
+<v-person
+    vertical
+    imgScale="40"
+    image="./images/Placeholder-Image-1_1.png"
+    name='Jen Chung'
+    nameLink='http://example.com'
+    role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+
+### Person truncated blurb 
+
+<Canvas>
+    <Story name="Person truncated blurb">
+        {{
+            components: { VPerson },
+            template: `
+<v-person
+    image="./images/Placeholder-Image-1_1.png"
+    name='Jen Chung'
+    nameLink='http://example.com'
+    role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    truncate="30"
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
