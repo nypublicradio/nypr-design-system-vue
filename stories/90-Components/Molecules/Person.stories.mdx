@@ -180,29 +180,7 @@ In the future when the person component gets integrated with Gothamist, the comp
             components: { VPerson },
             template: `
 <v-person
-    vertical
-    image="./images/Placeholder-Image-1_1.png"
-    name='Jen Chung'
-    nameLink='http://example.com'
-    role='Executive Editor and Co-founder'
-    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
-    
-/>
-`
-        }}
-    </Story>
-</Canvas>
-
-
-### Person details vertical at breakpoint
-
-<Canvas>
-    <Story name="Person vertical at breakpoint">
-        {{
-            components: { VPerson },
-            template: `
-<v-person
-    vertical="medium"
+    orientation="vertical"
     image="./images/Placeholder-Image-1_1.png"
     name='Jen Chung'
     nameLink='http://example.com'
@@ -223,7 +201,7 @@ In the future when the person component gets integrated with Gothamist, the comp
             components: { VPerson },
             template: `
 <v-person
-    vertical
+    orientation="vertical"
     imgScale="40"
     image="./images/Placeholder-Image-1_1.png"
     name='Jen Chung'
@@ -236,6 +214,30 @@ In the future when the person component gets integrated with Gothamist, the comp
         }}
     </Story>
 </Canvas>
+
+### Person details vertical responsive
+
+<Canvas>
+    <Story name="Person vertical responsive">
+        {{
+            components: { VPerson },
+            template: `
+<v-person
+    orientation="responsive"
+    imgScale="40"
+    image="./images/Placeholder-Image-1_1.png"
+    name='Jen Chung'
+    nameLink='http://example.com'
+    role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+
 
 
 ### Person truncated blurb 

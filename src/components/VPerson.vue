@@ -1,14 +1,14 @@
 <template>
   <div
     class="person"
-    :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', vertical ? 'vertical' : '']"
+    :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', orientation === 'vertical' ? 'vertical' : '', orientation === 'responsive' ? 'responsive' : '']"
+    :style="cssVars"
   >
     <template v-if="nameLink && image">
       <nuxt-link
         class="person-link"
         :class="[circle ? 'circle' : '']"
         :to="nameLink"
-        :style="{'width':imgScale+'%'}"
         aria-hidden="true"
         role="presentation"
         tabindex="-1"
@@ -23,8 +23,8 @@
     <template v-else>
       <span
         v-if="image"
+        class="person-image-holder"
         style="justify-self: center;"
-        :style="{'width':imgScale+'%'}"
         v-html="theVisualAsset"
       />
     </template>
@@ -56,11 +56,11 @@
       />
       <span
         v-if="blurb"
-        class="blurb"
-        @click="readMore = !readMore"
+        ref="blurbRef"
+        class="blurb collapsed"
+        @click="handleBlurb()"
         v-html="truncBlurb"
       />
-
       <share-tools class="social">
         <share-tools-item
           service="facebook"
@@ -153,14 +153,14 @@ export default {
       default: null
     },
     /**
-     *  for a stacked vertical layout, string = breakpoint to turn vertical
+     *  for a stacked vertical layout, string: horizontal(default), vertical, responsive (changes to vertical at the small greak point)
      */
-    vertical: {
-      type: [Boolean, String],
-      default: false
+    orientation: {
+      type: String,
+      default: 'horizontal'
     },
     /**
-     *  % the image will scale in its container
+     *  % the image will scale in its container for orientation vertical only
      */
     imgScale: {
       type: String,
@@ -173,6 +173,11 @@ export default {
     }
   },
   computed: {
+    cssVars () {
+      return {
+        '--img-scale': this.imgScale + '%'
+      }
+    },
     hasDetails () {
       return !!this.role || !!this.blurb || !!this.social || !!this.name
     },
@@ -191,6 +196,7 @@ export default {
     truncBlurb () {
       if (this.truncate) {
         const truncValue = this.truncate === true ? 90 : Number(this.truncate)
+
         if (this.readMore) {
           return this.blurb + '<a class="read-more">READ LESS</a>'
         } else {
@@ -204,11 +210,33 @@ export default {
         return this.blurb
       }
     }
+  },
+  methods: {
+    handleBlurb () {
+      const { blurbRef } = this.$refs
+      this.readMore = !this.readMore
+      blurbRef.classList.toggle('collapsed')
+    }
   }
 }
 </script>
 
 <style lang="scss">
+@mixin vertical-styles {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  text-align: center;
+  justify-items: center;
+  .person-details .social {
+    justify-self: center;
+    margin-left: 0;
+  }
+  .person-link,
+  .person-image-holder {
+    width: var(--img-scale);
+  }
+}
+
 .person {
   display: grid;
   grid-template-columns: auto;
@@ -221,13 +249,12 @@ export default {
     grid-template-columns: 1fr;
   }
   &.vertical {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
-    text-align: center;
-    justify-items: center;
-    .person-details .social {
-      justify-self: center;
-      margin-left: 0;
+    @include vertical-styles;
+  }
+
+  &.responsive {
+    @include media("<small") {
+      @include vertical-styles;
     }
   }
   .person-link {
@@ -269,6 +296,13 @@ export default {
     }
 
     .blurb {
+      overflow: hidden;
+      transition: max-height 0.3s ease-out; // note that we're transitioning max-height, not height!
+      height: auto;
+      max-height: 600px; // still have to hard-code a value!
+      &.collapsed {
+        //max-height: 200px;
+      }
       margin-top: var(--space-1);
       font-weight: var(--font-weight-body);
       font-size: var(--font-size-4);
