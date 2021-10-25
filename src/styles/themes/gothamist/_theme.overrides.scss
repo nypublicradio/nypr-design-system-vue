@@ -701,10 +701,12 @@ form .o-button:hover {
   font-weight: normal;
 }
 
+ul.o-rte-text li:before,
 .o-rte-text > ul li:before {
   background-color: RGB(var(--color-brick-red));
 }
 
+ul.o-rte-text li li:before,
 .o-rte-text > ul li li:before {
   border: 2px solid RGB(var(--color-brick-red));
 }
@@ -1631,10 +1633,22 @@ form .o-button:hover {
   background-color: RGB(var(--color-reddish-orange));
 }
 
-.streamfield h2,
-.streamfield h3 {
-  font-family: var(--font-family-pragati);
+.streamfield h2 {
   font-size: var(--font-size-11);
+  font-family: var(--font-family-pragati);
+}
+
+.streamfield h3 {
+  font-size: var(--font-size-10);
+  font-family: var(--font-family-pragati);
+}
+
+.streamfield h4 {
+  font-size: var(--font-size-9);
+}
+
+.streamfield h5 {
+  font-weight: bold;
 }
 
 // breaking news banner
