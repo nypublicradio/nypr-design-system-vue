@@ -70,6 +70,10 @@ import CloseIcon from '../components/icons/CloseIcon'
 import SearchIcon from '../components/icons/SearchIcon'
 import VButton from '../components/VButton'
 
+import {
+  ref
+} from 'vue'
+
 export default {
   name: 'VSearch',
   components: {
@@ -97,6 +101,14 @@ export default {
     transition: {
       type: String,
       default: 'slide-right'
+    }
+  },
+  setup () {
+    const searchButton = ref(null)
+    const searchForm = ref(null)
+    return {
+      searchButton,
+      searchForm
     }
   },
   data () {
@@ -130,13 +142,13 @@ export default {
       this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
       this.$nextTick(() => {
-        this.$refs.searchInput.focus()
+        this.searchInput.focus()
         this.listenToInput()
       })
     },
     submit (e) {
       this.$emit('searchBarSubmit', e)
-      this.$refs.searchForm.submit()
+      this.searchForm.submit()
     }
   }
 }
