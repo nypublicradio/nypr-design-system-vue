@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="thisPerson"
     class="person"
     :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', orientation === 'vertical' ? 'vertical' : '', orientation === 'responsive' ? 'responsive' : '']"
     :style="cssVars"
@@ -14,54 +15,58 @@
         :custom-title="name +`'s introduction video` "
         thumbnail-quality="medium"
         class="video"
-        src="https://www.youtube.com/watch?v=LOS5WB75gkY"
+        :src="video"
       />
+      <!-- close button in the upper right -->
       <v-button
-        class="mod-small closer"
-        label="X"
+        class="mod-flat closer"
         @click="handleVideoClick($event)"
-      />
+      >
+        <close-icon />
+      </v-button>
     </div>
 
-    <template v-if=" nameLink && image">
-      <nuxt-link
-        class="person-link"
-        :to="nameLink"
-        aria-hidden="true"
-        role="presentation"
-        tabindex="-1"
-        @click="$emit(' componentEvent', nameLink)"
-      >
-        <span
-          v-if="image"
-          :class="[circle ? 'circle' : '']"
-          v-html="theVisualAsset"
-        />
-        <v-button
-          v-if="video"
-          class="mod-flat video-play-button"
-          @click="handleVideoClick($event)"
-        >
-          <play-icon />
-        </v-button>
-      </nuxt-link>
-    </template>
-    <template v-else>
+    <!-- Image section -->
+    <nuxt-link
+      v-if="image"
+      class="person-link"
+      :class="!nameLink ? 'disabled' : ''"
+      :to="nameLink ? nameLink : null"
+      aria-hidden="true"
+      role="presentation"
+      tabindex="-1"
+      @click="nameLink ? $emit(' componentEvent', nameLink) : null"
+    >
       <span
         v-if="image"
+        ref="visual"
+        class="u-image__1x1 visual"
         :class="[circle ? 'circle' : '']"
-        class="person-image-holder"
-        style="justify-self: center;"
-        v-html="theVisualAsset"
-      />
+      >
+        <canvas
+          ref="canvas"
+          class="person-image"
+        ></canvas>
+        <img
+          ref="img"
+          class="person-image"
+          :src="image"
+          :alt="name"
+          role="presentation"
+          loading="lazy"
+          decoding="async"
+        />
+      </span>
       <v-button
         v-if="video"
         class="mod-flat video-play-button"
         @click="handleVideoClick($event)"
       >
-        <play-icon />
+        <play-icon :title="`Play `+ name +`'s introduction video`" />
       </v-button>
-    </template>
+    </nuxt-link>
+
+    <!-- Detail section -->
     <div
       v-if="hasDetails"
       class="person-details"
@@ -101,43 +106,42 @@
       </div>
       <a
         v-if="truncate"
-        class="read-more"
         ref="readMoreRef"
+        class="read-more"
         @click="handleBlurb()"
       >
         {{ readMore ? 'read less' : 'read more' }}
       </a>
 
-      <share-tools class="social">
+      <share-tools
+        v-if="social"
+        class="social"
+      >
         <share-tools-item
-          service="facebook"
-          username="WNYC"
-        />
-        <share-tools-item
-          service="twitter"
-          username="WNYC"
-        />
-        <share-tools-item
-          service="instagram"
-          username="WNYC"
-        />
-        <share-tools-item
-          service="youtube"
-          username="UCbysmY4hyViQAAYEzOR-uCQ"
+          v-for="(item, index) in social"
+          :key="index"
+          :service="item.service"
+          :username="item.username"
+          :link="item.link"
+          :label="item.label"
+          :action="item.action"
+          :url="item.url"
         />
       </share-tools>
     </div>
-
   </div>
 </template>
 
 <script>
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { LazyYoutube } from 'vue-lazytube'
 import VButton from './VButton'
 import PlayIcon from './icons/PlayIcon'
+import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
+gsap.registerPlugin(ScrollTrigger)
 let debounce
 /**
  * A component for displaying details about a person
@@ -148,6 +152,7 @@ export default {
     ShareToolsItem,
     VButton,
     PlayIcon,
+    CloseIcon,
     LazyYoutube
   },
   props: {
@@ -232,7 +237,8 @@ export default {
   data () {
     return {
       readMore: false,
-      showVideo: false
+      showVideo: false,
+      inViewPort: false
     }
   },
   computed: {
@@ -244,23 +250,19 @@ export default {
     },
     hasDetails () {
       return !!this.role || !!this.blurb || !!this.social || !!this.name
-    },
-    theVisualAsset () {
-      return `
-        <img
-          class="person-image"
-          src="${this.image}"
-          alt="${this.name}"
-          role="presentation"
-          loading="lazy"
-          decoding="async"
-        />
-    `
     }
   },
   mounted () {
     if (this.truncate) {
       window.addEventListener('resize', this.onResize)
+    }
+    // call method when the animation when "thisPerson" enters the viewport (once)
+    if (this.image && this.isGIF(this.image)) {
+      const { thisPerson } = this.$refs
+      gsap.to(thisPerson, {
+        scrollTrigger: thisPerson,
+        onComplete: this.handleInViewPort
+      })
     }
   },
   beforeDestroy () {
@@ -295,6 +297,23 @@ export default {
       event.preventDefault()
       event.stopPropagation()
       this.showVideo = !this.showVideo
+    },
+    handleInViewPort (inViewPort, entry) {
+      /* wait 10 seconds then swap out GIF with canvas render */
+      this.inViewPort = inViewPort
+      const { canvas, img } = this.$refs
+      setTimeout(function () {
+        const w = img.clientWidth
+        const h = img.clientHeight
+        canvas.setAttribute('width', w + 'px')
+        canvas.setAttribute('height', h + 'px')
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h)
+        img.remove()
+        canvas.classList.add('show')
+      }, 10000)
+    },
+    isGIF (imageURL) {
+      return imageURL.match(/(http(s?):)([/|.|\w|\s|-])*\.(?:gif)/g)
     }
   }
 }
@@ -346,10 +365,25 @@ export default {
       border-radius: 100%;
       overflow: hidden;
     }
+    &.disabled {
+      pointer-events: none;
+    }
   }
   .person-image {
-    width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+  }
+  .u-image__1x1 {
+    position: relative;
+    display: block;
+  }
+  .visual {
+    canvas {
+      display: none;
+      &.show {
+        display: block;
+      }
+    }
   }
   .video-play-button {
     position: absolute;

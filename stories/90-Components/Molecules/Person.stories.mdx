@@ -230,7 +230,34 @@ In the future when the person component gets integrated with Gothamist, the comp
     nameLink='http://example.com'
     role='Executive Editor and Co-founder'
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
-    
+    :social="[
+        {
+            service: 'facebook',
+            link: 'https://www.facebook.com/WNYC',
+        },
+        {
+            service: 'twitter',
+            link: 'https://twitter.com/WNYC'
+        },
+        {
+            service: 'instagram',
+            link: 'https://www.instagram.com/WNYC/'
+        },
+        {
+            service: 'linkedin',
+            action: 'share',
+            url: 'https://www.nvidia.com/en-us/studio/canvas/#sys-req'
+        },
+        {
+            service: 'youtube',
+            link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+        },
+        {
+            service: 'site',
+            label: 'Google site',
+            link: 'https://www.google.com'
+        } 
+    ]"
 />
 `
         }}
@@ -252,7 +279,7 @@ In the future when the person component gets integrated with Gothamist, the comp
     name='Jen Chung'
     nameLink='http://example.com'
     role='Executive Editor and Co-founder'
-    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     truncate="2"
 />
 `
@@ -272,10 +299,56 @@ In the future when the person component gets integrated with Gothamist, the comp
     video="https://www.youtube.com/watch?v=LOS5WB75gkY"
     name='Jen Chung'
     circle
-    truncate="2"
     nameLink='http://example.com'
     role='Executive Editor and Co-founder'
-    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+
+### Person truncated blurb 
+
+<Canvas>
+    <Story name="Person with social links">
+        {{
+            components: { VPerson },
+            template: `
+<v-person
+    image="./images/Placeholder-Image-1_1.png"
+    name='Jen Chung'
+    nameLink='http://example.com'
+    role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
+    :social="[
+        {
+            service: 'facebook',
+            link: 'https://www.facebook.com/WNYC',
+        },
+        {
+            service: 'twitter',
+            link: 'https://twitter.com/WNYC'
+        },
+        {
+            service: 'instagram',
+            link: 'https://www.instagram.com/WNYC/'
+        },
+        {
+            service: 'linkedin',
+            link: 'https://www.linkedin.com/company/wnyc-radio/'
+        },
+        {
+            service: 'youtube',
+            link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+        },
+        {
+            service: 'site',
+            label: 'My site',
+            link: 'https://www.google.com'
+        } 
+    ]"
 />
 `
         }}

@@ -19,6 +19,7 @@ module.exports = {
         max: 2
       }
     }],
-    'vue/no-v-html': 0
+    'vue/no-v-html': 0,
+    'vue/html-self-closing': 0
   }
 }
