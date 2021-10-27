@@ -8,6 +8,7 @@
     <div
       v-if="video && showVideo"
       class="video-holder"
+      @click="handleVideoClick($event)"
     >
       <LazyYoutube
         ref="youtubeLazyVideo"
@@ -37,38 +38,41 @@
       tabindex="-1"
       @click="nameLink ? $emit(' componentEvent', nameLink) : null"
     >
-      <span
-        v-if="image"
-        ref="visual"
-        class="u-image__1x1 visual"
-        :class="[circle ? 'circle' : '']"
-      >
-        <canvas
-          ref="canvas"
-          class="person-image"
-        ></canvas>
-        <img
-          ref="img"
-          class="person-image"
-          :src="image"
-          :alt="name"
-          role="presentation"
-          loading="lazy"
-          decoding="async"
-        />
-      </span>
-      <v-button
-        v-if="video"
-        class="mod-flat video-play-button"
-        @click="handleVideoClick($event)"
-      >
-        <play-icon :title="`Play `+ name +`'s introduction video`" />
-      </v-button>
+      <div ref="imgRef">
+        <span
+          v-if="image"
+          ref="visual"
+          class="u-image__1x1 visual"
+          :class="[circle ? 'circle' : '']"
+        >
+          <canvas
+            ref="canvas"
+            class="person-image"
+          ></canvas>
+          <img
+            ref="img"
+            class="person-image"
+            :src="image"
+            :alt="name"
+            role="presentation"
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
+        <v-button
+          v-if="video"
+          class="mod-flat video-play-button"
+          @click="handleVideoClick($event)"
+        >
+          <play-icon :title="`Play `+ name +`'s introduction video`" />
+        </v-button>
+      </div>
     </nuxt-link>
 
     <!-- Detail section -->
     <div
       v-if="hasDetails"
+      ref="detailsRef"
       class="person-details"
     >
       <div
@@ -174,6 +178,13 @@ export default {
       default: null
     },
     /**
+     *  image scale in its container in vertical orientation only
+     */
+    imgScale: {
+      type: String,
+      default: '100'
+    },
+    /**
      *  adds a circle mask around the image.
      */
     circle: {
@@ -181,9 +192,30 @@ export default {
       default: false
     },
     /**
+     *  adds a basic animation to the component when it enters the viewport once. If an image and details are present, it will animate them individually. If either is missing, it will animate the entire component.
+     */
+    animate: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     *  youtube link to promo video
+     */
+    video: {
+      type: String,
+      default: null
+    },
+    /**
      *  Full name of the person.
      */
     name: {
+      type: String,
+      default: null
+    },
+    /**
+     *  A URL pointing to the person's bio page or anywhere else they want to link to.
+     */
+    nameLink: {
       type: String,
       default: null
     },
@@ -198,13 +230,6 @@ export default {
      *  link to the organization.
      */
     organizationLink: {
-      type: String,
-      default: null
-    },
-    /**
-     *  A URL pointing to the person's bio page or anywhere else they want to link to.
-     */
-    nameLink: {
       type: String,
       default: null
     },
@@ -242,20 +267,6 @@ export default {
     orientation: {
       type: String,
       default: 'horizontal'
-    },
-    /**
-     *  image scale in its container in vertical orientation only
-     */
-    imgScale: {
-      type: String,
-      default: '100'
-    },
-    /**
-     *  youtube link to promo video
-     */
-    video: {
-      type: String,
-      default: null
     }
   },
   data () {
@@ -292,6 +303,28 @@ export default {
         scrollTrigger: thisPerson,
         onComplete: this.handleInViewPort
       })
+    }
+
+    // animate card when it enters the viewport
+    if (this.animate) {
+      const { thisPerson, imgRef, detailsRef } = this.$refs
+      const tl = gsap.timeline({
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: thisPerson
+        }
+      })
+      if (this.hasDetails && this.image) {
+        tl.from(imgRef, {
+          duration: 1,
+          scale: 0.85,
+          opacity: 0,
+          ease: 'back.out'
+        })
+        tl.from(detailsRef, { duration: 1, opacity: 0 }, '-=0.5')
+      } else {
+        tl.from(thisPerson, { duration: 1, opacity: 0 })
+      }
     }
   },
   beforeDestroy () {
@@ -528,8 +561,8 @@ export default {
     z-index: 15;
     max-width: 100%;
     .video {
-      width: 90vw;
-      height: 90vh;
+      width: calc(100vw - 100px);
+      height: calc(100vh - 80px);
       max-width: 100%;
       position: absolute;
       top: 0;
@@ -537,11 +570,16 @@ export default {
       left: 0;
       right: 0;
       margin: auto;
+      @include media("<small") {
+        width: 100vw;
+        top: 40px;
+        height: calc(100vh - 40px);
+      }
     }
     .closer {
       position: absolute;
-      top: 20px;
-      right: 20px;
+      top: 15px;
+      right: 15px;
     }
   }
 }

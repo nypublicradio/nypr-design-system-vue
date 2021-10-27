@@ -28,6 +28,7 @@ Our person component displays a visual depiction of an author or host along with
     video="https://www.youtube.com/watch?v=LOS5WB75gkY"
     imgScale="70"
     circle
+    animate
     name='Jen Chung'
     nameLink='https://gothamist.com/staff/jen-chung'
     role='Executive Editor and Co-founder'
@@ -69,7 +70,7 @@ Our person component displays a visual depiction of an author or host along with
 </Canvas>
 
 
-**Image** - An image of the person, or a placeholder image if none is provided. Can be made a clickable link out to a relevant page (eg. author page, twitter profile, bio ). An animated GIF can be used, but will stop animating after 10 seconds
+**Image** - An image of the person, or a placeholder image if none is provided. Can be made a clickable link out to a relevant page (eg. author page, twitter profile, bio ). a circle mask can be applied by using the "circle" prop. An animated GIF can be used, but will stop animating after 10 seconds. Size can be altered in the vertical orientation only using "imgScale" prop. This value is a percentage of the wisth of the available area.
 
 **Video** - An optional promotional video can be triggered to play with a PLAY button placed over the image.
 
@@ -77,7 +78,9 @@ Our person component displays a visual depiction of an author or host along with
 
 **Role** - Role or subtitle, optional. In the case of Gothamist’s “Contributing Organization” authors, the organization can be listed here concluding or replacing the role. ex: Jess Fisher, Writer (NYT) or  Jess Fisher, NYT
 
-**Blurb** - A paragraph or so about the author, their credentials, and other information they wish to share with readers, optional.
+**Organization** - When provided, it will be added after the Role in parentheses. If the "organizationLink" is provided, it will be a clickable link to the organization. 
+
+**Blurb** - A paragraph or so about the author, their credentials, and other information they wish to share with readers, optional. This blurb can be optionally truncated to a certain number of lines with the "truncate" prop.
 
 **[Social](https://storybook.nypr.digital/latest/index.html?path=/docs/components-molecules-social-follow--horizontal)** - Social media links to the persons social accounts.
 
@@ -314,6 +317,27 @@ In the future when the person component gets integrated with Gothamist, the comp
     role='Executive Editor and Co-founder'
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     truncate="2"
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+
+### Person animated 
+
+<Canvas>
+    <Story name="Person animated">
+        {{
+            components: { VPerson },
+            template: `
+<v-person
+    image="./images/default-user.jpg"
+    name='Jen Chung'
+    nameLink='https://gothamist.com/staff/jen-chung'
+    role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
+    animate
 />
 `
         }}
