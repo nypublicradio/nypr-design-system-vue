@@ -6,7 +6,7 @@ const component = VPerson;
 
 # Person
 
-Our person component displays a visual depiction of an author or host along with fields for name, role, bio, and social links.
+Our person component displays a visual depiction of an author or host along with fields for name, role, bio, social links and a promo video. 
 
 ## Use Cases
 
@@ -18,12 +18,50 @@ Our person component displays a visual depiction of an author or host along with
 ## What’s Inside
 
 <Canvas>
-    <Story name="Person default">
+    <Story name="Person">
         {{
             components: { VPerson },
             template: `
 <v-person
-    image="./images/Placeholder-Image-1_1.png"
+    orientation="responsive"
+    image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
+    video="https://www.youtube.com/watch?v=LOS5WB75gkY"
+    imgScale="70"
+    circle
+    name='Jen Chung'
+    nameLink='https://gothamist.com/staff/jen-chung'
+    role='Executive Editor and Co-founder'
+    organization='Gothamist'
+    organizationLink="https://gothamist.com/"
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
+    truncate="2"
+    :social="[
+        {
+            service: 'facebook',
+            link: 'https://www.facebook.com/WNYC',
+        },
+        {
+            service: 'twitter',
+            link: 'https://twitter.com/WNYC'
+        },
+        {
+            service: 'instagram',
+            link: 'https://www.instagram.com/WNYC/'
+        },
+        {
+            service: 'linkedin',
+            link: 'https://www.linkedin.com/company/wnyc-radio/'
+        },
+        {
+            service: 'youtube',
+            link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+        },
+        {
+            service: 'site',
+            label: 'My site',
+            link: 'https://www.google.com'
+        } 
+    ]"
 />
 `
         }}
@@ -31,20 +69,21 @@ Our person component displays a visual depiction of an author or host along with
 </Canvas>
 
 
-1- **Image** - An image of the person, or a placeholder image if none is provided. Can be made a clickable link out to a relevant page (eg. twitter profile, bio, author page).
+**Image** - An image of the person, or a placeholder image if none is provided. Can be made a clickable link out to a relevant page (eg. author page, twitter profile, bio ). An animated GIF can be used, but will stop animating after 10 seconds
 
-2- **Name** - Name of person, required for this component. Can be made a clickable link out to a relevant page (eg. twitter profile, bio, author page).
+**Video** - An optional promotional video can be triggered to play with a PLAY button placed over the image.
 
-3- **Role** - Role or subtitle, optional. In the case of Gothamist’s “Contributing Organization” authors, the organization can be listed here concluding or replacing the role. ex: Jess Fisher, Writer (NYT) or  Jess Fisher, NYT
+**Name** - Name of person, required for this component. Can be made a clickable link out to a relevant page (eg. author page, twitter profile, bio ).
 
-4- **Bio** - A paragraph or so about the author, their credentials, and other information they wish to share with readers, optional.
+**Role** - Role or subtitle, optional. In the case of Gothamist’s “Contributing Organization” authors, the organization can be listed here concluding or replacing the role. ex: Jess Fisher, Writer (NYT) or  Jess Fisher, NYT
 
-5- **[Social Follow](https://storybook.nypr.digital/latest/index.html?path=/docs/components-molecules-social-follow--horizontal)** - Social media links to the persons social accounts.
+**Blurb** - A paragraph or so about the author, their credentials, and other information they wish to share with readers, optional.
 
-6- **Optional Link** - Can be used to as an external or internal link as needed, optional. 
+**[Social](https://storybook.nypr.digital/latest/index.html?path=/docs/components-molecules-social-follow--horizontal)** - Social media links to the persons social accounts.
 
 
-## Cropping
+
+## Image Cropping
 
 It is recommended that square profile pictures are used, with the subject centered. Using landscape or portrait orientated photos might result in unwanted cropping.
 <img alt="text" src="./images/Molecule-Person-Cropping.png" width="700" />
@@ -64,7 +103,7 @@ The Gothamist variant is used to display authors, reporters, and staff, optional
 
 
 ## Configurations
-The person component can be arranged horizontally or vertically. Horizontal is the preferred and default configuration, but vertical is useful on mobile or when listing many people.
+The person component can be arranged horizontally(default) or vertically. Horizontal is the preferred and default configuration, but vertical is useful on mobile or when listing many people. A responsive configuration is also available. This will make it start horizontal and change to vertical at the SMALL break point or lower.
 
 ## Accessibility
 - Text, icons, and background color must meet WCAG 2.0 [minimum contrast](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) requirement.
@@ -88,7 +127,7 @@ In the future when the person component gets integrated with Gothamist, the comp
             components: { VPerson },
             template: `
 <v-person
-    image="./images/Placeholder-Image-1_1.png"
+    image="./images/default-user.jpg"
 />
 `
         }}
@@ -102,8 +141,8 @@ In the future when the person component gets integrated with Gothamist, the comp
             components: { VPerson },
             template: `
 <v-person
-    image="./images/Placeholder-Image-1_1.png"
-    nameLink='http://example.com'
+    image="./images/default-user.jpg"
+    nameLink='https://gothamist.com/staff/jen-chung'
 />
 `
         }}
@@ -118,10 +157,32 @@ In the future when the person component gets integrated with Gothamist, the comp
             components: { VPerson },
             template: `
 <v-person
-    image="./images/Placeholder-Image-1_1.png"
+    image="./images/default-user.jpg"
     name='Jen Chung'
-    nameLink='http://example.com'
+    nameLink='https://gothamist.com/staff/jen-chung'
     role='Executive Editor and Co-founder'
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    
+/>
+`
+        }}
+    </Story>
+</Canvas>
+
+### Person details with organization
+
+<Canvas>
+    <Story name="Person details with organization">
+        {{
+            components: { VPerson },
+            template: `
+<v-person
+    image="./images/default-user.jpg"
+    name='Jen Chung'
+    nameLink='https://gothamist.com/staff/jen-chung'
+    role='Executive Editor and Co-founder'
+    organization='Gothamist'
+    organizationLink="https://gothamist.com/"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
 />
@@ -139,10 +200,10 @@ In the future when the person component gets integrated with Gothamist, the comp
             components: { VPerson },
             template: `
 <v-person
-    image="./images/Placeholder-Image-1_1.png"
+    image="./images/default-user.jpg"
     circle
     name='Jen Chung'
-    nameLink='http://example.com'
+    nameLink='https://gothamist.com/staff/jen-chung'
     role='Executive Editor and Co-founder'
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
@@ -161,7 +222,7 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     name='Jen Chung'
-    nameLink='http://example.com'
+    nameLink='https://gothamist.com/staff/jen-chung'
     role='Executive Editor and Co-founder'
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
@@ -181,9 +242,9 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     orientation="vertical"
-    image="./images/Placeholder-Image-1_1.png"
+    image="./images/default-user.jpg"
     name='Jen Chung'
-    nameLink='http://example.com'
+    nameLink='https://gothamist.com/staff/jen-chung'
     role='Executive Editor and Co-founder'
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
@@ -203,9 +264,9 @@ In the future when the person component gets integrated with Gothamist, the comp
 <v-person
     orientation="vertical"
     imgScale="40"
-    image="./images/Placeholder-Image-1_1.png"
+    image="./images/default-user.jpg"
     name='Jen Chung'
-    nameLink='http://example.com'
+    nameLink='https://gothamist.com/staff/jen-chung'
     role='Executive Editor and Co-founder'
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
@@ -215,49 +276,21 @@ In the future when the person component gets integrated with Gothamist, the comp
     </Story>
 </Canvas>
 
-### Person details vertical responsive
+### Person details responsive
 
 <Canvas>
-    <Story name="Person vertical responsive">
+    <Story name="Person responsive">
         {{
             components: { VPerson },
             template: `
 <v-person
     orientation="responsive"
     imgScale="40"
-    image="./images/Placeholder-Image-1_1.png"
+    image="./images/default-user.jpg"
     name='Jen Chung'
-    nameLink='http://example.com'
+    nameLink='https://gothamist.com/staff/jen-chung'
     role='Executive Editor and Co-founder'
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
-    :social="[
-        {
-            service: 'facebook',
-            link: 'https://www.facebook.com/WNYC',
-        },
-        {
-            service: 'twitter',
-            link: 'https://twitter.com/WNYC'
-        },
-        {
-            service: 'instagram',
-            link: 'https://www.instagram.com/WNYC/'
-        },
-        {
-            service: 'linkedin',
-            action: 'share',
-            url: 'https://www.nvidia.com/en-us/studio/canvas/#sys-req'
-        },
-        {
-            service: 'youtube',
-            link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
-        },
-        {
-            service: 'site',
-            label: 'Google site',
-            link: 'https://www.google.com'
-        } 
-    ]"
 />
 `
         }}
@@ -275,9 +308,9 @@ In the future when the person component gets integrated with Gothamist, the comp
             components: { VPerson },
             template: `
 <v-person
-    image="./images/Placeholder-Image-1_1.png"
+    image="./images/default-user.jpg"
     name='Jen Chung'
-    nameLink='http://example.com'
+    nameLink='https://gothamist.com/staff/jen-chung'
     role='Executive Editor and Co-founder'
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     truncate="2"
@@ -299,7 +332,7 @@ In the future when the person component gets integrated with Gothamist, the comp
     video="https://www.youtube.com/watch?v=LOS5WB75gkY"
     name='Jen Chung'
     circle
-    nameLink='http://example.com'
+    nameLink='https://gothamist.com/staff/jen-chung'
     role='Executive Editor and Co-founder'
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
 />
@@ -309,17 +342,19 @@ In the future when the person component gets integrated with Gothamist, the comp
 </Canvas>
 
 
-### Person truncated blurb 
+### Person with social links & responsive
 
 <Canvas>
-    <Story name="Person with social links">
+    <Story name="Person with social links and responsive">
         {{
             components: { VPerson },
             template: `
 <v-person
-    image="./images/Placeholder-Image-1_1.png"
+    orientation="responsive"
+    image="./images/default-user.jpg"
+    imgScale="40"
     name='Jen Chung'
-    nameLink='http://example.com'
+    nameLink='https://gothamist.com/staff/jen-chung'
     role='Executive Editor and Co-founder'
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
     :social="[

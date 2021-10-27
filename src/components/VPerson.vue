@@ -91,8 +91,17 @@
       <span
         v-if="role"
         class="role"
-        v-html="role"
-      />
+      >
+        <span v-html="role" />
+        <a
+          v-if="organization"
+          :href="organizationLink"
+          target="_blank"
+          class="role"
+          :class="[organizationLink ? '' : 'no-link']"
+          v-html="organizationComputed"
+        />
+      </span>
       <div
         ref="blurbHolderRef"
         class="blurbHolder"
@@ -100,6 +109,7 @@
         <div
           v-if="blurb"
           ref="blurbRef"
+          :class="[truncate ? 'truncate' : '']"
           class="blurb"
           v-html="blurb"
         />
@@ -164,7 +174,7 @@ export default {
       default: null
     },
     /**
-     *  adds a circle mask around the visual asset.
+     *  adds a circle mask around the image.
      */
     circle: {
       type: Boolean,
@@ -178,7 +188,21 @@ export default {
       default: null
     },
     /**
-     *  A URL pointing to the person's bio page.
+     *  Organization this person is from.
+     */
+    organization: {
+      type: String,
+      default: null
+    },
+    /**
+     *  link to the organization.
+     */
+    organizationLink: {
+      type: String,
+      default: null
+    },
+    /**
+     *  A URL pointing to the person's bio page or anywhere else they want to link to.
      */
     nameLink: {
       type: String,
@@ -199,7 +223,7 @@ export default {
       default: null
     },
     /**
-     *  maxium characters to show when truncarted, defulat is 90 characters
+     *  maxium lines of text to show when truncarted
      */
     truncate: {
       type: [Boolean, String],
@@ -213,21 +237,21 @@ export default {
       default: null
     },
     /**
-     *  for a stacked vertical layout, string: horizontal(default), vertical, responsive (changes to vertical at the small greak point)
+     *  horizontal(default), vertical, responsive (changes to vertical at the small break point)
      */
     orientation: {
       type: String,
       default: 'horizontal'
     },
     /**
-     *  % the image will scale in its container for orientation vertical only
+     *  image scale in its container in vertical orientation only
      */
     imgScale: {
       type: String,
       default: '100'
     },
     /**
-     *  % youtube link to promo video
+     *  youtube link to promo video
      */
     video: {
       type: String,
@@ -250,13 +274,18 @@ export default {
     },
     hasDetails () {
       return !!this.role || !!this.blurb || !!this.social || !!this.name
+    },
+    organizationComputed () {
+      return ' (' + this.organization + ')'
     }
   },
   mounted () {
     if (this.truncate) {
+      // initial call of onResize
+      this.onResize()
       window.addEventListener('resize', this.onResize)
     }
-    // call method when the animation when "thisPerson" enters the viewport (once)
+    // call method when "thisPerson" enters the viewport (once)
     if (this.image && this.isGIF(this.image)) {
       const { thisPerson } = this.$refs
       gsap.to(thisPerson, {
@@ -298,7 +327,7 @@ export default {
       event.stopPropagation()
       this.showVideo = !this.showVideo
     },
-    handleInViewPort (inViewPort, entry) {
+    handleInViewPort (inViewPort) {
       /* wait 10 seconds then swap out GIF with canvas render */
       this.inViewPort = inViewPort
       const { canvas, img } = this.$refs
@@ -356,6 +385,7 @@ export default {
     }
   }
   .person-link {
+    position: relative;
     align-self: start;
     justify-self: center;
     width: 100%;
@@ -387,12 +417,23 @@ export default {
   }
   .video-play-button {
     position: absolute;
-    margin-top: -6%;
-    margin-left: 1%;
+    display: grid;
+    bottom: 0;
+    left: 0;
+    width: 25%;
+    height: 25%;
+    @include media("<small") {
+      top: 0;
+      bottom: unset;
+    }
     &:hover {
       opacity: 1;
     }
     svg {
+      align-self: start;
+      @include media("<small") {
+        align-self: end;
+      }
       &:hover {
         opacity: 1;
         .play,
@@ -400,8 +441,8 @@ export default {
           stroke: RGB(var(--color-primary-1));
         }
       }
-      width: 40px;
-      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
     }
   }
   .person-details {
@@ -419,7 +460,10 @@ export default {
       text-decoration: none;
     }
 
-    .role {
+    .role,
+    .role a {
+      color: inherit;
+      text-decoration: none;
       text-transform: uppercase;
       font-weight: var(--font-weight-header);
       font-size: var(--font-size-3);
@@ -427,14 +471,19 @@ export default {
       overflow-wrap: anywhere;
       word-break: break-word;
       letter-spacing: 1.6px;
+      &.no-link {
+        pointer-events: none;
+      }
     }
     .blurbHolder {
       overflow: hidden;
       .blurb {
-        display: -webkit-box;
-        -webkit-line-clamp: var(--trunc-lines);
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        &.truncate {
+          display: -webkit-box;
+          -webkit-line-clamp: var(--trunc-lines);
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
         margin-top: var(--space-1);
         font-weight: var(--font-weight-body);
         font-size: var(--font-size-4);
