@@ -227,14 +227,14 @@ export default {
   }
 }
 
-.share-tools-button svg > path,
-.c-share-tools__link svg > path {
+.share-tools-button svg > *,
+.c-share-tools__link svg > * {
   transition: var(--animation-easing-standard)
     var(--animation-duration-standard);
 }
 
-.share-tools-button:hover svg > path,
-.c-share-tools__link:hover svg > path {
+.share-tools-button:hover svg > *,
+.c-share-tools__link:hover svg > * {
   fill: RGB(var(--color-primary-2));
 }
 
@@ -244,7 +244,12 @@ export default {
   display: grid;
   align-content: center;
   font-size: var(--font-size-3);
+  font-weight: var(--font-weight-subheader);
   line-height: var(--line-height-1);
+  &:hover {
+    color: RGB(var(--color-primary-2));
+    text-decoration: underline;
+  }
   @include media(">small") {
     font-size: var(--font-size-4);
   }

@@ -2,9 +2,130 @@
   <div
     ref="thisPerson"
     class="person"
-    :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', orientation === 'vertical' ? 'vertical' : '', orientation === 'responsive' ? 'responsive' : '']"
     :style="cssVars"
   >
+    <div
+      v-resize:debounce.100="onResize"
+      class="person-inner"
+      :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', orientation === 'vertical' ? 'vertical' : '', orientation === 'responsive' ? 'responsive' : '']"
+    >
+      <!-- Image section -->
+      <nuxt-link
+        v-if="image"
+        class="person-link"
+        :class="!nameLink ? 'disabled' : ''"
+        :to="nameLink ? nameLink : null"
+        aria-hidden="true"
+        role="presentation"
+        tabindex="-1"
+        @click="nameLink ? $emit(' componentEvent', nameLink) : null"
+      >
+        <div ref="imgRef">
+          <span
+            v-if="image"
+            ref="visual"
+            class="u-image__1x1 visual"
+            :class="[circle ? 'circle' : '']"
+          >
+            <canvas
+              ref="canvas"
+              class="person-image"
+            ></canvas>
+            <img
+              ref="img"
+              class="person-image"
+              :src="image"
+              :alt="name"
+              role="presentation"
+              loading="lazy"
+              decoding="async"
+            />
+          </span>
+          <div
+            v-if="video"
+            class="video-play-button"
+            @click="handleVideoClick($event)"
+          >
+            <play-icon :title="`Play `+ name +`'s introduction video`" />
+          </div>
+        </div>
+      </nuxt-link>
+
+      <!-- Detail section -->
+      <div
+        v-if="hasDetails"
+        ref="detailsRef"
+        class="person-details"
+      >
+        <div
+          v-if="name"
+          role="heading"
+          aria-level="3"
+        >
+          <nuxt-link
+            v-if="nameLink"
+            class="person-name-link"
+            :to="nameLink"
+            @click="$emit(' componentEvent', nameLink)"
+          >
+            <span v-html="name" />
+          </nuxt-link>
+          <template v-else>
+            <span v-html="name" />
+          </template>
+        </div>
+        <span
+          v-if="role"
+          class="role"
+        >
+          <span v-html="role" />
+          <a
+            v-if="organization"
+            :href="organizationLink"
+            target="_blank"
+            class="role"
+            :class="[organizationLink ? '' : 'no-link']"
+            v-html="organizationComputed"
+          />
+        </span>
+        <div
+          ref="blurbHolderRef"
+          class="blurbHolder"
+        >
+          <div
+            v-if="blurb"
+            ref="blurbRef"
+            :class="[truncate ? 'truncate' : '']"
+            class="blurb"
+            v-html="blurb"
+          />
+        </div>
+        <a
+          v-if="truncate"
+          ref="readMoreRef"
+          class="read-more"
+          @click="handleBlurb()"
+        >
+          {{ readMore ? 'read less' : 'read more' }}
+        </a>
+
+        <share-tools
+          v-if="social"
+          class="social"
+        >
+          <share-tools-item
+            v-for="(item, index) in social"
+            :key="index"
+            :service="item.service"
+            :username="item.username"
+            :link="item.link"
+            :label="item.label"
+            :action="item.action"
+            :url="item.url"
+          />
+        </share-tools>
+      </div>
+    </div>
     <div
       v-if="video && showVideo"
       class="video-holder"
@@ -19,129 +140,12 @@
         :src="video"
       />
       <!-- close button in the upper right -->
-      <v-button
-        class="mod-flat closer"
+      <div
+        class="closer"
         @click="handleVideoClick($event)"
       >
         <close-icon />
-      </v-button>
-    </div>
-
-    <!-- Image section -->
-    <nuxt-link
-      v-if="image"
-      class="person-link"
-      :class="!nameLink ? 'disabled' : ''"
-      :to="nameLink ? nameLink : null"
-      aria-hidden="true"
-      role="presentation"
-      tabindex="-1"
-      @click="nameLink ? $emit(' componentEvent', nameLink) : null"
-    >
-      <div ref="imgRef">
-        <span
-          v-if="image"
-          ref="visual"
-          class="u-image__1x1 visual"
-          :class="[circle ? 'circle' : '']"
-        >
-          <canvas
-            ref="canvas"
-            class="person-image"
-          ></canvas>
-          <img
-            ref="img"
-            class="person-image"
-            :src="image"
-            :alt="name"
-            role="presentation"
-            loading="lazy"
-            decoding="async"
-          />
-        </span>
-        <v-button
-          v-if="video"
-          class="mod-flat video-play-button"
-          @click="handleVideoClick($event)"
-        >
-          <play-icon :title="`Play `+ name +`'s introduction video`" />
-        </v-button>
       </div>
-    </nuxt-link>
-
-    <!-- Detail section -->
-    <div
-      v-if="hasDetails"
-      ref="detailsRef"
-      class="person-details"
-    >
-      <div
-        v-if="name"
-        role="heading"
-        aria-level="3"
-      >
-        <nuxt-link
-          v-if="nameLink"
-          class="person-name-link"
-          :to="nameLink"
-          @click="$emit(' componentEvent', nameLink)"
-        >
-          <span v-html="name" />
-        </nuxt-link>
-        <template v-else>
-          <span v-html="name" />
-        </template>
-      </div>
-      <span
-        v-if="role"
-        class="role"
-      >
-        <span v-html="role" />
-        <a
-          v-if="organization"
-          :href="organizationLink"
-          target="_blank"
-          class="role"
-          :class="[organizationLink ? '' : 'no-link']"
-          v-html="organizationComputed"
-        />
-      </span>
-      <div
-        ref="blurbHolderRef"
-        class="blurbHolder"
-      >
-        <div
-          v-if="blurb"
-          ref="blurbRef"
-          :class="[truncate ? 'truncate' : '']"
-          class="blurb"
-          v-html="blurb"
-        />
-      </div>
-      <a
-        v-if="truncate"
-        ref="readMoreRef"
-        class="read-more"
-        @click="handleBlurb()"
-      >
-        {{ readMore ? 'read less' : 'read more' }}
-      </a>
-
-      <share-tools
-        v-if="social"
-        class="social"
-      >
-        <share-tools-item
-          v-for="(item, index) in social"
-          :key="index"
-          :service="item.service"
-          :username="item.username"
-          :link="item.link"
-          :label="item.label"
-          :action="item.action"
-          :url="item.url"
-        />
-      </share-tools>
     </div>
   </div>
 </template>
@@ -150,13 +154,13 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
 import { LazyYoutube } from 'vue-lazytube'
-import VButton from './VButton'
+import resize from 'vue-resize-directive'
 import PlayIcon from './icons/PlayIcon'
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
 gsap.registerPlugin(ScrollTrigger)
-let debounce
+// let debounce
 /**
  * A component for displaying details about a person
  */
@@ -164,10 +168,12 @@ export default {
   components: {
     ShareTools,
     ShareToolsItem,
-    VButton,
     PlayIcon,
     CloseIcon,
     LazyYoutube
+  },
+  directives: {
+    resize
   },
   props: {
     /**
@@ -291,45 +297,45 @@ export default {
     }
   },
   mounted () {
+    // set of refs
+    const { thisPerson, imgRef, detailsRef } = this.$refs
+
+    // initial call of onResize
     if (this.truncate) {
-      // initial call of onResize
       this.onResize()
-      window.addEventListener('resize', this.onResize)
     }
     // call method when "thisPerson" enters the viewport (once)
     if (this.image && this.isGIF(this.image)) {
-      const { thisPerson } = this.$refs
       gsap.to(thisPerson, {
         scrollTrigger: thisPerson,
-        onComplete: this.handleInViewPort
+        onComplete: this.handleGifInViewPort
       })
     }
 
     // animate card when it enters the viewport
     if (this.animate) {
-      const { thisPerson, imgRef, detailsRef } = this.$refs
       const tl = gsap.timeline({
         delay: 0.5,
         scrollTrigger: {
           trigger: thisPerson
         }
       })
+      tl.from(thisPerson, { duration: 1, opacity: 0 })
       if (this.hasDetails && this.image) {
-        tl.from(imgRef, {
-          duration: 1,
-          scale: 0.85,
-          opacity: 0,
-          ease: 'back.out'
-        })
+        tl.from(
+          imgRef,
+          {
+            duration: 1,
+            scale: 0.85,
+            opacity: 0,
+            ease: 'back.out'
+          },
+          '-=1'
+        )
         tl.from(detailsRef, { duration: 1, opacity: 0 }, '-=0.5')
       } else {
         tl.from(thisPerson, { duration: 1, opacity: 0 })
       }
-    }
-  },
-  beforeDestroy () {
-    if (this.truncate) {
-      window.removeEventListener('resize', this.onResize)
     }
   },
   methods: {
@@ -337,22 +343,19 @@ export default {
       const { blurbHolderRef, blurbRef } = this.$refs
       this.readMore = !this.readMore
       blurbRef.classList.toggle('expanded')
-      this.onResize()
 
       gsap.to(blurbHolderRef, {
         duration: this.readMore ? 0.5 : 0.15,
-        height: blurbRef.offsetHeight + 5
+        height: blurbRef.offsetHeight + 5,
+        onComplete: this.onResize
       })
     },
     onResize () {
-      if (!this.readMore) {
-        clearTimeout(debounce)
-        debounce = setTimeout(() => {
-          const { blurbHolderRef, blurbRef, readMoreRef } = this.$refs
-          const clamped = blurbRef.scrollHeight > blurbRef.clientHeight
-          gsap.set(blurbHolderRef, { height: blurbRef.offsetHeight + 5 })
-          readMoreRef.classList.toggle('show-me', clamped)
-        }, 100)
+      if (!this.readMore && this.truncate) {
+        const { blurbHolderRef, blurbRef, readMoreRef } = this.$refs
+        const clamped = blurbRef.scrollHeight > blurbRef.clientHeight
+        gsap.set(blurbHolderRef, { height: blurbRef.offsetHeight + 5 })
+        readMoreRef.classList.toggle('show-me', clamped)
       }
     },
     handleVideoClick: function (event) {
@@ -360,7 +363,7 @@ export default {
       event.stopPropagation()
       this.showVideo = !this.showVideo
     },
-    handleInViewPort (inViewPort) {
+    handleGifInViewPort (inViewPort) {
       /* wait 10 seconds then swap out GIF with canvas render */
       this.inViewPort = inViewPort
       const { canvas, img } = this.$refs
@@ -398,153 +401,168 @@ export default {
 }
 
 .person {
-  display: grid;
-  grid-template-columns: auto;
-  align-items: center;
-  color: RGB(var(--color-text));
-  &.has-details {
-    grid-template-columns: 1fr 3fr;
-  }
-  &.no-image {
-    grid-template-columns: 1fr;
-  }
-  &.vertical {
-    @include vertical-styles;
-  }
-
-  &.responsive {
-    @include media("<small") {
+  .person-inner {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    color: RGB(var(--color-text));
+    &.has-details {
+      grid-template-columns: 1fr 3fr;
+    }
+    &.no-image {
+      grid-template-columns: 1fr;
+    }
+    &.vertical {
       @include vertical-styles;
     }
-  }
-  .person-link {
-    position: relative;
-    align-self: start;
-    justify-self: center;
-    width: 100%;
-    span.circle {
-      position: relative;
-      display: block;
-      border-radius: 100%;
-      overflow: hidden;
-    }
-    &.disabled {
-      pointer-events: none;
-    }
-  }
-  .person-image {
-    height: 100%;
-    object-fit: cover;
-  }
-  .u-image__1x1 {
-    position: relative;
-    display: block;
-  }
-  .visual {
-    canvas {
-      display: none;
-      &.show {
-        display: block;
-      }
-    }
-  }
-  .video-play-button {
-    position: absolute;
-    display: grid;
-    bottom: 0;
-    left: 0;
-    width: 25%;
-    height: 25%;
-    @include media("<small") {
-      top: 0;
-      bottom: unset;
-    }
-    &:hover {
-      opacity: 1;
-    }
-    svg {
-      align-self: start;
-      @include media("<small") {
-        align-self: end;
-      }
-      &:hover {
-        opacity: 1;
-        .play,
-        .inner-circle {
-          stroke: RGB(var(--color-primary-1));
-        }
-      }
-      min-width: 40px;
-      min-height: 40px;
-    }
-  }
-  .person-details {
-    padding: 0 var(--space-3);
-    display: grid;
-    color: RGB(var(--color-text));
-    font-family: var(--font-family-body);
-    .person-name-link {
-      color: RGB(var(--color-text));
-      font-weight: var(--font-weight-header);
-      font-size: var(--font-size-7);
-      line-height: var(--line-height-2);
-      overflow-wrap: anywhere;
-      word-break: break-word;
-      text-decoration: none;
-    }
 
-    .role,
-    .role a {
-      color: inherit;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: var(--font-weight-header);
-      font-size: var(--font-size-3);
-      line-height: var(--line-height-2);
-      overflow-wrap: anywhere;
-      word-break: break-word;
-      letter-spacing: 1.6px;
-      &.no-link {
+    &.responsive {
+      @include media("<small") {
+        @include vertical-styles;
+      }
+    }
+    .person-link {
+      position: relative;
+      align-self: start;
+      justify-self: center;
+      width: 100%;
+      span.circle {
+        position: relative;
+        display: block;
+        border-radius: 100%;
+        overflow: hidden;
+      }
+      &.disabled {
         pointer-events: none;
       }
     }
-    .blurbHolder {
-      overflow: hidden;
-      .blurb {
-        &.truncate {
-          display: -webkit-box;
-          -webkit-line-clamp: var(--trunc-lines);
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        margin-top: var(--space-1);
-        font-weight: var(--font-weight-body);
-        font-size: var(--font-size-4);
-        line-height: var(--line-height-1);
-        overflow-wrap: anywhere;
-        word-break: break-word;
-        &.expanded {
-          -webkit-line-clamp: unset;
+    .person-image {
+      height: 100%;
+      object-fit: cover;
+    }
+    .u-image__1x1 {
+      position: relative;
+      display: block;
+    }
+    .visual {
+      background: transparent;
+      canvas {
+        display: none;
+        &.show {
+          display: block;
         }
       }
     }
-
-    .social {
-      margin-top: var(--space-2);
-      margin-left: -16px;
+    .video-play-button {
+      position: absolute;
+      display: grid;
+      bottom: 0;
+      left: 0;
+      width: 25%;
+      height: 25%;
+      @include media("<small") {
+        top: 0;
+        bottom: unset;
+      }
+      svg {
+        opacity: 1;
+        max-width: 40px;
+        max-height: 40px;
+        align-self: start;
+        justify-self: center;
+        @include media("<small") {
+          align-self: end;
+        }
+        height: auto;
+        path,
+        polyline {
+          fill: #ffffff;
+          transition: var(--animation-easing-standard)
+            var(--animation-duration-standard);
+        }
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            path {
+              fill: RGB(var(--color-primary-2));
+            }
+            .play,
+            .inner-circle {
+              stroke: #fff;
+            }
+          }
+        }
+        min-width: 40px;
+        min-height: 40px;
+      }
     }
-
-    .read-more {
-      word-break: keep-all;
-      cursor: pointer;
+    .person-details {
+      padding: 0 var(--space-3);
+      display: grid;
       color: RGB(var(--color-text));
-      font-size: var(--font-size-2);
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      margin-top: -2px;
-      display: none;
-      &.show-me {
-        display: block;
+      font-family: var(--font-family-body);
+      .person-name-link {
+        color: RGB(var(--color-text));
+        font-weight: var(--font-weight-header);
+        font-size: var(--font-size-7);
+        line-height: var(--line-height-2);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        text-decoration: none;
+      }
+
+      .role,
+      .role a {
+        color: inherit;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: var(--font-weight-header);
+        font-size: var(--font-size-3);
+        line-height: var(--line-height-2);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        letter-spacing: 1.6px;
+        &.no-link {
+          pointer-events: none;
+        }
+      }
+      .blurbHolder {
+        overflow: hidden;
+        .blurb {
+          &.truncate {
+            display: -webkit-box;
+            -webkit-line-clamp: var(--trunc-lines);
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+          margin-top: var(--space-1);
+          font-weight: var(--font-weight-body);
+          font-size: var(--font-size-4);
+          line-height: var(--line-height-1);
+          overflow-wrap: anywhere;
+          word-break: break-word;
+          &.expanded {
+            -webkit-line-clamp: unset;
+          }
+        }
+      }
+
+      .social {
+        margin-top: var(--space-2);
+        margin-left: -16px;
+      }
+
+      .read-more {
+        word-break: keep-all;
+        cursor: pointer;
+        color: RGB(var(--color-text));
+        font-size: var(--font-size-2);
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        margin-top: -2px;
+        display: none;
+        &.show-me {
+          display: block;
+        }
       }
     }
   }
@@ -558,7 +576,7 @@ export default {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 15;
+    z-index: $z-index-100;
     max-width: 100%;
     .video {
       width: calc(100vw - 100px);
@@ -578,8 +596,25 @@ export default {
     }
     .closer {
       position: absolute;
+      cursor: pointer;
       top: 15px;
       right: 15px;
+      width: 20px;
+      height: 20px;
+      svg {
+        path {
+          transition: var(--animation-easing-standard)
+            var(--animation-duration-standard);
+          fill: RGB(var(--color-white));
+        }
+      }
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          svg path {
+            fill: RGB(var(--color-primary-2));
+          }
+        }
+      }
     }
   }
 }
