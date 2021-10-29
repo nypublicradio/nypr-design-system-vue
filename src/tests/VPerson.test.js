@@ -7,7 +7,12 @@ import VPerson from '../components/VPerson'
 expect.extend(toHaveNoViolations)
 
 expect.extend(toHaveNoViolations)
+
+
 describe('VPerson', () => {
+  // all props once
+
+  
   // test('it renders props', () => {
   //   const image = 'https://placehold.it/175x175'
   //   const name = 'Title'

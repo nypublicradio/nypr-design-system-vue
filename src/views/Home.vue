@@ -89,14 +89,14 @@
       orientation="responsive"
       image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
       video="https://www.youtube.com/watch?v=LOS5WB75gkY"
-      imgScale="70"
+      img-scale="70"
       circle
       animate
-      name='Jen Chung'
-      nameLink='https://gothamist.com/staff/jen-chung'
-      role='Executive Editor and Co-founder'
-      organization='Gothamist'
-      organizationLink="https://gothamist.com/"
+      name="Jen Chung"
+      name-link="https://gothamist.com/staff/jen-chung"
+      role="Executive Editor and Co-founder"
+      organization="Gothamist"
+      organization-link="https://gothamist.com/"
       blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order."
       truncate="2"
       :social="[
@@ -135,14 +135,14 @@
       orientation="responsive"
       image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
       video="https://www.youtube.com/watch?v=LOS5WB75gkY"
-      imgScale="70"
+      img-scale="70"
       circle
       animate
-      name='Jen Chung'
-      nameLink='https://gothamist.com/staff/jen-chung'
-      role='Executive Editor and Co-founder'
-      organization='Gothamist'
-      organizationLink="https://gothamist.com/"
+      name="Jen Chung"
+      name-link="https://gothamist.com/staff/jen-chung"
+      role="Executive Editor and Co-founder"
+      organization="Gothamist"
+      organization-link="https://gothamist.com/"
       blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order."
       truncate="2"
       :social="[
@@ -181,14 +181,14 @@
       orientation="responsive"
       image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
       video="https://www.youtube.com/watch?v=LOS5WB75gkY"
-      imgScale="70"
+      img-scale="70"
       circle
       animate
-      name='Jen Chung'
-      nameLink='https://gothamist.com/staff/jen-chung'
-      role='Executive Editor and Co-founder'
-      organization='Gothamist'
-      organizationLink="https://gothamist.com/"
+      name="Jen Chung"
+      name-link="https://gothamist.com/staff/jen-chung"
+      role="Executive Editor and Co-founder"
+      organization="Gothamist"
+      organization-link="https://gothamist.com/"
       blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order."
       truncate="2"
       :social="[

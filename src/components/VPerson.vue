@@ -18,7 +18,6 @@
         aria-hidden="true"
         role="presentation"
         tabindex="-1"
-        @click="nameLink ? $emit(' componentEvent', nameLink) : null"
       >
         <div ref="imgRef">
           <span
@@ -46,7 +45,10 @@
             class="video-play-button"
             @click="handleVideoClick($event)"
           >
-            <play-icon :title="`Play `+ name +`'s introduction video`" />
+            <play-icon
+              :title="`Play `+ name +`'s introduction video`"
+              @click="$emit('componentEvent', video)"
+            />
           </div>
         </div>
       </nuxt-link>
@@ -63,16 +65,12 @@
           aria-level="3"
         >
           <nuxt-link
-            v-if="nameLink"
             class="person-name-link"
+            :class="!nameLink ? 'disabled' : ''"
             :to="nameLink"
-            @click="$emit(' componentEvent', nameLink)"
           >
             <span v-html="name" />
           </nuxt-link>
-          <template v-else>
-            <span v-html="name" />
-          </template>
         </div>
         <span
           v-if="role"
@@ -361,6 +359,7 @@ export default {
     handleVideoClick: function (event) {
       event.preventDefault()
       event.stopPropagation()
+      this.$emit(' componentEvent', 'playing promo video')
       this.showVideo = !this.showVideo
     },
     handleGifInViewPort (inViewPort) {
@@ -508,6 +507,9 @@ export default {
         overflow-wrap: anywhere;
         word-break: break-word;
         text-decoration: none;
+        &.disabled {
+          pointer-events: none;
+        }
       }
 
       .role,

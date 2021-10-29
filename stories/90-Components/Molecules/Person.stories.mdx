@@ -26,14 +26,14 @@ Our person component displays a visual depiction of an author or host along with
     orientation="responsive"
     image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
     video="https://www.youtube.com/watch?v=LOS5WB75gkY"
-    imgScale="70"
+    img-scale="70"
     circle
     animate
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
-    organization='Gothamist'
-    organizationLink="https://gothamist.com/"
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
+    organization="Gothamist"
+    organization-link="https://gothamist.com/"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
     truncate="2"
     :social="[
@@ -74,7 +74,7 @@ Our person component displays a visual depiction of an author or host along with
 </Canvas>
 
 
-**Image** - An image of the person, or a placeholder image if none is provided. Can be made a clickable link out to a relevant page (eg. author page, twitter profile, bio ). a circle mask can be applied by using the "circle" prop. An animated GIF can be used, but will stop animating after 10 seconds. Size can be altered in the vertical orientation only using "imgScale" prop. This value is a percentage of the wisth of the available area.
+**Image** - An image of the person, or a placeholder image if none is provided. Can be made a clickable link out to a relevant page (eg. author page, twitter profile, bio ). a circle mask can be applied by using the "circle" prop. An animated GIF can be used, but will stop animating after 10 seconds. Size can be altered in the vertical orientation only using "img-scale" prop. This value is a percentage of the wisth of the available area.
 
 **Video** - An optional promotional video can be triggered to play with a PLAY button placed over the image.
 
@@ -82,7 +82,7 @@ Our person component displays a visual depiction of an author or host along with
 
 **Role** - Role or subtitle, optional. In the case of Gothamist’s “Contributing Organization” authors, the organization can be listed here concluding or replacing the role. ex: Jess Fisher, Writer (NYT) or  Jess Fisher, NYT
 
-**Organization** - When provided, it will be added after the Role in parentheses. If the "organizationLink" is provided, it will be a clickable link to the organization. 
+**Organization** - When provided, it will be added after the Role in parentheses. If the "organization-link" is provided, it will be a clickable link to the organization. 
 
 **Blurb** - A paragraph or so about the author, their credentials, and other information they wish to share with readers, optional. This blurb can be optionally truncated to a certain number of lines with the "truncate" prop.
 
@@ -149,7 +149,7 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     image="./images/default-user.jpg"
-    nameLink='https://gothamist.com/staff/jen-chung'
+    name-link="https://gothamist.com/staff/jen-chung"
 />
 `
         }}
@@ -165,9 +165,9 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     image="./images/default-user.jpg"
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
 />
@@ -185,11 +185,11 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     image="./images/default-user.jpg"
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
-    organization='Gothamist'
-    organizationLink="https://gothamist.com/"
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
+    organization="Gothamist"
+    organization-link="https://gothamist.com/"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
 />
@@ -209,9 +209,9 @@ In the future when the person component gets integrated with Gothamist, the comp
 <v-person
     image="./images/default-user.jpg"
     circle
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
 />
@@ -228,9 +228,9 @@ In the future when the person component gets integrated with Gothamist, the comp
             components: { VPerson },
             template: `
 <v-person
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
 />
@@ -250,9 +250,9 @@ In the future when the person component gets integrated with Gothamist, the comp
 <v-person
     orientation="vertical"
     image="./images/default-user.jpg"
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
 />
@@ -270,11 +270,11 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     orientation="vertical"
-    imgScale="40"
+    img-scale="40"
     image="./images/default-user.jpg"
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     
 />
@@ -292,11 +292,11 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     orientation="responsive"
-    imgScale="40"
+    img-scale="40"
     image="./images/default-user.jpg"
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
 />
 `
@@ -316,9 +316,9 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     image="./images/default-user.jpg"
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     truncate="2"
 />
@@ -337,9 +337,9 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     image="./images/default-user.jpg"
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
     animate
 />
@@ -358,10 +358,10 @@ In the future when the person component gets integrated with Gothamist, the comp
 <v-person
     image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
     video="https://www.youtube.com/watch?v=LOS5WB75gkY"
-    name='Jen Chung'
+    name="Jen Chung"
     circle
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
 />
 `
@@ -380,10 +380,10 @@ In the future when the person component gets integrated with Gothamist, the comp
 <v-person
     orientation="responsive"
     image="./images/default-user.jpg"
-    imgScale="40"
-    name='Jen Chung'
-    nameLink='https://gothamist.com/staff/jen-chung'
-    role='Executive Editor and Co-founder'
+    img-scale="40"
+    name="Jen Chung"
+    name-link="https://gothamist.com/staff/jen-chung"
+    role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
     :social="[
         {
