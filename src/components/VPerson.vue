@@ -12,7 +12,7 @@
       <!-- Image section -->
       <nuxt-link
         v-if="image"
-        class="person-link"
+        class="person-image-link"
         :class="!nameLink ? 'disabled' : ''"
         :to="nameLink ? nameLink : null"
         aria-hidden="true"
@@ -32,7 +32,7 @@
             ></canvas>
             <img
               ref="img"
-              class="person-image"
+              class="person-image person-image-img"
               :src="image"
               :alt="name"
               role="presentation"
@@ -74,15 +74,15 @@
         </div>
         <span
           v-if="role"
-          class="role"
+          class="person-role"
         >
           <span v-html="role" />
           <a
             v-if="organization"
             :href="organizationLink"
             target="_blank"
-            class="role"
-            :class="[organizationLink ? '' : 'no-link']"
+            class="person-role"
+            :class="[organizationLink ? 'link' : 'no-link']"
             v-html="organizationComputed"
           />
         </span>
@@ -150,7 +150,7 @@
 
 <script>
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger.js'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import { LazyYoutube } from 'vue-lazytube'
 import resize from 'vue-resize-directive'
 import PlayIcon from './icons/PlayIcon'
@@ -283,8 +283,8 @@ export default {
   computed: {
     cssVars () {
       return {
-        '--img-scale': this.imgScale + '%',
-        '--trunc-lines': this.truncate
+        '--img-scale': this.imgScale ? this.imgScale + '%' : '100%',
+        '--trunc-lines': this.truncate ? this.truncate : 'unset'
       }
     },
     hasDetails () {
@@ -393,8 +393,7 @@ export default {
     justify-self: center;
     margin-left: 0;
   }
-  .person-link,
-  .person-image-holder {
+  .person-image-link {
     width: var(--img-scale);
   }
 }
@@ -420,7 +419,7 @@ export default {
         @include vertical-styles;
       }
     }
-    .person-link {
+    .person-image-link {
       position: relative;
       align-self: start;
       justify-self: center;
@@ -512,8 +511,8 @@ export default {
         }
       }
 
-      .role,
-      .role a {
+      .person-role,
+      .person-role a {
         color: inherit;
         text-decoration: none;
         text-transform: uppercase;

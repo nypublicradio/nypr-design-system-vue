@@ -101,35 +101,35 @@
       truncate="2"
       :social="[
         {
-            service: 'facebook',
-            link: 'https://www.facebook.com/WNYC',
+          service: 'facebook',
+          link: 'https://www.facebook.com/WNYC',
         },
         {
-            service: 'twitter',
-            link: 'https://twitter.com/WNYC'
+          service: 'twitter',
+          link: 'https://twitter.com/WNYC'
         },
         {
-            service: 'instagram',
-            link: 'https://www.instagram.com/WNYC/'
+          service: 'instagram',
+          link: 'https://www.instagram.com/WNYC/'
         },
         {
-            service: 'linkedin',
-            link: 'https://www.linkedin.com/company/wnyc-radio/'
+          service: 'linkedin',
+          link: 'https://www.linkedin.com/company/wnyc-radio/'
         },
         {
-            service: 'youtube',
-            link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+          service: 'youtube',
+          link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
         },
         {
-            service: 'email',
-            username: 'jchung@nypr.com'
+          service: 'email',
+          username: 'jchung@nypr.com'
         },
         {
-            service: 'site',
-            label: 'My site',
-            link: 'https://www.google.com'
+          service: 'site',
+          label: 'My site',
+          link: 'https://www.google.com'
         }
-    ]"
+      ]"
     />
     <v-person
       orientation="responsive"
@@ -147,35 +147,35 @@
       truncate="2"
       :social="[
         {
-            service: 'facebook',
-            link: 'https://www.facebook.com/WNYC',
+          service: 'facebook',
+          link: 'https://www.facebook.com/WNYC',
         },
         {
-            service: 'twitter',
-            link: 'https://twitter.com/WNYC'
+          service: 'twitter',
+          link: 'https://twitter.com/WNYC'
         },
         {
-            service: 'instagram',
-            link: 'https://www.instagram.com/WNYC/'
+          service: 'instagram',
+          link: 'https://www.instagram.com/WNYC/'
         },
         {
-            service: 'linkedin',
-            link: 'https://www.linkedin.com/company/wnyc-radio/'
+          service: 'linkedin',
+          link: 'https://www.linkedin.com/company/wnyc-radio/'
         },
         {
-            service: 'youtube',
-            link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+          service: 'youtube',
+          link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
         },
         {
-            service: 'email',
-            username: 'jchung@nypr.com'
+          service: 'email',
+          username: 'jchung@nypr.com'
         },
         {
-            service: 'site',
-            label: 'My site',
-            link: 'https://www.google.com'
+          service: 'site',
+          label: 'My site',
+          link: 'https://www.google.com'
         }
-    ]"
+      ]"
     />
     <v-person
       orientation="responsive"
@@ -193,35 +193,35 @@
       truncate="2"
       :social="[
         {
-            service: 'facebook',
-            link: 'https://www.facebook.com/WNYC',
+          service: 'facebook',
+          link: 'https://www.facebook.com/WNYC',
         },
         {
-            service: 'twitter',
-            link: 'https://twitter.com/WNYC'
+          service: 'twitter',
+          link: 'https://twitter.com/WNYC'
         },
         {
-            service: 'instagram',
-            link: 'https://www.instagram.com/WNYC/'
+          service: 'instagram',
+          link: 'https://www.instagram.com/WNYC/'
         },
         {
-            service: 'linkedin',
-            link: 'https://www.linkedin.com/company/wnyc-radio/'
+          service: 'linkedin',
+          link: 'https://www.linkedin.com/company/wnyc-radio/'
         },
         {
-            service: 'youtube',
-            link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+          service: 'youtube',
+          link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
         },
         {
-            service: 'email',
-            username: 'jchung@nypr.com'
+          service: 'email',
+          username: 'jchung@nypr.com'
         },
         {
-            service: 'site',
-            label: 'My site',
-            link: 'https://www.google.com'
+          service: 'site',
+          label: 'My site',
+          link: 'https://www.google.com'
         }
-    ]"
+      ]"
     />
   </div>
 </template>
