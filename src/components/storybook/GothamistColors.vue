@@ -46,7 +46,6 @@ export default {
   lang="scss"
   scoped
 >
-@import "src/styles/themes/gothamist/theme.colors";
 .colors div {
   width: 200px;
   height: 100px;

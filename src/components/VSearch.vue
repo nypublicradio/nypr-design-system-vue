@@ -7,8 +7,8 @@
       ref="searchButton"
       tabindex="0"
       class="search-bar-search-icon u-icon--xs"
-      @click.native="open"
-      @keypress.enter.space.native.prevent="open"
+      @click="open"
+      @keypress.enter.space.prevent="open"
     >
       <search-icon />
     </v-button>
@@ -37,7 +37,7 @@
             class="search-bar-close"
             tabindex="0"
             @click="close"
-            @keypress.native.enter.space.prevent="close"
+            @keypress.enter.space.prevent="close"
           >
             <close-icon />
           </v-button>
@@ -55,7 +55,7 @@
             class="search-bar-submit"
             tabindex="0"
             @click="submit"
-            @keypress.native.enter.space.prevent="submit"
+            @keypress.enter.space.prevent="submit"
           >
             <search-icon />
           </v-button>
@@ -70,8 +70,6 @@ import CloseIcon from '../components/icons/CloseIcon'
 import SearchIcon from '../components/icons/SearchIcon'
 import VButton from '../components/VButton'
 
-import { ref } from 'vue'
-
 export default {
   name: 'VSearch',
   components: {
@@ -79,6 +77,7 @@ export default {
     SearchIcon,
     VButton
   },
+  emits: ['open', 'close', 'submit'],
   props: {
     action: {
       type: String,
@@ -99,14 +98,6 @@ export default {
     transition: {
       type: String,
       default: 'slide-right'
-    }
-  },
-  setup () {
-    const searchButton = ref(null)
-    const searchForm = ref(null)
-    return {
-      searchButton,
-      searchForm
     }
   },
   data () {
@@ -140,13 +131,13 @@ export default {
       this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
       this.$nextTick(() => {
-        this.searchInput.focus()
+        this.$refs.searchInput.focus()
         this.listenToInput()
       })
     },
     submit (e) {
       this.$emit('searchBarSubmit', e)
-      this.searchForm.submit()
+      this.$refs.searchForm.submit()
     }
   }
 }
