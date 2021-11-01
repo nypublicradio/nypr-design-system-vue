@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs'
 
-<Meta title="For Developers/Creating a Component" />
+<Meta title='For Developers/Creating a Component' />
 
 # Creating a Component
 
@@ -10,20 +10,24 @@ This document lays out step by step guidelines and best practices for creating R
 
 Radial component names follow the Vue Styleguide [https://vuejs.org/v2/style-guide/](https://vuejs.org/v2/style-guide/). Component names should always be PascalCase and multi-word (this prevents conflicts with existing and future HTML elements, since all HTML elements are a single word).
 
-* Base components or those with single word names should be prefixed with a V (e.g., VButton).
-* Components that should only ever have a single active instance should begin with the The prefix, to denote that there can be only one per page (e.g., TheFooter).
-* Child components that are tightly coupled with their parent should include the parent component name as a prefix (e.g., SegmentList and SegmentListItem).
+- Base components or those with single word names should be prefixed with a V (e.g., VButton).
+- Components that should only ever have a single active instance should begin with the The prefix, to denote that there can be only one per page (e.g., TheFooter).
+- Child components that are tightly coupled with their parent should include the parent component name as a prefix (e.g., SegmentList and SegmentListItem).
 
-| Filename | Component Syntax |
-|---|---|
-| VButton               |   `<v-button />`               |
-| TheFooter      |   `<the-footer />`     |
-| SegmentList  |   `<segment-list />` |
-| SegmentListItem  |   `<segment-list-item />` |
+| Filename        | Component Syntax        |
+| --------------- | ----------------------- |
+| VButton         | `<v-button />`          |
+| TheFooter       | `<the-footer />`        |
+| SegmentList     | `<segment-list />`      |
+| SegmentListItem | `<segment-list-item />` |
+
+Lazy loading components in Nuxt:
+
+| Filename | Component Syntax     |
+| -------- | -------------------- |
+| FileName | `<lazy-file-name />` |
 
 ## Creating the component skeleton
-
-
 
 If you're starting from scratch, you want to create a basic component skeleton. If you're refactoring an existing component you can skip this step and work with a copy of that component instead.
 
@@ -51,7 +55,7 @@ Storybook allows you to prototype and build out your component with multiple var
 
 Stories are living examples that demonstrate the different variations of a component. Use design comps as a guide to which stories to include. For example, consider these button designs:
 
-<img alt="List" src="./images/button-design-example.png" width="200" />
+<img alt='List' src='./images/button-design-example.png' width='200' />
 
 Based on these designs you could write stories for the different button types (primary, primary with icon, secondary, icon, and flat) and include variations for the three different sizes within each story.
 
@@ -130,7 +134,6 @@ Further Reading:
 
 - [Writing MDX stories in Storybook](https://storybook.js.org/docs/react/writing-docs/mdx)
 
-
 # Writing your component code
 
 We use Single File Components (SFCs) in our design system. SFCs like the skeleton example above are components that are self-contained in their own files.
@@ -152,6 +155,7 @@ Go to Storybook in your browser and navigate to the stories you created. Now you
 Each component's styles should live within its component file. For example, button styles should be defined in the style block of the VButton.vue file.
 
 Every element should have a class. This allows for easier targeting, not just in your stylesheets and themes, but also in automated testing and analytics tools. Use the [Trello styleguide's convention](https://github.com/trello/trellisheets/blob/master/styleguide.md#2-components), `.component-descendant-descendant`, for naming your classes.
+
 ```
 <template>
   <a
@@ -172,7 +176,7 @@ Provide modifier classes for alternate styling when possible. Again, use the [Tr
 
 ## Tokens
 
-Use *tokens* to define style values where possible. Cross-reference the design comps with the [token list](/docs/for-developers-token-reference--page), and consult with a designer if necessary to help find the appropriate token values.
+Use _tokens_ to define style values where possible. Cross-reference the design comps with the [token list](/docs/for-developers-token-reference--page), and consult with a designer if necessary to help find the appropriate token values.
 
 ```
 .button {}
@@ -198,7 +202,7 @@ Sometimes a component has properties that are optional, such as an icon or secon
 
 ## States
 
- Certain states on a component might affect how it's displayed, for example to show the "playing" or "active" state on our stream switcher card. Use code to conditionally provide CSS classes that indicates these states as hooks for styling.
+Certain states on a component might affect how it's displayed, for example to show the "playing" or "active" state on our stream switcher card. Use code to conditionally provide CSS classes that indicates these states as hooks for styling.
 
 ```
 <div
@@ -226,6 +230,7 @@ For example, the VAccordion component runs the open() method when you click on t
 ```
 
 Here is the corresponding open() method:
+
 ```
 methods: {
     open () {
@@ -255,10 +260,9 @@ Add documentation for your modifier classes and state based classes to your comp
 | `.is-icon-only` | Applied automatically to a buttons with an icon but no label. |
 ```
 
-
 # Testing your Component
 
-Don't forget to write unit tests for your component.
+Don't forget to write unit tests for your component. View https://next.vue-test-utils.vuejs.org/guide/ for more information on testing with Vue and Jest.
 
 ## Testing component props and basic accessibility
 
@@ -310,14 +314,14 @@ You should also test any events you pass out of your component to make sure they
 
 ```js
 test('mute button works', () => {
-    const wrapper = mount(PersistentPlayer)
-    const div = wrapper.get('.volume-control-icon')
-    div.trigger('click')
+  const wrapper = mount(PersistentPlayer)
+  const div = wrapper.get('.volume-control-icon')
+  div.trigger('click')
 
-    const emitted = wrapper.emitted()
-    expect(emitted['volume-toggle-mute']).toBeDefined()
-    expect(emitted['volume-toggle-mute'].length).toBe(1)
+  const emitted = wrapper.emitted()
+  expect(emitted['volume-toggle-mute']).toBeDefined()
+  expect(emitted['volume-toggle-mute'].length).toBe(1)
 })
 ```
 
-You *don't* need to test all the style based variations, like the large button and small button classes.
+You _don't_ need to test all the style based variations, like the large button and small button classes.
