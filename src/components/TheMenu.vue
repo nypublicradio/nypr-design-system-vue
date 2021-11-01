@@ -109,6 +109,8 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+
 import CloseIcon from '../components/icons/CloseIcon'
 import HamburgerIcon from '../components/icons/HamburgerIcon'
 import NyprLogo from '../components/icons/NyprLogo'
@@ -142,6 +144,21 @@ export default {
       default: null
     }
   },
+  setup (_, { slots }) {
+    const hasButtonSlot = computed(() => !!slots.button)
+    const hasComponentSlot = computed(() => !!slots.component)
+    const hasLogoSlot = computed(() => !!slots.logo)
+    const hasSearchSlot = computed(() => !!slots.search)
+    const hasSocialSlot = computed(() => !!slots.social)
+
+    return {
+      hasButtonSlot,
+      hasComponentSlot,
+      hasLogoSlot,
+      hasSearchSlot,
+      hasSocialSlot
+    }
+  },
   data: function () {
     return {
       menuOpen: false
@@ -150,21 +167,6 @@ export default {
   computed: {
     currentYear () {
       return new Date().getFullYear()
-    },
-    hasButtonSlot () {
-      return !!this.$slots.button
-    },
-    hasComponentSlot () {
-      return !!this.$slots.component
-    },
-    hasLogoSlot () {
-      return !!this.$slots.logo
-    },
-    hasSearchSlot () {
-      return !!this.$slots.search
-    },
-    hasSocialSlot () {
-      return !!this.$slots.social
     }
   },
   methods: {

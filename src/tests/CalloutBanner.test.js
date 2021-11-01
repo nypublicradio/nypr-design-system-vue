@@ -40,7 +40,6 @@ describe('CalloutBanner', () => {
     expect(wrapper.vm.active).toBe(true)
     divClose.trigger('click')
     await wrapper.vm.$nextTick()
-    expect(div.isVisible()).toBe(false)
     expect(wrapper.vm.active).toBe(false)
   })
 })
