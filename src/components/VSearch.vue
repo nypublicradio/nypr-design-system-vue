@@ -70,9 +70,7 @@ import CloseIcon from '../components/icons/CloseIcon'
 import SearchIcon from '../components/icons/SearchIcon'
 import VButton from '../components/VButton'
 
-import {
-  ref
-} from 'vue'
+import { ref } from 'vue'
 
 export default {
   name: 'VSearch',
