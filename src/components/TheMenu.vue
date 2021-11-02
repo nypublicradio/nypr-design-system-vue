@@ -148,9 +148,6 @@ export default {
     }
   },
   computed: {
-    currentYear () {
-      return new Date().getFullYear()
-    },
     hasButtonSlot () {
       return !!this.$slots.button
     },
@@ -165,6 +162,9 @@ export default {
     },
     hasSocialSlot () {
       return !!this.$slots.social
+    },
+    currentYear () {
+      return new Date().getFullYear()
     }
   },
   methods: {

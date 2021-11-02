@@ -32,7 +32,7 @@ describe('GalleryPreview', () => {
   ]
   test('count prop works', () => {
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images
@@ -46,7 +46,7 @@ describe('GalleryPreview', () => {
 
   test('images prop works', () => {
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images
@@ -65,7 +65,7 @@ describe('GalleryPreview', () => {
 
   test('everything works even if no images are provided', () => {
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl
       }
@@ -77,7 +77,7 @@ describe('GalleryPreview', () => {
 
   test('variation prop works', () => {
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images,
@@ -92,7 +92,7 @@ describe('GalleryPreview', () => {
 
   test('link attribute works', () => {
     const wrapper = shallowMount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images
@@ -105,7 +105,7 @@ describe('GalleryPreview', () => {
 
   test('it passes basic accessibility tests', async () => {
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images
@@ -122,7 +122,7 @@ describe('GalleryPreview', () => {
       value: 400
     })
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images
@@ -140,7 +140,7 @@ describe('GalleryPreview', () => {
       value: 600
     })
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images
@@ -158,7 +158,7 @@ describe('GalleryPreview', () => {
       value: 1000
     })
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images
@@ -171,7 +171,7 @@ describe('GalleryPreview', () => {
 
   test('activeIndex initializes to 0', async () => {
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images
@@ -183,19 +183,19 @@ describe('GalleryPreview', () => {
 
   test('activeImage initializes to first image in images array', async () => {
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images
       }
     })
     await wrapper.vm.$nextTick()
-    expect(wrapper.vm.activeImage).toBe(images[0])
+    expect(wrapper.vm.activeImage).toStrictEqual(images[0])
   })
 
   test('setActiveImage function works', async () => {
     const wrapper = mount(GalleryPreview, {
-      propsData: {
+      props: {
         count,
         galleryUrl,
         images
@@ -205,6 +205,6 @@ describe('GalleryPreview', () => {
     wrapper.vm.setActiveImage(1)
     await wrapper.vm.$nextTick()
     expect(wrapper.vm.activeIndex).toBe(1)
-    expect(wrapper.vm.activeImage).toBe(images[1])
+    expect(wrapper.vm.activeImage).toStrictEqual(images[1])
   })
 })

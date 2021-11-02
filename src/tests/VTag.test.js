@@ -29,7 +29,7 @@ describe('VTag', () => {
       }
     })
     // check if prop works and rendered correctly
-    const div = wrapper.find('a')
+    const div = wrapper.find('nuxt-link')
     expect(div.attributes().to).toBe(slug)
   })
 

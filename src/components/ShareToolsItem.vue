@@ -7,7 +7,7 @@
     :aria-label="ariaLabel"
     target="_blank"
     rel="noopener"
-    @click="$emit('componentEvent', service)"
+    @click="$emit('follow', service)"
   >
     <component
       :is="service"
@@ -184,6 +184,9 @@ export default {
       if (!this.service) {
         return
       }
+
+      this.$emit('share', this.service)
+
       function getPopupPosition () {
         const screenLeft = screen.availLeft
         const screenTop = screen.availTop
@@ -270,7 +273,8 @@ export default {
   }
 }
 
-.share-tools-button > * {
+.share-tools-button > *,
+.c-share-tools__link > * {
   pointer-events: none;
 }
 

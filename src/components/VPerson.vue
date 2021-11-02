@@ -129,14 +129,13 @@
       class="video-holder"
       @click="handleVideoClick($event)"
     >
-      <LazyYoutube
+      <YouTube
         ref="youtubeLazyVideo"
-        :autoplay="true"
-        :custom-title="name +`'s introduction video` "
-        thumbnail-quality="medium"
-        class="video"
+        class="iframeHolder"
         :src="video"
+        :vars="{autoplay: 1}"
       />
+
       <!-- close button in the upper right -->
       <div
         class="closer"
@@ -151,8 +150,8 @@
 <script>
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
-import { LazyYoutube } from 'vue-lazytube'
 import resize from 'vue-resize-directive'
+import YouTube from 'vue3-youtube'
 import PlayIcon from './icons/PlayIcon'
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
@@ -168,7 +167,7 @@ export default {
     ShareToolsItem,
     PlayIcon,
     CloseIcon,
-    LazyYoutube
+    YouTube
   },
   directives: {
     resize
@@ -305,7 +304,10 @@ export default {
     return {
       readMore: false,
       showVideo: false,
-      inViewPort: false
+      inViewPort: false,
+      playerVars: {
+        autoplay: 1
+      }
     }
   },
   computed: {
@@ -631,20 +633,25 @@ export default {
     background: rgba(0, 0, 0, 0.7);
     z-index: $z-index-100;
     max-width: 100%;
-    .video {
-      width: calc(100vw - 100px);
-      height: calc(100vh - 80px);
-      max-width: 100%;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      @include media("<small") {
-        width: 100vw;
-        top: 40px;
-        height: calc(100vh - 40px);
+    .iframeHolder {
+      width: 100% !important;
+      height: 100% !important;
+      position: absolute !important;
+      iframe {
+        width: calc(100vw - 100px) !important;
+        height: calc(100vh - 80px) !important;
+        max-width: 100%;
+        position: absolute !important;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        @include media("<small") {
+          width: 100vw !important;
+          top: 40px;
+          height: calc(100vh - 40px) !important;
+        }
       }
     }
     .closer {

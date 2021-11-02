@@ -16,7 +16,7 @@
     },
     computed: {
       spacingClass () {
-        if (this.$props.size) {
+        if (this.size) {
           return 'u-padding--' + this.size + '--top'
         } else {
           return 'u-padding--top'

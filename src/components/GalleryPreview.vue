@@ -100,10 +100,9 @@ export default {
 </script>
 
 <style lang="scss">
-$gallery-preview-max-width: 640px;
 .gallery-preview {
   --gallery-preview-active-color: RGB(var(--color-link));
-  max-width: $gallery-preview-max-width;
+  max-width: 640px;
 }
 
 .gallery-preview-images {
@@ -132,7 +131,7 @@ $gallery-preview-max-width: 640px;
     flex-basis: calc(25% - var(--space-3));
   }
 
-  @media all and (min-width: $gallery-preview-max-width) {
+  @media all and (min-width: 640px) {
     min-width: calc(20% - var(--space-3));
     max-width: calc(20% - var(--space-3));
     flex-basis: calc(20% - var(--space-3));

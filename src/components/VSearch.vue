@@ -7,8 +7,8 @@
       ref="searchButton"
       tabindex="0"
       class="search-bar-search-icon u-icon--xs"
-      @click.native="open"
-      @keypress.enter.space.native.prevent="open"
+      @click="open"
+      @keypress.enter.space.prevent="open"
     >
       <search-icon />
     </v-button>
@@ -37,7 +37,7 @@
             class="search-bar-close"
             tabindex="0"
             @click="close"
-            @keypress.native.enter.space.prevent="close"
+            @keypress.enter.space.prevent="close"
           >
             <close-icon />
           </v-button>
@@ -55,7 +55,7 @@
             class="search-bar-submit"
             tabindex="0"
             @click="submit"
-            @keypress.native.enter.space.prevent="submit"
+            @keypress.enter.space.prevent="submit"
           >
             <search-icon />
           </v-button>
@@ -77,6 +77,7 @@ export default {
     SearchIcon,
     VButton
   },
+  emits: ['open', 'close', 'submit'],
   props: {
     action: {
       type: String,

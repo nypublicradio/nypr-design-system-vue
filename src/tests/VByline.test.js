@@ -26,7 +26,7 @@ describe('VByline', () => {
     expect(wrapper.text()).toContain(authors[0].lastName)
     expect(wrapper.text()).toContain(authors[0].firstName)
     expect(wrapper.text()).toContain(authors[0].organization)
-    const div = wrapper.findAll('a')
+    const div = wrapper.findAll('nuxt-link')
     expect(div.at(0).attributes().to).toBe(authors[0].url)
     expect(div.at(1).attributes().to).toBe(authors[0].organizationUrl)
   })
