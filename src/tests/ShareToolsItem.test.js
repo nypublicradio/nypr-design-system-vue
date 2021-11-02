@@ -73,7 +73,7 @@ describe('ShareToolsItem', () => {
     expect(span.text()).toContain(label)
     expect(linkTag.attributes('href')).toBe(link)
   })
-  
+
   test('service prop works: facebook', () => {
     const service = 'facebook'
     const wrapper = shallowMount(ShareToolsItem, {

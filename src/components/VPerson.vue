@@ -67,7 +67,7 @@
           <nuxt-link
             class="person-name-link"
             :class="!nameLink ? 'disabled' : ''"
-            :to="nameLink"
+            :to="nameLink ? nameLink : null"
           >
             <span v-html="name" />
           </nuxt-link>
@@ -112,7 +112,7 @@
           class="social"
         >
           <share-tools-item
-            v-for="(item, index) in social"
+            v-for="(item, index) in socialArray"
             :key="index"
             :service="item.service"
             :username="item.username"
@@ -158,7 +158,7 @@ import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
 gsap.registerPlugin(ScrollTrigger)
-// let debounce
+
 /**
  * A component for displaying details about a person
  */
@@ -259,6 +259,34 @@ export default {
       default: false
     },
     /**
+     *  persons website url
+     */
+    websiteUrl: {
+      type: [String],
+      default: null
+    },
+    /**
+     *  persons website label
+     */
+    websiteLabel: {
+      type: [String],
+      default: null
+    },
+    /**
+     *  persons email address
+     */
+    email: {
+      type: [String],
+      default: null
+    },
+    /**
+     *  persons phone number
+     */
+    phoneNumber: {
+      type: [String],
+      default: null
+    },
+    /**
      *  social account array
      */
     social: {
@@ -292,6 +320,30 @@ export default {
     },
     organizationComputed () {
       return ' (' + this.organization + ')'
+    },
+    socialArray () {
+      // Website, Email, Phone array
+      const wepArray = []
+      if (this.email) {
+        wepArray.push({
+          service: 'email',
+          username: this.email
+        })
+      }
+      if (this.phoneNumber) {
+        wepArray.push({
+          service: 'phone',
+          username: this.phoneNumber
+        })
+      }
+      if (this.websiteUrl) {
+        wepArray.push({
+          service: 'site',
+          link: this.websiteUrl,
+          label: this.websiteLabel ? this.websiteLabel : 'My site'
+        })
+      }
+      return this.social.concat(wepArray)
     }
   },
   mounted () {

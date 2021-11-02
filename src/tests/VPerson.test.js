@@ -71,12 +71,12 @@ describe('VPerson', () => {
     const blurbProp = wrapper.find('.blurbHolder')
     const truncateProp = wrapper.find('.truncate').exists()
     const socialProp = wrapper.find('.social').exists()
-    
+
     expect(orientationProp).toBe(true)
     expect(circleProp).toBe(true)
     expect(imageProp.attributes('src')).toBe(image)
     // imgScale updates the style of imageLinkProp, but don't know how to test it
-    
+
     expect(nameLinkProp.text()).toContain(name)
     expect(nameLinkProp.attributes('to')).toBe(nameLink)
     expect(imageLinkProp.attributes('to')).toBe(nameLink)
@@ -169,7 +169,7 @@ describe('VPerson', () => {
     const truncateExists = wrapper.find('.truncate').exists()
     expect(truncateExists).toBe(true)
   })
-  
+
   test('it shows, loads the video', async () => {
     const wrapper = mount(VPerson, {
       propsData: { image, video, name, role, blurb }

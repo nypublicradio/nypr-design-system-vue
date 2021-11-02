@@ -28,6 +28,7 @@
 <script>
 // eslint-disable-next-line import/no-duplicates
 import Email from './icons/EmailIcon'
+import Phone from './icons/PhoneIcon'
 import Facebook from './icons/FacebookIcon'
 import Instagram from './icons/InstagramIcon'
 import Linkedin from './icons/LinkedinIcon'
@@ -71,6 +72,11 @@ const SOCIAL_SERVICE_MAP = {
     profileBase: 'mailto:',
     shareBase: 'mailto:',
     omitUrl: true
+  },
+  phone: {
+    profileBase: 'tel:',
+    shareBase: 'tel:',
+    omitUrl: true
   }
 }
 
@@ -78,6 +84,7 @@ export default {
   name: 'ShareToolsLink',
   components: {
     Email,
+    Phone,
     Facebook,
     Instagram,
     Linkedin,
@@ -235,9 +242,15 @@ export default {
 
 .share-tools-button:hover svg > *,
 .c-share-tools__link:hover svg > * {
-  fill: RGB(var(--color-primary-2));
+  fill: RGB(var(--color-primary-2)) !important;
 }
 
+.c-share-tools__link.phone svg {
+  padding: 1px;
+  margin: auto;
+  position: relative;
+  display: block;
+}
 .c-share-tools__link.site {
   color: var(--color-text);
   width: auto;
@@ -246,6 +259,8 @@ export default {
   font-size: var(--font-size-3);
   font-weight: var(--font-weight-subheader);
   line-height: var(--line-height-1);
+  transition: var(--animation-easing-standard)
+    var(--animation-duration-standard);
   &:hover {
     color: RGB(var(--color-primary-2));
     text-decoration: underline;
