@@ -12,6 +12,7 @@ describe('VPerson', () => {
   // all props once
   const orientation = 'responsive'
   const image = 'https://placehold.it/175x175'
+  const imageGIF = 'https://placehold.it/175x175.gif'
   const video = 'https://www.youtube.com/watch?v=LOS5WB75gkY'
   const imgScale = '70'
   const circle = true
@@ -62,29 +63,58 @@ describe('VPerson', () => {
     // check if prop works and was rendered correctly
     const orientationProp = wrapper.find('.responsive').exists()
     const imageProp = wrapper.find('.person-image-img')
-    const videoHolder = wrapper.find('.video-holder').exists()
     const circleProp = wrapper.find('.circle').exists()
     // const animateProp
     const nameLinkProp = wrapper.find('.person-name-link')
-    const nameImageProp = wrapper.find('.person-image-link')
+    const imageLinkProp = wrapper.find('.person-image-link')
     const roleProp = wrapper.find('.person-role')
     const blurbProp = wrapper.find('.blurbHolder')
     const truncateProp = wrapper.find('.truncate').exists()
     const socialProp = wrapper.find('.social').exists()
-
+    
     expect(orientationProp).toBe(true)
     expect(circleProp).toBe(true)
     expect(imageProp.attributes('src')).toBe(image)
-    expect(videoHolder).toBe(true)
-    // imgScale updates the style of nameImageProp, but don't know how to test it
-
+    // imgScale updates the style of imageLinkProp, but don't know how to test it
+    
     expect(nameLinkProp.text()).toContain(name)
     expect(nameLinkProp.attributes('to')).toBe(nameLink)
-    expect(nameImageProp.attributes('to')).toBe(nameLink)
+    expect(imageLinkProp.attributes('to')).toBe(nameLink)
     expect(roleProp.text()).toContain(role)
     expect(blurbProp.text()).toContain(blurb)
     expect(truncateProp).toBe(true)
     expect(socialProp).toBe(true)
+  })
+
+  test('it has image only', async () => {
+    const wrapper = mount(VPerson, {
+      propsData: { image }
+    })
+    const imageProp = wrapper.find('.person-image-img')
+    const hasDetails = wrapper.find('.person-details').exists()
+    expect(imageProp.attributes('src')).toBe(image)
+    expect(hasDetails).toBe(false)
+  })
+
+  test('image is GIF', async () => {
+    const wrapper = mount(VPerson, {
+      propsData: { image: imageGIF }
+    })
+    const imageProp = wrapper.find('.person-image-img')
+    expect(imageProp.attributes('src')).toBe(imageGIF)
+    expect(wrapper.vm.isGIF(imageGIF)).toBeTruthy()
+  })
+
+  test('it has image only with link', async () => {
+    const wrapper = mount(VPerson, {
+      propsData: { image, nameLink }
+    })
+    const imageLinkProp = wrapper.find('.person-image-link')
+    const imageProp = wrapper.find('.person-image-img')
+    const hasDetails = wrapper.find('.person-details').exists()
+    expect(imageLinkProp.attributes('to')).toBe(nameLink)
+    expect(imageProp.attributes('src')).toBe(image)
+    expect(hasDetails).toBe(false)
   })
 
   test('it has details', async () => {
@@ -101,6 +131,55 @@ describe('VPerson', () => {
     })
     const hasDetails = wrapper.find('.person-details').exists()
     expect(hasDetails).toBe(false)
+  })
+
+  test('it has details with organization', async () => {
+    const wrapper = mount(VPerson, {
+      propsData: { image, name, role, blurb, social, organization, organizationLink }
+    })
+    const personRole = wrapper.find('.person-role')
+    const hasDetails = wrapper.find('.person-details')
+    const hasDetailsExists = hasDetails.exists()
+    expect(hasDetailsExists).toBe(true)
+    expect(personRole.text()).toContain(organization)
+  })
+
+  test('it has circle image', async () => {
+    const wrapper = mount(VPerson, {
+      propsData: { image, name, role, blurb, circle }
+    })
+    const circleProp = wrapper.find('.circle').exists()
+    expect(circleProp).toBe(true)
+  })
+
+  test('it has detail, but no image', async () => {
+    const wrapper = mount(VPerson, {
+      propsData: { name, role, blurb, circle }
+    })
+    const imagePropExists = wrapper.find('.person-image-img').exists()
+    const hasDetailsExists = wrapper.find('.person-details').exists()
+    expect(imagePropExists).toBe(false)
+    expect(hasDetailsExists).toBe(true)
+  })
+
+  test('it has truncated blurb', async () => {
+    const wrapper = mount(VPerson, {
+      propsData: { name, role, blurb, truncate }
+    })
+    const truncateExists = wrapper.find('.truncate').exists()
+    expect(truncateExists).toBe(true)
+  })
+  
+  test('it shows, loads the video', async () => {
+    const wrapper = mount(VPerson, {
+      propsData: { image, video, name, role, blurb }
+    })
+    const playButton = wrapper.find('.play-icon')
+    await playButton.trigger('click')
+    const videoHolder = wrapper.find('.video-holder').exists()
+    const iframeWrapper = wrapper.find('.ly-iframe-wrapper').exists()
+    expect(videoHolder).toBe(true)
+    expect(iframeWrapper).toBe(true)
   })
 
   test('it is responsive', async () => {
