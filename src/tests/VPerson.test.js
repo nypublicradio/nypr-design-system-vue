@@ -88,7 +88,8 @@ describe('VPerson', () => {
 
   test('it has image only', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image }
+      propsData: { image },
+      stubs: ['nuxt-link']
     })
     const imageProp = wrapper.find('.person-image-img')
     const hasDetails = wrapper.find('.person-details').exists()
@@ -98,7 +99,8 @@ describe('VPerson', () => {
 
   test('image is GIF', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image: imageGIF }
+      propsData: { image: imageGIF },
+      stubs: ['nuxt-link']
     })
     const imageProp = wrapper.find('.person-image-img')
     expect(imageProp.attributes('src')).toBe(imageGIF)
@@ -107,7 +109,8 @@ describe('VPerson', () => {
 
   test('it has image only with link', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, nameLink }
+      propsData: { image, nameLink },
+      stubs: ['nuxt-link']
     })
     const imageLinkProp = wrapper.find('.person-image-link')
     const imageProp = wrapper.find('.person-image-img')
@@ -119,7 +122,8 @@ describe('VPerson', () => {
 
   test('it has details', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, name, role, blurb, social }
+      propsData: { image, name, role, blurb, social },
+      stubs: ['nuxt-link']
     })
     const hasDetails = wrapper.find('.person-details').exists()
     expect(hasDetails).toBe(true)
@@ -127,7 +131,8 @@ describe('VPerson', () => {
 
   test('it does not have details', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, video, circle }
+      propsData: { image, video, circle },
+      stubs: ['nuxt-link']
     })
     const hasDetails = wrapper.find('.person-details').exists()
     expect(hasDetails).toBe(false)
@@ -135,7 +140,8 @@ describe('VPerson', () => {
 
   test('it has details with organization', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, name, role, blurb, social, organization, organizationLink }
+      propsData: { image, name, role, blurb, social, organization, organizationLink },
+      stubs: ['nuxt-link']
     })
     const personRole = wrapper.find('.person-role')
     const hasDetails = wrapper.find('.person-details')
@@ -146,7 +152,8 @@ describe('VPerson', () => {
 
   test('it has circle image', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, name, role, blurb, circle }
+      propsData: { image, name, role, blurb, circle },
+      stubs: ['nuxt-link']
     })
     const circleProp = wrapper.find('.circle').exists()
     expect(circleProp).toBe(true)
@@ -154,7 +161,8 @@ describe('VPerson', () => {
 
   test('it has detail, but no image', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { name, role, blurb, circle }
+      propsData: { name, role, blurb, circle },
+      stubs: ['nuxt-link']
     })
     const imagePropExists = wrapper.find('.person-image-img').exists()
     const hasDetailsExists = wrapper.find('.person-details').exists()
@@ -164,7 +172,8 @@ describe('VPerson', () => {
 
   test('it has truncated blurb', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { name, role, blurb, truncate }
+      propsData: { name, role, blurb, truncate },
+      stubs: ['nuxt-link']
     })
     const truncateExists = wrapper.find('.truncate').exists()
     expect(truncateExists).toBe(true)
@@ -172,14 +181,15 @@ describe('VPerson', () => {
 
   test('it shows, loads the video', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, video, name, role, blurb }
+      propsData: { image, video, name, role, blurb },
+      stubs: ['nuxt-link']
     })
     const playButton = wrapper.find('.play-icon')
     await playButton.trigger('click')
     const videoHolder = wrapper.find('.video-holder').exists()
-    const iframeWrapper = wrapper.find('.ly-iframe-wrapper').exists()
+    const iframeHolder = wrapper.find('.iframeHolder').exists()
     expect(videoHolder).toBe(true)
-    expect(iframeWrapper).toBe(true)
+    expect(iframeHolder).toBe(true)
   })
 
   test('it is responsive', async () => {

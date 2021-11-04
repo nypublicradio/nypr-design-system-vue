@@ -152,6 +152,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import resize from 'vue-resize-directive'
 import YouTube from 'vue3-youtube'
+
 import PlayIcon from './icons/PlayIcon'
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
@@ -438,7 +439,7 @@ export default {
 </script>
 
 <style lang="scss">
-@mixin vertical-styles {
+@mixin person-vertical-styles {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
   text-align: center;
@@ -465,12 +466,12 @@ export default {
       grid-template-columns: 1fr;
     }
     &.vertical {
-      @include vertical-styles;
+      @include person-vertical-styles;
     }
 
     &.responsive {
       @include media("<small") {
-        @include vertical-styles;
+        @include person-vertical-styles;
       }
     }
     .person-image-link {
