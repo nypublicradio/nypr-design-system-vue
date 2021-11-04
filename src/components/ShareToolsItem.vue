@@ -9,7 +9,11 @@
     rel="noopener"
     @click="$emit('follow', service)"
   >
-    <component :is="service" />
+    <component
+      :is="service"
+      v-if="service !== 'site'"
+    />
+    <span v-else>{{ label }}</span>
   </a>
 
   <button
@@ -24,8 +28,10 @@
 <script>
 // eslint-disable-next-line import/no-duplicates
 import Email from './icons/EmailIcon'
+import Phone from './icons/PhoneIcon'
 import Facebook from './icons/FacebookIcon'
 import Instagram from './icons/InstagramIcon'
+import Linkedin from './icons/LinkedinIcon'
 // eslint-disable-next-line import/no-duplicates
 import Newsletter from './icons/EmailIcon'
 import Reddit from './icons/RedditIcon'
@@ -43,6 +49,10 @@ const SOCIAL_SERVICE_MAP = {
     profileBase: 'https://www.facebook.com/',
     shareBase: 'https://www.facebook.com/sharer.php',
     urlKey: 'u'
+  },
+  linkedin: {
+    profileBase: 'https://www.linkedin.com/in/',
+    shareBase: 'https://www.linkedin.com/sharing/share-offsite/'
   },
   twitter: {
     profileBase: 'https://twitter.com/',
@@ -62,6 +72,11 @@ const SOCIAL_SERVICE_MAP = {
     profileBase: 'mailto:',
     shareBase: 'mailto:',
     omitUrl: true
+  },
+  phone: {
+    profileBase: 'tel:',
+    shareBase: 'tel:',
+    omitUrl: true
   }
 }
 
@@ -69,8 +84,10 @@ export default {
   name: 'ShareToolsLink',
   components: {
     Email,
+    Phone,
     Facebook,
     Instagram,
+    Linkedin,
     Newsletter,
     Reddit,
     Spotify,
@@ -120,15 +137,25 @@ export default {
       return SOCIAL_SERVICE_MAP[this.service]?.shareBase || ''
     },
     shareUrl () {
-      const utmParams = Object.entries(this.utmParameters)
-        .map(([key, value]) => { return 'utm_' + key + '=' + encodeURIComponent(value) })
+      const utmParams = Object.entries(this.utmParameters).map(
+        ([key, value]) => {
+          return 'utm_' + key + '=' + encodeURIComponent(value)
+        }
+      )
       let url = this.url
       if (utmParams.length > 0) {
         url = url + '?' + utmParams.join('&')
       }
 
-      const shareParams = Object.entries(this.shareParameters)
-        .map(([key, value]) => { return key + '=' + encodeURIComponent(value.replace(URL_PLACEHOLDER_PATTERN, url)) })
+      const shareParams = Object.entries(this.shareParameters).map(
+        ([key, value]) => {
+          return (
+            key +
+            '=' +
+            encodeURIComponent(value.replace(URL_PLACEHOLDER_PATTERN, url))
+          )
+        }
+      )
 
       let params = shareParams
 
@@ -167,8 +194,8 @@ export default {
         const windowWidth = screen.availWidth
         const windowheight = screen.availHeight
 
-        const left = ((windowWidth / 2) - (600 / 2)) + screenLeft
-        const top = ((windowheight / 2) - (600 / 2)) + screenTop
+        const left = windowWidth / 2 - 600 / 2 + screenLeft
+        const top = windowheight / 2 - 600 / 2 + screenTop
 
         return { left: left, top: top }
       }
@@ -176,10 +203,18 @@ export default {
       const windowString = ({ top, left }) =>
         `location=no,toolbar=no,menubar=no,scrollbars=no,status=no,width=550,height=600,top=${top},left=${left}`
       const popupPosition = getPopupPosition()
-      const newWindow = window.open(this.shareUrl, 'share window', windowString(popupPosition))
+      const newWindow = window.open(
+        this.shareUrl,
+        'share window',
+        windowString(popupPosition)
+      )
 
       // make sure it actually opened and bring it to the front
-      if (typeof newWindow !== 'undefined' && newWindow !== null && newWindow.focus) {
+      if (
+        typeof newWindow !== 'undefined' &&
+        newWindow !== null &&
+        newWindow.focus
+      ) {
         newWindow.focus()
       }
     }
@@ -190,7 +225,6 @@ export default {
 <style
   lang="scss"
 >
-
 .share-tools-button,
 .c-share-tools__link {
   width: 30px;
@@ -203,14 +237,40 @@ export default {
   }
 }
 
-.share-tools-button svg > path,
-.c-share-tools__link svg > path {
-  transition: var(--animation-easing-standard) var(--animation-duration-standard);
+.share-tools-button svg > *,
+.c-share-tools__link svg > * {
+  transition: var(--animation-easing-standard)
+    var(--animation-duration-standard);
 }
 
-.share-tools-button:hover svg > path,
-.c-share-tools__link:hover svg > path {
-  fill: RGB(var(--color-primary-2));
+.share-tools-button:hover svg > *,
+.c-share-tools__link:hover svg > * {
+  fill: RGB(var(--color-primary-2)) !important;
+}
+
+.c-share-tools__link.phone svg {
+  padding: 1px;
+  margin: auto;
+  position: relative;
+  display: block;
+}
+.c-share-tools__link.site {
+  color: var(--color-text);
+  width: auto;
+  display: grid;
+  align-content: center;
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-subheader);
+  line-height: var(--line-height-1);
+  transition: var(--animation-easing-standard)
+    var(--animation-duration-standard);
+  &:hover {
+    color: RGB(var(--color-primary-2));
+    text-decoration: underline;
+  }
+  @include media(">small") {
+    font-size: var(--font-size-4);
+  }
 }
 
 .share-tools-button > *,
@@ -225,5 +285,4 @@ export default {
   background: none;
   cursor: pointer;
 }
-
 </style>

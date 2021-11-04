@@ -13,6 +13,13 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    indent: 0
+    indent: 0,
+    'vue/max-attributes-per-line': ['error', {
+      singleline: {
+        max: 2
+      }
+    }],
+    'vue/no-v-html': 0,
+    'vue/html-self-closing': 0
   }
 }

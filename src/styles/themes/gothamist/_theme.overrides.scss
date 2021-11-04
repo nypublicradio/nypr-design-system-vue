@@ -1863,3 +1863,34 @@ ul.o-rte-text li li:before,
     padding: var(--space-2) var(--space-4);
   }
 }
+
+/* person component override */
+.person .person-inner{
+  @extend .o-3d-heading;
+  display: grid;
+  padding: 16px;
+  align-items: start;
+  .person-details {
+    .person-name-link {
+      font-family: var(--font-family-pragati);
+      font-size: var(--font-size-12);
+      line-height: var(--line-height-6);
+    }
+    .blurbHolder{
+      .blurb {      
+        line-height: var(--line-height-6);
+      }
+    }
+    .read-more{
+      margin-top: 5px;
+    }
+    .social{
+      margin-top: var(--space-3);
+      &.c-share-tools .c-share-tools__group .site{
+        text-transform: uppercase;
+        font-size: var(--font-size-2);
+      }
+    }
+  }
+}
+/* person component override */

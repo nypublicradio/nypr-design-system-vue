@@ -56,6 +56,24 @@ describe('ShareToolsItem', () => {
     expect(wrapper.attributes('aria-label')).toBe('Follow us on ' + service)
   })
 
+  test('service prop works: site', () => {
+    const service = 'site'
+    const wrapper = shallowMount(ShareToolsItem, {
+      propsData: {
+        service: service,
+        label: label,
+        link: link
+      }
+    })
+    // check if the corresponding component was successfully created
+    const linkTag = wrapper.find('.c-share-tools__link')
+    const span = wrapper.find('.site span')
+    const spanExists = span.exists()
+    expect(spanExists).toBe(true)
+    expect(span.text()).toContain(label)
+    expect(linkTag.attributes('href')).toBe(link)
+  })
+
   test('service prop works: facebook', () => {
     const service = 'facebook'
     const wrapper = shallowMount(ShareToolsItem, {

@@ -52,7 +52,7 @@ figcaption a {
   overflow: hidden;
   background-color: RGB(var(--color-background-darker));
 
-  img {
+  img, canvas {
     position: absolute;
     top: 50%;
     left: 50%;

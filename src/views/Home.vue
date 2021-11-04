@@ -85,6 +85,144 @@
     </the-header>
     <v-spacer size="quad" />
     <p>home page</p>
+    <v-person
+      orientation="responsive"
+      image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
+      video="https://www.youtube.com/watch?v=LOS5WB75gkY"
+      img-scale="70"
+      circle
+      animate
+      name="Jen Chung"
+      name-link="https://gothamist.com/staff/jen-chung"
+      role="Executive Editor and Co-founder"
+      organization="Gothamist"
+      organization-link="https://gothamist.com/"
+      blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order."
+      truncate="2"
+      :social="[
+        {
+          service: 'facebook',
+          link: 'https://www.facebook.com/WNYC',
+        },
+        {
+          service: 'twitter',
+          link: 'https://twitter.com/WNYC'
+        },
+        {
+          service: 'instagram',
+          link: 'https://www.instagram.com/WNYC/'
+        },
+        {
+          service: 'linkedin',
+          link: 'https://www.linkedin.com/company/wnyc-radio/'
+        },
+        {
+          service: 'youtube',
+          link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+        },
+        {
+          service: 'email',
+          username: 'jchung@nypr.com'
+        },
+        {
+          service: 'site',
+          label: 'My site',
+          link: 'https://www.google.com'
+        }
+      ]"
+    />
+    <v-person
+      orientation="responsive"
+      image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
+      video="https://www.youtube.com/watch?v=LOS5WB75gkY"
+      img-scale="70"
+      circle
+      animate
+      name="Jen Chung"
+      name-link="https://gothamist.com/staff/jen-chung"
+      role="Executive Editor and Co-founder"
+      organization="Gothamist"
+      organization-link="https://gothamist.com/"
+      blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order."
+      truncate="2"
+      :social="[
+        {
+          service: 'facebook',
+          link: 'https://www.facebook.com/WNYC',
+        },
+        {
+          service: 'twitter',
+          link: 'https://twitter.com/WNYC'
+        },
+        {
+          service: 'instagram',
+          link: 'https://www.instagram.com/WNYC/'
+        },
+        {
+          service: 'linkedin',
+          link: 'https://www.linkedin.com/company/wnyc-radio/'
+        },
+        {
+          service: 'youtube',
+          link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+        },
+        {
+          service: 'email',
+          username: 'jchung@nypr.com'
+        },
+        {
+          service: 'site',
+          label: 'My site',
+          link: 'https://www.google.com'
+        }
+      ]"
+    />
+    <v-person
+      orientation="responsive"
+      image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
+      video="https://www.youtube.com/watch?v=LOS5WB75gkY"
+      img-scale="70"
+      circle
+      animate
+      name="Jen Chung"
+      name-link="https://gothamist.com/staff/jen-chung"
+      role="Executive Editor and Co-founder"
+      organization="Gothamist"
+      organization-link="https://gothamist.com/"
+      blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law and Order."
+      truncate="2"
+      :social="[
+        {
+          service: 'facebook',
+          link: 'https://www.facebook.com/WNYC',
+        },
+        {
+          service: 'twitter',
+          link: 'https://twitter.com/WNYC'
+        },
+        {
+          service: 'instagram',
+          link: 'https://www.instagram.com/WNYC/'
+        },
+        {
+          service: 'linkedin',
+          link: 'https://www.linkedin.com/company/wnyc-radio/'
+        },
+        {
+          service: 'youtube',
+          link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+        },
+        {
+          service: 'email',
+          username: 'jchung@nypr.com'
+        },
+        {
+          service: 'site',
+          label: 'My site',
+          link: 'https://www.google.com'
+        }
+      ]"
+    />
   </div>
 </template>
 
@@ -100,7 +238,8 @@ export default {
     VButton: () => import('../components/VButton'),
     VSpacer: () => import('../components/VSpacer'),
     ShareTools: () => import('../components/ShareTools'),
-    ShareToolsItem: () => import('../components/ShareToolsItem')
+    ShareToolsItem: () => import('../components/ShareToolsItem'),
+    VPerson: () => import('../components/VPerson')
   },
   data () {
     return {
@@ -179,5 +318,4 @@ export default {
 </script>
 
 <style lang="scss">
-
 </style>

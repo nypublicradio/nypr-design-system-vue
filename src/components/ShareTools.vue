@@ -85,6 +85,8 @@ export default {
 .c-share-tools__group {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .c-share-tools.mod-vertical .c-share-tools__group {
@@ -96,8 +98,12 @@ export default {
   margin-bottom: var(--space-2);
 }
 
-.c-share-tools.mod-vertical .c-share-tools__group .share-tools-button:last-of-type,
-.c-share-tools.mod-vertical .c-share-tools__group .c-share-tools__link:last-of-type {
+.c-share-tools.mod-vertical
+  .c-share-tools__group
+  .share-tools-button:last-of-type,
+.c-share-tools.mod-vertical
+  .c-share-tools__group
+  .c-share-tools__link:last-of-type {
   margin-bottom: 0;
 }
 </style>
