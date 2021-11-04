@@ -5,10 +5,10 @@
     :style="cssVars"
   >
     <div
-      v-resize:debounce.100="onResize"
       class="person-inner"
       :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', orientation === 'vertical' ? 'vertical' : '', orientation === 'responsive' ? 'responsive' : '']"
     >
+      <resize-observer @notify="onResize" />
       <!-- Image section -->
       <nuxt-link
         v-if="image"
@@ -150,10 +150,10 @@
 <script>
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
-import resize from 'vue-resize-directive'
 import YouTube from 'vue3-youtube'
-
 import PlayIcon from './icons/PlayIcon'
+import { ResizeObserver } from 'vue3-resize'
+
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
@@ -168,10 +168,8 @@ export default {
     ShareToolsItem,
     PlayIcon,
     CloseIcon,
-    YouTube
-  },
-  directives: {
-    resize
+    YouTube,
+    ResizeObserver
   },
   props: {
     /**
@@ -306,11 +304,10 @@ export default {
       readMore: false,
       showVideo: false,
       inViewPort: false,
-      playerVars: {
-        autoplay: 1
-      }
+      windowSize: {}
     }
   },
+
   computed: {
     cssVars () {
       return {
@@ -349,13 +346,18 @@ export default {
       return this.social.concat(wepArray)
     }
   },
+  watch: {
+    windowSize: function () {
+      this.runHandleOnResizeDebounce()
+    }
+  },
   mounted () {
     // set of refs
     const { thisPerson, imgRef, detailsRef } = this.$refs
 
-    // initial call of onResize
+    // initial call of handleResize
     if (this.truncate) {
-      this.onResize()
+      this.handleResize()
     }
     // call method when "thisPerson" enters the viewport (once)
     if (this.image && this.isGIF(this.image)) {
@@ -390,6 +392,10 @@ export default {
         tl.from(thisPerson, { duration: 1, opacity: 0 })
       }
     }
+    // running the resize code in a debounce and controlled by a watch method looking at a data var windowSize, which is updarted by the onResize method with the screen is resized
+    this.runHandleOnResizeDebounce = this.debounce(() => {
+      this.handleResize()
+    }, 500)
   },
   methods: {
     handleBlurb () {
@@ -400,11 +406,26 @@ export default {
       gsap.to(blurbHolderRef, {
         duration: this.readMore ? 0.5 : 0.15,
         height: blurbRef.offsetHeight + 5,
-        onComplete: this.onResize
+        onComplete: this.handleResize
       })
     },
-    onResize () {
+    debounce (fn, delay) {
+      var timeoutID = null
+      return function () {
+        clearTimeout(timeoutID)
+        var args = arguments
+        var that = this
+        timeoutID = setTimeout(function () {
+          fn.apply(that, args)
+        }, delay)
+      }
+    },
+    onResize (size) {
+      this.windowSize = size
+    },
+    handleResize () {
       if (!this.readMore && this.truncate) {
+        console.log('debounced')
         const { blurbHolderRef, blurbRef, readMoreRef } = this.$refs
         const clamped = blurbRef.scrollHeight > blurbRef.clientHeight
         gsap.set(blurbHolderRef, { height: blurbRef.offsetHeight + 5 })
@@ -620,6 +641,31 @@ export default {
           display: block;
         }
       }
+    }
+    .vue3-resize-observer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border: none;
+      background-color: transparent;
+      pointer-events: none;
+      display: block;
+      overflow: hidden;
+      opacity: 0;
+    }
+    .vue3-resize-observer object {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -1;
     }
   }
   .video-holder {
