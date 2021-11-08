@@ -154,7 +154,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import YouTube from 'vue3-youtube'
 import PlayIcon from './icons/PlayIcon'
 /* import { ResizeObserver } from 'vue3-resize/dist/vue3-resize.umd.js' */
-import { WindowEvents } from 'vue3-window-events/dist/vue3-window-events.umd.js'
+import { WindowEvents } from 'vue3-window-events'
 
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
