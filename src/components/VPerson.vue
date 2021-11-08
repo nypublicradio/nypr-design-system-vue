@@ -154,7 +154,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import YouTube from 'vue3-youtube'
 import PlayIcon from './icons/PlayIcon'
 /* import { ResizeObserver } from 'vue3-resize/dist/vue3-resize.umd.js' */
-import { WindowEvents } from 'vue3-window-events'
+import { WindowEvents } from 'vue3-window-events/dist/vue3-window-events.umd.js'
 
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
@@ -645,7 +645,7 @@ export default {
         }
       }
     }
-    .vue3-resize-observer {
+    /* .vue3-resize-observer {
       position: absolute;
       top: 0;
       left: 0;
@@ -669,7 +669,7 @@ export default {
       overflow: hidden;
       pointer-events: none;
       z-index: -1;
-    }
+    } */
   }
   .video-holder {
     position: absolute;
