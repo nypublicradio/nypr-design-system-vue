@@ -8,6 +8,7 @@
       class="person-inner"
       :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', orientation === 'vertical' ? 'vertical' : '', orientation === 'responsive' ? 'responsive' : '']"
     >
+      <WindowEvents @resize="onResize" />
       <!-- <resize-observer @notify="onResize" /> -->
       <!-- Image section -->
       <nuxt-link
@@ -153,6 +154,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import YouTube from 'vue3-youtube'
 import PlayIcon from './icons/PlayIcon'
 /* import { ResizeObserver } from 'vue3-resize/dist/vue3-resize.umd.js' */
+import { WindowEvents } from 'vue3-window-events'
 
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
@@ -168,7 +170,8 @@ export default {
     ShareToolsItem,
     PlayIcon,
     CloseIcon,
-    YouTube
+    YouTube,
+    WindowEvents
     /* ResizeObserver */
   },
   props: {
@@ -421,7 +424,7 @@ export default {
       }
     },
     onResize (size) {
-      this.windowSize = size
+      this.windowSize = size.timeStamp
     },
     handleResize () {
       if (!this.readMore && this.truncate) {
