@@ -152,7 +152,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import YouTube from 'vue3-youtube'
 import PlayIcon from './icons/PlayIcon'
-import { ResizeObserver } from 'vue3-resize'
+import { ResizeObserver } from 'vue3-resize/dist/vue3-resize.umd.js'
 
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
