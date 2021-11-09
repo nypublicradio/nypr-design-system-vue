@@ -449,6 +449,8 @@ export default {
         setTimeout(() => {
           const thisPersonOffsetTop = this.$refs.thisPerson.offsetTop
           const videoOffsetTop = this.$refs.videoHolderRef.offsetTop
+          console.log('thisPersonOffsetTop = ', thisPersonOffsetTop)
+          console.log('videoOffsetTop = ', videoOffsetTop)
           const totalTop = videoOffsetTop + thisPersonOffsetTop
           gsap.to(window, {
             duration: 0.5,
