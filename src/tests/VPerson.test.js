@@ -78,8 +78,8 @@ describe('VPerson', () => {
     // imgScale updates the style of imageLinkProp, but don't know how to test it
 
     expect(nameLinkProp.text()).toContain(name)
-    expect(nameLinkProp.attributes('to')).toBe(nameLink)
-    expect(imageLinkProp.attributes('to')).toBe(nameLink)
+    expect(nameLinkProp.attributes('href')).toBe(nameLink)
+    expect(imageLinkProp.attributes('href')).toBe(nameLink)
     expect(roleProp.text()).toContain(role)
     expect(blurbProp.text()).toContain(blurb)
     expect(truncateProp).toBe(true)
@@ -115,7 +115,7 @@ describe('VPerson', () => {
     const imageLinkProp = wrapper.find('.person-image-link')
     const imageProp = wrapper.find('.person-image-img')
     const hasDetails = wrapper.find('.person-details').exists()
-    expect(imageLinkProp.attributes('to')).toBe(nameLink)
+    expect(imageLinkProp.attributes('href')).toBe(nameLink)
     expect(imageProp.attributes('src')).toBe(image)
     expect(hasDetails).toBe(false)
   })

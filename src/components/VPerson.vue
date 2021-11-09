@@ -11,11 +11,11 @@
       <!--  <WindowEvents @resize="onResize" /> -->
       <!-- <resize-observer @notify="onResize" /> -->
       <!-- Image section -->
-      <nuxt-link
+      <a
         v-if="image"
         class="person-image-link"
         :class="!nameLink ? 'disabled' : ''"
-        :to="nameLink ? nameLink : null"
+        :href="nameLink ? nameLink : null"
         aria-hidden="true"
         role="presentation"
         tabindex="-1"
@@ -52,7 +52,7 @@
             />
           </div>
         </div>
-      </nuxt-link>
+      </a>
 
       <!-- Detail section -->
       <div
@@ -65,13 +65,13 @@
           role="heading"
           aria-level="3"
         >
-          <nuxt-link
+          <a
             class="person-name-link"
             :class="!nameLink ? 'disabled' : ''"
-            :to="nameLink ? nameLink : null"
+            :href="nameLink ? nameLink : null"
           >
             <span v-html="name" />
-          </nuxt-link>
+          </a>
         </div>
         <span
           v-if="role"
