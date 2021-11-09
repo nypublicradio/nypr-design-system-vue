@@ -7,8 +7,8 @@
     :aria-label="ariaLabel"
     target="_blank"
     rel="noopener"
-    @click="$emit('follow', service)"
     :title="username ? socialLink : link"
+    @click="$emit('follow', service)"
   >
     <component
       :is="service"
