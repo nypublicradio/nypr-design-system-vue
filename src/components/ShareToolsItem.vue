@@ -8,6 +8,7 @@
     target="_blank"
     rel="noopener"
     @click="$emit('follow', service)"
+    :title="username ? socialLink : link"
   >
     <component
       :is="service"

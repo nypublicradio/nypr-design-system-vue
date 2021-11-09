@@ -267,28 +267,28 @@ export default {
      *  persons website url
      */
     websiteUrl: {
-      type: [String],
+      type: String,
       default: null
     },
     /**
      *  persons website label
      */
     websiteLabel: {
-      type: [String],
+      type: String,
       default: null
     },
     /**
      *  persons email address
      */
     email: {
-      type: [String],
+      type: String,
       default: null
     },
     /**
      *  persons phone number
      */
     phoneNumber: {
-      type: [String],
+      type: Array,
       default: null
     },
     /**
