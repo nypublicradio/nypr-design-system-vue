@@ -137,7 +137,9 @@ export default {
     transform: scale(2);
     opacity: 0.3;
   }
-  40%, 100% { // delay before starting the next round
+  40%,
+  100% {
+    // delay before starting the next round
     transform: scale(2.5);
     opacity: 0;
   }
@@ -156,7 +158,9 @@ export default {
     transform: scale(1.7);
     opacity: 0.2;
   }
-  40%, 100% { // delay before starting the next round
+  40%,
+  100% {
+    // delay before starting the next round
     transform: scale(2.125);
     opacity: 0;
   }
@@ -171,8 +175,8 @@ export default {
 }
 
 @mixin spinner(
-  $primary: rgba(239,239,239,1),
-  $accent: rgba(176,176,175,1),
+  $primary: rgba(239, 239, 239, 1),
+  $accent: rgba(176, 176, 175, 1),
   $innerWidth: 14px,
   $innerHeight: 14px,
   $outerWidth: 30px,
@@ -183,8 +187,9 @@ export default {
   $right: 140px,
   $bottom: 0px
 ) {
-  &:before { //inner spinner
-    content: '';
+  &:before {
+    //inner spinner
+    content: "";
     display: block;
     position: absolute;
     top: #{$top};
@@ -199,11 +204,12 @@ export default {
     border-left-color: $accent;
     border-top-color: $accent;
 
-    animation: bigSpin .8s linear infinite;
+    animation: bigSpin 0.8s linear infinite;
     transform-origin: 50% 50%;
   }
-  &:after { //outer spinner
-    content: '';
+  &:after {
+    //outer spinner
+    content: "";
     display: block;
     position: absolute;
     top: #{$top};
@@ -265,17 +271,14 @@ export default {
   }
 
   &.is-loading {
-
     .play-icon-shapes {
-      .play, .pause {
+      .play,
+      .pause {
         opacity: 0;
       }
     }
 
-    @include spinner(
-      $primary: rgba(white, 0),
-      $accent: white
-    );
+    @include spinner($primary: rgba(white, 0), $accent: white);
   }
 
   .play-icon-shapes {
@@ -284,12 +287,12 @@ export default {
     }
 
     .play {
-      fill: #FFF;
+      fill: #fff;
       stroke: none;
     }
 
     .outer-circle {
-      stroke: #FFF;
+      stroke: #fff;
       stroke-width: 3px;
     }
 
@@ -297,7 +300,8 @@ export default {
       display: none; // we'll always hide this one
     }
 
-    .outer-circle-fx, .inner-circle-fx {
+    .outer-circle-fx,
+    .inner-circle-fx {
       pointer-events: none;
       transform-origin: center;
       fill: transparent;

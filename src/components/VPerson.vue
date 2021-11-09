@@ -46,8 +46,9 @@
             class="video-play-button"
             @click="handleVideoClick($event)"
           >
-            <play-icon
-              :title="`Play `+ name +`'s introduction video`"
+            <play-icon-simple
+              :class="showVideo ? 'is-playing' : ''"
+              :title="(showVideo ? 'Close ' : 'Play ')+ name +`'s introduction video`"
               @click="$emit('componentEvent', video)"
             />
           </div>
@@ -123,27 +124,26 @@
             :url="item.url"
           />
         </share-tools>
-      </div>
-    </div>
-    <div
-      v-if="video && showVideo"
-      class="video-holder"
-      @click="handleVideoClick($event)"
-    >
-      <YouTube
-        ref="youtubeLazyVideo"
-        :id="'youtubeLazyVideo'+Math.floor((Math.random() * 100) + 1)"
-        class="iframeHolder"
-        :src="video"
-        :vars="{autoplay: 1}"
-      />
+        <div
+          v-if="video && showVideo"
+          ref="videoHolderRef"
+          class="video-holder"
+          @click="handleVideoClick($event)"
+        >
+          <YouTube
+            ref="youtubeRef"
+            class="iframeHolder"
+            :src="video"
+            :vars="{autoplay: 1}"
+          />
 
-      <!-- close button in the upper right -->
-      <div
-        class="closer"
-        @click="handleVideoClick($event)"
-      >
-        <close-icon />
+          <div
+            class="closer"
+            @click="handleVideoClick($event)"
+          >
+            <close-icon />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -152,8 +152,9 @@
 <script>
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin.min.js'
 import YouTube from 'vue3-youtube'
-import PlayIcon from './icons/PlayIcon'
+import PlayIconSimple from './icons/PlayIconSimple'
 /* import { ResizeObserver } from 'vue3-resize/dist/vue3-resize.umd.js' */
 
 /* import { WindowEvents } from 'vue3-window-events' */
@@ -162,6 +163,7 @@ import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
 gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollToPlugin)
 
 /**
  * A component for displaying details about a person
@@ -170,7 +172,7 @@ export default {
   components: {
     ShareTools,
     ShareToolsItem,
-    PlayIcon,
+    PlayIconSimple,
     CloseIcon,
     YouTube
     /* WindowEvents */
@@ -442,6 +444,17 @@ export default {
       event.stopPropagation()
       this.$emit(' componentEvent', 'playing promo video')
       this.showVideo = !this.showVideo
+      // if we are showing the video, it scrolls to the video
+      if (this.showVideo) {
+        setTimeout(() => {
+          const videoOffsetTop = this.$refs.videoHolderRef.offsetTop
+          gsap.to(window, {
+            duration: 0.5,
+            ease: 'sine.inOut',
+            scrollTo: videoOffsetTop
+          })
+        }, 100)
+      }
     },
     handleGifInViewPort (inViewPort) {
       /* wait 10 seconds then swap out GIF with canvas render */
@@ -476,6 +489,22 @@ export default {
   }
   .person-image-link {
     width: var(--img-scale);
+  }
+}
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .iframeHolder {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }
 
@@ -553,23 +582,6 @@ export default {
           align-self: end;
         }
         height: auto;
-        path,
-        polyline {
-          fill: #ffffff;
-          transition: var(--animation-easing-standard)
-            var(--animation-duration-standard);
-        }
-        @media (hover: hover) and (pointer: fine) {
-          &:hover {
-            path {
-              fill: RGB(var(--color-primary-2));
-            }
-            .play,
-            .inner-circle {
-              stroke: #fff;
-            }
-          }
-        }
         min-width: 40px;
         min-height: 40px;
       }
@@ -674,45 +686,26 @@ export default {
     } */
   }
   .video-holder {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: $z-index-100;
-    max-width: 100%;
+    position: relative;
+    display: block;
+    margin: 15px auto 15px auto;
+    width: 100%;
     .iframeHolder {
       width: 100% !important;
       height: 100% !important;
-      position: absolute !important;
       iframe {
-        width: calc(100vw - 100px) !important;
-        height: calc(100vh - 80px) !important;
-        max-width: 100%;
-        position: absolute !important;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        @include media("<small") {
-          width: 100vw !important;
-          top: 40px;
-          height: calc(100vh - 40px) !important;
-        }
+        width: 100% !important;
+        height: 100% !important;
       }
     }
+    @include aspect-ratio(16, 9);
     .closer {
       position: absolute;
       cursor: pointer;
-      top: 15px;
-      right: 15px;
-      width: 20px;
-      height: 20px;
+      top: 0px;
+      right: 5px;
+      width: 15px;
+      height: 15px;
       svg {
         path {
           transition: var(--animation-easing-standard)
