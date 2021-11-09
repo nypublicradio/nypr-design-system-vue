@@ -385,8 +385,8 @@ export default {
           trigger: thisPerson
         }
       })
-      tl.from(thisPerson, { duration: 1, opacity: 0 })
       if (this.hasDetails && this.image) {
+        tl.from(thisPerson, { duration: 1, opacity: 0 })
         tl.from(
           imgRef,
           {
