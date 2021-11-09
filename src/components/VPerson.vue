@@ -132,6 +132,7 @@
     >
       <YouTube
         ref="youtubeLazyVideo"
+        :id="'youtubeLazyVideo'+Math.floor((Math.random() * 100) + 1)"
         class="iframeHolder"
         :src="video"
         :vars="{autoplay: 1}"
