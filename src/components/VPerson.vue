@@ -110,7 +110,7 @@
         </a>
 
         <share-tools
-          v-if="social"
+          v-if="social || websiteUrl || email || phoneNumber"
           class="social"
         >
           <share-tools-item
@@ -330,7 +330,8 @@ export default {
     },
     socialArray () {
       // Website, Email, Phone array
-      const wepArray = []
+      const wepArray = this.social ? this.social : []
+
       if (this.email) {
         wepArray.push({
           service: 'email',
@@ -338,9 +339,11 @@ export default {
         })
       }
       if (this.phoneNumber) {
-        wepArray.push({
-          service: 'phone',
-          username: this.phoneNumber
+        this.phoneNumber.forEach((phone) => {
+          wepArray.push({
+            service: 'phone',
+            username: phone
+          })
         })
       }
       if (this.websiteUrl) {
@@ -350,7 +353,7 @@ export default {
           label: this.websiteLabel ? this.websiteLabel : 'My site'
         })
       }
-      return this.social.concat(wepArray)
+      return wepArray
     }
   },
   watch: {
