@@ -447,11 +447,13 @@ export default {
       // if we are showing the video, it scrolls to the video
       if (this.showVideo) {
         setTimeout(() => {
+          const thisPersonOffsetTop = this.$refs.thisPerson.offsetTop
           const videoOffsetTop = this.$refs.videoHolderRef.offsetTop
+          const totalTop = videoOffsetTop + thisPersonOffsetTop
           gsap.to(window, {
             duration: 0.5,
             ease: 'sine.inOut',
-            scrollTo: videoOffsetTop
+            scrollTo: totalTop
           })
         }, 100)
       }
