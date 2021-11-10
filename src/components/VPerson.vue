@@ -410,7 +410,7 @@ export default {
   },
   methods: {
     handleBlurb () {
-      const { blurbHolderRef, blurbRef } = this.$refs
+      const { thisPerson, blurbHolderRef, blurbRef } = this.$refs
       this.readMore = !this.readMore
       blurbRef.classList.toggle('expanded')
 
@@ -419,6 +419,15 @@ export default {
         height: blurbRef.offsetHeight + 5,
         onComplete: this.handleResize
       })
+
+      if (!this.readMore) {
+        gsap.to(window, {
+          duration: 0.25,
+          ease: 'sine.inOut',
+          scrollTo: thisPerson,
+          offsetY: 140
+        })
+      }
     },
     debounce (fn, delay) {
       var timeoutID = null
@@ -454,7 +463,8 @@ export default {
           gsap.to(window, {
             duration: 0.5,
             ease: 'sine.inOut',
-            scrollTo: this.$refs.videoHolderRef
+            scrollTo: this.$refs.videoHolderRef,
+            offsetY: 150
           })
         }, 100)
       }
