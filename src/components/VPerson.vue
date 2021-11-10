@@ -46,12 +46,11 @@
             v-if="video"
             class="video-play-button"
             :class="circle ? 'circle' : ''"
-            @click="handleVideoClick($event)"
           >
             <play-icon-simple
               :class="showVideo ? 'is-playing' : ''"
               :title="(showVideo ? 'Close ' : 'Play ')+ name +`'s introduction video`"
-              @click="$emit('componentEvent', video)"
+              @click="$emit('componentEvent', video); handleVideoClick($event);"
             />
           </div>
         </div>
@@ -133,11 +132,10 @@
           class="video-holder"
           @click="handleVideoClick($event)"
         >
-          <YouTube
+          <YoutubeVue3
             ref="youtubeRef"
             class="iframeHolder"
-            :src="video"
-            :vars="{autoplay: 1}"
+            :videoid="getYoutubeId(video)"
           />
 
           <div
@@ -156,7 +154,7 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin.min.js'
-import YouTube from 'vue3-youtube'
+import { YoutubeVue3 } from 'youtube-vue3'
 import PlayIconSimple from './icons/PlayIconSimple'
 /* import { ResizeObserver } from 'vue3-resize/dist/vue3-resize.umd.js' */
 
@@ -177,7 +175,7 @@ export default {
     ShareToolsItem,
     PlayIconSimple,
     CloseIcon,
-    YouTube
+    YoutubeVue3
     /* WindowEvents */
     /* ResizeObserver */
   },
@@ -425,8 +423,7 @@ export default {
       if (!this.readMore) {
         gsap.to(window, {
           duration: 0.15,
-          autoKill: true,
-          scrollTo: { y: thisPerson, offsetY: 120 }
+          scrollTo: { y: thisPerson, offsetY: 160, autoKill: true }
         })
       }
     },
@@ -464,8 +461,11 @@ export default {
           gsap.to(window, {
             duration: 0.5,
             ease: 'sine.inOut',
-            autoKill: true,
-            scrollTo: { y: this.$refs.videoHolderRef, offsetY: 120 }
+            scrollTo: {
+              y: this.$refs.videoHolderRef,
+              offsetY: 120,
+              autoKill: true
+            }
           })
         }, 100)
       }
@@ -486,6 +486,11 @@ export default {
     },
     isGIF (imageURL) {
       return imageURL.match(/(http(s?):)([/|.|\w|\s|-])*\.(?:gif)/g)
+    },
+    getYoutubeId (url) {
+      var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
+      var match = url.match(regExp)
+      return match && match[7].length === 11 ? match[7] : false
     }
   }
 }
