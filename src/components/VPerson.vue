@@ -44,6 +44,7 @@
           <div
             v-if="video"
             class="video-play-button"
+            :class="circle ? 'circle' : ''"
             @click="handleVideoClick($event)"
           >
             <play-icon-simple
@@ -450,15 +451,10 @@ export default {
       // if we are showing the video, it scrolls to the video
       if (this.showVideo) {
         setTimeout(() => {
-          const thisPersonOffsetTop = this.$refs.thisPerson.offsetTop
-          const videoOffsetTop = this.$refs.videoHolderRef.offsetTop
-          console.log('thisPersonOffsetTop = ', thisPersonOffsetTop)
-          console.log('videoOffsetTop = ', videoOffsetTop)
-          const totalTop = videoOffsetTop + thisPersonOffsetTop
           gsap.to(window, {
             duration: 0.5,
             ease: 'sine.inOut',
-            scrollTo: totalTop
+            scrollTo: this.$refs.videoHolderRef
           })
         }, 100)
       }
@@ -571,13 +567,15 @@ export default {
     .video-play-button {
       position: absolute;
       display: grid;
-      bottom: 0;
-      left: 0;
-      width: 25%;
-      height: 25%;
+      bottom: 5px;
+      left: 5px;
       @include media("<small") {
-        top: 0;
+        top: 5px;
         bottom: unset;
+        &.circle {
+          top: 0;
+          bottom: unset;
+        }
       }
       svg {
         opacity: 1;
@@ -591,6 +589,12 @@ export default {
         height: auto;
         min-width: 40px;
         min-height: 40px;
+      }
+      &.circle {
+        width: 25%;
+        height: 25%;
+        bottom: 0;
+        left: 0;
       }
     }
     .person-details {
