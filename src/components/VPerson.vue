@@ -1,6 +1,5 @@
 <template>
   <div
-    id="person"
     ref="thisPerson"
     class="person"
     :style="cssVars"
@@ -128,6 +127,7 @@
         </share-tools>
         <div
           v-if="video && showVideo"
+          id="videoHolder"
           ref="videoHolderRef"
           class="video-holder"
           @click="handleVideoClick($event)"
@@ -422,10 +422,14 @@ export default {
       })
 
       if (!this.readMore) {
+        var element = thisPerson
+        var headerOffset = 120
+        var elementPosition = element.offsetTop
+        var offsetPosition = elementPosition - headerOffset
         gsap.to(window, {
-          duration: 0.25,
+          duration: 0.15,
           ease: 'sine.inOut',
-          scrollTo: { y: thisPerson.offsetTop - 140 }
+          scrollTo: { y: offsetPosition }
         })
       }
     },
@@ -460,10 +464,14 @@ export default {
       // if we are showing the video, it scrolls to the video
       if (this.showVideo) {
         setTimeout(() => {
+          var element = this.$refs.videoHolderRef
+          var headerOffset = 120
+          var elementPosition = element.offsetTop
+          var offsetPosition = elementPosition - headerOffset
           gsap.to(window, {
             duration: 0.5,
             ease: 'sine.inOut',
-            scrollTo: { y: this.$refs.videoHolderRef.offsetTop - 140 }
+            scrollTo: { y: offsetPosition }
           })
         }, 100)
       }
