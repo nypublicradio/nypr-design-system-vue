@@ -24,8 +24,6 @@
     "gsap": "^3.8.0",
     "vue": "^3.2.20",
     "vue-router": "^3.5.2",
-    "vue3-resize": "^0.2.0",
-    "vue3-window-events": "0.0.3",
     "vue3-youtube": "^0.1.8"
   },
   "devDependencies": {
