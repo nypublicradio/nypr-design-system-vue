@@ -46,11 +46,12 @@
             v-if="video"
             class="video-play-button"
             :class="circle ? 'circle' : ''"
+            @click="handleVideoClick($event)"
           >
             <play-icon-simple
               :class="showVideo ? 'is-playing' : ''"
               :title="(showVideo ? 'Close ' : 'Play ')+ name +`'s introduction video`"
-              @click="$emit('componentEvent', video); handleVideoClick($event);"
+              @click="$emit('componentEvent', video)"
             />
           </div>
         </div>
