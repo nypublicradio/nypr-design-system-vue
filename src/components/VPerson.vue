@@ -1,5 +1,6 @@
 <template>
   <div
+    id="person"
     ref="thisPerson"
     class="person"
     :style="cssVars"
@@ -424,8 +425,7 @@ export default {
         gsap.to(window, {
           duration: 0.25,
           ease: 'sine.inOut',
-          scrollTo: thisPerson,
-          offsetY: 140
+          scrollTo: { y: thisPerson.offsetTop - 140 }
         })
       }
     },
@@ -463,8 +463,7 @@ export default {
           gsap.to(window, {
             duration: 0.5,
             ease: 'sine.inOut',
-            scrollTo: this.$refs.videoHolderRef,
-            offsetY: 150
+            scrollTo: { y: this.$refs.videoHolderRef.offsetTop - 140 }
           })
         }, 100)
       }
