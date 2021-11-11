@@ -51,7 +51,6 @@
             <play-icon-simple
               :class="showVideo ? 'is-playing' : ''"
               :title="(showVideo ? 'Close ' : 'Play ')+ name +`'s introduction video`"
-              @click="$emit('componentEvent', video)"
             />
           </div>
         </div>
@@ -171,6 +170,7 @@ gsap.registerPlugin(ScrollToPlugin)
  * A component for displaying details about a person
  */
 export default {
+  name: 'VPerson',
   components: {
     ShareTools,
     ShareToolsItem,
