@@ -9,7 +9,7 @@
       class="person-inner"
       :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', orientation === 'vertical' ? 'vertical' : '', orientation === 'responsive' ? 'responsive' : '']"
     >
-      <!--  <WindowEvents @resize="onResize" /> -->
+      <WindowEvents @resize="onResize" />
       <!-- <resize-observer @notify="onResize" /> -->
       <!-- Image section -->
       <a
@@ -158,7 +158,7 @@ import { YoutubeVue3 } from 'youtube-vue3'
 import PlayIconSimple from './icons/PlayIconSimple'
 /* import { ResizeObserver } from 'vue3-resize/dist/vue3-resize.umd.js' */
 
-/* import { WindowEvents } from 'vue3-window-events' */
+import { WindowEvents } from 'vue3-window-events'
 
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
@@ -176,8 +176,8 @@ export default {
     ShareToolsItem,
     PlayIconSimple,
     CloseIcon,
-    YoutubeVue3
-    /* WindowEvents */
+    YoutubeVue3,
+    WindowEvents
     /* ResizeObserver */
   },
   props: {
