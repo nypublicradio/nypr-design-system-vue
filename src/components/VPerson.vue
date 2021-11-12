@@ -111,7 +111,7 @@
         </a>
 
         <share-tools
-          v-if="social || websiteUrl || email || phoneNumber"
+          v-if="socialArray.length > 0"
           class="social"
         >
           <share-tools-item
@@ -366,7 +366,7 @@ export default {
   },
   mounted () {
     // set of refs
-    //const { thisPerson, imgRef, detailsRef } = this.$refs
+    // const { thisPerson, imgRef, detailsRef } = this.$refs
 
     // initial call of handleResize
     if (this.truncate) {
