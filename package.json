@@ -25,9 +25,7 @@
     "gsap": "^3.8.0",
     "pathe": "^0.2.0",
     "vue": "^3.2.20",
-    "vue-router": "^3.5.2",
-    "vue3-window-events": "0.0.3",
-    "youtube-vue3": "^0.1.10"
+    "vue-router": "^3.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",

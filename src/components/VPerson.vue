@@ -132,11 +132,12 @@
           class="video-holder"
           @click="handleVideoClick($event)"
         >
-          <YoutubeVue3
+          <!-- <YoutubeVue3
             ref="youtubeRef"
             class="iframeHolder"
             :videoid="getYoutubeId(video)"
-          />
+          /> -->
+          <p>video will play here one day</p>
 
           <div
             class="closer"
@@ -154,7 +155,7 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin.min.js'
-import { YoutubeVue3 } from 'youtube-vue3'
+/* import { YoutubeVue3 } from 'youtube-vue3' */
 import PlayIconSimple from './icons/PlayIconSimple'
 /* import { ResizeObserver } from 'vue3-resize/dist/vue3-resize.umd.js' */
 
@@ -175,8 +176,8 @@ export default {
     ShareTools,
     ShareToolsItem,
     PlayIconSimple,
-    CloseIcon,
-    YoutubeVue3,
+    CloseIcon
+    /* YoutubeVue3 */
     /* WindowEvents */
     /* ResizeObserver */
   },
