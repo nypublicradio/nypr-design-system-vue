@@ -36,7 +36,7 @@
               ref="img"
               class="person-image person-image-img"
               :src="image"
-              :alt="name"
+              :alt="fullName"
               role="presentation"
               loading="lazy"
               decoding="async"
@@ -50,7 +50,7 @@
           >
             <play-icon-simple
               :class="showVideo ? 'is-playing' : ''"
-              :title="(showVideo ? 'Close ' : 'Play ')+ name +`'s introduction video`"
+              :title="(showVideo ? 'Close ' : 'Play ')+ fullName +`'s introduction video`"
             />
           </div>
         </div>
@@ -63,7 +63,7 @@
         class="person-details"
       >
         <div
-          v-if="name"
+          v-if="fullName"
           role="heading"
           aria-level="3"
         >
@@ -72,7 +72,7 @@
             :class="!nameLink ? 'disabled' : ''"
             :href="nameLink ? nameLink : null"
           >
-            <span v-html="name" />
+            <span v-html="fullName" />
           </a>
         </div>
         <span
@@ -220,7 +220,7 @@ export default {
     /**
      *  Full name of the person.
      */
-    name: {
+    fullName: {
       type: String,
       default: null
     },
@@ -326,7 +326,7 @@ export default {
       }
     },
     hasDetails () {
-      return !!this.role || !!this.blurb || !!this.social || !!this.name
+      return !!this.role || !!this.blurb || !!this.social || !!this.fullName
     },
     organizationComputed () {
       return ' (' + this.organization + ')'
