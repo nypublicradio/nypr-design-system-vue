@@ -152,9 +152,9 @@
 </template>
 
 <script>
-import gsap from 'gsap'
+/* import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
-import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin.min.js'
+import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin.min.js' */
 /* import { YoutubeVue3 } from 'youtube-vue3' */
 import PlayIconSimple from './icons/PlayIconSimple'
 /* import { ResizeObserver } from 'vue3-resize/dist/vue3-resize.umd.js' */
@@ -164,8 +164,8 @@ import PlayIconSimple from './icons/PlayIconSimple'
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
-gsap.registerPlugin(ScrollTrigger)
-gsap.registerPlugin(ScrollToPlugin)
+/* gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollToPlugin) */
 
 /**
  * A component for displaying details about a person
@@ -366,7 +366,7 @@ export default {
   },
   mounted () {
     // set of refs
-    const { thisPerson, imgRef, detailsRef } = this.$refs
+    //const { thisPerson, imgRef, detailsRef } = this.$refs
 
     // initial call of handleResize
     if (this.truncate) {
@@ -374,37 +374,37 @@ export default {
     }
     // call method when "thisPerson" enters the viewport (once)
     if (this.image && this.isGIF(this.image)) {
-      gsap.to(thisPerson, {
-        scrollTrigger: thisPerson,
-        onComplete: this.handleGifInViewPort
-      })
+      // gsap.to(thisPerson, {
+      //   scrollTrigger: thisPerson,
+      //   onComplete: this.handleGifInViewPort
+      // })
     }
 
     // animate card when it enters the viewport
-    if (this.animate) {
-      const tl = gsap.timeline({
-        delay: 0.5,
-        scrollTrigger: {
-          trigger: thisPerson
-        }
-      })
-      if (this.hasDetails && this.image) {
-        tl.from(thisPerson, { duration: 1, opacity: 0 })
-        tl.from(
-          imgRef,
-          {
-            duration: 1,
-            scale: 0.85,
-            opacity: 0,
-            ease: 'back.out'
-          },
-          '-=1'
-        )
-        tl.from(detailsRef, { duration: 1, opacity: 0 }, '-=0.5')
-      } else {
-        tl.from(thisPerson, { duration: 1, opacity: 0 })
-      }
-    }
+    // if (this.animate) {
+    //   const tl = gsap.timeline({
+    //     delay: 0.5,
+    //     scrollTrigger: {
+    //       trigger: thisPerson
+    //     }
+    //   })
+    //   if (this.hasDetails && this.image) {
+    //     tl.from(thisPerson, { duration: 1, opacity: 0 })
+    //     tl.from(
+    //       imgRef,
+    //       {
+    //         duration: 1,
+    //         scale: 0.85,
+    //         opacity: 0,
+    //         ease: 'back.out'
+    //       },
+    //       '-=1'
+    //     )
+    //     tl.from(detailsRef, { duration: 1, opacity: 0 }, '-=0.5')
+    //   } else {
+    //     tl.from(thisPerson, { duration: 1, opacity: 0 })
+    //   }
+    // }
     // running the resize code in a debounce and controlled by a watch method looking at a data var windowSize, which is updarted by the onResize method with the screen is resized
     this.runHandleOnResizeDebounce = this.debounce(() => {
       this.handleResize()
@@ -412,21 +412,21 @@ export default {
   },
   methods: {
     handleBlurb () {
-      const { thisPerson, blurbHolderRef, blurbRef } = this.$refs
+      const { /* thisPerson, blurbHolderRef, */ blurbRef } = this.$refs
       this.readMore = !this.readMore
       blurbRef.classList.toggle('expanded')
 
-      gsap.to(blurbHolderRef, {
-        duration: this.readMore ? 0.5 : 0.15,
-        height: blurbRef.offsetHeight + 5,
-        onComplete: this.handleResize
-      })
+      // gsap.to(blurbHolderRef, {
+      //   duration: this.readMore ? 0.5 : 0.15,
+      //   height: blurbRef.offsetHeight + 5,
+      //   onComplete: this.handleResize
+      // })
 
       if (!this.readMore) {
-        gsap.to(window, {
-          duration: 0.15,
-          scrollTo: { y: thisPerson, offsetY: 160, autoKill: true }
-        })
+        // gsap.to(window, {
+        //   duration: 0.15,
+        //   scrollTo: { y: thisPerson, offsetY: 160, autoKill: true }
+        // })
       }
     },
     debounce (fn, delay) {
@@ -446,9 +446,9 @@ export default {
     handleResize () {
       if (!this.readMore && this.truncate) {
         console.log('debounced')
-        const { blurbHolderRef, blurbRef, readMoreRef } = this.$refs
+        const { /* blurbHolderRef, */ blurbRef, readMoreRef } = this.$refs
         const clamped = blurbRef.scrollHeight > blurbRef.clientHeight
-        gsap.set(blurbHolderRef, { height: blurbRef.offsetHeight + 5 })
+        // gsap.set(blurbHolderRef, { height: blurbRef.offsetHeight + 5 })
         readMoreRef.classList.toggle('show-me', clamped)
       }
     },
@@ -459,17 +459,17 @@ export default {
       this.showVideo = !this.showVideo
       // if we are showing the video, it scrolls to the video
       if (this.showVideo) {
-        setTimeout(() => {
-          gsap.to(window, {
-            duration: 0.5,
-            ease: 'sine.inOut',
-            scrollTo: {
-              y: this.$refs.videoHolderRef,
-              offsetY: 120,
-              autoKill: true
-            }
-          })
-        }, 100)
+        // setTimeout(() => {
+        //   gsap.to(window, {
+        //     duration: 0.5,
+        //     ease: 'sine.inOut',
+        //     scrollTo: {
+        //       y: this.$refs.videoHolderRef,
+        //       offsetY: 120,
+        //       autoKill: true
+        //     }
+        //   })
+        // }, 100)
       }
     },
     handleGifInViewPort (inViewPort) {

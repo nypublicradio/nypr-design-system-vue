@@ -17,7 +17,7 @@ describe('VPerson', () => {
   const imgScale = '70'
   const circle = true
   const animate = true
-  const name = 'FirstName LastName'
+  const fullName = 'FirstName LastName'
   const nameLink = 'https://example.com'
   const organization = 'Gothamist'
   const organizationLink = 'https://gothamist.com/'
@@ -57,7 +57,7 @@ describe('VPerson', () => {
   ]
   test('it renders props', () => {
     const wrapper = mount(VPerson, {
-      propsData: { orientation, image, video, imgScale, circle, animate, name, nameLink, organization, organizationLink, role, blurb, truncate, social }
+      propsData: { orientation, image, video, imgScale, circle, animate, fullName, nameLink, organization, organizationLink, role, blurb, truncate, social }
     })
     // check if prop works and was rendered correctly
     const orientationProp = wrapper.find('.responsive').exists()
@@ -76,7 +76,7 @@ describe('VPerson', () => {
     expect(imageProp.attributes('src')).toBe(image)
     // imgScale updates the style of imageLinkProp, but don't know how to test it
 
-    expect(nameLinkProp.text()).toContain(name)
+    expect(nameLinkProp.text()).toContain(fullName)
     expect(nameLinkProp.attributes('href')).toBe(nameLink)
     expect(imageLinkProp.attributes('href')).toBe(nameLink)
     expect(roleProp.text()).toContain(role)
@@ -118,7 +118,7 @@ describe('VPerson', () => {
 
   test('it has details', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, name, role, blurb, social }
+      propsData: { image, fullName, role, blurb, social }
     })
     const hasDetails = wrapper.find('.person-details').exists()
     expect(hasDetails).toBe(true)
@@ -134,7 +134,7 @@ describe('VPerson', () => {
 
   test('it has details with organization', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, name, role, blurb, social, organization, organizationLink }
+      propsData: { image, fullName, role, blurb, social, organization, organizationLink }
     })
     const personRole = wrapper.find('.person-role')
     const hasDetails = wrapper.find('.person-details')
@@ -145,7 +145,7 @@ describe('VPerson', () => {
 
   test('it has circle image', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, name, role, blurb, circle }
+      propsData: { image, fullName, role, blurb, circle }
     })
     const circleProp = wrapper.find('.circle').exists()
     expect(circleProp).toBe(true)
@@ -153,7 +153,7 @@ describe('VPerson', () => {
 
   test('it has detail, but no image', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { name, role, blurb, circle }
+      propsData: { fullName, role, blurb, circle }
     })
     const imagePropExists = wrapper.find('.person-image-img').exists()
     const hasDetailsExists = wrapper.find('.person-details').exists()
@@ -163,7 +163,7 @@ describe('VPerson', () => {
 
   test('it has truncated blurb', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { name, role, blurb, truncate }
+      propsData: { fullName, role, blurb, truncate }
     })
     const truncateExists = wrapper.find('.truncate').exists()
     expect(truncateExists).toBe(true)
@@ -171,7 +171,7 @@ describe('VPerson', () => {
 
   test('it is responsive', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { orientation, image, imgScale, name, nameLink, role, blurb }
+      propsData: { orientation, image, imgScale, fullName, nameLink, role, blurb }
     })
     const responsiveProp = wrapper.find('.responsive').exists()
     expect(responsiveProp).toBe(true)
@@ -181,7 +181,7 @@ describe('VPerson', () => {
 
   test('it passes basic accessibility tests', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { orientation, image, video, imgScale, circle, animate, name, nameLink, organization, organizationLink, role, blurb, truncate }
+      propsData: { orientation, image, video, imgScale, circle, animate, fullName, nameLink, organization, organizationLink, role, blurb, truncate }
     })
     const results = await axe(wrapper.element)
     expect(results).toHaveNoViolations()
@@ -189,7 +189,7 @@ describe('VPerson', () => {
 
   test('it extracts youtube ID from url', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { name, role, blurb }
+      propsData: { fullName, role, blurb }
     })
     const id = await wrapper.vm.getYoutubeId('https://www.youtube.com/watch?v=LOS5WB75gkY')
     expect(id).toMatch('LOS5WB75gkY')
