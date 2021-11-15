@@ -185,7 +185,7 @@ export default {
   directives: {
     resize: {
       // directive definition
-      mounted: function(el, binding) {
+      inserted: function (el, binding) {
         const onResizeCallback = binding.value
         window.addEventListener('resize', () => {
           const width = document.documentElement.clientWidth
@@ -455,6 +455,7 @@ export default {
       }
     },
     onResize (size) {
+      console.log('resizing')
       this.windowSize = size
     },
     handleResize () {
