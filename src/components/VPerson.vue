@@ -6,6 +6,7 @@
     :style="cssVars"
   >
     <div
+      v-resize="onResize"
       class="person-inner"
       :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', orientation === 'vertical' ? 'vertical' : '', orientation === 'responsive' ? 'responsive' : '']"
     >
@@ -180,6 +181,19 @@ export default {
     /* YoutubeVue3 */
     /* WindowEvents */
     /* ResizeObserver */
+  },
+  directives: {
+    resize: {
+      // directive definition
+      mounted: function(el, binding) {
+        const onResizeCallback = binding.value
+        window.addEventListener('resize', () => {
+          const width = document.documentElement.clientWidth
+          const height = document.documentElement.clientHeight
+          onResizeCallback({ width, height })
+        })
+      }
+    }
   },
   props: {
     /**
@@ -441,11 +455,11 @@ export default {
       }
     },
     onResize (size) {
-      this.windowSize = size.timeStamp
+      this.windowSize = size
     },
     handleResize () {
       if (!this.readMore && this.truncate) {
-        console.log('debounced')
+        // console.log('debounced')
         const { /* blurbHolderRef, */ blurbRef, readMoreRef } = this.$refs
         const clamped = blurbRef.scrollHeight > blurbRef.clientHeight
         // gsap.set(blurbHolderRef, { height: blurbRef.offsetHeight + 5 })
