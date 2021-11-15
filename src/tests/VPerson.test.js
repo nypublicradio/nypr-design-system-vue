@@ -8,6 +8,16 @@ expect.extend(toHaveNoViolations)
 
 expect.extend(toHaveNoViolations)
 
+// need to mock the IntersectionObserver I am using for detecting when entering the viewport
+const mockIntersectionObserver = class {
+  // eslint-disable-next-line no-useless-constructor
+  constructor () {}
+  observe () {}
+  unobserve () {}
+  disconnect () {}
+}
+window.IntersectionObserver = mockIntersectionObserver
+
 describe('VPerson', () => {
   // all props once
   const orientation = 'responsive'

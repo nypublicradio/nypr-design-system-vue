@@ -124,29 +124,6 @@
             :url="item.url"
           />
         </share-tools>
-        <!-- <div
-          v-if="video && showVideo"
-          id="videoHolder"
-          ref="videoHolderRef"
-          class="video-holder"
-          @click="handleVideoClick($event)"
-        >
-          <iframe
-            ref="youtubeRef"
-            class="iframeHolder"
-            type="text/html"
-            :src="'https://www.youtube.com/embed/'+getYoutubeId(video)+'?autoplay=1'"
-            frameborder="0"
-            allowfullscreen
-          >
-          </iframe>
-          <div
-            class="closer"
-            @click="handleVideoClick($event)"
-          >
-            <close-icon />
-          </div>
-        </div> -->
       </div>
       <div
         v-if="video && showVideo"
@@ -175,17 +152,10 @@
 </template>
 
 <script>
-/* import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
-import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin.min.js' */
-/* import { YoutubeVue3 } from 'youtube-vue3' */
 import PlayIconSimple from './icons/PlayIconSimple'
-
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
-/* gsap.registerPlugin(ScrollTrigger)
-gsap.registerPlugin(ScrollToPlugin) */
 
 /**
  * A component for displaying details about a person
@@ -197,7 +167,6 @@ export default {
     ShareToolsItem,
     PlayIconSimple,
     CloseIcon
-    /* YoutubeVue3 */
   },
   directives: {
     resize: {
@@ -398,45 +367,37 @@ export default {
   },
   mounted () {
     // set of refs
-    // const { thisPerson, imgRef, detailsRef } = this.$refs
+    const { thisPerson } = this.$refs
 
     // initial call of handleResize
     if (this.truncate) {
       this.handleResize()
     }
-    // call method when "thisPerson" enters the viewport (once)
-    if (this.image && this.isGIF(this.image)) {
-      // gsap.to(thisPerson, {
-      //   scrollTrigger: thisPerson,
-      //   onComplete: this.handleGifInViewPort
-      // })
-    }
 
-    // animate card when it enters the viewport
-    // if (this.animate) {
-    //   const tl = gsap.timeline({
-    //     delay: 0.5,
-    //     scrollTrigger: {
-    //       trigger: thisPerson
-    //     }
-    //   })
-    //   if (this.hasDetails && this.image) {
-    //     tl.from(thisPerson, { duration: 1, opacity: 0 })
-    //     tl.from(
-    //       imgRef,
-    //       {
-    //         duration: 1,
-    //         scale: 0.85,
-    //         opacity: 0,
-    //         ease: 'back.out'
-    //       },
-    //       '-=1'
-    //     )
-    //     tl.from(detailsRef, { duration: 1, opacity: 0 }, '-=0.5')
-    //   } else {
-    //     tl.from(thisPerson, { duration: 1, opacity: 0 })
-    //   }
-    // }
+      // vue/nuxt 2
+    if (this.animate) {
+      thisPerson.classList.add('animate')
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log('in viewport')
+          // stop GIF
+          if (this.image && this.isGIF(this.image)) {
+            this.handleGifInViewPort()
+          }
+
+          // animate
+          if (this.animate) {
+            thisPerson.classList.remove('animate')
+          }
+          observer.disconnect()
+        }
+      })
+    })
+
+    observer.observe(thisPerson)
+
     // running the resize code in a debounce and controlled by a watch method looking at a data var windowSize, which is updarted by the onResize method with the screen is resized
     this.runHandleOnResizeDebounce = this.debounce(() => {
       this.handleResize()
@@ -444,10 +405,11 @@ export default {
   },
   methods: {
     handleBlurb () {
-      const { /* thisPerson, blurbHolderRef, */ blurbRef } = this.$refs
+      const { thisPerson, blurbRef } = this.$refs
       this.readMore = !this.readMore
       blurbRef.classList.toggle('expanded')
 
+      // animate height of blurb container (vue/nuxt3)
       // gsap.to(blurbHolderRef, {
       //   duration: this.readMore ? 0.5 : 0.15,
       //   height: blurbRef.offsetHeight + 5,
@@ -455,11 +417,12 @@ export default {
       // })
 
       if (!this.readMore) {
-        // gsap.to(window, {
-        //   duration: 0.15,
-        //   scrollTo: { y: thisPerson, offsetY: 160, autoKill: true }
-        // })
-      }
+        // (vue/nuxt2)
+        window.scrollTo({
+          top: thisPerson.offsetTop - 160,
+          behavior: 'smooth'
+        })
+     }
     },
     debounce (fn, delay) {
       var timeoutID = null
@@ -473,15 +436,13 @@ export default {
       }
     },
     onResize (size) {
-      console.log('resizing')
       this.windowSize = size
     },
     handleResize () {
       if (!this.readMore && this.truncate) {
         // console.log('debounced')
-        const { /* blurbHolderRef, */ blurbRef, readMoreRef } = this.$refs
+        const { blurbRef, readMoreRef } = this.$refs
         const clamped = blurbRef.scrollHeight > blurbRef.clientHeight
-        // gsap.set(blurbHolderRef, { height: blurbRef.offsetHeight + 5 })
         readMoreRef.classList.toggle('show-me', clamped)
       }
     },
@@ -492,17 +453,13 @@ export default {
       this.showVideo = !this.showVideo
       // if we are showing the video, it scrolls to the video
       if (this.showVideo) {
-        // setTimeout(() => {
-        //   gsap.to(window, {
-        //     duration: 0.5,
-        //     ease: 'sine.inOut',
-        //     scrollTo: {
-        //       y: this.$refs.videoHolderRef,
-        //       offsetY: 120,
-        //       autoKill: true
-        //     }
-        //   })
-        // }, 100)
+        setTimeout(() => {
+          // vue/nuxt2
+          window.scrollTo({
+            top: (this.$refs.thisPerson.offsetTop + this.$refs.videoHolderRef.offsetTop) - 160,
+            behavior: 'smooth'
+          })
+        }, 100)
       }
     },
     handleGifInViewPort (inViewPort) {
@@ -563,6 +520,16 @@ export default {
 }
 
 .person {
+  transition: all 1.5s;
+  -webkit-transition: all 1.5s;
+  &.animate {
+    -moz-transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    -o-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    transform: scale(0.85);
+    opacity: 0;
+  }
   .person-inner {
     display: grid;
     grid-template-columns: auto;
