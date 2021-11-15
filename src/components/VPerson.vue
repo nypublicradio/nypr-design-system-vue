@@ -124,7 +124,7 @@
             :url="item.url"
           />
         </share-tools>
-        <div
+        <!-- <div
           v-if="video && showVideo"
           id="videoHolder"
           ref="videoHolderRef"
@@ -136,7 +136,9 @@
             class="iframeHolder"
             type="text/html"
             :src="'https://www.youtube.com/embed/'+getYoutubeId(video)+'?autoplay=1'"
-            frameborder="0">
+            frameborder="0"
+            allowfullscreen
+          >
           </iframe>
           <div
             class="closer"
@@ -144,6 +146,28 @@
           >
             <close-icon />
           </div>
+        </div> -->
+      </div>
+      <div
+        v-if="video && showVideo"
+        ref="videoHolderRef"
+        class="video-holder"
+        @click="handleVideoClick($event)"
+      >
+        <iframe
+          ref="youtubeRef"
+          class="iframeHolder"
+          type="text/html"
+          :src="'https://www.youtube.com/embed/'+getYoutubeId(video)+'?autoplay=1'"
+          frameborder="0"
+          allowfullscreen
+        >
+        </iframe>
+        <div
+          class="closer"
+          @click="handleVideoClick($event)"
+        >
+          <close-icon />
         </div>
       </div>
     </div>
@@ -697,39 +721,41 @@ export default {
         }
       }
     }
-  }
-  .video-holder {
-    position: relative;
-    display: block;
-    margin: 15px auto 15px auto;
-    width: 100%;
-    .iframeHolder {
-      width: 100% !important;
-      height: 100% !important;
-      iframe {
+    .video-holder {
+      position: relative;
+      display: block;
+      align-self: stretch;
+      grid-column: 1 / -1;
+      margin: 15px auto 0 auto;
+      width: 100%;
+      .iframeHolder {
         width: 100% !important;
         height: 100% !important;
-      }
-    }
-    @include aspect-ratio(16, 9);
-    .closer {
-      position: absolute;
-      cursor: pointer;
-      top: 0px;
-      right: 5px;
-      width: 15px;
-      height: 15px;
-      svg {
-        path {
-          transition: var(--animation-easing-standard)
-            var(--animation-duration-standard);
-          fill: RGB(var(--color-white));
+        iframe {
+          width: 100% !important;
+          height: 100% !important;
         }
       }
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          svg path {
-            fill: RGB(var(--color-primary-2));
+      @include aspect-ratio(16, 9);
+      .closer {
+        position: absolute;
+        cursor: pointer;
+        top: 3px;
+        right: 5px;
+        width: 15px;
+        height: 15px;
+        svg {
+          path {
+            transition: var(--animation-easing-standard)
+              var(--animation-duration-standard);
+            fill: RGB(var(--color-white));
+          }
+        }
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            svg path {
+              fill: RGB(var(--color-primary-2));
+            }
           }
         }
       }
