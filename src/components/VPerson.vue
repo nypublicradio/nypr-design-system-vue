@@ -118,7 +118,7 @@
             :key="index"
             :service="item.service"
             :username="item.username"
-            :link="item.link"
+            :link="item.profile_url"
             :label="item.label"
             :action="item.action"
             :url="item.url"
@@ -291,7 +291,7 @@ export default {
     /**
      *  persons phone number
      */
-    phoneNumber: {
+    phoneNumbers: {
       type: Array,
       default: null
     },
@@ -342,8 +342,8 @@ export default {
           username: this.email
         })
       }
-      if (this.phoneNumber) {
-        this.phoneNumber.forEach((phone) => {
+      if (this.phoneNumbers) {
+        this.phoneNumbers.forEach((phone) => {
           wepArray.push({
             service: 'phone',
             username: phone.phone_number
@@ -353,10 +353,11 @@ export default {
       if (this.websiteUrl) {
         wepArray.push({
           service: 'site',
-          link: this.websiteUrl,
+          profile_url: this.websiteUrl,
           label: this.websiteLabel ? this.websiteLabel : 'My site'
         })
       }
+      // console.log('wepArray = ', wepArray)
       return wepArray
     }
   },
