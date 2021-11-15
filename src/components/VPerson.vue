@@ -10,8 +10,6 @@
       class="person-inner"
       :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', orientation === 'vertical' ? 'vertical' : '', orientation === 'responsive' ? 'responsive' : '']"
     >
-      <!-- <WindowEvents @resize="onResize" /> -->
-      <!-- <resize-observer @notify="onResize" /> -->
       <!-- Image section -->
       <a
         v-if="image"
@@ -133,13 +131,13 @@
           class="video-holder"
           @click="handleVideoClick($event)"
         >
-          <!-- <YoutubeVue3
+          <iframe
             ref="youtubeRef"
             class="iframeHolder"
-            :videoid="getYoutubeId(video)"
-          /> -->
-          <p>video will play here one day</p>
-
+            type="text/html"
+            :src="'https://www.youtube.com/embed/'+getYoutubeId(video)+'?autoplay=1'"
+            frameborder="0">
+          </iframe>
           <div
             class="closer"
             @click="handleVideoClick($event)"
@@ -158,9 +156,6 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
 import { ScrollToPlugin } from 'gsap/dist/ScrollToPlugin.min.js' */
 /* import { YoutubeVue3 } from 'youtube-vue3' */
 import PlayIconSimple from './icons/PlayIconSimple'
-/* import { ResizeObserver } from 'vue3-resize/dist/vue3-resize.umd.js' */
-
-/* import { WindowEvents } from 'vue3-window-events' */
 
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
@@ -179,12 +174,11 @@ export default {
     PlayIconSimple,
     CloseIcon
     /* YoutubeVue3 */
-    /* WindowEvents */
-    /* ResizeObserver */
   },
   directives: {
     resize: {
-      // directive definition
+      // use mounted for vue3
+      // the resize will not work in storybook as it iss vue3 and Gothamist is Vue2
       inserted: function (el, binding) {
         const onResizeCallback = binding.value
         window.addEventListener('resize', () => {
@@ -703,31 +697,6 @@ export default {
         }
       }
     }
-    /* .vue3-resize-observer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      border: none;
-      background-color: transparent;
-      pointer-events: none;
-      display: block;
-      overflow: hidden;
-      opacity: 0;
-    }
-    .vue3-resize-observer object {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: -1;
-    } */
   }
   .video-holder {
     position: relative;
