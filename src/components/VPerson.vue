@@ -404,10 +404,14 @@ export default {
     }, 500)
   },
   methods: {
+    getOffsetTop(el) {
+      const rect = el.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return (rect.top + scrollTop) - 160 // 160 is the height of the header 
+    },
     handleBlurb () {
-      const { thisPerson, blurbRef } = this.$refs
       this.readMore = !this.readMore
-      blurbRef.classList.toggle('expanded')
+       this.$refs.blurbRef.classList.toggle('expanded')
 
       // animate height of blurb container (vue/nuxt3)
       // gsap.to(blurbHolderRef, {
@@ -419,7 +423,7 @@ export default {
       if (!this.readMore) {
         // (vue/nuxt2)
         window.scrollTo({
-          top: thisPerson.offsetTop - 160,
+          top: this.getOffsetTop(this.$refs.thisPerson),
           behavior: 'smooth'
         })
      }
@@ -456,7 +460,7 @@ export default {
         setTimeout(() => {
           // vue/nuxt2
           window.scrollTo({
-            top: (this.$refs.thisPerson.offsetTop + this.$refs.videoHolderRef.offsetTop) - 160,
+            top: this.getOffsetTop(this.$refs.thisPerson) + this.$refs.videoHolderRef.offsetTop,
             behavior: 'smooth'
           })
         }, 100)
