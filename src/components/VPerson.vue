@@ -346,7 +346,7 @@ export default {
         this.phoneNumber.forEach((phone) => {
           wepArray.push({
             service: 'phone',
-            username: phone
+            username: phone.phone_number
           })
         })
       }
@@ -404,10 +404,10 @@ export default {
     }, 500)
   },
   methods: {
-    getOffsetTop(el) {
+    getOffsetTop (el) {
       const rect = el.getBoundingClientRect()
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      return (rect.top + scrollTop) - 160 // 160 is the height of the header 
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      return (rect.top + scrollTop) - 160 // 160 is the height of the header
     },
     handleBlurb () {
       this.readMore = !this.readMore
