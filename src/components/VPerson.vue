@@ -381,7 +381,7 @@ export default {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log('in viewport')
+          // console.log('in viewport')
           // stop GIF
           if (this.image && this.isGIF(this.image)) {
             this.handleGifInViewPort()
