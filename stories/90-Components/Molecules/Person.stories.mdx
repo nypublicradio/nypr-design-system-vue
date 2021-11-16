@@ -22,6 +22,8 @@ Our person component displays a visual depiction of an author or host along with
         {{
             components: { VPerson },
             template: `
+<p>Scroll down to see the component. This is testing when it enters the viewport and all its scrollTo features<p/>
+<br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/>
 <v-person
     orientation="responsive"
     image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
@@ -29,40 +31,41 @@ Our person component displays a visual depiction of an author or host along with
     img-scale="70"
     circle
     animate
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
     organization="Gothamist"
     organization-link="https://gothamist.com/"
-    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
     truncate="2"
     website-url='https://www.google.com'
     website-label='My Site'
     email='jchung@nypr.com'
-    phone-number='1-201-123-4567'
+    :phone-numbers="[{phone_number:'1-973-615-6339'},{phone_number:'1-973-123-1234'}]"
     :social="[
         {
             service: 'facebook',
-            link: 'https://www.facebook.com/WNYC',
+            profile_url: 'https://www.facebook.com/WNYC',
         },
         {
             service: 'twitter',
-            link: 'https://twitter.com/WNYC'
+            profile_url: 'https://twitter.com/WNYC'
         },
         {
             service: 'instagram',
-            link: 'https://www.instagram.com/WNYC/'
+            profile_url: 'https://www.instagram.com/WNYC/'
         },
         {
             service: 'linkedin',
-            link: 'https://www.linkedin.com/company/wnyc-radio/'
+            profile_url: 'https://www.linkedin.com/company/wnyc-radio/'
         },
         {
             service: 'youtube',
-            link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+            profile_url: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
         }
     ]"
 />
+<br/> <br/> <br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/><br/> <br/>
 `
         }}
     </Story>
@@ -160,7 +163,7 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     image="./images/default-user.jpg"
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
@@ -180,7 +183,7 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     image="./images/default-user.jpg"
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
     organization="Gothamist"
@@ -204,7 +207,7 @@ In the future when the person component gets integrated with Gothamist, the comp
 <v-person
     image="./images/default-user.jpg"
     circle
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
@@ -223,7 +226,7 @@ In the future when the person component gets integrated with Gothamist, the comp
             components: { VPerson },
             template: `
 <v-person
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
@@ -245,7 +248,7 @@ In the future when the person component gets integrated with Gothamist, the comp
 <v-person
     orientation="vertical"
     image="./images/default-user.jpg"
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
@@ -267,7 +270,7 @@ In the future when the person component gets integrated with Gothamist, the comp
     orientation="vertical"
     img-scale="40"
     image="./images/default-user.jpg"
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
@@ -289,7 +292,7 @@ In the future when the person component gets integrated with Gothamist, the comp
     orientation="responsive"
     img-scale="40"
     image="./images/default-user.jpg"
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
@@ -310,11 +313,12 @@ In the future when the person component gets integrated with Gothamist, the comp
             components: { VPerson },
             template: `
 <v-person
+    style="margin:200px 0 600px 0;"
     image="./images/default-user.jpg"
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
-    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
+    blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order.Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
     truncate="2"
 />
 `
@@ -332,7 +336,7 @@ In the future when the person component gets integrated with Gothamist, the comp
             template: `
 <v-person
     image="./images/default-user.jpg"
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
@@ -353,7 +357,7 @@ In the future when the person component gets integrated with Gothamist, the comp
 <v-person
     image="https://c.tenor.com/l6wUDFLSnfQAAAAC/square-animation.gif"
     video="https://www.youtube.com/watch?v=LOS5WB75gkY"
-    name="Jen Chung"
+    full-name="Jen Chung"
     circle
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
@@ -376,34 +380,34 @@ In the future when the person component gets integrated with Gothamist, the comp
     orientation="responsive"
     image="./images/default-user.jpg"
     img-scale="40"
-    name="Jen Chung"
+    full-name="Jen Chung"
     name-link="https://gothamist.com/staff/jen-chung"
     role="Executive Editor and Co-founder"
     blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order."
     website-url='https://www.google.com'
     website-label='My Site'
     email='jchung@nypr.com'
-    phone-number='1-201-123-4567'
+    :phone-numbers="[{phone_number:'1-973-615-6339'},{phone_number:'1-973-123-1234'}]"
     :social="[
         {
             service: 'facebook',
-            link: 'https://www.facebook.com/WNYC',
+            profile_url: 'https://www.facebook.com/WNYC',
         },
         {
             service: 'twitter',
-            link: 'https://twitter.com/WNYC'
+            profile_url: 'https://twitter.com/WNYC'
         },
         {
             service: 'instagram',
-            link: 'https://www.instagram.com/WNYC/'
+            profile_url: 'https://www.instagram.com/WNYC/'
         },
         {
             service: 'linkedin',
-            link: 'https://www.linkedin.com/company/wnyc-radio/'
+            profile_url: 'https://www.linkedin.com/company/wnyc-radio/'
         },
         {
             service: 'youtube',
-            link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+            profile_url: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
         }
     ]"
 />

@@ -1874,7 +1874,10 @@ ul.o-rte-text li li:before,
     .person-name-link {
       font-family: var(--font-family-pragati);
       font-size: var(--font-size-12);
-      line-height: var(--line-height-6);
+      line-height: var(--line-height-7);
+      margin: 10px 0;
+      position: relative;
+      display: block;
     }
     .blurbHolder{
       .blurb {      

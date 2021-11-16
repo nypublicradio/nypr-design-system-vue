@@ -1,20 +1,21 @@
 <template>
   <div
+    id="person"
     ref="thisPerson"
     class="person"
     :style="cssVars"
   >
     <div
+      v-resize="onResize"
       class="person-inner"
       :class="[hasDetails ? 'has-details' : '', image ? '' : 'no-image', orientation === 'vertical' ? 'vertical' : '', orientation === 'responsive' ? 'responsive' : '']"
     >
-      <resize-observer @notify="onResize" />
       <!-- Image section -->
-      <nuxt-link
+      <a
         v-if="image"
         class="person-image-link"
         :class="!nameLink ? 'disabled' : ''"
-        :to="nameLink ? nameLink : null"
+        :href="nameLink ? nameLink : null"
         aria-hidden="true"
         role="presentation"
         tabindex="-1"
@@ -34,7 +35,7 @@
               ref="img"
               class="person-image person-image-img"
               :src="image"
-              :alt="name"
+              :alt="fullName"
               role="presentation"
               loading="lazy"
               decoding="async"
@@ -43,15 +44,16 @@
           <div
             v-if="video"
             class="video-play-button"
+            :class="circle ? 'circle' : ''"
             @click="handleVideoClick($event)"
           >
-            <play-icon
-              :title="`Play `+ name +`'s introduction video`"
-              @click="$emit('componentEvent', video)"
+            <play-icon-simple
+              :class="showVideo ? 'is-playing' : ''"
+              :title="(showVideo ? 'Close ' : 'Play ')+ fullName +`'s introduction video`"
             />
           </div>
         </div>
-      </nuxt-link>
+      </a>
 
       <!-- Detail section -->
       <div
@@ -60,17 +62,17 @@
         class="person-details"
       >
         <div
-          v-if="name"
+          v-if="fullName"
           role="heading"
           aria-level="3"
         >
-          <nuxt-link
+          <a
             class="person-name-link"
             :class="!nameLink ? 'disabled' : ''"
-            :to="nameLink ? nameLink : null"
+            :href="nameLink ? nameLink : null"
           >
-            <span v-html="name" />
-          </nuxt-link>
+            <span v-html="fullName" />
+          </a>
         </div>
         <span
           v-if="role"
@@ -108,7 +110,7 @@
         </a>
 
         <share-tools
-          v-if="social"
+          v-if="socialArray.length > 0"
           class="social"
         >
           <share-tools-item
@@ -116,60 +118,69 @@
             :key="index"
             :service="item.service"
             :username="item.username"
-            :link="item.link"
+            :link="item.profile_url"
             :label="item.label"
             :action="item.action"
             :url="item.url"
           />
         </share-tools>
       </div>
-    </div>
-    <div
-      v-if="video && showVideo"
-      class="video-holder"
-      @click="handleVideoClick($event)"
-    >
-      <YouTube
-        ref="youtubeLazyVideo"
-        class="iframeHolder"
-        :src="video"
-        :vars="{autoplay: 1}"
-      />
-
-      <!-- close button in the upper right -->
       <div
-        class="closer"
+        v-if="video && showVideo"
+        ref="videoHolderRef"
+        class="video-holder"
         @click="handleVideoClick($event)"
       >
-        <close-icon />
+        <iframe
+          ref="youtubeRef"
+          class="iframeHolder"
+          type="text/html"
+          :src="'https://www.youtube.com/embed/'+getYoutubeId(video)+'?autoplay=1'"
+          frameborder="0"
+          allowfullscreen
+        >
+        </iframe>
+        <div
+          class="closer"
+          @click="handleVideoClick($event)"
+        >
+          <close-icon />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.min.js'
-import YouTube from 'vue3-youtube'
-import PlayIcon from './icons/PlayIcon'
-import { ResizeObserver } from 'vue3-resize'
-
+import PlayIconSimple from './icons/PlayIconSimple'
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
-gsap.registerPlugin(ScrollTrigger)
 
 /**
  * A component for displaying details about a person
  */
 export default {
+  name: 'VPerson',
   components: {
     ShareTools,
     ShareToolsItem,
-    PlayIcon,
-    CloseIcon,
-    YouTube,
-    ResizeObserver
+    PlayIconSimple,
+    CloseIcon
+  },
+  directives: {
+    resize: {
+      // use mounted for vue3
+      // the resize will not work in storybook as it is vue3 and Gothamist is Vue2
+      inserted: function (el, binding) {
+        const onResizeCallback = binding.value
+        window.addEventListener('resize', () => {
+          const width = document.documentElement.clientWidth
+          const height = document.documentElement.clientHeight
+          onResizeCallback({ width, height })
+        })
+      }
+    }
   },
   props: {
     /**
@@ -210,7 +221,7 @@ export default {
     /**
      *  Full name of the person.
      */
-    name: {
+    fullName: {
       type: String,
       default: null
     },
@@ -260,28 +271,28 @@ export default {
      *  persons website url
      */
     websiteUrl: {
-      type: [String],
+      type: String,
       default: null
     },
     /**
      *  persons website label
      */
     websiteLabel: {
-      type: [String],
+      type: String,
       default: null
     },
     /**
      *  persons email address
      */
     email: {
-      type: [String],
+      type: String,
       default: null
     },
     /**
      *  persons phone number
      */
-    phoneNumber: {
-      type: [String],
+    phoneNumbers: {
+      type: Array,
       default: null
     },
     /**
@@ -307,7 +318,6 @@ export default {
       windowSize: {}
     }
   },
-
   computed: {
     cssVars () {
       return {
@@ -316,34 +326,37 @@ export default {
       }
     },
     hasDetails () {
-      return !!this.role || !!this.blurb || !!this.social || !!this.name
+      return !!this.role || !!this.blurb || !!this.social || !!this.fullName
     },
     organizationComputed () {
       return ' (' + this.organization + ')'
     },
     socialArray () {
       // Website, Email, Phone array
-      const wepArray = []
+      const wepArray = this.social ? this.social : []
+
       if (this.email) {
         wepArray.push({
           service: 'email',
           username: this.email
         })
       }
-      if (this.phoneNumber) {
-        wepArray.push({
-          service: 'phone',
-          username: this.phoneNumber
+      if (this.phoneNumbers) {
+        this.phoneNumbers.forEach((phone) => {
+          wepArray.push({
+            service: 'phone',
+            username: phone.phone_number
+          })
         })
       }
       if (this.websiteUrl) {
         wepArray.push({
           service: 'site',
-          link: this.websiteUrl,
+          profile_url: this.websiteUrl,
           label: this.websiteLabel ? this.websiteLabel : 'My site'
         })
       }
-      return this.social.concat(wepArray)
+      return wepArray
     }
   },
   watch: {
@@ -352,62 +365,64 @@ export default {
     }
   },
   mounted () {
-    // set of refs
-    const { thisPerson, imgRef, detailsRef } = this.$refs
+    const { thisPerson } = this.$refs
 
     // initial call of handleResize
     if (this.truncate) {
       this.handleResize()
     }
-    // call method when "thisPerson" enters the viewport (once)
-    if (this.image && this.isGIF(this.image)) {
-      gsap.to(thisPerson, {
-        scrollTrigger: thisPerson,
-        onComplete: this.handleGifInViewPort
-      })
-    }
 
-    // animate card when it enters the viewport
     if (this.animate) {
-      const tl = gsap.timeline({
-        delay: 0.5,
-        scrollTrigger: {
-          trigger: thisPerson
+      thisPerson.classList.add('animate')
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // console.log('in viewport')
+          // stop GIF
+          if (this.image && this.isGIF(this.image)) {
+            this.handleGifInViewPort()
+          }
+
+          // animate
+          if (this.animate) {
+            thisPerson.classList.remove('animate')
+          }
+          observer.disconnect()
         }
       })
-      tl.from(thisPerson, { duration: 1, opacity: 0 })
-      if (this.hasDetails && this.image) {
-        tl.from(
-          imgRef,
-          {
-            duration: 1,
-            scale: 0.85,
-            opacity: 0,
-            ease: 'back.out'
-          },
-          '-=1'
-        )
-        tl.from(detailsRef, { duration: 1, opacity: 0 }, '-=0.5')
-      } else {
-        tl.from(thisPerson, { duration: 1, opacity: 0 })
-      }
-    }
+    })
+
+    observer.observe(thisPerson)
+
     // running the resize code in a debounce and controlled by a watch method looking at a data var windowSize, which is updarted by the onResize method with the screen is resized
     this.runHandleOnResizeDebounce = this.debounce(() => {
       this.handleResize()
     }, 500)
   },
   methods: {
+    getOffsetTop (el) {
+      const rect = el.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      return (rect.top + scrollTop) - 160 // 160 is the ~ height of the header buffer
+    },
     handleBlurb () {
-      const { blurbHolderRef, blurbRef } = this.$refs
       this.readMore = !this.readMore
-      blurbRef.classList.toggle('expanded')
+       this.$refs.blurbRef.classList.toggle('expanded')
 
-      gsap.to(blurbHolderRef, {
-        duration: this.readMore ? 0.5 : 0.15,
-        height: blurbRef.offsetHeight + 5,
-        onComplete: this.handleResize
-      })
+      // animate height of blurb container (vue/nuxt3 w/ gsap)
+      // gsap.to(blurbHolderRef, {
+      //   duration: this.readMore ? 0.5 : 0.15,
+      //   height: blurbRef.offsetHeight + 5,
+      //   onComplete: this.handleResize
+      // })
+
+      if (!this.readMore) {
+        window.scrollTo({
+          top: this.getOffsetTop(this.$refs.thisPerson),
+          behavior: 'smooth'
+        })
+     }
     },
     debounce (fn, delay) {
       var timeoutID = null
@@ -425,10 +440,8 @@ export default {
     },
     handleResize () {
       if (!this.readMore && this.truncate) {
-        console.log('debounced')
-        const { blurbHolderRef, blurbRef, readMoreRef } = this.$refs
+        const { blurbRef, readMoreRef } = this.$refs
         const clamped = blurbRef.scrollHeight > blurbRef.clientHeight
-        gsap.set(blurbHolderRef, { height: blurbRef.offsetHeight + 5 })
         readMoreRef.classList.toggle('show-me', clamped)
       }
     },
@@ -437,6 +450,15 @@ export default {
       event.stopPropagation()
       this.$emit(' componentEvent', 'playing promo video')
       this.showVideo = !this.showVideo
+      // if we are showing the video, it scrolls to the video
+      if (this.showVideo) {
+        setTimeout(() => {
+          window.scrollTo({
+            top: this.getOffsetTop(this.$refs.thisPerson) + this.$refs.videoHolderRef.offsetTop,
+            behavior: 'smooth'
+          })
+        }, 100)
+      }
     },
     handleGifInViewPort (inViewPort) {
       /* wait 10 seconds then swap out GIF with canvas render */
@@ -454,6 +476,11 @@ export default {
     },
     isGIF (imageURL) {
       return imageURL.match(/(http(s?):)([/|.|\w|\s|-])*\.(?:gif)/g)
+    },
+    getYoutubeId (url) {
+      var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
+      var match = url.match(regExp)
+      return match && match[7].length === 11 ? match[7] : false
     }
   }
 }
@@ -473,8 +500,34 @@ export default {
     width: var(--img-scale);
   }
 }
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .iframeHolder {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
 
 .person {
+  transition: all 1.5s;
+  -webkit-transition: all 1.5s;
+  &.animate {
+    -moz-transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    -o-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    transform: scale(0.85);
+    opacity: 0;
+  }
   .person-inner {
     display: grid;
     grid-template-columns: auto;
@@ -530,13 +583,15 @@ export default {
     .video-play-button {
       position: absolute;
       display: grid;
-      bottom: 0;
-      left: 0;
-      width: 25%;
-      height: 25%;
+      bottom: 5px;
+      left: 5px;
       @include media("<small") {
-        top: 0;
+        top: 5px;
         bottom: unset;
+        &.circle {
+          top: 0;
+          bottom: unset;
+        }
       }
       svg {
         opacity: 1;
@@ -548,25 +603,14 @@ export default {
           align-self: end;
         }
         height: auto;
-        path,
-        polyline {
-          fill: #ffffff;
-          transition: var(--animation-easing-standard)
-            var(--animation-duration-standard);
-        }
-        @media (hover: hover) and (pointer: fine) {
-          &:hover {
-            path {
-              fill: RGB(var(--color-primary-2));
-            }
-            .play,
-            .inner-circle {
-              stroke: #fff;
-            }
-          }
-        }
         min-width: 40px;
         min-height: 40px;
+      }
+      &.circle {
+        width: 25%;
+        height: 25%;
+        bottom: 0;
+        left: 0;
       }
     }
     .person-details {
@@ -642,83 +686,41 @@ export default {
         }
       }
     }
-    .vue3-resize-observer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      border: none;
-      background-color: transparent;
-      pointer-events: none;
+    .video-holder {
+      position: relative;
       display: block;
-      overflow: hidden;
-      opacity: 0;
-    }
-    .vue3-resize-observer object {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
+      align-self: stretch;
+      grid-column: 1 / -1;
+      margin: 15px auto 0 auto;
       width: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: -1;
-    }
-  }
-  .video-holder {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: $z-index-100;
-    max-width: 100%;
-    .iframeHolder {
-      width: 100% !important;
-      height: 100% !important;
-      position: absolute !important;
-      iframe {
-        width: calc(100vw - 100px) !important;
-        height: calc(100vh - 80px) !important;
-        max-width: 100%;
-        position: absolute !important;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        @include media("<small") {
-          width: 100vw !important;
-          top: 40px;
-          height: calc(100vh - 40px) !important;
+      .iframeHolder {
+        width: 100% !important;
+        height: 100% !important;
+        iframe {
+          width: 100% !important;
+          height: 100% !important;
         }
       }
-    }
-    .closer {
-      position: absolute;
-      cursor: pointer;
-      top: 15px;
-      right: 15px;
-      width: 20px;
-      height: 20px;
-      svg {
-        path {
-          transition: var(--animation-easing-standard)
-            var(--animation-duration-standard);
-          fill: RGB(var(--color-white));
+      @include aspect-ratio(16, 9);
+      .closer {
+        position: absolute;
+        cursor: pointer;
+        top: 3px;
+        right: 5px;
+        width: 15px;
+        height: 15px;
+        svg {
+          path {
+            transition: var(--animation-easing-standard)
+              var(--animation-duration-standard);
+            fill: RGB(var(--color-white));
+          }
         }
-      }
-      @media (hover: hover) and (pointer: fine) {
-        &:hover {
-          svg path {
-            fill: RGB(var(--color-primary-2));
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            svg path {
+              fill: RGB(var(--color-primary-2));
+            }
           }
         }
       }

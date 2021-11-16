@@ -8,6 +8,16 @@ expect.extend(toHaveNoViolations)
 
 expect.extend(toHaveNoViolations)
 
+// need to mock the IntersectionObserver I am using for detecting when entering the viewport
+const mockIntersectionObserver = class {
+  // eslint-disable-next-line no-useless-constructor
+  constructor () {}
+  observe () {}
+  unobserve () {}
+  disconnect () {}
+}
+window.IntersectionObserver = mockIntersectionObserver
+
 describe('VPerson', () => {
   // all props once
   const orientation = 'responsive'
@@ -17,7 +27,7 @@ describe('VPerson', () => {
   const imgScale = '70'
   const circle = true
   const animate = true
-  const name = 'FirstName LastName'
+  const fullName = 'FirstName LastName'
   const nameLink = 'https://example.com'
   const organization = 'Gothamist'
   const organizationLink = 'https://gothamist.com/'
@@ -57,8 +67,7 @@ describe('VPerson', () => {
   ]
   test('it renders props', () => {
     const wrapper = mount(VPerson, {
-      propsData: { orientation, image, video, imgScale, circle, animate, name, nameLink, organization, organizationLink, role, blurb, truncate, social },
-      stubs: ['nuxt-link']
+      propsData: { orientation, image, video, imgScale, circle, animate, fullName, nameLink, organization, organizationLink, role, blurb, truncate, social }
     })
     // check if prop works and was rendered correctly
     const orientationProp = wrapper.find('.responsive').exists()
@@ -77,9 +86,9 @@ describe('VPerson', () => {
     expect(imageProp.attributes('src')).toBe(image)
     // imgScale updates the style of imageLinkProp, but don't know how to test it
 
-    expect(nameLinkProp.text()).toContain(name)
-    expect(nameLinkProp.attributes('to')).toBe(nameLink)
-    expect(imageLinkProp.attributes('to')).toBe(nameLink)
+    expect(nameLinkProp.text()).toContain(fullName)
+    expect(nameLinkProp.attributes('href')).toBe(nameLink)
+    expect(imageLinkProp.attributes('href')).toBe(nameLink)
     expect(roleProp.text()).toContain(role)
     expect(blurbProp.text()).toContain(blurb)
     expect(truncateProp).toBe(true)
@@ -88,8 +97,7 @@ describe('VPerson', () => {
 
   test('it has image only', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image },
-      stubs: ['nuxt-link']
+      propsData: { image }
     })
     const imageProp = wrapper.find('.person-image-img')
     const hasDetails = wrapper.find('.person-details').exists()
@@ -99,8 +107,7 @@ describe('VPerson', () => {
 
   test('image is GIF', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image: imageGIF },
-      stubs: ['nuxt-link']
+      propsData: { image: imageGIF }
     })
     const imageProp = wrapper.find('.person-image-img')
     expect(imageProp.attributes('src')).toBe(imageGIF)
@@ -109,21 +116,19 @@ describe('VPerson', () => {
 
   test('it has image only with link', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, nameLink },
-      stubs: ['nuxt-link']
+      propsData: { image, nameLink }
     })
     const imageLinkProp = wrapper.find('.person-image-link')
     const imageProp = wrapper.find('.person-image-img')
     const hasDetails = wrapper.find('.person-details').exists()
-    expect(imageLinkProp.attributes('to')).toBe(nameLink)
+    expect(imageLinkProp.attributes('href')).toBe(nameLink)
     expect(imageProp.attributes('src')).toBe(image)
     expect(hasDetails).toBe(false)
   })
 
   test('it has details', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, name, role, blurb, social },
-      stubs: ['nuxt-link']
+      propsData: { image, fullName, role, blurb, social }
     })
     const hasDetails = wrapper.find('.person-details').exists()
     expect(hasDetails).toBe(true)
@@ -131,8 +136,7 @@ describe('VPerson', () => {
 
   test('it does not have details', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, video, circle },
-      stubs: ['nuxt-link']
+      propsData: { image, video, circle }
     })
     const hasDetails = wrapper.find('.person-details').exists()
     expect(hasDetails).toBe(false)
@@ -140,8 +144,7 @@ describe('VPerson', () => {
 
   test('it has details with organization', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, name, role, blurb, social, organization, organizationLink },
-      stubs: ['nuxt-link']
+      propsData: { image, fullName, role, blurb, social, organization, organizationLink }
     })
     const personRole = wrapper.find('.person-role')
     const hasDetails = wrapper.find('.person-details')
@@ -152,8 +155,7 @@ describe('VPerson', () => {
 
   test('it has circle image', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { image, name, role, blurb, circle },
-      stubs: ['nuxt-link']
+      propsData: { image, fullName, role, blurb, circle }
     })
     const circleProp = wrapper.find('.circle').exists()
     expect(circleProp).toBe(true)
@@ -161,8 +163,7 @@ describe('VPerson', () => {
 
   test('it has detail, but no image', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { name, role, blurb, circle },
-      stubs: ['nuxt-link']
+      propsData: { fullName, role, blurb, circle }
     })
     const imagePropExists = wrapper.find('.person-image-img').exists()
     const hasDetailsExists = wrapper.find('.person-details').exists()
@@ -172,30 +173,15 @@ describe('VPerson', () => {
 
   test('it has truncated blurb', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { name, role, blurb, truncate },
-      stubs: ['nuxt-link']
+      propsData: { fullName, role, blurb, truncate }
     })
     const truncateExists = wrapper.find('.truncate').exists()
     expect(truncateExists).toBe(true)
   })
 
-  test('it shows, loads the video', async () => {
-    const wrapper = mount(VPerson, {
-      propsData: { image, video, name, role, blurb },
-      stubs: ['nuxt-link']
-    })
-    const playButton = wrapper.find('.play-icon')
-    await playButton.trigger('click')
-    const videoHolder = wrapper.find('.video-holder').exists()
-    const iframeHolder = wrapper.find('.iframeHolder').exists()
-    expect(videoHolder).toBe(true)
-    expect(iframeHolder).toBe(true)
-  })
-
   test('it is responsive', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { orientation, image, imgScale, name, nameLink, role, blurb },
-      stubs: ['nuxt-link']
+      propsData: { orientation, image, imgScale, fullName, nameLink, role, blurb }
     })
     const responsiveProp = wrapper.find('.responsive').exists()
     expect(responsiveProp).toBe(true)
@@ -205,10 +191,17 @@ describe('VPerson', () => {
 
   test('it passes basic accessibility tests', async () => {
     const wrapper = mount(VPerson, {
-      propsData: { orientation, image, video, imgScale, circle, animate, name, nameLink, organization, organizationLink, role, blurb, truncate },
-      stubs: ['nuxt-link']
+      propsData: { orientation, image, video, imgScale, circle, animate, fullName, nameLink, organization, organizationLink, role, blurb, truncate }
     })
     const results = await axe(wrapper.element)
     expect(results).toHaveNoViolations()
+  })
+
+  test('it extracts youtube ID from url', async () => {
+    const wrapper = mount(VPerson, {
+      propsData: { fullName, role, blurb }
+    })
+    const id = await wrapper.vm.getYoutubeId('https://www.youtube.com/watch?v=LOS5WB75gkY')
+    expect(id).toMatch('LOS5WB75gkY')
   })
 })
