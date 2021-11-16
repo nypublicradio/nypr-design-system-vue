@@ -171,7 +171,7 @@ export default {
   directives: {
     resize: {
       // use mounted for vue3
-      // the resize will not work in storybook as it iss vue3 and Gothamist is Vue2
+      // the resize will not work in storybook as it is vue3 and Gothamist is Vue2
       inserted: function (el, binding) {
         const onResizeCallback = binding.value
         window.addEventListener('resize', () => {
@@ -318,7 +318,6 @@ export default {
       windowSize: {}
     }
   },
-
   computed: {
     cssVars () {
       return {
@@ -357,7 +356,6 @@ export default {
           label: this.websiteLabel ? this.websiteLabel : 'My site'
         })
       }
-      // console.log('wepArray = ', wepArray)
       return wepArray
     }
   },
@@ -367,7 +365,6 @@ export default {
     }
   },
   mounted () {
-    // set of refs
     const { thisPerson } = this.$refs
 
     // initial call of handleResize
@@ -375,7 +372,6 @@ export default {
       this.handleResize()
     }
 
-      // vue/nuxt 2
     if (this.animate) {
       thisPerson.classList.add('animate')
     }
@@ -408,13 +404,13 @@ export default {
     getOffsetTop (el) {
       const rect = el.getBoundingClientRect()
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      return (rect.top + scrollTop) - 160 // 160 is the height of the header
+      return (rect.top + scrollTop) - 160 // 160 is the ~ height of the header buffer
     },
     handleBlurb () {
       this.readMore = !this.readMore
        this.$refs.blurbRef.classList.toggle('expanded')
 
-      // animate height of blurb container (vue/nuxt3)
+      // animate height of blurb container (vue/nuxt3 w/ gsap)
       // gsap.to(blurbHolderRef, {
       //   duration: this.readMore ? 0.5 : 0.15,
       //   height: blurbRef.offsetHeight + 5,
@@ -422,7 +418,6 @@ export default {
       // })
 
       if (!this.readMore) {
-        // (vue/nuxt2)
         window.scrollTo({
           top: this.getOffsetTop(this.$refs.thisPerson),
           behavior: 'smooth'
@@ -445,7 +440,6 @@ export default {
     },
     handleResize () {
       if (!this.readMore && this.truncate) {
-        // console.log('debounced')
         const { blurbRef, readMoreRef } = this.$refs
         const clamped = blurbRef.scrollHeight > blurbRef.clientHeight
         readMoreRef.classList.toggle('show-me', clamped)
@@ -459,7 +453,6 @@ export default {
       // if we are showing the video, it scrolls to the video
       if (this.showVideo) {
         setTimeout(() => {
-          // vue/nuxt2
           window.scrollTo({
             top: this.getOffsetTop(this.$refs.thisPerson) + this.$refs.videoHolderRef.offsetTop,
             behavior: 'smooth'
