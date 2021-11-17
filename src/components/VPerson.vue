@@ -110,11 +110,11 @@
         </a>
 
         <share-tools
-          v-if="socialArray.length > 0"
+          v-if="socialArrayData.length > 0"
           class="social"
         >
           <share-tools-item
-            v-for="(item, index) in socialArray"
+            v-for="(item, index) in socialArrayData"
             :key="index"
             :service="item.service"
             :username="item.username"
@@ -315,7 +315,8 @@ export default {
       readMore: false,
       showVideo: false,
       inViewPort: false,
-      windowSize: {}
+      windowSize: {},
+      socialArrayData: []
     }
   },
   computed: {
@@ -330,40 +331,15 @@ export default {
     },
     organizationComputed () {
       return ' (' + this.organization + ')'
-    },
-    socialArray () {
-      // Website, Email, Phone array
-      console.log('social concat')
-      const wepArray = this.social ? this.social : []
-
-      if (this.email) {
-        wepArray.push({
-          service: 'email',
-          username: this.email
-        })
-      }
-      if (this.phoneNumbers) {
-        this.phoneNumbers.forEach((phone) => {
-          wepArray.push({
-            service: 'phone',
-            username: phone.phoneNumber
-          })
-        })
-      }
-      if (this.websiteUrl) {
-        wepArray.push({
-          service: 'site',
-          profileUrl: this.websiteUrl,
-          label: this.websiteLabel ? this.websiteLabel : 'My site'
-        })
-      }
-      return wepArray
     }
   },
   watch: {
     windowSize: function () {
       this.runHandleOnResizeDebounce()
     }
+  },
+  beforeMount () {
+    this.socialArrayData = this.socialArray()
   },
   mounted () {
     const { thisPerson } = this.$refs
@@ -482,6 +458,33 @@ export default {
       var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
       var match = url.match(regExp)
       return match && match[7].length === 11 ? match[7] : false
+    },
+    socialArray () {
+      // Website, Email, Phone array
+      const wepArray = this.social ? this.social : []
+
+      if (this.email) {
+        wepArray.push({
+          service: 'email',
+          username: this.email
+        })
+      }
+      if (this.phoneNumbers) {
+        this.phoneNumbers.forEach((phone) => {
+          wepArray.push({
+            service: 'phone',
+            username: phone.phoneNumber
+          })
+        })
+      }
+      if (this.websiteUrl) {
+        wepArray.push({
+          service: 'site',
+          profileUrl: this.websiteUrl,
+          label: this.websiteLabel ? this.websiteLabel : 'My site'
+        })
+      }
+      return wepArray
     }
   }
 }
