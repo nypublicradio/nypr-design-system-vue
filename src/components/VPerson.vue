@@ -118,7 +118,7 @@
             :key="index"
             :service="item.service"
             :username="item.username"
-            :link="item.profile_url"
+            :link="item.profileUrl"
             :label="item.label"
             :action="item.action"
             :url="item.url"
@@ -345,7 +345,7 @@ export default {
         this.phoneNumbers.forEach((phone) => {
           wepArray.push({
             service: 'phone',
-            username: phone.phone_number
+            username: phone.phoneNumber
           })
         })
       }
