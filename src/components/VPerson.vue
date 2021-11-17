@@ -622,6 +622,9 @@ export default {
       display: grid;
       color: RGB(var(--color-text));
       font-family: var(--font-family-body);
+      @include media("<small") {
+        padding: 0;
+      }
       .person-name-link {
         color: RGB(var(--color-text));
         font-weight: var(--font-weight-header);
