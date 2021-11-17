@@ -333,6 +333,7 @@ export default {
     },
     socialArray () {
       // Website, Email, Phone array
+      console.log('social concat')
       const wepArray = this.social ? this.social : []
 
       if (this.email) {
@@ -352,7 +353,7 @@ export default {
       if (this.websiteUrl) {
         wepArray.push({
           service: 'site',
-          profile_url: this.websiteUrl,
+          profileUrl: this.websiteUrl,
           label: this.websiteLabel ? this.websiteLabel : 'My site'
         })
       }
