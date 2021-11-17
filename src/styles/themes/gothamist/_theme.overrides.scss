@@ -1871,7 +1871,8 @@ ul.o-rte-text li li:before,
   padding: 16px;
   align-items: start;
   .person-details {
-    padding: 0 0 0 var(--space-3);
+    padding: 0 var(--space-1) 0 var(--space-3);
+
     .person-name-link {
       font-family: var(--font-family-pragati);
       font-size: var(--font-size-12);
@@ -1894,6 +1895,18 @@ ul.o-rte-text li li:before,
         text-transform: uppercase;
         font-size: var(--font-size-2);
       }
+    }
+  }
+  &.responsive {
+    @include media("<small") {
+      .person-details {
+        padding: 0 var(--space-1);
+      }
+    }
+  }
+  &.vertical {
+    .person-details {
+      padding: 0 var(--space-1);
     }
   }
 }

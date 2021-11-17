@@ -543,14 +543,19 @@ export default {
     &.no-image {
       grid-template-columns: 1fr;
     }
-    &.vertical {
-      @include person-vertical-styles;
-    }
-
     &.responsive {
       @include media("<small") {
         @include person-vertical-styles;
+        .person-details {
+          padding: 0 var(--space-1);
+        }
       }
+    }
+    &.vertical {
+      @include person-vertical-styles;
+      .person-details {
+          padding: 0 var(--space-1);
+        }
     }
     .person-image-link {
       position: relative;
@@ -618,13 +623,10 @@ export default {
       }
     }
     .person-details {
-      padding: 0 var(--space-3);
+      padding: 0 var(--space-1) 0 var(--space-3);
       display: grid;
       color: RGB(var(--color-text));
       font-family: var(--font-family-body);
-      @include media("<small") {
-        padding: 0;
-      }
       .person-name-link {
         color: RGB(var(--color-text));
         font-weight: var(--font-weight-header);
