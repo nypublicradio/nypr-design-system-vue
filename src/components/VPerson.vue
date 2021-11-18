@@ -14,7 +14,7 @@
       <a
         v-if="image"
         class="person-image-link"
-        :class="!nameLink ? 'disabled' : ''"
+        :class="!nameLink || onAuthorPage ? 'disabled' : ''"
         :href="nameLink ? nameLink : null"
         aria-hidden="true"
         role="presentation"
@@ -68,7 +68,7 @@
         >
           <a
             class="person-name-link"
-            :class="!nameLink ? 'disabled' : ''"
+            :class="!nameLink || onAuthorPage ? 'disabled' : ''"
             :href="nameLink ? nameLink : null"
           >
             <span v-html="fullName" />
@@ -308,6 +308,13 @@ export default {
     orientation: {
       type: String,
       default: 'horizontal'
+    },
+    /**
+     *  If component is on the Author page, disables image and name links
+     */
+    onAuthorPage: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -481,7 +488,7 @@ export default {
         wepArray.push({
           service: 'site',
           profileUrl: this.websiteUrl,
-          label: this.websiteLabel ? this.websiteLabel : 'My site'
+          label: this.websiteLabel ? this.websiteLabel : 'Website'
         })
       }
       return wepArray
