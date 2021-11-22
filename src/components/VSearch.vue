@@ -77,7 +77,7 @@ export default {
     SearchIcon,
     VButton
   },
-  emits: ['open', 'close', 'submit'],
+  emits: ['searchBarOpen', 'searchBarClose', 'searchBarSubmit'],
   props: {
     action: {
       type: String,
@@ -113,14 +113,14 @@ export default {
     }
   },
   methods: {
-    close () {
+    close (e) {
+      this.$emit('searchBarClose', e)
       if (this.closedOnLoad) {
         this.searchIsOpen = false
       }
     },
     listenToInput () {
       // close the search bar if nothing is typed for 3 seconds
-      // eslint-disable-next-line prefer-const
       window.clearTimeout(this.timeoutHandler)
       this.timeoutHandler = setTimeout(() => {
         this.close()
