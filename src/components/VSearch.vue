@@ -7,7 +7,7 @@
       ref="searchButton"
       tabindex="0"
       class="search-bar-search-icon u-icon--xs"
-      @click="open"
+      @click.native="open"
       @keypress.enter.space.prevent="open"
     >
       <search-icon />
@@ -54,7 +54,7 @@
           <v-button
             class="search-bar-submit"
             tabindex="0"
-            @click="submit"
+            @click.native="submit"
             @keypress.enter.space.prevent="submit"
           >
             <search-icon />
