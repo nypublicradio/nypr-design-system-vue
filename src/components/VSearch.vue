@@ -114,10 +114,9 @@ export default {
   },
   methods: {
     close (e) {
+      console.log('close')
       this.$emit('searchBarClose', e)
-      if (this.closedOnLoad) {
-        this.searchIsOpen = false
-      }
+      this.searchIsOpen = false
     },
     listenToInput () {
       // close the search bar if nothing is typed for 3 seconds
@@ -128,6 +127,7 @@ export default {
       }, 6000)
     },
     open (e) {
+      console.log('open')
       this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
       this.$nextTick(() => {
@@ -136,6 +136,7 @@ export default {
       })
     },
     submit (e) {
+      console.log('submit')
       this.$emit('searchBarSubmit', e)
       this.$refs.searchForm.submit()
     }
