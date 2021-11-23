@@ -565,6 +565,7 @@ export default {
     }
     .person-image {
       height: 100%;
+      width: 100%;
       object-fit: cover;
     }
     .u-image__1x1 {
