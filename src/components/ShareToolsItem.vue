@@ -244,6 +244,10 @@ export default {
     var(--animation-duration-standard);
 }
 
+.c-share-tools__link:hover {
+  cursor: pointer;
+}
+
 .share-tools-button:hover svg > *,
 .c-share-tools__link:hover svg > * {
   fill: RGB(var(--color-primary-2)) !important;
