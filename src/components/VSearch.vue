@@ -2,13 +2,19 @@
   <div
     class="search-bar"
   >
-    <!-- eslint-disable-next-line -->
-    <v-button v-if="closedOnLoad" ref="searchButton" tabindex="0" class="search-bar-search-icon u-icon--xs" @click.native="open" @keypress.enter.space.prevent="open">
+    <v-button
+      v-if="closedOnLoad"
+      ref="searchButton"
+      tabindex="0"
+      class="search-bar-search-icon u-icon--xs"
+      @click.native="open"
+      @keypress.enter.space.prevent="open"
+    >
       <search-icon />
     </v-button>
     <transition :name="transition">
       <div
-        v-if="searchIsOpen"
+        :style="searchIsOpen ? '' : 'display:none;' "
         class="search-bar-form-wrapper"
       >
         <form
@@ -45,8 +51,12 @@
             type="search"
             @keypress="listenToInput"
           >
-          <!-- eslint-disable-next-line -->
-          <v-button class="search-bar-submit" tabindex="0" @click.native="submit" @keypress.enter.space.prevent="submit">
+          <v-button
+            class="search-bar-submit"
+            tabindex="0"
+            @click.native="submit"
+            @keypress.enter.space.prevent="submit"
+          >
             <search-icon />
           </v-button>
         </form>
