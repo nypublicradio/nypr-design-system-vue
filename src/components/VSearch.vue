@@ -114,7 +114,6 @@ export default {
   },
   methods: {
     close (e) {
-      console.log('close')
       this.$emit('searchBarClose', e)
       this.searchIsOpen = false
     },
@@ -127,7 +126,6 @@ export default {
       }, 6000)
     },
     open (e) {
-      console.log('open')
       this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
       this.$nextTick(() => {
@@ -136,7 +134,6 @@ export default {
       })
     },
     submit (e) {
-      console.log('submit')
       this.$emit('searchBarSubmit', e)
       this.$refs.searchForm.submit()
     }
