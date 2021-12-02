@@ -37,23 +37,23 @@ describe('VPerson', () => {
   const social = [
     {
       service: 'facebook',
-      link: 'https://www.facebook.com/WNYC'
+      profile_url: 'https://www.facebook.com/WNYC'
     },
     {
       service: 'twitter',
-      link: 'https://twitter.com/WNYC'
+      profile_url: 'https://twitter.com/WNYC'
     },
     {
       service: 'instagram',
-      link: 'https://www.instagram.com/WNYC/'
+      profile_url: 'https://www.instagram.com/WNYC/'
     },
     {
       service: 'linkedin',
-      link: 'https://www.linkedin.com/company/wnyc-radio/'
+      profile_url: 'https://www.linkedin.com/company/wnyc-radio/'
     },
     {
       service: 'youtube',
-      link: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
+      profile_url: 'https://www.youtube.com/channel/UCbysmY4hyViQAAYEzOR-uCQ'
     },
     {
       service: 'email',
@@ -62,7 +62,7 @@ describe('VPerson', () => {
     {
       service: 'site',
       label: 'My site',
-      link: 'https://www.google.com'
+      profile_url: 'https://www.google.com'
     }
   ]
   test('it renders props', () => {

@@ -83,10 +83,11 @@ export default {
     this.activeImage = this.images[0]
   },
   mounted () {
-    if (window.innerWidth < 640) {
+    const doc = document.documentElement
+    if (doc.clientWidth < 640) {
       this.numberOfImages = 3
     }
-    if (window.innerWidth < 550) {
+    if (doc.clientWidth < 550) {
       this.numberOfImages = 2
     }
   },

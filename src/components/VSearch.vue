@@ -7,14 +7,14 @@
       ref="searchButton"
       tabindex="0"
       class="search-bar-search-icon u-icon--xs"
-      @click="open"
+      @click.native="open"
       @keypress.enter.space.prevent="open"
     >
       <search-icon />
     </v-button>
     <transition :name="transition">
       <div
-        v-if="searchIsOpen"
+        :style="searchIsOpen ? '' : 'display:none;' "
         class="search-bar-form-wrapper"
       >
         <form
@@ -54,7 +54,7 @@
           <v-button
             class="search-bar-submit"
             tabindex="0"
-            @click="submit"
+            @click.native="submit"
             @keypress.enter.space.prevent="submit"
           >
             <search-icon />
@@ -77,7 +77,7 @@ export default {
     SearchIcon,
     VButton
   },
-  emits: ['open', 'close', 'submit'],
+  emits: ['searchBarOpen', 'searchBarClose', 'searchBarSubmit'],
   props: {
     action: {
       type: String,
@@ -113,14 +113,12 @@ export default {
     }
   },
   methods: {
-    close () {
-      if (this.closedOnLoad) {
-        this.searchIsOpen = false
-      }
+    close (e) {
+      this.$emit('searchBarClose', e)
+      this.searchIsOpen = false
     },
     listenToInput () {
       // close the search bar if nothing is typed for 3 seconds
-      // eslint-disable-next-line prefer-const
       window.clearTimeout(this.timeoutHandler)
       this.timeoutHandler = setTimeout(() => {
         this.close()

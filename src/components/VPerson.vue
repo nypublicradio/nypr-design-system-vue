@@ -14,7 +14,7 @@
       <a
         v-if="image"
         class="person-image-link"
-        :class="!nameLink ? 'disabled' : ''"
+        :class="!nameLink || onAuthorPage ? 'disabled' : ''"
         :href="nameLink ? nameLink : null"
         aria-hidden="true"
         role="presentation"
@@ -68,7 +68,7 @@
         >
           <a
             class="person-name-link"
-            :class="!nameLink ? 'disabled' : ''"
+            :class="!nameLink || onAuthorPage ? 'disabled' : ''"
             :href="nameLink ? nameLink : null"
           >
             <span v-html="fullName" />
@@ -110,15 +110,15 @@
         </a>
 
         <share-tools
-          v-if="socialArray.length > 0"
+          v-if="socialArrayData.length > 0"
           class="social"
         >
           <share-tools-item
-            v-for="(item, index) in socialArray"
+            v-for="(item, index) in socialArrayData"
             :key="index"
             :service="item.service"
             :username="item.username"
-            :link="item.profile_url"
+            :link="item.profileUrl"
             :label="item.label"
             :action="item.action"
             :url="item.url"
@@ -308,6 +308,13 @@ export default {
     orientation: {
       type: String,
       default: 'horizontal'
+    },
+    /**
+     *  If component is on the Author page, disables image and name links
+     */
+    onAuthorPage: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -315,7 +322,8 @@ export default {
       readMore: false,
       showVideo: false,
       inViewPort: false,
-      windowSize: {}
+      windowSize: {},
+      socialArrayData: []
     }
   },
   computed: {
@@ -330,39 +338,15 @@ export default {
     },
     organizationComputed () {
       return ' (' + this.organization + ')'
-    },
-    socialArray () {
-      // Website, Email, Phone array
-      const wepArray = this.social ? this.social : []
-
-      if (this.email) {
-        wepArray.push({
-          service: 'email',
-          username: this.email
-        })
-      }
-      if (this.phoneNumbers) {
-        this.phoneNumbers.forEach((phone) => {
-          wepArray.push({
-            service: 'phone',
-            username: phone.phone_number
-          })
-        })
-      }
-      if (this.websiteUrl) {
-        wepArray.push({
-          service: 'site',
-          profile_url: this.websiteUrl,
-          label: this.websiteLabel ? this.websiteLabel : 'My site'
-        })
-      }
-      return wepArray
     }
   },
   watch: {
     windowSize: function () {
       this.runHandleOnResizeDebounce()
     }
+  },
+  beforeMount () {
+    this.socialArrayData = this.socialArray()
   },
   mounted () {
     const { thisPerson } = this.$refs
@@ -481,6 +465,33 @@ export default {
       var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
       var match = url.match(regExp)
       return match && match[7].length === 11 ? match[7] : false
+    },
+    socialArray () {
+      // Website, Email, Phone array
+      const wepArray = this.social ? this.social : []
+
+      if (this.email) {
+        wepArray.push({
+          service: 'email',
+          username: this.email
+        })
+      }
+      if (this.phoneNumbers) {
+        this.phoneNumbers.forEach((phone) => {
+          wepArray.push({
+            service: 'phone',
+            username: phone.phoneNumber
+          })
+        })
+      }
+      if (this.websiteUrl) {
+        wepArray.push({
+          service: 'site',
+          profileUrl: this.websiteUrl,
+          label: this.websiteLabel ? this.websiteLabel : 'Website'
+        })
+      }
+      return wepArray
     }
   }
 }
@@ -539,14 +550,19 @@ export default {
     &.no-image {
       grid-template-columns: 1fr;
     }
-    &.vertical {
-      @include person-vertical-styles;
-    }
-
     &.responsive {
       @include media("<small") {
         @include person-vertical-styles;
+        .person-details {
+          padding: 0 var(--space-1);
+        }
       }
+    }
+    &.vertical {
+      @include person-vertical-styles;
+      .person-details {
+          padding: 0 var(--space-1);
+        }
     }
     .person-image-link {
       position: relative;
@@ -615,7 +631,7 @@ export default {
       }
     }
     .person-details {
-      padding: 0 var(--space-3);
+      padding: 0 var(--space-1) 0 var(--space-3);
       display: grid;
       color: RGB(var(--color-text));
       font-family: var(--font-family-body);

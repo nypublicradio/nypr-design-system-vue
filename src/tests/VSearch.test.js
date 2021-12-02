@@ -106,8 +106,8 @@ describe('VSearch', () => {
     // trigger the close function
     wrapper.vm.close()
     await wrapper.vm.$nextTick()
-    // check if input is still visible, because closedOnLoad was true so nothing should happen
-    expect(wrapper.vm.searchIsOpen).toBe(true)
+    // check if input is not visible
+    expect(wrapper.vm.searchIsOpen).toBe(false)
   })
 
   test('submit triggers an emitted event', () => {

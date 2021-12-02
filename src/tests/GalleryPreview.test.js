@@ -116,7 +116,7 @@ describe('GalleryPreview', () => {
   })
 
   test('numberOfImages is set correctly on mobile width', async () => {
-    Object.defineProperty(window, 'innerWidth', {
+    Object.defineProperty(document.documentElement, 'clientWidth', {
       writable: true,
       configurable: true,
       value: 400
@@ -134,7 +134,7 @@ describe('GalleryPreview', () => {
   })
 
   test('numberOfImages is set correctly on tablet width', async () => {
-    Object.defineProperty(window, 'innerWidth', {
+    Object.defineProperty(document.documentElement, 'clientWidth', {
       writable: true,
       configurable: true,
       value: 600
@@ -152,7 +152,7 @@ describe('GalleryPreview', () => {
   })
 
   test('numberOfImages is set correctly on desktop width', async () => {
-    Object.defineProperty(window, 'innerWidth', {
+    Object.defineProperty(document.documentElement, 'clientWidth', {
       writable: true,
       configurable: true,
       value: 1000
