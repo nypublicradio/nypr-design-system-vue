@@ -1,8 +1,7 @@
 <template>
   <div
-    id="person"
     ref="thisPerson"
-    class="person"
+    class="person override"
     :style="cssVars"
   >
     <div
