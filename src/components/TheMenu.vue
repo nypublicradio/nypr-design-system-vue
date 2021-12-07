@@ -33,6 +33,7 @@
         <div
           v-if="hasLogoSlot"
           class="menu-logo"
+          @click="menuOpen = false"
         >
           <slot name="logo" />
         </div>
