@@ -10,8 +10,8 @@
       :caption="activeImage.caption"
       :title="activeImage.title"
       :description="activeImage.description"
-      :width="661"
-      :height="496"
+      :width="640"
+      :height="426"
       :max-width="activeImage.width"
       :max-height="activeImage.height"
     />

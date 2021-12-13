@@ -286,8 +286,8 @@ export default {
 }
 
 .card.mod-vertical.card.mod-large {
-  --card-image-width: 620px;
-  --card-image-height: 413px;
+  --card-image-width: 640px;
+  --card-image-height: 426px;
 }
 
 .card .card-slot {
