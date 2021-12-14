@@ -75,7 +75,7 @@ export default {
     sizes: {
       type: Array,
       default () {
-        return [1, 1.5, 2]
+        return [1, 2, 3, 4]
       }
     }
   },
@@ -96,13 +96,13 @@ export default {
         // If this is just a plain string with no tokens,
         // we don't need to generate a srcset
         if (
-          template ===
+          template !==
           template.replace(this.widthToken, '').replace(this.heightToken, '')
         ) {
           return ''
         }
         let srcset = ''
-        for (const size in this.sizes) {
+        for (const size of this.sizes) {
           let width = Math.round(this.width * size)
           let height = Math.round(this.height * size)
           if (width > this.maxWidth || height > this.maxHeight) {
