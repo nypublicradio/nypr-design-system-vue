@@ -75,7 +75,7 @@ export default {
     sizes: {
       type: Array,
       default () {
-        return [1, 1.5, 2, 3]
+        return [1, 1.5, 2]
       }
     }
   },
