@@ -60,7 +60,7 @@ describe('GalleryPreview', () => {
     expect(wrapper.find('.image-with-caption img').attributes().alt).toBe(images[0].alt)
     expect(wrapper.find('.image-with-caption-caption').text()).toBe(images[0].caption)
     expect(wrapper.find('.image-with-caption-credit').text()).toBe(images[0].credit)
-    expect(wrapper.find('.image-with-caption a').attributes().href).toBe(images[0].creditUrl)
+    expect(wrapper.find('.image-with-caption-credit-link').attributes().href).toBe(images[0].creditUrl)
   })
 
   test('everything works even if no images are provided', () => {

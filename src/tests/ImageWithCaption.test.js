@@ -8,6 +8,7 @@ expect.extend(toHaveNoViolations)
 
 describe('ImageWithCaption', () => {
   const image = 'http://placehold.it/768x512'
+  const imageUrl = 'http://www.google.com'
   const title = 'i am a test title'
   const altText = title
   const caption = 'i am a test caption'
@@ -24,6 +25,18 @@ describe('ImageWithCaption', () => {
     // check if image prop works and was rendered correctly
     const div = wrapper.find('img')
     expect(div.exists()).toBe(true)
+  })
+
+  test('image url prop works', () => {
+    const wrapper = mount(ImageWithCaption, {
+      propsData: {
+        image: image,
+        imageUrl: imageUrl
+      }
+    })
+    // check if image prop works and was rendered correctly
+    const div = wrapper.find('.image-with-caption-image-link')
+    expect(div.attributes('href')).toBe(imageUrl)
   })
 
   test('image does not render if image prop is not given', () => {
@@ -118,7 +131,7 @@ describe('ImageWithCaption', () => {
       }
     })
     // check if creditUrl prop works and was rendered correctly
-    const div = wrapper.find('a')
+    const div = wrapper.find('.image-with-caption-credit-link')
     expect(div.attributes('href')).toBe(creditUrl)
   })
 
