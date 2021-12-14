@@ -96,7 +96,7 @@ export default {
         // If this is just a plain string with no tokens,
         // we don't need to generate a srcset
         if (
-          template !==
+          template ===
           template.replace(this.widthToken, '').replace(this.heightToken, '')
         ) {
           return ''
