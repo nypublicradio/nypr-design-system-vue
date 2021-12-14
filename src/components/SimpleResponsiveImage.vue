@@ -1,19 +1,19 @@
 <template>
   <img
-    :src="computedSrc"
     :srcset="srcset"
+    :src="computedSrc"
     :width="width"
     :height="height"
     @click="$emit('click', $event.target.value)"
     @keypress="$emit('keypress', $event.target.value)"
-  >
+  />
 </template>
 <script>
 /**
  * Responsive image component, generates a srcset with multiple image sizes for different display densities.
  */
 export default {
-props: {
+  props: {
     /**
      * An image url template string with tokens to replace for width and height
      * e.g. "https://source.unsplash.com/random/%width%x%height%"
@@ -95,9 +95,10 @@ props: {
       if (template) {
         // If this is just a plain string with no tokens,
         // we don't need to generate a srcset
-        if (template === template
-            .replace(this.widthToken, '')
-            .replace(this.heightToken, '')) {
+        if (
+          template ===
+          template.replace(this.widthToken, '').replace(this.heightToken, '')
+        ) {
           return ''
         }
         let srcset = ''
@@ -111,7 +112,9 @@ props: {
           const url = template
             .replace(this.widthToken, width)
             .replace(this.heightToken, height)
-          srcset += `${url} ${size}x `
+          srcset += `${url} ${size}x${
+            size <= this.sizes.length - 2 ? ',' : ''
+          } `
         }
         return srcset
       } else {
