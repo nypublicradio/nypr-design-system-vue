@@ -1,24 +1,28 @@
 <template>
-  <figure
-    class="image-with-caption"
-    :class="variation"
-  >
+  <figure class="image-with-caption" :class="variation">
     <div class="image-with-caption-wrapper">
       <div class="image-with-caption-image">
-        <simple-responsive-image
-          v-if="image"
-          :src="image"
-          :alt="altText"
-          :width="width"
-          :height="height"
-          :max-width="maxWidth || Infinity"
-          :max-height="maxHeight || Infinity"
-          loading="lazy"
-        />
+        <a
+          class="image-with-caption-image-link"
+          :class="!imageUrl ? 'disabled' : ''"
+          :href="imageUrl ? imageUrl : null"
+          target="_blank"
+        >
+          <simple-responsive-image
+            v-if="image"
+            :src="image"
+            :alt="altText"
+            :width="width"
+            :height="height"
+            :max-width="maxWidth || Infinity"
+            :max-height="maxHeight || Infinity"
+            loading="lazy"
+          />
+        </a>
         <div
           v-if="caption"
           class="image-with-caption-caption"
-          :class="{'visible': captionVisible}"
+          :class="{ visible: captionVisible }"
         >
           <transition name="fade">
             <p v-show="captionVisible">
@@ -42,15 +46,10 @@
         />
       </div>
     </div>
-    <figcaption
-      v-if="credit || (caption && gothamistVariation)"
-    >
+    <figcaption v-if="credit || (caption && gothamistVariation)">
       <gothamist-arrow v-if="caption && gothamistVariation" />
       <div class="image-with-caption-credit">
-        <div
-          v-if="caption && gothamistVariation"
-          class="gothamist-caption"
-        >
+        <div v-if="caption && gothamistVariation" class="gothamist-caption">
           {{ caption }}
         </div>
         <a
@@ -65,16 +64,10 @@
           {{ credit }}
         </span>
       </div>
-      <div
-        v-if="title"
-        class="image-with-caption-title"
-      >
+      <div v-if="title" class="image-with-caption-title">
         {{ title }}
       </div>
-      <div
-        v-if="description"
-        class="image-with-caption-description"
-      >
+      <div v-if="description" class="image-with-caption-description">
         {{ description }}
       </div>
     </figcaption>
@@ -144,6 +137,10 @@ export default {
       default: null,
       type: String
     },
+    imageUrl: {
+      default: null,
+      type: String
+    },
     title: {
       default: null,
       type: String
@@ -190,6 +187,10 @@ export default {
   position: relative;
 }
 
+.image-with-caption .image-with-caption-image-link.disabled {
+  pointer-events: none;
+}
+
 .image-with-caption .image-with-caption-caption {
   position: absolute;
   color: white;
@@ -203,7 +204,7 @@ export default {
   transition: var(--animation-duration-standard);
 
   &.visible {
-    background: rgba(var(--color-dark-gray), .7);
+    background: rgba(var(--color-dark-gray), 0.7);
   }
 }
 

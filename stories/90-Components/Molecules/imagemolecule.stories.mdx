@@ -113,6 +113,22 @@ Features a custom icon left aligned to the caption.
 </Canvas>
 
 <Canvas>
+    <Story name="Image With Caption and Image Link">
+        {{
+            components: { ImageWithCaption },
+            template: `
+              <image-with-caption
+                alt-text="image alt text"
+                image="./images/Placeholder-Image-4_3.png"
+                image-url="https://www.google.com"
+                credit="( AP Photo/Carolyn Kaster )"
+                caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+              />`,
+        }}
+    </Story>
+</Canvas>
+
+<Canvas>
     <Story name="Image With Caption: Gothamist Variation">
         {{
             components: { ImageWithCaption },
@@ -121,6 +137,7 @@ Features a custom icon left aligned to the caption.
                 variation="gothamist"
                 alt-text="image alt text"
                 image="./images/Placeholder-Image-4_3.png"
+                image-url="https://www.google.com"
                 credit="AP Photo/Carolyn Kaster"
                 caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet, consectetur adipiscing elit"
               />`,
@@ -137,6 +154,7 @@ Features a custom icon left aligned to the caption.
                 variation="gothamist"
                 alt-text="image alt text"
                 image="./images/Placeholder-Image-4_3.png"
+                image-url="https://www.google.com"
                 credit="AP Photo/Carolyn Kaster"
                 caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
                 title="Title of Slide"
