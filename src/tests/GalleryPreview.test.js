@@ -54,13 +54,27 @@ describe('GalleryPreview', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    expect(wrapper.find('.image-with-caption img').attributes().src).toBe(images[0].template.replace('%width%', '640').replace('%height%', '426'))
-    expect(wrapper.find('.gallery-preview-image').attributes().src).toBe(images[0].template.replace('%width%', '106').replace('%height%', '106'))
-    expect(wrapper.find('.gallery-preview-image').attributes().alt).toBe(images[0].alt)
-    expect(wrapper.find('.image-with-caption img').attributes().alt).toBe(images[0].alt)
-    expect(wrapper.find('.image-with-caption-caption').text()).toBe(images[0].caption)
-    expect(wrapper.find('.image-with-caption-credit').text()).toBe(images[0].credit)
-    expect(wrapper.find('.image-with-caption-credit-link').attributes().href).toBe(images[0].creditUrl)
+    expect(wrapper.find('.image-with-caption img').attributes().src).toBe(
+      images[0].template.replace('%width%', '640').replace('%height%', '426')
+    )
+    expect(wrapper.find('.gallery-preview-image').attributes().src).toBe(
+      images[0].template.replace('%width%', '145').replace('%height%', '145')
+    )
+    expect(wrapper.find('.gallery-preview-image').attributes().alt).toBe(
+      images[0].alt
+    )
+    expect(wrapper.find('.image-with-caption img').attributes().alt).toBe(
+      images[0].alt
+    )
+    expect(wrapper.find('.image-with-caption-caption').text()).toBe(
+      images[0].caption
+    )
+    expect(wrapper.find('.image-with-caption-credit').text()).toBe(
+      images[0].credit
+    )
+    expect(
+      wrapper.find('.image-with-caption-credit-link').attributes().href
+    ).toBe(images[0].creditUrl)
   })
 
   test('everything works even if no images are provided', () => {
@@ -100,7 +114,9 @@ describe('GalleryPreview', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and rendered correctly
-    expect(wrapper.find('.gallery-preview-view-all').attributes('to')).toBe(galleryUrl)
+    expect(wrapper.find('.gallery-preview-view-all').attributes('to')).toBe(
+      galleryUrl
+    )
   })
 
   test('it passes basic accessibility tests', async () => {

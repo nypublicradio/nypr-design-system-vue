@@ -10,8 +10,8 @@
       :caption="activeImage.caption"
       :title="activeImage.title"
       :description="activeImage.description"
-      :width="640"
-      :height="426"
+      :width="mainImageWidth"
+      :height="mainImageHeight"
       :max-width="activeImage.width"
       :max-height="activeImage.height"
     />
@@ -20,8 +20,8 @@
         v-for="(image, index) in images.slice(0, numberOfImages)"
         :key="index"
         :src="image.template"
-        :width="106"
-        :height="106"
+        :width="thumbImageWidth"
+        :height="thumbImageHeight"
         :max-width="image.width"
         :max-height="image.height"
         :alt="image.alt"
@@ -33,10 +33,7 @@
         @click="setActiveImage(index)"
         @keypress.enter.space.prevent="setActiveImage(index)"
       />
-      <nuxt-link
-        :to="galleryUrl"
-        class="gallery-preview-view-all"
-      >
+      <nuxt-link :to="galleryUrl" class="gallery-preview-view-all">
         <span>View All</span>
         <span class="gallery-preview-view-all-count">{{ count }}</span>
       </nuxt-link>
@@ -58,6 +55,22 @@ export default {
     count: {
       type: Number,
       default: null
+    },
+    mainImageWidth: {
+      type: Number,
+      default: 640
+    },
+    mainImageHeight: {
+      type: Number,
+      default: 426
+    },
+    thumbImageWidth: {
+      type: Number,
+      default: 145
+    },
+    thumbImageHeight: {
+      type: Number,
+      default: 145
     },
     galleryUrl: {
       type: String,
@@ -126,7 +139,7 @@ export default {
     cursor: pointer;
   }
 
-  @include media(">small") {
+  @include media('>small') {
     min-width: calc(25% - var(--space-3));
     max-width: calc(25% - var(--space-3));
     flex-basis: calc(25% - var(--space-3));
