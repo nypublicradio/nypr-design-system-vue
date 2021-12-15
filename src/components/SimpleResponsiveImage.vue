@@ -70,13 +70,27 @@ export default {
       default: '%height%'
     },
     /**
+     * Substring or regex within the url to control jpg compression quality.
+     */
+    qualityToken: {
+      type: [String, RegExp],
+      default: '%quality%'
+    },
+    /**
      * List of display densities to generate sizes for in the srcset
      */
     sizes: {
       type: Array,
       default () {
-        return [1, 2, 3]
+        return [1, 2, 3, 3.5, 4]
       }
+    },
+    /**
+     * jpg compression quality
+     */
+    quality: {
+      type: Number,
+      default: 80
     }
   },
   computed: {
@@ -86,6 +100,7 @@ export default {
         return template
           .replace(this.widthToken, this.width)
           .replace(this.heightToken, this.height)
+          .replace(this.qualityToken, this.quality)
       } else {
         return undefined
       }
@@ -112,14 +127,21 @@ export default {
           const url = template
             .replace(this.widthToken, width)
             .replace(this.heightToken, height)
+            .replace(this.qualityToken, this.calcQuality(this.quality, size))
           srcset += `${url} ${size}x${
             size <= this.sizes.length - 1 ? ',' : ''
           } `
         }
+        console.log('srcset = ', srcset)
         return srcset
       } else {
         return undefined
       }
+    }
+  },
+  methods: {
+    calcQuality (quality, size) {
+      return size >= 2 ? quality - Math.round(size * 5) : quality
     }
   }
 }
