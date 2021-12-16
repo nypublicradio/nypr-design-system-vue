@@ -117,22 +117,26 @@ export default {
           return ''
         }
         let srcset = ''
+        let lastImage = false
         for (const size of this.sizes) {
           let width = Math.round(this.width * size)
           let height = Math.round(this.height * size)
-          if (width > this.maxWidth || height > this.maxHeight) {
-            width = this.maxWidth
-            height = this.maxHeight
+
+          if (!lastImage) {
+            if (width > this.maxWidth || height > this.maxHeight) {
+              width = this.maxWidth
+              height = this.maxHeight
+              lastImage = true
+            }
+            const url = template
+              .replace(this.widthToken, width)
+              .replace(this.heightToken, height)
+              .replace(this.qualityToken, this.calcQuality(this.quality, size))
+            srcset += `${url} ${size}x${
+              size <= this.sizes.length - 1 ? ',' : ''
+            } `
           }
-          const url = template
-            .replace(this.widthToken, width)
-            .replace(this.heightToken, height)
-            .replace(this.qualityToken, this.calcQuality(this.quality, size))
-          srcset += `${url} ${size}x${
-            size <= this.sizes.length - 1 ? ',' : ''
-          } `
         }
-        console.log('srcset = ', srcset)
         return srcset
       } else {
         return undefined
