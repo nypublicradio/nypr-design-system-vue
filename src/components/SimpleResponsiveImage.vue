@@ -123,9 +123,9 @@ export default {
           let height = Math.round(this.height * size)
           if (!lastImage) {
             if (width > this.maxWidth || height > this.maxHeight) {
+              height = Math.round((height / width) * this.maxWidth)
               width = this.maxWidth
               // height = this.maxHeight
-              height = Math.round((height / width) * this.maxWidth)
               lastImage = true
             }
             const url = template
