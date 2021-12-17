@@ -121,11 +121,11 @@ export default {
         for (const size of this.sizes) {
           let width = Math.round(this.width * size)
           let height = Math.round(this.height * size)
-
           if (!lastImage) {
             if (width > this.maxWidth || height > this.maxHeight) {
               width = this.maxWidth
-              height = this.maxHeight
+              // height = this.maxHeight
+              height = Math.round(height * this.maxWidth / this.maxWidth)
               lastImage = true
             }
             const url = template
