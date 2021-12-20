@@ -14,6 +14,7 @@
       :height="mainImageHeight"
       :max-width="activeImage.width"
       :max-height="activeImage.height"
+      allow-vertical-effect
     />
     <div class="gallery-preview-images">
       <simple-responsive-image
@@ -30,7 +31,6 @@
         aria-hidden="true"
         class="gallery-preview-image"
         :class="{ active: activeIndex === index }"
-        :vertical-effect="false"
         @click="setActiveImage(index)"
         @keypress.enter.space.prevent="setActiveImage(index)"
       />

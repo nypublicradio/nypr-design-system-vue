@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isVertical && verticalEffect" class="bg">
+    <div v-if="isVertical && allowVerticalEffect" class="bg">
       <img
         :src="computedSrcBg"
         :width="width"
@@ -112,9 +112,9 @@ export default {
     /**
      * allow the verticall effect to happen
      */
-    verticalEffect: {
+    allowVerticalEffect: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data () {
@@ -207,7 +207,7 @@ export default {
       return Math.round(this.maxWidth / (this.maxHeight / this.height))
     },
     checkVertical () {
-      if (this.maxHeight > this.maxWidth && this.verticalEffect) {
+      if (this.maxHeight > this.maxWidth && this.allowVerticalEffect) {
         this.isVertical = true
       } else {
         this.isVertical = false

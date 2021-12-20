@@ -21,7 +21,6 @@
           :alt="title"
           role="presentation"
           loading="lazy"
-          :vertical-effect="verticalEffect"
         />
       </nuxt-link>
       <nuxt-link
@@ -39,7 +38,6 @@
           :height="imageHeight"
           :max-width="imageMaxWidth || Infinity"
           :max-height="imageMaxHeight || Infinity"
-          :vertical-effect="verticalEffect"
         />
       </nuxt-link>
     </template>
@@ -54,7 +52,6 @@
         :max-height="imageMaxHeight || Infinity"
         alt=""
         role="presentation"
-        :vertical-effect="verticalEffect"
       />
     </span>
     <div v-if="hasDetails" class="card-details">

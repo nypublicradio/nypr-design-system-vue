@@ -164,6 +164,30 @@ Features a custom icon left aligned to the caption.
     </Story>
 </Canvas>
 
+<Canvas>
+    <Story name="Vertical image with vertical effect">
+        {{
+            components: { ImageWithCaption },
+            template: `
+              <image-with-caption
+                variation="gothamist"
+                alt-text="image alt text"
+                image="https://cms.demo.nypr.digital/images/212135/fill-%width%x%height%|format-jpeg|jpegquality-%quality%/"
+                image-url="https://www.google.com"
+                :width="640"
+                :height="426"
+                :max-width="1803"
+                :max-height="2726"
+                credit="AP Photo/Carolyn Kaster"
+                caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                title="Title of Slide"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                allow-vertical-effect
+              />`,
+        }}
+    </Story>
+</Canvas>
+
 
 
 

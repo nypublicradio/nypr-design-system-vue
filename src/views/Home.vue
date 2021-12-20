@@ -12,6 +12,7 @@
       credit="leadAsset value image credit"
       caption="leadAsset value caption || leadAsset value image caption"
       credit-url="leadAsset value image creditLink"
+      allow-vertical-effect
     />
 
     <v-card
