@@ -189,7 +189,7 @@ export default {
 }
 
 .card-image {
-  position: inherit;
+  position: relative;
   object-fit: cover;
   width: var(--card-image-width);
   height: var(--card-image-height);
