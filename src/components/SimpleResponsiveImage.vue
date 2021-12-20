@@ -12,7 +12,7 @@
       class="image"
       :srcset="srcset"
       :src="computedSrc"
-      :width="finalWidth"
+      :width="finalWidth || width"
       :height="height"
       :alt="alt"
       @click="$emit('click', $event.target.value)"
