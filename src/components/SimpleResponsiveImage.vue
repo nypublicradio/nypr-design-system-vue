@@ -12,7 +12,7 @@
       class="image"
       :srcset="srcset"
       :src="computedSrc"
-      :width="finalWidth || width"
+      :width="computedWidth"
       :height="height"
       :alt="alt"
       @click="$emit('click', $event.target.value)"
@@ -122,19 +122,22 @@ export default {
       isVertical: {
         default: false,
         type: Boolean
-      },
-      finalWidth: {
-        default: this.width,
-        type: Number
       }
     }
   },
   computed: {
+    computedWidth () {
+      if (this.isVertical) {
+        return this.getWidthFromHeight()
+      } else {
+        return this.width
+      }
+    },
     computedSrc () {
       const template = this.src
       if (template) {
         return template
-          .replace(this.widthToken, this.finalWidth)
+          .replace(this.widthToken, this.computedWidth)
           .replace(this.heightToken, this.height)
           .replace(this.qualityToken, this.quality)
       } else {
@@ -166,7 +169,7 @@ export default {
         let srcset = ''
         let lastImage = false
         for (const size of this.sizes) {
-          let width = Math.round(this.finalWidth * size)
+          let width = Math.round(this.computedWidth * size)
           let height = Math.round(this.height * size)
           if (!lastImage) {
             if (width > this.maxWidth || height > this.maxHeight) {
@@ -193,10 +196,8 @@ export default {
   beforeMount () {
     if (this.maxHeight > this.maxWidth && this.verticalEffect) {
       this.isVertical = true
-      this.finalWidth = this.getWidthFromHeight()
     } else {
       this.isVertical = false
-      this.finalWidth = this.width
     }
   },
   mounted () {},
