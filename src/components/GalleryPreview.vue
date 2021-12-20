@@ -19,7 +19,7 @@
       <simple-responsive-image
         v-for="(image, index) in images.slice(0, numberOfImages)"
         :key="index"
-        :src="image.template"
+        :src="image.thumbnail ? image.thumbnail : image.template"
         :width="thumbImageWidth"
         :height="thumbImageHeight"
         :max-width="image.width"
@@ -30,6 +30,7 @@
         aria-hidden="true"
         class="gallery-preview-image"
         :class="{ active: activeIndex === index }"
+        :no-vertical-effect="true"
         @click="setActiveImage(index)"
         @keypress.enter.space.prevent="setActiveImage(index)"
       />
@@ -124,7 +125,9 @@ export default {
   width: 100%;
   justify-content: space-between;
 }
-
+.gallery-preview-image {
+  position: relative;
+}
 .gallery-preview-image,
 .gallery-preview-view-all {
   cursor: pointer;

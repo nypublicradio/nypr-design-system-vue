@@ -1,12 +1,24 @@
 <template>
-  <img
-    :srcset="srcset"
-    :src="computedSrc"
-    :width="width"
-    :height="height"
-    @click="$emit('click', $event.target.value)"
-    @keypress="$emit('keypress', $event.target.value)"
-  />
+  <div>
+    <div v-if="isVertical && !noVerticalEffect" class="bg">
+      <img
+        :src="computedSrcBg"
+        :width="width"
+        :height="height"
+        :alt="alt"
+      />
+    </div>
+    <img
+      class="image"
+      :srcset="srcset"
+      :src="computedSrc"
+      :width="finalWidth"
+      :height="height"
+      :alt="alt"
+      @click="$emit('click', $event.target.value)"
+      @keypress="$emit('keypress', $event.target.value)"
+    />
+  </div>
 </template>
 <script>
 /**
@@ -14,6 +26,11 @@
  */
 export default {
   props: {
+    /* alt text prop */
+    alt: {
+      type: String,
+      default: null
+    },
     /**
      * An image url template string with tokens to replace for width and height
      * e.g. "https://source.unsplash.com/random/%width%x%height%"
@@ -91,10 +108,40 @@ export default {
     quality: {
       type: Number,
       default: 80
+    },
+    /**
+     * does not allow the verticall effect to happen
+     */
+    noVerticalEffect: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data () {
+    return {
+      isVertical: {
+        default: false,
+        type: Boolean
+      },
+      finalWidth: {
+        default: this.width,
+        type: Number
+      }
     }
   },
   computed: {
     computedSrc () {
+      const template = this.src
+      if (template) {
+        return template
+          .replace(this.widthToken, this.finalWidth)
+          .replace(this.heightToken, this.height)
+          .replace(this.qualityToken, this.quality)
+      } else {
+        return undefined
+      }
+    },
+    computedSrcBg () {
       const template = this.src
       if (template) {
         return template
@@ -119,7 +166,7 @@ export default {
         let srcset = ''
         let lastImage = false
         for (const size of this.sizes) {
-          let width = Math.round(this.width * size)
+          let width = Math.round(this.finalWidth * size)
           let height = Math.round(this.height * size)
           if (!lastImage) {
             if (width > this.maxWidth || height > this.maxHeight) {
@@ -143,10 +190,55 @@ export default {
       }
     }
   },
+  beforeMount () {
+    if (this.maxHeight > this.maxWidth) {
+      this.isVertical = true
+      this.finalWidth = this.getWidthFromHeight()
+    } else {
+      this.isVertical = false
+      this.finalWidth = this.width
+    }
+  },
+  mounted () {},
   methods: {
     calcQuality (quality, size) {
       return size >= 2 ? quality - Math.round(size * 5) : quality
+    },
+    getWidthFromHeight () {
+      return Math.round(this.maxWidth / (this.maxHeight / this.height))
     }
   }
 }
 </script>
+<style lang="scss" scoped>
+.image {
+  position: relative;
+  margin: auto;
+  width: auto;
+}
+.bg {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  &:after {
+    content: '';
+    background-color: RGB(var(--color-black));
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+  }
+  img {
+    width: 100%;
+    filter: blur(3px) grayscale(100%);
+    object-fit: cover;
+    height: inherit;
+  }
+}
+</style>

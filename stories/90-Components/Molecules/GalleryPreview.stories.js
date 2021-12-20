@@ -14,10 +14,10 @@ export const Default = () => ({
       gallery-url="http://www.google.com"
       :images="
         [
-          {template:'https://cms.demo.nypr.digital/images/212136/fill-%width%x%height%|format-jpeg|jpegquality-%quality%/', thumbnail:'https://via.placeholder.com/150x150.png?text=1', alt:'alt 1',caption:'caption 1',credit:'1 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
-          {template:'https://via.placeholder.com/640x500.png?text=2', thumbnail:'https://via.placeholder.com/150x150.png?text=2', alt:'alt 2',caption:'caption 2',credit:'2 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
-          {template:'https://via.placeholder.com/640x500.png?text=3', thumbnail:'https://via.placeholder.com/150x150.png?text=3', alt:'alt 3',caption:'caption 3',credit:'3 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
-          {template:'https://via.placeholder.com/640x500.png?text=4', thumbnail:'https://via.placeholder.com/150x150.png?text=4', alt:'alt 4',caption:'caption 4',credit:'4 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'}
+          {template:'https://cms.demo.nypr.digital/images/212135/fill-%width%x%height%|format-jpeg|jpegquality-%quality%/', thumbnail:'https://cms.demo.nypr.digital/images/212135/fill-150x150|format-jpeg|jpegquality-%quality%/?text=1', alt:'alt 1',caption:'caption 1',credit:'1 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com', width:3468, height:4624},          
+          {template:'https://via.placeholder.com/640x426.png?text=2', thumbnail:'https://via.placeholder.com/150x150.png?text=2', alt:'alt 2',caption:'caption 2',credit:'2 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {template:'https://via.placeholder.com/640x426.png?text=3', thumbnail:'https://via.placeholder.com/150x150.png?text=3', alt:'alt 3',caption:'caption 3',credit:'3 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {template:'https://via.placeholder.com/640x426.png?text=4', thumbnail:'https://via.placeholder.com/150x150.png?text=4', alt:'alt 4',caption:'caption 4',credit:'4 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'}
         ]
       "
     />
@@ -35,10 +35,10 @@ export const GothamistVariation = () => ({
       gallery-url="http://www.google.com"
       :images="
         [
-          {template:'https://via.placeholder.com/640x500.png?text=1', thumbnail:'https://via.placeholder.com/150x150.png?text=1', alt:'alt 1',caption:'caption 1',credit:'1 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
-          {template:'https://via.placeholder.com/640x500.png?text=2', thumbnail:'https://via.placeholder.com/150x150.png?text=2', alt:'alt 2',caption:'caption 2',credit:'2 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
-          {template:'https://via.placeholder.com/640x500.png?text=3', thumbnail:'https://via.placeholder.com/150x150.png?text=3', alt:'alt 3',caption:'caption 3',credit:'3 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
-          {template:'https://via.placeholder.com/640x500.png?text=4', thumbnail:'https://via.placeholder.com/150x150.png?text=4', alt:'alt 4',caption:'caption 4',credit:'4 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'}
+          {template:'https://via.placeholder.com/640x426.png?text=1', thumbnail:'https://via.placeholder.com/150x150.png?text=1', alt:'alt 1',caption:'caption 1',credit:'1 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {template:'https://via.placeholder.com/640x426.png?text=2', thumbnail:'https://via.placeholder.com/150x150.png?text=2', alt:'alt 2',caption:'caption 2',credit:'2 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {template:'https://via.placeholder.com/640x426.png?text=3', thumbnail:'https://via.placeholder.com/150x150.png?text=3', alt:'alt 3',caption:'caption 3',credit:'3 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'},
+          {template:'https://via.placeholder.com/640x426.png?text=4', thumbnail:'https://via.placeholder.com/150x150.png?text=4', alt:'alt 4',caption:'caption 4',credit:'4 ( AP Photo/Carolyn Kaster )',creditUrl: 'http:///www.google.com'}
         ]
       "
     />

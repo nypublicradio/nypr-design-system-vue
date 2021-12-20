@@ -54,16 +54,16 @@ describe('GalleryPreview', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    expect(wrapper.find('.image-with-caption img').attributes().src).toBe(
+    expect(wrapper.find('.image-with-caption img.image').attributes().src).toBe(
       images[0].template.replace('%width%', '640').replace('%height%', '426')
     )
-    expect(wrapper.find('.gallery-preview-image').attributes().src).toBe(
-      images[0].template.replace('%width%', '145').replace('%height%', '145')
+    expect(wrapper.find('.gallery-preview-image .image').attributes().src).toBe(
+      images[0].template.replace('%width%', '150').replace('%height%', '150')
     )
-    expect(wrapper.find('.gallery-preview-image').attributes().alt).toBe(
+    expect(wrapper.find('.gallery-preview-image .image').attributes().alt).toBe(
       images[0].alt
     )
-    expect(wrapper.find('.image-with-caption img').attributes().alt).toBe(
+    expect(wrapper.find('.image-with-caption img.image').attributes().alt).toBe(
       images[0].alt
     )
     expect(wrapper.find('.image-with-caption-caption').text()).toBe(
