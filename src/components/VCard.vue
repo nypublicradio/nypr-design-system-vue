@@ -198,11 +198,15 @@ export default {
   height: var(--card-image-height);
 }
 
-.card-image .image {
-  position: relative;
-  object-fit: cover;
-  width: var(--card-image-width);
-  height: var(--card-image-height);
+.card-image {
+  height: inherit;
+  .image {
+    position: relative;
+    object-fit: cover;
+    width: var(--card-image-width);
+    // height: var(--card-image-height);
+    height: inherit;
+  }
 }
 
 .card-details {
