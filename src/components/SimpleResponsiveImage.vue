@@ -193,20 +193,25 @@ export default {
       }
     }
   },
-  beforeMount () {
-    if (this.maxHeight > this.maxWidth && this.verticalEffect) {
-      this.isVertical = true
-    } else {
-      this.isVertical = false
-    }
+  updated () {
+    this.checkVertical()
   },
-  mounted () {},
+  beforeMount () {
+    this.checkVertical()
+  },
   methods: {
     calcQuality (quality, size) {
       return size >= 2 ? quality - Math.round(size * 5) : quality
     },
     getWidthFromHeight () {
       return Math.round(this.maxWidth / (this.maxHeight / this.height))
+    },
+    checkVertical () {
+      if (this.maxHeight > this.maxWidth && this.verticalEffect) {
+        this.isVertical = true
+      } else {
+        this.isVertical = false
+      }
     }
   }
 }
