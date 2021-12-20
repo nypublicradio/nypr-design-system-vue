@@ -19,7 +19,7 @@
       <simple-responsive-image
         v-for="(image, index) in images.slice(0, numberOfImages)"
         :key="index"
-        :src="image.thumbnail ? image.thumbnail : image.template"
+        :src="image.template"
         :width="thumbImageWidth"
         :height="thumbImageHeight"
         :max-width="image.width"
@@ -67,11 +67,11 @@ export default {
     },
     thumbImageWidth: {
       type: Number,
-      default: 145
+      default: 150
     },
     thumbImageHeight: {
       type: Number,
-      default: 145
+      default: 150
     },
     galleryUrl: {
       type: String,
