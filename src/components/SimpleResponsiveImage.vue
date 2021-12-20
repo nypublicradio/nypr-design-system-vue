@@ -191,7 +191,7 @@ export default {
     }
   },
   beforeMount () {
-    if (this.maxHeight > this.maxWidth) {
+    if (this.maxHeight > this.maxWidth && this.verticalEffect) {
       this.isVertical = true
       this.finalWidth = this.getWidthFromHeight()
     } else {
