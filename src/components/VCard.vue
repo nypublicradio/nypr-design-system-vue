@@ -41,10 +41,7 @@
         />
       </nuxt-link>
     </template>
-    <span
-      v-else
-      class="card-image-wrapper"
-    >
+    <span v-else class="card-image-wrapper">
       <simple-responsive-image
         v-if="image"
         class="card-image"
@@ -57,24 +54,15 @@
         role="presentation"
       />
     </span>
-    <div
-      v-if="hasDetails"
-      class="card-details"
-    >
-      <div
-        v-if="tags || sponsored"
-        class="card-tag"
-      >
+    <div v-if="hasDetails" class="card-details">
+      <div v-if="tags || sponsored" class="card-tag">
         <v-tag
           v-for="(tag, index) in tags"
           :key="index"
           :name="tag.name"
           :slug="tag.slug"
         />
-        <v-tag
-          v-if="sponsored"
-          name="sponsored"
-        />
+        <v-tag v-if="sponsored" name="sponsored" />
       </div>
       <div
         v-if="title"
@@ -97,16 +85,10 @@
           <gallery-icon v-if="showGalleryIcon" />
         </template>
       </div>
-      <div
-        v-if="subtitle"
-        class="card-subtitle"
-      >
+      <div v-if="subtitle" class="card-subtitle">
         {{ subtitle }}
       </div>
-      <div
-        v-if="$slots.default"
-        class="card-slot"
-      >
+      <div v-if="$slots.default" class="card-slot">
         <slot />
       </div>
     </div>
@@ -207,6 +189,7 @@ export default {
 }
 
 .card-image {
+  position: inherit;
   object-fit: cover;
   width: var(--card-image-width);
   height: var(--card-image-height);
@@ -278,7 +261,7 @@ export default {
 
 .card.mod-large:not(.mod-vertical) .card-image-wrapper,
 .card.mod-large:not(.mod-vertical) .card-image {
-  @include media("<medium") {
+  @include media('<medium') {
     min-width: 100px;
     width: 100px;
     height: 100px;
