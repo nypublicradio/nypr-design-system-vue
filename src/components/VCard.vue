@@ -21,6 +21,7 @@
           :alt="title"
           role="presentation"
           loading="lazy"
+          :vertical-effect="verticalEffect"
         />
       </nuxt-link>
       <nuxt-link
@@ -38,6 +39,7 @@
           :height="imageHeight"
           :max-width="imageMaxWidth || Infinity"
           :max-height="imageMaxHeight || Infinity"
+          :vertical-effect="verticalEffect"
         />
       </nuxt-link>
     </template>
@@ -52,6 +54,7 @@
         :max-height="imageMaxHeight || Infinity"
         alt=""
         role="presentation"
+        :vertical-effect="verticalEffect"
       />
     </span>
     <div v-if="hasDetails" class="card-details">
@@ -155,6 +158,13 @@ export default {
     imageMaxWidth: {
       type: Number,
       default: Infinity
+    },
+    /**
+     * does not allow the verticall effect to happen
+     */
+    verticalEffect: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -188,7 +198,7 @@ export default {
   height: var(--card-image-height);
 }
 
-.card-image {
+.card-image .image {
   position: relative;
   object-fit: cover;
   width: var(--card-image-width);
@@ -260,7 +270,7 @@ export default {
 }
 
 .card.mod-large:not(.mod-vertical) .card-image-wrapper,
-.card.mod-large:not(.mod-vertical) .card-image {
+.card.mod-large:not(.mod-vertical) .card-image .image {
   @include media('<medium') {
     min-width: 100px;
     width: 100px;

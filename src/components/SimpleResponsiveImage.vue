@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isVertical && !noVerticalEffect" class="bg">
+    <div v-if="isVertical && verticalEffect" class="bg">
       <img
         :src="computedSrcBg"
         :width="width"
@@ -110,11 +110,11 @@ export default {
       default: 80
     },
     /**
-     * does not allow the verticall effect to happen
+     * allow the verticall effect to happen
      */
-    noVerticalEffect: {
+    verticalEffect: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data () {

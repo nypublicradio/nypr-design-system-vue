@@ -30,7 +30,7 @@
         aria-hidden="true"
         class="gallery-preview-image"
         :class="{ active: activeIndex === index }"
-        :no-vertical-effect="true"
+        :vertical-effect="false"
         @click="setActiveImage(index)"
         @keypress.enter.space.prevent="setActiveImage(index)"
       />

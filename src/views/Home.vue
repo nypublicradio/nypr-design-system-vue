@@ -13,15 +13,28 @@
       caption="leadAsset value caption || leadAsset value image caption"
       credit-url="leadAsset value image creditLink"
     />
+
+    <v-card
+      image="https://cdn.cms.demo.nypr.digital/images/South-Miami-Beach-South-Point-Park.2e16d0ba.fill-661x496.jpg"
+      title="Title with some <em>HTML</em>"
+      title-link="https://www.google.com"
+      subtitle="Subtitle"
+      :image-width="193"
+      :image-height="170"
+      :image-max-width="1280 || Infinity"
+      :image-max-height="852 || Infinity"
+    />
   </div>
 </template>
 
 <script>
 import ImageWithCaption from '../components/ImageWithCaption.vue'
+import VCard from '../components/VCard.vue'
 export default {
   name: 'Home',
   components: {
-    ImageWithCaption
+    ImageWithCaption,
+    VCard
   },
   mixins: [],
   layout: 'default',
