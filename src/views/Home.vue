@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>Home</div>
-    <image-with-caption
+    <!--     <image-with-caption
       variation="gothamist"
       alt-text="alt Text"
       image="https://cms.demo.nypr.digital/images/212139/fill-%width%x%height%|format-jpeg|jpegquality-%quality%/"
@@ -51,7 +51,7 @@
       credit="leadAsset value image credit"
       caption="leadAsset value caption || leadAsset value image caption"
       credit-url="leadAsset value image creditLink"
-    />
+    /> -->
 
     <image-with-caption
       variation="gothamist"

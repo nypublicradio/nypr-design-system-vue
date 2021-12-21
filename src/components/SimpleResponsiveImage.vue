@@ -154,7 +154,7 @@ export default {
         return template
           .replace(this.widthToken, this.width)
           .replace(this.heightToken, this.height)
-          .replace(this.qualityToken, this.quality)
+          .replace(this.qualityToken, 15)
       } else {
         return undefined
       }
