@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isVertical && allowVerticalEffect" class="bg">
+    <div v-if="allowVerticalEffect && isVertical" class="bg">
       <img
         :src="computedSrcBg"
         :width="width"
@@ -103,7 +103,7 @@ export default {
     sizes: {
       type: Array,
       default () {
-        return [1, 2, 3, 3.5, 4]
+        return [2, 3, 3.5, 4]
       }
     },
     /**
@@ -173,22 +173,30 @@ export default {
         let srcset = ''
         let lastImage = false
         for (const size of this.sizes) {
-          let width = Math.round(this.computedWidth * size)
-          let height = Math.round(this.height * size)
-          if (!lastImage) {
-            if (width > this.maxWidth || height > this.maxHeight) {
-              height = Math.round((height / width) * this.maxWidth)
-              width = this.maxWidth
-              // height = this.maxHeight
-              lastImage = true
+          /* image is lower resolution than render area, no need to create srcset */
+          if (this.maxWidth > this.width) {
+            let width = Math.round(this.computedWidth * size)
+            let height = Math.round(this.height * size)
+
+            if (!lastImage) {
+              /* the image no longer has enough resolution to support the next srcset, use its maximum size and make it the last on the srcset list */
+              if (width > this.maxWidth || height > this.maxHeight) {
+                height = Math.round((height / width) * this.maxWidth)
+                width = this.maxWidth
+                lastImage = true
+              }
+
+              const url = template
+                .replace(this.widthToken, width)
+                .replace(this.heightToken, height)
+                .replace(
+                  this.qualityToken,
+                  this.calcQuality(this.quality, size)
+                )
+              srcset += `${url} ${size}x${
+                size < this.sizes.length - 1 && !lastImage ? ',' : ''
+              } `
             }
-            const url = template
-              .replace(this.widthToken, width)
-              .replace(this.heightToken, height)
-              .replace(this.qualityToken, this.calcQuality(this.quality, size))
-            srcset += `${url} ${size}x${
-              size < this.sizes.length - 1 ? ',' : ''
-            } `
           }
         }
         return srcset
@@ -198,14 +206,14 @@ export default {
     }
   },
   beforeMount () {
-    console.log('this.maxHeight = ', this.maxHeight)
-    console.log('this.maxWidth = ', this.maxWidth)
+    // console.log('this.maxHeight = ', this.maxHeight)
+    // console.log('this.maxWidth = ', this.maxWidth)
     if (this.allowVerticalEffect && this.maxHeight > this.maxWidth) {
       this.isVertical = true
-      console.log('this.isVertical = ', this.isVertical)
+      // console.log('this.isVertical = ', this.isVertical)
     } else {
       this.isVertical = false
-      console.log('this.isVertical = ', this.isVertical)
+      // console.log('this.isVertical = ', this.isVertical)
     }
   },
   methods: {
