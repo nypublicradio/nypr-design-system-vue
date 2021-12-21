@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="allowVerticalEffect && isVertical" class="bg">
+    <div v-if="isVertical" class="bg">
       <img
         :src="computedSrcBg"
         :width="width"
@@ -200,16 +200,8 @@ export default {
       }
     }
   },
-  beforeMount () {
-    // console.log('this.maxHeight = ', this.maxHeight)
-    // console.log('this.maxWidth = ', this.maxWidth)
-    if (this.allowVerticalEffect && this.maxHeight > this.maxWidth) {
-      this.isVertical = true
-      // console.log('this.isVertical = ', this.isVertical)
-    } else {
-      this.isVertical = false
-      // console.log('this.isVertical = ', this.isVertical)
-    }
+  created () {
+    this.isVertical = this.allowVerticalEffect && this.maxHeight > this.maxWidth
   },
   methods: {
     calcQuality (quality, size) {
@@ -217,9 +209,6 @@ export default {
     },
     getWidthFromHeight () {
       return Math.round(this.maxWidth / (this.maxHeight / this.height))
-    },
-    getHeightFromWidth () {
-      return Math.round(this.maxHeight / (this.maxWidth / this.width))
     }
   }
 }
