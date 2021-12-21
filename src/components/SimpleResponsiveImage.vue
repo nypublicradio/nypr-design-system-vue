@@ -6,15 +6,19 @@
         :width="width"
         :height="height"
         :alt="alt"
+        loading="lazy"
       />
     </div>
     <img
       class="image"
+      :class="isVertical ? 'is-vertical' : ''"
       :srcset="srcset"
       :src="computedSrc"
       :width="computedWidth"
       :height="height"
+      :style="`width:${computedWidth}px;`"
       :alt="alt"
+      loading="lazy"
       @click="$emit('click', $event.target.value)"
       @keypress="$emit('keypress', $event.target.value)"
     />
@@ -183,7 +187,7 @@ export default {
               .replace(this.heightToken, height)
               .replace(this.qualityToken, this.calcQuality(this.quality, size))
             srcset += `${url} ${size}x${
-              size <= this.sizes.length - 1 ? ',' : ''
+              size < this.sizes.length - 1 ? ',' : ''
             } `
           }
         }
@@ -193,11 +197,16 @@ export default {
       }
     }
   },
-  updated () {
-    this.checkVertical()
-  },
   beforeMount () {
-    this.checkVertical()
+    console.log('this.maxHeight = ', this.maxHeight)
+    console.log('this.maxWidth = ', this.maxWidth)
+    if (this.allowVerticalEffect && this.maxHeight > this.maxWidth) {
+      this.isVertical = true
+      console.log('this.isVertical = ', this.isVertical)
+    } else {
+      this.isVertical = false
+      console.log('this.isVertical = ', this.isVertical)
+    }
   },
   methods: {
     calcQuality (quality, size) {
@@ -205,13 +214,6 @@ export default {
     },
     getWidthFromHeight () {
       return Math.round(this.maxWidth / (this.maxHeight / this.height))
-    },
-    checkVertical () {
-      if (this.maxHeight > this.maxWidth && this.allowVerticalEffect) {
-        this.isVertical = true
-      } else {
-        this.isVertical = false
-      }
     }
   }
 }
@@ -219,8 +221,10 @@ export default {
 <style lang="scss" scoped>
 .image {
   position: relative;
-  margin: auto;
   width: auto;
+  &.is-vertical {
+    margin: auto;
+  }
 }
 .bg {
   pointer-events: none;

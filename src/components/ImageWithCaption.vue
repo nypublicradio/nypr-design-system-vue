@@ -16,7 +16,6 @@
             :height="height"
             :max-width="maxWidth || Infinity"
             :max-height="maxHeight || Infinity"
-            loading="lazy"
             :allow-vertical-effect="allowVerticalEffect"
           />
         </a>

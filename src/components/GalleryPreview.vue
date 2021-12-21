@@ -14,7 +14,6 @@
       :height="mainImageHeight"
       :max-width="activeImage.width"
       :max-height="activeImage.height"
-      allow-vertical-effect
     />
     <div class="gallery-preview-images">
       <simple-responsive-image
