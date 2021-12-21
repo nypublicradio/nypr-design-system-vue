@@ -66,6 +66,20 @@
       credit-url="leadAsset value image creditLink"
       allow-vertical-effect
     />
+
+    <image-with-caption
+      variation="gothamist"
+      alt-text="alt Text"
+      image="https://cms.demo.nypr.digital/images/212136/fill-%width%x%height%|format-jpeg|jpegquality-%quality%/"
+      :width="640"
+      :height="426"
+      :max-width="616"
+      :max-height="952"
+      credit="leadAsset value image credit"
+      caption="leadAsset value caption || leadAsset value image caption"
+      credit-url="leadAsset value image creditLink"
+      allow-vertical-effect
+    />
     <!--
     <v-card
       image="https://cdn.cms.demo.nypr.digital/images/South-Miami-Beach-South-Point-Park.2e16d0ba.fill-661x496.jpg"

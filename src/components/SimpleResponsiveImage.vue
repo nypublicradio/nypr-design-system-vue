@@ -173,30 +173,25 @@ export default {
         let srcset = ''
         let lastImage = false
         for (const size of this.sizes) {
-          /* image is lower resolution than render area, no need to create srcset */
-          if (this.maxWidth > this.width) {
+          /* continue if it is NOT the lastImage and the image has more pixels than its rendered area */
+          if (!lastImage && this.maxWidth > this.computedWidth) {
             let width = Math.round(this.computedWidth * size)
             let height = Math.round(this.height * size)
 
-            if (!lastImage) {
-              /* the image no longer has enough resolution to support the next srcset, use its maximum size and make it the last on the srcset list */
-              if (width > this.maxWidth || height > this.maxHeight) {
-                height = Math.round((height / width) * this.maxWidth)
-                width = this.maxWidth
-                lastImage = true
-              }
-
-              const url = template
-                .replace(this.widthToken, width)
-                .replace(this.heightToken, height)
-                .replace(
-                  this.qualityToken,
-                  this.calcQuality(this.quality, size)
-                )
-              srcset += `${url} ${size}x${
-                size < this.sizes.length - 1 && !lastImage ? ',' : ''
-              } `
+            /* the image no longer has enough resolution to support the next srcset, use its maximum size and make it the last on the srcset list */
+            if (width > this.maxWidth || height > this.maxHeight) {
+              height = Math.round((height / width) * this.maxWidth)
+              width = this.maxWidth
+              lastImage = true
             }
+
+            const url = template
+              .replace(this.widthToken, width)
+              .replace(this.heightToken, height)
+              .replace(this.qualityToken, this.calcQuality(this.quality, size))
+            srcset += `${url} ${size}x${
+              size < this.sizes.length && !lastImage ? ',' : ''
+            } `
           }
         }
         return srcset
@@ -222,6 +217,9 @@ export default {
     },
     getWidthFromHeight () {
       return Math.round(this.maxWidth / (this.maxHeight / this.height))
+    },
+    getHeightFromWidth () {
+      return Math.round(this.maxHeight / (this.maxWidth / this.width))
     }
   }
 }
