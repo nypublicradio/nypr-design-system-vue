@@ -126,89 +126,95 @@ export default {
       isVertical: {
         default: false,
         type: Boolean
+      },
+      computedWidth: {
+        default: this.width,
+        type: Number
+      },
+      computedSrc: {
+        default: '',
+        type: String
+      },
+      computedSrcBg: {
+        default: '',
+        type: String
+      },
+      srcset: {
+        default: '',
+        type: String
       }
     }
   },
-  computed: {
-    computedWidth () {
-      if (this.isVertical) {
-        return this.getWidthFromHeight()
-      } else {
-        return this.width
-      }
-    },
-    computedSrc () {
-      const template = this.src
-      if (template) {
-        return template
-          .replace(this.widthToken, this.computedWidth)
-          .replace(this.heightToken, this.height)
-          .replace(this.qualityToken, this.quality)
-      } else {
-        return undefined
-      }
-    },
-    computedSrcBg () {
-      const template = this.src
-      if (template) {
-        return template
-          .replace(this.widthToken, this.width)
-          .replace(this.heightToken, this.height)
-          .replace(this.qualityToken, 15)
-      } else {
-        return undefined
-      }
-    },
-    srcset () {
-      const template = this.src
-      if (template) {
-        // If this is just a plain string with no tokens,
-        // we don't need to generate a srcset
-        if (
-          template ===
-          template.replace(this.widthToken, '').replace(this.heightToken, '')
-        ) {
-          return ''
-        }
-        let srcset = ''
-        let lastImage = false
-        for (const size of this.sizes) {
-          /* continue if it is NOT the lastImage and the image has more pixels than its rendered area */
-          if (!lastImage && this.maxWidth > this.computedWidth) {
-            let width = Math.round(this.computedWidth * size)
-            let height = Math.round(this.height * size)
-
-            /* the image no longer has enough resolution to support the next srcset, use its maximum size and make it the last on the srcset list */
-            if (width > this.maxWidth || height > this.maxHeight) {
-              height = Math.round((height / width) * this.maxWidth)
-              width = this.maxWidth
-              lastImage = true
-            }
-
-            const url = template
-              .replace(this.widthToken, width)
-              .replace(this.heightToken, height)
-              .replace(this.qualityToken, this.calcQuality(this.quality, size))
-            srcset += `${url} ${size}x${
-              size < this.sizes.length && !lastImage ? ',' : ''
-            } `
-          }
-        }
-        return srcset
-      } else {
-        return undefined
-      }
-    }
-  },
+  computed: {},
   created () {
     this.isVertical = this.allowVerticalEffect && this.maxHeight > this.maxWidth
+
+    this.computedWidth = this.isVertical
+      ? (this.computedWidth = Math.round(
+          this.maxWidth / (this.maxHeight / this.height)
+        ))
+      : this.width
+
+    const template = this.src
+    if (template) {
+      this.computedSrc = template
+        .replace(this.widthToken, this.computedWidth)
+        .replace(this.heightToken, this.height)
+        .replace(this.qualityToken, this.quality)
+    } else {
+      this.computedSrc = undefined
+    }
+
+    if (template) {
+      this.computedSrcBg = template
+        .replace(this.widthToken, this.width)
+        .replace(this.heightToken, this.height)
+        .replace(this.qualityToken, 15)
+    } else {
+      this.computedSrcBg = undefined
+    }
+
+    if (template) {
+      // If this is just a plain string with no tokens,
+      // we don't need to generate a srcset
+      if (
+        template ===
+        template.replace(this.widthToken, '').replace(this.heightToken, '')
+      ) {
+        this.srcset = ''
+      }
+      let srcset = ''
+      let lastImage = false
+      for (const size of this.sizes) {
+        /* continue if it is NOT the lastImage and the image has more pixels than its rendered area */
+        if (!lastImage && this.maxWidth > this.computedWidth) {
+          let width = Math.round(this.computedWidth * size)
+          let height = Math.round(this.height * size)
+
+          /* the image no longer has enough resolution to support the next srcset, use its maximum size and make it the last on the srcset list */
+          if (width > this.maxWidth || height > this.maxHeight) {
+            height = Math.round((height / width) * this.maxWidth)
+            width = this.maxWidth
+            lastImage = true
+          }
+
+          const url = template
+            .replace(this.widthToken, width)
+            .replace(this.heightToken, height)
+            .replace(this.qualityToken, this.calcQuality(this.quality, size))
+          srcset += `${url} ${size}x${
+            size < this.sizes.length && !lastImage ? ',' : ''
+          } `
+        }
+      }
+      this.srcset = srcset
+    } else {
+      this.srcset = undefined
+    }
   },
   methods: {
     calcQuality (quality, size) {
       return size >= 2 ? quality - Math.round(size * 5) : quality
-    },
-    getWidthFromHeight () {
-      return Math.round(this.maxWidth / (this.maxHeight / this.height))
     }
   }
 }
