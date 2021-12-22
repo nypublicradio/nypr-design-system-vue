@@ -14,7 +14,7 @@
       :class="isVertical ? 'is-vertical' : ''"
       :srcset="srcset"
       :src="computedSrc"
-      :width="isVertical ? computedWidth : width"
+      :width="computedWidth"
       :height="height"
       :style="isVertical ? `width:${computedWidth}px;` : ''"
       :alt="alt"
@@ -126,14 +126,17 @@ export default {
       isVertical: {
         default: false,
         type: Boolean
-      },
-      computedWidth: {
-        default: this.width,
-        type: Number
       }
     }
   },
   computed: {
+    computedWidth () {
+      if (this.isVertical) {
+        return Math.round(this.maxWidth / (this.maxHeight / this.height))
+      } else {
+        return this.width
+      }
+    },
     computedSrc () {
       const template = this.src
       if (template) {
@@ -199,12 +202,6 @@ export default {
   },
   created () {
     this.isVertical = this.allowVerticalEffect && this.maxHeight > this.maxWidth
-
-    this.computedWidth = this.isVertical
-      ? (this.computedWidth = Math.round(
-          this.maxWidth / (this.maxHeight / this.height)
-        ))
-      : this.width
   },
   methods: {
     calcQuality (quality, size) {
