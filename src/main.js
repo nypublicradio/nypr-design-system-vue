@@ -1,18 +1,21 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import Default from './layouts/Default'
-import VueRouter from 'vue-router'
+import { createApp, h } from 'vue'
+import routes from './router'
+const NotFoundComponent = { template: '<p>Page not found</p>' }
 
-Vue.use(VueRouter)
+const SimpleRouter = {
+  data: () => ({
+    currentRoute: window.location.pathname
+  }),
 
-// layouts
-Vue.component('default-layout', Default)
+  computed: {
+    CurrentComponent () {
+      return routes[this.currentRoute] || NotFoundComponent
+    }
+  },
 
-// turns off the (annoying) production tip you see in the console
-Vue.config.productionTip = false
+  render () {
+    return h(this.CurrentComponent)
+  }
+}
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+createApp(SimpleRouter).mount('#app')

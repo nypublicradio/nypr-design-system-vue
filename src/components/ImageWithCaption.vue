@@ -16,7 +16,7 @@
             :height="height"
             :max-width="maxWidth || Infinity"
             :max-height="maxHeight || Infinity"
-            loading="lazy"
+            :allow-vertical-effect="allowVerticalEffect"
           />
         </a>
         <div
@@ -152,6 +152,10 @@ export default {
     maxWidth: {
       default: null,
       type: Number
+    },
+    allowVerticalEffect: {
+      default: false,
+      type: Boolean
     }
   },
   data () {

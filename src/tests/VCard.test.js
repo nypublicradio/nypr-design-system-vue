@@ -27,7 +27,7 @@ describe('VCard', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    const img = wrapper.find('.card-image')
+    const img = wrapper.find('.card-image .image')
     const imgLinkTag = wrapper.find('.card-image-link')
     const titleLinkTag = wrapper.find('.card-title-link')
     const subtitleTag = wrapper.find('.card-subtitle')
@@ -52,7 +52,7 @@ describe('VCard', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    const img = wrapper.find('.card-image')
+    const img = wrapper.find('.card-image .image')
     const imgLinkTag = wrapper.find('.card-image-link')
     const titleLinkTag = wrapper.find('.card-title-link')
     const subtitleTag = wrapper.find('.card-subtitle')
@@ -77,7 +77,7 @@ describe('VCard', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    const img = wrapper.find('.card-image')
+    const img = wrapper.find('.card-image .image')
     const imgLinkTag = wrapper.find('.card-image-link')
     const subtitleTag = wrapper.find('.card-subtitle')
     expect(img.attributes('src')).toBe(image)
@@ -100,7 +100,7 @@ describe('VCard', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    const img = wrapper.find('.card-image')
+    const img = wrapper.find('.card-image .image')
     const imgLinkTag = wrapper.find('.card-image-link')
     const titleLinkTag = wrapper.find('.card-title-link')
     expect(img.attributes('src')).toBe(image)
@@ -122,7 +122,7 @@ describe('VCard', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    const img = wrapper.find('.card-image')
+    const img = wrapper.find('.card-image .image')
     const imgLinkTag = wrapper.find('.card-image-link')
     const subtitleTag = wrapper.find('.card-subtitle')
     expect(img.attributes('src')).toBe(image)
@@ -140,7 +140,7 @@ describe('VCard', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    const img = wrapper.find('.card-image')
+    const img = wrapper.find('.card-image .image')
     const imgLinkTag = wrapper.find('.card-image-link')
     const titleLinkTag = wrapper.find('.card-title-link')
     expect(img.attributes('src')).toBe(image)
@@ -159,7 +159,7 @@ describe('VCard', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    const img = wrapper.find('.card-image')
+    const img = wrapper.find('.card-image .image')
     const imgLinkTag = wrapper.find('.card-image-link')
     expect(img.attributes('src')).toBe(image)
     expect(imgLinkTag.attributes('to')).toBe(titleLink)
@@ -178,7 +178,7 @@ describe('VCard', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    const img = wrapper.find('.card-image')
+    const img = wrapper.find('.card-image .image')
     const titleTag = wrapper.find('.card-title')
     const subtitleTag = wrapper.find('.card-subtitle')
     expect(wrapper.find('.card-title-link').exists()).toBe(false)

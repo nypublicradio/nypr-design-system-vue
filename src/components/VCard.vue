@@ -20,7 +20,6 @@
           :max-height="imageMaxHeight || Infinity"
           :alt="title"
           role="presentation"
-          loading="lazy"
         />
       </nuxt-link>
       <nuxt-link
@@ -41,10 +40,7 @@
         />
       </nuxt-link>
     </template>
-    <span
-      v-else
-      class="card-image-wrapper"
-    >
+    <span v-else class="card-image-wrapper">
       <simple-responsive-image
         v-if="image"
         class="card-image"
@@ -57,24 +53,15 @@
         role="presentation"
       />
     </span>
-    <div
-      v-if="hasDetails"
-      class="card-details"
-    >
-      <div
-        v-if="tags || sponsored"
-        class="card-tag"
-      >
+    <div v-if="hasDetails" class="card-details">
+      <div v-if="tags || sponsored" class="card-tag">
         <v-tag
           v-for="(tag, index) in tags"
           :key="index"
           :name="tag.name"
           :slug="tag.slug"
         />
-        <v-tag
-          v-if="sponsored"
-          name="sponsored"
-        />
+        <v-tag v-if="sponsored" name="sponsored" />
       </div>
       <div
         v-if="title"
@@ -97,16 +84,10 @@
           <gallery-icon v-if="showGalleryIcon" />
         </template>
       </div>
-      <div
-        v-if="subtitle"
-        class="card-subtitle"
-      >
+      <div v-if="subtitle" class="card-subtitle">
         {{ subtitle }}
       </div>
-      <div
-        v-if="$slots.default"
-        class="card-slot"
-      >
+      <div v-if="$slots.default" class="card-slot">
         <slot />
       </div>
     </div>
@@ -173,6 +154,13 @@ export default {
     imageMaxWidth: {
       type: Number,
       default: Infinity
+    },
+    /**
+     * does not allow the verticall effect to happen
+     */
+    verticalEffect: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -207,9 +195,14 @@ export default {
 }
 
 .card-image {
-  object-fit: cover;
-  width: var(--card-image-width);
-  height: var(--card-image-height);
+  height: inherit;
+  .image {
+    position: relative;
+    object-fit: cover;
+    width: var(--card-image-width);
+    // height: var(--card-image-height);
+    height: inherit;
+  }
 }
 
 .card-details {
@@ -277,8 +270,8 @@ export default {
 }
 
 .card.mod-large:not(.mod-vertical) .card-image-wrapper,
-.card.mod-large:not(.mod-vertical) .card-image {
-  @include media("<medium") {
+.card.mod-large:not(.mod-vertical) .card-image .image {
+  @include media('<medium') {
     min-width: 100px;
     width: 100px;
     height: 100px;
@@ -286,8 +279,8 @@ export default {
 }
 
 .card.mod-vertical.card.mod-large {
-  --card-image-width: 620px;
-  --card-image-height: 413px;
+  --card-image-width: 640px;
+  --card-image-height: 426px;
 }
 
 .card .card-slot {

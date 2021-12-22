@@ -70,7 +70,6 @@ describe('ImageWithCaption', () => {
         width
       }
     })
-    // check if altText prop works and was rendered correctly
     const div = wrapper.find('img')
     expect(div.attributes('height')).toBe(height)
     expect(div.attributes('width')).toBe(width)
