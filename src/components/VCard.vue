@@ -20,7 +20,6 @@
           :max-height="imageMaxHeight || Infinity"
           :alt="title"
           role="presentation"
-          loading="lazy"
         />
       </nuxt-link>
       <nuxt-link
