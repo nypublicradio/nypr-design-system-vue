@@ -6,6 +6,7 @@
         :width="width"
         :height="height"
         :alt="alt"
+        loading="lazy"
       />
     </div>
     <img
@@ -17,6 +18,7 @@
       :height="height"
       :style="isVertical ? `width:${computedWidth}px;` : ''"
       :alt="alt"
+      loading="lazy"
       @click="$emit('click', $event.target.value)"
       @keypress="$emit('keypress', $event.target.value)"
     />
