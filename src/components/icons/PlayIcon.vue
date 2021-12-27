@@ -26,20 +26,8 @@
         fill="none"
         fill-rule="evenodd"
       >
-        <circle
-          class="outer-circle-fx"
-          cx="50"
-          cy="50"
-          r="50"
-          fill="none"
-        />
-        <circle
-          class="inner-circle-fx"
-          cx="50"
-          cy="50"
-          r="50"
-          fill="none"
-        />
+        <circle class="outer-circle-fx" cx="50" cy="50" r="50" fill="none" />
+        <circle class="inner-circle-fx" cx="50" cy="50" r="50" fill="none" />
       </g>
       <path
         class="outer-circle"
@@ -79,9 +67,9 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'Play'
-    }
-  }
+      default: 'Play',
+    },
+  },
 }
 </script>
 
@@ -189,7 +177,7 @@ export default {
 ) {
   &:before {
     //inner spinner
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: #{$top};
@@ -209,11 +197,11 @@ export default {
   }
   &:after {
     //outer spinner
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     top: #{$top};
-    left: #{$left - $innerWidth/2};
+    left: #{$left - ($innerWidth/2)};
     right: #{$right};
     bottom: #{$bottom};
     margin: auto;

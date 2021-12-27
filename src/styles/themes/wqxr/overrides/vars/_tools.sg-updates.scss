@@ -1,3 +1,4 @@
+@use 'sass:math';
 /*------------------------------------*\
     $VARIABLES
 \*------------------------------------*/
@@ -84,10 +85,11 @@ $c-sponsor-color: $c-purple;
 /**
  * Typography
  */
-$ff-font: "Open Sans", Helvetica, 'Arial', sans-serif;
+$ff-font: 'Open Sans', Helvetica, 'Arial', sans-serif;
 $ff-font--sans: $ff-font;
 $ff-font--serif: 'Times New Roman', serif;
-$ff-font--monospace: 'B612 Mono', Menlo, Monaco, "Courier New", "Courier", monospace;
+$ff-font--monospace: 'B612 Mono', Menlo, Monaco, 'Courier New', 'Courier',
+  monospace;
 
 // Theme typefaces
 $ff-font--primary: 'Pragati Narrow', Helvetica, sans-serif;
@@ -104,7 +106,6 @@ $font-size-l: 32px;
 $font-size-xl: 44px;
 $font-size-xxl: 56px;
 
-
 /**
  * Icons
  */
@@ -113,7 +114,6 @@ $icon-small: 20px;
 $icon-medium: 30px;
 $icon-large: 40px;
 $icon-xlarge: 50px;
-
 
 /**
  * Common Breakpoints
@@ -133,7 +133,7 @@ $breakpoints: (
   'large': $large,
   'xlarge': $xlarge,
   'xxlarge': $xxlarge,
-  'xxxlarge': $xxxlarge
+  'xxxlarge': $xxxlarge,
 );
 
 $media-expressions: (
@@ -143,38 +143,36 @@ $media-expressions: (
   'landscape': '(orientation: landscape)',
   'portrait': '(orientation: portrait)',
   'retina2x': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)',
-  'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi)'
+  'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi)',
 );
 
 /**
  * Animation
  */
-$hard-ease-in: cubic-bezier(0.860, 0.000, 0.070, 1.000);
-
+$hard-ease-in: cubic-bezier(0.86, 0, 0.07, 1);
 
 /**
  * Border Styles
  */
 $border-med: 6px;
 $border-thick: 8px;
-$border-opacity: 1px solid ($c-white, .2);
+$border-opacity: 1px solid ($c-white, 0.2);
 $border-style: 1px solid $c-border-color;
 $border-style-m: 2px solid $c-border-color;
 $border-style-thick: 3px solid $c-border-color;
-
 
 /**
  * Default Spacing/Padding
  * Maintain a spacing system divisible by 8
  */
-$space:             16px;
-$space-quarter:     $space/4;   // 4
-$space-half:        $space/2;   // 8
-$space-and-half:    $space*1.5; // 24
-$space-double:      $space*2;   // 32
-$space-double-half: $space*2.5; // 40
-$space-triple:      $space*3;   // 48
-$space-quad:        $space*4;   // 64
+$space: 16px;
+$space-quarter: $space/4; // 4
+$space-half: $space/2; // 8
+$space-and-half: $space * 1.5; // 24
+$space-double: $space * 2; // 32
+$space-double-half: $space * 2.5; // 40
+$space-triple: $space * 3; // 48
+$space-quad: $space * 4; // 64
 
 ///
 
@@ -182,24 +180,24 @@ $space-quad:        $space*4;   // 64
   display: flex;
 
   &__item {
-    padding: $space/2;
+    padding: $space / 2;
     border: 1px solid gray;
     margin-right: $space;
   }
 
   &__swatch {
-    content: "";
+    content: '';
     display: block;
     width: 150px;
     height: 150px;
-    margin-bottom: $space/2;
+    margin-bottom: $space / 2;
   }
 }
 
 .sg-nav {
   li:first-child {
     @media (min-width: 620px) {
-      border-left: 1px solid ($c-white, .3);
+      border-left: 1px solid ($c-white, 0.3);
     }
   }
   > li:last-child {
@@ -215,7 +213,7 @@ $space-quad:        $space*4;   // 64
 }
 
 .sg-header {
-  background-image: url("./images/NYPR-logo--white.png");
+  background-image: url('./images/NYPR-logo--white.png');
   background-position: 4px 4px;
   background-repeat: no-repeat;
   background-size: 58px 25px;
@@ -248,7 +246,7 @@ $space-quad:        $space*4;   // 64
 
 .sg-acc-handle {
   &:after {
-    color: ($c-white, .5);
+    color: ($c-white, 0.5);
   }
 
   &.active {
@@ -309,7 +307,8 @@ $space-quad:        $space*4;   // 64
   flex-direction: column;
 }
 
-.wqxr-logo-icon, .c-share-tools__group {
+.wqxr-logo-icon,
+.c-share-tools__group {
   margin-top: 10px;
   align-items: flex-start;
   width: 100%;
@@ -325,7 +324,7 @@ $space-quad:        $space*4;   // 64
 .about-us-div .c-share-tools__group {
   display: flex;
 
- .about-us-left {
+  .about-us-left {
     display: flex;
     flex-direction: column;
     margin-right: 50px;
@@ -334,7 +333,8 @@ $space-quad:        $space*4;   // 64
     display: flex;
     flex-direction: column;
   }
-  .about-us-div, a {
+  .about-us-div,
+  a {
     font-family: 'Open Sans', sans-serif;
     text-transform: none;
   }

@@ -3,10 +3,10 @@
 \*------------------------------------*/
 
 // The order of imports is very important.
-@import "theme.legacy-variables";
-@import "theme.colors";
-@import "theme.variables";
-@import "theme.mixins";
-@import "theme.fonts";
-@import "../../_library/config.imports";
-@import "theme.overrides";
+@import 'theme.legacy-variables';
+@import 'theme.colors';
+@import 'theme.variables';
+@import 'theme.mixins';
+@import 'theme.fonts';
+@import '../../_library/config.imports';
+@import 'theme.overrides';
