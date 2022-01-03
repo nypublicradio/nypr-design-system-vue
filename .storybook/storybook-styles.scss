@@ -1,0 +1,134 @@
+.sbdocs-xsmall-container {
+    max-width: 400px;
+}
+
+.sbdocs-small-container {
+    max-width: 768px;
+}
+
+.sbdocs-medium-container {
+    max-width: 1240px;
+}
+
+.sbdocs-large-container {
+    max-width: 100%;
+}
+
+.sbdocs-container-margin {
+    margin: 0;
+}
+
+ // styles for the "Introduction To Radial" cards
+
+ .sbdocs .sb-cards {
+    padding-left: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .sbdocs .sb-cards-item {
+    margin-top: 0 !important;
+    display: flex;
+    padding: 1rem;
+    @media(min-width: 50rem) {
+      width: 40%;
+    }
+    @media(min-width: 56rem) {
+      width: 33.3333%;
+    }
+  }
+  
+  .sbdocs .sb-card {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 3px 24px 0px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 300px;
+    min-height: 250px;
+}
+  
+.sbdocs .sb-card-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .sbdocs .sb-card-title {
+    font-size: 18px !important;
+    font-weight: 700;
+    padding-bottom: 10px;
+  }
+  
+  .sbdocs .sb-card-text {
+    flex: 1 1 auto;
+    font-size: 3.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+.colors > div {
+    height: 100px;
+    width: 250px;
+    display: inline-block;
+    margin: 0 1rem 1rem 0;
+}
+
+.colors > div span {
+    padding: 10px;
+    background: white;
+}
+
+/* background colors */
+.u-background-color--cool-white {
+    background: RGB(var(--color-cool-white));
+}
+.u-background-color--ceramic-blue {
+    background: RGB(var(--color-ceramic-blue));
+}
+.u-background-color--concrete {
+    background: RGB(var(--color-concrete));
+}
+.u-background-color--ember-red {
+    background: RGB(var(--color-ember-red));
+}
+.u-background-color--cool-blue {
+    background: RGB(var(--color-cool-blue));
+}
+.u-background-color--sky-blue {
+    background: RGB(var(--color-sky-blue));
+}
+.u-background-color--sea-green {
+    background: RGB(var(--color-sea-green));
+}
+.u-background-color--bright-purple {
+    background: RGB(var(--color-bright-purple));
+}
+.u-background-color--gray {
+    background: RGB(var(--color-gray));
+}
+.u-background-color--light-gray {
+    background: RGB(var(--color-light-gray));
+}
+.u-background-color--dark-gray {
+    background: RGB(var(--color-dark-gray));
+}
+
+/* some border styles for border examples */
+.sbdocs.sbdocs-border-subtle {
+    width: 100%;
+    border-bottom: var(--border-subtle);
+}
+.sbdocs.sbdocs-border-standard {
+    width: 100%;
+    border-bottom: var(--border-standard);
+}
+.sbdocs.sbdocs-border-bold {
+    width: 100%;
+    border-bottom: var(--border-bold);
+}

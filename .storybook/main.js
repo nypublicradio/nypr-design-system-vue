@@ -31,9 +31,8 @@ module.exports = {
         {
           loader: 'sass-loader',
           options: {
-            //additionalData: '@import "./src/styles/white-label.scss";',
-            // adding @use "sass:math" allows you to use "@use 'sass:math';" in your Vue component scss styles
-            additionalData: '@import "./assets/scss/main.scss";',
+            additionalData: '@import "./src/styles/white-label.scss";',
+            // additionalData: '@import "./assets/scss/main.scss";',
           },
         },
       ],
