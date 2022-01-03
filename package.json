@@ -29,7 +29,7 @@
     "node-sass": "^6.0.1",
     "nuxt3": "latest",
     "prettier": "2.4.1",
-    "sass": "^1.43.4",
+    "sass": "1.32.13",
     "sass-loader": "^10.2.0",
     "vue-loader": "^16.8.3",
     "webpack": "^4.46.0"
