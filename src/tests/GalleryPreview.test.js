@@ -41,7 +41,7 @@ describe('GalleryPreview', () => {
     })
     // check if prop works and was rendered correctly
     const div = wrapper.find('.gallery-preview-view-all-count')
-    expect(div.text()).toContain(count)
+    expect(div.text()).toContain(String(count))
   })
 
   test('images prop works', () => {
@@ -86,7 +86,7 @@ describe('GalleryPreview', () => {
     })
     // check if prop works and was rendered correctly
     const div = wrapper.find('.gallery-preview-view-all-count')
-    expect(div.text()).toContain(count)
+    expect(div.text()).toContain(String(count))
   })
 
   test('variation prop works', () => {
