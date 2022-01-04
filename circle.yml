@@ -14,7 +14,7 @@ jobs:
           steps:
             - run: npm cache clean --force
             - run: rm -rf node_modules/ package-lock.json
-            - run: npm install
+            - run: npm install --legacy-peer-deps
             - run: npm rebuild node-sass --force
             - run: npm run build
             - run: npm run build-storybook
@@ -33,7 +33,7 @@ jobs:
                 command: |
                   [[ $CIRCLE_BRANCH = "main" ]] && RELEASE="latest" || { [[ -n $CIRCLE_BRANCH ]] && RELEASE=$CIRCLE_BRANCH || RELEASE=$CIRCLE_TAG; }
                   rm -rf node_modules/ package-lock.json
-                  npm install
+                  npm install --legacy-peer-deps
                   npm rebuild node-sass --force
                   npm run build
                   npm run build-storybook -- -o storybook-static/$RELEASE
