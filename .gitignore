@@ -5,9 +5,9 @@ nuxt.d.ts
 .output
 .nuxt-storybook
 storybook-static
-/src/tests/coverage
-/coverage
-/dist
+src/tests/coverage
+coverage
+dist
 
 # local env files
 .env.local
