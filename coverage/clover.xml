@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641320674404" clover="3.2.0">
-  <project timestamp="1641320674404" name="All files">
+<coverage generated="1641320896966" clover="3.2.0">
+  <project timestamp="1641320896966" name="All files">
     <metrics statements="226" coveredstatements="147" conditionals="81" coveredconditionals="44" methods="88" coveredmethods="61" elements="395" coveredelements="252" complexity="0" loc="226" ncloc="226" packages="1" files="32" classes="32"/>
     <file name="ArticleMetadata.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\ArticleMetadata.vue">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
