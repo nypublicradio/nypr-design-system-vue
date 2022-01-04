@@ -1,3 +1,4 @@
+@use 'sass:math';
 /*------------------------------------*\
     $MEDIA OBJECTS
 \*------------------------------------*/
@@ -24,16 +25,16 @@
 \*------------------------------------*/
 
 /* 3:2 ratio*/
-[class*="u-img-ratio"] {
+[class*='u-img-ratio'] {
   position: relative;
   background-color: RGB(var(--color-high-contrast), 0.048);
 }
-[class*="u-img-ratio"]:before {
-  content: "";
+[class*='u-img-ratio']:before {
+  content: '';
   display: block;
   width: 100%;
 }
-[class*="u-img-ratio"] > img {
+[class*='u-img-ratio'] > img {
   position: absolute;
   top: 0;
   right: 0;
@@ -51,5 +52,5 @@
 }
 
 .u-img-ratio--3x2:before {
-  padding-top: (2 / 3) * 100%; /* height divided by width*/
+  padding-top: (2/3) * 100%; /* height divided by width*/
 }

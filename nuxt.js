@@ -3,10 +3,10 @@ import { defineNuxtModule } from '@nuxt/kit'
 
 export default defineNuxtModule({
   hooks: {
-    'components:dirs' (dirs) {
+    'components:dirs'(dirs) {
       dirs.push({
-        path: join(__dirname, 'src/components')
+        path: join(__dirname, 'src/components'),
       })
-    }
-  }
+    },
+  },
 })

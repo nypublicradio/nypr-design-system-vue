@@ -52,7 +52,8 @@ figcaption a {
   overflow: hidden;
   background-color: RGB(var(--color-background-darker));
 
-  img, canvas {
+  img,
+  canvas {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -109,19 +110,19 @@ figcaption a {
   }
 
   a[href]:after {
-    content: " (" attr(href) ")";
+    content: ' (' attr(href) ')';
   }
 
   abbr[title]:after {
-    content: " (" attr(title) ")";
+    content: ' (' attr(title) ')';
   }
   /*
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
    */
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
+  a[href^='#']:after,
+  a[href^='javascript:']:after {
+    content: '';
   }
 
   pre,

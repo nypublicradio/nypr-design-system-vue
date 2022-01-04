@@ -1,6 +1,5 @@
 import { app, addParameters } from '@storybook/vue3';
 import './storybook-styles.scss';
-import Vue from 'vue'
 import { action } from '@storybook/addon-actions'
 
 addParameters({
@@ -18,3 +17,13 @@ app.component('nuxt-link', {
   },
   template: '<a :href="to" @click.prevent="log()"><slot>NuxtLink</slot></a>',
 })
+
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+}

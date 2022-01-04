@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1641313678066" clover="3.2.0">
+  <project timestamp="1641313678066" name="All files">
+    <metrics statements="226" coveredstatements="147" conditionals="81" coveredconditionals="44" methods="88" coveredmethods="61" elements="395" coveredelements="252" complexity="0" loc="226" ncloc="226" packages="1" files="32" classes="32"/>
+    <file name="ArticleMetadata.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\ArticleMetadata.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="47" count="1" type="stmt"/>
+    </file>
+    <file name="CalloutBanner.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\CalloutBanner.vue">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="28" count="3" type="stmt"/>
+    </file>
+    <file name="GalleryPreview.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\GalleryPreview.vue">
+      <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+      <line num="48" count="1" type="stmt"/>
+      <line num="81" count="1" type="stmt"/>
+      <line num="89" count="12" type="stmt"/>
+      <line num="96" count="12" type="stmt"/>
+      <line num="99" count="12" type="stmt"/>
+      <line num="100" count="12" type="cond" truecount="1" falsecount="0"/>
+      <line num="101" count="8" type="stmt"/>
+      <line num="103" count="12" type="cond" truecount="1" falsecount="0"/>
+      <line num="104" count="7" type="stmt"/>
+      <line num="109" count="1" type="stmt"/>
+      <line num="110" count="1" type="stmt"/>
+    </file>
+    <file name="ImageWithCaption.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\ImageWithCaption.vue">
+      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <line num="83" count="2" type="stmt"/>
+      <line num="162" count="22" type="stmt"/>
+      <line num="168" count="14" type="stmt"/>
+      <line num="173" count="2" type="stmt"/>
+      <line num="174" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="175" count="1" type="stmt"/>
+      <line num="177" count="1" type="stmt"/>
+    </file>
+    <file name="LiveIndicator.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\LiveIndicator.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="13" count="2" type="stmt"/>
+    </file>
+    <file name="MainPlayer.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\MainPlayer.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="75" count="1" type="stmt"/>
+    </file>
+    <file name="MediaEmbed.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\MediaEmbed.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="14" count="1" type="stmt"/>
+    </file>
+    <file name="PersistentPlayer.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\PersistentPlayer.vue">
+      <metrics statements="21" coveredstatements="4" conditionals="10" coveredconditionals="0" methods="9" coveredmethods="2"/>
+      <line num="91" count="1" type="stmt"/>
+      <line num="179" count="15" type="stmt"/>
+      <line num="190" count="15" type="stmt"/>
+      <line num="192" count="15" type="stmt"/>
+      <line num="193" count="0" type="cond" truecount="0" falsecount="6"/>
+      <line num="195" count="0" type="stmt"/>
+      <line num="196" count="0" type="stmt"/>
+      <line num="198" count="0" type="stmt"/>
+      <line num="199" count="0" type="stmt"/>
+      <line num="201" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="202" count="0" type="stmt"/>
+      <line num="204" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="205" count="0" type="stmt"/>
+      <line num="207" count="0" type="stmt"/>
+      <line num="208" count="0" type="stmt"/>
+      <line num="210" count="0" type="stmt"/>
+      <line num="211" count="0" type="stmt"/>
+      <line num="217" count="0" type="stmt"/>
+      <line num="218" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="222" count="0" type="stmt"/>
+      <line num="240" count="0" type="stmt"/>
+    </file>
+    <file name="ProgressBar.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\ProgressBar.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="11" count="1" type="stmt"/>
+    </file>
+    <file name="SecondaryNavigation.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\SecondaryNavigation.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="59" count="3" type="stmt"/>
+    </file>
+    <file name="SegmentListItem.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\SegmentListItem.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="28" count="1" type="stmt"/>
+    </file>
+    <file name="ShareTools.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\ShareTools.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="16" count="2" type="stmt"/>
+    </file>
+    <file name="ShareToolsItem.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\ShareToolsItem.vue">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="44" count="2" type="stmt"/>
+      <line num="45" count="2" type="stmt"/>
+    </file>
+    <file name="SimpleResponsiveImage.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\SimpleResponsiveImage.vue">
+      <metrics statements="34" coveredstatements="24" conditionals="23" coveredconditionals="15" methods="8" coveredmethods="7"/>
+      <line num="31" count="3" type="stmt"/>
+      <line num="106" count="52" type="stmt"/>
+      <line num="125" count="50" type="stmt"/>
+      <line num="134" count="50" type="cond" truecount="1" falsecount="1"/>
+      <line num="135" count="0" type="stmt"/>
+      <line num="137" count="50" type="stmt"/>
+      <line num="141" count="51" type="stmt"/>
+      <line num="142" count="51" type="cond" truecount="1" falsecount="1"/>
+      <line num="143" count="51" type="stmt"/>
+      <line num="148" count="0" type="stmt"/>
+      <line num="152" count="0" type="stmt"/>
+      <line num="153" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="154" count="0" type="stmt"/>
+      <line num="159" count="0" type="stmt"/>
+      <line num="163" count="51" type="stmt"/>
+      <line num="164" count="51" type="cond" truecount="1" falsecount="1"/>
+      <line num="167" count="51" type="cond" truecount="1" falsecount="0"/>
+      <line num="171" count="20" type="stmt"/>
+      <line num="173" count="31" type="stmt"/>
+      <line num="174" count="31" type="stmt"/>
+      <line num="175" count="31" type="stmt"/>
+      <line num="177" count="124" type="cond" truecount="3" falsecount="0"/>
+      <line num="178" count="124" type="stmt"/>
+      <line num="179" count="124" type="stmt"/>
+      <line num="182" count="124" type="cond" truecount="2" falsecount="1"/>
+      <line num="183" count="0" type="stmt"/>
+      <line num="184" count="0" type="stmt"/>
+      <line num="185" count="0" type="stmt"/>
+      <line num="188" count="124" type="stmt"/>
+      <line num="192" count="124" type="stmt"/>
+      <line num="197" count="31" type="stmt"/>
+      <line num="199" count="0" type="stmt"/>
+      <line num="204" count="50" type="cond" truecount="1" falsecount="1"/>
+      <line num="208" count="124" type="cond" truecount="1" falsecount="1"/>
+    </file>
+    <file name="StreamSwitcher.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\StreamSwitcher.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="11" count="1" type="stmt"/>
+    </file>
+    <file name="StreamSwitcherCard.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\StreamSwitcherCard.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="42" count="1" type="stmt"/>
+    </file>
+    <file name="TheFooter.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\TheFooter.vue">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <line num="111" count="1" type="stmt"/>
+      <line num="149" count="12" type="stmt"/>
+      <line num="152" count="12" type="stmt"/>
+      <line num="155" count="12" type="stmt"/>
+    </file>
+    <file name="TheHeader.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\TheHeader.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="59" count="1" type="stmt"/>
+    </file>
+    <file name="TheMenu.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\TheMenu.vue">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
+      <line num="119" count="1" type="stmt"/>
+      <line num="147" count="10" type="stmt"/>
+      <line num="153" count="10" type="stmt"/>
+      <line num="156" count="10" type="stmt"/>
+      <line num="159" count="10" type="stmt"/>
+      <line num="162" count="10" type="stmt"/>
+      <line num="165" count="10" type="stmt"/>
+      <line num="168" count="10" type="stmt"/>
+      <line num="173" count="1" type="stmt"/>
+      <line num="176" count="1" type="stmt"/>
+    </file>
+    <file name="TrackInfo.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\TrackInfo.vue">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+      <line num="99" count="1" type="stmt"/>
+      <line num="145" count="12" type="stmt"/>
+      <line num="148" count="12" type="stmt"/>
+      <line num="153" count="24" type="stmt"/>
+      <line num="154" count="24" type="cond" truecount="1" falsecount="1"/>
+    </file>
+    <file name="VAccordion.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VAccordion.vue">
+      <metrics statements="9" coveredstatements="5" conditionals="3" coveredconditionals="1" methods="7" coveredmethods="4"/>
+      <line num="40" count="1" type="stmt"/>
+      <line num="55" count="3" type="stmt"/>
+      <line num="62" count="3" type="stmt"/>
+      <line num="65" count="3" type="stmt"/>
+      <line num="69" count="3" type="cond" truecount="1" falsecount="2"/>
+      <line num="70" count="0" type="stmt"/>
+      <line num="74" count="0" type="stmt"/>
+      <line num="78" count="0" type="stmt"/>
+      <line num="81" count="0" type="stmt"/>
+    </file>
+    <file name="VBanner.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VBanner.vue">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="57" count="1" type="stmt"/>
+      <line num="98" count="8" type="stmt"/>
+    </file>
+    <file name="VButton.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VButton.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="20" count="7" type="stmt"/>
+    </file>
+    <file name="VByline.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VByline.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="29" count="1" type="stmt"/>
+    </file>
+    <file name="VCard.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VCard.vue">
+      <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <line num="102" count="1" type="stmt"/>
+      <line num="168" count="10" type="cond" truecount="3" falsecount="0"/>
+    </file>
+    <file name="VCounter.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VCounter.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="29" count="2" type="stmt"/>
+    </file>
+    <file name="VLottie.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VLottie.vue">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+    </file>
+    <file name="VPerson.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VPerson.vue">
+      <metrics statements="77" coveredstatements="29" conditionals="33" coveredconditionals="17" methods="27" coveredmethods="11"/>
+      <line num="162" count="1" type="stmt"/>
+      <line num="175" count="0" type="stmt"/>
+      <line num="176" count="0" type="stmt"/>
+      <line num="177" count="0" type="stmt"/>
+      <line num="178" count="0" type="stmt"/>
+      <line num="179" count="0" type="stmt"/>
+      <line num="320" count="13" type="stmt"/>
+      <line num="330" count="13" type="stmt"/>
+      <line num="336" count="13" type="cond" truecount="4" falsecount="0"/>
+      <line num="339" count="3" type="stmt"/>
+      <line num="344" count="0" type="stmt"/>
+      <line num="348" count="13" type="stmt"/>
+      <line num="351" count="13" type="stmt"/>
+      <line num="354" count="13" type="cond" truecount="1" falsecount="0"/>
+      <line num="355" count="3" type="stmt"/>
+      <line num="358" count="13" type="cond" truecount="1" falsecount="0"/>
+      <line num="359" count="2" type="stmt"/>
+      <line num="361" count="13" type="stmt"/>
+      <line num="362" count="0" type="stmt"/>
+      <line num="363" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="366" count="0" type="cond" truecount="0" falsecount="3"/>
+      <line num="367" count="0" type="stmt"/>
+      <line num="371" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="372" count="0" type="stmt"/>
+      <line num="374" count="0" type="stmt"/>
+      <line num="379" count="13" type="stmt"/>
+      <line num="382" count="13" type="stmt"/>
+      <line num="383" count="0" type="stmt"/>
+      <line num="388" count="0" type="stmt"/>
+      <line num="389" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="390" count="0" type="stmt"/>
+      <line num="393" count="0" type="stmt"/>
+      <line num="394" count="0" type="stmt"/>
+      <line num="403" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="404" count="0" type="stmt"/>
+      <line num="411" count="13" type="stmt"/>
+      <line num="412" count="13" type="stmt"/>
+      <line num="413" count="0" type="stmt"/>
+      <line num="414" count="0" type="stmt"/>
+      <line num="415" count="0" type="stmt"/>
+      <line num="416" count="0" type="stmt"/>
+      <line num="417" count="0" type="stmt"/>
+      <line num="422" count="0" type="stmt"/>
+      <line num="425" count="3" type="cond" truecount="3" falsecount="0"/>
+      <line num="426" count="3" type="stmt"/>
+      <line num="427" count="3" type="stmt"/>
+      <line num="428" count="3" type="stmt"/>
+      <line num="432" count="0" type="stmt"/>
+      <line num="433" count="0" type="stmt"/>
+      <line num="434" count="0" type="stmt"/>
+      <line num="435" count="0" type="stmt"/>
+      <line num="437" count="0" type="cond" truecount="0" falsecount="1"/>
+      <line num="438" count="0" type="stmt"/>
+      <line num="439" count="0" type="stmt"/>
+      <line num="448" count="0" type="stmt"/>
+      <line num="449" count="0" type="stmt"/>
+      <line num="450" count="0" type="stmt"/>
+      <line num="451" count="0" type="stmt"/>
+      <line num="452" count="0" type="stmt"/>
+      <line num="453" count="0" type="stmt"/>
+      <line num="454" count="0" type="stmt"/>
+      <line num="455" count="0" type="stmt"/>
+      <line num="456" count="0" type="stmt"/>
+      <line num="457" count="0" type="stmt"/>
+      <line num="461" count="1" type="stmt"/>
+      <line num="464" count="1" type="stmt"/>
+      <line num="465" count="1" type="stmt"/>
+      <line num="466" count="1" type="cond" truecount="3" falsecount="1"/>
+      <line num="470" count="13" type="cond" truecount="2" falsecount="0"/>
+      <line num="472" count="13" type="cond" truecount="0" falsecount="1"/>
+      <line num="473" count="0" type="stmt"/>
+      <line num="478" count="13" type="cond" truecount="0" falsecount="1"/>
+      <line num="479" count="0" type="stmt"/>
+      <line num="480" count="0" type="stmt"/>
+      <line num="486" count="13" type="cond" truecount="0" falsecount="1"/>
+      <line num="487" count="0" type="stmt"/>
+      <line num="493" count="13" type="stmt"/>
+    </file>
+    <file name="VSearch.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VSearch.vue">
+      <metrics statements="17" coveredstatements="17" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="8"/>
+      <line num="73" count="2" type="stmt"/>
+      <line num="104" count="12" type="stmt"/>
+      <line num="111" count="12" type="cond" truecount="1" falsecount="0"/>
+      <line num="112" count="4" type="stmt"/>
+      <line num="117" count="7" type="stmt"/>
+      <line num="118" count="7" type="stmt"/>
+      <line num="122" count="6" type="stmt"/>
+      <line num="123" count="6" type="stmt"/>
+      <line num="124" count="1" type="stmt"/>
+      <line num="125" count="1" type="stmt"/>
+      <line num="129" count="4" type="stmt"/>
+      <line num="130" count="4" type="stmt"/>
+      <line num="131" count="4" type="stmt"/>
+      <line num="132" count="4" type="stmt"/>
+      <line num="133" count="4" type="stmt"/>
+      <line num="137" count="2" type="stmt"/>
+      <line num="138" count="2" type="stmt"/>
+    </file>
+    <file name="VSpacer.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VSpacer.vue">
+      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="19" count="51" type="cond" truecount="2" falsecount="0"/>
+      <line num="20" count="39" type="stmt"/>
+      <line num="22" count="12" type="stmt"/>
+    </file>
+    <file name="VTag.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VTag.vue">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <line num="13" count="3" type="stmt"/>
+    </file>
+    <file name="VolumeControl.vue" path="E:\git\_NYPR\nypr-design-system-vue\src\components\VolumeControl.vue">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="41" count="1" type="stmt"/>
+      <line num="58" count="15" type="stmt"/>
+    </file>
+  </project>
+</coverage>

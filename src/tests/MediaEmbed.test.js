@@ -15,7 +15,7 @@ describe('MediaEmbed', () => {
       }
     })
     // check if prop works and iframe src is populating correctly
-    const iframe = wrapper.findAll('iframe').at(0)
+    const iframe = wrapper.findAll('iframe')[0]
     expect(iframe.attributes('src')).toBe(url)
   })
 

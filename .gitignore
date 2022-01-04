@@ -1,8 +1,12 @@
-.DS_Store
 node_modules
-/dist
-/storybook-static
+*.log
+.nuxt
+nuxt.d.ts
+.output
+.nuxt-storybook
+storybook-static
 /src/tests/coverage
+/dist
 
 # local env files
 .env.local
@@ -23,3 +27,4 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+.DS_Store

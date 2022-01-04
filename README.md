@@ -1,75 +1,34 @@
-# New York Public Radio Design System
+# notes
+had to downgraded webpack from 5 to version 4 "npm i webpack@4"
+had to downgraded sass from ^1.43.4 to "sass": "1.32.13" to allow the "/" for division calc in scss,
 
-## Project setup
-If vue isn’t installed, run 
-```
-npm install -g @vue/cli
-```
+# Nuxt 3 Minimal Starter
+We recommend to look at the [documentation](https://v3.nuxtjs.org).
 
-Then
-```
+## Setup
+Make sure to install the dependencies
+
+```bash
 npm install
 ```
 
-#### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-#### Compiles and minifies for production
-```
-npm run build
-```
-
-#### Launches Storybook
-```
+## Storybook
+```bash
 npm run storybook
 ```
 
-#### Builds Storybook
-```
-npm run build-storybook
-```
-See Storybook at [https://storybook.nypr.digital](https://storybook.nypr.digital)
+## Development
+Start the development server on http://localhost:3000
 
-Pushing to main will trigger a [Storybook deployment on CircleCi](https://app.circleci.com/pipelines/github/nypublicradio/nypr-design-system-vue) 
-
-#### Runs unit tests
-```
-npm run test
+```bash
+npm run dev
 ```
 
-#### Lints and fixes files
-```
-npm run lint
+## Production
+Build the application for production:
+
+```bash
+npm run build
 ```
 
-See the Vue CLI [Configuration Reference](https://cli.vuejs.org/config/) for more!
-
-### Local Development
-Create a global symlink for this package:
-```
-npm link (or sudo npm link)
-```
-Tell your application to use the global symlink:
-```
-npm link nypr-design-system-vue
-```
-Refresh your application after changes:
-```
-npm link nypr-design-system-vue and/or npm update
-```
-Unlink it:
-```
-npm unlink
-```
-
-### Nuxt configuration
-
-Add this to your nuxt.config.js file to import components for use with SSR:
-
-```
-build: {
-  transpile: ['nypr-design-system-vue']
-}
-```
+Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
