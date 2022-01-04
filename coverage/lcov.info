@@ -1,5 +1,5 @@
 TN:
-SF:src/components/ArticleMetadata.vue
+SF:src\components\ArticleMetadata.vue
 FNF:0
 FNH:0
 DA:47,1
@@ -9,7 +9,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/CalloutBanner.vue
+SF:src\components\CalloutBanner.vue
 FN:27,(anonymous_0)
 FNF:1
 FNH:1
@@ -22,7 +22,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/GalleryPreview.vue
+SF:src\components\GalleryPreview.vue
 FN:81,(anonymous_0)
 FN:88,(anonymous_1)
 FN:95,(anonymous_2)
@@ -54,7 +54,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:src/components/ImageWithCaption.vue
+SF:src\components\ImageWithCaption.vue
 FN:161,(anonymous_0)
 FN:167,(anonymous_1)
 FN:172,(anonymous_2)
@@ -78,7 +78,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:src/components/LiveIndicator.vue
+SF:src\components\LiveIndicator.vue
 FNF:0
 FNH:0
 DA:13,2
@@ -88,7 +88,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/MainPlayer.vue
+SF:src\components\MainPlayer.vue
 FNF:0
 FNH:0
 DA:75,1
@@ -98,7 +98,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/MediaEmbed.vue
+SF:src\components\MediaEmbed.vue
 FNF:0
 FNH:0
 DA:14,1
@@ -108,7 +108,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/PersistentPlayer.vue
+SF:src\components\PersistentPlayer.vue
 FN:178,(anonymous_0)
 FN:189,(anonymous_1)
 FN:192,(anonymous_2)
@@ -166,7 +166,7 @@ BRF:10
 BRH:0
 end_of_record
 TN:
-SF:src/components/ProgressBar.vue
+SF:src\components\ProgressBar.vue
 FNF:0
 FNH:0
 DA:11,1
@@ -176,7 +176,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/SecondaryNavigation.vue
+SF:src\components\SecondaryNavigation.vue
 FNF:0
 FNH:0
 DA:59,3
@@ -186,7 +186,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/SegmentListItem.vue
+SF:src\components\SegmentListItem.vue
 FNF:0
 FNH:0
 DA:28,1
@@ -196,7 +196,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/ShareTools.vue
+SF:src\components\ShareTools.vue
 FNF:0
 FNH:0
 DA:16,2
@@ -206,7 +206,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/ShareToolsItem.vue
+SF:src\components\ShareToolsItem.vue
 FNF:0
 FNH:0
 DA:44,2
@@ -217,7 +217,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/SimpleResponsiveImage.vue
+SF:src\components\SimpleResponsiveImage.vue
 FN:105,(anonymous_0)
 FN:124,(anonymous_1)
 FN:133,(anonymous_2)
@@ -299,7 +299,7 @@ BRF:23
 BRH:15
 end_of_record
 TN:
-SF:src/components/StreamSwitcher.vue
+SF:src\components\StreamSwitcher.vue
 FNF:0
 FNH:0
 DA:11,1
@@ -309,7 +309,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/StreamSwitcherCard.vue
+SF:src\components\StreamSwitcherCard.vue
 FNF:0
 FNH:0
 DA:42,1
@@ -319,7 +319,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/TheFooter.vue
+SF:src\components\TheFooter.vue
 FN:148,(anonymous_0)
 FN:151,(anonymous_1)
 FN:154,(anonymous_2)
@@ -338,7 +338,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/TheHeader.vue
+SF:src\components\TheHeader.vue
 FNF:0
 FNH:0
 DA:59,1
@@ -348,7 +348,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/TheMenu.vue
+SF:src\components\TheMenu.vue
 FN:146,(anonymous_0)
 FN:152,(anonymous_1)
 FN:155,(anonymous_2)
@@ -385,7 +385,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/TrackInfo.vue
+SF:src\components\TrackInfo.vue
 FN:144,(anonymous_0)
 FN:147,(anonymous_1)
 FN:152,(anonymous_2)
@@ -407,7 +407,7 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:src/components/VAccordion.vue
+SF:src\components\VAccordion.vue
 FN:54,(anonymous_0)
 FN:61,(anonymous_1)
 FN:64,(anonymous_2)
@@ -442,7 +442,7 @@ BRF:3
 BRH:1
 end_of_record
 TN:
-SF:src/components/VBanner.vue
+SF:src\components\VBanner.vue
 FN:97,(anonymous_0)
 FNF:1
 FNH:1
@@ -455,7 +455,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/VButton.vue
+SF:src\components\VButton.vue
 FNF:0
 FNH:0
 DA:20,7
@@ -465,7 +465,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/VByline.vue
+SF:src\components\VByline.vue
 FNF:0
 FNH:0
 DA:29,1
@@ -475,7 +475,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/VCard.vue
+SF:src\components\VCard.vue
 FN:167,(anonymous_0)
 FNF:1
 FNH:1
@@ -491,7 +491,7 @@ BRF:3
 BRH:3
 end_of_record
 TN:
-SF:src/components/VCounter.vue
+SF:src\components\VCounter.vue
 FNF:0
 FNH:0
 DA:29,2
@@ -501,7 +501,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/VLottie.vue
+SF:src\components\VLottie.vue
 FN:15,(anonymous_3)
 FNF:1
 FNH:1
@@ -514,7 +514,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/VPerson.vue
+SF:src\components\VPerson.vue
 FN:174,(anonymous_0)
 FN:176,(anonymous_1)
 FN:319,(anonymous_2)
@@ -687,7 +687,7 @@ BRF:33
 BRH:17
 end_of_record
 TN:
-SF:src/components/VSearch.vue
+SF:src\components\VSearch.vue
 FN:103,(anonymous_0)
 FN:110,(anonymous_1)
 FN:116,(anonymous_2)
@@ -730,7 +730,7 @@ BRF:1
 BRH:1
 end_of_record
 TN:
-SF:src/components/VSpacer.vue
+SF:src\components\VSpacer.vue
 FN:18,(anonymous_0)
 FNF:1
 FNH:1
@@ -747,7 +747,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:src/components/VTag.vue
+SF:src\components\VTag.vue
 FNF:0
 FNH:0
 DA:13,3
@@ -757,7 +757,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/VolumeControl.vue
+SF:src\components\VolumeControl.vue
 FN:57,(anonymous_0)
 FNF:1
 FNH:1
