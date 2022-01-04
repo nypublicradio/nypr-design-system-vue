@@ -15,8 +15,7 @@ jobs:
             - run: npm cache clean --force
             - run: rm -rf node_modules/ package-lock.json
             - run: npm install --legacy-peer-deps
-            - run: npm rebuild node-sass --force
-            - run: npm run build
+            - run: npm rebuild node-sass --force            
             - run: npm run build-storybook
 
 
@@ -35,7 +34,6 @@ jobs:
                   rm -rf node_modules/ package-lock.json
                   npm install --legacy-peer-deps
                   npm rebuild node-sass --force
-                  npm run build
                   npm run build-storybook -- -o storybook-static/$RELEASE
                   cp index.html storybook-config.json storybook-static/
             - persist_to_workspace:
