@@ -15,10 +15,7 @@ jobs:
             - run: npm cache clean --force
             - run: rm -rf node_modules/ package-lock.json
             - run: npm install
-            - run: npm rebuild node-sass --force
-            - run: npm run build
             - run: npm run build-storybook
-
 
   build-storybook:
     executor:
@@ -33,9 +30,7 @@ jobs:
                 command: |
                   [[ $CIRCLE_BRANCH = "main" ]] && RELEASE="latest" || { [[ -n $CIRCLE_BRANCH ]] && RELEASE=$CIRCLE_BRANCH || RELEASE=$CIRCLE_TAG; }
                   rm -rf node_modules/ package-lock.json
-                  npm install
-                  npm rebuild node-sass --force
-                  npm run build
+                  npm install                  
                   npm run build-storybook -- -o storybook-static/$RELEASE
                   cp index.html storybook-config.json storybook-static/
             - persist_to_workspace:
