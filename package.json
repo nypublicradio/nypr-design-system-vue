@@ -55,6 +55,9 @@
     "vue-lottie": "^0.2.1",
     "yorkie": "^2.0.0"
   },
+  "overrides": {
+    "resolve": "1.20.0"
+  },
   "gitHooks": {
     "pre-commit": "jest"
   },
