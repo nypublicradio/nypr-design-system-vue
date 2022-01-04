@@ -6,6 +6,7 @@ nuxt.d.ts
 .nuxt-storybook
 storybook-static
 /src/tests/coverage
+/coverage
 /dist
 
 # local env files
