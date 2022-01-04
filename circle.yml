@@ -16,7 +16,7 @@ jobs:
             - run: rm -rf node_modules/ package-lock.json
             - run: npm install --legacy-peer-deps
             - run: npm rebuild node-sass --force            
-            - run: npm run build-storybook -s dist,stories/assets
+            - run: npm run build-storybook
 
 
   build-storybook:
