@@ -14,6 +14,7 @@ module.exports = {
     },
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-postcss',
   ],
 
   webpackFinal: async (config, { configType }) => {
