@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt3'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   css: [],
-  ssr: false,
+  ssr: true,
   vite: {
     css: {
       preprocessorOptions: {
@@ -15,6 +15,5 @@ export default defineNuxtConfig({
     },
   },
 
-  components: true,
-  buildModules: ['@nuxt/typescript-build']
+  components: true
 })
