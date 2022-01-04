@@ -55,7 +55,7 @@
     "vue": "^3.2.26",
     "yorkie": "^2.0.0"
   },
-  "overrides": {
+  "resolutions": {
     "resolve": "1.20.0"
   },
   "gitHooks": {
