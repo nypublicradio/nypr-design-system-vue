@@ -7,7 +7,7 @@ jobs:
   build:
     executor:
       name: node/default
-      tag: '14.17.0'
+      tag: '16.13.1'
     steps:
       - checkout
       - node/with-cache:
@@ -23,7 +23,7 @@ jobs:
   build-storybook:
     executor:
       name: node/default
-      tag: '14.17.0'
+      tag: '16.13.1'
     steps:
       - checkout
       - node/with-cache:
