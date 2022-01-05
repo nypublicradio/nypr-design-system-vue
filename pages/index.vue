@@ -1,50 +1,66 @@
 <template>
-  <div>
-    <div>VPerson</div>
-
-    <!-- <v-person
-      full-name="Jen Chung"
-      name-link="https://gothamist.com/staff/jen-chung"
-      role="Executive Editor and Co-founder"
-      blurb="Jen grew up in New Jersey and co-founded Gothamist in 2003 as a way to learn more about New York City beyond Law & Order. "
-    /> -->
-    <!-- <Button label="Submit" /> -->
+  <div class="u-padding">
+    <h1>Test Page</h1>
+    <v-spacer size="double" />
+    <v-collection title="Related to this story">
+      <v-card
+        image="https://cdn.cms.demo.nypr.digital/images/South-Miami-Beach-South-Point-Park.2e16d0ba.fill-661x496.jpg"
+        title="Half Of Open Streets Are Operational"
+        title-link="https://www.google.com"
+        subtitle="Jen Chung [Gothamist]"
+        class="gothamist"
+        :image-width="100"
+        :image-height="100"
+        :image-max-width="100 || Infinity"
+        :image-max-height="100 || Infinity"
+        :tags="[{'name': 'tag','slug': 'tag'}]"
+      />
+      <v-card
+        image="https://cdn.cms.demo.nypr.digital/images/South-Miami-Beach-South-Point-Park.2e16d0ba.fill-661x496.jpg"
+        title="Half Of Open Streets Are Operational"
+        title-link="https://www.google.com"
+        subtitle="Jen Chung [Gothamist]"
+        class="gothamist"
+        :image-width="100"
+        :image-height="100"
+        :image-max-width="100"
+        :image-max-height="100"
+        :tags="[{'name': 'tag','slug': 'tag'}]"
+      />
+      <v-card
+        image="https://cdn.cms.demo.nypr.digital/images/South-Miami-Beach-South-Point-Park.2e16d0ba.fill-661x496.jpg"
+        title="Half Of Open Streets Are Operational"
+        title-link="https://www.google.com"
+        subtitle="Jen Chung [Gothamist]"
+        class="gothamist"
+        :image-width="100"
+        :image-height="100"
+        :image-max-width="100 || Infinity"
+        :image-max-height="100 || Infinity"
+        :tags="[{'name': 'tag','slug': 'tag'}]"
+      />
+      <v-card
+        image="https://cdn.cms.demo.nypr.digital/images/South-Miami-Beach-South-Point-Park.2e16d0ba.fill-661x496.jpg"
+        title="Half Of Open Streets Are Operational"
+        title-link="https://www.google.com"
+        subtitle="Jen Chung [Gothamist]"
+        class="gothamist"
+        :image-width="100"
+        :image-height="100"
+        :image-max-width="100 || Infinity"
+        :image-max-height="100 || Infinity"
+        :tags="[{'name': 'tag','slug': 'tag'}]"
+      />
+    </v-collection>
   </div>
 </template>
 
 <script>
-// import { VPerson } from 'nypr-design-system-vue/src/components/VPerson.vue'
-// import PrimeVue from 'primevue/config'
-/* import Button from 'primevue/button' */
 export default {
-  name: 'HomePage',
-  components: {
-    // VPerson,
-    /* PrimeVue, */
-    // Button,
-  },
-  mixins: [],
-  props: {
-    var: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  async asyncData({ params }) {},
-  data() {
-    return {}
-  },
-  head() {
-    return {}
-  },
-  computed: {},
-  watch: {},
-  updated() {},
-  created() {},
-  mounted() {},
-  unmounted() {},
-  methods: {},
+  name: 'HomePage'
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+
+</style>
