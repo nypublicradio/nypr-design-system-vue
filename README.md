@@ -1,5 +1,5 @@
 # NODE version
-16.13.1
+14.17.0
 # notes
 had to downgraded webpack from 5 to version 4 "npm i webpack@4"
 had to downgraded sass from ^1.43.4 to "sass": "1.32.13" to allow the "/" for division calc in scss,
