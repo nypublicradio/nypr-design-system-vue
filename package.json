@@ -6,7 +6,6 @@
   "license": "MIT",
   "author": "NYPR",
   "homepage": "https://nypublicradio.github.io/nypr-design-system-vue",
-  "private": true,
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
