@@ -5,7 +5,7 @@
         v-if="titleLink"
         :href="titleLink"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         <img
           :src="image"
@@ -35,7 +35,7 @@
         <a
           :href="titleLink"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           {{ title }}
         </a>
@@ -60,7 +60,7 @@
           :href="detailsLink"
           class="main-player-details-link"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           v-html="details"
         />
       </div>

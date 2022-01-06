@@ -7,6 +7,7 @@
           :class="!imageUrl ? 'disabled' : ''"
           :href="imageUrl ? imageUrl : null"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <simple-responsive-image
             v-if="image"

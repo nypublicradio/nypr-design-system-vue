@@ -11,7 +11,7 @@
           <a
             href="http://www.google.com"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias commodi culpa cupiditate dolore eos eveniet.</a>
         </p>
         <v-spacer size="triple" />

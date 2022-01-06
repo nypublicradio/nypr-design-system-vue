@@ -6,7 +6,7 @@
     :class="service"
     :aria-label="ariaLabel"
     target="_blank"
-    rel="noopener"
+    rel="noopener noreferrer"
     :title="username ? socialLink : link"
     @click="$emit('follow', service)"
   >

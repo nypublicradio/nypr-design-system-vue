@@ -29,7 +29,7 @@
             <canvas
               ref="canvas"
               class="person-image"
-            ></canvas>
+            />
             <img
               ref="img"
               class="person-image person-image-img"
@@ -38,7 +38,7 @@
               role="presentation"
               loading="lazy"
               decoding="async"
-            />
+            >
           </span>
           <div
             v-if="video"
@@ -82,6 +82,7 @@
             v-if="organization"
             :href="organizationLink"
             target="_blank"
+            rel="noopener noreferrer"
             class="person-role"
             :class="[organizationLink ? 'link' : 'no-link']"
             v-html="organizationComputed"
@@ -137,8 +138,7 @@
           :src="'https://www.youtube.com/embed/'+getYoutubeId(video)+'?autoplay=1'"
           frameborder="0"
           allowfullscreen
-        >
-        </iframe>
+        />
         <div
           class="closer"
           @click="handleVideoClick($event)"
@@ -171,7 +171,7 @@ export default {
     resize: {
       // use mounted for vue3
       // the resize will not work in storybook as it is vue3 and Gothamist is Vue2
-      inserted: function (el, binding) {
+      inserted (el, binding) {
         const onResizeCallback = binding.value
         window.addEventListener('resize', () => {
           const width = document.documentElement.clientWidth
@@ -340,7 +340,7 @@ export default {
     }
   },
   watch: {
-    windowSize: function () {
+    windowSize () {
       this.runHandleOnResizeDebounce()
     }
   },
@@ -391,7 +391,7 @@ export default {
     },
     handleBlurb () {
       this.readMore = !this.readMore
-       this.$refs.blurbRef.classList.toggle('expanded')
+      this.$refs.blurbRef.classList.toggle('expanded')
 
       // animate height of blurb container (vue/nuxt3 w/ gsap)
       // gsap.to(blurbHolderRef, {
@@ -405,14 +405,14 @@ export default {
           top: this.getOffsetTop(this.$refs.thisPerson),
           behavior: 'smooth'
         })
-     }
+      }
     },
     debounce (fn, delay) {
-      var timeoutID = null
+      let timeoutID = null
       return function () {
         clearTimeout(timeoutID)
-        var args = arguments
-        var that = this
+        const args = arguments
+        const that = this
         timeoutID = setTimeout(function () {
           fn.apply(that, args)
         }, delay)
@@ -428,7 +428,7 @@ export default {
         readMoreRef.classList.toggle('show-me', clamped)
       }
     },
-    handleVideoClick: function (event) {
+    handleVideoClick (event) {
       event.preventDefault()
       event.stopPropagation()
       this.$emit(' componentEvent', 'playing promo video')
@@ -461,8 +461,8 @@ export default {
       return imageURL.match(/(http(s?):)([/|.|\w|\s|-])*\.(?:gif)/g)
     },
     getYoutubeId (url) {
-      var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
-      var match = url.match(regExp)
+      const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
+      const match = url.match(regExp)
       return match && match[7].length === 11 ? match[7] : false
     },
     socialArray () {
