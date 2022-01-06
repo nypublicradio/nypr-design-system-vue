@@ -7,7 +7,7 @@
         :height="height"
         :alt="alt"
         loading="lazy"
-      />
+      >
     </div>
     <img
       class="image"
@@ -21,7 +21,7 @@
       loading="lazy"
       @click="$emit('click', $event.target.value)"
       @keypress="$emit('keypress', $event.target.value)"
-    />
+    >
   </div>
 </template>
 <script>
@@ -213,7 +213,7 @@ export default {
 <style lang="scss" scoped>
 .image {
   position: relative;
-  width: auto;
+  width: 100%;
   &.is-vertical {
     margin: auto;
   }
