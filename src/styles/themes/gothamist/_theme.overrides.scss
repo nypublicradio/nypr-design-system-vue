@@ -1942,7 +1942,7 @@ ul.o-rte-text li li:before,
 
 /* collection component override */
 .collection {
-  background-color: rgb(var(--color-light-gray));
+  background-color: RGB(var(--color-light-gray));
   border: var(--border-standard);
   margin-top: 25px;
   padding-top: var(--space-4);
@@ -1956,8 +1956,8 @@ ul.o-rte-text li li:before,
   font-family: var(--font-family-header);
   letter-spacing: var(--letter-spacing-header);
   font-weight: var(--font-weight-header);
-  background-color: rgb(var(--color-light-gray));
-  background-image: linear-gradient(to bottom, white 50%, rgb(var(--color-light-gray)) 50%);
+  background-color: RGB(var(--color-light-gray));
+  background-image: linear-gradient(to bottom, white 50%, RGB(var(--color-light-gray)) 50%);
   padding: 0 var(--space-2);
   margin-bottom: var(--space-3);
   margin-left: calc(var(--space-2) * -1);
@@ -1968,6 +1968,6 @@ ul.o-rte-text li li:before,
 }
 
 .collection .card.gothamist {
-  background-color: rgb(var(--color-light-gray));
+  background-color: RGB(var(--color-light-gray));
 }
 /* collection component override */
