@@ -16,11 +16,7 @@
     },
     computed: {
       spacingClass () {
-        if (this.size) {
-          return 'u-padding--' + this.size + '--top'
-        } else {
-          return 'u-padding--top'
-        }
+        return this.size ? 'u-padding--' + this.size + '--top' : 'u-padding--top';
       }
     }
   }
