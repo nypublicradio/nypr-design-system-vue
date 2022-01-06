@@ -131,33 +131,21 @@ export default {
   },
   computed: {
     computedWidth () {
-      if (this.isVertical) {
-        return Math.round(this.maxWidth / (this.maxHeight / this.height))
-      } else {
-        return this.width
-      }
+      return this.isVertical ? Math.round(this.maxWidth / (this.maxHeight / this.height)) : this.width;
     },
     computedSrc () {
       const template = this.src
-      if (template) {
-        return template
+      return template ? template
           .replace(this.widthToken, this.computedWidth)
           .replace(this.heightToken, this.height)
-          .replace(this.qualityToken, this.quality)
-      } else {
-        return undefined
-      }
+          .replace(this.qualityToken, this.quality) : undefined;
     },
     computedSrcBg () {
       const template = this.src
-      if (template) {
-        return template
+      return template ? template
           .replace(this.widthToken, this.width)
           .replace(this.heightToken, this.height)
-          .replace(this.qualityToken, 15)
-      } else {
-        return undefined
-      }
+          .replace(this.qualityToken, 15) : undefined;
     },
     srcset () {
       const template = this.src
