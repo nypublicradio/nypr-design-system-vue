@@ -156,7 +156,7 @@ export default {
       default: Infinity
     },
     /**
-     * does not allow the verticall effect to happen
+     * does not allow the vertical effect to happen
      */
     verticalEffect: {
       type: Boolean,
@@ -184,6 +184,12 @@ export default {
   overflow: hidden;
   width: 100%;
   max-width: 100%;
+  &:not(.mod-vertical){
+    @include media('<large') {
+      --card-image-width: 100px;
+      --card-image-height: 100px;
+    }
+  }
 }
 
 .card-image-wrapper {
