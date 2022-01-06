@@ -4,7 +4,7 @@
       v-if="image && titleLink"
       :href="titleLink"
       target="_blank"
-      rel="noopener"
+      rel="noopener noreferrer"
     >
       <img
         v-if="image"
@@ -41,7 +41,7 @@
           <a
             :href="titleLink"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             class="track-info-title-link"
           >
             {{ title }}
@@ -65,7 +65,7 @@
           v-if="description && descriptionLink"
           :href="descriptionLink"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           class="track-info-description-link"
         >
           {{ description }}

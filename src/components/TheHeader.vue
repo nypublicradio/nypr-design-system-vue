@@ -36,7 +36,7 @@
           label="Donate"
           :href="donateUrl"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
           data-category="Click Tracking"
           data-action="Header"
           data-label="Donate Button"
