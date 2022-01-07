@@ -3,10 +3,7 @@ import { defineNuxtConfig } from 'nuxt3'
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   head: {
-    title: 'gsap testing',
-    script: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js' }
-    ]
+    title: 'gsap testing'
   },
   css: ['~/assets/scss/main'],
   ssr: true,
