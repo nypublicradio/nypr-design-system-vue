@@ -151,11 +151,11 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
 import PlayIconSimple from './icons/PlayIconSimple'
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
-
 /**
  * A component for displaying details about a person
  */
@@ -171,7 +171,7 @@ export default {
     resize: {
       // use mounted for vue3
       // the resize will not work in storybook as it is vue3 and Gothamist is Vue2
-      inserted (el, binding) {
+      mounted (el, binding) {
         const onResizeCallback = binding.value
         window.addEventListener('resize', () => {
           const width = document.documentElement.clientWidth
@@ -348,10 +348,15 @@ export default {
     this.socialArrayData = this.socialArray()
   },
   mounted () {
-    const { thisPerson } = this.$refs
+    const { thisPerson, blurbHolderRef, blurbRef } = this.$refs
 
-    // initial call of handleResize
     if (this.truncate) {
+      // set initial height of element so gsap can animate it
+      gsap.set(blurbHolderRef, {
+        height: blurbRef.offsetHeight + 5
+      })
+
+      // initial call of handleResize
       this.handleResize()
     }
 
@@ -391,14 +396,15 @@ export default {
     },
     handleBlurb () {
       this.readMore = !this.readMore
-      this.$refs.blurbRef.classList.toggle('expanded')
+      const { blurbRef, blurbHolderRef } = this.$refs
+      blurbRef.classList.toggle('expanded')
 
       // animate height of blurb container (vue/nuxt3 w/ gsap)
-      // gsap.to(blurbHolderRef, {
-      //   duration: this.readMore ? 0.5 : 0.15,
-      //   height: blurbRef.offsetHeight + 5,
-      //   onComplete: this.handleResize
-      // })
+      gsap.to(blurbHolderRef, {
+        duration: this.readMore ? 0.5 : 0.15,
+        height: blurbRef.offsetHeight + 5,
+        onComplete: this.handleResize
+      })
 
       if (!this.readMore) {
         window.scrollTo({
