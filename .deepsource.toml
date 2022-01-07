@@ -14,3 +14,7 @@ enabled = true
 exclude_patterns = [
   "stories/**"
 ]
+
+test_patterns = [
+  "src/tests/**"
+]
