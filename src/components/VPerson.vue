@@ -404,7 +404,7 @@ export default {
     },
     handleBlurb () {
       this.readMore = !this.readMore
-      const { blurbRef, blurbHolderRef } = this.$refs
+      const { blurbRef, blurbHolderRef, imgRef } = this.$refs
       blurbRef.classList.toggle('expanded')
 
       // animate height of blurb container (vue/nuxt3 w/ gsap)
@@ -414,7 +414,7 @@ export default {
         onComplete: this.handleResize
       })
 
-      if (!this.readMore) {
+      if (!this.readMore && !this.isInViewport(this.$refs.imgRef)) {
         window.scrollTo({
           top: this.getOffsetTop(this.$refs.thisPerson),
           behavior: 'smooth'
@@ -505,6 +505,15 @@ export default {
         })
       }
       return wepArray
+    },
+    isInViewport (element) {
+      const rect = element.getBoundingClientRect()
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      )
     }
   }
 }
