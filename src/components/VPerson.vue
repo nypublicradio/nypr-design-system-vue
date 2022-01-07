@@ -415,7 +415,7 @@ export default {
         onComplete: this.handleResize
       })
 
-      // if image is not in the viewport, animate it into view
+      // when closeing the expanded blurb, if the image is not in the viewport, animate it into view
       if (!this.readMore && !this.isInViewport(imgRef)) {
         window.scrollTo({
           top: this.getOffsetTop(thisPerson),
@@ -450,7 +450,7 @@ export default {
       this.$emit(' componentEvent', 'playing promo video')
       this.showVideo = !this.showVideo
       setTimeout(() => {
-        // if we are showing the video & it is not inviewport, it scrolls to the video
+        // when showing the video and it is not inviewport, it scrolls element into view
         const { videoHolderRef, thisPerson } = this.$refs
         if (this.showVideo && !this.isInViewport(videoHolderRef)) {
           window.scrollTo({
