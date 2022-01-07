@@ -156,6 +156,16 @@ import PlayIconSimple from './icons/PlayIconSimple'
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
+
+function initResizeListener (binding) {
+  const onResizeCallback = binding.value
+  window.addEventListener('resize', () => {
+    const width = document.documentElement.clientWidth
+    const height = document.documentElement.clientHeight
+    onResizeCallback({ width, height })
+  })
+}
+
 /**
  * A component for displaying details about a person
  */
@@ -169,15 +179,13 @@ export default {
   },
   directives: {
     resize: {
-      // use mounted for vue3
-      // the resize will not work in storybook as it is vue3 and Gothamist is Vue2
+      // vue3 support
       mounted (el, binding) {
-        const onResizeCallback = binding.value
-        window.addEventListener('resize', () => {
-          const width = document.documentElement.clientWidth
-          const height = document.documentElement.clientHeight
-          onResizeCallback({ width, height })
-        })
+        initResizeListener(binding)
+      },
+      // vue 2 supoort
+      inserted (el, binding) {
+        initResizeListener(binding)
       }
     }
   },
