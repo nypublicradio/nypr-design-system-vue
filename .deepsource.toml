@@ -16,5 +16,6 @@ exclude_patterns = [
 ]
 
 test_patterns = [
-  "src/tests/**"
+  "src/tests/**",
+  "*.test.js"
 ]
