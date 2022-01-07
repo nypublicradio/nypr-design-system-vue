@@ -152,6 +152,7 @@
 
 <script>
 import { gsap } from 'gsap'
+import { isInViewport } from '../mixins/helpers.js'
 import PlayIconSimple from './icons/PlayIconSimple'
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
@@ -404,7 +405,7 @@ export default {
     },
     handleBlurb () {
       this.readMore = !this.readMore
-      const { blurbRef, blurbHolderRef, imgRef } = this.$refs
+      const { blurbRef, blurbHolderRef, imgRef, thisPerson } = this.$refs
       blurbRef.classList.toggle('expanded')
 
       // animate height of blurb container (vue/nuxt3 w/ gsap)
@@ -414,9 +415,10 @@ export default {
         onComplete: this.handleResize
       })
 
-      if (!this.readMore && !this.isInViewport(this.$refs.imgRef)) {
+      // if image is not in the viewport, animate it into view
+      if (!this.readMore && !this.isInViewport(imgRef)) {
         window.scrollTo({
-          top: this.getOffsetTop(this.$refs.thisPerson),
+          top: this.getOffsetTop(thisPerson),
           behavior: 'smooth'
         })
       }
@@ -447,15 +449,16 @@ export default {
       event.stopPropagation()
       this.$emit(' componentEvent', 'playing promo video')
       this.showVideo = !this.showVideo
-      // if we are showing the video, it scrolls to the video
-      if (this.showVideo) {
-        setTimeout(() => {
+      setTimeout(() => {
+        // if we are showing the video & it is not inviewport, it scrolls to the video
+        const { videoHolderRef, thisPerson } = this.$refs
+        if (this.showVideo && !this.isInViewport(videoHolderRef)) {
           window.scrollTo({
-            top: this.getOffsetTop(this.$refs.thisPerson) + this.$refs.videoHolderRef.offsetTop,
+            top: this.getOffsetTop(thisPerson),
             behavior: 'smooth'
           })
-        }, 100)
-      }
+        }
+      }, 100)
     },
     handleGifInViewPort (inViewPort) {
       /* wait 10 seconds then swap out GIF with canvas render */
@@ -506,15 +509,8 @@ export default {
       }
       return wepArray
     },
-    isInViewport (element) {
-      const rect = element.getBoundingClientRect()
-      return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      )
-    }
+    // imported global helpers
+    isInViewport
   }
 }
 </script>
