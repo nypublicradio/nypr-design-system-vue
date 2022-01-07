@@ -1,14 +1,15 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
 import { toHaveNoViolations } from 'jest-axe'
-import axe from './axe-helper'
 import VCard from '../components/VCard'
 import AudioIcon from '../components/icons/AudioIcon'
+import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
 
 describe('VCard', () => {
   const image = 'https://placehold.it/175x175'
+  const alt = 'Title'
   const title = 'Title'
   const titleLink = 'https://example.com'
   const subtitle = 'Subtitle'
@@ -166,9 +167,6 @@ describe('VCard', () => {
   })
 
   test('it renders without a link', () => {
-    const image = 'https://placehold.it/175x175'
-    const title = 'Title'
-    const subtitle = 'Subtitle'
     const wrapper = mount(VCard, {
       propsData: {
         image,
@@ -189,9 +187,6 @@ describe('VCard', () => {
   })
 
   test('it renders without an image', () => {
-    const title = 'Title'
-    const titleLink = 'https://example.com'
-    const subtitle = 'Subtitle'
     const wrapper = mount(VCard, {
       propsData: {
         title,
@@ -212,11 +207,6 @@ describe('VCard', () => {
   })
 
   test('it passes basic accessibility tests', async () => {
-    const image = 'https://placehold.it/175x175'
-    const alt = 'Title'
-    const title = 'Title'
-    const titleLink = 'https://example.com'
-    const subtitle = 'Subtitle'
     const wrapper = mount(VCard, {
       propsData: {
         image,

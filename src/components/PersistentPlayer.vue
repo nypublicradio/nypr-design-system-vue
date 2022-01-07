@@ -166,10 +166,6 @@ export default {
       type: String,
       default: null
     },
-    volume: {
-      type: Number,
-      default: 100
-    },
     isMuted: {
       type: Boolean,
       default: false
@@ -183,13 +179,14 @@ export default {
       innerLoop: false,
       loaded: false,
       previousVolume: 35,
-      showVolume: false
+      showVolume: false,
+      volume: 100
     }
   },
   mounted () {
     this.innerLoop = this.loop
     // keyboard accessibility
-    window.addEventListener('keydown', event => {
+    window.addEventListener('keydown', (event) => {
       switch (event.code) {
         case 'Space':
           this.togglePlay()
@@ -198,10 +195,10 @@ export default {
           this.togglePlay()
           break
         case 'ArrowUp':
-          if (this.volume < 100) this.volume++
+          if (this.volume < 100) { this.volume++ }
           break
         case 'ArrowDown':
-          if (this.volume > 0) this.volume--
+          if (this.volume > 0) { this.volume-- }
           break
         case 'ArrowLeft':
           this.goBack15()
