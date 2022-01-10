@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect, jest } from '@jest/globals'
 import { toHaveNoViolations } from 'jest-axe'
-import axe from './axe-helper'
 import VPerson from '../components/VPerson'
+import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
 
@@ -95,7 +95,7 @@ describe('VPerson', () => {
     expect(socialProp).toBe(true)
   })
 
-  test('it has image only', async () => {
+  test('it has image only', () => {
     const wrapper = mount(VPerson, {
       propsData: { image }
     })
@@ -105,7 +105,7 @@ describe('VPerson', () => {
     expect(hasDetails).toBe(false)
   })
 
-  test('image is GIF', async () => {
+  test('image is GIF', () => {
     const wrapper = mount(VPerson, {
       propsData: { image: imageGIF }
     })
@@ -114,7 +114,7 @@ describe('VPerson', () => {
     expect(wrapper.vm.isGIF(imageGIF)).toBeTruthy()
   })
 
-  test('it has image only with link', async () => {
+  test('it has image only with link', () => {
     const wrapper = mount(VPerson, {
       propsData: { image, nameLink }
     })
@@ -126,7 +126,7 @@ describe('VPerson', () => {
     expect(hasDetails).toBe(false)
   })
 
-  test('it has details', async () => {
+  test('it has details', () => {
     const wrapper = mount(VPerson, {
       propsData: { image, fullName, role, blurb, social }
     })
@@ -134,7 +134,7 @@ describe('VPerson', () => {
     expect(hasDetails).toBe(true)
   })
 
-  test('it does not have details', async () => {
+  test('it does not have details', () => {
     const wrapper = mount(VPerson, {
       propsData: { image, video, circle }
     })
@@ -142,7 +142,7 @@ describe('VPerson', () => {
     expect(hasDetails).toBe(false)
   })
 
-  test('it has details with organization', async () => {
+  test('it has details with organization', () => {
     const wrapper = mount(VPerson, {
       propsData: { image, fullName, role, blurb, social, organization, organizationLink }
     })
@@ -153,7 +153,7 @@ describe('VPerson', () => {
     expect(personRole.text()).toContain(organization)
   })
 
-  test('it has circle image', async () => {
+  test('it has circle image', () => {
     const wrapper = mount(VPerson, {
       propsData: { image, fullName, role, blurb, circle }
     })
@@ -161,7 +161,7 @@ describe('VPerson', () => {
     expect(circleProp).toBe(true)
   })
 
-  test('it has detail, but no image', async () => {
+  test('it has detail, but no image', () => {
     const wrapper = mount(VPerson, {
       propsData: { fullName, role, blurb, circle }
     })
@@ -171,7 +171,7 @@ describe('VPerson', () => {
     expect(hasDetailsExists).toBe(true)
   })
 
-  test('it has truncated blurb', async () => {
+  test('it has truncated blurb', () => {
     const wrapper = mount(VPerson, {
       propsData: { fullName, role, blurb, truncate }
     })
@@ -179,7 +179,7 @@ describe('VPerson', () => {
     expect(truncateExists).toBe(true)
   })
 
-  test('it is responsive', async () => {
+  test('it is responsive', () => {
     const wrapper = mount(VPerson, {
       propsData: { orientation, image, imgScale, fullName, nameLink, role, blurb }
     })

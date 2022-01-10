@@ -1,4 +1,6 @@
 import { mount, shallowMount } from '@vue/test-utils'
+import { describe, test, expect, jest } from '@jest/globals'
+import { toHaveNoViolations } from 'jest-axe'
 import ShareToolsItem from '../components/ShareToolsItem'
 import FacebookIcon from '../components/icons/FacebookIcon'
 import InstagramIcon from '../components/icons/InstagramIcon'
@@ -7,8 +9,6 @@ import RedditIcon from '../components/icons/RedditIcon'
 import TwitterIcon from '../components/icons/TwitterIcon'
 import YoutubeIcon from '../components/icons/YoutubeIcon'
 import EmailIcon from '../components/icons/EmailIcon'
-import { describe, test, expect, jest } from '@jest/globals'
-import { toHaveNoViolations } from 'jest-axe'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
@@ -16,15 +16,15 @@ expect.extend(toHaveNoViolations)
 describe('ShareToolsItem', () => {
   const label = 'follow us'
   const username = 'WNYC'
-  const service = 'facebook'
   const link = 'http://www.test.com'
   const windowName = 'share window'
   const windowString = 'location=no,toolbar=no,menubar=no,scrollbars=no,status=no,width=550,height=600,top=NaN,left=NaN'
   test('username attribute works', () => {
+    const service = 'facebook'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
-        username: username,
-        service: service
+        username,
+        service
       }
     })
     // check if prop works and rendered correctly
@@ -35,9 +35,9 @@ describe('ShareToolsItem', () => {
     const service = 'facebook'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
-        label: label,
-        username: username,
-        service: service
+        label,
+        username,
+        service
       }
     })
     // check if prop works and rendered correctly
@@ -48,8 +48,8 @@ describe('ShareToolsItem', () => {
     const service = 'facebook'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
-        username: username,
-        service: service
+        username,
+        service
       }
     })
     // check if prop works and rendered correctly
@@ -60,9 +60,9 @@ describe('ShareToolsItem', () => {
     const service = 'site'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
-        service: service,
-        label: label,
-        link: link
+        service,
+        label,
+        link
       }
     })
     // check if the corresponding component was successfully created
@@ -78,8 +78,8 @@ describe('ShareToolsItem', () => {
     const service = 'facebook'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
-        username: username,
-        service: service
+        username,
+        service
       }
     })
     // check if the corresponding component was successfully created
@@ -91,8 +91,8 @@ describe('ShareToolsItem', () => {
     const service = 'instagram'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
-        username: username,
-        service: service
+        username,
+        service
       }
     })
     // check if the corresponding component was successfully created
@@ -104,8 +104,8 @@ describe('ShareToolsItem', () => {
     const service = 'spotify'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
-        username: username,
-        service: service
+        username,
+        service
       }
     })
     // check if the corresponding component was successfully created
@@ -117,8 +117,8 @@ describe('ShareToolsItem', () => {
     const service = 'twitter'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
-        username: username,
-        service: service
+        username,
+        service
       }
     })
     // check if the corresponding component was successfully created
@@ -130,8 +130,8 @@ describe('ShareToolsItem', () => {
     const service = 'youtube'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
-        username: username,
-        service: service
+        username,
+        service
       }
     })
     // check if the corresponding component was successfully created
@@ -143,7 +143,7 @@ describe('ShareToolsItem', () => {
     const service = 'email'
     const wrapper = shallowMount(ShareToolsItem, {
       propsData: {
-        service: service,
+        service,
         username: 'test@test.com'
       }
     })
@@ -233,6 +233,7 @@ describe('ShareToolsItem', () => {
   })
 
   test('it passes basic accessibility tests', async () => {
+    const service = 'facebook'
     const wrapper = mount(ShareToolsItem, {
       propsData: {
         username,

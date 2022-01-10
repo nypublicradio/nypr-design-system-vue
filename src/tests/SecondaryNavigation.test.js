@@ -1,7 +1,7 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import SecondaryNavigation from '../components/SecondaryNavigation'
 import { describe, test, expect } from '@jest/globals'
 import { toHaveNoViolations } from 'jest-axe'
+import SecondaryNavigation from '../components/SecondaryNavigation'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
@@ -18,7 +18,7 @@ describe('SecondaryNavigation', () => {
   test('orientation prop works', () => {
     const wrapper = shallowMount(SecondaryNavigation, {
       propsData: {
-        orientation: orientation
+        orientation
       }
     })
     // check if prop was passed correctly
@@ -29,7 +29,7 @@ describe('SecondaryNavigation', () => {
   test('navItems prop works', () => {
     const wrapper = shallowMount(SecondaryNavigation, {
       propsData: {
-        navItems: navItems
+        navItems
       }
     })
     // check if prop was passed correctly

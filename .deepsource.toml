@@ -4,8 +4,8 @@ version = 1
 name = "javascript"
 enabled = true
 
-  [analyzers.meta]
-  plugins = ["vue"]
+[analyzers.meta]
+plugins = ["vue"]
 
 [[analyzers]]
 name = "test-coverage"
@@ -13,4 +13,9 @@ enabled = true
 
 exclude_patterns = [
   "stories/**"
+]
+
+test_patterns = [
+  "src/tests/**",
+  "*.test.js"
 ]

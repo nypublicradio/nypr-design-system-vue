@@ -1,7 +1,7 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import StreamSwitcherCard from '../components/StreamSwitcherCard'
 import { describe, test, expect } from '@jest/globals'
 import { toHaveNoViolations } from 'jest-axe'
+import StreamSwitcherCard from '../components/StreamSwitcherCard'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
@@ -33,7 +33,7 @@ describe('StreamSwitcherCard', () => {
     expect(div.text()).toBe(title)
   })
 
-  test('active prop works if true', async () => {
+  test('active prop works if true', () => {
     const wrapper = mount(StreamSwitcherCard, {
       propsData: {
         station,
@@ -46,7 +46,7 @@ describe('StreamSwitcherCard', () => {
     expect(div.classes('is-active')).toBe(true)
   })
 
-  test('active prop is false by default', async () => {
+  test('active prop is false by default', () => {
     const wrapper = mount(StreamSwitcherCard, {
       propsData: {
         station,
@@ -58,7 +58,7 @@ describe('StreamSwitcherCard', () => {
     expect(div.classes('is-active')).toBe(false)
   })
 
-  test('playing prop works if true', async () => {
+  test('playing prop works if true', () => {
     const wrapper = mount(StreamSwitcherCard, {
       propsData: {
         station,
@@ -71,7 +71,7 @@ describe('StreamSwitcherCard', () => {
     expect(div.classes('is-playing')).toBe(true)
   })
 
-  test('playing prop is false by default', async () => {
+  test('playing prop is false by default', () => {
     const wrapper = mount(StreamSwitcherCard, {
       propsData: {
         station,
