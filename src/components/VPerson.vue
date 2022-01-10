@@ -451,10 +451,10 @@ export default {
       this.showVideo = !this.showVideo
       setTimeout(() => {
         // when showing the video and it is not inviewport, it scrolls element into view
-        const { videoHolderRef, thisPerson } = this.$refs
+        const { videoHolderRef, thisPerson, blurbRef } = this.$refs
         if (this.showVideo && !this.isInViewport(videoHolderRef)) {
           window.scrollTo({
-            top: this.getOffsetTop(thisPerson),
+            top: this.getOffsetTop(thisPerson) + blurbRef.clientHeight,
             behavior: 'smooth'
           })
         }
