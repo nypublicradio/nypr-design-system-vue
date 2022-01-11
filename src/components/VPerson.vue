@@ -331,7 +331,8 @@ export default {
       showVideo: false,
       inViewPort: false,
       windowSize: {},
-      socialArrayData: []
+      socialArrayData: [],
+      initTruncHeight: 0
     }
   },
   computed: {
@@ -361,8 +362,9 @@ export default {
 
     if (this.truncate) {
       // set initial height of element so gsap can animate it
+      this.initTruncHeight = blurbRef.offsetHeight + 5
       gsap.set(blurbHolderRef, {
-        height: blurbRef.offsetHeight + 5
+        height: this.initTruncHeight
       })
 
       // initial call of handleResize
@@ -406,13 +408,15 @@ export default {
     handleBlurb () {
       this.readMore = !this.readMore
       const { blurbRef, blurbHolderRef, imgRef, thisPerson } = this.$refs
-      blurbRef.classList.toggle('expanded')
-
+      if (this.readMore) { blurbRef.classList.toggle('expanded') }
       // animate height of blurb container (vue/nuxt3 w/ gsap)
       gsap.to(blurbHolderRef, {
-        duration: this.readMore ? 0.5 : 0.15,
-        height: blurbRef.offsetHeight + 5,
-        onComplete: this.handleResize
+        duration: this.readMore ? 0.5 : this.isInViewport(imgRef) ? 0.15 : 0.5,
+        height: this.readMore ? 'auto' : this.initTruncHeight,
+        onComplete: () => {
+          if (!this.readMore) { blurbRef.classList.toggle('expanded') }
+          this.handleResize()
+        }
       })
 
       // when closeing the expanded blurb, if the image is not in the viewport, animate it into view
