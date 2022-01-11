@@ -68,7 +68,7 @@ export default {
     if (this.closedOnMobile && window.innerWidth < 850) {
       this.close()
     } else if (this.shouldOpenOnLoad) {
-      gsap.set(this.$refs.content, { height: 'auto' })
+      gsap.set(this.$refs.content, { display: 'block', height: 'auto' })
     }
   },
   updated () {
@@ -80,8 +80,9 @@ export default {
       gsap.set(this.$refs.content, { height: 0 })
     },
     open () {
+      gsap.set(this.$refs.content, { display: 'block' })
       this.active = !this.visible
-      this.active ? gsap.to(this.$refs.content, { height: 'auto' }) : gsap.to(this.$refs.content, { height: 0 })
+      this.active ? gsap.to(this.$refs.content, { height: 'auto' }) : gsap.to(this.$refs.content, { height: 0, onComplete: () => { gsap.set(this.$refs.content, { display: 'none' }) } })
     }
   }
 }
@@ -99,6 +100,7 @@ export default {
   position: relative;
   height: 0;
   overflow: hidden;
+  display: none;
 }
 
 .accordion .accordion-header-wrapper {
