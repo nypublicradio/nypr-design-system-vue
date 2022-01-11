@@ -53,8 +53,7 @@ export default {
   },
   data () {
     return {
-      active: this.shouldOpenOnLoad,
-      height: '0'
+      active: this.shouldOpenOnLoad
     }
   },
   computed: {
@@ -66,19 +65,14 @@ export default {
     }
   },
   mounted () {
-    const intialContentHeight = this.$refs.content.firstChild.nextElementSibling.offsetHeight
-    this.height = intialContentHeight
-
     if (this.closedOnMobile && window.innerWidth < 850) {
       this.close()
-    }
-    if (this.shouldOpenOnLoad) {
-      gsap.set(this.$refs.content, { height: this.height })
+    } else if (this.shouldOpenOnLoad) {
+      gsap.set(this.$refs.content, { height: 'auto' })
     }
   },
   updated () {
-    console.log('this.$refs.content.offsetHeight = ', this.$refs.content.firstChild.nextElementSibling.offsetHeight)
-    this.height = this.$refs.content.firstChild.nextElementSibling.offsetHeight
+    // this.height = this.$refs.content.firstChild.nextElementSibling.offsetHeight
   },
   methods: {
     close () {
@@ -87,7 +81,7 @@ export default {
     },
     open () {
       this.active = !this.visible
-      this.active ? gsap.to(this.$refs.content, { height: this.height }) : gsap.to(this.$refs.content, { height: 0 })
+      this.active ? gsap.to(this.$refs.content, { height: 'auto' }) : gsap.to(this.$refs.content, { height: 0 })
     }
   }
 }
@@ -102,6 +96,7 @@ export default {
 }
 
 .accordion .accordion-content {
+  position: relative;
   height: 0;
   overflow: hidden;
 }

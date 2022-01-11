@@ -10,7 +10,7 @@ export const ClosedOnLoad = () => ({
   },
   template: `
     <div>
-    <v-accordion class="u-space--bottom" shouldOpenOnLoad>
+    <v-accordion class="u-space--bottom" shouldOpenOnLoad closedOnMobile>
       <template v-slot:header><h2>Header 1</h2></template>
       <template v-slot:content>
         <p>
