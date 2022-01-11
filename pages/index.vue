@@ -2,15 +2,11 @@
   <div class="u-padding">
     <h1>Test Page</h1>
     <v-spacer size="double" />
-    <v-accordion class="u-space--bottom">
+    <v-accordion class="u-space--bottom" should-open-on-load closed-on-mobile>
       <template v-slot:header><h2>Header 1</h2></template>
       <template v-slot:content>
         <p>
-          Content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor
-          incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-          ut aliquip ex
+          Content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
           <a href="#">ea commodo consequat</a>.
         </p>
       </template>
