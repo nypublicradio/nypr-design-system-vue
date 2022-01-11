@@ -19,16 +19,14 @@
         <simple-arrow-down />
       </div>
     </div>
-    <transition name="accordion">
-      <div
-        ref="content"
-        class="accordion-content"
-        role="region"
-        :aria-labelledby="id"
-      >
-        <slot name="content" />
-      </div>
-    </transition>
+    <div
+      ref="content"
+      class="accordion-content"
+      role="region"
+      :aria-labelledby="id"
+    >
+      <slot name="content" />
+    </div>
   </div>
 </template>
 
@@ -70,9 +68,6 @@ export default {
     } else if (this.shouldOpenOnLoad) {
       gsap.set(this.$refs.content, { display: 'block', height: 'auto' })
     }
-  },
-  updated () {
-    // this.height = this.$refs.content.firstChild.nextElementSibling.offsetHeight
   },
   methods: {
     close () {
