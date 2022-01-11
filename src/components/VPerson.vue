@@ -714,6 +714,7 @@ export default {
       .read-more {
         word-break: keep-all;
         cursor: pointer;
+        text-decoration: var(--text-decoration-link);
         color: RGB(var(--color-text));
         font-size: var(--font-size-2);
         letter-spacing: 0.6px;
