@@ -21,11 +21,10 @@
     </div>
     <transition name="accordion">
       <div
-        v-show="visible"
+        ref="content"
         class="accordion-content"
         role="region"
         :aria-labelledby="id"
-        :style="'max-height: '+height+'px'"
       >
         <slot name="content" />
       </div>
@@ -34,6 +33,7 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
 import SimpleArrowDown from '../components/icons/SimpleArrowDown'
 import 'focus-visible'
 
@@ -54,7 +54,7 @@ export default {
   data () {
     return {
       active: this.shouldOpenOnLoad,
-      height: '500px'
+      height: '0'
     }
   },
   computed: {
@@ -66,19 +66,28 @@ export default {
     }
   },
   mounted () {
+    const intialContentHeight = this.$refs.content.firstChild.nextElementSibling.offsetHeight
+    this.height = intialContentHeight
+
     if (this.closedOnMobile && window.innerWidth < 850) {
       this.close()
     }
+    if (this.shouldOpenOnLoad) {
+      gsap.set(this.$refs.content, { height: this.height })
+    }
   },
   updated () {
-    this.height = this.$slots.content[0].context.$el.clientHeight
+    console.log('this.$refs.content.offsetHeight = ', this.$refs.content.firstChild.nextElementSibling.offsetHeight)
+    this.height = this.$refs.content.firstChild.nextElementSibling.offsetHeight
   },
   methods: {
     close () {
       this.active = false
+      gsap.set(this.$refs.content, { height: 0 })
     },
     open () {
       this.active = !this.visible
+      this.active ? gsap.to(this.$refs.content, { height: this.height }) : gsap.to(this.$refs.content, { height: 0 })
     }
   }
 }
@@ -90,6 +99,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+}
+
+.accordion .accordion-content {
+  height: 0;
+  overflow: hidden;
 }
 
 .accordion .accordion-header-wrapper {
