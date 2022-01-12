@@ -413,6 +413,7 @@ export default {
       gsap.to(blurbHolderRef, {
         duration: this.readMore ? 0.5 : this.isInViewport(imgRef) ? 0.15 : 0.5,
         height: this.readMore ? 'auto' : this.initTruncHeight,
+        overwrite: true,
         onComplete: () => {
           if (!this.readMore) { blurbRef.classList.toggle('expanded') }
           this.handleResize()
