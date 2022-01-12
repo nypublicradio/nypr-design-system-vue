@@ -151,10 +151,21 @@
 </template>
 
 <script>
+import { gsap } from 'gsap'
+import { isInViewport } from '../mixins/helpers.js'
 import PlayIconSimple from './icons/PlayIconSimple'
 import CloseIcon from './icons/CloseIcon'
 import ShareTools from './ShareTools'
 import ShareToolsItem from './ShareToolsItem'
+
+function initResizeListener (binding) {
+  const onResizeCallback = binding.value
+  window.addEventListener('resize', () => {
+    const width = document.documentElement.clientWidth
+    const height = document.documentElement.clientHeight
+    onResizeCallback({ width, height })
+  })
+}
 
 /**
  * A component for displaying details about a person
@@ -169,15 +180,13 @@ export default {
   },
   directives: {
     resize: {
-      // use mounted for vue3
-      // the resize will not work in storybook as it is vue3 and Gothamist is Vue2
+      // vue3 support
+      mounted (el, binding) {
+        initResizeListener(binding)
+      },
+      // vue 2 supoort
       inserted (el, binding) {
-        const onResizeCallback = binding.value
-        window.addEventListener('resize', () => {
-          const width = document.documentElement.clientWidth
-          const height = document.documentElement.clientHeight
-          onResizeCallback({ width, height })
-        })
+        initResizeListener(binding)
       }
     }
   },
@@ -322,7 +331,8 @@ export default {
       showVideo: false,
       inViewPort: false,
       windowSize: {},
-      socialArrayData: []
+      socialArrayData: [],
+      initTruncHeight: 0
     }
   },
   computed: {
@@ -348,10 +358,16 @@ export default {
     this.socialArrayData = this.socialArray()
   },
   mounted () {
-    const { thisPerson } = this.$refs
+    const { thisPerson, blurbHolderRef, blurbRef } = this.$refs
 
-    // initial call of handleResize
     if (this.truncate) {
+      // set initial height of element so gsap can animate it
+      this.initTruncHeight = blurbRef.offsetHeight + 5
+      gsap.set(blurbHolderRef, {
+        height: this.initTruncHeight
+      })
+
+      // initial call of handleResize
       this.handleResize()
     }
 
@@ -391,18 +407,22 @@ export default {
     },
     handleBlurb () {
       this.readMore = !this.readMore
-      this.$refs.blurbRef.classList.toggle('expanded')
-
+      const { blurbRef, blurbHolderRef, imgRef, thisPerson } = this.$refs
+      if (this.readMore) { blurbRef.classList.toggle('expanded') }
       // animate height of blurb container (vue/nuxt3 w/ gsap)
-      // gsap.to(blurbHolderRef, {
-      //   duration: this.readMore ? 0.5 : 0.15,
-      //   height: blurbRef.offsetHeight + 5,
-      //   onComplete: this.handleResize
-      // })
+      gsap.to(blurbHolderRef, {
+        duration: this.readMore ? 0.5 : this.isInViewport(imgRef) ? 0.15 : 0.5,
+        height: this.readMore ? 'auto' : this.initTruncHeight,
+        onComplete: () => {
+          if (!this.readMore) { blurbRef.classList.toggle('expanded') }
+          this.handleResize()
+        }
+      })
 
-      if (!this.readMore) {
+      // when closeing the expanded blurb, if the image is not in the viewport, animate it into view
+      if (!this.readMore && !this.isInViewport(imgRef)) {
         window.scrollTo({
-          top: this.getOffsetTop(this.$refs.thisPerson),
+          top: this.getOffsetTop(thisPerson),
           behavior: 'smooth'
         })
       }
@@ -433,15 +453,16 @@ export default {
       event.stopPropagation()
       this.$emit(' componentEvent', 'playing promo video')
       this.showVideo = !this.showVideo
-      // if we are showing the video, it scrolls to the video
-      if (this.showVideo) {
-        setTimeout(() => {
+      setTimeout(() => {
+        // when showing the video and it is not inviewport, it scrolls element into view
+        const { videoHolderRef, thisPerson, blurbRef } = this.$refs
+        if (this.showVideo && !this.isInViewport(videoHolderRef)) {
           window.scrollTo({
-            top: this.getOffsetTop(this.$refs.thisPerson) + this.$refs.videoHolderRef.offsetTop,
+            top: this.getOffsetTop(thisPerson) + blurbRef.clientHeight,
             behavior: 'smooth'
           })
-        }, 100)
-      }
+        }
+      }, 100)
     },
     handleGifInViewPort (inViewPort) {
       /* wait 10 seconds then swap out GIF with canvas render */
@@ -491,7 +512,9 @@ export default {
         })
       }
       return wepArray
-    }
+    },
+    // imported global helpers
+    isInViewport
   }
 }
 </script>
@@ -691,6 +714,7 @@ export default {
       .read-more {
         word-break: keep-all;
         cursor: pointer;
+        text-decoration: var(--text-decoration-link);
         color: RGB(var(--color-text));
         font-size: var(--font-size-2);
         letter-spacing: 0.6px;
