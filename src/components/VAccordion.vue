@@ -47,6 +47,14 @@ export default {
     closedOnMobile: {
       type: Boolean,
       default: false
+    },
+    openSpeed: {
+      type: Number,
+      default: 0.5
+    },
+    closeSpeed: {
+      type: Number,
+      default: null
     }
   },
   data () {
@@ -77,7 +85,7 @@ export default {
     open () {
       gsap.set(this.$refs.content, { display: 'block' })
       this.active = !this.visible
-      this.active ? gsap.to(this.$refs.content, { height: 'auto', overwrite: true }) : gsap.to(this.$refs.content, { height: 0, overwrite: true, onComplete: () => { gsap.set(this.$refs.content, { display: 'none' }) } })
+      this.active ? gsap.to(this.$refs.content, { height: 'auto', duration: this.openSpeed, overwrite: true }) : gsap.to(this.$refs.content, { height: 0, duration: this.closeSpeed ? this.closeSpeed : this.openSpeed / 2, overwrite: true, onComplete: () => { gsap.set(this.$refs.content, { display: 'none' }) } })
     }
   }
 }
