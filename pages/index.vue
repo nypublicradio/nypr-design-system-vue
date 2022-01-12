@@ -2,42 +2,16 @@
   <div class="u-padding">
     <h1>Test Page</h1>
     <v-spacer size="double" />
-    <image-with-caption
-      variation="gothamist"
-      alt-text="image alt text"
-      image="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
-      credit="AP Photo/Carolyn Kaster"
-      caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      title="Title of Slide"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    />
-    <image-with-caption
-      variation="gothamist"
-      alt-text="image alt text"
-      image="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
-      credit="AP Photo/Carolyn Kaster"
-      caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      title="Title of Slide"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    />
-    <image-with-caption
-      variation="gothamist"
-      alt-text="image alt text"
-      image="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
-      credit="AP Photo/Carolyn Kaster"
-      caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      title="Title of Slide"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    />
-    <image-with-caption
-      variation="gothamist"
-      alt-text="image alt text"
-      image="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
-      credit="AP Photo/Carolyn Kaster"
-      caption="This is the caption lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      title="Title of Slide"
-      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-    />
+    <v-accordion class="u-space--bottom" should-open-on-load closed-on-mobile>
+      <template v-slot:header><h2>Header 1</h2></template>
+      <template v-slot:content>
+        <p>
+          Content 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+          <a href="#">ea commodo consequat</a>.
+        </p>
+      </template>
+    </v-accordion>
+    <v-spacer size="double" />
     <image-with-caption
       variation="gothamist"
       alt-text="image alt text"
@@ -108,5 +82,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+  // don't need below if you are loading the main.scss file in the nuxt config
+  @import "~/src/styles/gothamist.scss";
+  // @import "~/src/styles/white-label.scss";
 </style>

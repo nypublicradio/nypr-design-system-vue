@@ -2,16 +2,17 @@ import { defineNuxtConfig } from 'nuxt3'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  head: {
-    title: 'gsap testing'
-  },
-  css: ['~/assets/scss/main'],
+  css: [
+    // '~/assets/scss/theme.scss'
+    // '~/src/styles/gothamist.scss'
+  ],
   ssr: true,
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use \'sass:math\'; @import \'./assets/scss/main.scss\';'
+          // additionalData: `@use 'sass:math'; @import './assets/scss/main.scss';`
+          additionalData: `@use 'sass:math'; @import './assets/scss/shared.scss';`
         }
       }
     }

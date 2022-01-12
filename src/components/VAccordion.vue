@@ -19,21 +19,19 @@
         <simple-arrow-down />
       </div>
     </div>
-    <transition name="accordion">
-      <div
-        v-show="visible"
-        class="accordion-content"
-        role="region"
-        :aria-labelledby="id"
-        :style="'max-height: '+height+'px'"
-      >
-        <slot name="content" />
-      </div>
-    </transition>
+    <div
+      ref="content"
+      class="accordion-content"
+      role="region"
+      :aria-labelledby="id"
+    >
+      <slot name="content" />
+    </div>
   </div>
 </template>
 
 <script>
+import { gsap } from 'gsap'
 import SimpleArrowDown from '../components/icons/SimpleArrowDown'
 import 'focus-visible'
 
@@ -49,12 +47,19 @@ export default {
     closedOnMobile: {
       type: Boolean,
       default: false
+    },
+    openSpeed: {
+      type: Number,
+      default: 0.5
+    },
+    closeSpeed: {
+      type: Number,
+      default: null
     }
   },
   data () {
     return {
-      active: this.shouldOpenOnLoad,
-      height: '500px'
+      active: this.shouldOpenOnLoad
     }
   },
   computed: {
@@ -68,17 +73,19 @@ export default {
   mounted () {
     if (this.closedOnMobile && window.innerWidth < 850) {
       this.close()
+    } else if (this.shouldOpenOnLoad) {
+      gsap.set(this.$refs.content, { display: 'block', height: 'auto' })
     }
-  },
-  updated () {
-    this.height = this.$slots.content[0].context.$el.clientHeight
   },
   methods: {
     close () {
       this.active = false
+      gsap.set(this.$refs.content, { height: 0 })
     },
     open () {
+      gsap.set(this.$refs.content, { display: 'block' })
       this.active = !this.visible
+      this.active ? gsap.to(this.$refs.content, { height: 'auto', duration: this.openSpeed, overwrite: true }) : gsap.to(this.$refs.content, { height: 0, duration: this.closeSpeed ? this.closeSpeed : this.openSpeed / 2, overwrite: true, onComplete: () => { gsap.set(this.$refs.content, { display: 'none' }) } })
     }
   }
 }
@@ -90,6 +97,13 @@ export default {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+}
+
+.accordion .accordion-content {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  display: none;
 }
 
 .accordion .accordion-header-wrapper {
