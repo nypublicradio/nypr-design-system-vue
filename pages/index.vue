@@ -118,5 +118,6 @@ export default {
 </script>
 
 <style lang="scss">
-
+  // don't need below if you are loading the main.scss file in the nuxt config
+  @import "~/src/styles/gothamist.scss";
 </style>

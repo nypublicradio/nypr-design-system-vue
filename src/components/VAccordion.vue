@@ -77,7 +77,7 @@ export default {
     open () {
       gsap.set(this.$refs.content, { display: 'block' })
       this.active = !this.visible
-      this.active ? gsap.to(this.$refs.content, { height: 'auto' }) : gsap.to(this.$refs.content, { height: 0, onComplete: () => { gsap.set(this.$refs.content, { display: 'none' }) } })
+      this.active ? gsap.to(this.$refs.content, { height: 'auto', overwrite: true }) : gsap.to(this.$refs.content, { height: 0, overwrite: true, onComplete: () => { gsap.set(this.$refs.content, { display: 'none' }) } })
     }
   }
 }
