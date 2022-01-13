@@ -114,6 +114,7 @@ export default {
     close (e) {
       this.$emit('searchBarClose', e)
       this.searchIsOpen = false
+      this.clearSearch()
     },
     listenToInput () {
       // close the search bar if nothing is typed for 6 seconds
@@ -130,6 +131,9 @@ export default {
         this.$refs.searchInput.focus({ preventScroll: true })
         this.listenToInput()
       })
+    },
+    clearSearch () {
+      this.search = ''
     },
     submit (e) {
       this.$emit('searchBarSubmit', e)
