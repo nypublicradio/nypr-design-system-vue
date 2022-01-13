@@ -1402,9 +1402,7 @@ ul.o-rte-text li li:before,
 
 // search bar
 .c-main-header .header-search-bar {
-  position: fixed;
-  right: 10px;
-  top: 10px;
+  margin: 0 !important;
 }
 
 .menu .search-bar {
@@ -1424,7 +1422,7 @@ ul.o-rte-text li li:before,
   background: none !important;
   position: absolute;
   right: 0;
-  top: 4px;
+  top: 2px;
 
   &:hover {
     background: none !important;
