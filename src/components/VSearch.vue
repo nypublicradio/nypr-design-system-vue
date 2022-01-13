@@ -118,6 +118,7 @@ export default {
       this.searchIsOpen = false
     },
     listenToInput () {
+      console.log('listenToInput')
       // close the search bar if nothing is typed for 3 seconds
       if (this.timeoutHandler) { clearTimeout(this.timeoutHandler) }
       this.timeoutHandler = setTimeout(() => {
@@ -126,10 +127,12 @@ export default {
       }, 6000)
     },
     open (e) {
+      console.log('open')
       this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
       this.$nextTick(() => {
-        this.$refs.searchInput.focus()
+        console.log('next tick')
+        this.$refs.searchInput.focus({ preventScroll: false })
         this.listenToInput()
       })
     },
