@@ -130,11 +130,11 @@ export default {
       console.log('open')
       // this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
-      // this.$nextTick(() => {
+      this.$nextTick(() => {
       //   console.log('next tick')
-      this.$refs.searchInput.focus({ preventScroll: false })
+        this.$refs.searchInput.focus({ preventScroll: false })
       // this.listenToInput()
-      // })
+      })
     },
     submit (e) {
       this.$emit('searchBarSubmit', e)
