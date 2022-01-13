@@ -132,8 +132,8 @@ export default {
       this.searchIsOpen = true
       // this.$nextTick(() => {
       //   console.log('next tick')
-      //   this.$refs.searchInput.focus({ preventScroll: false })
-      //   this.listenToInput()
+      this.$refs.searchInput.focus({ preventScroll: false })
+      // this.listenToInput()
       // })
     },
     submit (e) {
