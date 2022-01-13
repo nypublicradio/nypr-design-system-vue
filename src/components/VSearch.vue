@@ -118,23 +118,23 @@ export default {
       this.searchIsOpen = false
     },
     listenToInput () {
-      console.log('listenToInput')
-      // close the search bar if nothing is typed for 3 seconds
-      if (this.timeoutHandler) { clearTimeout(this.timeoutHandler) }
-      this.timeoutHandler = setTimeout(() => {
-        this.close()
-        clearTimeout(this.timeoutHandler)
-      }, 6000)
+      console.log('listenToInput empty')
+      // // close the search bar if nothing is typed for 3 seconds
+      // if (this.timeoutHandler) { clearTimeout(this.timeoutHandler) }
+      // this.timeoutHandler = setTimeout(() => {
+      //   this.close()
+      //   clearTimeout(this.timeoutHandler)
+      // }, 6000)
     },
     open (e) {
       console.log('open')
-      this.$emit('searchBarOpen', e)
+      // this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
-      this.$nextTick(() => {
-        console.log('next tick')
-        this.$refs.searchInput.focus({ preventScroll: false })
-        this.listenToInput()
-      })
+      // this.$nextTick(() => {
+      //   console.log('next tick')
+      //   this.$refs.searchInput.focus({ preventScroll: false })
+      //   this.listenToInput()
+      // })
     },
     submit (e) {
       this.$emit('searchBarSubmit', e)
