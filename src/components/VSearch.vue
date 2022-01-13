@@ -12,53 +12,48 @@
     >
       <search-icon />
     </v-button>
-    <div
-      :style="searchIsOpen ? '' : 'display:none;' "
-      class="search-bar-form-wrapper"
-    >
-      <form
-        ref="searchForm"
-        class="search-bar-form"
-        aria-hidden="true"
-        role="search"
-        :action="action"
-        method="get"
+    <transition :name="transition">
+      <div
+        :style="searchIsOpen ? '' : 'display:none;' "
+        class="search-bar-form-wrapper"
       >
-        <label
-          for="search"
-          class="is-vishidden"
+        <form
+          ref="searchForm"
+          class="search-bar-form"
+          aria-hidden="true"
+          role="search"
+          :action="action"
+          method="get"
         >
-          {{ placeholder }}
-        </label>
-        <v-button
-          v-if="showCloseIcon"
-          class="search-bar-close"
-          tabindex="0"
-          @click="close"
-          @keypress.enter.space.prevent="close"
-        >
-          <close-icon />
-        </v-button>
-        <input
-          ref="searchInput"
-          v-model="search"
-          name="q"
-          :placeholder="placeholder"
-          class="search-bar-input"
-          type="search"
-          @keypress="listenToInput"
-        >
-        <v-button
-          class="search-bar-submit"
-          tabindex="0"
-          @click.native="submit"
-          @keypress.enter.space.prevent="submit"
-        >
-          <search-icon />
-        </v-button>
-      </form>
-    </div>
-    
+          <label
+            for="search"
+            class="is-vishidden"
+          >
+            {{ placeholder }}
+          </label>
+          <v-button
+            v-if="showCloseIcon"
+            class="search-bar-close"
+            tabindex="0"
+            @click="close"
+            @keypress.enter.space.prevent="close"
+          >
+            <close-icon />
+          </v-button>
+          <input
+            ref="searchInput"            
+          >
+          <v-button
+            class="search-bar-submit"
+            tabindex="0"
+            @click.native="submit"
+            @keypress.enter.space.prevent="submit"
+          >
+            <search-icon />
+          </v-button>
+        </form>
+      </div>
+    </transition>
   </div>
 </template>
 
