@@ -77,7 +77,6 @@ export default {
     SearchIcon,
     VButton
   },
-  emits: ['searchBarOpen', 'searchBarClose', 'searchBarSubmit'],
   props: {
     action: {
       type: String,
@@ -100,6 +99,7 @@ export default {
       default: 'slide-right'
     }
   },
+  emits: ['searchBarOpen', 'searchBarClose', 'searchBarSubmit'],
   data () {
     return {
       searchIsOpen: true,
@@ -119,10 +119,10 @@ export default {
     },
     listenToInput () {
       // close the search bar if nothing is typed for 3 seconds
-      window.clearTimeout(this.timeoutHandler)
+      if (this.timeoutHandler) { clearTimeout(this.timeoutHandler) }
       this.timeoutHandler = setTimeout(() => {
         this.close()
-        window.clearTimeout(this.timeoutHandler)
+        clearTimeout(this.timeoutHandler)
       }, 6000)
     },
     open (e) {
