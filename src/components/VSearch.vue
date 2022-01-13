@@ -116,6 +116,11 @@ export default {
       this.searchIsOpen = false
     },
     listenToInput () {
+      // keep current scroll position
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      this.$nextTick(() => {
+        window.scrollTo(0, scrollTop)
+      })
       // close the search bar if nothing is typed for 6 seconds
       if (this.timeoutHandler) { clearTimeout(this.timeoutHandler) }
       this.timeoutHandler = setTimeout(() => {
