@@ -1402,9 +1402,9 @@ ul.o-rte-text li li:before,
 
 // search bar
 .c-main-header .header-search-bar {
-  position: absolute;
-  right: 0;
-  top: 2px;
+  position: fixed;
+  right: 10px;
+  top: 10px;
 }
 
 .menu .search-bar {
