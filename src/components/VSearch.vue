@@ -41,13 +41,13 @@
             <close-icon />
           </v-button>
           <input
-            id="search"
             ref="searchInput"
             v-model="search"
             name="q"
             :placeholder="placeholder"
             class="search-bar-input"
             type="search"
+            @keypress="listenToInput"
           >
           <v-button
             class="search-bar-submit"
@@ -116,22 +116,22 @@ export default {
       this.searchIsOpen = false
     },
     listenToInput () {
-      console.log('listenToInput empty')
-      // // close the search bar if nothing is typed for 3 seconds
-      // if (this.timeoutHandler) { clearTimeout(this.timeoutHandler) }
-      // this.timeoutHandler = setTimeout(() => {
-      //   this.close()
-      //   clearTimeout(this.timeoutHandler)
-      // }, 6000)
+      console.log('listenToInput')
+      // close the search bar if nothing is typed for 6 seconds
+      if (this.timeoutHandler) { clearTimeout(this.timeoutHandler) }
+      this.timeoutHandler = setTimeout(() => {
+        this.close()
+        clearTimeout(this.timeoutHandler)
+      }, 6000)
     },
     open (e) {
       console.log('open')
-      // this.$emit('searchBarOpen', e)
+      this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
       this.$nextTick(() => {
-      //   console.log('next tick')
+        console.log('next tick')
         this.$refs.searchInput.focus({ preventScroll: true })
-      // this.listenToInput()
+        this.listenToInput()
       })
     },
     submit (e) {
