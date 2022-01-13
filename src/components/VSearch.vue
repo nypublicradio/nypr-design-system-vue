@@ -24,7 +24,6 @@
           role="search"
           :action="action"
           method="get"
-          @keypress="listenToInput"
         >
           <label
             for="search"
@@ -49,7 +48,6 @@
             :placeholder="placeholder"
             class="search-bar-input"
             type="search"
-            @keypress="listenToInput"
           >
           <v-button
             class="search-bar-submit"
@@ -132,7 +130,7 @@ export default {
       this.searchIsOpen = true
       this.$nextTick(() => {
       //   console.log('next tick')
-        this.$refs.searchInput.focus({ preventScroll: false })
+        this.$refs.searchInput.focus({ preventScroll: true })
       // this.listenToInput()
       })
     },
