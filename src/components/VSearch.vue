@@ -24,7 +24,6 @@
           role="search"
           :action="action"
           method="get"
-          @keypress="listenToInput"
         >
           <label
             for="search"
@@ -42,7 +41,6 @@
             <close-icon />
           </v-button>
           <input
-            id="search"
             ref="searchInput"
             v-model="search"
             name="q"
@@ -77,7 +75,6 @@ export default {
     SearchIcon,
     VButton
   },
-  emits: ['searchBarOpen', 'searchBarClose', 'searchBarSubmit'],
   props: {
     action: {
       type: String,
@@ -100,6 +97,7 @@ export default {
       default: 'slide-right'
     }
   },
+  emits: ['searchBarOpen', 'searchBarClose', 'searchBarSubmit'],
   data () {
     return {
       searchIsOpen: true,
@@ -116,22 +114,26 @@ export default {
     close (e) {
       this.$emit('searchBarClose', e)
       this.searchIsOpen = false
+      this.clearSearch()
     },
     listenToInput () {
-      // close the search bar if nothing is typed for 3 seconds
-      window.clearTimeout(this.timeoutHandler)
+      // close the search bar if nothing is typed for 6 seconds
+      if (this.timeoutHandler) { clearTimeout(this.timeoutHandler) }
       this.timeoutHandler = setTimeout(() => {
         this.close()
-        window.clearTimeout(this.timeoutHandler)
+        clearTimeout(this.timeoutHandler)
       }, 6000)
     },
     open (e) {
       this.$emit('searchBarOpen', e)
       this.searchIsOpen = true
       this.$nextTick(() => {
-        this.$refs.searchInput.focus()
+        this.$refs.searchInput.focus({ preventScroll: true })
         this.listenToInput()
       })
+    },
+    clearSearch () {
+      this.search = ''
     },
     submit (e) {
       this.$emit('searchBarSubmit', e)
@@ -170,6 +172,7 @@ export default {
   position: absolute;
   z-index: 2;
   display: flex;
+  top: 3px;
 }
 
 .search-bar .search-bar-form-wrapper .search-bar-donate {
