@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
-import VSpacer from '../components/VSpacer'
 import { toHaveNoViolations } from 'jest-axe'
+import VSpacer from '../components/VSpacer'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)

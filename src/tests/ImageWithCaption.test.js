@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
-import ImageWithCaption from '../components/ImageWithCaption'
 import { toHaveNoViolations } from 'jest-axe'
+import ImageWithCaption from '../components/ImageWithCaption'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
@@ -19,7 +19,7 @@ describe('ImageWithCaption', () => {
   test('image prop works', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        image: image
+        image
       }
     })
     // check if image prop works and was rendered correctly
@@ -30,8 +30,8 @@ describe('ImageWithCaption', () => {
   test('image url prop works', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        image: image,
-        imageUrl: imageUrl
+        image,
+        imageUrl
       }
     })
     // check if image prop works and was rendered correctly
@@ -53,8 +53,8 @@ describe('ImageWithCaption', () => {
   test('altText prop works', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        altText: altText,
-        image: image
+        altText,
+        image
       }
     })
     // check if altText prop works and was rendered correctly
@@ -78,8 +78,8 @@ describe('ImageWithCaption', () => {
   test('caption prop works', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        caption: caption,
-        image: image
+        caption,
+        image
       }
     })
     // check if caption prop works and was rendered correctly
@@ -90,7 +90,7 @@ describe('ImageWithCaption', () => {
   test('caption does not render if caption prop is not given', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        image: image
+        image
       }
     })
     // check if prop was not rendered
@@ -101,8 +101,8 @@ describe('ImageWithCaption', () => {
   test('credit prop works', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        credit: credit,
-        image: image
+        credit,
+        image
       }
     })
     // check if credit prop works and was rendered correctly
@@ -113,7 +113,7 @@ describe('ImageWithCaption', () => {
   test('credit does not render if credit prop is not given', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        image: image
+        image
       }
     })
     // check if prop was not rendered
@@ -124,9 +124,9 @@ describe('ImageWithCaption', () => {
   test('creditUrl prop works', () => {
     const wrapper = mount(ImageWithCaption, {
       propsData: {
-        creditUrl: creditUrl,
-        credit: credit,
-        image: image
+        creditUrl,
+        credit,
+        image
       }
     })
     // check if creditUrl prop works and was rendered correctly

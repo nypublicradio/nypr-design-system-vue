@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
-import MainPlayer from '../components/MainPlayer'
 import { toHaveNoViolations } from 'jest-axe'
+import MainPlayer from '../components/MainPlayer'
 import axe from './axe-helper'
 import 'jest-canvas-mock'
 
@@ -17,8 +17,8 @@ describe('MainPlayer', () => {
   test('image prop works', () => {
     const wrapper = mount(MainPlayer, {
       propsData: {
-        image: image,
-        title: title
+        image,
+        title
       }
     })
     // check if prop works and was rendered correctly
@@ -30,7 +30,7 @@ describe('MainPlayer', () => {
   test('title prop works', () => {
     const wrapper = mount(MainPlayer, {
       propsData: {
-        title: title
+        title
       }
     })
     // check if the title prop works
@@ -43,8 +43,8 @@ describe('MainPlayer', () => {
   test('title-link prop works', () => {
     const wrapper = mount(MainPlayer, {
       propsData: {
-        title: title,
-        titleLink: titleLink
+        title,
+        titleLink
       }
     })
     // check if titleLink prop works and was rendered correctly
@@ -55,7 +55,7 @@ describe('MainPlayer', () => {
   test('details prop works', () => {
     const wrapper = mount(MainPlayer, {
       propsData: {
-        details: details
+        details
       }
     })
     // check if prop works
@@ -68,8 +68,8 @@ describe('MainPlayer', () => {
   test('detailsLink prop works', () => {
     const wrapper = mount(MainPlayer, {
       propsData: {
-        details: details,
-        detailsLink: detailsLink
+        details,
+        detailsLink
       }
     })
     // check if prop works and was rendered correctly
@@ -80,7 +80,7 @@ describe('MainPlayer', () => {
   test('time prop works', () => {
     const wrapper = mount(MainPlayer, {
       propsData: {
-        time: time
+        time
       }
     })
     // check if prop works and was rendered correctly

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
-import LiveIndicator from '../components/LiveIndicator'
 import { toHaveNoViolations } from 'jest-axe'
+import LiveIndicator from '../components/LiveIndicator'
 import axe from './axe-helper'
 import 'jest-canvas-mock'
 
@@ -12,7 +12,7 @@ describe('LiveIndicator', () => {
   test('label prop works', () => {
     const wrapper = mount(LiveIndicator, {
       propsData: {
-        label: label
+        label
       }
     })
     // check if label prop works and was rendered correctly

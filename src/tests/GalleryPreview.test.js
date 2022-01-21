@@ -1,7 +1,7 @@
 import { mount, shallowMount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
-import GalleryPreview from '../components/GalleryPreview'
 import { toHaveNoViolations } from 'jest-axe'
+import GalleryPreview from '../components/GalleryPreview'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)

@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils'
-import VAccordion from '../components/VAccordion'
-import AudioIcon from '../components/icons/AudioIcon'
 import { describe, test, expect } from '@jest/globals'
 import { toHaveNoViolations } from 'jest-axe'
+import VAccordion from '../components/VAccordion'
+import AudioIcon from '../components/icons/AudioIcon'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)

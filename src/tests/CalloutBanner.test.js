@@ -1,8 +1,8 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import CalloutBanner from '../components/CalloutBanner'
-import AudioIcon from '../components/icons/AudioIcon'
 import { describe, test, expect } from '@jest/globals'
 import { toHaveNoViolations } from 'jest-axe'
+import CalloutBanner from '../components/CalloutBanner'
+import AudioIcon from '../components/icons/AudioIcon'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)

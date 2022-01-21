@@ -1,9 +1,9 @@
 import { mount, shallowMount } from '@vue/test-utils'
+import { describe, test, expect } from '@jest/globals'
+import { toHaveNoViolations } from 'jest-axe'
 import ArticleMetadata from '../components/ArticleMetadata'
 import AudioIcon from '../components/icons/AudioIcon'
 import VCounter from '../components/VCounter'
-import { describe, test, expect } from '@jest/globals'
-import { toHaveNoViolations } from 'jest-axe'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)

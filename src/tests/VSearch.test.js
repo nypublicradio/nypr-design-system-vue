@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect, jest } from '@jest/globals'
-import VSearch from '../components/VSearch'
 import { toHaveNoViolations } from 'jest-axe'
+import VSearch from '../components/VSearch'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)

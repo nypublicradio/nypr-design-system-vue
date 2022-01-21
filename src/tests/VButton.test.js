@@ -1,8 +1,8 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import VButton from '../components/VButton'
-import AudioIcon from '../components/icons/AudioIcon'
 import { describe, test, expect } from '@jest/globals'
 import { toHaveNoViolations } from 'jest-axe'
+import VButton from '../components/VButton'
+import AudioIcon from '../components/icons/AudioIcon'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
@@ -14,7 +14,7 @@ describe('VButton', () => {
   test('label prop works', () => {
     const wrapper = shallowMount(VButton, {
       propsData: {
-        label: label
+        label
       }
     })
     // check if prop works
@@ -27,7 +27,7 @@ describe('VButton', () => {
   test('link attribute works', () => {
     const wrapper = shallowMount(VButton, {
       attrs: {
-        href: href
+        href
       }
     })
     // check if prop works and rendered correctly
@@ -37,7 +37,7 @@ describe('VButton', () => {
   test('disabled prop works', () => {
     const wrapper = shallowMount(VButton, {
       propsData: {
-        disabled: disabled
+        disabled
       }
     })
     // check if prop works

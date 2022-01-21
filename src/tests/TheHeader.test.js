@@ -1,8 +1,8 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import TheHeader from '../components/TheHeader'
 import { describe, test, expect } from '@jest/globals'
-import AudioIcon from '../components/icons/AudioIcon'
 import { toHaveNoViolations } from 'jest-axe'
+import TheHeader from '../components/TheHeader'
+import AudioIcon from '../components/icons/AudioIcon'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)

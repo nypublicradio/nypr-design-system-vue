@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
-import PersistentPlayer from '../components/PersistentPlayer'
 import { describe, test, expect } from '@jest/globals'
+import PersistentPlayer from '../components/PersistentPlayer'
 import 'jest-canvas-mock'
 
 describe('PersistentPlayer', () => {

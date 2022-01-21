@@ -1,8 +1,8 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import ShareTools from '../components/ShareTools'
-import AudioIcon from '../components/icons/AudioIcon'
 import { describe, test, expect } from '@jest/globals'
 import { toHaveNoViolations } from 'jest-axe'
+import ShareTools from '../components/ShareTools'
+import AudioIcon from '../components/icons/AudioIcon'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
@@ -12,7 +12,7 @@ describe('ShareTools', () => {
   test('label prop works', () => {
     const wrapper = mount(ShareTools, {
       propsData: {
-        label: label
+        label
       }
     })
     // check if prop works

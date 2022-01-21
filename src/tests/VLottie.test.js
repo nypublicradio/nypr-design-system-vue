@@ -11,7 +11,7 @@ describe('VLottie', () => {
   test('it passes basic accessibility tests', async () => {
     const wrapper = mount(VLottie)
     wrapper.setData(
-      { defaultOptions: { animationData: animationData } }
+      { defaultOptions: { animationData } }
     )
     const results = await axe(wrapper.element)
     expect(results).toHaveNoViolations()

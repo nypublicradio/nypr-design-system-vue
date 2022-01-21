@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
+import { toHaveNoViolations } from 'jest-axe'
 import TheMenu from '../components/TheMenu'
 import AudioIcon from '../components/icons/AudioIcon'
 import VSearch from '../components/VSearch'
-import { toHaveNoViolations } from 'jest-axe'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)

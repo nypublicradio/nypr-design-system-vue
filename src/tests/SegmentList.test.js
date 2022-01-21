@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
-import SegmentListItem from '../components/SegmentListItem'
 import { toHaveNoViolations } from 'jest-axe'
+import SegmentListItem from '../components/SegmentListItem'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
@@ -17,9 +17,9 @@ describe('SegmentListItem', () => {
   test('url prop works', () => {
     const wrapper = mount(SegmentListItem, {
       propsData: {
-        newWindow: newWindow,
-        title: title,
-        url: url
+        newWindow,
+        title,
+        url
       }
     })
     // check if url prop works and was rendered correctly
@@ -29,9 +29,9 @@ describe('SegmentListItem', () => {
   test('title prop works', () => {
     const wrapper = mount(SegmentListItem, {
       propsData: {
-        newWindow: newWindow,
-        title: title,
-        url: url
+        newWindow,
+        title,
+        url
       }
     })
     // check if title prop works and was rendered correctly
@@ -42,9 +42,9 @@ describe('SegmentListItem', () => {
   test('newWindow prop works', () => {
     const wrapper = mount(SegmentListItem, {
       propsData: {
-        newWindow: newWindow,
-        title: title,
-        url: url
+        newWindow,
+        title,
+        url
       }
     })
     // check if newWindow prop works and was rendered correctly

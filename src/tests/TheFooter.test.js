@@ -1,8 +1,8 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import TheFooter from '../components/TheFooter'
 import { describe, test, expect } from '@jest/globals'
-import AudioIcon from '../components/icons/AudioIcon'
 import { toHaveNoViolations } from 'jest-axe'
+import TheFooter from '../components/TheFooter'
+import AudioIcon from '../components/icons/AudioIcon'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
@@ -20,7 +20,7 @@ describe('TheFooter', () => {
   test('slogan prop works', () => {
     const wrapper = shallowMount(TheFooter, {
       propsData: {
-        slogan: slogan
+        slogan
       }
     })
     // check if prop works and was rendered correctly
@@ -113,7 +113,7 @@ describe('TheFooter', () => {
   test('subheader1 prop works', () => {
     const wrapper = shallowMount(TheFooter, {
       propsData: {
-        subheader1: subheader1,
+        subheader1,
         secondaryNav: navItems
       }
     })
@@ -125,7 +125,7 @@ describe('TheFooter', () => {
   test('subheader2 prop works', () => {
     const wrapper = shallowMount(TheFooter, {
       propsData: {
-        subheader2: subheader2,
+        subheader2,
         tertiaryNav: navItems
       }
     })

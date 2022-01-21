@@ -1,7 +1,7 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import VByline from '../components/VByline'
 import { describe, test, expect } from '@jest/globals'
 import { toHaveNoViolations } from 'jest-axe'
+import VByline from '../components/VByline'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
@@ -19,7 +19,7 @@ describe('VByline', () => {
   test('authors prop works', () => {
     const wrapper = shallowMount(VByline, {
       propsData: {
-        authors: authors
+        authors
       }
     })
     // check if prop works

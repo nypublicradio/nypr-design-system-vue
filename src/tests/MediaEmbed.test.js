@@ -1,7 +1,7 @@
 import { mount, shallowMount } from '@vue/test-utils'
-import MediaEmbed from '../components/MediaEmbed'
 import { describe, test, expect } from '@jest/globals'
 import { toHaveNoViolations } from 'jest-axe'
+import MediaEmbed from '../components/MediaEmbed'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
@@ -11,7 +11,7 @@ describe('MediaEmbed', () => {
   test('url prop works', () => {
     const wrapper = shallowMount(MediaEmbed, {
       propsData: {
-        url: url
+        url
       }
     })
     // check if prop works and iframe src is populating correctly

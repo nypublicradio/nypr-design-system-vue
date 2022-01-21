@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { describe, test, expect } from '@jest/globals'
-import ProgressBar from '../components/ProgressBar'
 import { toHaveNoViolations } from 'jest-axe'
+import ProgressBar from '../components/ProgressBar'
 import axe from './axe-helper'
 
 expect.extend(toHaveNoViolations)
