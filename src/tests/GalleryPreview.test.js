@@ -100,7 +100,7 @@ describe('GalleryPreview', () => {
       stubs: ['nuxt-link']
     })
     // check if prop works and was rendered correctly
-    const div = wrapper.find('.' + variation)
+    const div = wrapper.find(`.${variation}`)
     expect(div.exists()).toBe(true)
   })
 

@@ -28,7 +28,7 @@ describe('ShareToolsItem', () => {
       }
     })
     // check if prop works and rendered correctly
-    expect(wrapper.attributes('href')).toBe('https://www.facebook.com/' + username)
+    expect(wrapper.attributes('href')).toBe(`https://www.facebook.com/${username}`)
   })
 
   test('label attribute works', () => {
@@ -53,7 +53,7 @@ describe('ShareToolsItem', () => {
       }
     })
     // check if prop works and rendered correctly
-    expect(wrapper.attributes('aria-label')).toBe('Follow us on ' + service)
+    expect(wrapper.attributes('aria-label')).toBe(`Follow us on ${service}`)
   })
 
   test('service prop works: site', () => {
@@ -210,7 +210,7 @@ describe('ShareToolsItem', () => {
         action: 'share',
         service: 'email',
         url: 'http://example.com',
-        'share-parameters': { body: 'Title' + ' - %URL%' }
+        'share-parameters': { body: 'Title - %URL%' }
       }
     })
     global.open = jest.fn()
