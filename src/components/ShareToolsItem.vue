@@ -188,6 +188,7 @@ export default {
 
       this.$emit('share', this.service)
 
+      // get the position of the popup window   
       function getPopupPosition () {
         const screenLeft = screen.availLeft
         const screenTop = screen.availTop
@@ -201,6 +202,7 @@ export default {
         return { left: left, top: top }
       }
 
+      // get the position of the window
       const windowString = ({ top, left }) =>
         `location=no,toolbar=no,menubar=no,scrollbars=no,status=no,width=550,height=600,top=${top},left=${left}`
       const popupPosition = getPopupPosition()
