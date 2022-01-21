@@ -9,7 +9,7 @@ expect.extend(toHaveNoViolations)
 expect.extend(toHaveNoViolations)
 
 // need to mock the IntersectionObserver I am using for detecting when entering the viewport
-const mockIntersectionObserver = class {
+const mockIntersectionObserver = class A {
   // eslint-disable-next-line no-useless-constructor
   constructor () {
     // do nothing

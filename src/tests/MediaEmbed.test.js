@@ -15,8 +15,8 @@ describe('MediaEmbed', () => {
       }
     })
     // check if prop works and iframe src is populating correctly
-    const iframe = wrapper.findAll('iframe')[0]
-    expect(iframe.attributes('src')).toBe(url)
+    const iframe = wrapper.findAll('iframe')
+    expect(iframe[0].attributes('src')).toBe(url)
   })
 
   test('it passes basic accessibility tests', async () => {
