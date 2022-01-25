@@ -1,8 +1,7 @@
 <template>
   <div
     class="volume-control"
-    @mouseover.prevent="showVolume = true"
-    @mouseleave.prevent="showVolume = false"
+    :class="{ 'show-volume': showVolume }"
   >
     <label
       for="playerVolume"
@@ -10,6 +9,18 @@
     >
       Volume
     </label>
+    <!-- <transition name="slide-left"> -->
+    <input
+      v-show="!isMuted"
+      id="playerVolume"
+      class="volume-control-slider"
+      type="range"
+      min="0"
+      max="100"
+      :value="volume"
+      @change="$emit('volume-change', parseInt($event.target.value))"
+    >
+    <!-- </transition> -->
     <button
       class="volume-control-icon"
       :aria-label="isMuted ? 'unmute' : 'mute'"
@@ -19,18 +30,6 @@
       <volume-icon v-if="!isMuted" />
       <volume-muted v-if="isMuted" />
     </button>
-    <transition name="slide-left">
-      <input
-        v-show="showVolume"
-        id="playerVolume"
-        class="volume-control-slider"
-        type="range"
-        min="0"
-        max="100"
-        :value="volume"
-        @change="$emit('volume-change', parseInt($event.target.value))"
-      >
-    </transition>
   </div>
 </template>
 
@@ -52,14 +51,18 @@ export default {
     isMuted: {
       type: Boolean,
       default: false
+    },
+    showVolume: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
     return {
-      previousVolume: 35,
-      showVolume: false
+      previousVolume: 35
     }
-  }
+  },
+  mounted () {}
 }
 </script>
 
@@ -73,6 +76,20 @@ export default {
     align-items: center;
     justify-content: flex-end;
     margin-right: 16px;
+  }
+  &:hover{
+    input.volume-control-slider {
+      width: 116px;
+      opacity: 1;
+      visibility: visible;
+      margin-right:0;
+    }
+  }
+  &.show-volume input.volume-control-slider, & input.volume-control-slider.focus-visible {
+      width: 116px;
+      opacity: 1;
+      visibility: visible;
+      margin-right:0;
   }
 }
 
@@ -92,10 +109,17 @@ export default {
     fill: RGB(var(--color-text));
   }
 
-  .volume-control-slider {
+  .volume-control input.volume-control-slider {
+    transition: width 0.5s, opacity 0.25s, margin-right 0.25s;
+    -webkit-transition: width 0.5s, opacity 0.25s, margin-right 0.25s;
+    margin-right:0;
+    margin-left: 1.5rem;
     padding: 24px 0;
-    width: 116px;
-    min-width: 116px;
+    width: 0px;
+    opacity: 0;
+    //visibility: hidden;
+    border: none;
+    // margin-right: -20px;
   }
 
   .volume-control-slider.slide-left-enter,

@@ -160,12 +160,13 @@ export default {
 <style lang="scss">
 .track-info {
   display: flex;
+  width: 100%;
   flex: auto;
   padding: 8px var(--space-3) 8px 0;
   align-self: flex-start;
   overflow: hidden;
   @media all and (min-width: $medium) {
-    padding: 8px var(--space-6) 8px 0;
+    padding: 8px var(--space-3) 8px 0;
   }
 }
 
@@ -185,6 +186,7 @@ export default {
 .track-info-details {
   padding: 8px 0;
   overflow: hidden;
+  width: 100%;
 }
 
 .track-info-livestream {
