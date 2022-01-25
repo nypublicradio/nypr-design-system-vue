@@ -68,14 +68,11 @@ export default {
 
 <style lang="scss">
 .volume-control {
-  padding-left: var(--space-3);
   display: none;
   @media all and (min-width: $medium) {
     display: flex;
-    height: 96px;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 16px;
   }
   &:hover{
     input.volume-control-slider {
@@ -113,13 +110,10 @@ export default {
     transition: width 0.5s, opacity 0.25s, margin-right 0.25s;
     -webkit-transition: width 0.5s, opacity 0.25s, margin-right 0.25s;
     margin-right:0;
-    margin-left: 1.5rem;
     padding: 24px 0;
     width: 0px;
     opacity: 0;
-    //visibility: hidden;
     border: none;
-    // margin-right: -20px;
   }
 
   .volume-control-slider.slide-left-enter,

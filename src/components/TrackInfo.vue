@@ -11,8 +11,6 @@
         class="track-info-image"
         :src="image"
         :alt="title"
-        width="80"
-        height="80"
       >
     </a>
     <img
@@ -20,8 +18,6 @@
       class="track-info-image"
       :src="image"
       :alt="title"
-      width="80"
-      height="80"
     >
     <div class="track-info-details">
       <div
@@ -160,33 +156,37 @@ export default {
 <style lang="scss">
 .track-info {
   display: flex;
+  gap: 16px;
   width: 100%;
+  height: inherit;
   flex: auto;
-  padding: 8px var(--space-3) 8px 0;
-  align-self: flex-start;
+  align-self: center;
   overflow: hidden;
-  @media all and (min-width: $medium) {
-    padding: 8px var(--space-3) 8px 0;
-  }
 }
 
 .track-info-image {
   --track-info-image-size: 80px;
   display: none;
   @media all and (min-width: $medium) {
-    display: inline-block;
+    display: flex;
     width: var(--track-info-image-size);
     max-width: var(--track-info-image-size);
-    height: var(--track-info-image-size);;
+    height: var(--track-info-image-size);
     flex: 1 0 var(--track-info-image-size);
-    margin-right: 16px;
   }
 }
 
 .track-info-details {
-  padding: 8px 0;
   overflow: hidden;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  line-height: normal;
+  &*{
+    line-height: normal;
+  }
 }
 
 .track-info-livestream {
@@ -274,13 +274,15 @@ export default {
   background-color: RGB(var(--color-text));
   cursor: pointer;
   min-width: 200px;
-  top: -5px;
+  top:-5px;
+  margin-top: 0;
   left: 0;
   right: 0;
   height: 5px;
   @media all and (min-width: $medium) {
+    top: 0;
+    margin-top: 8px;
     height: 3px;
-    margin-top: .5rem;
     position: relative;
   }
 }

@@ -71,7 +71,7 @@
         @click="download"
         @keypress.space.enter="download"
       >
-        <download-icon />
+        <download-icon class="download-icon"/>
       </a>
     </div>
   </div>
@@ -254,7 +254,7 @@ $xlarge: 1440px;
   position: fixed;
   z-index: 1200;
   width: 100%;
-  padding: 0 8px;
+  padding: 8px 16px 8px 8px;
   color: RGB(var(--color-text));
   background-color: RGB(var(--color-background));
 }
@@ -274,6 +274,7 @@ $xlarge: 1440px;
   display: flex;
   align-items: center;
   height: 100%;
+  gap:16px;
 }
 
 .player-controls svg {
@@ -285,6 +286,10 @@ $xlarge: 1440px;
   @media all and (min-width: $medium) {
     margin-right: 24px;
   }
+}
+
+.player-controls .volume-control {
+  margin-left: 16px;
 }
 
 .player-controls .player-cta-play-button svg {
@@ -299,16 +304,10 @@ $xlarge: 1440px;
   min-width: 55px;
 }
 
-.player-controls .back-15-icon {
-  margin-right: var(--space-2);
-}
-
-.player-controls .ahead-15-icon {
-  margin-left: var(--space-2);
-}
-
-.player-controls .download-icon {
-  margin-left: var(--space-2);
+.player-controls .back-15-icon, .player-controls .ahead-15-icon, .player-controls .download-icon {
+  min-width: 30px;
+  min-height: 30px;
+  vertical-align: middle;
 }
 
 .player-controls .loading-icon {
