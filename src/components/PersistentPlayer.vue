@@ -308,6 +308,7 @@ $xlarge: 1440px;
   min-width: 30px;
   min-height: 30px;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .player-controls .loading-icon {
