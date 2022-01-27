@@ -1,6 +1,6 @@
 <template>
   <div class="track-info">
-    <div class="track-info-image">
+    <div v-if="image" class="track-info-image">
       <a
         v-if="image && titleLink"
         :href="titleLink"
