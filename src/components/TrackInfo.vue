@@ -1,24 +1,24 @@
 <template>
   <div class="track-info">
-    <a
-      v-if="image && titleLink"
-      :href="titleLink"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <div class="track-info-image">
+      <a
+        v-if="image && titleLink"
+        :href="titleLink"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          v-if="image"
+          :src="image"
+          :alt="title"
+        >
+      </a>
       <img
-        v-if="image"
-        class="track-info-image"
+        v-else-if="image"
         :src="image"
         :alt="title"
       >
-    </a>
-    <img
-      v-else-if="image"
-      class="track-info-image"
-      :src="image"
-      :alt="title"
-    >
+    </div>
     <div class="track-info-details">
       <div
         v-if="livestream"
@@ -165,15 +165,18 @@ export default {
 }
 
 .track-info-image {
-  --track-info-image-size: 80px;
   display: none;
   @media all and (min-width: $medium) {
-    display: flex;
-    width: var(--track-info-image-size);
-    max-width: var(--track-info-image-size);
-    height: var(--track-info-image-size);
-    flex: 1 0 var(--track-info-image-size);
+  display: block;
   }
+}
+
+.track-info-image img {
+  --track-info-image-size: 80px;
+  width: var(--track-info-image-size);
+  max-width: var(--track-info-image-size);
+  height: var(--track-info-image-size);
+  flex: 1 0 var(--track-info-image-size);
 }
 
 .track-info-details {
