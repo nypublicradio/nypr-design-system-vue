@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <template v-if="titleLink">
-      <nuxt-link
+      <flexible-link
         v-if="title"
         class="card-image-link card-image-wrapper"
         :to="titleLink"
@@ -21,8 +21,8 @@
           :alt="title"
           role="presentation"
         />
-      </nuxt-link>
-      <nuxt-link
+      </flexible-link>
+      <flexible-link
         v-else
         class="card-image-link"
         :to="titleLink"
@@ -38,7 +38,7 @@
           :max-width="imageMaxWidth || Infinity"
           :max-height="imageMaxHeight || Infinity"
         />
-      </nuxt-link>
+      </flexible-link>
     </template>
     <span v-else class="card-image-wrapper">
       <simple-responsive-image
@@ -69,7 +69,7 @@
         role="heading"
         aria-level="3"
       >
-        <nuxt-link
+        <flexible-link
           v-if="titleLink"
           class="card-title-link"
           :to="titleLink"
@@ -77,7 +77,7 @@
           <!-- eslint-disable-next-line -->
           <span v-html="title" />
           <gallery-icon v-if="showGalleryIcon" />
-        </nuxt-link>
+        </flexible-link>
         <template v-else>
           <!-- eslint-disable-next-line -->
           <span v-html="title" />
@@ -98,13 +98,15 @@
 import VTag from '../components/VTag'
 import SimpleResponsiveImage from '../components/SimpleResponsiveImage'
 import GalleryIcon from '../components/icons/GalleryIcon'
+import FlexibleLink from '../components/FlexibleLink'
 
 export default {
   name: 'VCard',
   components: {
     GalleryIcon,
     SimpleResponsiveImage,
-    VTag
+    VTag,
+    FlexibleLink
   },
   props: {
     alt: {
@@ -166,6 +168,9 @@ export default {
   computed: {
     hasDetails () {
       return !!this.title || !!this.subtitle || !!this.$slots.default
+    },
+    hasExternalLink () {
+      return this.titleLink && /^http(s)?:/.test(this.titleLink)
     }
   }
 }
