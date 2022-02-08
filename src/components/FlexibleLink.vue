@@ -12,12 +12,13 @@
 </template>
 
 <script>
+import RouteLocationRaw from 'vue-router'
 export default {
   name: 'FlexibleLink',
-  props: ['to'],
+  props: { to: RouteLocationRaw },
   computed: {
     isExternal () {
-      if (/^http(s)+:/.test(this.to)) {
+      if (typeof this.to === 'string' && /^http(s)+:/.test(this.to)) {
         return true
       }
       return false
