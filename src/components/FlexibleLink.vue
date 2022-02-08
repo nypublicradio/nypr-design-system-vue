@@ -16,7 +16,12 @@
 import RouteLocationRaw from 'vue-router'
 export default {
   name: 'FlexibleLink',
-  props: { to: RouteLocationRaw },
+  props: {
+    to: {
+      type: RouteLocationRaw,
+      required: false
+    }
+  },
   computed: {
     isExternal () {
       if (typeof this.to === 'string' && /^http(s)+:/.test(this.to)) {
