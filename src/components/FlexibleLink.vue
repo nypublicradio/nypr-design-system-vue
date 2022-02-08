@@ -3,7 +3,8 @@
     v-bind="{...$props, ...$attrs}"
     :href="to" 
     target="_blank" 
-    rel="noopener noreferrer"> 
+    rel="noopener noreferrer"
+    class="external">
     <slot name="default"></slot>
   </a>
   <nuxt-link v-else v-bind="{...$props, ...$attrs}">
