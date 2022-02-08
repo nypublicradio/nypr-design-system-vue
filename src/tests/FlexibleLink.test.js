@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import { describe, test, expect, jest } from '@jest/globals'
+import { describe, expect } from '@jest/globals'
 import FlexibleLink from '../components/FlexibleLink'
 
 describe('FlexibleLink', () => {

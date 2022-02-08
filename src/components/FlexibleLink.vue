@@ -19,7 +19,7 @@ export default {
   props: {
     to: {
       type: RouteLocationRaw,
-      required: false
+      default: ''
     }
   },
   computed: {
