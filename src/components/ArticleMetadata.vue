@@ -13,7 +13,7 @@
         v-if="publishDate"
         class="article-metadata-publish-date"
       >
-        {{ publishDate }}
+        {{ publishPrefix }}{{ publishDate }}
       </div>
       <div
         v-if="publishDate && updatedDate"
@@ -23,7 +23,7 @@
         v-if="updatedDate"
         class="article-metadata-updated-date"
       >
-        Updated:&nbsp;{{ updatedDate }}
+        {{ updatedPrefix }}{{ updatedDate }}
       </div>
       <div
         v-if="$slots.comments"
@@ -54,6 +54,14 @@ export default {
     updatedDate: {
       type: String,
       default: null
+    },
+    publishPrefix: {
+      type: String,
+      default: null
+    },
+    updatedPrefix: {
+      type: String,
+      default: 'Updated:&nbsp;'
     }
   }
 }
