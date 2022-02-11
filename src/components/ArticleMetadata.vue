@@ -61,7 +61,7 @@ export default {
     },
     updatedPrefix: {
       type: String,
-      default: 'Updated:&nbsp;'
+      default: 'Updated: '
     }
   }
 }
