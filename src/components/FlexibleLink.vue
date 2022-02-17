@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     isExternal () {
-      if (typeof this.to === 'string' && /^http(s)+:/.test(this.to)) {
+      if (typeof this.to === 'string' && /^http(s)?:/.test(this.to)) {
         return true
       }
       return false
