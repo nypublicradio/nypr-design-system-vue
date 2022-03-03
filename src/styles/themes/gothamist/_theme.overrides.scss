@@ -1859,6 +1859,12 @@ ul.o-rte-text li li:before,
   margin-bottom: 0;
 }
 
+.home-page .c-sponsored-tout .card.gothamist.mod-large .card-image-wrapper {
+  @include media('>large') {
+    width: 360px;
+  }
+}
+
 .c-featured-blocks.l-wrap {
   padding-left: var(--space-3);
   padding-right: var(--space-3);
