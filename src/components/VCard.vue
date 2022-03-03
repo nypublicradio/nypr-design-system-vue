@@ -269,7 +269,7 @@ export default {
 
 .card.mod-large {
   --card-image-width: 360px;
-  --card-image-height: 306px;
+  --card-image-height: 240px;
 }
 
 .card.mod-large .card-title {
